@@ -1,0 +1,10 @@
+{
+  "description": "Synthetic code-level expectations only; not approved business knowledge.",
+  "project": "examples/react-vite",
+  "comparisons": [
+    { "left": "canConsultFromCard", "right": "canConsultFromDetail", "expected": { "status": "Implies", "equivalent": false, "leftImpliesRight": true, "rightImpliesLeft": false, "counterexample": { "arg0.status": "reserved" } } },
+    { "left": "canConsultFromCard", "right": "canConsultEquivalent", "expected": { "status": "Equivalent", "equivalent": true } },
+    { "left": "canConsultFromCard", "right": "canConsultReserved", "expected": { "status": "Different", "equivalent": false, "leftImpliesRight": false, "rightImpliesLeft": false } },
+    { "left": "isPremium", "right": "canConsultFromCard", "expected": { "status": "Unsupported" } }
+  ]
+}

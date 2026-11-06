@@ -1,0 +1,407 @@
+{
+  "environment": {
+    "node": "v22.19.0",
+    "typescript": "5.9.3"
+  },
+  "soundness": {
+    "source": "export type S = 'a' | 'b';\nexport enum E { A = 'a', B = 'b' }\nexport function optionalEnum(e?: typeof E) { return e?.A === 'a'; }\nexport function always(e?: typeof E) { return true; }\nexport function withThis(this: void, a: S, b: S) { return a === 'a'; }\nexport function first(a: S, b: S) { return a === 'a'; }\nexport function second(a: S, b: S) { return b === 'a'; }\nexport function getEnum(): typeof E { throw new Error('not total'); }\nexport function callEnum(e?: typeof E) { return getEnum().A === 'a'; }\nexport function genuineEnum(e: E) { return e === E.A; }\n",
+    "diagnostics": [],
+    "predicates": {
+      "optionalEnum": {
+        "status": "unsupported",
+        "reason": "Enum constants require a direct, non-optional enum identifier receiver."
+      },
+      "always": {
+        "status": "supported",
+        "logic": {
+          "op": "constant",
+          "value": true
+        },
+        "variables": [],
+        "assumptions": [
+          "Inputs obey their declared TypeScript finite domains at runtime.",
+          "Properties are stable plain data: no getters, proxies, mutation, or other side effects during evaluation.",
+          "Enumerated input fields are independent; no additional business constraints are assumed.",
+          "This expression is evaluated in isolation; surrounding control flow is not modeled."
+        ]
+      },
+      "withThis": {
+        "status": "unsupported",
+        "reason": "Explicit this parameters are unsupported: this is type-only and is not a positional runtime argument."
+      },
+      "first": {
+        "status": "supported",
+        "logic": {
+          "op": "eq",
+          "variable": "arg0",
+          "value": "a"
+        },
+        "variables": [
+          {
+            "key": "arg0",
+            "sourceName": "a",
+            "domain": [
+              "a",
+              "b"
+            ],
+            "declaration": {
+              "id": "input.ts:277:a",
+              "name": "a",
+              "evidence": {
+                "file": "input.ts",
+                "symbol": "a",
+                "start": {
+                  "line": 6,
+                  "column": 23,
+                  "offset": 277
+                },
+                "end": {
+                  "line": 6,
+                  "column": 27,
+                  "offset": 281
+                }
+              }
+            }
+          }
+        ],
+        "assumptions": [
+          "Inputs obey their declared TypeScript finite domains at runtime.",
+          "Properties are stable plain data: no getters, proxies, mutation, or other side effects during evaluation.",
+          "Enumerated input fields are independent; no additional business constraints are assumed.",
+          "This expression is evaluated in isolation; surrounding control flow is not modeled."
+        ]
+      },
+      "second": {
+        "status": "supported",
+        "logic": {
+          "op": "eq",
+          "variable": "arg1",
+          "value": "a"
+        },
+        "variables": [
+          {
+            "key": "arg1",
+            "sourceName": "b",
+            "domain": [
+              "a",
+              "b"
+            ],
+            "declaration": {
+              "id": "input.ts:340:b",
+              "name": "b",
+              "evidence": {
+                "file": "input.ts",
+                "symbol": "b",
+                "start": {
+                  "line": 7,
+                  "column": 30,
+                  "offset": 340
+                },
+                "end": {
+                  "line": 7,
+                  "column": 34,
+                  "offset": 344
+                }
+              }
+            }
+          }
+        ],
+        "assumptions": [
+          "Inputs obey their declared TypeScript finite domains at runtime.",
+          "Properties are stable plain data: no getters, proxies, mutation, or other side effects during evaluation.",
+          "Enumerated input fields are independent; no additional business constraints are assumed.",
+          "This expression is evaluated in isolation; surrounding control flow is not modeled."
+        ]
+      },
+      "getEnum": {
+        "status": "unsupported",
+        "reason": "Predicate requires a synchronous, non-generator function with exactly one return expression and no other statements."
+      },
+      "callEnum": {
+        "status": "unsupported",
+        "reason": "Enum constants require a direct, non-optional enum identifier receiver."
+      },
+      "genuineEnum": {
+        "status": "supported",
+        "logic": {
+          "op": "eq",
+          "variable": "arg0",
+          "value": "a"
+        },
+        "variables": [
+          {
+            "key": "arg0",
+            "sourceName": "e",
+            "domain": [
+              "a",
+              "b"
+            ],
+            "declaration": {
+              "id": "input.ts:537:e",
+              "name": "e",
+              "evidence": {
+                "file": "input.ts",
+                "symbol": "e",
+                "start": {
+                  "line": 10,
+                  "column": 29,
+                  "offset": 537
+                },
+                "end": {
+                  "line": 10,
+                  "column": 33,
+                  "offset": 541
+                }
+              }
+            }
+          }
+        ],
+        "assumptions": [
+          "Inputs obey their declared TypeScript finite domains at runtime.",
+          "Properties are stable plain data: no getters, proxies, mutation, or other side effects during evaluation.",
+          "Enumerated input fields are independent; no additional business constraints are assumed.",
+          "This expression is evaluated in isolation; surrounding control flow is not modeled."
+        ]
+      }
+    },
+    "optionalVsTrue": {
+      "exitCode": 2,
+      "output": {
+        "schemaVersion": 1,
+        "category": "code-facts",
+        "left": {
+          "id": "input.ts:62:optionalEnum",
+          "evidence": {
+            "file": "input.ts",
+            "symbol": "optionalEnum",
+            "start": {
+              "line": 3,
+              "column": 53,
+              "offset": 114
+            },
+            "end": {
+              "line": 3,
+              "column": 65,
+              "offset": 126
+            }
+          },
+          "predicate": {
+            "status": "unsupported",
+            "reason": "Enum constants require a direct, non-optional enum identifier receiver."
+          }
+        },
+        "right": {
+          "id": "input.ts:130:always",
+          "evidence": {
+            "file": "input.ts",
+            "symbol": "always",
+            "start": {
+              "line": 4,
+              "column": 47,
+              "offset": 176
+            },
+            "end": {
+              "line": 4,
+              "column": 51,
+              "offset": 180
+            }
+          },
+          "predicate": {
+            "status": "supported",
+            "logic": {
+              "op": "constant",
+              "value": true
+            },
+            "variables": [],
+            "assumptions": [
+              "Inputs obey their declared TypeScript finite domains at runtime.",
+              "Properties are stable plain data: no getters, proxies, mutation, or other side effects during evaluation.",
+              "Enumerated input fields are independent; no additional business constraints are assumed.",
+              "This expression is evaluated in isolation; surrounding control flow is not modeled."
+            ]
+          }
+        },
+        "evaluatedAssignments": 0,
+        "assumptions": [],
+        "status": "Unsupported",
+        "reason": "Enum constants require a direct, non-optional enum identifier receiver.",
+        "interpretation": "A logical difference is not evidence of a business-policy violation without an independently established shared policy."
+      },
+      "stderr": ""
+    },
+    "thisVsSecond": {
+      "exitCode": 2,
+      "output": {
+        "schemaVersion": 1,
+        "category": "code-facts",
+        "left": {
+          "id": "input.ts:184:withThis",
+          "evidence": {
+            "file": "input.ts",
+            "symbol": "withThis",
+            "start": {
+              "line": 5,
+              "column": 59,
+              "offset": 242
+            },
+            "end": {
+              "line": 5,
+              "column": 68,
+              "offset": 251
+            }
+          },
+          "predicate": {
+            "status": "unsupported",
+            "reason": "Explicit this parameters are unsupported: this is type-only and is not a positional runtime argument."
+          }
+        },
+        "right": {
+          "id": "input.ts:311:second",
+          "evidence": {
+            "file": "input.ts",
+            "symbol": "second",
+            "start": {
+              "line": 7,
+              "column": 45,
+              "offset": 355
+            },
+            "end": {
+              "line": 7,
+              "column": 54,
+              "offset": 364
+            }
+          },
+          "predicate": {
+            "status": "supported",
+            "logic": {
+              "op": "eq",
+              "variable": "arg1",
+              "value": "a"
+            },
+            "variables": [
+              {
+                "key": "arg1",
+                "sourceName": "b",
+                "domain": [
+                  "a",
+                  "b"
+                ],
+                "declaration": {
+                  "id": "input.ts:340:b",
+                  "name": "b",
+                  "evidence": {
+                    "file": "input.ts",
+                    "symbol": "b",
+                    "start": {
+                      "line": 7,
+                      "column": 30,
+                      "offset": 340
+                    },
+                    "end": {
+                      "line": 7,
+                      "column": 34,
+                      "offset": 344
+                    }
+                  }
+                }
+              }
+            ],
+            "assumptions": [
+              "Inputs obey their declared TypeScript finite domains at runtime.",
+              "Properties are stable plain data: no getters, proxies, mutation, or other side effects during evaluation.",
+              "Enumerated input fields are independent; no additional business constraints are assumed.",
+              "This expression is evaluated in isolation; surrounding control flow is not modeled."
+            ]
+          }
+        },
+        "evaluatedAssignments": 0,
+        "assumptions": [],
+        "status": "Unsupported",
+        "reason": "Explicit this parameters are unsupported: this is type-only and is not a positional runtime argument.",
+        "interpretation": "A logical difference is not evidence of a business-policy violation without an independently established shared policy."
+      },
+      "stderr": ""
+    },
+    "thisVsFirst": {
+      "evaluatedAssignments": 0,
+      "assumptions": [],
+      "status": "Unsupported",
+      "reason": "Explicit this parameters are unsupported: this is type-only and is not a positional runtime argument."
+    },
+    "callVsTrue": {
+      "evaluatedAssignments": 0,
+      "assumptions": [],
+      "status": "Unsupported",
+      "reason": "Enum constants require a direct, non-optional enum identifier receiver."
+    },
+    "execution": {
+      "optionalUndefined": false,
+      "alwaysUndefined": true,
+      "withThisAB": true,
+      "firstAB": true,
+      "secondAB": false,
+      "callOutcome": {
+        "throws": "not total"
+      }
+    }
+  },
+  "positive": {
+    "expressions": 16,
+    "evaluations": 144,
+    "pairs": 256,
+    "witnesses": 336,
+    "boundary": {
+      "12": {
+        "status": "Equivalent",
+        "equivalent": true,
+        "leftImpliesRight": true,
+        "rightImpliesLeft": true,
+        "evaluatedAssignments": 4096,
+        "assumptions": [
+          "Inputs obey their declared TypeScript finite domains at runtime.",
+          "Properties are stable plain data: no getters, proxies, mutation, or other side effects during evaluation.",
+          "Enumerated input fields are independent; no additional business constraints are assumed.",
+          "This expression is evaluated in isolation; surrounding control flow is not modeled.",
+          "Caller asserts identical positional inputs and property paths on both sides; this does not assert a shared business policy."
+        ]
+      },
+      "13": {
+        "evaluatedAssignments": 0,
+        "assumptions": [
+          "Inputs obey their declared TypeScript finite domains at runtime.",
+          "Properties are stable plain data: no getters, proxies, mutation, or other side effects during evaluation.",
+          "Enumerated input fields are independent; no additional business constraints are assumed.",
+          "This expression is evaluated in isolation; surrounding control flow is not modeled.",
+          "Caller asserts identical positional inputs and property paths on both sides; this does not assert a shared business policy."
+        ],
+        "status": "Unknown",
+        "reason": "Enumeration limit exceeded (8192 > 4096)"
+      }
+    }
+  },
+  "fca": {
+    "contexts": 4096,
+    "shape": "4 objects x 3 attributes",
+    "attributeOrder": [
+      "z",
+      "a",
+      "m"
+    ],
+    "oracle": "object-subset enumeration",
+    "passed": true
+  },
+  "mixedJs": {
+    "files": [
+      "ignored.js",
+      "input.ts"
+    ],
+    "functions": [
+      "tsFunction"
+    ],
+    "omissions": [
+      {
+        "reason": "JavaScript source files are unsupported and skipped."
+      }
+    ]
+  }
+}

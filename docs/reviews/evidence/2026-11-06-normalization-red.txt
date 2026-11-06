@@ -1,0 +1,195 @@
+
+ RUN  v5.1.0 /Users/hyeon/toys/ontosary
+
+ ❯ tests/normalization-soundness.test.ts (34 tests | 29 failed) 3132ms
+   ❯ R1: enum-member symbols do not erase receiver evaluation (21)
+     × refuses optionalEnum in both the predicate and its condition 6ms
+     × refuses callEnum in both the predicate and its condition 1ms
+     × refuses reversedCall in both the predicate and its condition 1ms
+     × refuses wrappedCall in both the predicate and its condition 0ms
+     × refuses assertedEnum in both the predicate and its condition 0ms
+     × refuses nonNullEnum in both the predicate and its condition 0ms
+     × refuses parameterEnum in both the predicate and its condition 0ms
+     × refuses nestedEnum in both the predicate and its condition 1ms
+     × refuses nestedOptional in both the predicate and its condition 1ms
+     × refuses optionalParent in both the predicate and its condition 0ms
+     × refuses assertedDirect in both the predicate and its condition 0ms
+     × refuses optionalDirect in both the predicate and its condition 0ms
+     × refuses aliasedObject in both the predicate and its condition 0ms
+     × refuses shadowedEnum in both the predicate and its condition 0ms
+     × refuses underAnd in both the predicate and its condition 0ms
+     × refuses underNot in both the predicate and its condition 0ms
+     × refuses underConstant in both the predicate and its condition 0ms
+     × refuses accessorEnum in both the predicate and its condition 0ms
+     × refuses namespacedEnum in both the predicate and its condition 0ms
+   ❯ R2: explicit this must not become a positional runtime argument (5)
+     × shows both the false equivalent and false different cases in runtime terms 0ms
+     × refuses all conditions of withThis with a specific reason 0ms
+     × refuses all conditions of withThisConstant with a specific reason 0ms
+     × refuses all conditions of withThisMethod with a specific reason 0ms
+     × refuses all conditions of thisBranch with a specific reason 0ms
+   ❯ core/CLI contract (5)
+     × returns Unsupported/exit 2/zero evaluations for optionalEnum vs always 650ms
+     × returns Unsupported/exit 2/zero evaluations for callEnum vs always 558ms
+     × returns Unsupported/exit 2/zero evaluations for underAnd vs always 550ms
+     × returns Unsupported/exit 2/zero evaluations for withThis vs first 531ms
+     × returns Unsupported/exit 2/zero evaluations for withThis vs second 513ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 29 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/normalization-soundness.test.ts > R1: enum-member symbols do not erase receiver evaluation > refuses optionalEnum in both the predicate and its condition
+ FAIL  tests/normalization-soundness.test.ts > R1: enum-member symbols do not erase receiver evaluation > refuses callEnum in both the predicate and its condition
+ FAIL  tests/normalization-soundness.test.ts > R1: enum-member symbols do not erase receiver evaluation > refuses reversedCall in both the predicate and its condition
+ FAIL  tests/normalization-soundness.test.ts > R1: enum-member symbols do not erase receiver evaluation > refuses wrappedCall in both the predicate and its condition
+ FAIL  tests/normalization-soundness.test.ts > R1: enum-member symbols do not erase receiver evaluation > refuses assertedEnum in both the predicate and its condition
+ FAIL  tests/normalization-soundness.test.ts > R1: enum-member symbols do not erase receiver evaluation > refuses nonNullEnum in both the predicate and its condition
+ FAIL  tests/normalization-soundness.test.ts > R1: enum-member symbols do not erase receiver evaluation > refuses parameterEnum in both the predicate and its condition
+ FAIL  tests/normalization-soundness.test.ts > R1: enum-member symbols do not erase receiver evaluation > refuses nestedEnum in both the predicate and its condition
+ FAIL  tests/normalization-soundness.test.ts > R1: enum-member symbols do not erase receiver evaluation > refuses nestedOptional in both the predicate and its condition
+ FAIL  tests/normalization-soundness.test.ts > R1: enum-member symbols do not erase receiver evaluation > refuses optionalParent in both the predicate and its condition
+ FAIL  tests/normalization-soundness.test.ts > R1: enum-member symbols do not erase receiver evaluation > refuses assertedDirect in both the predicate and its condition
+ FAIL  tests/normalization-soundness.test.ts > R1: enum-member symbols do not erase receiver evaluation > refuses optionalDirect in both the predicate and its condition
+ FAIL  tests/normalization-soundness.test.ts > R1: enum-member symbols do not erase receiver evaluation > refuses aliasedObject in both the predicate and its condition
+ FAIL  tests/normalization-soundness.test.ts > R1: enum-member symbols do not erase receiver evaluation > refuses shadowedEnum in both the predicate and its condition
+ FAIL  tests/normalization-soundness.test.ts > R1: enum-member symbols do not erase receiver evaluation > refuses underNot in both the predicate and its condition
+ FAIL  tests/normalization-soundness.test.ts > R1: enum-member symbols do not erase receiver evaluation > refuses accessorEnum in both the predicate and its condition
+AssertionError: expected { status: 'supported', …(3) } to match object { status: 'unsupported', …(1) }
+(5 matching properties omitted from actual)
+
+- Expected
++ Received
+
+  {
+-   "reason": Any<String>,
+-   "status": "unsupported",
++   "status": "supported",
+  }
+
+ ❯ tests/normalization-soundness.test.ts:33:28
+     31|   it.each(rejectedReceivers)('refuses %s in both the predicate and its…
+     32|     const fact = fn(name);
+     33|     expect(fact.predicate).toMatchObject({ status: 'unsupported', reas…
+       |                            ^
+     34|     expect(fact.conditions).toHaveLength(1);
+     35|     expect(fact.conditions[0]!.normalization).toEqual(fact.predicate);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/29]⎯
+
+ FAIL  tests/normalization-soundness.test.ts > R1: enum-member symbols do not erase receiver evaluation > refuses underAnd in both the predicate and its condition
+ FAIL  tests/normalization-soundness.test.ts > R1: enum-member symbols do not erase receiver evaluation > refuses underConstant in both the predicate and its condition
+ FAIL  tests/normalization-soundness.test.ts > R1: enum-member symbols do not erase receiver evaluation > refuses namespacedEnum in both the predicate and its condition
+AssertionError: expected { status: 'supported', …(3) } to match object { status: 'unsupported', …(1) }
+(6 matching properties omitted from actual)
+
+- Expected
++ Received
+
+  {
+-   "reason": Any<String>,
+-   "status": "unsupported",
++   "status": "supported",
+  }
+
+ ❯ tests/normalization-soundness.test.ts:33:28
+     31|   it.each(rejectedReceivers)('refuses %s in both the predicate and its…
+     32|     const fact = fn(name);
+     33|     expect(fact.predicate).toMatchObject({ status: 'unsupported', reas…
+       |                            ^
+     34|     expect(fact.conditions).toHaveLength(1);
+     35|     expect(fact.conditions[0]!.normalization).toEqual(fact.predicate);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/29]⎯
+
+ FAIL  tests/normalization-soundness.test.ts > R2: explicit this must not become a positional runtime argument > shows both the false equivalent and false different cases in runtime terms
+AssertionError: expected { status: 'Different', …(8) } to match object { status: 'Unsupported', …(1) }
+(13 matching properties omitted from actual)
+
+- Expected
++ Received
+
+  {
+-   "evaluatedAssignments": 0,
+-   "status": "Unsupported",
++   "evaluatedAssignments": 4,
++   "status": "Different",
+  }
+
+ ❯ tests/normalization-soundness.test.ts:47:38
+     45|     }
+     46|     expect(runtime.withThis('a', 'b')).not.toBe(runtime.second('a', 'b…
+     47|     expect(cmp('withThis', 'first')).toMatchObject({ status: 'Unsuppor…
+       |                                      ^
+     48|     expect(cmp('withThis', 'second')).toMatchObject({ status: 'Unsuppo…
+     49|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/29]⎯
+
+ FAIL  tests/normalization-soundness.test.ts > R2: explicit this must not become a positional runtime argument > refuses all conditions of withThis with a specific reason
+ FAIL  tests/normalization-soundness.test.ts > R2: explicit this must not become a positional runtime argument > refuses all conditions of withThisConstant with a specific reason
+ FAIL  tests/normalization-soundness.test.ts > R2: explicit this must not become a positional runtime argument > refuses all conditions of withThisMethod with a specific reason
+AssertionError: expected 'supported' to be 'unsupported' // Object.is equality
+
+Expected: "unsupported"
+Received: "supported"
+
+ ❯ tests/normalization-soundness.test.ts:52:35
+     50|   it.each(['withThis', 'withThisConstant', 'withThisMethod', 'thisBran…
+     51|     const fact = fn(name);
+     52|     expect(fact.predicate.status).toBe('unsupported');
+       |                                   ^
+     53|     expect(fact.parameters[0]?.name).toBe('this'); // source signature…
+     54|     expect(fact.conditions.length).toBeGreaterThan(0);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/29]⎯
+
+ FAIL  tests/normalization-soundness.test.ts > R2: explicit this must not become a positional runtime argument > refuses all conditions of thisBranch with a specific reason
+AssertionError: expected { status: 'supported', …(3) } to match object { status: 'unsupported', …(1) }
+(6 matching properties omitted from actual)
+
+- Expected
++ Received
+
+  {
+-   "reason": StringContaining "this",
+-   "status": "unsupported",
++   "status": "supported",
+  }
+
+ ❯ tests/normalization-soundness.test.ts:55:78
+     53|     expect(fact.parameters[0]?.name).toBe('this'); // source signature…
+     54|     expect(fact.conditions.length).toBeGreaterThan(0);
+     55|     for (const condition of fact.conditions) expect(condition.normaliz…
+       |                                                                              ^
+     56|     if (name !== 'thisBranch') expect(fact.predicate).toMatchObject({ …
+     57|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/29]⎯
+
+ FAIL  tests/normalization-soundness.test.ts > core/CLI contract > returns Unsupported/exit 2/zero evaluations for optionalEnum vs always
+ FAIL  tests/normalization-soundness.test.ts > core/CLI contract > returns Unsupported/exit 2/zero evaluations for callEnum vs always
+ FAIL  tests/normalization-soundness.test.ts > core/CLI contract > returns Unsupported/exit 2/zero evaluations for underAnd vs always
+ FAIL  tests/normalization-soundness.test.ts > core/CLI contract > returns Unsupported/exit 2/zero evaluations for withThis vs first
+ FAIL  tests/normalization-soundness.test.ts > core/CLI contract > returns Unsupported/exit 2/zero evaluations for withThis vs second
+AssertionError: expected +0 to be 2 // Object.is equality
+
+- Expected
++ Received
+
+- 2
++ 0
+
+ ❯ tests/normalization-soundness.test.ts:118:27
+    116|     const result = spawnSync(process.execPath, ['dist/cli/index.js', '…
+    117|     expect(result.stderr).toBe('');
+    118|     expect(result.status).toBe(2);
+       |                           ^
+    119|     const json = JSON.parse(result.stdout);
+    120|     expect(json).toMatchObject(cmp(left, right));
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/29]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  29 failed | 5 passed (34)
+   Start at  16:46:14
+   Duration  3.63s (tests 91%, import 6%, transform 2%)
