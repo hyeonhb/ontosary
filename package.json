@@ -1,0 +1,44 @@
+{
+  "name": "ontosary",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Evidence-based domain discovery from existing TypeScript code",
+  "license": "Apache-2.0",
+  "engines": {
+    "node": "^22.12.0 || ^24.0.0 || >=26.0.0"
+  },
+  "packageManager": "pnpm@11.19.0",
+  "bin": {
+    "ontosary": "./dist/cli/index.js"
+  },
+  "exports": {
+    ".": "./dist/core/index.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json && node -e \"require('node:fs').chmodSync('dist/cli/index.js', 0o755)\"",
+    "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p examples/react-vite/tsconfig.json",
+    "test": "pnpm build && vitest run",
+    "ontosary": "node dist/cli/index.js",
+    "example:dev": "vite examples/react-vite",
+    "example:build": "vite build examples/react-vite",
+    "experiment": "pnpm build && node experiments/run.mjs",
+    "check": "pnpm typecheck && pnpm test && pnpm example:build"
+  },
+  "dependencies": {
+    "typescript": "5.9.3"
+  },
+  "devDependencies": {
+    "@types/node": "22.20.5",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "vite": "8.3.5",
+    "vitest": "5.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hyeonhb/ontosary.git"
+  }
+}

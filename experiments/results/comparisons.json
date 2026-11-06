@@ -1,0 +1,232 @@
+[
+  {
+    "left": {
+      "id": "src/rules.ts:148:canConsultFromCard",
+      "evidence": {
+        "file": "src/rules.ts",
+        "symbol": "canConsultFromCard",
+        "start": {
+          "line": 5,
+          "column": 10,
+          "offset": 212
+        },
+        "end": {
+          "line": 5,
+          "column": 40,
+          "offset": 242
+        }
+      }
+    },
+    "right": {
+      "id": "src/rules.ts:246:canConsultFromDetail",
+      "evidence": {
+        "file": "src/rules.ts",
+        "symbol": "canConsultFromDetail",
+        "start": {
+          "line": 8,
+          "column": 10,
+          "offset": 312
+        },
+        "end": {
+          "line": 8,
+          "column": 35,
+          "offset": 337
+        }
+      }
+    },
+    "expected": {
+      "status": "Implies",
+      "equivalent": false,
+      "leftImpliesRight": true,
+      "rightImpliesLeft": false,
+      "counterexample": {
+        "arg0.status": "reserved"
+      }
+    },
+    "actual": {
+      "status": "Implies",
+      "equivalent": false,
+      "leftImpliesRight": true,
+      "rightImpliesLeft": false,
+      "direction": "left-to-right",
+      "counterexample": {
+        "arg0.status": "reserved"
+      },
+      "rightOnly": {
+        "arg0.status": "reserved"
+      },
+      "evaluatedAssignments": 3,
+      "assumptions": [
+        "Inputs obey their declared TypeScript finite domains at runtime.",
+        "Properties are stable plain data: no getters, proxies, mutation, or other side effects during evaluation.",
+        "Enumerated input fields are independent; no additional business constraints are assumed.",
+        "This expression is evaluated in isolation; surrounding control flow is not modeled.",
+        "Caller asserts identical positional inputs and property paths on both sides; this does not assert a shared business policy."
+      ]
+    }
+  },
+  {
+    "left": {
+      "id": "src/rules.ts:148:canConsultFromCard",
+      "evidence": {
+        "file": "src/rules.ts",
+        "symbol": "canConsultFromCard",
+        "start": {
+          "line": 5,
+          "column": 10,
+          "offset": 212
+        },
+        "end": {
+          "line": 5,
+          "column": 40,
+          "offset": 242
+        }
+      }
+    },
+    "right": {
+      "id": "src/rules.ts:377:canConsultEquivalent",
+      "evidence": {
+        "file": "src/rules.ts",
+        "symbol": "canConsultEquivalent",
+        "start": {
+          "line": 10,
+          "column": 56,
+          "offset": 396
+        },
+        "end": {
+          "line": 10,
+          "column": 86,
+          "offset": 426
+        }
+      }
+    },
+    "expected": {
+      "status": "Equivalent",
+      "equivalent": true
+    },
+    "actual": {
+      "status": "Equivalent",
+      "equivalent": true,
+      "leftImpliesRight": true,
+      "rightImpliesLeft": true,
+      "evaluatedAssignments": 3,
+      "assumptions": [
+        "Inputs obey their declared TypeScript finite domains at runtime.",
+        "Properties are stable plain data: no getters, proxies, mutation, or other side effects during evaluation.",
+        "Enumerated input fields are independent; no additional business constraints are assumed.",
+        "This expression is evaluated in isolation; surrounding control flow is not modeled.",
+        "Caller asserts identical positional inputs and property paths on both sides; this does not assert a shared business policy."
+      ]
+    }
+  },
+  {
+    "left": {
+      "id": "src/rules.ts:148:canConsultFromCard",
+      "evidence": {
+        "file": "src/rules.ts",
+        "symbol": "canConsultFromCard",
+        "start": {
+          "line": 5,
+          "column": 10,
+          "offset": 212
+        },
+        "end": {
+          "line": 5,
+          "column": 40,
+          "offset": 242
+        }
+      }
+    },
+    "right": {
+      "id": "src/rules.ts:428:canConsultReserved",
+      "evidence": {
+        "file": "src/rules.ts",
+        "symbol": "canConsultReserved",
+        "start": {
+          "line": 12,
+          "column": 10,
+          "offset": 492
+        },
+        "end": {
+          "line": 12,
+          "column": 39,
+          "offset": 521
+        }
+      }
+    },
+    "expected": {
+      "status": "Different",
+      "equivalent": false,
+      "leftImpliesRight": false,
+      "rightImpliesLeft": false
+    },
+    "actual": {
+      "status": "Different",
+      "equivalent": false,
+      "leftImpliesRight": false,
+      "rightImpliesLeft": false,
+      "counterexample": {
+        "arg0.status": "available"
+      },
+      "leftOnly": {
+        "arg0.status": "available"
+      },
+      "rightOnly": {
+        "arg0.status": "reserved"
+      },
+      "evaluatedAssignments": 3,
+      "assumptions": [
+        "Inputs obey their declared TypeScript finite domains at runtime.",
+        "Properties are stable plain data: no getters, proxies, mutation, or other side effects during evaluation.",
+        "Enumerated input fields are independent; no additional business constraints are assumed.",
+        "This expression is evaluated in isolation; surrounding control flow is not modeled.",
+        "Caller asserts identical positional inputs and property paths on both sides; this does not assert a shared business policy."
+      ]
+    }
+  },
+  {
+    "left": {
+      "id": "src/rules.ts:935:isPremium",
+      "evidence": {
+        "file": "src/rules.ts",
+        "symbol": "isPremium",
+        "start": {
+          "line": 25,
+          "column": 10,
+          "offset": 990
+        },
+        "end": {
+          "line": 25,
+          "column": 36,
+          "offset": 1016
+        }
+      }
+    },
+    "right": {
+      "id": "src/rules.ts:148:canConsultFromCard",
+      "evidence": {
+        "file": "src/rules.ts",
+        "symbol": "canConsultFromCard",
+        "start": {
+          "line": 5,
+          "column": 10,
+          "offset": 212
+        },
+        "end": {
+          "line": 5,
+          "column": 40,
+          "offset": 242
+        }
+      }
+    },
+    "expected": {
+      "status": "Unsupported"
+    },
+    "actual": {
+      "evaluatedAssignments": 0,
+      "assumptions": [],
+      "status": "Unsupported",
+      "reason": "Unsupported expression: BinaryExpression"
+    }
+  }
+]
