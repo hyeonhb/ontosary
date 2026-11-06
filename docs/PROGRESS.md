@@ -4,28 +4,30 @@
 
 ## 현재 단계
 
-첫 PoC 구성 요소는 구현됐으나 2026-11-04 독립 리뷰가 R1(enum receiver)·R2(explicit this)의 false proof를 확인했다. Gate 1은 미통과이며 [NEXT_PLAN](reviews/NEXT_PLAN.md)에 따른 정확성 수정이 corpus 실험보다 우선이다.
+첫 PoC의 구성 요소 구현 후, 독립 리뷰가 발견한 **R1/R2 false proof 차단을 완료**했다. 좁아진 지원 범위의 독립 재검토가 가능하다. 모든 TS 문법에 대한 건전성이나 제품 유용성을 입증한 상태는 아니다. 다음 구현은 R3(mixed TS/JS 파일 집계 계약), 이후 실제 corpus 실험이다.
 
-## 마지막으로 완료한 작업
+[개발 인계](reviews/2026-11-06-normalization-fix.md)에 전후 판정·검증·남은 위험을 정리했다. 과거 [리뷰](reviews/2026-11-04-poc-review.md)와 [NEXT_PLAN](reviews/NEXT_PLAN.md)은 당시 지시와 관찰로 보존했다. 이 문서가 최신 구현 상태다.
 
-비어 있던 폴더에 로컬 Git(main), private `ontosary` 패키지, pnpm lockfile, 코어/CLI/React 예제/테스트/맥락 문서를 구성했다. 기존 사용자 코드는 없었다. 2026-11-06 기존 GitHub 원격을 origin으로 연결하고, 원격 초기 커밋 위 chore/initial-poc에 현재 작업을 기록한다. GitHub Flow/Conventional Commits를 CONTRIBUTING에 명시하고 사용자 선택으로 Apache-2.0을 유지한다.
+## 저장소와 개발 규칙
 
-| 완료 조건 | 현재 상태 |
-| --- | --- |
-| 기본 구조와 Ontosary 명명 | 완료 |
-| AGENTS + PRODUCT/ARCHITECTURE/RESEARCH/ROADMAP/DECISIONS/PROGRESS | 완료 |
-| TS 타입·필드·함수·참조·조건·위치 JSON | 완료, 제한사항 명시 |
-| Formal Context 및 NextClosure | 완료, 입력/출력 상한과 후보 필터 |
-| 제한된 논리 IR | 완료, 미지원 이유 출력 |
-| 유한 비교·함의·반례 | 완료, 동일 입력 명시 전제 |
-| React+Vite 예제 | 완료, Vehicle/Listing/ConsultationRequest 및 두 UI |
-| scan/concepts/compare CLI | 완료, JSON·종료 코드 |
-| 알고리즘·부정 사례 자동 테스트 | 완료, 41개 |
-| README·실험 결과·다음 단계 | 완료 |
+- `origin`: `https://github.com/hyeonhb/ontosary.git`.
+- 원격 초기 LICENSE 커밋 `5d33ab6` 기반으로 `chore/initial-poc`에 기존 작업을 `a054f4f`로 커밋했다.
+- 현재 `fix/normalization-soundness`는 위 초기 작업에 의존한다. main은 origin/main을 추적한다. 로컬 커밋 상태이며 push/PR/merge는 수행하지 않았다.
+- [CONTRIBUTING](../CONTRIBUTING.md)의 GitHub Flow와 Conventional Commits를 준수한다. 작업 브랜치·작은 커밋·PR 검토·검증 기록이 기준이다. GitHub 보호 규칙이나 CI를 설정했다고 가정하지 않는다.
+- 사용자 선택으로 원격 Apache-2.0 LICENSE를 유지하고 패키지·README를 통일했다. ADR-009가 최초 MIT 선택을 대체한다.
 
-## 실제 실행 명령
+## 실제 구현된 기능
 
-저장소 루트에서 실행한다.
+- TypeScript 타입·필드·함수·참조·조건·소스 근거와 진단을 JSON으로 추출.
+- 작은 Formal Context/NextClosure, 후보 필터, 일반화 관계, 결과 상한.
+- 제한된 논리 IR, 유한 열거·동치·양방향 함의·반례·Unknown/Unsupported.
+- JSON CLI `scan`, `concepts`, `compare`.
+- Vehicle/Listing/ConsultationRequest의 React+Vite 예제.
+- 맥락 문서, 회귀 테스트, 재사용 가능한 실험·리뷰 증거.
+
+이번 수정: enum 멤버의 타입만 보고 receiver 실행을 생략하던 경로를 차단했다. 직접 enum 선언 식별자(괄호·named import alias 포함)만 허용하고 optional/call/assertion/non-null/nested receiver·enum 객체 별칭을 거부한다. explicit this는 전체 predicate와 개별 condition 모두 Unsupported다. parameters는 원래 소스 signature이며, 지원된 IR의 argN만 런타임 인자 위치다.
+
+## 실행 명령
 
 ```sh
 pnpm install --frozen-lockfile
@@ -33,51 +35,41 @@ pnpm build
 pnpm ontosary scan examples/react-vite --json
 pnpm ontosary concepts examples/react-vite --json
 pnpm ontosary compare examples/react-vite canConsultFromCard canConsultFromDetail --assume-same-input --json
+pnpm exec vitest run tests/normalization-soundness.test.ts
 pnpm check
 pnpm experiment
+node docs/reviews/evidence/2026-11-04-independent-check.mjs
 pnpm example:dev
 ```
 
-`compare`의 함수 이름이 중복되면 `scan`의 전체 ID를 사용한다. 입력 전제가 없으면 Unknown(종료 코드 2), 문법 미지원도 2, 잘못된 프로젝트/컴파일 오류/인수는 1이다.
+동명 함수는 전체 ID로 지정한다. Unknown/Unsupported 종료 코드 2, 프로젝트/컴파일/인수 오류는 1이다. probe 스크립트는 관찰 결과를 출력하므로 exit 0만으로 Gate 통과를 판단하지 않는다.
 
-## 검증 결과
+## 최신 검증 결과
 
-환경: Node 22.19.0, pnpm 11.19.0, TypeScript 5.9.3, React 19.3.1, Vite 8.3.5, Vitest 5.1.0.
+환경: Node 22.19.0, pnpm 11.19.0, TypeScript 5.9.3. 새 의존성을 추가하지 않았다.
 
-- `pnpm install --frozen-lockfile`: 성공.
-- `pnpm check`: 코어+예제 타입 검사, 테스트 3개 파일/41개, Vite production build 통과.
-- 마지막 타입 별칭 출력 보완 후 `pnpm test`: 41개 전부 재통과. 예제 코드는 이전 check 이후 바뀌지 않음.
-- `pnpm build` 후 `./dist/cli/index.js --help`: 실행 권한을 포함한 직접 CLI 실행 확인.
-- `pnpm experiment`: 4개 고정 비교 기대값 모두 일치. 타입 6, 함수 13, 지원 predicate 6, 미지원 7; FCA 객체 13/속성 26, 형식 개념 20, 후보 8, 포함 관계 8, 잘림 없음.
-- 대표 결과: 카드 조건은 상세 조건을 함의하고 역은 불성립. `arg0.status = reserved` 반례. 같은 정책을 구현해야 한다는 추가 근거가 없으므로 버그로 판정하지 않음.
-- FCA 구현: 512개 3×3 incidence matrix를 독립 완전탐색과 대조, 모든 폐포·extent 일치.
-- 브라우저 수동 smoke check: available 두 버튼 활성, reserved 카드만 비활성, sold 둘 다 비활성. 상세 상담 클릭 시 요청 표시. 콘솔 warn/error 없음. 테스트용 서버는 확인 후 종료.
-- 설치된 45개 패키지의 라이선스 메타데이터 확인. [DEPENDENCIES](DEPENDENCIES.md) 참조.
+- 수정 전 targeted regression: 진단 0개인 fixture에서 34개 중 29 실패/5 통과.
+- 수정 후 targeted regression: 한도 검사 추가 후 **35개 통과**.
+- `pnpm check`: 코어/예제 타입 검사, **4개 파일/76개 테스트 통과**, Vite production build 성공.
+- `pnpm experiment`: 기존 4개 비교 기대값 통과. 타입 6, 함수 13, 지원 predicate 6/미지원 7; FCA 13×26, 형식 개념 20/후보 8/관계 8, 잘림 없음. 결과 JSON 변경 없음.
+- 새 회귀 테스트: 20개 거부 receiver 사례, 함수/메서드/branch의 explicit this, 정상 9개 함수/81쌍 실제 진리표 및 반례 재실행, named import·문자열/숫자 enum, 4,096/8,192 경계, core/CLI 상태 일치.
+- 기존 독립 probe: 정상 144회 실행·IR 대조, 256쌍, 반례 336개, FCA 4×3 관계 4,096개 대조 통과. R1 optional/call, R2 first/second 비교가 모두 Unsupported/평가 0으로 바뀜. CLI 재현은 종료 2.
+- 초기 PoC의 브라우저 smoke check는 2026-11-03 기록이다. 이번 수정은 UI를 변경하지 않았으며 브라우저 확인을 반복하지 않았다.
 
-## 알려진 제약과 미해결 문제
+## 남은 문제와 제약
 
-기존 41개 테스트는 통과하지만 그 밖의 정상 TypeScript 입력에서 R1/R2가 재현됐다. 먼저 회귀 테스트와 정확성 수정을 수행해야 한다. R3(mixed JS 파일 집계)는 그 뒤 별도 작업이다. 다음은 그 외 제한이다.
+- **R3 미수정:** allowJs 프로젝트의 files에 분석하지 않은 JS가 포함된다. corpus coverage 분모를 만들기 전에 계약을 정리해야 한다.
+- enum namespace 경로·값 별칭·explicit this를 보수적으로 거부한다. 지원 확대는 별도 실행 대조가 필요하다.
+- 기존 단일 반환식·필수 유한 입력·한 단계 속성 제한, strictNullChecks, 런타임 타입 준수·안정적인 plain data·입력 독립성 전제는 유지된다.
+- 소스 ID의 편집 안정성, 재귀 project references, 최상위 조건·클래스 필드·프레임워크 의미, 큰 프로젝트 비용은 미해결/미검증이다.
+- 승인 워크플로·LLM·SMT·MCP·자동 수정은 미구현이다. FCA 후보가 업무 개념이거나 조건 차이가 버그라는 뜻은 아니다.
+- Gate 1은 수정된 지원 범위로 재평가할 수 있다. 독립 리뷰의 승인이나 Gate 2~4 효과를 주장하지 않는다.
 
-- 유한 문자열/상수 enum, 직접 입력/한 단계 속성, 단일 반환식에 한정한다. 호출·복수 문장·변이·기본값·optional·객체 union·숫자 범위 등은 미지원이다.
-- 런타임 타입 준수, 안정적인 plain data, 필드 독립성을 가정한다. `sameInput` 전제는 사용자가 확인하며 자동으로 보장하지 않는다.
-- TS strictNullChecks가 필요하고 컴파일 오류가 있으면 proof를 거부한다. 근거 ID는 소스 이동·의존성 설치 레이아웃에 따라 바뀐다.
-- top-level 조건, 클래스 필드 모델, 재귀 project references, 전이적 타입 그래프, React/Next 특화 의미는 미구현이다. 일부는 omissions, 범위 전반은 limitations에 기록한다.
-- FCA는 큰 프로젝트에 상한 오류를 낼 수 있다. 공통 타입으로 너무 넓게 묶거나 표시 함수/판정 함수를 같은 그룹으로 묶을 수 있다.
-- 승인 워크플로, LLM, SMT, MCP, 자동 코드 수정, 배포는 이번 범위 밖이다.
-- 스냅샷은 인공 데이터다. 실무 도메인 정확성·검토 시간·유지 비용을 아직 측정하지 않았다.
+## 다음 작업
 
-## 다음에 할 구체적인 작업
+1. git 상태·CONTRIBUTING·본 문서와 새 개발 인계를 읽고 기존 사용자 변경을 확인한다.
+2. R3용 mixed TS/JS fixture를 추가하고 Program 포함 파일/실제 분석 파일의 계약을 정한다.
+3. 분석기·스키마·문서·실험 집계가 일치하도록 작은 수정과 회귀 테스트를 만든다.
+4. 이후 공개/허가된 corpus 2개를 revision/라이선스와 고정하고, 코드 사실·업무 의미를 분리한 수동 라벨 20~30개로 coverage와 검토 가치를 측정한다.
 
-1. [NEXT_PLAN](reviews/NEXT_PLAN.md)의 R1/R2를 실패 테스트로 고정한 뒤 최소 수정한다.
-2. core/CLI 및 통제된 fixture의 실제 실행과 IR 평가를 대조한다.
-3. 전체 check/experiment와 독립 리뷰 probe를 실행하고 새 날짜의 증거로 보존한다.
-4. R3 파일 집계 계약 정리 후 실제 corpus/수동 라벨 실험을 진행한다.
-
-## 코드·근거 안내
-
-- `src/core/analyzer.ts`, `logic.ts`, `fca.ts`, `model.ts`: 현재 핵심 구현.
-- `src/cli/index.ts`: CLI. `examples/react-vite/src`: 인공 실험 대상.
-- `tests/analysis.test.ts`, `fca.test.ts`, `cli.test.ts`: 정확성/부정/CLI 검증.
-- `experiments/cases.json`, `run.mjs`, `results/*.json`: 재사용 사례와 관찰 결과.
-- [ARCHITECTURE](ARCHITECTURE.md): 정확한 지원 경계. [RESEARCH](RESEARCH.md): 관찰·가설·실패 사례.
-- [DECISIONS](DECISIONS.md): 기술 선택 이유. [ROADMAP](ROADMAP.md): 현재 완료와 미래 계획의 구분.
+핵심 코드: `src/core/{analyzer,logic,fca,model}.ts`, `src/cli/index.ts`. 회귀: `tests/normalization-soundness.test.ts`, 기존 tests. 최신 증거: `docs/reviews/evidence/2026-11-06-*`. 지원 경계는 [ARCHITECTURE](ARCHITECTURE.md), 결정은 [DECISIONS](DECISIONS.md), 실험 해석은 [RESEARCH](RESEARCH.md), 순서는 [ROADMAP](ROADMAP.md)를 따른다.

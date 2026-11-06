@@ -58,3 +58,12 @@ FCA는 공유 속성으로 그룹을 만드는 명시적·재현 가능한 기�
 - [Ganter, Hanika, Hirth: Scaling Dimension](https://arxiv.org/abs/2302.09101) — FCA의 conceptual scaling 연구 맥락. 이 PoC의 속성 설계가 검증됐다는 근거는 아님.
 - [Wollbold, Guthke, Ganter: Constructing a Knowledge Base ... by Formal Concept Analysis Methods](https://arxiv.org/abs/0807.3287) — 전문가 검토를 동반한 attribute exploration 연구 예시. 도메인과 평가 환경은 이 프로젝트와 다름.
 - [Vite 시작 안내](https://vite.dev/guide/), [Vitest 시작 안내](https://vitest.dev/guide/) — 실행 환경·호환성 확인. 실제 고정 버전은 package.json/lockfile 참조.
+
+
+## 2026-11-06 · 계산 검증과 지원 판정 경계의 수정
+
+2026-11-04 독립 리뷰는 기존의 작은 예제 성공과 별개로 소스→IR의 R1/R2를 반증했다. 과거 결과는 당시 관찰로 유지한다. 이번에는 지원 밖 receiver가 enum constant folding을 통해 통과하던 경로를 차단하고 explicit this를 명시적으로 거부했다.
+
+새 회귀 집합은 컴파일 진단 0개를 전제로 한다. 최초 34개 중 29개 실패/5개 통과를 먼저 관찰했다. 수정 후 4,096 조합 경계 테스트를 추가한 35개가 통과했다. 거부된 식에 대해 predicate/condition/API/CLI의 상태·이유·평가 0회·종료 코드 2를 확인했다. 정상 string/numeric enum, named import alias, 부정/중첩 논리의 실제 실행을 IR과 대조하고, 9개 함수의 81개 순서쌍을 실행 진리표로 판정하며 방향별 반례를 재실행했다.
+
+이는 **지원 판정 경계의 수정**이다. 올바른 IR에서의 기존 FCA/열거 계산 검증과 구분한다. 모든 TypeScript 구문에 대한 건전성 증명이나 Gate 2~4의 제품 효과 검증이 아니다. 새 독립 probe 결과와 개발 인계는 `docs/reviews/evidence/2026-11-06-independent-results.json`, `docs/reviews/2026-11-06-normalization-fix.md`에 보존한다. R3 파일 집계 계약은 이번에 수정하지 않았으며 실제 corpus 측정 전에 처리해야 한다.

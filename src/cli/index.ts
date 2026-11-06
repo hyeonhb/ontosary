@@ -9,6 +9,7 @@ ontosary concepts <project-directory|tsconfig.json> [--json]
 ontosary compare <project-directory|tsconfig.json> <function-name-or-id> <function-name-or-id> --assume-same-input [--json]
 
 Outputs JSON by default. Comparisons use positional arguments and property paths.
+Functions with explicit TypeScript this parameters are Unsupported (not arg0).
 --assume-same-input explicitly asserts that both predicates receive the same inputs.
 Exit codes: 0 result, 1 usage/project/compiler error, 2 Unknown/Unsupported.
 No code is executed or modified by the analyzer.`;

@@ -36,6 +36,8 @@ ID는 `<project-relative file>:<start offset>:<symbol name>`이다. 동명 심�
 `eq`, `neq`, `and`, `or`, `not`, boolean `constant`를 사용한다. 정규화는 구문을 제한된 IR로 옮기는 작업이며, 동치는 IR 문자열의 같음이 아니라 진리표 열거로 판단한다.
 
 - 지원: 엄격 동등 비교, `&&`, `||`, `!`, 괄호, 문자열 리터럴과 그 union, 상수 string/numeric enum 멤버.
+- enum 상수 receiver: `E.A`의 E가 enum 선언에 직접 해소되는 식별자여야 한다. 괄호와 named import alias는 허용한다. enum 타입을 가진 매개변수/객체 별칭은 선언 identity가 아니므로 거부한다. optional chain, 호출, 타입 단언, non-null assertion, getter, 중첩/namespace receiver는 상수 folding 전에 거부한다. `E['A']`도 미지원이다.
+- explicit this: 타입 전용 `this` 매개변수가 있는 함수/메서드의 전체 predicate와 개별 condition을 Unsupported로 거부한다. 본문의 런타임 this 해석이나 인자 재배치는 구현하지 않는다. `FunctionFact.parameters`는 소스 선언 순서를 보존하므로 this도 기록하지만, 그 인덱스를 런타임 인자라고 해석하면 안 된다. 지원된 정규화의 argN만 런타임 위치를 뜻한다.
 - 입력: 필수 매개변수 또는 한 단계의 필수 속성. 도메인은 사용 지점의 narrowed type이 아니라 선언된 매개변수/속성 타입에서 읽는다.
 - 보수적 거부: 타입 단언·호출·산술·일반 string/number·동적/선택적/중첩 접근·getter·객체 union·destructuring·기본값/나머지 매개변수·외부 변수.
 - 함수 전체 비교: 동기/non-generator 함수의 단일 반환식 또는 expression arrow만 지원한다. 다른 문장이 있으면 해당 함수는 unsupported다. 분기에서 추출한 조건은 식 단독 사실이며 경로 제약을 반영한 함수 의미가 아니다.

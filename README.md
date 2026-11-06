@@ -32,7 +32,7 @@ pnpm ontosary compare ./examples/react-vite canConsultFromCard canConsultFromDet
 }
 ```
 
-`arg0.status`는 첫 번째 매개변수의 `status`입니다. `--assume-same-input`은 양쪽의 같은 인자 순서와 속성 경로가 동일 입력을 의미한다고 사용자가 명시하는 전제입니다. 이름·타입 유사성만으로 이 전제를 추론하지 않습니다. 서로 다른 유한 도메인은 `Unknown`입니다. 이 플래그는 동일 업무 정책을 구현해야 한다는 주장이 아닙니다.
+`arg0.status`는 첫 번째 런타임 인자의 `status`입니다. 명시적 TypeScript `this` 매개변수가 있는 함수/메서드와 그 안의 조건은 현재 Unsupported입니다. `--assume-same-input`은 양쪽의 같은 인자 순서와 속성 경로가 동일 입력을 의미한다고 사용자가 명시하는 전제입니다. 이름·타입 유사성만으로 이 전제를 추론하지 않습니다. 서로 다른 유한 도메인은 `Unknown`입니다. 이 플래그는 동일 업무 정책을 구현해야 한다는 주장이 아닙니다.
 
 `Equivalent`는 양방향 함의, `Implies`는 한 방향만의 함의, `Different`는 양방향 모두 성립하지 않는 경우입니다. 비동치는 `equivalent: false`로 확인합니다. `leftOnly`/`rightOnly`는 각 방향의 반례입니다.
 
@@ -67,6 +67,7 @@ Vehicle → Listing → ConsultationRequest를 연결한 예제입니다. 매물
 - `strictNullChecks`가 필요합니다. 타입 선언과 런타임 입력이 일치한다는 전제가 있습니다.
 - 함수 전체 비교는 동기 함수의 단일 반환식만 지원합니다. 호출·별칭·변이·분기·비동기·기본 매개변수 처리는 미지원입니다.
 - `===`, `!==`, `&&`, `||`, `!`, 문자열 리터럴 유니온 및 상수 enum을 지원합니다. 숫자 범위·일반 문자열·SMT는 미지원입니다.
+- enum 상수는 `E.A`처럼 enum 선언에 직접 해소되는 식별자 접근만 허용합니다(괄호·named import alias 포함). enum 타입의 변수·객체 별칭, optional chain, 호출·단언·non-null assertion·중첩 receiver·namespace 경로는 미지원입니다.
 - 입력은 직접 매개변수 또는 한 단계의 필수 속성입니다. 선택적·계산된·중첩 속성, getter, 객체 유니온은 미지원입니다.
 - 필드는 안정적인 plain data이고 독립적이라고 가정합니다. 런타임 proxy, 숨은 상관관계, 업무 제약을 증명하지 않습니다.
 - 기본 FCA 한도는 객체 128 / 속성 64 / 개념 256입니다. 후보는 최소 2개 함수와 타입·속성·조건 필드 중 1개 이상을 공유해야 합니다. 개념 상한에 걸리면 `truncated: true`이며 전체 격자가 아닙니다.

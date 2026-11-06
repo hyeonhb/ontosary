@@ -8,6 +8,10 @@ const unwrap = (node: ts.Expression): ts.Expression => ts.isParenthesizedExpress
 /** Resolve the declared input type, never a control-flow-narrowed occurrence. */
 export function normalize(expression: ts.Expression, fn: FunctionNode, checker: ts.TypeChecker,
   reference: (symbol: ts.Symbol) => Reference | undefined): Normalization {
+  // TS erases this parameter; AST positions would not be runtime argN positions.
+  // Apply the same conservative policy to full predicates and branch conditions.
+  if (fn.parameters.some(p => ts.isIdentifier(p.name) && p.name.text === 'this'))
+    return unsupported('Explicit this parameters are unsupported: this is type-only and is not a positional runtime argument.');
   const variables = new Map<string, Variable>();
   function variable(raw: ts.Expression): Variable {
     const node = unwrap(raw);
@@ -48,6 +52,16 @@ export function normalize(expression: ts.Expression, fn: FunctionNode, checker: 
     if (ts.isPropertyAccessExpression(node)) {
       const symbol = checker.getSymbolAtLocation(node.name);
       if (symbol?.flags && (symbol.flags & ts.SymbolFlags.EnumMember)) {
+        // A member's type does not make its receiver a constant: getEnum().A,
+        // e?.A and (e as typeof E).A still evaluate user expressions at runtime.
+        const receiver = unwrap(node.expression);
+        if (node.questionDotToken || !ts.isIdentifier(receiver))
+          throw new Error('Enum constants require a direct, non-optional enum identifier receiver.');
+        const receiverSymbol = checker.getSymbolAtLocation(receiver);
+        const target = receiverSymbol && (receiverSymbol.flags & ts.SymbolFlags.Alias
+          ? checker.getAliasedSymbol(receiverSymbol) : receiverSymbol);
+        if (!target?.declarations?.some(ts.isEnumDeclaration))
+          throw new Error('Enum receiver must resolve to an enum declaration, not an enum-typed value.');
         const declaration = symbol.valueDeclaration;
         if (declaration && ts.isEnumMember(declaration)) return checker.getConstantValue(declaration);
       }
