@@ -67,3 +67,10 @@ FCA는 공유 속성으로 그룹을 만드는 명시적·재현 가능한 기�
 새 회귀 집합은 컴파일 진단 0개를 전제로 한다. 최초 34개 중 29개 실패/5개 통과를 먼저 관찰했다. 수정 후 4,096 조합 경계 테스트를 추가한 35개가 통과했다. 거부된 식에 대해 predicate/condition/API/CLI의 상태·이유·평가 0회·종료 코드 2를 확인했다. 정상 string/numeric enum, named import alias, 부정/중첩 논리의 실제 실행을 IR과 대조하고, 9개 함수의 81개 순서쌍을 실행 진리표로 판정하며 방향별 반례를 재실행했다.
 
 이는 **지원 판정 경계의 수정**이다. 올바른 IR에서의 기존 FCA/열거 계산 검증과 구분한다. 모든 TypeScript 구문에 대한 건전성 증명이나 Gate 2~4의 제품 효과 검증이 아니다. 새 독립 probe 결과와 개발 인계는 `docs/reviews/evidence/2026-11-06-independent-results.json`, `docs/reviews/2026-11-06-normalization-fix.md`에 보존한다. R3 파일 집계 계약은 이번에 수정하지 않았으며 실제 corpus 측정 전에 처리해야 한다.
+
+
+## 2026-11-06 후속 · R3 파일 집계 계약
+
+R1/R2 수정 후 별도 작업으로 R3를 해결했다. 독립 probe의 mixed-JS 관찰은 files=[ignored.js,input.ts]에서 files=[input.ts]로 바뀌고, ignored.js는 위치가 있는 제외 사유로 남는다. 실제 분석 대상만 분모로 쓰도록 기존 계약을 복원했다. 전체 Program coverage를 새로 측정한 것이 아니다.
+
+새 regression 6개와 기존 76개가 모두 통과했다. 타입 해석/참조를 위해 imported JS는 Program에 남고, 제외 파일의 컴파일 오류도 계속 보고·proof 거부에 반영된다. 최신 원시 결과는 `docs/reviews/evidence/2026-11-06-file-manifest-results.json`이며 앞선 날짜별 증거는 보존했다. 코드 사실의 집계 정확성이 업무 개념의 precision/recall이나 사람의 검토 시간 개선을 입증하지 않는다.

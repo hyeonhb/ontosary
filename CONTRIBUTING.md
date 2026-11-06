@@ -8,7 +8,7 @@ Use lowercase, hyphen-separated branch names: `feat/<topic>`, `fix/<topic>`, `do
 
 Run the relevant regression tests during development and `pnpm check` before completion. Run `pnpm experiment` when analysis behavior or fixtures change. Include the problem, resulting behavior, evidence, tests, and remaining limitations in the PR. Prefer squash merging a focused PR with a Conventional Commit title; preserve separate commits when they represent independently useful changes. Delete merged task branches when no longer needed. A sole maintainer may self-review; do not invent another person's approval.
 
-`main` should accept reviewed, passing changes through PRs. These are project conventions, not a claim that GitHub branch protection or CI has been configured. Pushes, PR creation, merges, and releases follow the user's authorized scope; a request to commit locally is not itself a request to publish or merge.
+`main` should accept reviewed, passing changes through PRs. These are project conventions, not a claim that GitHub branch protection or CI has been configured. The maintainer authorized repository delivery on 2026-11-06: after validation, automation should commit, push the task branch, open/review a PR, merge once required checks pass, and sync local main without asking again for each step. Respect branch protections and verify the expected head SHA; do not bypass failing checks. Report self-review accurately. This standing authorization covers repository changes, not package publication or permission changes.
 
 ## Commit messages
 

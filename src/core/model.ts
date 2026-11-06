@@ -51,6 +51,7 @@ export interface ScanResult {
   schemaVersion: 1;
   category: 'code-facts';
   project: string;
+  /** Actually analyzed implementation files; unsupported local implementations appear in omissions. */
   files: string[];
   types: TypeFact[];
   functions: FunctionFact[];

@@ -13,6 +13,7 @@ const comparisons = cases.comparisons.map(({ left, right, expected }) => {
 });
 const summary = {
   dataset: 'Synthetic vehicle/listing/consultation example; no real-world ground truth',
+  // ScanResult.files is the analyzed-file denominator, not all Program inputs.
   files: facts.files.length, types: facts.types.length, functions: facts.functions.length,
   supportedPredicates: facts.functions.filter(f => f.predicate.status === 'supported').length,
   unsupportedPredicates: facts.functions.filter(f => f.predicate.status === 'unsupported').length,
