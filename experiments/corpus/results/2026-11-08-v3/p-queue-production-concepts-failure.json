@@ -1,0 +1,6 @@
+{
+  "status": "limit-exceeded",
+  "objects": 103,
+  "attributes": 188,
+  "message": "Formal context exceeds limits: 103 objects / 188 attributes (limits 128/64)"
+}

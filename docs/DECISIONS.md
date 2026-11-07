@@ -103,3 +103,12 @@
 **이유와 비용:** 과거 라벨·평가기·runner를 바꾸면 이전의 약한 판정/재현 hash를 소급 수정하게 된다. 작은 V2 runner를 별도로 유지하는 중복 비용을 감수한다. 현재 기본 명령은 V2이고 V1은 별도 명령으로 과거 재현에만 쓴다. 모든 라벨의 전후 claim/status/checks/unverified와 변경 이유를 기록한다. 같은 22/24라도 검사 범위가 바뀌었으므로 성능 개선 지표가 아니다.
 
 **한계:** type text/단순 union 비교는 일반 타입 동치가 아니며 AST use 확인은 실제 실행/전체 호출 그래프의 증명이 아니다. 사람 승인과 시간은 미측정으로 유지한다. 다음 제품 실험은 ADR-014의 업무 개념 탐색 방향이며, 이번 수정은 측정 품질 보완이다.
+
+
+## ADR-016 · 타입 전용 use 문맥과 평가기 V3 — 2026-11-08
+
+**결정:** R5 잔여 오류는 use의 조상에서 TypeNode와 함께 TypeAliasDeclaration / InterfaceDeclaration / TypeParameterDeclaration을 거부한다. 개별 signature 이름 목록을 늘리는 대신 타입 전용 선언 문맥 전체를 확인한다. 실제 표현식이 타입 선언의 signature를 target으로 가리키는 것은 허용하며 self-target 제거로 대체하지 않는다.
+
+**버전:** 입력 계약과 24개 라벨은 V2 그대로, 평가기만 V3다. V1/V2 코드·입력·과거 결과를 실행 가능하게 보존하고 V3 코드/hash/새 결과를 별도로 기록한다. 기본 명령은 V3, 과거 V2는 명시적 `experiment:corpus:v2`다. 작은 runner/evaluator 복제 비용을 감수해 역사적 판정을 소급 변경하지 않는다.
+
+**근거와 한계:** 독립 probe 7/9 → 9/9, 인접 actual-scan 18/27 → 27/27, 정상 재귀/import/읽기/속성·메서드 target를 확인했다. core/CLI·의존성·문법 지원·분석 상한은 그대로다. 일반 AST 의미 분석이나 제품 가치 증명이 아니며 ADR-014의 후속 탐색 실험 방향을 유지한다. [검증 인계](reviews/2026-11-08-type-context-fix.md).

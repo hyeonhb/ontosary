@@ -1,0 +1,44 @@
+Already up to date
+Done in 219ms using pnpm v11.19.0
+
+ RUN  v5.1.0 <workspace>
+
+ ❯ tests/corpus-type-context.test.ts (27 tests | 9 failed) 512ms
+   ❯ R5 type-declaration context, actual scan (27)
+     × type-parameter-name 4ms
+     × interface-property-name 1ms
+     × interface-type-parameter 1ms
+     × method-signature-name 1ms
+     × method-type-parameter 1ms
+     × call-type-parameter 1ms
+     × construct-type-parameter 1ms
+     × computed-signature-key 1ms
+     × class-type-parameter 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 9 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/corpus-type-context.test.ts > R5 type-declaration context, actual scan > type-parameter-name
+ FAIL  tests/corpus-type-context.test.ts > R5 type-declaration context, actual scan > interface-property-name
+ FAIL  tests/corpus-type-context.test.ts > R5 type-declaration context, actual scan > interface-type-parameter
+ FAIL  tests/corpus-type-context.test.ts > R5 type-declaration context, actual scan > method-signature-name
+ FAIL  tests/corpus-type-context.test.ts > R5 type-declaration context, actual scan > method-type-parameter
+ FAIL  tests/corpus-type-context.test.ts > R5 type-declaration context, actual scan > call-type-parameter
+ FAIL  tests/corpus-type-context.test.ts > R5 type-declaration context, actual scan > construct-type-parameter
+ FAIL  tests/corpus-type-context.test.ts > R5 type-declaration context, actual scan > computed-signature-key
+ FAIL  tests/corpus-type-context.test.ts > R5 type-declaration context, actual scan > class-type-parameter
+AssertionError: expected 'correct' not to be 'correct' // Object.is equality
+ ❯ tests/corpus-type-context.test.ts:32:33
+     30|       expect(result.targetEvidence.start.offset).toBe(label.target.off…
+     31|     } else {
+     32|       expect(result.status).not.toBe('correct');
+       |                                 ^
+     33|       expect(result.reason).toBeTruthy();
+     34|     }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/9]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  9 failed | 18 passed (27)
+   Start at  07:30:31
+   Duration  930ms (tests 62%, import 29%, transform 9%)

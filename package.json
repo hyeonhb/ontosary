@@ -25,8 +25,9 @@
     "experiment": "pnpm build && node experiments/run.mjs",
     "check": "pnpm typecheck && pnpm test && pnpm example:build",
     "experiment:corpus:prepare": "node experiments/corpus/prepare.mjs",
-    "experiment:corpus": "pnpm build && node experiments/corpus/v2/run.mjs",
-    "experiment:corpus:v1": "pnpm build && node experiments/corpus/run.mjs"
+    "experiment:corpus": "pnpm build && node experiments/corpus/v3/run.mjs",
+    "experiment:corpus:v1": "pnpm build && node experiments/corpus/run.mjs",
+    "experiment:corpus:v2": "pnpm build && node experiments/corpus/v2/run.mjs"
   },
   "dependencies": {
     "typescript": "5.9.3"

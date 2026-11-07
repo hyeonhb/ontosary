@@ -90,4 +90,6 @@ Apache-2.0 License. 의존성에는 각자의 라이선스가 적용됩니다.
 공개 p-queue/date-fns 원본의 revision·라이선스·hash를 고정한 [실험 자료](experiments/corpus/README.md)와 [2026-11-07 관찰 보고서](docs/reviews/2026-11-07-corpus-observation.md)가 있다. 코드 사실 라벨 24개 중 22개 추출 일치/2개 명시적 미지원이며, 선정된 함수 전체 비교는 지원되지 않았다. 이 수치는 목적 표본의 관찰이며 사람의 업무 의미 승인이나 도구 효과 입증이 아니다.
 
 
-2026-11-08에는 corpus 평가기의 claim/type 대조와 선언 이름/실제 사용 구분을 [V2](experiments/corpus/v2/README.md)로 보완했다. 기본 `pnpm experiment:corpus <새 경로>`는 V2를 실행한다. 역사적 V1은 `pnpm experiment:corpus:v1 <새 경로>`로 재현하며, 두 버전의 동일한 판정 개수를 같은 검사 결과로 해석하지 않는다.
+2026-11-08에는 corpus 평가기의 claim/type 대조와 선언 이름/실제 사용 구분을 [V2](experiments/corpus/v2/README.md)로 보완했다. 당시 기본 corpus 명령은 V2였다. 역사적 V1은 `pnpm experiment:corpus:v1 <새 경로>`로 재현하며, 두 버전의 동일한 판정 개수를 같은 검사 결과로 해석하지 않는다.
+
+현재 기본 `pnpm experiment:corpus <새 경로>`는 타입 선언 문맥의 R5 잔여 오류를 보완한 [V3](experiments/corpus/v3/README.md)를 실행한다. V2 라벨 24개는 그대로이며 과거 V2는 `pnpm experiment:corpus:v2 <새 경로>`로 재현한다.
