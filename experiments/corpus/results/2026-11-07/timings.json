@@ -1,0 +1,34 @@
+{
+  "scopes": [
+    {
+      "key": "p-queue/original-config",
+      "scanMs": 7,
+      "fcaMs": null
+    },
+    {
+      "key": "p-queue/production",
+      "scanMs": 566,
+      "fcaMs": 1
+    },
+    {
+      "key": "p-queue/priority-queue",
+      "scanMs": 143,
+      "fcaMs": 3
+    },
+    {
+      "key": "date-fns/weekday",
+      "scanMs": 134,
+      "fcaMs": 1
+    }
+  ],
+  "preparation": {
+    "downloadedFiles": 20,
+    "cachedFiles": 0,
+    "wallTimeMs": 4773,
+    "method": "SHA-256 verified immutable raw files; no package installation, upstream scripts or source execution.",
+    "authorPreparationTimeMs": null,
+    "humanReviewTimeMs": null
+  },
+  "humanReviewTimeMs": null,
+  "note": "Wall times are single local observations, not benchmarks. Author preparation effort unmeasured."
+}

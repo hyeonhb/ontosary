@@ -4,7 +4,9 @@
 
 ## 현재 단계
 
-첫 PoC의 구성 요소 구현 후, 독립 리뷰가 발견한 **R1/R2 false proof 차단을 완료**했다. 2026-11-07 독립 재검토에서 R1/R2/R3 해결을 확인했고 Gate 1을 제한된 지원·검증 범위에서 통과로 재평가했다. 모든 TS 문법에 대한 건전성이나 제품 유용성을 입증한 상태는 아니다. R3(mixed TS/JS 파일 집계 계약)도 수정·회귀 검증했다. NEXT_PLAN의 직접 수정·검증 지시와 명시된 후속 결함 R3까지 완료했으며, 이후 실제 corpus/사용자 과업 비교는 후속 연구 단계다.
+2026-11-07 새 NEXT_PLAN의 **실제 corpus 관찰 자료 구축을 완료**했다. 공개 TS corpus 2개를 revision·라이선스·20개 파일 hash로 고정하고, 첫 scan 전에 코드 사실 라벨 24개를 작성했다. 라벨 22개 일치/2개 클래스 모델링 미지원, 함수 전체 predicate 지원 0건, 사전 날짜 비교 0/2 지원을 관찰했다. p-queue 전체 FCA는 속성 상한 초과이며 작은 범위 결과와 함께 보존했다. 사람의 업무 의미 승인·검토 시간·검색/LSP 대비 효과는 아직 미검증이다. [관찰 보고서](reviews/2026-11-07-corpus-observation.md)와 [검토표](../experiments/corpus/results/2026-11-07/review.md)가 최신 인계다.
+
+첫 PoC의 구성 요소 구현 후, 독립 리뷰가 발견한 **R1/R2 false proof 차단을 완료**했다. 2026-11-07 독립 재검토에서 R1/R2/R3 해결을 확인했고 Gate 1을 제한된 지원·검증 범위에서 통과로 재평가했다. 모든 TS 문법에 대한 건전성이나 제품 유용성을 입증한 상태는 아니다. R3(mixed TS/JS 파일 집계 계약)도 수정·회귀 검증했다. NEXT_PLAN의 직접 수정·검증 지시와 명시된 후속 결함 R3까지 완료했으며, 이후 실제 corpus 관찰은 아래와 같이 수행했고 사용자 과업 비교는 후속 연구 단계다.
 
 [R1/R2 개발 인계](reviews/2026-11-06-normalization-fix.md)와 [NEXT_PLAN 이행 점검·R3 인계](reviews/2026-11-06-next-plan-completion.md)에 전후 판정·검증·남은 위험을 정리했다. 과거 [리뷰](reviews/2026-11-04-poc-review.md)와 [NEXT_PLAN](reviews/NEXT_PLAN.md)은 당시 지시와 관찰로 보존했다. 이 문서가 최신 구현 상태다.
 
@@ -74,13 +76,23 @@ pnpm example:dev
 
 PR #1~#3가 반영된 main `c6e0fc7`을 별도 리뷰 세션에서 재검증했다. **R1/R2/R3 해결, 검토 범위 내 추가 결함 없음**으로 판정했다. `pnpm check` 82개·타입 검사·예제 빌드와 `pnpm experiment` 4개 비교가 통과했다. 기존 독립 probe와 새 receiver/this/import/file 경계 probe도 통과했다. Gate 1은 제한된 지원·검증 범위에서 통과로 재평가했으며 Gate 2~4의 제품 효과는 여전히 미검증이다. 원격 check-runs/status 목록은 비어 있어 CI 성공을 주장하지 않는다.
 
-[독립 리뷰](reviews/2026-11-07-post-merge-review.md), [현재 다음 개발 지시](reviews/2026-11-07-next-plan.md), [리뷰 맥락](reviews/REVIEW_CONTEXT.md)을 참조한다. 초기 NEXT_PLAN과 과거 원시 증거는 이행된 지시·관찰로 보존했다. 아래 corpus 연구 방향을 유지하며 이번 리뷰에서 제품 소스·테스트·설정을 수정하지 않았다.
+[독립 리뷰](reviews/2026-11-07-post-merge-review.md), [당시 다음 개발 지시](reviews/2026-11-07-next-plan.md), [리뷰 맥락](reviews/REVIEW_CONTEXT.md)을 참조한다. 초기 NEXT_PLAN과 과거 원시 증거는 이행된 지시·관찰로 보존했다. 아래 corpus 연구 방향을 유지하며 이번 리뷰에서 제품 소스·테스트·설정을 수정하지 않았다.
+
+## 2026-11-07 실제 corpus 관찰 검증
+
+- 기준 main `c1a542c`에서 `codex/corpus-observation`으로 작업했다. 제품 소스·기존 지원 경계·FCA/논리 상한·의존성은 그대로다.
+- p-queue `7f272ab5`의 production 5파일 및 priority-queue 4파일, date-fns v4.1.0 `313b902b`의 요일 함수와 local imports 9파일을 분석했다. 원래 p-queue 설정의 shared config 부재 실패도 기록했다.
+- 라벨 24개 중 22개 일치, 2개 명시적 클래스/필드 모델 미지원. 사람 검토 0개, 승인 지식 0개. 조건 원문 추출의 일치와 정규화 지원을 구분했다.
+- predicate 지원: p-queue production 0/103, 구성요소 0/15, date-fns 0/5. 범위 간 중복을 합산하지 않는다. 사전 날짜 비교 2쌍 모두 Unsupported/평가 0회.
+- FCA: production은 103×188로 입력 상한 초과; 구성요소 15×31의 후보 23개, weekday 5×13의 후보 3개, 둘 다 잘림 없음. 같은 facts의 단순 그룹도 저장했다. 후보 수는 품질 점수가 아니다.
+- `pnpm check`: 6파일/89테스트·타입 검사·예제 production build 통과. `pnpm experiment`: 기존 4/4 비교 통과, 과거 결과 변경 없음.
+- 두 새 scanner 실행의 비시간 파일 14개 byte 일치. 재현 환경·hash·wall time·원시 결과는 `experiments/corpus/results/2026-11-07*`에 있다. 다운로드 준비 4,773ms, 사람의 준비 노력·검토 시간 미측정.
+- 새 입력/runner/해석 보고는 날짜별 기존 리뷰·NEXT_PLAN을 보존한 채 추가했다. 정적 관찰만 수행했으며 원본 corpus 코드를 실행하지 않았다.
 
 ## 다음 작업
 
-1. git 상태·CONTRIBUTING·본 문서와 새 개발 인계를 읽고 기존 사용자 변경을 확인한다.
-2. 공개/허가된 corpus 2개를 revision/라이선스·분석 범위와 함께 고정한다.
-3. 코드 사실·업무 의미를 분리한 수동 라벨 20~30개를 준비하고 별도 검토를 받는다.
-4. 검색/LSP·단순 속성 그룹 기준선과 FCA/논리 검증의 과업별 순증분을 측정한다. 실제 사람의 검토 시간이나 업무 의미 승인을 자동 테스트 결과로 대신하지 않는다.
+1. [사람 검토표](../experiments/corpus/results/2026-11-07/review.md)의 24개 코드 사실을 원본과 대조하고 agent 라벨 오류/도구 오류/미지원/판단 보류를 분리한다.
+2. 같은 자료로 관련 규칙 위치 찾기·후보 검토·조건 차이 설명을 검색/LSP 및 단순 공유 그룹과 비교하고 실제 사람의 검토 시간을 기록한다. 이는 하나의 후속 사용자 검토 단계이며 아직 수행하지 않았다.
+3. 검토 근거가 생긴 뒤 개선 후보 하나를 고른다. 현재는 새 지원 문법·FCA 랭킹·LLM·SMT를 선택할 유용성 근거가 부족하다.
 
-핵심 코드: `src/core/{analyzer,logic,fca,model}.ts`, `src/cli/index.ts`. 회귀: `tests/normalization-soundness.test.ts`, 기존 tests. 최신 증거: `docs/reviews/evidence/2026-11-06-*`. 지원 경계는 [ARCHITECTURE](ARCHITECTURE.md), 결정은 [DECISIONS](DECISIONS.md), 실험 해석은 [RESEARCH](RESEARCH.md), 순서는 [ROADMAP](ROADMAP.md)를 따른다.
+핵심 코드: `src/core/{analyzer,logic,fca,model}.ts`, `src/cli/index.ts`. 최신 실험: [corpus README](../experiments/corpus/README.md), [관찰 보고서](reviews/2026-11-07-corpus-observation.md). 지원 경계는 [ARCHITECTURE](ARCHITECTURE.md), 결정은 [DECISIONS](DECISIONS.md), 실험 해석은 [RESEARCH](RESEARCH.md), 순서는 [ROADMAP](ROADMAP.md)를 따른다.

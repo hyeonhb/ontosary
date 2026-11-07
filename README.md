@@ -83,3 +83,8 @@ Vehicle → Listing → ConsultationRequest를 연결한 예제입니다. 매물
 Apache-2.0 License. 의존성에는 각자의 라이선스가 적용됩니다.
 
 기여 시 [CONTRIBUTING](CONTRIBUTING.md)의 GitHub Flow와 Conventional Commits 규칙을 따릅니다.
+
+
+## 실제 corpus 관찰
+
+공개 p-queue/date-fns 원본의 revision·라이선스·hash를 고정한 [실험 자료](experiments/corpus/README.md)와 [2026-11-07 관찰 보고서](docs/reviews/2026-11-07-corpus-observation.md)가 있다. 코드 사실 라벨 24개 중 22개 추출 일치/2개 명시적 미지원이며, 선정된 함수 전체 비교는 지원되지 않았다. 이 수치는 목적 표본의 관찰이며 사람의 업무 의미 승인이나 도구 효과 입증이 아니다.

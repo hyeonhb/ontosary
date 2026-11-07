@@ -1,0 +1,210 @@
+{
+  "schemaVersion": 1,
+  "analyzerBaseRevision": "c1a542c44b4e59f6be166c52036469e386de0188",
+  "environment": {
+    "node": "v22.19.0",
+    "typescript": "5.9.3",
+    "nodeTypes": "22.20.5"
+  },
+  "fingerprints": {
+    "src/core/analyzer.ts": "6b96a27b1e21272b8731bb38bb1ca34fedd347356f99781b77c8c4ce328ab95d",
+    "src/core/logic.ts": "487bf0172b793d043516f11023606ab94a4d5fa8c25907fec7ffd920dad00031",
+    "src/core/fca.ts": "4c0428641361232b969628b88eba15771f33f43efcbae9e70663fb3205fd1247",
+    "src/core/model.ts": "663e1babbcd54d7dde680930f0bc2e9822a97bcc080c72a2f9507cd91fa4a11c",
+    "src/core/index.ts": "1d0d132586ae1e4f87ef6739c5827774a24ab5ff78ba863522ef259c329ab493",
+    "pnpm-lock.yaml": "778efd97847a6132f336955c48d51c34690918d1db67a57590fc5459e444b784",
+    "manifest.json": "443656b8563069dee16b1acf41250fda7fd0319083d5c6fd2bf417fa13482b85",
+    "labels.json": "23014ec509e4c7e0fdd2e7dec862d2ea2e173fd2fc66e506ead675fc180f16b8",
+    "tasks.json": "bf1791028486d849a8e6577c9bfb1cb2fc2328dbb1b942a3f740565d71b0cf24",
+    "run.mjs": "478d7f14af204e7b86c44a69657d5405b23055502a5e77a0256e9a76400de5d9",
+    "evaluate-labels.mjs": "bb6b8d25ff0a09e7d926e4eec7a97a78056796581e164f8b4eff26b4cdbb9d18",
+    "common.mjs": "c28611cbcf05c73a50ff33bdb64b28daabbd0206ea5ad3b56b528e76cb98b2bd",
+    "prepare.mjs": "8620a48f49baa81b104ab2d38a316ddd1e2ad759f00e69771ec475faa4a34a22",
+    "dist/core/analyzer.js": "c97ce68612b8a4af3ee02fc750b7db15ce955ac9ba08cec8a66011a5ff32015b",
+    "dist/core/logic.js": "490a1e014d04b68447559bb7eea6ef4096af81a486e9c3094feea210acda2003",
+    "dist/core/fca.js": "01cd818cb1847b05c0a350a0808b406b04bc63e2f687509ac3690a2c9198f653"
+  },
+  "scopes": [
+    {
+      "corpus": "p-queue",
+      "scope": "original-config",
+      "status": "scan-failed",
+      "message": "File '@sindresorhus/tsconfig' not found."
+    },
+    {
+      "corpus": "p-queue",
+      "scope": "production",
+      "status": "scanned",
+      "analyzedFiles": [
+        "source/index.ts",
+        "source/lower-bound.ts",
+        "source/options.ts",
+        "source/priority-queue.ts",
+        "source/queue.ts"
+      ],
+      "analyzedFileCount": 5,
+      "types": 14,
+      "predicates": {
+        "supported": 0,
+        "totalFunctions": 103
+      },
+      "conditions": {
+        "supported": 10,
+        "totalExtracted": 148
+      },
+      "diagnosticsByCategory": {},
+      "omissions": {
+        "records": 11,
+        "byReason": {
+          "Class type/field modeling is not implemented; method functions are still scanned.": 3,
+          "Computed property access is not included in property facts or logical normalization.": 8
+        }
+      },
+      "unsupportedPredicatesByReason": {
+        "Equality requires a string literal or constant enum member": 3,
+        "Predicate requires a synchronous, non-generator function with exactly one return expression and no other statements.": 79,
+        "Unsupported expression: BinaryExpression": 5,
+        "Unsupported expression: CallExpression": 2,
+        "Unsupported expression: ConditionalExpression": 3,
+        "Unsupported expression: Identifier": 2,
+        "Unsupported expression: NewExpression": 1,
+        "Unsupported expression: ObjectLiteralExpression": 1,
+        "Unsupported expression: PropertyAccessExpression": 7
+      },
+      "simpleGroups": {
+        "count": 100,
+        "method": "One shared type/property per group, >=2 functions; no ranking or semantic quality score."
+      },
+      "fca": {
+        "status": "limit-exceeded",
+        "objects": 103,
+        "attributes": 188,
+        "message": "Formal context exceeds limits: 103 objects / 188 attributes (limits 128/64)"
+      }
+    },
+    {
+      "corpus": "p-queue",
+      "scope": "priority-queue",
+      "status": "scanned",
+      "analyzedFiles": [
+        "source/lower-bound.ts",
+        "source/options.ts",
+        "source/priority-queue.ts",
+        "source/queue.ts"
+      ],
+      "analyzedFileCount": 4,
+      "types": 7,
+      "predicates": {
+        "supported": 0,
+        "totalFunctions": 15
+      },
+      "conditions": {
+        "supported": 0,
+        "totalExtracted": 28
+      },
+      "diagnosticsByCategory": {},
+      "omissions": {
+        "records": 7,
+        "byReason": {
+          "Class type/field modeling is not implemented; method functions are still scanned.": 1,
+          "Computed property access is not included in property facts or logical normalization.": 6
+        }
+      },
+      "unsupportedPredicatesByReason": {
+        "Equality requires a string literal or constant enum member": 2,
+        "Predicate requires a synchronous, non-generator function with exactly one return expression and no other statements.": 10,
+        "Unsupported expression: BinaryExpression": 1,
+        "Unsupported expression: ConditionalExpression": 2
+      },
+      "simpleGroups": {
+        "count": 16,
+        "method": "One shared type/property per group, >=2 functions; no ranking or semantic quality score."
+      },
+      "fca": {
+        "status": "computed",
+        "objects": 15,
+        "attributes": 31,
+        "limits": {
+          "maxConcepts": 256,
+          "maxObjects": 128,
+          "maxAttributes": 64
+        },
+        "concepts": 37,
+        "candidates": 23,
+        "relations": 71,
+        "truncated": false
+      }
+    },
+    {
+      "corpus": "date-fns",
+      "scope": "weekday",
+      "status": "scanned",
+      "analyzedFiles": [
+        "src/constants/index.ts",
+        "src/constructFrom/index.ts",
+        "src/fp/types.ts",
+        "src/isSaturday/index.ts",
+        "src/isSunday/index.ts",
+        "src/isWeekend/index.ts",
+        "src/locale/types.ts",
+        "src/toDate/index.ts",
+        "src/types.ts"
+      ],
+      "analyzedFileCount": 9,
+      "types": 69,
+      "predicates": {
+        "supported": 0,
+        "totalFunctions": 5
+      },
+      "conditions": {
+        "supported": 0,
+        "totalExtracted": 11
+      },
+      "diagnosticsByCategory": {},
+      "omissions": {
+        "records": 1,
+        "byReason": {
+          "Computed property access is not included in property facts or logical normalization.": 1
+        }
+      },
+      "unsupportedPredicatesByReason": {
+        "Equality requires a string literal or constant enum member": 2,
+        "Predicate requires a synchronous, non-generator function with exactly one return expression and no other statements.": 2,
+        "Unsupported expression: CallExpression": 1
+      },
+      "simpleGroups": {
+        "count": 6,
+        "method": "One shared type/property per group, >=2 functions; no ranking or semantic quality score."
+      },
+      "fca": {
+        "status": "computed",
+        "objects": 5,
+        "attributes": 13,
+        "limits": {
+          "maxConcepts": 256,
+          "maxObjects": 128,
+          "maxAttributes": 64
+        },
+        "concepts": 8,
+        "candidates": 3,
+        "relations": 2,
+        "truncated": false
+      }
+    }
+  ],
+  "labels": {
+    "total": 24,
+    "byOutcome": {
+      "correct": 22,
+      "unsupported": 2
+    },
+    "humanReviewed": 0
+  },
+  "preselectedComparisons": {
+    "supported": 0,
+    "totalPairs": 2
+  },
+  "interpretation": "Source facts and support observations only. No business meaning approval, human timing or search/LSP superiority measured. No upstream code executed.",
+  "approvedKnowledge": [],
+  "humanReviewTimeMs": null
+}

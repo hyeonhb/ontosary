@@ -23,7 +23,9 @@
     "example:dev": "vite examples/react-vite",
     "example:build": "vite build examples/react-vite",
     "experiment": "pnpm build && node experiments/run.mjs",
-    "check": "pnpm typecheck && pnpm test && pnpm example:build"
+    "check": "pnpm typecheck && pnpm test && pnpm example:build",
+    "experiment:corpus:prepare": "node experiments/corpus/prepare.mjs",
+    "experiment:corpus": "pnpm build && node experiments/corpus/run.mjs"
   },
   "dependencies": {
     "typescript": "5.9.3"
