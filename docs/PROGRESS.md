@@ -4,7 +4,9 @@
 
 ## 현재 단계
 
-최신 독립 판정: 원시 corpus 결과는 재현됐지만 평가기 R4/R5 보완이 필요하다. 사용자는 다음 제품 실험을 **업무 개념·관련 코드 탐색 우선**으로 선택했다. [corpus 독립 리뷰](reviews/2026-11-07-corpus-independent-review.md)와 [현재 개발 지시](reviews/2026-11-07-corpus-review-next-plan.md)가 최신 판단이며, 아래 관찰 자료는 과거 실행으로 보존한다.
+2026-11-08 구현 후속: **평가기 V2로 R4/R5를 보완**했다. 제품 코어와 역사적 V1은 그대로이며, 현재 기본 corpus 명령은 V2다. 전체 99개 테스트·예제 비교 4/4, V1 비시간 14개·V2 16개 재현 일치를 확인했다. [수정 인계](reviews/2026-11-08-corpus-contract-fix.md), [V2 계약/재현](../experiments/corpus/v2/README.md), [새 검토표](../experiments/corpus/results/2026-11-08-v2/review.md)가 최신 구현 인계다. 아직 독립 재검토나 사람 승인으로 표시하지 않는다.
+
+직전 독립 판정: 원시 corpus 결과는 재현됐지만 평가기 R4/R5 보완이 필요했다. 사용자는 다음 제품 실험을 **업무 개념·관련 코드 탐색 우선**으로 선택했다. [corpus 독립 리뷰](reviews/2026-11-07-corpus-independent-review.md)와 [이행한 개발 지시](reviews/2026-11-07-corpus-review-next-plan.md)가 이번 수정의 기준이며, 아래 관찰 자료는 과거 실행으로 보존한다.
 
 2026-11-07 새 NEXT_PLAN의 **실제 corpus 관찰 자료 구축을 완료**했다. 공개 TS corpus 2개를 revision·라이선스·20개 파일 hash로 고정하고, 첫 scan 전에 코드 사실 라벨 24개를 작성했다. 라벨 22개 일치/2개 클래스 모델링 미지원, 함수 전체 predicate 지원 0건, 사전 날짜 비교 0/2 지원을 관찰했다. p-queue 전체 FCA는 속성 상한 초과이며 작은 범위 결과와 함께 보존했다. 사람의 업무 의미 승인·검토 시간·검색/LSP 대비 효과는 아직 미검증이다. [관찰 보고서](reviews/2026-11-07-corpus-observation.md)와 [검토표](../experiments/corpus/results/2026-11-07/review.md)는 구현 세션의 관찰 인계다.
 
@@ -97,13 +99,22 @@ main `a58a88b`을 독립 검토해 `pnpm check` 89개·기존 실험 4/4 및 새
 
 사용자는 다음 제품 실험으로 **업무 개념·관련 코드 탐색 우선**을 선택했다. [독립 리뷰](reviews/2026-11-07-corpus-independent-review.md), [현재 개발 지시](reviews/2026-11-07-corpus-review-next-plan.md), ADR-014를 참조한다. 원래 corpus 보고서·라벨·raw 결과는 당시 관찰로 보존했다.
 
+## 2026-11-08 R4/R5 평가 계약 보완
+
+- 기준 main `7adf2d1`, `codex/corpus-evaluator-contract`에서 작업했다. src/core·CLI·lockfile·원본 corpus/manifest·V1 평가기/라벨/runner·과거 결과는 그대로다.
+- V2는 타입 kind와 명시적 type 기대값을 검사한다. 함수 generic/클래스 소속/상속처럼 자동 검증하지 않는 문구는 claim에서 분리해 unverified로 출력한다.
+- reference/property는 source/use/target anchor 및 실제 AST 역할과 정확한 edge를 대조한다. 선언 이름은 거부하고 재귀/import 사용은 인정한다. useEvidence/targetEvidence를 별도로 기록한다.
+- 최초 actual-scan 회귀 8개 중 6개 실패/2개 통과 → 보완·추가 후 10개 통과. 전체 `pnpm check`는 7파일/99테스트·타입 검사·빌드 통과, `pnpm experiment`는 4/4 통과했다.
+- V1 재현의 비시간 14파일, V2 재현의 비시간 16파일이 각각 byte 일치했다. 두 버전의 core 분석 산출물 11개도 동일하다.
+- 두 버전 모두 라벨 22 correct/2 unsupported지만 검사 내용과 일부 claim이 달라졌으므로 성능 전후 차이로 읽지 않는다. 24개 전후 대조와 변경 이유는 `results/2026-11-08-v2/label-changes.json`에 있다.
+- 현재 `pnpm experiment:corpus <새 경로>`는 V2, `pnpm experiment:corpus:v1 <새 경로>`는 역사적 V1이다. V1 결함을 수정 완료 버전으로 오인하지 않는다.
+- [후속 제품 실험 초안](experiments/concept-exploration-protocol.md)은 미실행이다. 대상·정답·참가자를 확정하지 않았고 사람 시간/업무 의미/도구 효용 결과를 만들지 않았다.
+
 ## 다음 작업
 
-2026-11-08 중단 복구: 리뷰 문서가 staged 상태인 `docs/corpus-independent-review`에서 재개했다. fetch 후 기준 main `a58a88b`에 원격 추가 변경이 없고 제품 소스·테스트·실험 원본이 그대로임을 확인했다. 위 2026-11-07 검증은 동일 구현의 실행 기록으로 유지하며, 문서 전달 재개를 새 실험 수행으로 표시하지 않는다.
+1. [R4/R5 수정 인계](reviews/2026-11-08-corpus-contract-fix.md)의 actual scan·타입 변형·사용 위치·버전 보존 근거를 독립 검토한다.
+2. 실제 업무 애플리케이션의 한 개념 탐색 과업을 고정한다. 대상/revision·질문·소스/문서 기반 정답·참가자·학습 효과·시간 절차를 실행 전에 정한다. [절차 초안](experiments/concept-exploration-protocol.md)의 주문 취소 질문은 후보이지 확정된 대상이 아니다.
+3. 검색/LSP·동일 facts의 단순 그룹과 FCA의 추가 가치·검토 부담을 비교한다. utility 라벨의 agent 재판정을 사람의 효용 평가로 대체하지 않는다.
+4. 주요 기술적·철학적/방향성 선택이 필요하면 관찰·선택지·권고를 사용자에게 제시한다. 작은 수정과 이미 승인된 원격 반영은 반복 승인 대상으로 만들지 않는다.
 
-1. 평가기 R4/R5의 claim 계약·실제 사용 위치 판정을 보완하고 새 버전 결과를 만든다. 제품 코어·지원 문법·한도는 바꾸지 않는다.
-2. 실제 업무 애플리케이션의 한 개념에서 관련 코드·조건 근거를 찾는 과업을 정의한다. 검색/LSP·동일 facts의 단순 그룹을 기준선으로 두고 FCA의 추가 가치와 검토 비용을 측정할 준비를 한다.
-3. 코드 사실 라벨의 사람 검토와 제품 효용 검증을 구분한다. 참가자·학습 효과·시간 측정 절차 없이 사람이 검토했다거나 탐색 시간이 줄었다고 주장하지 않는다.
-4. 주요 기술적·철학적/방향성 선택이 필요하면 관찰·선택지·권고를 사용자에게 제시한다. 이 지침은 작은 수정과 이미 승인된 원격 반영을 반복 승인 대상으로 만들지 않는다.
-
-핵심 코드: `src/core/{analyzer,logic,fca,model}.ts`, `src/cli/index.ts`. 최신 실험: [corpus README](../experiments/corpus/README.md), [관찰 보고서](reviews/2026-11-07-corpus-observation.md). 지원 경계는 [ARCHITECTURE](ARCHITECTURE.md), 결정은 [DECISIONS](DECISIONS.md), 실험 해석은 [RESEARCH](RESEARCH.md), 순서는 [ROADMAP](ROADMAP.md)를 따른다.
+핵심 코드: `src/core/{analyzer,logic,fca,model}.ts`, `src/cli/index.ts`. 최신 평가기: [V2 README](../experiments/corpus/v2/README.md), [수정 인계](reviews/2026-11-08-corpus-contract-fix.md). 지원 경계는 [ARCHITECTURE](ARCHITECTURE.md), 결정은 [DECISIONS](DECISIONS.md), 실험 해석은 [RESEARCH](RESEARCH.md), 순서는 [ROADMAP](ROADMAP.md)를 따른다.

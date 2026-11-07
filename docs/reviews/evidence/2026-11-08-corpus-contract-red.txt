@@ -1,0 +1,97 @@
+Already up to date
+Done in 217ms using pnpm v11.19.0
+
+ RUN  v5.1.0 <workspace>
+
+ ❯ tests/corpus-contract.test.ts (8 tests | 6 failed) 476ms
+   ❯ version 2 corpus claim contract (actual compiler scan) (8)
+     × R4 rejects a mutated DateArg union and type kind 3ms
+     × R4 rejects a mutated array parameter type 1ms
+     × R5 rejects declaration-name references with real unequal name/declaration offsets 1ms
+     × accepts actual recursion and reports both use and declaration evidence 0ms
+     × distinguishes imported uses, calls, and same-name parameter targets 0ms
+     × does not guess when use evidence, anchors, or diagnostic validity are missing 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 6 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/corpus-contract.test.ts > version 2 corpus claim contract (actual compiler scan) > R4 rejects a mutated DateArg union and type kind
+AssertionError: expected 'correct' not to be 'correct' // Object.is equality
+ ❯ tests/corpus-contract.test.ts:49:45
+     47|     const changed = structuredClone(facts);
+     48|     changed.types.find(t => t.name === 'DateArg')!.type = 'never';
+     49|     expect(evaluate(l, changed).status).not.toBe('correct');
+       |                                             ^
+     50|     const changedKind = structuredClone(facts);
+     51|     changedKind.types.find(t => t.name === 'DateArg')!.kind = 'interfa…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/6]⎯
+
+ FAIL  tests/corpus-contract.test.ts > version 2 corpus claim contract (actual compiler scan) > R4 rejects a mutated array parameter type
+AssertionError: expected 'correct' not to be 'correct' // Object.is equality
+ ❯ tests/corpus-contract.test.ts:59:45
+     57|     const changed = structuredClone(facts);
+     58|     changed.functions.find(f => f.name === 'arrayRule')!.parameters[0]…
+     59|     expect(evaluate(l, changed).status).not.toBe('correct');
+       |                                             ^
+     60|   });
+     61|   it('R5 rejects declaration-name references with real unequal name/de…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/6]⎯
+
+ FAIL  tests/corpus-contract.test.ts > version 2 corpus claim contract (actual compiler scan) > R5 rejects declaration-name references with real unequal name/declaration offsets
+AssertionError: expected 'correct' not to be 'correct' // Object.is equality
+ ❯ tests/corpus-contract.test.ts:66:36
+     64|     expect(fn.references[0].evidence.start.offset).not.toBe(fn.referen…
+     65|     const l = usage('unused', 'unused() {', loc('export function unuse…
+     66|     expect(evaluate(l).status).not.toBe('correct');
+       |                                    ^
+     67|   });
+     68|   it('rejects parameter and local declaration names as body uses', () …
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/6]⎯
+
+ FAIL  tests/corpus-contract.test.ts > version 2 corpus claim contract (actual compiler scan) > accepts actual recursion and reports both use and declaration evidence
+TypeError: Cannot read properties of undefined (reading 'start')
+ ❯ tests/corpus-contract.test.ts:78:31
+     76|     const result = evaluate(l);
+     77|     expect(result.status).toBe('correct');
+     78|     expect(result.useEvidence.start.offset).toBe(l.use.offset);
+       |                               ^
+     79|     expect(result.targetEvidence.start.offset).toBe(l.target.offset);
+     80|     const removed = structuredClone(facts);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/6]⎯
+
+ FAIL  tests/corpus-contract.test.ts > version 2 corpus claim contract (actual compiler scan) > distinguishes imported uses, calls, and same-name parameter targets
+AssertionError: expected 'correct' not to be 'correct' // Object.is equality
+ ❯ tests/corpus-contract.test.ts:90:64
+     88|     const ref = usage('referenceOnly', 'imported; }', target, 'referen…
+     89|     expect(evaluate(ref).status).toBe('correct');
+     90|     expect(evaluate({ ...ref, usageKind: 'call' }).status).not.toBe('c…
+       |                                                                ^
+     91|     const wrong = usage('shadow', 'imported(); }\nexport function encl…
+     92|     expect(evaluate(wrong).status).not.toBe('correct');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/6]⎯
+
+ FAIL  tests/corpus-contract.test.ts > version 2 corpus claim contract (actual compiler scan) > does not guess when use evidence, anchors, or diagnostic validity are missing
+AssertionError: expected 'correct' to be 'indeterminate' // Object.is equality
+
+Expected: "indeterminate"
+Received: "correct"
+
+ ❯ tests/corpus-contract.test.ts:101:55
+     99|   it('does not guess when use evidence, anchors, or diagnostic validit…
+    100|     const l = usage('recursive', 'recursive();', loc('export function …
+    101|     expect(evaluate({ ...l, use: undefined }).status).toBe('indetermin…
+       |                                                       ^
+    102|     expect(evaluate({ ...l, use: { ...l.use, anchor: 'wrong' } }).stat…
+    103|     expect(evaluate({ ...l, target: { ...l.target, offset: 999 } }).st…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/6]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  6 failed | 2 passed (8)
+   Start at  01:44:25
+   Duration  884ms (tests 60%, import 29%, transform 10%)
