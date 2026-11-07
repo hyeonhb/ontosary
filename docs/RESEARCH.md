@@ -74,3 +74,14 @@ FCA는 공유 속성으로 그룹을 만드는 명시적·재현 가능한 기�
 R1/R2 수정 후 별도 작업으로 R3를 해결했다. 독립 probe의 mixed-JS 관찰은 files=[ignored.js,input.ts]에서 files=[input.ts]로 바뀌고, ignored.js는 위치가 있는 제외 사유로 남는다. 실제 분석 대상만 분모로 쓰도록 기존 계약을 복원했다. 전체 Program coverage를 새로 측정한 것이 아니다.
 
 새 regression 6개와 기존 76개가 모두 통과했다. 타입 해석/참조를 위해 imported JS는 Program에 남고, 제외 파일의 컴파일 오류도 계속 보고·proof 거부에 반영된다. 최신 원시 결과는 `docs/reviews/evidence/2026-11-06-file-manifest-results.json`이며 앞선 날짜별 증거는 보존했다. 코드 사실의 집계 정확성이 업무 개념의 precision/recall이나 사람의 검토 시간 개선을 입증하지 않는다.
+
+
+## 2026-11-07 · 실제 corpus 관찰
+
+[관찰 보고서](reviews/2026-11-07-corpus-observation.md), [고정 입력/재현 절차](../experiments/corpus/README.md), [원시 요약](../experiments/corpus/results/2026-11-07/summary.json).
+
+**관찰:** 공개 p-queue/date-fns 원문을 고정하고 첫 scan/FCA 전에 코드 사실 라벨 24개를 agent가 작성했다. 자동 대조 22개 일치/2개 명시적 클래스 모델링 미지원이다. 함수 전체 predicate는 production queue 0/103, 작은 queue 0/15, weekday 0/5이며 사전 비교는 0/2다. p-queue 원래 설정 실패와 production FCA의 188속성 상한 초과를 보존했다. 작은 queue 후보 23개, weekday 후보 3개가 한도 내에서 나왔다. 동일 facts의 단순 type/property 그룹도 각각 16개/6개를 제공한다. 두 재실행에서 비시간 산출물 14개가 byte 단위로 일치했다.
+
+**해석/추정:** 실제 원문의 호출·상태·숫자·여러 문장 때문에 현재 논리 비교 범위가 좁다는 관찰이다. 날짜 FCA의 요일 함수 extent는 단순 getDay/in 공유 그룹에서도 나타나므로 후보 수를 순증분으로 평가할 수 없다. 두 utility library의 목적 표본은 업무 애플리케이션 coverage나 precision/recall을 추정할 표본이 아니다. 함수 분모에는 nested 함수·접근자·overload도 포함한다. 두 p-queue 실행은 겹친다.
+
+**미검증:** 모든 라벨의 사람 검토, 업무 의미 승인, 실제 사용자 검토 시간, 검색/LSP 대비 효용, 설치 레이아웃이 다른 환경의 재현성. wall time은 단일 로컬 관찰이며 agent 작성 노력/사람 시간을 대체하지 않는다. Gate 2~4는 올라가지 않았다. 다음 한 실험은 사람이 관련 규칙 위치 찾기/그룹 검토/차이 설명 과업을 수행하는 것이다. 기능 지원 확대는 이 자료만으로 선정하지 않는다.

@@ -1,0 +1,43 @@
+{
+  "comparisons": [
+    {
+      "corpus": "date-fns",
+      "scope": "weekday",
+      "left": "isSaturday",
+      "right": "isWeekend",
+      "sameInput": true,
+      "premise": "Same DateArg and same options/context supplied to both; stable date/timezone/context behavior required. This assertion does not make calls, dates or mutable state supported.",
+      "purpose": "Explain Saturday versus weekend conditions; no expected proof or bug claim."
+    },
+    {
+      "corpus": "date-fns",
+      "scope": "weekday",
+      "left": "isSunday",
+      "right": "isWeekend",
+      "sameInput": true,
+      "premise": "Same DateArg and same options/context supplied to both; stable date/timezone/context behavior required.",
+      "purpose": "Explain Sunday versus weekend conditions; no policy violation claim."
+    }
+  ],
+  "skippedComparisons": [
+    {
+      "corpus": "p-queue",
+      "reason": "dequeue mutates queue state and size/filter have different outputs; no justified same-input pure predicate pair selected. No forced comparison."
+    }
+  ],
+  "humanTasks": [
+    {
+      "task": "Locate related weekday/queue rules",
+      "baseline": "Source search or LSP navigation; not executed or timed in this experiment."
+    },
+    {
+      "task": "Review shared-attribute groups",
+      "baseline": "Single type/property groups from identical facts, supplied alongside FCA."
+    },
+    {
+      "task": "Explain condition differences",
+      "baseline": "Read original source; comparisons retain Unsupported. No source code is executed."
+    }
+  ],
+  "humanReviewTimeMs": null
+}

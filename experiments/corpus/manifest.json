@@ -1,0 +1,211 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-07",
+  "analyzerBaseRevision": "c1a542c44b4e59f6be166c52036469e386de0188",
+  "selectionBias": "Two small public utility libraries, calendar rules and queue state. Not representative business applications; no whole-project generalization. No scanning was performed before labels were authored.",
+  "corpora": [
+    {
+      "id": "p-queue",
+      "repository": "https://github.com/sindresorhus/p-queue",
+      "revision": "7f272ab5ff2254c0dc2537b7977e88ede1cd55e8",
+      "selectionReason": "Task scheduling and priority queue state; all five production source files collected before scanning. Main branch snapshot (package version 10.0.0), not a release claim.",
+      "license": {
+        "spdx": "MIT",
+        "path": "license",
+        "redistribution": "Retain original copyright and permission notice with source copies. Source is downloaded into ignored work/ with its original license; no project scripts run."
+      },
+      "acquisition": "https://raw.githubusercontent.com/sindresorhus/p-queue/7f272ab5ff2254c0dc2537b7977e88ede1cd55e8/{path}",
+      "files": [
+        {
+          "path": "license",
+          "sha256": "5c932d88256b4ab958f64a856fa48e8bd1f55bc1d96b8149c65689e0c61789d3",
+          "bytes": 1117
+        },
+        {
+          "path": "package.json",
+          "sha256": "56afa5077b5f6d49ee9e4b22e811041de523bc981adf3171003bce0522f203a5",
+          "bytes": 1750
+        },
+        {
+          "path": "source/index.ts",
+          "sha256": "38c619a96e713bb0929cf9c97635bb55ef6fc8cf558431ed47cbb7673299ea8e",
+          "bytes": 44078
+        },
+        {
+          "path": "source/lower-bound.ts",
+          "sha256": "f5da31a5384648467beab7deba908b0c729c875823f7e6e578543837306a1f0b",
+          "bytes": 536
+        },
+        {
+          "path": "source/options.ts",
+          "sha256": "c3db400807b8680fe8db0934685f7e3b6bd82ecaa60742d6fbca183fc43420d1",
+          "bytes": 6043
+        },
+        {
+          "path": "source/priority-queue.ts",
+          "sha256": "1bb3354b697cd97e4b0923add52f2f862bdba1988c064ffc1940ea47950fed49",
+          "bytes": 4531
+        },
+        {
+          "path": "source/queue.ts",
+          "sha256": "af5137d512d886f95627b43e3423fb1bd9164efcb34fee22c4b962fd8a96610f",
+          "bytes": 354
+        },
+        {
+          "path": "tsconfig.json",
+          "sha256": "920b01c0f9b1c9b402f676daa02c04c2141dd8620bd5ab7d257e247b324ba575",
+          "bytes": 166
+        }
+      ],
+      "scopes": [
+        {
+          "id": "original-config",
+          "config": "tsconfig.json",
+          "description": "Original config against collected production files; upstream dev dependencies are not installed."
+        },
+        {
+          "id": "production",
+          "config": "ontosary-production.json",
+          "description": "All five original production TS files; explicit TS 5.9 settings and existing pinned Node 22 types replace missing upstream shared config/Node 26 types. Not upstream build compatibility.",
+          "content": {
+            "compilerOptions": {
+              "target": "ES2022",
+              "module": "NodeNext",
+              "moduleResolution": "NodeNext",
+              "strict": true,
+              "skipLibCheck": true,
+              "types": [
+                "node"
+              ],
+              "lib": [
+                "ES2022",
+                "DOM"
+              ]
+            },
+            "include": [
+              "source/**/*.ts"
+            ]
+          }
+        },
+        {
+          "id": "priority-queue",
+          "config": "ontosary-priority-queue.json",
+          "description": "Priority queue component plus unchanged local import closure, excluding scheduler index.ts. Explicit ES2022/DOM/strict settings, no ambient node types.",
+          "content": {
+            "compilerOptions": {
+              "target": "ES2022",
+              "module": "NodeNext",
+              "moduleResolution": "NodeNext",
+              "strict": true,
+              "skipLibCheck": true,
+              "types": [],
+              "lib": [
+                "ES2022",
+                "DOM"
+              ]
+            },
+            "files": [
+              "source/priority-queue.ts"
+            ],
+            "include": []
+          }
+        }
+      ],
+      "labelScope": "priority-queue"
+    },
+    {
+      "id": "date-fns",
+      "repository": "https://github.com/date-fns/date-fns",
+      "revision": "313b902b9a72c64501074db9bc2b9897d2db5140",
+      "selectionReason": "v4.1.0 weekday predicates with their unchanged transitive local imports; selection by calendar rule task, not by analyzer support.",
+      "license": {
+        "spdx": "MIT",
+        "path": "LICENSE.md",
+        "redistribution": "Retain original copyright and permission notice with source copies. Source is downloaded into ignored work/ with its original license; no project scripts run."
+      },
+      "acquisition": "https://raw.githubusercontent.com/date-fns/date-fns/313b902b9a72c64501074db9bc2b9897d2db5140/{path}",
+      "files": [
+        {
+          "path": "LICENSE.md",
+          "sha256": "8d3951c38967b964b1fe259bfd200c2647cc04c858b55a4414e3122a60f1ef4b",
+          "bytes": 1117
+        },
+        {
+          "path": "package.json",
+          "sha256": "4569c5b08a8bc61281236014c2a43490142579e1f47550cf51297607feba4b9b",
+          "bytes": 200594
+        },
+        {
+          "path": "src/constants/index.ts",
+          "sha256": "aea1c60f9bdb446d9acc2099e4eecba797238925873cb654dae7f37dd7e19f47",
+          "bytes": 4278
+        },
+        {
+          "path": "src/constructFrom/index.ts",
+          "sha256": "09473b99a0b54be9f14f28ab9a37d15c3d2bf94069fafc900eb760db4478b403",
+          "bytes": 2153
+        },
+        {
+          "path": "src/fp/types.ts",
+          "sha256": "e0157b4526518fd04b464a3f1dd84fa29a2f2c05fe9733266d73ac9bb16c288c",
+          "bytes": 3017
+        },
+        {
+          "path": "src/isSaturday/index.ts",
+          "sha256": "15cd005112e26c5b3e1114161c726512667e214fb03e20bba03b49104aa236fe",
+          "bytes": 772
+        },
+        {
+          "path": "src/isSunday/index.ts",
+          "sha256": "0ff03ab5642d0eee8259374cd4df5a18e4cbc7d10f643188b7238e1c28fa2bfc",
+          "bytes": 748
+        },
+        {
+          "path": "src/isWeekend/index.ts",
+          "sha256": "0621323745f3a1e0cf2352741c61bd003d9a9d3f3a42e4aeab969be7fc2d013c",
+          "bytes": 886
+        },
+        {
+          "path": "src/locale/types.ts",
+          "sha256": "13516f389b668919ae5cf08cf1154b916bd2a548002d2112e3b8b42948b7e9ed",
+          "bytes": 11145
+        },
+        {
+          "path": "src/toDate/index.ts",
+          "sha256": "1ce328da42e0c6c3258b0253ff434306e8980789a4879415f4a687f7e239d9b6",
+          "bytes": 1943
+        },
+        {
+          "path": "src/types.ts",
+          "sha256": "0cfad83a7c9bb9fc63cf3c929d377b402518967205d0fecb357936d679a7ea98",
+          "bytes": 9130
+        },
+        {
+          "path": "tsconfig.json",
+          "sha256": "20f2377d68fd46498909c883d0bc6a858cdf12cae473a6224d60ba040bb33bac",
+          "bytes": 608
+        }
+      ],
+      "scopes": [
+        {
+          "id": "weekday",
+          "config": "ontosary-weekday.json",
+          "description": "Extends original options; restricts roots to three weekday predicates and follows all local imports. types=[] prevents ambient workspace dependencies. Excludes other functions, tests, scripts, locales implementations; not entire repository coverage.",
+          "content": {
+            "extends": "./tsconfig.json",
+            "compilerOptions": {
+              "types": []
+            },
+            "files": [
+              "src/isWeekend/index.ts",
+              "src/isSaturday/index.ts",
+              "src/isSunday/index.ts"
+            ],
+            "include": []
+          }
+        }
+      ],
+      "labelScope": "weekday"
+    }
+  ]
+}

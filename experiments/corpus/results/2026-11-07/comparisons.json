@@ -1,0 +1,96 @@
+{
+  "comparisons": [
+    {
+      "corpus": "date-fns",
+      "scope": "weekday",
+      "left": "isSaturday",
+      "right": "isWeekend",
+      "sameInput": true,
+      "premise": "Same DateArg and same options/context supplied to both; stable date/timezone/context behavior required. This assertion does not make calls, dates or mutable state supported.",
+      "purpose": "Explain Saturday versus weekend conditions; no expected proof or bug claim.",
+      "leftEvidence": {
+        "file": "src/isSaturday/index.ts",
+        "symbol": "isSaturday",
+        "start": {
+          "line": 27,
+          "column": 1,
+          "offset": 607
+        },
+        "end": {
+          "line": 32,
+          "column": 2,
+          "offset": 771
+        }
+      },
+      "rightEvidence": {
+        "file": "src/isWeekend/index.ts",
+        "symbol": "isWeekend",
+        "start": {
+          "line": 27,
+          "column": 1,
+          "offset": 691
+        },
+        "end": {
+          "line": 33,
+          "column": 2,
+          "offset": 885
+        }
+      },
+      "result": {
+        "evaluatedAssignments": 0,
+        "assumptions": [],
+        "status": "Unsupported",
+        "reason": "Equality requires a string literal or constant enum member; Predicate requires a synchronous, non-generator function with exactly one return expression and no other statements."
+      }
+    },
+    {
+      "corpus": "date-fns",
+      "scope": "weekday",
+      "left": "isSunday",
+      "right": "isWeekend",
+      "sameInput": true,
+      "premise": "Same DateArg and same options/context supplied to both; stable date/timezone/context behavior required.",
+      "purpose": "Explain Sunday versus weekend conditions; no policy violation claim.",
+      "leftEvidence": {
+        "file": "src/isSunday/index.ts",
+        "symbol": "isSunday",
+        "start": {
+          "line": 27,
+          "column": 1,
+          "offset": 587
+        },
+        "end": {
+          "line": 32,
+          "column": 2,
+          "offset": 747
+        }
+      },
+      "rightEvidence": {
+        "file": "src/isWeekend/index.ts",
+        "symbol": "isWeekend",
+        "start": {
+          "line": 27,
+          "column": 1,
+          "offset": 691
+        },
+        "end": {
+          "line": 33,
+          "column": 2,
+          "offset": 885
+        }
+      },
+      "result": {
+        "evaluatedAssignments": 0,
+        "assumptions": [],
+        "status": "Unsupported",
+        "reason": "Equality requires a string literal or constant enum member; Predicate requires a synchronous, non-generator function with exactly one return expression and no other statements."
+      }
+    }
+  ],
+  "skipped": [
+    {
+      "corpus": "p-queue",
+      "reason": "dequeue mutates queue state and size/filter have different outputs; no justified same-input pure predicate pair selected. No forced comparison."
+    }
+  ]
+}
