@@ -1,0 +1,814 @@
+{
+  "schemaVersion": 2,
+  "evaluatorVersion": 2,
+  "created": "2026-11-08",
+  "predecessor": "../labels.json",
+  "writtenAfterV1Observation": true,
+  "expectedValueProvenance": "Unchanged pinned source text; existing V1 observations were known. No claim of a new blind or pre-observation dataset.",
+  "approvedKnowledge": [],
+  "labels": [
+    {
+      "id": "p-queue-01",
+      "corpus": "p-queue",
+      "category": "code-fact",
+      "kind": "function",
+      "source": {
+        "file": "source/lower-bound.ts",
+        "anchor": "export default function lowerBound<T>",
+        "line": 3,
+        "offset": 156
+      },
+      "claim": "A FunctionFact named lowerBound exists at the labeled source declaration.",
+      "author": "Codex agent",
+      "method": "V2 audited against unchanged pinned source after the V1 review. Expected values and use anchors authored from source; not copied from scan/FCA results.",
+      "humanReview": "pending",
+      "name": "lowerBound",
+      "contractVersion": 2,
+      "previousLabel": {
+        "version": 1,
+        "id": "p-queue-01",
+        "claim": "lowerBound is a separate function declaration."
+      },
+      "changeReason": "Audit claim against available fact fields; limit correct to the explicit mechanical contract.",
+      "unverified": []
+    },
+    {
+      "id": "p-queue-02",
+      "corpus": "p-queue",
+      "category": "code-fact",
+      "kind": "parameter",
+      "source": {
+        "file": "source/lower-bound.ts",
+        "anchor": "export default function lowerBound<T>",
+        "line": 3,
+        "offset": 156
+      },
+      "claim": "The parameter named array is extracted with type text readonly T[].",
+      "author": "Codex agent",
+      "method": "V2 audited against unchanged pinned source after the V1 review. Expected values and use anchors authored from source; not copied from scan/FCA results.",
+      "humanReview": "pending",
+      "name": "lowerBound",
+      "parameter": "array",
+      "contractVersion": 2,
+      "previousLabel": {
+        "version": 1,
+        "id": "p-queue-02",
+        "claim": "lowerBound has an array parameter named array."
+      },
+      "changeReason": "R4: require independently source-authored parameter type, not merely its name.",
+      "unverified": [],
+      "expectedType": {
+        "exact": "readonly T[]"
+      },
+      "parameterSource": {
+        "file": "source/lower-bound.ts",
+        "anchor": "array: readonly T[]",
+        "offset": 194,
+        "line": 3
+      }
+    },
+    {
+      "id": "p-queue-03",
+      "corpus": "p-queue",
+      "category": "code-fact",
+      "kind": "condition",
+      "source": {
+        "file": "source/lower-bound.ts",
+        "anchor": "export default function lowerBound<T>",
+        "line": 3,
+        "offset": 156
+      },
+      "claim": "An extracted loop condition in lowerBound has exactly this text: count > 0",
+      "author": "Codex agent",
+      "method": "V2 audited against unchanged pinned source after the V1 review. Expected values and use anchors authored from source; not copied from scan/FCA results.",
+      "humanReview": "pending",
+      "name": "lowerBound",
+      "text": "count > 0",
+      "conditionKind": "loop",
+      "contractVersion": 2,
+      "previousLabel": {
+        "version": 1,
+        "id": "p-queue-03",
+        "claim": "lowerBound tests count > 0 in its while loop."
+      },
+      "changeReason": "Audit claim against available fact fields; limit correct to the explicit mechanical contract.",
+      "unverified": [
+        "Condition semantics, runtime behavior and predicate support are not part of this extraction claim."
+      ],
+      "conditionSource": {
+        "file": "source/lower-bound.ts",
+        "anchor": "count > 0",
+        "offset": 323,
+        "line": 7
+      }
+    },
+    {
+      "id": "p-queue-04",
+      "corpus": "p-queue",
+      "category": "code-fact",
+      "kind": "reference",
+      "source": {
+        "file": "source/lower-bound.ts",
+        "anchor": "export default function lowerBound<T>",
+        "line": 3,
+        "offset": 156
+      },
+      "claim": "The specified call use in lowerBound has a reference edge to the labeled target declaration.",
+      "author": "Codex agent",
+      "method": "V2 audited against unchanged pinned source after the V1 review. Expected values and use anchors authored from source; not copied from scan/FCA results.",
+      "humanReview": "pending",
+      "name": "lowerBound",
+      "target": {
+        "file": "source/lower-bound.ts",
+        "anchor": "comparator: (a: T, b: T) => number",
+        "line": 3,
+        "offset": 225
+      },
+      "contractVersion": 2,
+      "previousLabel": {
+        "version": 1,
+        "id": "p-queue-04",
+        "claim": "The invocation comparator resolves to this function parameter, not a same-name global."
+      },
+      "changeReason": "R5: match an explicit source use and target declaration; distinguish a call callee from an ordinary reference and exclude declaration names.",
+      "unverified": [
+        "This is a syntactic use, not proof of runtime execution or a whole-program call graph."
+      ],
+      "use": {
+        "file": "source/lower-bound.ts",
+        "anchor": "comparator(array[it]!, value)",
+        "offset": 406,
+        "line": 11
+      },
+      "usageKind": "call"
+    },
+    {
+      "id": "p-queue-05",
+      "corpus": "p-queue",
+      "category": "code-fact",
+      "kind": "type",
+      "source": {
+        "file": "source/queue.ts",
+        "anchor": "export type Queue<Element, Options>",
+        "line": 3,
+        "offset": 51
+      },
+      "claim": "Queue is extracted as a type alias at the labeled declaration.",
+      "author": "Codex agent",
+      "method": "V2 audited against unchanged pinned source after the V1 review. Expected values and use anchors authored from source; not copied from scan/FCA results.",
+      "humanReview": "pending",
+      "name": "Queue",
+      "contractVersion": 2,
+      "previousLabel": {
+        "version": 1,
+        "id": "p-queue-05",
+        "claim": "Queue is a generic type alias."
+      },
+      "changeReason": "Audit claim against available fact fields; limit correct to the explicit mechanical contract.",
+      "unverified": [
+        "Generic parameters and constraints are not separately evaluated."
+      ],
+      "expectedKind": "alias"
+    },
+    {
+      "id": "p-queue-06",
+      "corpus": "p-queue",
+      "category": "code-fact",
+      "kind": "field",
+      "source": {
+        "file": "source/queue.ts",
+        "anchor": "export type Queue<Element, Options>",
+        "line": 3,
+        "offset": 51
+      },
+      "claim": "The Queue type fact exposes a field named size with type text number.",
+      "author": "Codex agent",
+      "method": "V2 audited against unchanged pinned source after the V1 review. Expected values and use anchors authored from source; not copied from scan/FCA results.",
+      "humanReview": "pending",
+      "name": "Queue",
+      "field": "size",
+      "fieldType": "number",
+      "contractVersion": 2,
+      "previousLabel": {
+        "version": 1,
+        "id": "p-queue-06",
+        "claim": "Queue exposes size as a number field."
+      },
+      "changeReason": "Audit claim against available fact fields; limit correct to the explicit mechanical contract.",
+      "unverified": [],
+      "expectedKind": "alias"
+    },
+    {
+      "id": "p-queue-07",
+      "corpus": "p-queue",
+      "category": "code-fact",
+      "kind": "function",
+      "source": {
+        "file": "source/priority-queue.ts",
+        "anchor": "enqueue(run: RunFunction, options?",
+        "line": 58,
+        "offset": 2017
+      },
+      "claim": "A FunctionFact named enqueue exists at the labeled source declaration.",
+      "author": "Codex agent",
+      "method": "V2 audited against unchanged pinned source after the V1 review. Expected values and use anchors authored from source; not copied from scan/FCA results.",
+      "humanReview": "pending",
+      "name": "enqueue",
+      "contractVersion": 2,
+      "previousLabel": {
+        "version": 1,
+        "id": "p-queue-07",
+        "claim": "enqueue is a method on PriorityQueue."
+      },
+      "changeReason": "Audit claim against available fact fields; limit correct to the explicit mechanical contract.",
+      "unverified": [
+        "Method syntax and membership in class PriorityQueue are not represented by FunctionFact and are not automatically verified."
+      ]
+    },
+    {
+      "id": "p-queue-08",
+      "corpus": "p-queue",
+      "category": "code-fact",
+      "kind": "reference",
+      "source": {
+        "file": "source/priority-queue.ts",
+        "anchor": "enqueue(run: RunFunction, options?",
+        "line": 58,
+        "offset": 2017
+      },
+      "claim": "The specified reference use in enqueue has a reference edge to the labeled target declaration.",
+      "author": "Codex agent",
+      "method": "V2 audited against unchanged pinned source after the V1 review. Expected values and use anchors authored from source; not copied from scan/FCA results.",
+      "humanReview": "pending",
+      "name": "enqueue",
+      "target": {
+        "file": "source/lower-bound.ts",
+        "anchor": "export default function lowerBound<T>",
+        "line": 3,
+        "offset": 156
+      },
+      "contractVersion": 2,
+      "previousLabel": {
+        "version": 1,
+        "id": "p-queue-08",
+        "claim": "enqueue references the imported lowerBound declaration."
+      },
+      "changeReason": "R5: match an explicit source use and target declaration; distinguish a call callee from an ordinary reference and exclude declaration names.",
+      "unverified": [
+        "This is a syntactic use, not proof of runtime execution or a whole-program call graph."
+      ],
+      "use": {
+        "file": "source/priority-queue.ts",
+        "anchor": "lowerBound(this.#queue",
+        "offset": 2840,
+        "line": 88
+      },
+      "usageKind": "reference"
+    },
+    {
+      "id": "p-queue-09",
+      "corpus": "p-queue",
+      "category": "code-fact",
+      "kind": "condition",
+      "source": {
+        "file": "source/priority-queue.ts",
+        "anchor": "dequeue(): RunFunction | undefined {",
+        "line": 120,
+        "offset": 4011
+      },
+      "claim": "An extracted conditional condition in dequeue has exactly this text: this.#head === this.#queue.length",
+      "author": "Codex agent",
+      "method": "V2 audited against unchanged pinned source after the V1 review. Expected values and use anchors authored from source; not copied from scan/FCA results.",
+      "humanReview": "pending",
+      "name": "dequeue",
+      "text": "this.#head === this.#queue.length",
+      "conditionKind": "conditional",
+      "contractVersion": 2,
+      "previousLabel": {
+        "version": 1,
+        "id": "p-queue-09",
+        "claim": "dequeue tests whether head equals queue length."
+      },
+      "changeReason": "Audit claim against available fact fields; limit correct to the explicit mechanical contract.",
+      "unverified": [
+        "Condition semantics, runtime behavior and predicate support are not part of this extraction claim."
+      ],
+      "conditionSource": {
+        "file": "source/priority-queue.ts",
+        "anchor": "this.#head === this.#queue.length ?",
+        "offset": 4057,
+        "line": 121
+      }
+    },
+    {
+      "id": "p-queue-10",
+      "corpus": "p-queue",
+      "category": "code-fact",
+      "kind": "condition",
+      "source": {
+        "file": "source/priority-queue.ts",
+        "anchor": "get size(): number {",
+        "line": 137,
+        "offset": 4462
+      },
+      "claim": "An extracted return condition in size has exactly this text: this.#queue.length - this.#head",
+      "author": "Codex agent",
+      "method": "V2 audited against unchanged pinned source after the V1 review. Expected values and use anchors authored from source; not copied from scan/FCA results.",
+      "humanReview": "pending",
+      "name": "size",
+      "text": "this.#queue.length - this.#head",
+      "conditionKind": "return",
+      "contractVersion": 2,
+      "previousLabel": {
+        "version": 1,
+        "id": "p-queue-10",
+        "claim": "size returns array length minus consumed head."
+      },
+      "changeReason": "Audit claim against available fact fields; limit correct to the explicit mechanical contract.",
+      "unverified": [
+        "Condition semantics, runtime behavior and predicate support are not part of this extraction claim."
+      ],
+      "conditionSource": {
+        "file": "source/priority-queue.ts",
+        "anchor": "this.#queue.length - this.#head",
+        "offset": 4492,
+        "line": 138
+      }
+    },
+    {
+      "id": "p-queue-11",
+      "corpus": "p-queue",
+      "category": "code-fact",
+      "kind": "type",
+      "source": {
+        "file": "source/priority-queue.ts",
+        "anchor": "export default class PriorityQueue",
+        "line": 11,
+        "offset": 277
+      },
+      "claim": "PriorityQueue is extracted as a class type fact at the labeled declaration (unsupported coverage probe).",
+      "author": "Codex agent",
+      "method": "V2 audited against unchanged pinned source after the V1 review. Expected values and use anchors authored from source; not copied from scan/FCA results.",
+      "humanReview": "pending",
+      "name": "PriorityQueue",
+      "contractVersion": 2,
+      "previousLabel": {
+        "version": 1,
+        "id": "p-queue-11",
+        "claim": "PriorityQueue is a distinct class declaration (class modeling coverage probe)."
+      },
+      "changeReason": "Audit claim against available fact fields; limit correct to the explicit mechanical contract.",
+      "unverified": [],
+      "expectedKind": "class"
+    },
+    {
+      "id": "p-queue-12",
+      "corpus": "p-queue",
+      "category": "code-fact",
+      "kind": "field",
+      "source": {
+        "file": "source/priority-queue.ts",
+        "anchor": "export default class PriorityQueue",
+        "line": 11,
+        "offset": 277
+      },
+      "claim": "The PriorityQueue type fact exposes a field named #head with type text number.",
+      "author": "Codex agent",
+      "method": "V2 audited against unchanged pinned source after the V1 review. Expected values and use anchors authored from source; not copied from scan/FCA results.",
+      "humanReview": "pending",
+      "name": "PriorityQueue",
+      "field": "#head",
+      "fieldType": "number",
+      "contractVersion": 2,
+      "previousLabel": {
+        "version": 1,
+        "id": "p-queue-12",
+        "claim": "PriorityQueue declares numeric private state #head (field modeling coverage probe)."
+      },
+      "changeReason": "Audit claim against available fact fields; limit correct to the explicit mechanical contract.",
+      "unverified": [],
+      "expectedKind": "class"
+    },
+    {
+      "id": "date-fns-01",
+      "corpus": "date-fns",
+      "category": "code-fact",
+      "kind": "function",
+      "source": {
+        "file": "src/isWeekend/index.ts",
+        "anchor": "export function isWeekend(",
+        "line": 27,
+        "offset": 691
+      },
+      "claim": "A FunctionFact named isWeekend exists at the labeled source declaration.",
+      "author": "Codex agent",
+      "method": "V2 audited against unchanged pinned source after the V1 review. Expected values and use anchors authored from source; not copied from scan/FCA results.",
+      "humanReview": "pending",
+      "name": "isWeekend",
+      "contractVersion": 2,
+      "previousLabel": {
+        "version": 1,
+        "id": "date-fns-01",
+        "claim": "isWeekend has its own function declaration."
+      },
+      "changeReason": "Audit claim against available fact fields; limit correct to the explicit mechanical contract.",
+      "unverified": []
+    },
+    {
+      "id": "date-fns-02",
+      "corpus": "date-fns",
+      "category": "code-fact",
+      "kind": "function",
+      "source": {
+        "file": "src/isSaturday/index.ts",
+        "anchor": "export function isSaturday(",
+        "line": 27,
+        "offset": 607
+      },
+      "claim": "A FunctionFact named isSaturday exists at the labeled source declaration.",
+      "author": "Codex agent",
+      "method": "V2 audited against unchanged pinned source after the V1 review. Expected values and use anchors authored from source; not copied from scan/FCA results.",
+      "humanReview": "pending",
+      "name": "isSaturday",
+      "contractVersion": 2,
+      "previousLabel": {
+        "version": 1,
+        "id": "date-fns-02",
+        "claim": "isSaturday has its own function declaration."
+      },
+      "changeReason": "Audit claim against available fact fields; limit correct to the explicit mechanical contract.",
+      "unverified": []
+    },
+    {
+      "id": "date-fns-03",
+      "corpus": "date-fns",
+      "category": "code-fact",
+      "kind": "distinct-types",
+      "source": {
+        "file": "src/isSaturday/index.ts",
+        "anchor": "export interface IsSaturdayOptions",
+        "line": 7,
+        "offset": 158
+      },
+      "claim": "IsSaturdayOptions and IsSundayOptions are separate interface facts at their two labeled declarations with distinct IDs.",
+      "author": "Codex agent",
+      "method": "V2 audited against unchanged pinned source after the V1 review. Expected values and use anchors authored from source; not copied from scan/FCA results.",
+      "humanReview": "pending",
+      "name": "IsSaturdayOptions",
+      "other": {
+        "file": "src/isSunday/index.ts",
+        "anchor": "export interface IsSundayOptions",
+        "line": 7,
+        "offset": 156
+      },
+      "otherName": "IsSundayOptions",
+      "contractVersion": 2,
+      "previousLabel": {
+        "version": 1,
+        "id": "date-fns-03",
+        "claim": "IsSaturdayOptions and IsSundayOptions are distinct declarations despite both extending ContextOptions<Date>."
+      },
+      "changeReason": "Audit claim against available fact fields; limit correct to the explicit mechanical contract.",
+      "unverified": [
+        "Both extend ContextOptions<Date> in source; inheritance and structural equivalence are not evaluated."
+      ],
+      "expectedKind": "interface"
+    },
+    {
+      "id": "date-fns-04",
+      "corpus": "date-fns",
+      "category": "code-fact",
+      "kind": "condition",
+      "source": {
+        "file": "src/isWeekend/index.ts",
+        "anchor": "export function isWeekend(",
+        "line": 27,
+        "offset": 691
+      },
+      "claim": "An extracted return condition in isWeekend has exactly this text: day === 0 || day === 6",
+      "author": "Codex agent",
+      "method": "V2 audited against unchanged pinned source after the V1 review. Expected values and use anchors authored from source; not copied from scan/FCA results.",
+      "humanReview": "pending",
+      "name": "isWeekend",
+      "text": "day === 0 || day === 6",
+      "conditionKind": "return",
+      "contractVersion": 2,
+      "previousLabel": {
+        "version": 1,
+        "id": "date-fns-04",
+        "claim": "isWeekend returns day === 0 || day === 6."
+      },
+      "changeReason": "Audit claim against available fact fields; limit correct to the explicit mechanical contract.",
+      "unverified": [
+        "Condition semantics, runtime behavior and predicate support are not part of this extraction claim."
+      ],
+      "conditionSource": {
+        "file": "src/isWeekend/index.ts",
+        "anchor": "day === 0 || day === 6",
+        "offset": 860,
+        "line": 32
+      }
+    },
+    {
+      "id": "date-fns-05",
+      "corpus": "date-fns",
+      "category": "code-fact",
+      "kind": "condition",
+      "source": {
+        "file": "src/isSaturday/index.ts",
+        "anchor": "export function isSaturday(",
+        "line": 27,
+        "offset": 607
+      },
+      "claim": "An extracted return condition in isSaturday has exactly this text: toDate(date, options?.in).getDay() === 6",
+      "author": "Codex agent",
+      "method": "V2 audited against unchanged pinned source after the V1 review. Expected values and use anchors authored from source; not copied from scan/FCA results.",
+      "humanReview": "pending",
+      "name": "isSaturday",
+      "text": "toDate(date, options?.in).getDay() === 6",
+      "conditionKind": "return",
+      "contractVersion": 2,
+      "previousLabel": {
+        "version": 1,
+        "id": "date-fns-05",
+        "claim": "isSaturday compares converted getDay() to 6."
+      },
+      "changeReason": "Audit claim against available fact fields; limit correct to the explicit mechanical contract.",
+      "unverified": [
+        "Condition semantics, runtime behavior and predicate support are not part of this extraction claim."
+      ],
+      "conditionSource": {
+        "file": "src/isSaturday/index.ts",
+        "anchor": "toDate(date, options?.in).getDay() === 6",
+        "offset": 728,
+        "line": 31
+      }
+    },
+    {
+      "id": "date-fns-06",
+      "corpus": "date-fns",
+      "category": "code-fact",
+      "kind": "condition",
+      "source": {
+        "file": "src/isSunday/index.ts",
+        "anchor": "export function isSunday(",
+        "line": 27,
+        "offset": 587
+      },
+      "claim": "An extracted return condition in isSunday has exactly this text: toDate(date, options?.in).getDay() === 0",
+      "author": "Codex agent",
+      "method": "V2 audited against unchanged pinned source after the V1 review. Expected values and use anchors authored from source; not copied from scan/FCA results.",
+      "humanReview": "pending",
+      "name": "isSunday",
+      "text": "toDate(date, options?.in).getDay() === 0",
+      "conditionKind": "return",
+      "contractVersion": 2,
+      "previousLabel": {
+        "version": 1,
+        "id": "date-fns-06",
+        "claim": "isSunday compares converted getDay() to 0."
+      },
+      "changeReason": "Audit claim against available fact fields; limit correct to the explicit mechanical contract.",
+      "unverified": [
+        "Condition semantics, runtime behavior and predicate support are not part of this extraction claim."
+      ],
+      "conditionSource": {
+        "file": "src/isSunday/index.ts",
+        "anchor": "toDate(date, options?.in).getDay() === 0",
+        "offset": 704,
+        "line": 31
+      }
+    },
+    {
+      "id": "date-fns-07",
+      "corpus": "date-fns",
+      "category": "code-fact",
+      "kind": "reference",
+      "source": {
+        "file": "src/isWeekend/index.ts",
+        "anchor": "export function isWeekend(",
+        "line": 27,
+        "offset": 691
+      },
+      "claim": "The specified reference use in isWeekend has a reference edge to the labeled target declaration.",
+      "author": "Codex agent",
+      "method": "V2 audited against unchanged pinned source after the V1 review. Expected values and use anchors authored from source; not copied from scan/FCA results.",
+      "humanReview": "pending",
+      "name": "isWeekend",
+      "target": {
+        "file": "src/toDate/index.ts",
+        "anchor": "export function toDate<",
+        "line": 42,
+        "offset": 1630
+      },
+      "contractVersion": 2,
+      "previousLabel": {
+        "version": 1,
+        "id": "date-fns-07",
+        "claim": "isWeekend refers to the local imported toDate declaration."
+      },
+      "changeReason": "R5: match an explicit source use and target declaration; distinguish a call callee from an ordinary reference and exclude declaration names.",
+      "unverified": [
+        "This is a syntactic use, not proof of runtime execution or a whole-program call graph."
+      ],
+      "use": {
+        "file": "src/isWeekend/index.ts",
+        "anchor": "toDate(date, options?.in)",
+        "offset": 815,
+        "line": 31
+      },
+      "usageKind": "reference"
+    },
+    {
+      "id": "date-fns-08",
+      "corpus": "date-fns",
+      "category": "code-fact",
+      "kind": "reference",
+      "source": {
+        "file": "src/isSaturday/index.ts",
+        "anchor": "export function isSaturday(",
+        "line": 27,
+        "offset": 607
+      },
+      "claim": "The specified reference use in isSaturday has a reference edge to the labeled target declaration.",
+      "author": "Codex agent",
+      "method": "V2 audited against unchanged pinned source after the V1 review. Expected values and use anchors authored from source; not copied from scan/FCA results.",
+      "humanReview": "pending",
+      "name": "isSaturday",
+      "target": {
+        "file": "src/toDate/index.ts",
+        "anchor": "export function toDate<",
+        "line": 42,
+        "offset": 1630
+      },
+      "contractVersion": 2,
+      "previousLabel": {
+        "version": 1,
+        "id": "date-fns-08",
+        "claim": "isSaturday refers to the same toDate declaration as isWeekend."
+      },
+      "changeReason": "R5: match an explicit source use and target declaration; distinguish a call callee from an ordinary reference and exclude declaration names.",
+      "unverified": [
+        "This is a syntactic use, not proof of runtime execution or a whole-program call graph."
+      ],
+      "use": {
+        "file": "src/isSaturday/index.ts",
+        "anchor": "toDate(date, options?.in)",
+        "offset": 728,
+        "line": 31
+      },
+      "usageKind": "reference"
+    },
+    {
+      "id": "date-fns-09",
+      "corpus": "date-fns",
+      "category": "code-fact",
+      "kind": "property",
+      "source": {
+        "file": "src/isWeekend/index.ts",
+        "anchor": "export function isWeekend(",
+        "line": 27,
+        "offset": 691
+      },
+      "claim": "The specified in property use in isWeekend has a reference edge and property fact targeting the labeled ContextOptions.in declaration.",
+      "author": "Codex agent",
+      "method": "V2 audited against unchanged pinned source after the V1 review. Expected values and use anchors authored from source; not copied from scan/FCA results.",
+      "humanReview": "pending",
+      "name": "isWeekend",
+      "target": {
+        "file": "src/types.ts",
+        "anchor": "in?: ContextFn<DateType> | undefined;",
+        "line": 330,
+        "offset": 8693
+      },
+      "contractVersion": 2,
+      "previousLabel": {
+        "version": 1,
+        "id": "date-fns-09",
+        "claim": "options.in resolves to the inherited ContextOptions.in declaration."
+      },
+      "changeReason": "R5: match an explicit source use and target declaration; distinguish a call callee from an ordinary reference and exclude declaration names.",
+      "unverified": [
+        "The inheritance path is not independently evaluated."
+      ],
+      "use": {
+        "file": "src/isWeekend/index.ts",
+        "anchor": "in).getDay()",
+        "offset": 837,
+        "line": 31
+      },
+      "usageKind": "reference"
+    },
+    {
+      "id": "date-fns-10",
+      "corpus": "date-fns",
+      "category": "code-fact",
+      "kind": "type",
+      "source": {
+        "file": "src/types.ts",
+        "anchor": "export type DateArg<DateType extends Date>",
+        "line": 10,
+        "offset": 222
+      },
+      "claim": "DateArg is an alias whose extracted type text has exactly the union members DateType, number and string (order ignored).",
+      "author": "Codex agent",
+      "method": "V2 audited against unchanged pinned source after the V1 review. Expected values and use anchors authored from source; not copied from scan/FCA results.",
+      "humanReview": "pending",
+      "name": "DateArg",
+      "contractVersion": 2,
+      "previousLabel": {
+        "version": 1,
+        "id": "date-fns-10",
+        "claim": "DateArg retains the date, number, string union alias."
+      },
+      "changeReason": "R4: compare union members authored from src/types.ts, independently of TypeChecker output.",
+      "unverified": [
+        "DateType generic constraint and general semantic type equivalence are not evaluated."
+      ],
+      "expectedKind": "alias",
+      "expectedType": {
+        "unionMembers": [
+          "DateType",
+          "number",
+          "string"
+        ]
+      }
+    },
+    {
+      "id": "date-fns-11",
+      "corpus": "date-fns",
+      "category": "code-fact",
+      "kind": "condition",
+      "source": {
+        "file": "src/constructFrom/index.ts",
+        "anchor": "export function constructFrom<",
+        "line": 44,
+        "offset": 1605
+      },
+      "claim": "An extracted if condition in constructFrom has exactly this text: typeof date === \"function\"",
+      "author": "Codex agent",
+      "method": "V2 audited against unchanged pinned source after the V1 review. Expected values and use anchors authored from source; not copied from scan/FCA results.",
+      "humanReview": "pending",
+      "name": "constructFrom",
+      "text": "typeof date === \"function\"",
+      "conditionKind": "if",
+      "contractVersion": 2,
+      "previousLabel": {
+        "version": 1,
+        "id": "date-fns-11",
+        "claim": "constructFrom branches on typeof date === function."
+      },
+      "changeReason": "Audit claim against available fact fields; limit correct to the explicit mechanical contract.",
+      "unverified": [
+        "Condition semantics, runtime behavior and predicate support are not part of this extraction claim."
+      ],
+      "conditionSource": {
+        "file": "src/constructFrom/index.ts",
+        "anchor": "typeof date === \"function\"",
+        "offset": 1836,
+        "line": 51
+      }
+    },
+    {
+      "id": "date-fns-12",
+      "corpus": "date-fns",
+      "category": "code-fact",
+      "kind": "function",
+      "source": {
+        "file": "src/toDate/index.ts",
+        "anchor": "export function toDate<",
+        "line": 42,
+        "offset": 1630
+      },
+      "claim": "A FunctionFact named toDate exists at the labeled source declaration.",
+      "author": "Codex agent",
+      "method": "V2 audited against unchanged pinned source after the V1 review. Expected values and use anchors authored from source; not copied from scan/FCA results.",
+      "humanReview": "pending",
+      "name": "toDate",
+      "contractVersion": 2,
+      "previousLabel": {
+        "version": 1,
+        "id": "date-fns-12",
+        "claim": "toDate has its own generic function declaration."
+      },
+      "changeReason": "Audit claim against available fact fields; limit correct to the explicit mechanical contract.",
+      "unverified": [
+        "Generic parameters and constraints are not represented by FunctionFact and are not automatically verified."
+      ]
+    }
+  ],
+  "semanticCandidates": [
+    {
+      "corpus": "date-fns",
+      "claim": "Weekday helpers may be useful together for calendar-rule navigation.",
+      "reviewStatus": "unreviewed",
+      "basis": "Source comments and names, not an approved business concept."
+    },
+    {
+      "corpus": "p-queue",
+      "claim": "Queue state methods may help explain pending task ordering.",
+      "reviewStatus": "unreviewed",
+      "basis": "Source reading; no user task evaluation."
+    }
+  ]
+}

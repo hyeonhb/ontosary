@@ -1,0 +1,1432 @@
+{
+  "previousLabelsSha256": "32f8a4d4d788dad9422a78d32d3ea768ef13a1d1524083fcd403e6199832be03",
+  "note": "Contracts changed. Equal totals do not mean equal checking strength; differences are not accuracy deltas.",
+  "transitions": [
+    {
+      "id": "p-queue-01",
+      "before": {
+        "evaluatorVersion": 1,
+        "claim": "lowerBound is a separate function declaration.",
+        "status": "correct"
+      },
+      "after": {
+        "evaluatorVersion": 2,
+        "claim": "A FunctionFact named lowerBound exists at the labeled source declaration.",
+        "status": "correct",
+        "checks": [
+          {
+            "field": "declaration.file+offset",
+            "expected": {
+              "file": "source/lower-bound.ts",
+              "anchor": "export default function lowerBound<T>",
+              "line": 3,
+              "offset": 156
+            },
+            "actual": {
+              "file": "source/lower-bound.ts",
+              "symbol": "lowerBound",
+              "start": {
+                "line": 3,
+                "column": 1,
+                "offset": 156
+              },
+              "end": {
+                "line": 20,
+                "column": 2,
+                "offset": 535
+              }
+            },
+            "passed": true
+          },
+          {
+            "field": "name",
+            "expected": "lowerBound",
+            "actual": "lowerBound",
+            "passed": true
+          }
+        ],
+        "unverified": []
+      },
+      "changeReason": "Audit claim against available fact fields; limit correct to the explicit mechanical contract.",
+      "comparableAsAccuracyDelta": false
+    },
+    {
+      "id": "p-queue-02",
+      "before": {
+        "evaluatorVersion": 1,
+        "claim": "lowerBound has an array parameter named array.",
+        "status": "correct"
+      },
+      "after": {
+        "evaluatorVersion": 2,
+        "claim": "The parameter named array is extracted with type text readonly T[].",
+        "status": "correct",
+        "checks": [
+          {
+            "field": "declaration.file+offset",
+            "expected": {
+              "file": "source/lower-bound.ts",
+              "anchor": "export default function lowerBound<T>",
+              "line": 3,
+              "offset": 156
+            },
+            "actual": {
+              "file": "source/lower-bound.ts",
+              "symbol": "lowerBound",
+              "start": {
+                "line": 3,
+                "column": 1,
+                "offset": 156
+              },
+              "end": {
+                "line": 20,
+                "column": 2,
+                "offset": 535
+              }
+            },
+            "passed": true
+          },
+          {
+            "field": "name",
+            "expected": "lowerBound",
+            "actual": "lowerBound",
+            "passed": true
+          },
+          {
+            "field": "parameter.type",
+            "expected": {
+              "exact": "readonly T[]"
+            },
+            "actual": "readonly T[]",
+            "passed": true
+          }
+        ],
+        "unverified": []
+      },
+      "changeReason": "R4: require independently source-authored parameter type, not merely its name.",
+      "comparableAsAccuracyDelta": false
+    },
+    {
+      "id": "p-queue-03",
+      "before": {
+        "evaluatorVersion": 1,
+        "claim": "lowerBound tests count > 0 in its while loop.",
+        "status": "correct"
+      },
+      "after": {
+        "evaluatorVersion": 2,
+        "claim": "An extracted loop condition in lowerBound has exactly this text: count > 0",
+        "status": "correct",
+        "checks": [
+          {
+            "field": "declaration.file+offset",
+            "expected": {
+              "file": "source/lower-bound.ts",
+              "anchor": "export default function lowerBound<T>",
+              "line": 3,
+              "offset": 156
+            },
+            "actual": {
+              "file": "source/lower-bound.ts",
+              "symbol": "lowerBound",
+              "start": {
+                "line": 3,
+                "column": 1,
+                "offset": 156
+              },
+              "end": {
+                "line": 20,
+                "column": 2,
+                "offset": 535
+              }
+            },
+            "passed": true
+          },
+          {
+            "field": "name",
+            "expected": "lowerBound",
+            "actual": "lowerBound",
+            "passed": true
+          },
+          {
+            "field": "condition.kind+text",
+            "expected": {
+              "kind": "loop",
+              "text": "count > 0"
+            },
+            "actual": {
+              "kind": "loop",
+              "text": "count > 0"
+            },
+            "passed": true
+          }
+        ],
+        "unverified": [
+          "Condition semantics, runtime behavior and predicate support are not part of this extraction claim."
+        ]
+      },
+      "changeReason": "Audit claim against available fact fields; limit correct to the explicit mechanical contract.",
+      "comparableAsAccuracyDelta": false
+    },
+    {
+      "id": "p-queue-04",
+      "before": {
+        "evaluatorVersion": 1,
+        "claim": "The invocation comparator resolves to this function parameter, not a same-name global.",
+        "status": "correct"
+      },
+      "after": {
+        "evaluatorVersion": 2,
+        "claim": "The specified call use in lowerBound has a reference edge to the labeled target declaration.",
+        "status": "correct",
+        "checks": [
+          {
+            "field": "declaration.file+offset",
+            "expected": {
+              "file": "source/lower-bound.ts",
+              "anchor": "export default function lowerBound<T>",
+              "line": 3,
+              "offset": 156
+            },
+            "actual": {
+              "file": "source/lower-bound.ts",
+              "symbol": "lowerBound",
+              "start": {
+                "line": 3,
+                "column": 1,
+                "offset": 156
+              },
+              "end": {
+                "line": 20,
+                "column": 2,
+                "offset": 535
+              }
+            },
+            "passed": true
+          },
+          {
+            "field": "name",
+            "expected": "lowerBound",
+            "actual": "lowerBound",
+            "passed": true
+          },
+          {
+            "field": "source use role",
+            "expected": "call",
+            "actual": "call",
+            "passed": true
+          },
+          {
+            "field": "target.file+offset",
+            "expected": {
+              "file": "source/lower-bound.ts",
+              "anchor": "comparator: (a: T, b: T) => number",
+              "line": 3,
+              "offset": 225
+            },
+            "actual": {
+              "file": "source/lower-bound.ts",
+              "symbol": "comparator",
+              "start": {
+                "line": 3,
+                "column": 70,
+                "offset": 225
+              },
+              "end": {
+                "line": 3,
+                "column": 104,
+                "offset": 259
+              }
+            },
+            "passed": true
+          }
+        ],
+        "unverified": [
+          "This is a syntactic use, not proof of runtime execution or a whole-program call graph."
+        ]
+      },
+      "changeReason": "R5: match an explicit source use and target declaration; distinguish a call callee from an ordinary reference and exclude declaration names.",
+      "comparableAsAccuracyDelta": false
+    },
+    {
+      "id": "p-queue-05",
+      "before": {
+        "evaluatorVersion": 1,
+        "claim": "Queue is a generic type alias.",
+        "status": "correct"
+      },
+      "after": {
+        "evaluatorVersion": 2,
+        "claim": "Queue is extracted as a type alias at the labeled declaration.",
+        "status": "correct",
+        "checks": [
+          {
+            "field": "declaration.file+offset",
+            "expected": {
+              "file": "source/queue.ts",
+              "anchor": "export type Queue<Element, Options>",
+              "line": 3,
+              "offset": 51
+            },
+            "actual": {
+              "file": "source/queue.ts",
+              "symbol": "Queue",
+              "start": {
+                "line": 3,
+                "column": 1,
+                "offset": 51
+              },
+              "end": {
+                "line": 10,
+                "column": 3,
+                "offset": 353
+              }
+            },
+            "passed": true
+          },
+          {
+            "field": "name",
+            "expected": "Queue",
+            "actual": "Queue",
+            "passed": true
+          },
+          {
+            "field": "kind",
+            "expected": "alias",
+            "actual": "alias",
+            "passed": true
+          }
+        ],
+        "unverified": [
+          "Generic parameters and constraints are not separately evaluated."
+        ]
+      },
+      "changeReason": "Audit claim against available fact fields; limit correct to the explicit mechanical contract.",
+      "comparableAsAccuracyDelta": false
+    },
+    {
+      "id": "p-queue-06",
+      "before": {
+        "evaluatorVersion": 1,
+        "claim": "Queue exposes size as a number field.",
+        "status": "correct"
+      },
+      "after": {
+        "evaluatorVersion": 2,
+        "claim": "The Queue type fact exposes a field named size with type text number.",
+        "status": "correct",
+        "checks": [
+          {
+            "field": "declaration.file+offset",
+            "expected": {
+              "file": "source/queue.ts",
+              "anchor": "export type Queue<Element, Options>",
+              "line": 3,
+              "offset": 51
+            },
+            "actual": {
+              "file": "source/queue.ts",
+              "symbol": "Queue",
+              "start": {
+                "line": 3,
+                "column": 1,
+                "offset": 51
+              },
+              "end": {
+                "line": 10,
+                "column": 3,
+                "offset": 353
+              }
+            },
+            "passed": true
+          },
+          {
+            "field": "name",
+            "expected": "Queue",
+            "actual": "Queue",
+            "passed": true
+          },
+          {
+            "field": "kind",
+            "expected": "alias",
+            "actual": "alias",
+            "passed": true
+          },
+          {
+            "field": "field.type",
+            "expected": "number",
+            "actual": "number",
+            "passed": true
+          }
+        ],
+        "unverified": []
+      },
+      "changeReason": "Audit claim against available fact fields; limit correct to the explicit mechanical contract.",
+      "comparableAsAccuracyDelta": false
+    },
+    {
+      "id": "p-queue-07",
+      "before": {
+        "evaluatorVersion": 1,
+        "claim": "enqueue is a method on PriorityQueue.",
+        "status": "correct"
+      },
+      "after": {
+        "evaluatorVersion": 2,
+        "claim": "A FunctionFact named enqueue exists at the labeled source declaration.",
+        "status": "correct",
+        "checks": [
+          {
+            "field": "declaration.file+offset",
+            "expected": {
+              "file": "source/priority-queue.ts",
+              "anchor": "enqueue(run: RunFunction, options?",
+              "line": 58,
+              "offset": 2017
+            },
+            "actual": {
+              "file": "source/priority-queue.ts",
+              "symbol": "enqueue",
+              "start": {
+                "line": 58,
+                "column": 2,
+                "offset": 2017
+              },
+              "end": {
+                "line": 90,
+                "column": 3,
+                "offset": 2990
+              }
+            },
+            "passed": true
+          },
+          {
+            "field": "name",
+            "expected": "enqueue",
+            "actual": "enqueue",
+            "passed": true
+          }
+        ],
+        "unverified": [
+          "Method syntax and membership in class PriorityQueue are not represented by FunctionFact and are not automatically verified."
+        ]
+      },
+      "changeReason": "Audit claim against available fact fields; limit correct to the explicit mechanical contract.",
+      "comparableAsAccuracyDelta": false
+    },
+    {
+      "id": "p-queue-08",
+      "before": {
+        "evaluatorVersion": 1,
+        "claim": "enqueue references the imported lowerBound declaration.",
+        "status": "correct"
+      },
+      "after": {
+        "evaluatorVersion": 2,
+        "claim": "The specified reference use in enqueue has a reference edge to the labeled target declaration.",
+        "status": "correct",
+        "checks": [
+          {
+            "field": "declaration.file+offset",
+            "expected": {
+              "file": "source/priority-queue.ts",
+              "anchor": "enqueue(run: RunFunction, options?",
+              "line": 58,
+              "offset": 2017
+            },
+            "actual": {
+              "file": "source/priority-queue.ts",
+              "symbol": "enqueue",
+              "start": {
+                "line": 58,
+                "column": 2,
+                "offset": 2017
+              },
+              "end": {
+                "line": 90,
+                "column": 3,
+                "offset": 2990
+              }
+            },
+            "passed": true
+          },
+          {
+            "field": "name",
+            "expected": "enqueue",
+            "actual": "enqueue",
+            "passed": true
+          },
+          {
+            "field": "source use role",
+            "expected": "reference",
+            "actual": "reference",
+            "passed": true
+          },
+          {
+            "field": "target.file+offset",
+            "expected": {
+              "file": "source/lower-bound.ts",
+              "anchor": "export default function lowerBound<T>",
+              "line": 3,
+              "offset": 156
+            },
+            "actual": {
+              "file": "source/lower-bound.ts",
+              "symbol": "default",
+              "start": {
+                "line": 3,
+                "column": 1,
+                "offset": 156
+              },
+              "end": {
+                "line": 20,
+                "column": 2,
+                "offset": 535
+              }
+            },
+            "passed": true
+          }
+        ],
+        "unverified": [
+          "This is a syntactic use, not proof of runtime execution or a whole-program call graph."
+        ]
+      },
+      "changeReason": "R5: match an explicit source use and target declaration; distinguish a call callee from an ordinary reference and exclude declaration names.",
+      "comparableAsAccuracyDelta": false
+    },
+    {
+      "id": "p-queue-09",
+      "before": {
+        "evaluatorVersion": 1,
+        "claim": "dequeue tests whether head equals queue length.",
+        "status": "correct"
+      },
+      "after": {
+        "evaluatorVersion": 2,
+        "claim": "An extracted conditional condition in dequeue has exactly this text: this.#head === this.#queue.length",
+        "status": "correct",
+        "checks": [
+          {
+            "field": "declaration.file+offset",
+            "expected": {
+              "file": "source/priority-queue.ts",
+              "anchor": "dequeue(): RunFunction | undefined {",
+              "line": 120,
+              "offset": 4011
+            },
+            "actual": {
+              "file": "source/priority-queue.ts",
+              "symbol": "dequeue",
+              "start": {
+                "line": 120,
+                "column": 2,
+                "offset": 4011
+              },
+              "end": {
+                "line": 122,
+                "column": 3,
+                "offset": 4128
+              }
+            },
+            "passed": true
+          },
+          {
+            "field": "name",
+            "expected": "dequeue",
+            "actual": "dequeue",
+            "passed": true
+          },
+          {
+            "field": "condition.kind+text",
+            "expected": {
+              "kind": "conditional",
+              "text": "this.#head === this.#queue.length"
+            },
+            "actual": {
+              "kind": "conditional",
+              "text": "this.#head === this.#queue.length"
+            },
+            "passed": true
+          }
+        ],
+        "unverified": [
+          "Condition semantics, runtime behavior and predicate support are not part of this extraction claim."
+        ]
+      },
+      "changeReason": "Audit claim against available fact fields; limit correct to the explicit mechanical contract.",
+      "comparableAsAccuracyDelta": false
+    },
+    {
+      "id": "p-queue-10",
+      "before": {
+        "evaluatorVersion": 1,
+        "claim": "size returns array length minus consumed head.",
+        "status": "correct"
+      },
+      "after": {
+        "evaluatorVersion": 2,
+        "claim": "An extracted return condition in size has exactly this text: this.#queue.length - this.#head",
+        "status": "correct",
+        "checks": [
+          {
+            "field": "declaration.file+offset",
+            "expected": {
+              "file": "source/priority-queue.ts",
+              "anchor": "get size(): number {",
+              "line": 137,
+              "offset": 4462
+            },
+            "actual": {
+              "file": "source/priority-queue.ts",
+              "symbol": "size",
+              "start": {
+                "line": 137,
+                "column": 2,
+                "offset": 4462
+              },
+              "end": {
+                "line": 139,
+                "column": 3,
+                "offset": 4527
+              }
+            },
+            "passed": true
+          },
+          {
+            "field": "name",
+            "expected": "size",
+            "actual": "size",
+            "passed": true
+          },
+          {
+            "field": "condition.kind+text",
+            "expected": {
+              "kind": "return",
+              "text": "this.#queue.length - this.#head"
+            },
+            "actual": {
+              "kind": "return",
+              "text": "this.#queue.length - this.#head"
+            },
+            "passed": true
+          }
+        ],
+        "unverified": [
+          "Condition semantics, runtime behavior and predicate support are not part of this extraction claim."
+        ]
+      },
+      "changeReason": "Audit claim against available fact fields; limit correct to the explicit mechanical contract.",
+      "comparableAsAccuracyDelta": false
+    },
+    {
+      "id": "p-queue-11",
+      "before": {
+        "evaluatorVersion": 1,
+        "claim": "PriorityQueue is a distinct class declaration (class modeling coverage probe).",
+        "status": "unsupported"
+      },
+      "after": {
+        "evaluatorVersion": 2,
+        "claim": "PriorityQueue is extracted as a class type fact at the labeled declaration (unsupported coverage probe).",
+        "status": "unsupported",
+        "checks": [],
+        "unverified": []
+      },
+      "changeReason": "Audit claim against available fact fields; limit correct to the explicit mechanical contract.",
+      "comparableAsAccuracyDelta": false
+    },
+    {
+      "id": "p-queue-12",
+      "before": {
+        "evaluatorVersion": 1,
+        "claim": "PriorityQueue declares numeric private state #head (field modeling coverage probe).",
+        "status": "unsupported"
+      },
+      "after": {
+        "evaluatorVersion": 2,
+        "claim": "The PriorityQueue type fact exposes a field named #head with type text number.",
+        "status": "unsupported",
+        "checks": [],
+        "unverified": []
+      },
+      "changeReason": "Audit claim against available fact fields; limit correct to the explicit mechanical contract.",
+      "comparableAsAccuracyDelta": false
+    },
+    {
+      "id": "date-fns-01",
+      "before": {
+        "evaluatorVersion": 1,
+        "claim": "isWeekend has its own function declaration.",
+        "status": "correct"
+      },
+      "after": {
+        "evaluatorVersion": 2,
+        "claim": "A FunctionFact named isWeekend exists at the labeled source declaration.",
+        "status": "correct",
+        "checks": [
+          {
+            "field": "declaration.file+offset",
+            "expected": {
+              "file": "src/isWeekend/index.ts",
+              "anchor": "export function isWeekend(",
+              "line": 27,
+              "offset": 691
+            },
+            "actual": {
+              "file": "src/isWeekend/index.ts",
+              "symbol": "isWeekend",
+              "start": {
+                "line": 27,
+                "column": 1,
+                "offset": 691
+              },
+              "end": {
+                "line": 33,
+                "column": 2,
+                "offset": 885
+              }
+            },
+            "passed": true
+          },
+          {
+            "field": "name",
+            "expected": "isWeekend",
+            "actual": "isWeekend",
+            "passed": true
+          }
+        ],
+        "unverified": []
+      },
+      "changeReason": "Audit claim against available fact fields; limit correct to the explicit mechanical contract.",
+      "comparableAsAccuracyDelta": false
+    },
+    {
+      "id": "date-fns-02",
+      "before": {
+        "evaluatorVersion": 1,
+        "claim": "isSaturday has its own function declaration.",
+        "status": "correct"
+      },
+      "after": {
+        "evaluatorVersion": 2,
+        "claim": "A FunctionFact named isSaturday exists at the labeled source declaration.",
+        "status": "correct",
+        "checks": [
+          {
+            "field": "declaration.file+offset",
+            "expected": {
+              "file": "src/isSaturday/index.ts",
+              "anchor": "export function isSaturday(",
+              "line": 27,
+              "offset": 607
+            },
+            "actual": {
+              "file": "src/isSaturday/index.ts",
+              "symbol": "isSaturday",
+              "start": {
+                "line": 27,
+                "column": 1,
+                "offset": 607
+              },
+              "end": {
+                "line": 32,
+                "column": 2,
+                "offset": 771
+              }
+            },
+            "passed": true
+          },
+          {
+            "field": "name",
+            "expected": "isSaturday",
+            "actual": "isSaturday",
+            "passed": true
+          }
+        ],
+        "unverified": []
+      },
+      "changeReason": "Audit claim against available fact fields; limit correct to the explicit mechanical contract.",
+      "comparableAsAccuracyDelta": false
+    },
+    {
+      "id": "date-fns-03",
+      "before": {
+        "evaluatorVersion": 1,
+        "claim": "IsSaturdayOptions and IsSundayOptions are distinct declarations despite both extending ContextOptions<Date>.",
+        "status": "correct"
+      },
+      "after": {
+        "evaluatorVersion": 2,
+        "claim": "IsSaturdayOptions and IsSundayOptions are separate interface facts at their two labeled declarations with distinct IDs.",
+        "status": "correct",
+        "checks": [
+          {
+            "field": "declaration.file+offset",
+            "expected": {
+              "file": "src/isSaturday/index.ts",
+              "anchor": "export interface IsSaturdayOptions",
+              "line": 7,
+              "offset": 158
+            },
+            "actual": {
+              "file": "src/isSaturday/index.ts",
+              "symbol": "IsSaturdayOptions",
+              "start": {
+                "line": 7,
+                "column": 1,
+                "offset": 158
+              },
+              "end": {
+                "line": 7,
+                "column": 67,
+                "offset": 224
+              }
+            },
+            "passed": true
+          },
+          {
+            "field": "name",
+            "expected": "IsSaturdayOptions",
+            "actual": "IsSaturdayOptions",
+            "passed": true
+          },
+          {
+            "field": "kind",
+            "expected": "interface",
+            "actual": "interface",
+            "passed": true
+          },
+          {
+            "field": "other.name",
+            "expected": "IsSundayOptions",
+            "actual": "IsSundayOptions",
+            "passed": true
+          },
+          {
+            "field": "other.kind",
+            "expected": "interface",
+            "actual": "interface",
+            "passed": true
+          },
+          {
+            "field": "distinct IDs",
+            "expected": true,
+            "actual": true,
+            "passed": true
+          }
+        ],
+        "unverified": [
+          "Both extend ContextOptions<Date> in source; inheritance and structural equivalence are not evaluated."
+        ]
+      },
+      "changeReason": "Audit claim against available fact fields; limit correct to the explicit mechanical contract.",
+      "comparableAsAccuracyDelta": false
+    },
+    {
+      "id": "date-fns-04",
+      "before": {
+        "evaluatorVersion": 1,
+        "claim": "isWeekend returns day === 0 || day === 6.",
+        "status": "correct"
+      },
+      "after": {
+        "evaluatorVersion": 2,
+        "claim": "An extracted return condition in isWeekend has exactly this text: day === 0 || day === 6",
+        "status": "correct",
+        "checks": [
+          {
+            "field": "declaration.file+offset",
+            "expected": {
+              "file": "src/isWeekend/index.ts",
+              "anchor": "export function isWeekend(",
+              "line": 27,
+              "offset": 691
+            },
+            "actual": {
+              "file": "src/isWeekend/index.ts",
+              "symbol": "isWeekend",
+              "start": {
+                "line": 27,
+                "column": 1,
+                "offset": 691
+              },
+              "end": {
+                "line": 33,
+                "column": 2,
+                "offset": 885
+              }
+            },
+            "passed": true
+          },
+          {
+            "field": "name",
+            "expected": "isWeekend",
+            "actual": "isWeekend",
+            "passed": true
+          },
+          {
+            "field": "condition.kind+text",
+            "expected": {
+              "kind": "return",
+              "text": "day === 0 || day === 6"
+            },
+            "actual": {
+              "kind": "return",
+              "text": "day === 0 || day === 6"
+            },
+            "passed": true
+          }
+        ],
+        "unverified": [
+          "Condition semantics, runtime behavior and predicate support are not part of this extraction claim."
+        ]
+      },
+      "changeReason": "Audit claim against available fact fields; limit correct to the explicit mechanical contract.",
+      "comparableAsAccuracyDelta": false
+    },
+    {
+      "id": "date-fns-05",
+      "before": {
+        "evaluatorVersion": 1,
+        "claim": "isSaturday compares converted getDay() to 6.",
+        "status": "correct"
+      },
+      "after": {
+        "evaluatorVersion": 2,
+        "claim": "An extracted return condition in isSaturday has exactly this text: toDate(date, options?.in).getDay() === 6",
+        "status": "correct",
+        "checks": [
+          {
+            "field": "declaration.file+offset",
+            "expected": {
+              "file": "src/isSaturday/index.ts",
+              "anchor": "export function isSaturday(",
+              "line": 27,
+              "offset": 607
+            },
+            "actual": {
+              "file": "src/isSaturday/index.ts",
+              "symbol": "isSaturday",
+              "start": {
+                "line": 27,
+                "column": 1,
+                "offset": 607
+              },
+              "end": {
+                "line": 32,
+                "column": 2,
+                "offset": 771
+              }
+            },
+            "passed": true
+          },
+          {
+            "field": "name",
+            "expected": "isSaturday",
+            "actual": "isSaturday",
+            "passed": true
+          },
+          {
+            "field": "condition.kind+text",
+            "expected": {
+              "kind": "return",
+              "text": "toDate(date, options?.in).getDay() === 6"
+            },
+            "actual": {
+              "kind": "return",
+              "text": "toDate(date, options?.in).getDay() === 6"
+            },
+            "passed": true
+          }
+        ],
+        "unverified": [
+          "Condition semantics, runtime behavior and predicate support are not part of this extraction claim."
+        ]
+      },
+      "changeReason": "Audit claim against available fact fields; limit correct to the explicit mechanical contract.",
+      "comparableAsAccuracyDelta": false
+    },
+    {
+      "id": "date-fns-06",
+      "before": {
+        "evaluatorVersion": 1,
+        "claim": "isSunday compares converted getDay() to 0.",
+        "status": "correct"
+      },
+      "after": {
+        "evaluatorVersion": 2,
+        "claim": "An extracted return condition in isSunday has exactly this text: toDate(date, options?.in).getDay() === 0",
+        "status": "correct",
+        "checks": [
+          {
+            "field": "declaration.file+offset",
+            "expected": {
+              "file": "src/isSunday/index.ts",
+              "anchor": "export function isSunday(",
+              "line": 27,
+              "offset": 587
+            },
+            "actual": {
+              "file": "src/isSunday/index.ts",
+              "symbol": "isSunday",
+              "start": {
+                "line": 27,
+                "column": 1,
+                "offset": 587
+              },
+              "end": {
+                "line": 32,
+                "column": 2,
+                "offset": 747
+              }
+            },
+            "passed": true
+          },
+          {
+            "field": "name",
+            "expected": "isSunday",
+            "actual": "isSunday",
+            "passed": true
+          },
+          {
+            "field": "condition.kind+text",
+            "expected": {
+              "kind": "return",
+              "text": "toDate(date, options?.in).getDay() === 0"
+            },
+            "actual": {
+              "kind": "return",
+              "text": "toDate(date, options?.in).getDay() === 0"
+            },
+            "passed": true
+          }
+        ],
+        "unverified": [
+          "Condition semantics, runtime behavior and predicate support are not part of this extraction claim."
+        ]
+      },
+      "changeReason": "Audit claim against available fact fields; limit correct to the explicit mechanical contract.",
+      "comparableAsAccuracyDelta": false
+    },
+    {
+      "id": "date-fns-07",
+      "before": {
+        "evaluatorVersion": 1,
+        "claim": "isWeekend refers to the local imported toDate declaration.",
+        "status": "correct"
+      },
+      "after": {
+        "evaluatorVersion": 2,
+        "claim": "The specified reference use in isWeekend has a reference edge to the labeled target declaration.",
+        "status": "correct",
+        "checks": [
+          {
+            "field": "declaration.file+offset",
+            "expected": {
+              "file": "src/isWeekend/index.ts",
+              "anchor": "export function isWeekend(",
+              "line": 27,
+              "offset": 691
+            },
+            "actual": {
+              "file": "src/isWeekend/index.ts",
+              "symbol": "isWeekend",
+              "start": {
+                "line": 27,
+                "column": 1,
+                "offset": 691
+              },
+              "end": {
+                "line": 33,
+                "column": 2,
+                "offset": 885
+              }
+            },
+            "passed": true
+          },
+          {
+            "field": "name",
+            "expected": "isWeekend",
+            "actual": "isWeekend",
+            "passed": true
+          },
+          {
+            "field": "source use role",
+            "expected": "reference",
+            "actual": "reference",
+            "passed": true
+          },
+          {
+            "field": "target.file+offset",
+            "expected": {
+              "file": "src/toDate/index.ts",
+              "anchor": "export function toDate<",
+              "line": 42,
+              "offset": 1630
+            },
+            "actual": {
+              "file": "src/toDate/index.ts",
+              "symbol": "toDate",
+              "start": {
+                "line": 42,
+                "column": 1,
+                "offset": 1630
+              },
+              "end": {
+                "line": 51,
+                "column": 2,
+                "offset": 1942
+              }
+            },
+            "passed": true
+          }
+        ],
+        "unverified": [
+          "This is a syntactic use, not proof of runtime execution or a whole-program call graph."
+        ]
+      },
+      "changeReason": "R5: match an explicit source use and target declaration; distinguish a call callee from an ordinary reference and exclude declaration names.",
+      "comparableAsAccuracyDelta": false
+    },
+    {
+      "id": "date-fns-08",
+      "before": {
+        "evaluatorVersion": 1,
+        "claim": "isSaturday refers to the same toDate declaration as isWeekend.",
+        "status": "correct"
+      },
+      "after": {
+        "evaluatorVersion": 2,
+        "claim": "The specified reference use in isSaturday has a reference edge to the labeled target declaration.",
+        "status": "correct",
+        "checks": [
+          {
+            "field": "declaration.file+offset",
+            "expected": {
+              "file": "src/isSaturday/index.ts",
+              "anchor": "export function isSaturday(",
+              "line": 27,
+              "offset": 607
+            },
+            "actual": {
+              "file": "src/isSaturday/index.ts",
+              "symbol": "isSaturday",
+              "start": {
+                "line": 27,
+                "column": 1,
+                "offset": 607
+              },
+              "end": {
+                "line": 32,
+                "column": 2,
+                "offset": 771
+              }
+            },
+            "passed": true
+          },
+          {
+            "field": "name",
+            "expected": "isSaturday",
+            "actual": "isSaturday",
+            "passed": true
+          },
+          {
+            "field": "source use role",
+            "expected": "reference",
+            "actual": "reference",
+            "passed": true
+          },
+          {
+            "field": "target.file+offset",
+            "expected": {
+              "file": "src/toDate/index.ts",
+              "anchor": "export function toDate<",
+              "line": 42,
+              "offset": 1630
+            },
+            "actual": {
+              "file": "src/toDate/index.ts",
+              "symbol": "toDate",
+              "start": {
+                "line": 42,
+                "column": 1,
+                "offset": 1630
+              },
+              "end": {
+                "line": 51,
+                "column": 2,
+                "offset": 1942
+              }
+            },
+            "passed": true
+          }
+        ],
+        "unverified": [
+          "This is a syntactic use, not proof of runtime execution or a whole-program call graph."
+        ]
+      },
+      "changeReason": "R5: match an explicit source use and target declaration; distinguish a call callee from an ordinary reference and exclude declaration names.",
+      "comparableAsAccuracyDelta": false
+    },
+    {
+      "id": "date-fns-09",
+      "before": {
+        "evaluatorVersion": 1,
+        "claim": "options.in resolves to the inherited ContextOptions.in declaration.",
+        "status": "correct"
+      },
+      "after": {
+        "evaluatorVersion": 2,
+        "claim": "The specified in property use in isWeekend has a reference edge and property fact targeting the labeled ContextOptions.in declaration.",
+        "status": "correct",
+        "checks": [
+          {
+            "field": "declaration.file+offset",
+            "expected": {
+              "file": "src/isWeekend/index.ts",
+              "anchor": "export function isWeekend(",
+              "line": 27,
+              "offset": 691
+            },
+            "actual": {
+              "file": "src/isWeekend/index.ts",
+              "symbol": "isWeekend",
+              "start": {
+                "line": 27,
+                "column": 1,
+                "offset": 691
+              },
+              "end": {
+                "line": 33,
+                "column": 2,
+                "offset": 885
+              }
+            },
+            "passed": true
+          },
+          {
+            "field": "name",
+            "expected": "isWeekend",
+            "actual": "isWeekend",
+            "passed": true
+          },
+          {
+            "field": "source use role",
+            "expected": "reference",
+            "actual": "reference",
+            "passed": true
+          },
+          {
+            "field": "target.file+offset",
+            "expected": {
+              "file": "src/types.ts",
+              "anchor": "in?: ContextFn<DateType> | undefined;",
+              "line": 330,
+              "offset": 8693
+            },
+            "actual": {
+              "file": "src/types.ts",
+              "symbol": "in",
+              "start": {
+                "line": 330,
+                "column": 3,
+                "offset": 8693
+              },
+              "end": {
+                "line": 330,
+                "column": 40,
+                "offset": 8730
+              }
+            },
+            "passed": true
+          }
+        ],
+        "unverified": [
+          "The inheritance path is not independently evaluated."
+        ]
+      },
+      "changeReason": "R5: match an explicit source use and target declaration; distinguish a call callee from an ordinary reference and exclude declaration names.",
+      "comparableAsAccuracyDelta": false
+    },
+    {
+      "id": "date-fns-10",
+      "before": {
+        "evaluatorVersion": 1,
+        "claim": "DateArg retains the date, number, string union alias.",
+        "status": "correct"
+      },
+      "after": {
+        "evaluatorVersion": 2,
+        "claim": "DateArg is an alias whose extracted type text has exactly the union members DateType, number and string (order ignored).",
+        "status": "correct",
+        "checks": [
+          {
+            "field": "declaration.file+offset",
+            "expected": {
+              "file": "src/types.ts",
+              "anchor": "export type DateArg<DateType extends Date>",
+              "line": 10,
+              "offset": 222
+            },
+            "actual": {
+              "file": "src/types.ts",
+              "symbol": "DateArg",
+              "start": {
+                "line": 10,
+                "column": 1,
+                "offset": 222
+              },
+              "end": {
+                "line": 10,
+                "column": 73,
+                "offset": 294
+              }
+            },
+            "passed": true
+          },
+          {
+            "field": "name",
+            "expected": "DateArg",
+            "actual": "DateArg",
+            "passed": true
+          },
+          {
+            "field": "kind",
+            "expected": "alias",
+            "actual": "alias",
+            "passed": true
+          },
+          {
+            "field": "type",
+            "expected": {
+              "unionMembers": [
+                "DateType",
+                "number",
+                "string"
+              ]
+            },
+            "actual": "string | number | DateType",
+            "passed": true
+          }
+        ],
+        "unverified": [
+          "DateType generic constraint and general semantic type equivalence are not evaluated."
+        ]
+      },
+      "changeReason": "R4: compare union members authored from src/types.ts, independently of TypeChecker output.",
+      "comparableAsAccuracyDelta": false
+    },
+    {
+      "id": "date-fns-11",
+      "before": {
+        "evaluatorVersion": 1,
+        "claim": "constructFrom branches on typeof date === function.",
+        "status": "correct"
+      },
+      "after": {
+        "evaluatorVersion": 2,
+        "claim": "An extracted if condition in constructFrom has exactly this text: typeof date === \"function\"",
+        "status": "correct",
+        "checks": [
+          {
+            "field": "declaration.file+offset",
+            "expected": {
+              "file": "src/constructFrom/index.ts",
+              "anchor": "export function constructFrom<",
+              "line": 44,
+              "offset": 1605
+            },
+            "actual": {
+              "file": "src/constructFrom/index.ts",
+              "symbol": "constructFrom",
+              "start": {
+                "line": 44,
+                "column": 1,
+                "offset": 1605
+              },
+              "end": {
+                "line": 60,
+                "column": 2,
+                "offset": 2152
+              }
+            },
+            "passed": true
+          },
+          {
+            "field": "name",
+            "expected": "constructFrom",
+            "actual": "constructFrom",
+            "passed": true
+          },
+          {
+            "field": "condition.kind+text",
+            "expected": {
+              "kind": "if",
+              "text": "typeof date === \"function\""
+            },
+            "actual": {
+              "kind": "if",
+              "text": "typeof date === \"function\""
+            },
+            "passed": true
+          }
+        ],
+        "unverified": [
+          "Condition semantics, runtime behavior and predicate support are not part of this extraction claim."
+        ]
+      },
+      "changeReason": "Audit claim against available fact fields; limit correct to the explicit mechanical contract.",
+      "comparableAsAccuracyDelta": false
+    },
+    {
+      "id": "date-fns-12",
+      "before": {
+        "evaluatorVersion": 1,
+        "claim": "toDate has its own generic function declaration.",
+        "status": "correct"
+      },
+      "after": {
+        "evaluatorVersion": 2,
+        "claim": "A FunctionFact named toDate exists at the labeled source declaration.",
+        "status": "correct",
+        "checks": [
+          {
+            "field": "declaration.file+offset",
+            "expected": {
+              "file": "src/toDate/index.ts",
+              "anchor": "export function toDate<",
+              "line": 42,
+              "offset": 1630
+            },
+            "actual": {
+              "file": "src/toDate/index.ts",
+              "symbol": "toDate",
+              "start": {
+                "line": 42,
+                "column": 1,
+                "offset": 1630
+              },
+              "end": {
+                "line": 51,
+                "column": 2,
+                "offset": 1942
+              }
+            },
+            "passed": true
+          },
+          {
+            "field": "name",
+            "expected": "toDate",
+            "actual": "toDate",
+            "passed": true
+          }
+        ],
+        "unverified": [
+          "Generic parameters and constraints are not represented by FunctionFact and are not automatically verified."
+        ]
+      },
+      "changeReason": "Audit claim against available fact fields; limit correct to the explicit mechanical contract.",
+      "comparableAsAccuracyDelta": false
+    }
+  ]
+}

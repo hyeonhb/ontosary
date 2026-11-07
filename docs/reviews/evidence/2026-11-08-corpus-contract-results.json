@@ -1,0 +1,710 @@
+{
+  "evaluatorVersion": 2,
+  "diagnostics": [],
+  "mutations": [
+    {
+      "id": "date-fns-10",
+      "original": {
+        "id": "date-fns-10",
+        "evaluatorVersion": 2,
+        "status": "correct",
+        "checks": [
+          {
+            "field": "declaration.file+offset",
+            "expected": {
+              "file": "src/types.ts",
+              "anchor": "export type DateArg<DateType extends Date>",
+              "line": 10,
+              "offset": 222
+            },
+            "actual": {
+              "file": "src/types.ts",
+              "symbol": "DateArg",
+              "start": {
+                "line": 10,
+                "column": 1,
+                "offset": 222
+              },
+              "end": {
+                "line": 10,
+                "column": 73,
+                "offset": 294
+              }
+            },
+            "passed": true
+          },
+          {
+            "field": "name",
+            "expected": "DateArg",
+            "actual": "DateArg",
+            "passed": true
+          },
+          {
+            "field": "kind",
+            "expected": "alias",
+            "actual": "alias",
+            "passed": true
+          },
+          {
+            "field": "type",
+            "expected": {
+              "unionMembers": [
+                "DateType",
+                "number",
+                "string"
+              ]
+            },
+            "actual": "string | number | DateType",
+            "passed": true
+          }
+        ],
+        "unverified": [
+          "DateType generic constraint and general semantic type equivalence are not evaluated."
+        ],
+        "evidence": [
+          {
+            "file": "src/types.ts",
+            "symbol": "DateArg",
+            "start": {
+              "line": 10,
+              "column": 1,
+              "offset": 222
+            },
+            "end": {
+              "line": 10,
+              "column": 73,
+              "offset": 294
+            }
+          }
+        ]
+      },
+      "oldResult": {
+        "id": "date-fns-10",
+        "status": "correct",
+        "evidence": [
+          {
+            "file": "src/types.ts",
+            "symbol": "DateArg",
+            "start": {
+              "line": 10,
+              "column": 1,
+              "offset": 222
+            },
+            "end": {
+              "line": 10,
+              "column": 73,
+              "offset": 294
+            }
+          }
+        ]
+      },
+      "newResult": {
+        "id": "date-fns-10",
+        "evaluatorVersion": 2,
+        "status": "mismatch",
+        "checks": [
+          {
+            "field": "declaration.file+offset",
+            "expected": {
+              "file": "src/types.ts",
+              "anchor": "export type DateArg<DateType extends Date>",
+              "line": 10,
+              "offset": 222
+            },
+            "actual": {
+              "file": "src/types.ts",
+              "symbol": "DateArg",
+              "start": {
+                "line": 10,
+                "column": 1,
+                "offset": 222
+              },
+              "end": {
+                "line": 10,
+                "column": 73,
+                "offset": 294
+              }
+            },
+            "passed": true
+          },
+          {
+            "field": "name",
+            "expected": "DateArg",
+            "actual": "DateArg",
+            "passed": true
+          },
+          {
+            "field": "kind",
+            "expected": "alias",
+            "actual": "alias",
+            "passed": true
+          },
+          {
+            "field": "type",
+            "expected": {
+              "unionMembers": [
+                "DateType",
+                "number",
+                "string"
+              ]
+            },
+            "actual": "never",
+            "passed": false
+          }
+        ],
+        "unverified": [
+          "DateType generic constraint and general semantic type equivalence are not evaluated."
+        ],
+        "evidence": [
+          {
+            "file": "src/types.ts",
+            "symbol": "DateArg",
+            "start": {
+              "line": 10,
+              "column": 1,
+              "offset": 222
+            },
+            "end": {
+              "line": 10,
+              "column": 73,
+              "offset": 294
+            }
+          }
+        ],
+        "reason": "Type text violates the label contract"
+      }
+    },
+    {
+      "id": "p-queue-02",
+      "original": {
+        "id": "p-queue-02",
+        "evaluatorVersion": 2,
+        "status": "correct",
+        "checks": [
+          {
+            "field": "declaration.file+offset",
+            "expected": {
+              "file": "source/lower-bound.ts",
+              "anchor": "export default function lowerBound<T>",
+              "line": 3,
+              "offset": 156
+            },
+            "actual": {
+              "file": "source/lower-bound.ts",
+              "symbol": "lowerBound",
+              "start": {
+                "line": 3,
+                "column": 1,
+                "offset": 156
+              },
+              "end": {
+                "line": 20,
+                "column": 2,
+                "offset": 535
+              }
+            },
+            "passed": true
+          },
+          {
+            "field": "name",
+            "expected": "lowerBound",
+            "actual": "lowerBound",
+            "passed": true
+          },
+          {
+            "field": "parameter.type",
+            "expected": {
+              "exact": "readonly T[]"
+            },
+            "actual": "readonly T[]",
+            "passed": true
+          }
+        ],
+        "unverified": [],
+        "evidence": [
+          {
+            "file": "source/lower-bound.ts",
+            "symbol": "lowerBound",
+            "start": {
+              "line": 3,
+              "column": 39,
+              "offset": 194
+            },
+            "end": {
+              "line": 3,
+              "column": 58,
+              "offset": 213
+            }
+          }
+        ]
+      },
+      "oldResult": {
+        "id": "p-queue-02",
+        "status": "correct",
+        "evidence": [
+          {
+            "file": "source/lower-bound.ts",
+            "symbol": "lowerBound",
+            "start": {
+              "line": 3,
+              "column": 39,
+              "offset": 194
+            },
+            "end": {
+              "line": 3,
+              "column": 58,
+              "offset": 213
+            }
+          }
+        ]
+      },
+      "newResult": {
+        "id": "p-queue-02",
+        "evaluatorVersion": 2,
+        "status": "mismatch",
+        "checks": [
+          {
+            "field": "declaration.file+offset",
+            "expected": {
+              "file": "source/lower-bound.ts",
+              "anchor": "export default function lowerBound<T>",
+              "line": 3,
+              "offset": 156
+            },
+            "actual": {
+              "file": "source/lower-bound.ts",
+              "symbol": "lowerBound",
+              "start": {
+                "line": 3,
+                "column": 1,
+                "offset": 156
+              },
+              "end": {
+                "line": 20,
+                "column": 2,
+                "offset": 535
+              }
+            },
+            "passed": true
+          },
+          {
+            "field": "name",
+            "expected": "lowerBound",
+            "actual": "lowerBound",
+            "passed": true
+          },
+          {
+            "field": "parameter.type",
+            "expected": {
+              "exact": "readonly T[]"
+            },
+            "actual": "number",
+            "passed": false
+          }
+        ],
+        "unverified": [],
+        "evidence": [
+          {
+            "file": "source/lower-bound.ts",
+            "symbol": "lowerBound",
+            "start": {
+              "line": 3,
+              "column": 39,
+              "offset": 194
+            },
+            "end": {
+              "line": 3,
+              "column": 58,
+              "offset": 213
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "usages": [
+    {
+      "name": "unused",
+      "references": [
+        {
+          "target": {
+            "id": "input.ts:0:unused",
+            "name": "unused",
+            "evidence": {
+              "file": "input.ts",
+              "symbol": "unused",
+              "start": {
+                "line": 1,
+                "column": 1,
+                "offset": 0
+              },
+              "end": {
+                "line": 1,
+                "column": 42,
+                "offset": 41
+              }
+            }
+          },
+          "evidence": {
+            "file": "input.ts",
+            "symbol": "unused",
+            "start": {
+              "line": 1,
+              "column": 17,
+              "offset": 16
+            },
+            "end": {
+              "line": 1,
+              "column": 23,
+              "offset": 22
+            }
+          }
+        }
+      ],
+      "oldResult": {
+        "id": "unused",
+        "status": "correct",
+        "evidence": [
+          {
+            "file": "input.ts",
+            "symbol": "unused",
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 42,
+              "offset": 41
+            }
+          },
+          {
+            "file": "input.ts",
+            "symbol": "unused",
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 42,
+              "offset": 41
+            }
+          }
+        ]
+      },
+      "newResult": {
+        "id": "unused",
+        "evaluatorVersion": 2,
+        "status": "mismatch",
+        "checks": [
+          {
+            "field": "declaration.file+offset",
+            "expected": {
+              "file": "input.ts",
+              "anchor": "export function unused(",
+              "offset": 0,
+              "line": 1
+            },
+            "actual": {
+              "file": "input.ts",
+              "symbol": "unused",
+              "start": {
+                "line": 1,
+                "column": 1,
+                "offset": 0
+              },
+              "end": {
+                "line": 1,
+                "column": 42,
+                "offset": 41
+              }
+            },
+            "passed": true
+          },
+          {
+            "field": "name",
+            "expected": "unused",
+            "actual": "unused",
+            "passed": true
+          },
+          {
+            "field": "source use role",
+            "expected": "call",
+            "actual": "Declaration/header names are not body uses",
+            "passed": false
+          }
+        ],
+        "unverified": [],
+        "evidence": [
+          {
+            "file": "input.ts",
+            "symbol": "unused",
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 42,
+              "offset": 41
+            }
+          }
+        ],
+        "reason": "Declaration/header names are not body uses"
+      }
+    },
+    {
+      "name": "recursive",
+      "references": [
+        {
+          "target": {
+            "id": "input.ts:42:recursive",
+            "name": "recursive",
+            "evidence": {
+              "file": "input.ts",
+              "symbol": "recursive",
+              "start": {
+                "line": 2,
+                "column": 1,
+                "offset": 42
+              },
+              "end": {
+                "line": 2,
+                "column": 61,
+                "offset": 102
+              }
+            }
+          },
+          "evidence": {
+            "file": "input.ts",
+            "symbol": "recursive",
+            "start": {
+              "line": 2,
+              "column": 17,
+              "offset": 58
+            },
+            "end": {
+              "line": 2,
+              "column": 26,
+              "offset": 67
+            }
+          }
+        },
+        {
+          "target": {
+            "id": "input.ts:42:recursive",
+            "name": "recursive",
+            "evidence": {
+              "file": "input.ts",
+              "symbol": "recursive",
+              "start": {
+                "line": 2,
+                "column": 1,
+                "offset": 42
+              },
+              "end": {
+                "line": 2,
+                "column": 61,
+                "offset": 102
+              }
+            }
+          },
+          "evidence": {
+            "file": "input.ts",
+            "symbol": "recursive",
+            "start": {
+              "line": 2,
+              "column": 47,
+              "offset": 88
+            },
+            "end": {
+              "line": 2,
+              "column": 56,
+              "offset": 97
+            }
+          }
+        }
+      ],
+      "oldResult": {
+        "id": "recursive",
+        "status": "correct",
+        "evidence": [
+          {
+            "file": "input.ts",
+            "symbol": "recursive",
+            "start": {
+              "line": 2,
+              "column": 1,
+              "offset": 42
+            },
+            "end": {
+              "line": 2,
+              "column": 61,
+              "offset": 102
+            }
+          },
+          {
+            "file": "input.ts",
+            "symbol": "recursive",
+            "start": {
+              "line": 2,
+              "column": 1,
+              "offset": 42
+            },
+            "end": {
+              "line": 2,
+              "column": 61,
+              "offset": 102
+            }
+          }
+        ]
+      },
+      "newResult": {
+        "id": "recursive",
+        "evaluatorVersion": 2,
+        "status": "correct",
+        "checks": [
+          {
+            "field": "declaration.file+offset",
+            "expected": {
+              "file": "input.ts",
+              "anchor": "export function recursive(",
+              "offset": 42,
+              "line": 2
+            },
+            "actual": {
+              "file": "input.ts",
+              "symbol": "recursive",
+              "start": {
+                "line": 2,
+                "column": 1,
+                "offset": 42
+              },
+              "end": {
+                "line": 2,
+                "column": 61,
+                "offset": 102
+              }
+            },
+            "passed": true
+          },
+          {
+            "field": "name",
+            "expected": "recursive",
+            "actual": "recursive",
+            "passed": true
+          },
+          {
+            "field": "source use role",
+            "expected": "call",
+            "actual": "call",
+            "passed": true
+          },
+          {
+            "field": "target.file+offset",
+            "expected": {
+              "file": "input.ts",
+              "anchor": "export function recursive(",
+              "offset": 42,
+              "line": 2
+            },
+            "actual": {
+              "file": "input.ts",
+              "symbol": "recursive",
+              "start": {
+                "line": 2,
+                "column": 1,
+                "offset": 42
+              },
+              "end": {
+                "line": 2,
+                "column": 61,
+                "offset": 102
+              }
+            },
+            "passed": true
+          }
+        ],
+        "unverified": [],
+        "evidence": [
+          {
+            "file": "input.ts",
+            "symbol": "recursive",
+            "start": {
+              "line": 2,
+              "column": 1,
+              "offset": 42
+            },
+            "end": {
+              "line": 2,
+              "column": 61,
+              "offset": 102
+            }
+          },
+          {
+            "file": "input.ts",
+            "symbol": "recursive",
+            "start": {
+              "line": 2,
+              "column": 47,
+              "offset": 88
+            },
+            "end": {
+              "line": 2,
+              "column": 56,
+              "offset": 97
+            }
+          },
+          {
+            "file": "input.ts",
+            "symbol": "recursive",
+            "start": {
+              "line": 2,
+              "column": 1,
+              "offset": 42
+            },
+            "end": {
+              "line": 2,
+              "column": 61,
+              "offset": 102
+            }
+          }
+        ],
+        "reason": "Syntactic source use and fact edge; not a runtime execution or call-graph proof",
+        "useEvidence": {
+          "file": "input.ts",
+          "symbol": "recursive",
+          "start": {
+            "line": 2,
+            "column": 47,
+            "offset": 88
+          },
+          "end": {
+            "line": 2,
+            "column": 56,
+            "offset": 97
+          }
+        },
+        "targetEvidence": {
+          "file": "input.ts",
+          "symbol": "recursive",
+          "start": {
+            "line": 2,
+            "column": 1,
+            "offset": 42
+          },
+          "end": {
+            "line": 2,
+            "column": 61,
+            "offset": 102
+          }
+        }
+      }
+    }
+  ],
+  "interpretation": "Old evaluator false positives reproduced; V2 rejects mutated types and declaration-name use while preserving actual recursion. No human review implied."
+}

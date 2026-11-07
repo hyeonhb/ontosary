@@ -1,5 +1,7 @@
 # Real-source observation corpus
 
+**현재 평가 계약은 [V2](v2/README.md)다.** `pnpm experiment:corpus <새 경로>`는 V2, `pnpm experiment:corpus:v1 <새 경로>`는 R4/R5가 있는 역사적 V1을 실행한다. 아래 2026-11-07 입력·관찰 설명은 V1의 기록이며 `correct`가 자연어 주장 전체를 검증한다는 뜻이 아니다. [독립 리뷰](../../docs/reviews/2026-11-07-corpus-independent-review.md)와 V2의 `checks`/`unverified`/사용 위치 계약을 참조한다.
+
 2026-11-07의 [개발 인계](../../docs/reviews/2026-11-07-next-plan.md)를 실행한 자료다. 코어 기능을 바꾸지 않고 공개 TypeScript 소스의 사실 추출·지원 경계를 관찰한다. [관찰 보고서](../../docs/reviews/2026-11-07-corpus-observation.md), [사람 검토표](results/2026-11-07/review.md), [기계 요약](results/2026-11-07/summary.json)을 먼저 읽는다.
 
 ## 입력과 범위
@@ -21,8 +23,8 @@ date-fns v4.1.0은 isSaturday/isSunday/isWeekend 세 함수를 root로 하고 lo
 ```sh
 pnpm install --frozen-lockfile
 pnpm experiment:corpus:prepare
-pnpm experiment:corpus work/corpus-run-a
-pnpm experiment:corpus work/corpus-run-b
+pnpm experiment:corpus:v1 work/corpus-run-a
+pnpm experiment:corpus:v1 work/corpus-run-b
 node experiments/corpus/verify-reproduction.mjs work/corpus-run-a work/corpus-run-b
 ```
 
@@ -39,7 +41,7 @@ node --input-type=module -e 'import fs from "node:fs"; import {gunzipSync} from 
 - files는 실제 분석한 구현 파일 목록이다. 전체 저장소의 파일 수나 coverage 비율이 아니다.
 - predicate 분모는 각 실행의 모든 FunctionFact다. nested 함수·접근자·본문 없는 overload도 포함하며 exported 업무 규칙만 세지 않는다. p-queue 두 범위는 겹치므로 합산하지 않는다.
 - condition 분모는 추출된 condition 수다. 누락된 조건까지 포함한 총수나 분기 경로의 의미를 나타내지 않는다.
-- 라벨 분모는 사전 선정 24개다. 선언 위치와 identity, 참조 대상, condition 원문을 대조한다. correct는 **코드 사실 추출**의 일치이지 논리 정규화 지원이 아니다. 자기 선언의 reference만으로 사용 관계를 인정하지 않는다.
+- 라벨 분모는 사전 선정 24개다. 선언 위치와 identity, 참조 대상, condition 원문을 대조한다. correct는 **코드 사실 추출**의 일치이지 논리 정규화 지원이 아니다. V1은 자기 선언을 제외하려 했으나 실제 함수 이름/선언의 서로 다른 offset 때문에 R5가 재현됐다. 이 계약은 V2의 실제 AST 사용 위치 검사로 보완했다.
 - correct / missing / mislinked / unsupported / indeterminate를 구분한다. 해당 위치의 명시적 omission은 unsupported, 근거 없는 부재는 missing, 컴파일 오류·모호성은 indeterminate다. 기대 edge 부재만으로 잘못된 다른 edge를 단정하지 않는다.
 - 사전 비교 과업은 2쌍이다. 각 결과·전제·근거를 따로 보존한다. 확정 상태인 Equivalent/Implies/Different만 supported pair로 센다.
 - 컴파일 진단, omission 사유, predicate 거부 사유, FCA 한도 초과, 결과 잘림은 별도 필드다. 원래 config 실패에는 성공 파일/함수 분모를 만들지 않는다.
