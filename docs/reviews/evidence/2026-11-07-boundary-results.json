@@ -1,0 +1,268 @@
+{
+  "schemaVersion": 1,
+  "reviewedCommit": "c6e0fc7babb28ac37fde6fdd68f416af7add8e78",
+  "environment": {
+    "node": "v22.19.0",
+    "typescript": "5.9.3"
+  },
+  "diagnostics": [],
+  "negativeCases": [
+    {
+      "name": "reject_satisfies_0",
+      "expression": "(E satisfies typeof E).A === 'a'"
+    },
+    {
+      "name": "reject_satisfies_1",
+      "expression": "!((E satisfies typeof E).A === 'a')"
+    },
+    {
+      "name": "reject_satisfies_2",
+      "expression": "true || ((E satisfies typeof E).A === 'a')"
+    },
+    {
+      "name": "reject_comma_0",
+      "expression": "(touch(), E).A === 'a'"
+    },
+    {
+      "name": "reject_comma_1",
+      "expression": "!((touch(), E).A === 'a')"
+    },
+    {
+      "name": "reject_comma_2",
+      "expression": "true || ((touch(), E).A === 'a')"
+    },
+    {
+      "name": "reject_conditional_0",
+      "expression": "(s === 'a' ? E : E).A === 'a'"
+    },
+    {
+      "name": "reject_conditional_1",
+      "expression": "!((s === 'a' ? E : E).A === 'a')"
+    },
+    {
+      "name": "reject_conditional_2",
+      "expression": "true || ((s === 'a' ? E : E).A === 'a')"
+    },
+    {
+      "name": "reject_nonNull_0",
+      "expression": "E!.A === 'a'"
+    },
+    {
+      "name": "reject_nonNull_1",
+      "expression": "!(E!.A === 'a')"
+    },
+    {
+      "name": "reject_nonNull_2",
+      "expression": "true || (E!.A === 'a')"
+    },
+    {
+      "name": "reject_assertion_0",
+      "expression": "(E as typeof E).A === 'a'"
+    },
+    {
+      "name": "reject_assertion_1",
+      "expression": "!((E as typeof E).A === 'a')"
+    },
+    {
+      "name": "reject_assertion_2",
+      "expression": "true || ((E as typeof E).A === 'a')"
+    },
+    {
+      "name": "reject_optional_0",
+      "expression": "maybe?.A === 'a'"
+    },
+    {
+      "name": "reject_optional_1",
+      "expression": "!(maybe?.A === 'a')"
+    },
+    {
+      "name": "reject_optional_2",
+      "expression": "true || (maybe?.A === 'a')"
+    },
+    {
+      "name": "reject_nested_0",
+      "expression": "box.e.A === 'a'"
+    },
+    {
+      "name": "reject_nested_1",
+      "expression": "!(box.e.A === 'a')"
+    },
+    {
+      "name": "reject_nested_2",
+      "expression": "true || (box.e.A === 'a')"
+    },
+    {
+      "name": "reject_valueAlias_0",
+      "expression": "alias.A === 'a'"
+    },
+    {
+      "name": "reject_valueAlias_1",
+      "expression": "!(alias.A === 'a')"
+    },
+    {
+      "name": "reject_valueAlias_2",
+      "expression": "true || (alias.A === 'a')"
+    },
+    {
+      "name": "reject_call_0",
+      "expression": "make().A === 'a'"
+    },
+    {
+      "name": "reject_call_1",
+      "expression": "!(make().A === 'a')"
+    },
+    {
+      "name": "reject_call_2",
+      "expression": "true || (make().A === 'a')"
+    },
+    {
+      "name": "reject_parameter_0",
+      "expression": "value.A === 'a'"
+    },
+    {
+      "name": "reject_parameter_1",
+      "expression": "!(value.A === 'a')"
+    },
+    {
+      "name": "reject_parameter_2",
+      "expression": "true || (value.A === 'a')"
+    },
+    {
+      "name": "reject_computed_0",
+      "expression": "({ e: E })['e'].A === 'a'"
+    },
+    {
+      "name": "reject_computed_1",
+      "expression": "!(({ e: E })['e'].A === 'a')"
+    },
+    {
+      "name": "reject_computed_2",
+      "expression": "true || (({ e: E })['e'].A === 'a')"
+    },
+    {
+      "name": "reject_optionalNested_0",
+      "expression": "box?.e.A === 'a'"
+    },
+    {
+      "name": "reject_optionalNested_1",
+      "expression": "!(box?.e.A === 'a')"
+    },
+    {
+      "name": "reject_optionalNested_2",
+      "expression": "true || (box?.e.A === 'a')"
+    }
+  ],
+  "negativeCasesPassed": 36,
+  "explicitThisCases": [
+    "expressionThis",
+    "objectMethod",
+    "classMethod",
+    "branchThis"
+  ],
+  "positiveEvaluations": 12,
+  "comparisons": {
+    "renamed": {
+      "status": "Equivalent",
+      "equivalent": true,
+      "leftImpliesRight": true,
+      "rightImpliesLeft": true,
+      "evaluatedAssignments": 2,
+      "assumptions": [
+        "Inputs obey their declared TypeScript finite domains at runtime.",
+        "Properties are stable plain data: no getters, proxies, mutation, or other side effects during evaluation.",
+        "Enumerated input fields are independent; no additional business constraints are assumed.",
+        "This expression is evaluated in isolation; surrounding control flow is not modeled.",
+        "Caller asserts identical positional inputs and property paths on both sides; this does not assert a shared business policy."
+      ]
+    },
+    "constantEnum": {
+      "status": "Equivalent",
+      "equivalent": true,
+      "leftImpliesRight": true,
+      "rightImpliesLeft": true,
+      "evaluatedAssignments": 2,
+      "assumptions": [
+        "Inputs obey their declared TypeScript finite domains at runtime.",
+        "Properties are stable plain data: no getters, proxies, mutation, or other side effects during evaluation.",
+        "Enumerated input fields are independent; no additional business constraints are assumed.",
+        "This expression is evaluated in isolation; surrounding control flow is not modeled.",
+        "Caller asserts identical positional inputs and property paths on both sides; this does not assert a shared business policy."
+      ]
+    },
+    "numeric": {
+      "status": "Equivalent",
+      "equivalent": true,
+      "leftImpliesRight": true,
+      "rightImpliesLeft": true,
+      "evaluatedAssignments": 2,
+      "assumptions": [
+        "Inputs obey their declared TypeScript finite domains at runtime.",
+        "Properties are stable plain data: no getters, proxies, mutation, or other side effects during evaluation.",
+        "Enumerated input fields are independent; no additional business constraints are assumed.",
+        "This expression is evaluated in isolation; surrounding control flow is not modeled.",
+        "Caller asserts identical positional inputs and property paths on both sides; this does not assert a shared business policy."
+      ]
+    }
+  },
+  "files": [
+    "barrel.ts",
+    "enums.ts",
+    "input.ts",
+    "json.ts"
+  ],
+  "excluded": [
+    {
+      "reason": "Unsupported source file extension: only TS/TSX/MTS/CTS implementation files are analyzed.",
+      "evidence": {
+        "file": "data.json",
+        "symbol": "",
+        "start": {
+          "line": 1,
+          "column": 1,
+          "offset": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 13,
+          "offset": 12
+        }
+      }
+    },
+    {
+      "reason": "Unsupported source file extension: only TS/TSX/MTS/CTS implementation files are analyzed.",
+      "evidence": {
+        "file": "empty.js",
+        "symbol": "",
+        "start": {
+          "line": 1,
+          "column": 1,
+          "offset": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 1,
+          "offset": 0
+        }
+      }
+    },
+    {
+      "reason": "Unsupported source file extension: only TS/TSX/MTS/CTS implementation files are analyzed.",
+      "evidence": {
+        "file": "only-comment.js",
+        "symbol": "",
+        "start": {
+          "line": 2,
+          "column": 1,
+          "offset": 23
+        },
+        "end": {
+          "line": 2,
+          "column": 1,
+          "offset": 23
+        }
+      }
+    }
+  ],
+  "cliParity": true,
+  "result": "All independent boundary assertions passed"
+}
