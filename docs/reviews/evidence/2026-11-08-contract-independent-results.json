@@ -1,0 +1,1235 @@
+{
+  "implementationRevision": "76712363fa6304b9bb716b4f9f50fc2c0a3780a0",
+  "source": "export function localTypes() {\n  type Box<TypeParam> = { value: TypeParam };\n  interface Local { member: string }\n  return true;\n}\nexport function unused() { return true; }\nexport function recursive(): boolean { return recursive(); }\nexport function direct(value: string) { return value; }\nexport function nested() { const inner = () => recursive(); return inner; }\nexport function localValue() { const item = true; return item; }\nexport function typeQuery() { type Result = ReturnType<typeof recursive>; return true; }\n",
+  "diagnostics": [],
+  "observations": [
+    {
+      "id": "local-type-parameter-name",
+      "expected": "reject",
+      "matchesExpectation": false,
+      "label": {
+        "id": "local-type-parameter-name",
+        "name": "localTypes",
+        "contractVersion": 2,
+        "kind": "reference",
+        "source": {
+          "file": "input.ts",
+          "anchor": "export function localTypes(",
+          "offset": 0,
+          "line": 1
+        },
+        "use": {
+          "file": "input.ts",
+          "anchor": "TypeParam> =",
+          "offset": 42,
+          "line": 2
+        },
+        "target": {
+          "file": "input.ts",
+          "anchor": "TypeParam> =",
+          "offset": 42,
+          "line": 2
+        },
+        "usageKind": "reference",
+        "unverified": []
+      },
+      "result": {
+        "id": "local-type-parameter-name",
+        "evaluatorVersion": 2,
+        "status": "correct",
+        "checks": [
+          {
+            "field": "declaration.file+offset",
+            "expected": {
+              "file": "input.ts",
+              "anchor": "export function localTypes(",
+              "offset": 0,
+              "line": 1
+            },
+            "actual": {
+              "file": "input.ts",
+              "symbol": "localTypes",
+              "start": {
+                "line": 1,
+                "column": 1,
+                "offset": 0
+              },
+              "end": {
+                "line": 5,
+                "column": 2,
+                "offset": 130
+              }
+            },
+            "passed": true
+          },
+          {
+            "field": "name",
+            "expected": "localTypes",
+            "actual": "localTypes",
+            "passed": true
+          },
+          {
+            "field": "source use role",
+            "expected": "reference",
+            "actual": "reference",
+            "passed": true
+          },
+          {
+            "field": "target.file+offset",
+            "expected": {
+              "file": "input.ts",
+              "anchor": "TypeParam> =",
+              "offset": 42,
+              "line": 2
+            },
+            "actual": {
+              "file": "input.ts",
+              "symbol": "TypeParam",
+              "start": {
+                "line": 2,
+                "column": 12,
+                "offset": 42
+              },
+              "end": {
+                "line": 2,
+                "column": 21,
+                "offset": 51
+              }
+            },
+            "passed": true
+          }
+        ],
+        "unverified": [],
+        "evidence": [
+          {
+            "file": "input.ts",
+            "symbol": "localTypes",
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 5,
+              "column": 2,
+              "offset": 130
+            }
+          },
+          {
+            "file": "input.ts",
+            "symbol": "localTypes",
+            "start": {
+              "line": 2,
+              "column": 12,
+              "offset": 42
+            },
+            "end": {
+              "line": 2,
+              "column": 21,
+              "offset": 51
+            }
+          },
+          {
+            "file": "input.ts",
+            "symbol": "TypeParam",
+            "start": {
+              "line": 2,
+              "column": 12,
+              "offset": 42
+            },
+            "end": {
+              "line": 2,
+              "column": 21,
+              "offset": 51
+            }
+          }
+        ],
+        "reason": "Syntactic source use and fact edge; not a runtime execution or call-graph proof",
+        "useEvidence": {
+          "file": "input.ts",
+          "symbol": "localTypes",
+          "start": {
+            "line": 2,
+            "column": 12,
+            "offset": 42
+          },
+          "end": {
+            "line": 2,
+            "column": 21,
+            "offset": 51
+          }
+        },
+        "targetEvidence": {
+          "file": "input.ts",
+          "symbol": "TypeParam",
+          "start": {
+            "line": 2,
+            "column": 12,
+            "offset": 42
+          },
+          "end": {
+            "line": 2,
+            "column": 21,
+            "offset": 51
+          }
+        }
+      }
+    },
+    {
+      "id": "local-interface-property-name",
+      "expected": "reject",
+      "matchesExpectation": false,
+      "label": {
+        "id": "local-interface-property-name",
+        "name": "localTypes",
+        "contractVersion": 2,
+        "kind": "reference",
+        "source": {
+          "file": "input.ts",
+          "anchor": "export function localTypes(",
+          "offset": 0,
+          "line": 1
+        },
+        "use": {
+          "file": "input.ts",
+          "anchor": "member: string",
+          "offset": 97,
+          "line": 3
+        },
+        "target": {
+          "file": "input.ts",
+          "anchor": "member: string",
+          "offset": 97,
+          "line": 3
+        },
+        "usageKind": "reference",
+        "unverified": []
+      },
+      "result": {
+        "id": "local-interface-property-name",
+        "evaluatorVersion": 2,
+        "status": "correct",
+        "checks": [
+          {
+            "field": "declaration.file+offset",
+            "expected": {
+              "file": "input.ts",
+              "anchor": "export function localTypes(",
+              "offset": 0,
+              "line": 1
+            },
+            "actual": {
+              "file": "input.ts",
+              "symbol": "localTypes",
+              "start": {
+                "line": 1,
+                "column": 1,
+                "offset": 0
+              },
+              "end": {
+                "line": 5,
+                "column": 2,
+                "offset": 130
+              }
+            },
+            "passed": true
+          },
+          {
+            "field": "name",
+            "expected": "localTypes",
+            "actual": "localTypes",
+            "passed": true
+          },
+          {
+            "field": "source use role",
+            "expected": "reference",
+            "actual": "reference",
+            "passed": true
+          },
+          {
+            "field": "target.file+offset",
+            "expected": {
+              "file": "input.ts",
+              "anchor": "member: string",
+              "offset": 97,
+              "line": 3
+            },
+            "actual": {
+              "file": "input.ts",
+              "symbol": "member",
+              "start": {
+                "line": 3,
+                "column": 21,
+                "offset": 97
+              },
+              "end": {
+                "line": 3,
+                "column": 35,
+                "offset": 111
+              }
+            },
+            "passed": true
+          }
+        ],
+        "unverified": [],
+        "evidence": [
+          {
+            "file": "input.ts",
+            "symbol": "localTypes",
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 5,
+              "column": 2,
+              "offset": 130
+            }
+          },
+          {
+            "file": "input.ts",
+            "symbol": "localTypes",
+            "start": {
+              "line": 3,
+              "column": 21,
+              "offset": 97
+            },
+            "end": {
+              "line": 3,
+              "column": 27,
+              "offset": 103
+            }
+          },
+          {
+            "file": "input.ts",
+            "symbol": "member",
+            "start": {
+              "line": 3,
+              "column": 21,
+              "offset": 97
+            },
+            "end": {
+              "line": 3,
+              "column": 35,
+              "offset": 111
+            }
+          }
+        ],
+        "reason": "Syntactic source use and fact edge; not a runtime execution or call-graph proof",
+        "useEvidence": {
+          "file": "input.ts",
+          "symbol": "localTypes",
+          "start": {
+            "line": 3,
+            "column": 21,
+            "offset": 97
+          },
+          "end": {
+            "line": 3,
+            "column": 27,
+            "offset": 103
+          }
+        },
+        "targetEvidence": {
+          "file": "input.ts",
+          "symbol": "member",
+          "start": {
+            "line": 3,
+            "column": 21,
+            "offset": 97
+          },
+          "end": {
+            "line": 3,
+            "column": 35,
+            "offset": 111
+          }
+        }
+      }
+    },
+    {
+      "id": "unused-name",
+      "expected": "reject",
+      "matchesExpectation": true,
+      "label": {
+        "id": "unused-name",
+        "name": "unused",
+        "contractVersion": 2,
+        "kind": "reference",
+        "source": {
+          "file": "input.ts",
+          "anchor": "export function unused(",
+          "offset": 131,
+          "line": 6
+        },
+        "use": {
+          "file": "input.ts",
+          "anchor": "unused() {",
+          "offset": 147,
+          "line": 6
+        },
+        "target": {
+          "file": "input.ts",
+          "anchor": "export function unused()",
+          "offset": 131,
+          "line": 6
+        },
+        "usageKind": "reference",
+        "unverified": []
+      },
+      "result": {
+        "id": "unused-name",
+        "evaluatorVersion": 2,
+        "status": "mismatch",
+        "checks": [
+          {
+            "field": "declaration.file+offset",
+            "expected": {
+              "file": "input.ts",
+              "anchor": "export function unused(",
+              "offset": 131,
+              "line": 6
+            },
+            "actual": {
+              "file": "input.ts",
+              "symbol": "unused",
+              "start": {
+                "line": 6,
+                "column": 1,
+                "offset": 131
+              },
+              "end": {
+                "line": 6,
+                "column": 42,
+                "offset": 172
+              }
+            },
+            "passed": true
+          },
+          {
+            "field": "name",
+            "expected": "unused",
+            "actual": "unused",
+            "passed": true
+          },
+          {
+            "field": "source use role",
+            "expected": "reference",
+            "actual": "Declaration/header names are not body uses",
+            "passed": false
+          }
+        ],
+        "unverified": [],
+        "evidence": [
+          {
+            "file": "input.ts",
+            "symbol": "unused",
+            "start": {
+              "line": 6,
+              "column": 1,
+              "offset": 131
+            },
+            "end": {
+              "line": 6,
+              "column": 42,
+              "offset": 172
+            }
+          }
+        ],
+        "reason": "Declaration/header names are not body uses"
+      }
+    },
+    {
+      "id": "recursive-call",
+      "expected": "correct",
+      "matchesExpectation": true,
+      "label": {
+        "id": "recursive-call",
+        "name": "recursive",
+        "contractVersion": 2,
+        "kind": "reference",
+        "source": {
+          "file": "input.ts",
+          "anchor": "export function recursive(",
+          "offset": 173,
+          "line": 7
+        },
+        "use": {
+          "file": "input.ts",
+          "anchor": "recursive(); }",
+          "offset": 219,
+          "line": 7
+        },
+        "target": {
+          "file": "input.ts",
+          "anchor": "export function recursive()",
+          "offset": 173,
+          "line": 7
+        },
+        "usageKind": "call",
+        "unverified": []
+      },
+      "result": {
+        "id": "recursive-call",
+        "evaluatorVersion": 2,
+        "status": "correct",
+        "checks": [
+          {
+            "field": "declaration.file+offset",
+            "expected": {
+              "file": "input.ts",
+              "anchor": "export function recursive(",
+              "offset": 173,
+              "line": 7
+            },
+            "actual": {
+              "file": "input.ts",
+              "symbol": "recursive",
+              "start": {
+                "line": 7,
+                "column": 1,
+                "offset": 173
+              },
+              "end": {
+                "line": 7,
+                "column": 61,
+                "offset": 233
+              }
+            },
+            "passed": true
+          },
+          {
+            "field": "name",
+            "expected": "recursive",
+            "actual": "recursive",
+            "passed": true
+          },
+          {
+            "field": "source use role",
+            "expected": "call",
+            "actual": "call",
+            "passed": true
+          },
+          {
+            "field": "target.file+offset",
+            "expected": {
+              "file": "input.ts",
+              "anchor": "export function recursive()",
+              "offset": 173,
+              "line": 7
+            },
+            "actual": {
+              "file": "input.ts",
+              "symbol": "recursive",
+              "start": {
+                "line": 7,
+                "column": 1,
+                "offset": 173
+              },
+              "end": {
+                "line": 7,
+                "column": 61,
+                "offset": 233
+              }
+            },
+            "passed": true
+          }
+        ],
+        "unverified": [],
+        "evidence": [
+          {
+            "file": "input.ts",
+            "symbol": "recursive",
+            "start": {
+              "line": 7,
+              "column": 1,
+              "offset": 173
+            },
+            "end": {
+              "line": 7,
+              "column": 61,
+              "offset": 233
+            }
+          },
+          {
+            "file": "input.ts",
+            "symbol": "recursive",
+            "start": {
+              "line": 7,
+              "column": 47,
+              "offset": 219
+            },
+            "end": {
+              "line": 7,
+              "column": 56,
+              "offset": 228
+            }
+          },
+          {
+            "file": "input.ts",
+            "symbol": "recursive",
+            "start": {
+              "line": 7,
+              "column": 1,
+              "offset": 173
+            },
+            "end": {
+              "line": 7,
+              "column": 61,
+              "offset": 233
+            }
+          }
+        ],
+        "reason": "Syntactic source use and fact edge; not a runtime execution or call-graph proof",
+        "useEvidence": {
+          "file": "input.ts",
+          "symbol": "recursive",
+          "start": {
+            "line": 7,
+            "column": 47,
+            "offset": 219
+          },
+          "end": {
+            "line": 7,
+            "column": 56,
+            "offset": 228
+          }
+        },
+        "targetEvidence": {
+          "file": "input.ts",
+          "symbol": "recursive",
+          "start": {
+            "line": 7,
+            "column": 1,
+            "offset": 173
+          },
+          "end": {
+            "line": 7,
+            "column": 61,
+            "offset": 233
+          }
+        }
+      }
+    },
+    {
+      "id": "parameter-read",
+      "expected": "correct",
+      "matchesExpectation": true,
+      "label": {
+        "id": "parameter-read",
+        "name": "direct",
+        "contractVersion": 2,
+        "kind": "reference",
+        "source": {
+          "file": "input.ts",
+          "anchor": "export function direct(",
+          "offset": 234,
+          "line": 8
+        },
+        "use": {
+          "file": "input.ts",
+          "anchor": "value; }",
+          "offset": 281,
+          "line": 8
+        },
+        "target": {
+          "file": "input.ts",
+          "anchor": "value: string",
+          "offset": 257,
+          "line": 8
+        },
+        "usageKind": "reference",
+        "unverified": []
+      },
+      "result": {
+        "id": "parameter-read",
+        "evaluatorVersion": 2,
+        "status": "correct",
+        "checks": [
+          {
+            "field": "declaration.file+offset",
+            "expected": {
+              "file": "input.ts",
+              "anchor": "export function direct(",
+              "offset": 234,
+              "line": 8
+            },
+            "actual": {
+              "file": "input.ts",
+              "symbol": "direct",
+              "start": {
+                "line": 8,
+                "column": 1,
+                "offset": 234
+              },
+              "end": {
+                "line": 8,
+                "column": 56,
+                "offset": 289
+              }
+            },
+            "passed": true
+          },
+          {
+            "field": "name",
+            "expected": "direct",
+            "actual": "direct",
+            "passed": true
+          },
+          {
+            "field": "source use role",
+            "expected": "reference",
+            "actual": "reference",
+            "passed": true
+          },
+          {
+            "field": "target.file+offset",
+            "expected": {
+              "file": "input.ts",
+              "anchor": "value: string",
+              "offset": 257,
+              "line": 8
+            },
+            "actual": {
+              "file": "input.ts",
+              "symbol": "value",
+              "start": {
+                "line": 8,
+                "column": 24,
+                "offset": 257
+              },
+              "end": {
+                "line": 8,
+                "column": 37,
+                "offset": 270
+              }
+            },
+            "passed": true
+          }
+        ],
+        "unverified": [],
+        "evidence": [
+          {
+            "file": "input.ts",
+            "symbol": "direct",
+            "start": {
+              "line": 8,
+              "column": 1,
+              "offset": 234
+            },
+            "end": {
+              "line": 8,
+              "column": 56,
+              "offset": 289
+            }
+          },
+          {
+            "file": "input.ts",
+            "symbol": "direct",
+            "start": {
+              "line": 8,
+              "column": 48,
+              "offset": 281
+            },
+            "end": {
+              "line": 8,
+              "column": 53,
+              "offset": 286
+            }
+          },
+          {
+            "file": "input.ts",
+            "symbol": "value",
+            "start": {
+              "line": 8,
+              "column": 24,
+              "offset": 257
+            },
+            "end": {
+              "line": 8,
+              "column": 37,
+              "offset": 270
+            }
+          }
+        ],
+        "reason": "Syntactic source use and fact edge; not a runtime execution or call-graph proof",
+        "useEvidence": {
+          "file": "input.ts",
+          "symbol": "direct",
+          "start": {
+            "line": 8,
+            "column": 48,
+            "offset": 281
+          },
+          "end": {
+            "line": 8,
+            "column": 53,
+            "offset": 286
+          }
+        },
+        "targetEvidence": {
+          "file": "input.ts",
+          "symbol": "value",
+          "start": {
+            "line": 8,
+            "column": 24,
+            "offset": 257
+          },
+          "end": {
+            "line": 8,
+            "column": 37,
+            "offset": 270
+          }
+        }
+      }
+    },
+    {
+      "id": "nested-call",
+      "expected": "reject",
+      "matchesExpectation": true,
+      "label": {
+        "id": "nested-call",
+        "name": "nested",
+        "contractVersion": 2,
+        "kind": "reference",
+        "source": {
+          "file": "input.ts",
+          "anchor": "export function nested(",
+          "offset": 290,
+          "line": 9
+        },
+        "use": {
+          "file": "input.ts",
+          "anchor": "recursive(); return inner;",
+          "offset": 337,
+          "line": 9
+        },
+        "target": {
+          "file": "input.ts",
+          "anchor": "export function recursive()",
+          "offset": 173,
+          "line": 7
+        },
+        "usageKind": "call",
+        "unverified": []
+      },
+      "result": {
+        "id": "nested-call",
+        "evaluatorVersion": 2,
+        "status": "mismatch",
+        "checks": [
+          {
+            "field": "declaration.file+offset",
+            "expected": {
+              "file": "input.ts",
+              "anchor": "export function nested(",
+              "offset": 290,
+              "line": 9
+            },
+            "actual": {
+              "file": "input.ts",
+              "symbol": "nested",
+              "start": {
+                "line": 9,
+                "column": 1,
+                "offset": 290
+              },
+              "end": {
+                "line": 9,
+                "column": 76,
+                "offset": 365
+              }
+            },
+            "passed": true
+          },
+          {
+            "field": "name",
+            "expected": "nested",
+            "actual": "nested",
+            "passed": true
+          },
+          {
+            "field": "source use role",
+            "expected": "call",
+            "actual": "Use belongs to a nested function",
+            "passed": false
+          }
+        ],
+        "unverified": [],
+        "evidence": [
+          {
+            "file": "input.ts",
+            "symbol": "nested",
+            "start": {
+              "line": 9,
+              "column": 1,
+              "offset": 290
+            },
+            "end": {
+              "line": 9,
+              "column": 76,
+              "offset": 365
+            }
+          }
+        ],
+        "reason": "Use belongs to a nested function"
+      }
+    },
+    {
+      "id": "local-variable-declaration",
+      "expected": "reject",
+      "matchesExpectation": true,
+      "label": {
+        "id": "local-variable-declaration",
+        "name": "localValue",
+        "contractVersion": 2,
+        "kind": "reference",
+        "source": {
+          "file": "input.ts",
+          "anchor": "export function localValue(",
+          "offset": 366,
+          "line": 10
+        },
+        "use": {
+          "file": "input.ts",
+          "anchor": "item = true",
+          "offset": 403,
+          "line": 10
+        },
+        "target": {
+          "file": "input.ts",
+          "anchor": "item = true",
+          "offset": 403,
+          "line": 10
+        },
+        "usageKind": "reference",
+        "unverified": []
+      },
+      "result": {
+        "id": "local-variable-declaration",
+        "evaluatorVersion": 2,
+        "status": "mismatch",
+        "checks": [
+          {
+            "field": "declaration.file+offset",
+            "expected": {
+              "file": "input.ts",
+              "anchor": "export function localValue(",
+              "offset": 366,
+              "line": 10
+            },
+            "actual": {
+              "file": "input.ts",
+              "symbol": "localValue",
+              "start": {
+                "line": 10,
+                "column": 1,
+                "offset": 366
+              },
+              "end": {
+                "line": 10,
+                "column": 65,
+                "offset": 430
+              }
+            },
+            "passed": true
+          },
+          {
+            "field": "name",
+            "expected": "localValue",
+            "actual": "localValue",
+            "passed": true
+          },
+          {
+            "field": "source use role",
+            "expected": "reference",
+            "actual": "Declaration/property-key names are not runtime-expression uses",
+            "passed": false
+          }
+        ],
+        "unverified": [],
+        "evidence": [
+          {
+            "file": "input.ts",
+            "symbol": "localValue",
+            "start": {
+              "line": 10,
+              "column": 1,
+              "offset": 366
+            },
+            "end": {
+              "line": 10,
+              "column": 65,
+              "offset": 430
+            }
+          }
+        ],
+        "reason": "Declaration/property-key names are not runtime-expression uses"
+      }
+    },
+    {
+      "id": "local-variable-read",
+      "expected": "correct",
+      "matchesExpectation": true,
+      "label": {
+        "id": "local-variable-read",
+        "name": "localValue",
+        "contractVersion": 2,
+        "kind": "reference",
+        "source": {
+          "file": "input.ts",
+          "anchor": "export function localValue(",
+          "offset": 366,
+          "line": 10
+        },
+        "use": {
+          "file": "input.ts",
+          "anchor": "item; }",
+          "offset": 423,
+          "line": 10
+        },
+        "target": {
+          "file": "input.ts",
+          "anchor": "item = true",
+          "offset": 403,
+          "line": 10
+        },
+        "usageKind": "reference",
+        "unverified": []
+      },
+      "result": {
+        "id": "local-variable-read",
+        "evaluatorVersion": 2,
+        "status": "correct",
+        "checks": [
+          {
+            "field": "declaration.file+offset",
+            "expected": {
+              "file": "input.ts",
+              "anchor": "export function localValue(",
+              "offset": 366,
+              "line": 10
+            },
+            "actual": {
+              "file": "input.ts",
+              "symbol": "localValue",
+              "start": {
+                "line": 10,
+                "column": 1,
+                "offset": 366
+              },
+              "end": {
+                "line": 10,
+                "column": 65,
+                "offset": 430
+              }
+            },
+            "passed": true
+          },
+          {
+            "field": "name",
+            "expected": "localValue",
+            "actual": "localValue",
+            "passed": true
+          },
+          {
+            "field": "source use role",
+            "expected": "reference",
+            "actual": "reference",
+            "passed": true
+          },
+          {
+            "field": "target.file+offset",
+            "expected": {
+              "file": "input.ts",
+              "anchor": "item = true",
+              "offset": 403,
+              "line": 10
+            },
+            "actual": {
+              "file": "input.ts",
+              "symbol": "item",
+              "start": {
+                "line": 10,
+                "column": 38,
+                "offset": 403
+              },
+              "end": {
+                "line": 10,
+                "column": 49,
+                "offset": 414
+              }
+            },
+            "passed": true
+          }
+        ],
+        "unverified": [],
+        "evidence": [
+          {
+            "file": "input.ts",
+            "symbol": "localValue",
+            "start": {
+              "line": 10,
+              "column": 1,
+              "offset": 366
+            },
+            "end": {
+              "line": 10,
+              "column": 65,
+              "offset": 430
+            }
+          },
+          {
+            "file": "input.ts",
+            "symbol": "localValue",
+            "start": {
+              "line": 10,
+              "column": 58,
+              "offset": 423
+            },
+            "end": {
+              "line": 10,
+              "column": 62,
+              "offset": 427
+            }
+          },
+          {
+            "file": "input.ts",
+            "symbol": "item",
+            "start": {
+              "line": 10,
+              "column": 38,
+              "offset": 403
+            },
+            "end": {
+              "line": 10,
+              "column": 49,
+              "offset": 414
+            }
+          }
+        ],
+        "reason": "Syntactic source use and fact edge; not a runtime execution or call-graph proof",
+        "useEvidence": {
+          "file": "input.ts",
+          "symbol": "localValue",
+          "start": {
+            "line": 10,
+            "column": 58,
+            "offset": 423
+          },
+          "end": {
+            "line": 10,
+            "column": 62,
+            "offset": 427
+          }
+        },
+        "targetEvidence": {
+          "file": "input.ts",
+          "symbol": "item",
+          "start": {
+            "line": 10,
+            "column": 38,
+            "offset": 403
+          },
+          "end": {
+            "line": 10,
+            "column": 49,
+            "offset": 414
+          }
+        }
+      }
+    },
+    {
+      "id": "type-query",
+      "expected": "reject",
+      "matchesExpectation": true,
+      "label": {
+        "id": "type-query",
+        "name": "typeQuery",
+        "contractVersion": 2,
+        "kind": "reference",
+        "source": {
+          "file": "input.ts",
+          "anchor": "export function typeQuery(",
+          "offset": 431,
+          "line": 11
+        },
+        "use": {
+          "file": "input.ts",
+          "anchor": "recursive>; return",
+          "offset": 493,
+          "line": 11
+        },
+        "target": {
+          "file": "input.ts",
+          "anchor": "export function recursive()",
+          "offset": 173,
+          "line": 7
+        },
+        "usageKind": "reference",
+        "unverified": []
+      },
+      "result": {
+        "id": "type-query",
+        "evaluatorVersion": 2,
+        "status": "mismatch",
+        "checks": [
+          {
+            "field": "declaration.file+offset",
+            "expected": {
+              "file": "input.ts",
+              "anchor": "export function typeQuery(",
+              "offset": 431,
+              "line": 11
+            },
+            "actual": {
+              "file": "input.ts",
+              "symbol": "typeQuery",
+              "start": {
+                "line": 11,
+                "column": 1,
+                "offset": 431
+              },
+              "end": {
+                "line": 11,
+                "column": 89,
+                "offset": 519
+              }
+            },
+            "passed": true
+          },
+          {
+            "field": "name",
+            "expected": "typeQuery",
+            "actual": "typeQuery",
+            "passed": true
+          },
+          {
+            "field": "source use role",
+            "expected": "reference",
+            "actual": "Type syntax is outside the runtime-expression reference contract",
+            "passed": false
+          }
+        ],
+        "unverified": [],
+        "evidence": [
+          {
+            "file": "input.ts",
+            "symbol": "typeQuery",
+            "start": {
+              "line": 11,
+              "column": 1,
+              "offset": 431
+            },
+            "end": {
+              "line": 11,
+              "column": 89,
+              "offset": 519
+            }
+          }
+        ],
+        "reason": "Type syntax is outside the runtime-expression reference contract"
+      }
+    }
+  ]
+}

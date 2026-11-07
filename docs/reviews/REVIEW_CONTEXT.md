@@ -1,6 +1,6 @@
 # 독립 리뷰 맥락
 
-마지막 리뷰: 2026-11-07 corpus 후속. [최신 독립 보고](2026-11-07-corpus-independent-review.md) · [현재 개발 지시](2026-11-07-corpus-review-next-plan.md).
+마지막 리뷰: 2026-11-08 V2 계약 후속. [최신 독립 보고](2026-11-08-corpus-contract-independent-review.md) · [현재 개발 지시](2026-11-08-contract-review-next-plan.md).
 
 ## 역할과 사용자 협업
 
@@ -22,21 +22,23 @@
 | R1 | 해결 | 직접 enum 선언 식별자만 상수 경로 허용. optional/call 등 Unsupported |
 | R2 | 해결 | explicit this를 predicate/condition에서 거부 |
 | R3 | 해결 | files와 실제 순회 목록 일치, 제외 파일별 근거 |
-| R4 | Medium / 확인, 미수정 | 평가기가 type/function 이름·좌표나 parameter 이름만 검사해 더 강한 타입/generic claim도 correct 처리 |
-| R5 | Medium / 확인, 미수정 | use offset과 target 선언 시작 offset만 비교해 함수 선언 이름을 실제 사용으로 오인 |
+| R4 | V2 명시 계약 범위에서 해결 | 타입/종류 기대값 검사 및 미검증 generic/소속 설명 분리. 타입 변형을 mismatch로 거부 |
+| R5 | Medium / 부분 해결 | 기존 함수 선언 이름은 거부. 지역 타입 매개변수와 인터페이스 필드 선언 이름은 여전히 실제 사용으로 승인 |
 
 [평가기 재현](evidence/2026-11-07-corpus-evaluator-check.mjs), [관찰 JSON](evidence/2026-11-07-corpus-evaluator-results.json), [산출물 재현 대조](evidence/2026-11-07-corpus-review-reproduction.json). R4는 실제 원본 타입이 틀린 발견이 아니며, R5가 현재 22개 중 특정 판정을 틀리게 했다는 결론도 아니다. 측정기가 오류를 탐지하는 계약을 보완해야 한다. 원래 코어 references는 선언 이름도 포함하며 호출 그래프가 아니다.
 
 ## 제품·연구 판단
 
-- 고정된 두 utility corpus에서 predicate 지원 0, 사전 비교 0/2, p-queue 전체 FCA 상한 초과가 재현됐다. current evaluator의 correct 22/unsupported 2도 재현됐으나 claim 전체 검증으로 확대하지 않는다.
+2026-11-08 독립 검토: PR #7/main `7671236`에서 99개 테스트·인공 비교 4/4·V1 14파일/V2 16파일 byte 재현 및 V1/V2 분석 산출물 11개 동일성을 확인했다. 별도 actual-scan probe 9개 사례 중 7개 기대 일치, 타입 전용 선언 이름 2개는 잘못된 correct였다. [새 probe](evidence/2026-11-08-contract-independent-check.mjs), [원문/라벨/결과](evidence/2026-11-08-contract-independent-results.json). 기존 corpus 22개 중 특정 판정이 거짓이라는 발견은 아니다.
+
+- 고정된 두 utility corpus에서 predicate 지원 0, 사전 비교 0/2, p-queue 전체 FCA 상한 초과가 재현됐다. V1/V2 모두 correct 22/unsupported 2지만 검사 계약은 달라졌다. V2 correct는 명시 계약에만 적용하며 unverified 설명이나 사람 승인으로 확대하지 않는다.
 - date-fns FCA 3개 extent 모두 단순 그룹에도 있다. 작은 p-queue는 23개 중 13개가 단순 그룹과 같고 10개는 추가 조합이다. extent 일치가 설명 가치 부재를, 추가 조합이 효용을 의미하지 않는다.
 - utility 라이브러리는 정적 분석의 실패 관찰 표본이지 실제 프론트엔드 업무 이해의 대표 표본이 아니다. 라벨을 사람이 확인하는 작업과 설치 가치/탐색 비용을 측정하는 과업을 구분한다.
-- Gate 1의 제품 코어에 대한 이전 제한적 통과는 유지한다. 측정 평가기에는 R4/R5 보완이 필요하다. Gate 2/3는 미검증, Gate 4는 도입 장벽 관찰 추가·유지 비용 미측정, Gate 5는 미통과다.
+- Gate 1의 제품 코어에 대한 이전 제한적 통과는 유지한다. R4는 해결됐고 측정 평가기에는 R5 잔여 보완이 필요하다. Gate 2/3는 미검증, Gate 4는 도입 장벽 관찰 추가·유지 비용 미측정, Gate 5는 미통과다.
 - 새 false proof·업무 의미 승인·사람의 과업 시간·시장 비교를 이번 리뷰에서 확인했다고 주장하지 않는다. 경쟁 문서 확인은 초기 리뷰의 제한된 조사이며 최신 성능 비교가 아니다.
 
 ## 다음 하나와 이후 판단
 
-먼저 R4/R5를 실제 scan fixture·잘못된 fact를 넣는 부정 검사로 보완한다. claim을 검증 가능한 범위로 좁히거나 독립 expected type/kind/use 근거를 추가한다. 실제 재귀/import 사용은 유지한다. 과거 라벨/raw는 새 버전의 실험과 분리해 보존한다. 코어 문법/상한/알고리즘 확장은 제외한다.
+먼저 R5의 지역 타입 매개변수/인터페이스 필드 선언 이름 오인을 actual-scan 회귀와 타입 전용 문맥 판정으로 보완한다. R4 계약을 재설계하지 않는다. 실제 재귀/import/변수 읽기는 유지한다. 과거 V1/V2 라벨/raw/fingerprint와 실행 경로를 새 결과와 구분해 보존한다. 코어 문법/상한/알고리즘 확장은 제외한다.
 
-그 뒤 사용자 선택에 맞춰 실제 업무 애플리케이션의 한 탐색 과업을 설계한다. 사용자 질문·정답 근거·대상 범위·기준선·학습 효과·참가자·시간 기록을 사전에 정한다. 검색/LSP와 같은 facts의 단순 그룹을 기준선으로 FCA의 추가 가치와 검토 부담을 본다. 사람이 참여하지 않았으면 정량 사용자 효과나 승인 상태를 채우지 않는다. 데이터가 지지하지 않으면 기술 추가보다 실험/표현 방식을 재검토하며 주요 방향 전환은 사용자에게 확인한다.
+사용자 선택에 맞춘 실제 업무 앱의 한 탐색 과업 준비는 작은 R5 수정과 독립적으로 진행할 수 있다. [절차 초안](../experiments/concept-exploration-protocol.md)은 방향에 맞지만 대상/정답/참가자는 미확정이다. 사용자 질문·정답 근거·대상 범위·기준선·학습 효과·참가자·시간 기록을 사전에 정한다. 검색/LSP와 같은 facts의 단순 그룹을 기준선으로 FCA의 추가 가치와 검토 부담을 본다. 사람이 참여하지 않았으면 정량 사용자 효과나 승인 상태를 채우지 않는다. 데이터가 지지하지 않으면 기술 추가보다 실험/표현 방식을 재검토하며 주요 방향 전환은 사용자에게 확인한다.
