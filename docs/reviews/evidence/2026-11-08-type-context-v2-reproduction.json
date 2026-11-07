@@ -1,0 +1,26 @@
+{
+  "equivalent": true,
+  "comparedFiles": 16,
+  "hashes": {
+    "analysis-unchanged.json": "0ea86c663afad5eced52255030d301b79edf81f4300923cd5c1e1482ab3dcdb0",
+    "comparisons.json": "97ec2a23ad7cc9cec004121d1dea1ac93e7cc154b660074349dcff17acc35f50",
+    "date-fns-weekday-concepts.json.gz": "7a81916ba4af589db78cead830aa9c1d804932b35c3e4da00f77eec67a90f743",
+    "date-fns-weekday-scan.json.gz": "d5886e0460e3bcf3e47b310e3d4fa3469bae890765374c306f679402fba6563d",
+    "date-fns-weekday-simple-groups.json.gz": "e29c095897feaf50315156efe4c69d52d7138a86742d695cc9378eff192753f3",
+    "label-changes.json": "f2e80b277aaabee062280ed8fb2991a67c2cc5f4663b42d40ec8d8ae18fd9ded",
+    "labels.json": "e7c7ff52a7e7cbc90aa3f7c1e1b4e9a154ca160f0ea29fde250cc0959c536ac4",
+    "p-queue-original-config-failure.json": "ac7e0d04de8278ab02effce13aa750ebe1bd2c5ae9c7236edc7143a5c900d727",
+    "p-queue-priority-queue-concepts.json.gz": "ebaddd24e769042963bc5791ee9a868adf1a197c6d799a8e54114e96364a9e82",
+    "p-queue-priority-queue-scan.json.gz": "52d29867577738fc6e205c426bb2c5c79d56643e432e8f42f4e017843b808910",
+    "p-queue-priority-queue-simple-groups.json.gz": "b78bfb897bdc8990eedcb2f1a310428e973cbd857b1548ecf259d07c98ed317b",
+    "p-queue-production-concepts-failure.json": "33187fb536c988c47aac44a8c5b2fba717f1ab8d2fe790ee301147ffa2faf435",
+    "p-queue-production-scan.json.gz": "a56674b846d18c13247667e653724e4f783129a0c5187bc7647ea9bb320cceed",
+    "p-queue-production-simple-groups.json.gz": "8729acfefa1e5b911626eb350a03a2a9c537588760345ed984622ee6a5385da7",
+    "review.md": "d08f952b1cfb27d745f0810be64634f54f795b6455566fb11350cf1d165bbc36",
+    "summary.json": "9d06810f15b4984c9bde2901f8bdef76db1798df059941f69c35fa3f91b63eb5"
+  },
+  "excluded": [
+    "timings.json: measured wall time and preparation cache state"
+  ],
+  "scope": "Two fresh scanner runs in the same workspace/dependency layout; not a portability or performance claim."
+}

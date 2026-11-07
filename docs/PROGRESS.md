@@ -4,9 +4,11 @@
 
 ## 현재 단계
 
-최신 독립 판정(2026-11-08): **R4 해결, R5 부분 해결**이다. V2의 함수 선언 이름 오인은 차단됐지만 지역 타입 매개변수/인터페이스 필드 선언 이름을 실제 사용으로 인정하는 Medium 잔여 결함을 확인했다. 99개 테스트·기존 비교 4/4·V1 14개/V2 16개 비시간 파일 재현은 통과했다. [독립 리뷰](reviews/2026-11-08-corpus-contract-independent-review.md)와 [현재 개발 지시](reviews/2026-11-08-contract-review-next-plan.md)가 최신 판단이다. 업무 개념 탐색 우선 방향은 유지한다.
+2026-11-08 최신 구현: **R5 타입 선언 문맥을 V3로 보완하고 회귀·재현 검증을 완료**했다. 원래 독립 probe 기대 일치는 7/9 → 9/9, 인접 사례는 18/27 → 27/27이다. 전체 136개 테스트·기존 비교 4/4, V1/V2/V3 비시간 14/16/16개 재현이 통과했다. 현재 기본 corpus 명령은 V3이며 입력은 변경 없는 V2 계약이다. [새 인계](reviews/2026-11-08-type-context-fix.md)와 [V3 README](../experiments/corpus/v3/README.md)가 최신 구현 상태다. 독립 재검토·사람 승인·제품 효용은 별개로 남아 있다.
 
-2026-11-08 구현 후속: **평가기 V2로 R4/R5를 보완**했다. 제품 코어와 역사적 V1은 그대로이며, 현재 기본 corpus 명령은 V2다. 전체 99개 테스트·예제 비교 4/4, V1 비시간 14개·V2 16개 재현 일치를 확인했다. [수정 인계](reviews/2026-11-08-corpus-contract-fix.md), [V2 계약/재현](../experiments/corpus/v2/README.md), [새 검토표](../experiments/corpus/results/2026-11-08-v2/review.md)가 최신 구현 인계다. 아직 독립 재검토나 사람 승인으로 표시하지 않는다.
+수정 전 독립 판정(2026-11-08): **R4 해결, R5 부분 해결**이다. V2의 함수 선언 이름 오인은 차단됐지만 지역 타입 매개변수/인터페이스 필드 선언 이름을 실제 사용으로 인정하는 Medium 잔여 결함을 확인했다. 99개 테스트·기존 비교 4/4·V1 14개/V2 16개 비시간 파일 재현은 통과했다. [독립 리뷰](reviews/2026-11-08-corpus-contract-independent-review.md)와 [현재 개발 지시](reviews/2026-11-08-contract-review-next-plan.md)가 이번 수정의 근거다. 업무 개념 탐색 우선 방향은 유지한다.
+
+2026-11-08 구현 후속: **평가기 V2로 R4/R5를 보완**했다. 제품 코어와 역사적 V1은 그대로이며, 당시 기본 corpus 명령은 V2였다. 전체 99개 테스트·예제 비교 4/4, V1 비시간 14개·V2 16개 재현 일치를 확인했다. [수정 인계](reviews/2026-11-08-corpus-contract-fix.md), [V2 계약/재현](../experiments/corpus/v2/README.md), [새 검토표](../experiments/corpus/results/2026-11-08-v2/review.md)는 V2 당시의 구현 인계다. 아직 독립 재검토나 사람 승인으로 표시하지 않는다.
 
 직전 독립 판정: 원시 corpus 결과는 재현됐지만 평가기 R4/R5 보완이 필요했다. 사용자는 다음 제품 실험을 **업무 개념·관련 코드 탐색 우선**으로 선택했다. [corpus 독립 리뷰](reviews/2026-11-07-corpus-independent-review.md)와 [이행한 개발 지시](reviews/2026-11-07-corpus-review-next-plan.md)가 이번 수정의 기준이며, 아래 관찰 자료는 과거 실행으로 보존한다.
 
@@ -109,14 +111,14 @@ main `a58a88b`을 독립 검토해 `pnpm check` 89개·기존 실험 4/4 및 새
 - 최초 actual-scan 회귀 8개 중 6개 실패/2개 통과 → 보완·추가 후 10개 통과. 전체 `pnpm check`는 7파일/99테스트·타입 검사·빌드 통과, `pnpm experiment`는 4/4 통과했다.
 - V1 재현의 비시간 14파일, V2 재현의 비시간 16파일이 각각 byte 일치했다. 두 버전의 core 분석 산출물 11개도 동일하다.
 - 두 버전 모두 라벨 22 correct/2 unsupported지만 검사 내용과 일부 claim이 달라졌으므로 성능 전후 차이로 읽지 않는다. 24개 전후 대조와 변경 이유는 `results/2026-11-08-v2/label-changes.json`에 있다.
-- 현재 `pnpm experiment:corpus <새 경로>`는 V2, `pnpm experiment:corpus:v1 <새 경로>`는 역사적 V1이다. V1 결함을 수정 완료 버전으로 오인하지 않는다.
+- 당시 `pnpm experiment:corpus <새 경로>`는 V2, `pnpm experiment:corpus:v1 <새 경로>`는 역사적 V1이다. V1 결함을 수정 완료 버전으로 오인하지 않는다.
 - [후속 제품 실험 초안](experiments/concept-exploration-protocol.md)은 미실행이다. 대상·정답·참가자를 확정하지 않았고 사람 시간/업무 의미/도구 효용 결과를 만들지 않았다.
 
 ## 다음 작업
 
-1. 독립 검토에서 확인한 R5 잔여 오류를 평가기의 타입 전용 선언 문맥 판정과 actual-scan 회귀로 보완한다. R4는 V2 명시 계약 범위에서 해결됐다. 기존 V1/V2 결과를 보존하고 새 판정의 버전/해시를 기록한다. [현재 개발 지시](reviews/2026-11-08-contract-review-next-plan.md)를 따른다.
+1. R5 후속 구현은 완료했다. 필요시 [V3 인계](reviews/2026-11-08-type-context-fix.md)의 원래 독립 probe·인접 사례·보존된 V1/V2 재현을 독립 재검토한다. 자동 검증을 사람 승인으로 올리지 않는다.
 2. 실제 업무 애플리케이션의 한 개념 탐색 과업을 고정한다. 대상/revision·질문·소스/문서 기반 정답·참가자·학습 효과·시간 절차를 실행 전에 정한다. [절차 초안](experiments/concept-exploration-protocol.md)의 주문 취소 질문은 후보이지 확정된 대상이 아니다.
 3. 검색/LSP·동일 facts의 단순 그룹과 FCA의 추가 가치·검토 부담을 비교한다. utility 라벨의 agent 재판정을 사람의 효용 평가로 대체하지 않는다.
 4. 주요 기술적·철학적/방향성 선택이 필요하면 관찰·선택지·권고를 사용자에게 제시한다. 작은 수정과 이미 승인된 원격 반영은 반복 승인 대상으로 만들지 않는다.
 
-핵심 코드: `src/core/{analyzer,logic,fca,model}.ts`, `src/cli/index.ts`. 최신 평가기: [V2 README](../experiments/corpus/v2/README.md), [수정 인계](reviews/2026-11-08-corpus-contract-fix.md). 지원 경계는 [ARCHITECTURE](ARCHITECTURE.md), 결정은 [DECISIONS](DECISIONS.md), 실험 해석은 [RESEARCH](RESEARCH.md), 순서는 [ROADMAP](ROADMAP.md)를 따른다.
+핵심 코드: `src/core/{analyzer,logic,fca,model}.ts`, `src/cli/index.ts`. 최신 평가기: [V3 README](../experiments/corpus/v3/README.md), [수정 인계](reviews/2026-11-08-type-context-fix.md). 지원 경계는 [ARCHITECTURE](ARCHITECTURE.md), 결정은 [DECISIONS](DECISIONS.md), 실험 해석은 [RESEARCH](RESEARCH.md), 순서는 [ROADMAP](ROADMAP.md)를 따른다.

@@ -3,7 +3,8 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { scan } from '../src/core/index.js';
-import { evaluateLabel } from '../experiments/corpus/v2/evaluate-labels.mjs';
+import { evaluateLabel as evaluateV2 } from '../experiments/corpus/v2/evaluate-labels.mjs';
+import { evaluateLabel as evaluateV3 } from '../experiments/corpus/v3/evaluate-labels.mjs';
 
 const source = `export type DateArg<DateType extends Date> = DateType | number | string;
 export function unused() { return true; }
@@ -41,9 +42,8 @@ beforeAll(() => {
   expect(facts.diagnostics).toEqual([]);
 });
 afterAll(() => fs.rmSync(root, { recursive: true, force: true }));
-const evaluate = (l: object, f = facts) => evaluateLabel(l, f, { readSource });
-
-describe('version 2 corpus claim contract (actual compiler scan)', () => {
+describe.each([['V2', evaluateV2], ['V3', evaluateV3]])('%s corpus claim contract (actual compiler scan)', (_version, evaluateLabel) => {
+  const evaluate = (l: object, f = facts) => evaluateLabel(l, f, { readSource });
   it('R4 rejects a mutated DateArg union and type kind', () => {
     const l = { contractVersion: 2, id: 'DateArg', name: 'DateArg', kind: 'type', source: loc('export type DateArg'), expectedKind: 'alias', expectedType: { unionMembers: ['DateType', 'number', 'string'] } };
     expect(evaluate(l).status).toBe('correct');

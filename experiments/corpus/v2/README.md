@@ -1,5 +1,7 @@
 # Corpus evaluator V2 — 2026-11-08
 
+> 이 문서는 V2 당시 기록이다. 이후 타입 선언 문맥의 R5 잔여 오류를 [V3](../v3/README.md)에서 보완했다. 현재 기본 명령은 V3이며, 이 문서의 과거 V2 실행은 `pnpm experiment:corpus:v2 <새 경로>` 또는 `node experiments/corpus/v2/run.mjs <새 경로>`로 재현한다. 아래 라벨·결과·판단은 당시 관찰로 유지한다.
+
 R4/R5의 평가 계약 보완이다. 코어·원본 corpus·TypeScript 버전·분석 범위·상한은 V1과 같다. [수정 인계](../../../docs/reviews/2026-11-08-corpus-contract-fix.md), [새 검토표](../results/2026-11-08-v2/review.md), [라벨별 전후 대조](../results/2026-11-08-v2/label-changes.json)를 함께 읽는다.
 
 ## 버전과 재현

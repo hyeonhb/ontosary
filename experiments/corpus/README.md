@@ -1,6 +1,6 @@
 # Real-source observation corpus
 
-**현재 평가 계약은 [V2](v2/README.md)다.** `pnpm experiment:corpus <새 경로>`는 V2, `pnpm experiment:corpus:v1 <새 경로>`는 R4/R5가 있는 역사적 V1을 실행한다. 아래 2026-11-07 입력·관찰 설명은 V1의 기록이며 `correct`가 자연어 주장 전체를 검증한다는 뜻이 아니다. [독립 리뷰](../../docs/reviews/2026-11-07-corpus-independent-review.md)와 V2의 `checks`/`unverified`/사용 위치 계약을 참조한다.
+**현재 평가기는 [V3](v3/README.md)이며 V2 라벨 계약을 그대로 사용한다.** `pnpm experiment:corpus <새 경로>`는 V3, `experiment:corpus:v2`와 `experiment:corpus:v1`은 각 역사적 버전이다. V2는 R4를 보완했지만 타입 선언 이름을 사용으로 인정하는 R5 잔여 오류가 있어 V3가 조상 문맥 판정을 보완했다. 아래 2026-11-07 기록은 V1 관찰로 읽으며 `correct`를 자연어 주장 전체의 검증으로 확대하지 않는다.
 
 2026-11-07의 [개발 인계](../../docs/reviews/2026-11-07-next-plan.md)를 실행한 자료다. 코어 기능을 바꾸지 않고 공개 TypeScript 소스의 사실 추출·지원 경계를 관찰한다. [관찰 보고서](../../docs/reviews/2026-11-07-corpus-observation.md), [사람 검토표](results/2026-11-07/review.md), [기계 요약](results/2026-11-07/summary.json)을 먼저 읽는다.
 
