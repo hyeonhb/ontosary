@@ -1,6 +1,6 @@
 # 현재 작업 상태 — 새 세션은 이 문서부터 읽기
 
-마지막 갱신: **2026-11-06, Asia/Seoul**.
+마지막 갱신: **2026-11-07, Asia/Seoul**.
 
 ## 현재 단계
 
@@ -12,7 +12,7 @@
 
 - `origin`: `https://github.com/hyeonhb/ontosary.git`.
 - 원격 초기 LICENSE 커밋 `5d33ab6` 기반으로 `chore/initial-poc`에 기존 작업을 `a054f4f`로 커밋했다.
-- 기존 두 커밋은 [PR #1](https://github.com/hyeonhb/ontosary/pull/1)로 원격 main에 병합했다(`7671a1a`). main은 origin/main을 추적한다. R3는 그 main에서 만든 `fix/analyzed-file-manifest`에서 구현했다.
+- 기존 두 커밋은 [PR #1](https://github.com/hyeonhb/ontosary/pull/1)로 원격 main에 병합했다(`7671a1a`). main은 origin/main을 추적한다. R3는 그 main에서 만든 `fix/analyzed-file-manifest`에서 구현하고, [PR #2](https://github.com/hyeonhb/ontosary/pull/2)를 2026-11-07 squash 병합했다(`b894137`). 로컬 main도 해당 원격 커밋까지 fast-forward 동기화했다.
 - 사용자는 이후 작업도 검증 후 branch push → PR 생성·검토 → merge → main 동기화까지 자동 수행하도록 지속 승인했다. 별도 지시가 없으면 반복 승인 없이 이 절차를 따른다.
 - [CONTRIBUTING](../CONTRIBUTING.md)의 GitHub Flow와 Conventional Commits를 준수한다. 작업 브랜치·작은 커밋·PR 검토·검증 기록이 기준이다. GitHub 보호 규칙이나 CI를 설정했다고 가정하지 않는다.
 - 사용자 선택으로 원격 Apache-2.0 LICENSE를 유지하고 패키지·README를 통일했다. ADR-009가 최초 MIT 선택을 대체한다.
@@ -48,6 +48,8 @@ pnpm example:dev
 ## 최신 검증 결과
 
 환경: Node 22.19.0, pnpm 11.19.0, TypeScript 5.9.3. 새 의존성을 추가하지 않았다.
+
+2026-11-07 중단 복구: PR #2 생성 후 병합 전 상태에서 재개했다. 구현 변경 없이 검증한 head `bb2dfe2`를 확인했고 `pnpm check`를 다시 실행해 82개 테스트·타입 검사·production build가 모두 통과했다. 원격 검사 목록은 비어 있었으며 CI 통과를 주장하지 않는다. 기존 실험·독립 probe 증거는 같은 구현에 대한 이전 실행 결과로 유지했다.
 
 - 수정 전 targeted regression: 진단 0개인 fixture에서 34개 중 29 실패/5 통과.
 - 수정 후 targeted regression: 한도 검사 추가 후 **35개 통과**.
