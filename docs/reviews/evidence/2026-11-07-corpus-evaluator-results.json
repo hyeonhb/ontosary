@@ -1,0 +1,277 @@
+{
+  "diagnostics": [],
+  "examples": [
+    {
+      "name": "unused",
+      "references": [
+        {
+          "target": {
+            "id": "input.ts:0:unused",
+            "name": "unused",
+            "evidence": {
+              "file": "input.ts",
+              "symbol": "unused",
+              "start": {
+                "line": 1,
+                "column": 1,
+                "offset": 0
+              },
+              "end": {
+                "line": 1,
+                "column": 42,
+                "offset": 41
+              }
+            }
+          },
+          "evidence": {
+            "file": "input.ts",
+            "symbol": "unused",
+            "start": {
+              "line": 1,
+              "column": 17,
+              "offset": 16
+            },
+            "end": {
+              "line": 1,
+              "column": 23,
+              "offset": 22
+            }
+          }
+        }
+      ],
+      "result": {
+        "id": "unused",
+        "status": "correct",
+        "evidence": [
+          {
+            "file": "input.ts",
+            "symbol": "unused",
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 42,
+              "offset": 41
+            }
+          },
+          {
+            "file": "input.ts",
+            "symbol": "unused",
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 42,
+              "offset": 41
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "recursive",
+      "references": [
+        {
+          "target": {
+            "id": "input.ts:42:recursive",
+            "name": "recursive",
+            "evidence": {
+              "file": "input.ts",
+              "symbol": "recursive",
+              "start": {
+                "line": 2,
+                "column": 1,
+                "offset": 42
+              },
+              "end": {
+                "line": 2,
+                "column": 61,
+                "offset": 102
+              }
+            }
+          },
+          "evidence": {
+            "file": "input.ts",
+            "symbol": "recursive",
+            "start": {
+              "line": 2,
+              "column": 17,
+              "offset": 58
+            },
+            "end": {
+              "line": 2,
+              "column": 26,
+              "offset": 67
+            }
+          }
+        },
+        {
+          "target": {
+            "id": "input.ts:42:recursive",
+            "name": "recursive",
+            "evidence": {
+              "file": "input.ts",
+              "symbol": "recursive",
+              "start": {
+                "line": 2,
+                "column": 1,
+                "offset": 42
+              },
+              "end": {
+                "line": 2,
+                "column": 61,
+                "offset": 102
+              }
+            }
+          },
+          "evidence": {
+            "file": "input.ts",
+            "symbol": "recursive",
+            "start": {
+              "line": 2,
+              "column": 47,
+              "offset": 88
+            },
+            "end": {
+              "line": 2,
+              "column": 56,
+              "offset": 97
+            }
+          }
+        }
+      ],
+      "result": {
+        "id": "recursive",
+        "status": "correct",
+        "evidence": [
+          {
+            "file": "input.ts",
+            "symbol": "recursive",
+            "start": {
+              "line": 2,
+              "column": 1,
+              "offset": 42
+            },
+            "end": {
+              "line": 2,
+              "column": 61,
+              "offset": 102
+            }
+          },
+          {
+            "file": "input.ts",
+            "symbol": "recursive",
+            "start": {
+              "line": 2,
+              "column": 1,
+              "offset": 42
+            },
+            "end": {
+              "line": 2,
+              "column": 61,
+              "offset": 102
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "claimMutation": {
+    "label": "date-fns-10",
+    "claim": "DateArg retains the date, number, string union alias.",
+    "originalType": "string | number | DateType",
+    "original": {
+      "id": "date-fns-10",
+      "status": "correct",
+      "evidence": [
+        {
+          "file": "src/types.ts",
+          "symbol": "DateArg",
+          "start": {
+            "line": 10,
+            "column": 1,
+            "offset": 222
+          },
+          "end": {
+            "line": 10,
+            "column": 73,
+            "offset": 294
+          }
+        }
+      ]
+    },
+    "mutatedType": "never",
+    "mutated": {
+      "id": "date-fns-10",
+      "status": "correct",
+      "evidence": [
+        {
+          "file": "src/types.ts",
+          "symbol": "DateArg",
+          "start": {
+            "line": 10,
+            "column": 1,
+            "offset": 222
+          },
+          "end": {
+            "line": 10,
+            "column": 73,
+            "offset": 294
+          }
+        }
+      ]
+    }
+  },
+  "parameterMutation": {
+    "label": "p-queue-02",
+    "claim": "lowerBound has an array parameter named array.",
+    "mutatedType": "number",
+    "result": {
+      "id": "p-queue-02",
+      "status": "correct",
+      "evidence": [
+        {
+          "file": "source/lower-bound.ts",
+          "symbol": "lowerBound",
+          "start": {
+            "line": 3,
+            "column": 39,
+            "offset": 194
+          },
+          "end": {
+            "line": 3,
+            "column": 58,
+            "offset": 213
+          }
+        }
+      ]
+    }
+  },
+  "existingComparatorLabelAfterRemovingUses": {
+    "id": "p-queue-04",
+    "status": "missing",
+    "evidence": [
+      {
+        "file": "source/lower-bound.ts",
+        "symbol": "lowerBound",
+        "start": {
+          "line": 3,
+          "column": 1,
+          "offset": 156
+        },
+        "end": {
+          "line": 20,
+          "column": 2,
+          "offset": 535
+        }
+      }
+    ],
+    "reason": "Expected declaration edge not extracted; inspect raw references for other targets."
+  }
+}
