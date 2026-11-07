@@ -16,7 +16,7 @@ pnpm ontosary concepts ./examples/react-vite --json
 pnpm ontosary compare ./examples/react-vite canConsultFromCard canConsultFromDetail --assume-same-input --json
 ```
 
-`pnpm ontosary`는 저장소의 `ontosary` CLI를 실행합니다. `bin`도 `dist/cli/index.js`에 선언되어 있습니다. npm에는 배포하지 않았고 `private: true`입니다. 분석 결과는 기본적으로 JSON이며 `--json`은 명시용 옵션입니다. 프로젝트 경로 대신 개별 `tsconfig.json` 경로도 지원합니다.
+`pnpm ontosary`는 저장소의 `ontosary` CLI를 실행합니다. `bin`도 `dist/cli/index.js`에 선언되어 있습니다. npm에는 배포하지 않았고 `private: true`입니다. 분석 결과는 기본적으로 JSON이며 `--json`은 명시용 옵션입니다. 프로젝트 경로 대신 개별 `tsconfig.json` 경로도 지원합니다. `scan.files`는 실제 방문한 TS/TSX/MTS/CTS 구현 파일만 포함합니다. 제외된 JS 등은 `omissions`에 파일 경로·위치·이유를 기록하며, 타입 해석과 컴파일 진단에는 계속 참여할 수 있습니다. 이 파일 수는 전체 프로젝트 coverage 비율을 의미하지 않습니다.
 
 대표 결과의 일부:
 

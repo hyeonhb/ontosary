@@ -42,9 +42,14 @@ export function scan(projectPath: string): ScanResult {
     const declaration = symbol.declarations?.[0];
     return declaration ? refNode(declaration, symbol.name) : undefined;
   }
-  const files = program.getSourceFiles().filter(sf => !sf.isDeclarationFile && !program.isSourceFileFromExternalLibrary(sf)).sort((a, b) => a.fileName.localeCompare(b.fileName));
+  const sourceFiles = program.getSourceFiles().filter(sf => !sf.isDeclarationFile && !program.isSourceFileFromExternalLibrary(sf)).sort((a, b) => a.fileName.localeCompare(b.fileName));
+  const files: ts.SourceFile[] = [], skippedFiles: ts.SourceFile[] = [];
+  for (const sf of sourceFiles) {
+    if (/\.tsx?$/.test(sf.fileName) || /\.[cm]ts$/.test(sf.fileName)) files.push(sf);
+    else skippedFiles.push(sf);
+  }
   const result: ScanResult = { schemaVersion: 1, category: 'code-facts', project: relative(configPath), files: files.map(f => relative(f.fileName)), types: [], functions: [], diagnostics: [], omissions: [], limitations: [
-    'Only TypeScript/TSX source files in this compiler program; declaration files and external libraries are not enumerated.',
+    'files lists analyzed TS/TSX/MTS/CTS implementation files only; declaration files and external libraries are not enumerated.',
     'No interprocedural control flow, runtime values, dynamic access, business interpretation, or whole-program verification.',
     'References resolve declaration identity; type references cover explicit syntax and parameter/return type symbols, not all transitive types.',
     'Function predicates require one direct return expression; extracted branch conditions describe expressions only.',
@@ -53,7 +58,10 @@ export function scan(projectPath: string): ScanResult {
     'Primitive/union aliases retain their type expression but their fields are not expanded.',
   ] };
   if (parsed.projectReferences?.length) result.omissions.push({ reason: 'Project references are not recursively scanned; scan each referenced tsconfig separately.' });
-  if (parsed.options.allowJs) result.omissions.push({ reason: 'JavaScript source files are unsupported and skipped.' });
+  for (const sf of skippedFiles) result.omissions.push({
+    reason: 'Unsupported source file extension: only TS/TSX/MTS/CTS implementation files are analyzed.',
+    evidence: evidence(sf),
+  });
   for (const diagnostic of ts.getPreEmitDiagnostics(program)) {
     const sf = diagnostic.file;
     let location: Evidence | undefined;
@@ -124,7 +132,6 @@ export function scan(projectPath: string): ScanResult {
       ...(expression ? { predicateEvidence: evidence(expression, name) } : {}) };
   }
   for (const sf of files) {
-    if (!/\.tsx?$/.test(sf.fileName) && !/\.[cm]ts$/.test(sf.fileName)) continue;
     function visit(node: ts.Node) {
       if (ts.isInterfaceDeclaration(node) || ts.isTypeAliasDeclaration(node) || ts.isEnumDeclaration(node)) result.types.push(typeFact(node));
       if (ts.isClassDeclaration(node)) result.omissions.push({ reason: 'Class type/field modeling is not implemented; method functions are still scanned.', evidence: evidence(node, node.name?.text) });

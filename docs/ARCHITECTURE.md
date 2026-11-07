@@ -15,7 +15,7 @@ CLI: inputs and JSON only          React example: analysis target only
 
 ## 데이터 계약
 
-`src/core/model.ts`가 공개 TypeScript/JSON 계약이다. 스키마 버전은 1이다.
+`src/core/model.ts`가 공개 TypeScript/JSON 계약이다. 스키마 버전은 1이다. R3 수정은 문서화된 files 계약의 오류 수정이며 필드 구조는 변경하지 않는다. 제외 파일 집계는 omissions의 파일 근거를 사용하고, 누락 레코드 수 자체를 파일 수로 해석하지 않는다(다른 종류의 누락도 존재한다).
 
 - **Code Facts**: 타입/인터페이스/enum, 필드, 함수 입력·출력, 타입·속성·심볼 참조, 조건의 텍스트·정규화 상태. `scan`과 `compare` 출력의 `category`는 `code-facts`다. 참조 목록에는 선언 이름의 심볼 연결도 포함하므로 호출 그래프가 아니다.
 - **Discovered Candidates**: FCA extent(함수 ID)와 intent(공유 속성), 근거, `reviewStatus: unreviewed`. 이름은 `formal-N`이며 업무 개념명을 부여하지 않는다.
@@ -25,7 +25,7 @@ ID는 `<project-relative file>:<start offset>:<symbol name>`이다. 동명 심�
 
 ## TS 추출 범위
 
-지정한 tsconfig의 Compiler Program에 포함된 TS/TSX/MTS/CTS 구현 파일을 탐색한다. `.d.ts`와 외부 라이브러리는 선언 참조 대상으로 사용하되 분석 파일 목록에는 포함하지 않는다. 함수 선언·함수 표현식·arrow·메서드·접근자·생성자를 기록한다. 중첩 함수는 개별 객체이며 바깥 함수의 본문 참조에 합치지 않는다.
+지정한 tsconfig의 Compiler Program에 포함된 TS/TSX/MTS/CTS 구현 파일을 탐색한다. `ScanResult.files`는 실제 방문하는 구현 파일 목록이며 이 목록 자체로 AST 순회한다. 따라서 실험의 `files.length`도 실제 분석 파일 수다. 로컬 JS/JSX/MJS/CJS 등 미지원 구현 파일은 `omissions`에 각 파일의 근거 위치와 제외 사유를 기록한다. allowJs 설정만으로 누락을 보고하지 않는다. TypeScript Program은 수정하지 않으므로 제외 파일의 타입 해석·심볼 참조·컴파일 진단은 유지된다. JS만 있는 프로젝트는 files/types/functions가 비어 있고 제외 근거가 있는 결과를 반환한다. `.d.ts`와 외부 라이브러리는 선언 참조 대상으로 사용하되 분석 파일 목록에는 포함하지 않는다. 함수 선언·함수 표현식·arrow·메서드·접근자·생성자를 기록한다. 중첩 함수는 개별 객체이며 바깥 함수의 본문 참조에 합치지 않는다.
 
 인터페이스/객체 alias의 필드와 enum 멤버를 기록한다. primitive/union alias는 타입 문자열을 기록하며 필드 구조를 펼치지 않는다. 타입 참조는 명시적 타입 구문, 입력·반환·속성 receiver의 직접 심볼을 수집하며 전이적 타입 그래프는 아니다. 클래스 필드·switch·계산된 속성 접근은 `omissions`로 보고한다. 함수 안의 if/삼항/while/do/for 조건 및 반환식은 상태와 이유를 기록한다. 최상위 실행문의 조건은 추출 대상이 아니다.
 

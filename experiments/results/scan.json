@@ -8963,7 +8963,7 @@
     }
   ],
   "limitations": [
-    "Only TypeScript/TSX source files in this compiler program; declaration files and external libraries are not enumerated.",
+    "files lists analyzed TS/TSX/MTS/CTS implementation files only; declaration files and external libraries are not enumerated.",
     "No interprocedural control flow, runtime values, dynamic access, business interpretation, or whole-program verification.",
     "References resolve declaration identity; type references cover explicit syntax and parameter/return type symbols, not all transitive types.",
     "Function predicates require one direct return expression; extracted branch conditions describe expressions only.",

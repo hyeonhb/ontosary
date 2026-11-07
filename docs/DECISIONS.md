@@ -64,3 +64,16 @@
 **결정:** explicit this는 전체 predicate와 개별 condition에 같은 정책으로 거부한다. TS가 this 매개변수를 emit에서 제거하기 때문에 AST 인덱스를 런타임 인자로 쓸 수 없다. 새로운 this 의미·인자 메타데이터·지원 기능을 도입하는 대신 좁은 거부를 택했다. 소스 signature는 그대로 보존한다.
 **트레이드오프:** 안전한 namespace 경로나 실제로 같은 enum 객체를 가리키는 별칭도 미지원이 된다. 선언 기반 허용 경계를 확장하려면 별도 사례·실행 대조가 필요하다. 임의 프로젝트 코드는 실행하지 않으며 통제된 테스트 fixture만 실행한다.
 **근거 링크:** [TypeScript this parameters](https://www.typescriptlang.org/docs/handbook/2/classes.html#this-parameters), [TypeScript enums](https://www.typescriptlang.org/docs/handbook/enums.html), [2026-11-04 리뷰](reviews/2026-11-04-poc-review.md).
+
+
+## ADR-011 · 실제 분석 파일 목록과 제외 근거 — 2026-11-06
+
+**근거:** R3는 allowJs 프로젝트에서 방문하지 않는 JS가 ScanResult.files에 포함되어 실험 파일 분모를 부풀렸다.
+**결정:** Compiler Program의 로컬 구현 파일을 지원 확장자와 제외 파일로 먼저 분리한다. files에 넣는 배열만 AST 방문에 사용한다. 제외 파일은 각각 evidence.file/위치/reason을 가진 omissions로 남긴다. Program·checker·diagnostics는 원래 입력을 유지한다.
+**트레이드오프:** 전체 Program 파일 manifest나 새로운 coverage 스키마를 추가하지 않는다. files는 실제 분석 파일 수이고 프로젝트 전체 coverage 비율은 아니다. 선언 파일/외부 라이브러리는 기존 범위대로 미열거다. allowJs만 켜져 있고 JS가 없으면 누락도 없다. 기존 문서 계약을 복원한 버그 수정이므로 schemaVersion 1을 유지한다.
+**검증:** mixed TS/TSX/MTS/CTS와 JS/JSX/MJS/CJS, 선언 파일, imported JS 타입/참조, JS-only, 제외 파일 진단, CLI JSON을 회귀 검증한다.
+
+## ADR-012 · 검증 후 자동 원격 반영 — 2026-11-06
+
+**결정:** 사용자의 지속 승인에 따라 작업 완료 시 로컬 커밋에 그치지 않고 branch push, PR 생성·검토, 검사 충족 후 merge와 main 동기화까지 수행한다. CONTRIBUTING/AGENTS에 유지한다. 원격 보호 규칙은 우회하지 않고 검증한 head SHA를 확인한다.
+**적용:** 초기 두 커밋은 서로 독립적인 이력을 보존하도록 PR #1을 merge 방식으로 반영했다. 후속 focused PR은 기본 squash 정책을 따른다. 구현 담당자의 self-review를 독립 리뷰 승인으로 표시하지 않는다. 현재 저장소에 원격 CI가 구성돼 있다고 주장하지 않는다.
