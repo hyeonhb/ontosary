@@ -1,0 +1,754 @@
+[
+  {
+    "path": "node_modules/.bin/JSONStream",
+    "target": "../JSONStream/bin.js"
+  },
+  {
+    "path": "node_modules/.bin/acorn",
+    "target": "../acorn/bin/acorn"
+  },
+  {
+    "path": "node_modules/.bin/ansi-html",
+    "target": "../ansi-html-community/bin/ansi-html"
+  },
+  {
+    "path": "node_modules/.bin/arborist",
+    "target": "../@npmcli/arborist/bin/index.js"
+  },
+  {
+    "path": "node_modules/.bin/autoprefixer",
+    "target": "../autoprefixer/bin/autoprefixer"
+  },
+  {
+    "path": "node_modules/.bin/baseline-browser-mapping",
+    "target": "../baseline-browser-mapping/dist/cli.js"
+  },
+  {
+    "path": "node_modules/.bin/browsers",
+    "target": "../@puppeteer/browsers/lib/cjs/main-cli.js"
+  },
+  {
+    "path": "node_modules/.bin/browserslist",
+    "target": "../browserslist/cli.js"
+  },
+  {
+    "path": "node_modules/.bin/color-support",
+    "target": "../color-support/bin.js"
+  },
+  {
+    "path": "node_modules/.bin/commitlint",
+    "target": "../@commitlint/cli/cli.js"
+  },
+  {
+    "path": "node_modules/.bin/conc",
+    "target": "../concurrently/dist/bin/concurrently.js"
+  },
+  {
+    "path": "node_modules/.bin/concurrently",
+    "target": "../concurrently/dist/bin/concurrently.js"
+  },
+  {
+    "path": "node_modules/.bin/conventional-changelog-writer",
+    "target": "../conventional-changelog-writer/cli.mjs"
+  },
+  {
+    "path": "node_modules/.bin/conventional-commits-parser",
+    "target": "../conventional-commits-parser/cli.mjs"
+  },
+  {
+    "path": "node_modules/.bin/conventional-recommended-bump",
+    "target": "../conventional-recommended-bump/cli.js"
+  },
+  {
+    "path": "node_modules/.bin/cross-env",
+    "target": "../cross-env/src/bin/cross-env.js"
+  },
+  {
+    "path": "node_modules/.bin/cross-env-shell",
+    "target": "../cross-env/src/bin/cross-env-shell.js"
+  },
+  {
+    "path": "node_modules/.bin/cssesc",
+    "target": "../cssesc/bin/cssesc"
+  },
+  {
+    "path": "node_modules/.bin/download-lmdb-prebuilds",
+    "target": "../lmdb/bin/download-prebuilds.js"
+  },
+  {
+    "path": "node_modules/.bin/download-msgpackr-prebuilds",
+    "target": "../msgpackr-extract/bin/download-prebuilds.js"
+  },
+  {
+    "path": "node_modules/.bin/ejs",
+    "target": "../ejs/bin/cli.js"
+  },
+  {
+    "path": "node_modules/.bin/envinfo",
+    "target": "../envinfo/dist/cli.js"
+  },
+  {
+    "path": "node_modules/.bin/errno",
+    "target": "../errno/cli.js"
+  },
+  {
+    "path": "node_modules/.bin/esbuild",
+    "target": "../esbuild/bin/esbuild"
+  },
+  {
+    "path": "node_modules/.bin/eslint",
+    "target": "../eslint/bin/eslint.js"
+  },
+  {
+    "path": "node_modules/.bin/eslint-config-prettier",
+    "target": "../eslint-config-prettier/bin/cli.js"
+  },
+  {
+    "path": "node_modules/.bin/esparse",
+    "target": "../esprima/bin/esparse.js"
+  },
+  {
+    "path": "node_modules/.bin/esvalidate",
+    "target": "../esprima/bin/esvalidate.js"
+  },
+  {
+    "path": "node_modules/.bin/extract-zip",
+    "target": "../extract-zip/cli.js"
+  },
+  {
+    "path": "node_modules/.bin/flat",
+    "target": "../flat/cli.js"
+  },
+  {
+    "path": "node_modules/.bin/get-pkg-repo",
+    "target": "../get-pkg-repo/src/cli.js"
+  },
+  {
+    "path": "node_modules/.bin/git-raw-commits",
+    "target": "../git-raw-commits/cli.mjs"
+  },
+  {
+    "path": "node_modules/.bin/git-semver-tags",
+    "target": "../git-semver-tags/cli.mjs"
+  },
+  {
+    "path": "node_modules/.bin/glob",
+    "target": "../glob/dist/esm/bin.mjs"
+  },
+  {
+    "path": "node_modules/.bin/gql-gen",
+    "target": "../@graphql-codegen/cli/cjs/bin.js"
+  },
+  {
+    "path": "node_modules/.bin/graphql-code-generator",
+    "target": "../@graphql-codegen/cli/cjs/bin.js"
+  },
+  {
+    "path": "node_modules/.bin/graphql-codegen",
+    "target": "../@graphql-codegen/cli/cjs/bin.js"
+  },
+  {
+    "path": "node_modules/.bin/graphql-codegen-esm",
+    "target": "../@graphql-codegen/cli/esm/bin.js"
+  },
+  {
+    "path": "node_modules/.bin/handlebars",
+    "target": "../handlebars/bin/handlebars"
+  },
+  {
+    "path": "node_modules/.bin/husky-run",
+    "target": "../husky/bin/run.js"
+  },
+  {
+    "path": "node_modules/.bin/husky-upgrade",
+    "target": "../husky/lib/upgrader/bin.js"
+  },
+  {
+    "path": "node_modules/.bin/import-local-fixture",
+    "target": "../import-local/fixtures/cli.js"
+  },
+  {
+    "path": "node_modules/.bin/installed-package-contents",
+    "target": "../@npmcli/installed-package-contents/bin/index.js"
+  },
+  {
+    "path": "node_modules/.bin/is-ci",
+    "target": "../is-ci/bin.js"
+  },
+  {
+    "path": "node_modules/.bin/is-docker",
+    "target": "../is-docker/cli.js"
+  },
+  {
+    "path": "node_modules/.bin/is-inside-container",
+    "target": "../is-inside-container/cli.js"
+  },
+  {
+    "path": "node_modules/.bin/jake",
+    "target": "../jake/bin/cli.js"
+  },
+  {
+    "path": "node_modules/.bin/jiti",
+    "target": "../jiti/lib/jiti-cli.mjs"
+  },
+  {
+    "path": "node_modules/.bin/js-yaml",
+    "target": "../@zkochan/js-yaml/bin/js-yaml.js"
+  },
+  {
+    "path": "node_modules/.bin/jsesc",
+    "target": "../jsesc/bin/jsesc"
+  },
+  {
+    "path": "node_modules/.bin/json5",
+    "target": "../json5/lib/cli.js"
+  },
+  {
+    "path": "node_modules/.bin/karma",
+    "target": "../karma/bin/karma"
+  },
+  {
+    "path": "node_modules/.bin/lerna",
+    "target": "../lerna/dist/cli.js"
+  },
+  {
+    "path": "node_modules/.bin/lessc",
+    "target": "../less/bin/lessc"
+  },
+  {
+    "path": "node_modules/.bin/lint-staged",
+    "target": "../lint-staged/bin/lint-staged.js"
+  },
+  {
+    "path": "node_modules/.bin/loose-envify",
+    "target": "../loose-envify/cli.js"
+  },
+  {
+    "path": "node_modules/.bin/lz-string",
+    "target": "../lz-string/bin/bin.js"
+  },
+  {
+    "path": "node_modules/.bin/mime",
+    "target": "../mime/cli.js"
+  },
+  {
+    "path": "node_modules/.bin/mkdirp",
+    "target": "../mkdirp/bin/cmd.js"
+  },
+  {
+    "path": "node_modules/.bin/multicast-dns",
+    "target": "../multicast-dns/cli.js"
+  },
+  {
+    "path": "node_modules/.bin/nanoid",
+    "target": "../nanoid/bin/nanoid.cjs"
+  },
+  {
+    "path": "node_modules/.bin/needle",
+    "target": "../needle/bin/needle"
+  },
+  {
+    "path": "node_modules/.bin/ng",
+    "target": "../@angular/cli/bin/ng.js"
+  },
+  {
+    "path": "node_modules/.bin/ng-packagr",
+    "target": "../ng-packagr/cli/main.js"
+  },
+  {
+    "path": "node_modules/.bin/ng-xi18n",
+    "target": "../@angular/compiler-cli/bundles/src/bin/ng_xi18n.js"
+  },
+  {
+    "path": "node_modules/.bin/ngc",
+    "target": "../@angular/compiler-cli/bundles/src/bin/ngc.js"
+  },
+  {
+    "path": "node_modules/.bin/ngcc",
+    "target": "../@angular/compiler-cli/bundles/ngcc/index.js"
+  },
+  {
+    "path": "node_modules/.bin/ngx-translate-extract",
+    "target": "../@vendure/ngx-translate-extract/bin/cli.js"
+  },
+  {
+    "path": "node_modules/.bin/node-gyp",
+    "target": "../node-gyp/bin/node-gyp.js"
+  },
+  {
+    "path": "node_modules/.bin/node-gyp-build-optional-packages",
+    "target": "../node-gyp-build-optional-packages/bin.js"
+  },
+  {
+    "path": "node_modules/.bin/node-gyp-build-optional-packages-optional",
+    "target": "../node-gyp-build-optional-packages/optional.js"
+  },
+  {
+    "path": "node_modules/.bin/node-gyp-build-optional-packages-test",
+    "target": "../node-gyp-build-optional-packages/build-test.js"
+  },
+  {
+    "path": "node_modules/.bin/node-which",
+    "target": "../which/bin/node-which"
+  },
+  {
+    "path": "node_modules/.bin/nx",
+    "target": "../nx/bin/nx.js"
+  },
+  {
+    "path": "node_modules/.bin/nx-cloud",
+    "target": "../nx/bin/nx-cloud.js"
+  },
+  {
+    "path": "node_modules/.bin/opencollective-postinstall",
+    "target": "../opencollective-postinstall/index.js"
+  },
+  {
+    "path": "node_modules/.bin/pacote",
+    "target": "../pacote/bin/index.js"
+  },
+  {
+    "path": "node_modules/.bin/parser",
+    "target": "../@babel/parser/bin/babel-parser.js"
+  },
+  {
+    "path": "node_modules/.bin/playwright",
+    "target": "../playwright/cli.js"
+  },
+  {
+    "path": "node_modules/.bin/playwright-core",
+    "target": "../playwright-core/cli.js"
+  },
+  {
+    "path": "node_modules/.bin/prettier",
+    "target": "../prettier/bin/prettier.cjs"
+  },
+  {
+    "path": "node_modules/.bin/regjsparser",
+    "target": "../regjsparser/bin/parser"
+  },
+  {
+    "path": "node_modules/.bin/relay-compiler",
+    "target": "../@ardatan/relay-compiler/bin/relay-compiler"
+  },
+  {
+    "path": "node_modules/.bin/resolve",
+    "target": "../resolve/bin/resolve"
+  },
+  {
+    "path": "node_modules/.bin/rimraf",
+    "target": "../rimraf/dist/esm/bin.mjs"
+  },
+  {
+    "path": "node_modules/.bin/rollup",
+    "target": "../@rollup/wasm-node/dist/bin/rollup"
+  },
+  {
+    "path": "node_modules/.bin/sass",
+    "target": "../sass/sass.js"
+  },
+  {
+    "path": "node_modules/.bin/semver",
+    "target": "../semver/bin/semver.js"
+  },
+  {
+    "path": "node_modules/.bin/terser",
+    "target": "../terser/bin/terser"
+  },
+  {
+    "path": "node_modules/.bin/tldts",
+    "target": "../tldts/bin/cli.js"
+  },
+  {
+    "path": "node_modules/.bin/tree-kill",
+    "target": "../tree-kill/cli.js"
+  },
+  {
+    "path": "node_modules/.bin/ts-node",
+    "target": "../ts-node/dist/bin.js"
+  },
+  {
+    "path": "node_modules/.bin/ts-node-cwd",
+    "target": "../ts-node/dist/bin-cwd.js"
+  },
+  {
+    "path": "node_modules/.bin/ts-node-esm",
+    "target": "../ts-node/dist/bin-esm.js"
+  },
+  {
+    "path": "node_modules/.bin/ts-node-script",
+    "target": "../ts-node/dist/bin-script.js"
+  },
+  {
+    "path": "node_modules/.bin/ts-node-transpile-only",
+    "target": "../ts-node/dist/bin-transpile.js"
+  },
+  {
+    "path": "node_modules/.bin/ts-script",
+    "target": "../ts-node/dist/bin-script-deprecated.js"
+  },
+  {
+    "path": "node_modules/.bin/tsc",
+    "target": "../typescript/bin/tsc"
+  },
+  {
+    "path": "node_modules/.bin/tsserver",
+    "target": "../typescript/bin/tsserver"
+  },
+  {
+    "path": "node_modules/.bin/tsx",
+    "target": "../tsx/dist/cli.mjs"
+  },
+  {
+    "path": "node_modules/.bin/ua-parser-js",
+    "target": "../ua-parser-js/script/cli.js"
+  },
+  {
+    "path": "node_modules/.bin/uglifyjs",
+    "target": "../uglify-js/bin/uglifyjs"
+  },
+  {
+    "path": "node_modules/.bin/update-browserslist-db",
+    "target": "../update-browserslist-db/cli.js"
+  },
+  {
+    "path": "node_modules/.bin/vite",
+    "target": "../vite/bin/vite.js"
+  },
+  {
+    "path": "node_modules/.bin/vite-node",
+    "target": "../vite-node/vite-node.mjs"
+  },
+  {
+    "path": "node_modules/.bin/vitest",
+    "target": "../vitest/vitest.mjs"
+  },
+  {
+    "path": "node_modules/.bin/webpack",
+    "target": "../webpack/bin/webpack.js"
+  },
+  {
+    "path": "node_modules/.bin/webpack-dev-server",
+    "target": "../webpack-dev-server/bin/webpack-dev-server.js"
+  },
+  {
+    "path": "node_modules/.bin/why-is-node-running",
+    "target": "../why-is-node-running/cli.js"
+  },
+  {
+    "path": "node_modules/.bin/yaml",
+    "target": "../yaml/bin.mjs"
+  },
+  {
+    "path": "node_modules/@angular-devkit/build-angular/node_modules/.bin/semver",
+    "target": "../semver/bin/semver.js"
+  },
+  {
+    "path": "node_modules/@angular/build/node_modules/.bin/rollup",
+    "target": "../rollup/dist/bin/rollup"
+  },
+  {
+    "path": "node_modules/@angular/build/node_modules/.bin/semver",
+    "target": "../semver/bin/semver.js"
+  },
+  {
+    "path": "node_modules/@angular/cli/node_modules/.bin/semver",
+    "target": "../semver/bin/semver.js"
+  },
+  {
+    "path": "node_modules/@angular/compiler-cli/node_modules/@babel/core/node_modules/.bin/semver",
+    "target": "../semver/bin/semver.js"
+  },
+  {
+    "path": "node_modules/@babel/core/node_modules/.bin/semver",
+    "target": "../semver/bin/semver.js"
+  },
+  {
+    "path": "node_modules/@babel/helper-compilation-targets/node_modules/.bin/semver",
+    "target": "../semver/bin/semver.js"
+  },
+  {
+    "path": "node_modules/@babel/helper-create-class-features-plugin/node_modules/.bin/semver",
+    "target": "../semver/bin/semver.js"
+  },
+  {
+    "path": "node_modules/@babel/helper-create-regexp-features-plugin/node_modules/.bin/semver",
+    "target": "../semver/bin/semver.js"
+  },
+  {
+    "path": "node_modules/@babel/plugin-transform-runtime/node_modules/.bin/semver",
+    "target": "../semver/bin/semver.js"
+  },
+  {
+    "path": "node_modules/@babel/preset-env/node_modules/.bin/semver",
+    "target": "../semver/bin/semver.js"
+  },
+  {
+    "path": "node_modules/@lerna/create/node_modules/.bin/conventional-changelog-writer",
+    "target": "../conventional-changelog-writer/cli.js"
+  },
+  {
+    "path": "node_modules/@lerna/create/node_modules/.bin/conventional-commits-parser",
+    "target": "../conventional-commits-parser/cli.js"
+  },
+  {
+    "path": "node_modules/@lerna/create/node_modules/.bin/git-raw-commits",
+    "target": "../git-raw-commits/cli.js"
+  },
+  {
+    "path": "node_modules/@lerna/create/node_modules/.bin/git-semver-tags",
+    "target": "../git-semver-tags/cli.js"
+  },
+  {
+    "path": "node_modules/@lerna/create/node_modules/.bin/mkdirp",
+    "target": "../mkdirp/bin/cmd.js"
+  },
+  {
+    "path": "node_modules/@lerna/create/node_modules/.bin/pacote",
+    "target": "../pacote/bin/index.js"
+  },
+  {
+    "path": "node_modules/@lerna/create/node_modules/.bin/rimraf",
+    "target": "../rimraf/dist/cjs/src/bin.js"
+  },
+  {
+    "path": "node_modules/@lerna/create/node_modules/.bin/uuid",
+    "target": "../uuid/dist/bin/uuid"
+  },
+  {
+    "path": "node_modules/@lerna/create/node_modules/meow/node_modules/.bin/semver",
+    "target": "../semver/bin/semver"
+  },
+  {
+    "path": "node_modules/@lerna/create/node_modules/read-pkg/node_modules/.bin/semver",
+    "target": "../semver/bin/semver"
+  },
+  {
+    "path": "node_modules/@npmcli/arborist/node_modules/.bin/mkdirp",
+    "target": "../mkdirp/bin/cmd.js"
+  },
+  {
+    "path": "node_modules/@npmcli/arborist/node_modules/.bin/nopt",
+    "target": "../nopt/bin/nopt.js"
+  },
+  {
+    "path": "node_modules/@npmcli/arborist/node_modules/.bin/pacote",
+    "target": "../pacote/bin/index.js"
+  },
+  {
+    "path": "node_modules/@npmcli/git/node_modules/.bin/node-which",
+    "target": "../which/bin/which.js"
+  },
+  {
+    "path": "node_modules/@npmcli/metavuln-calculator/node_modules/.bin/mkdirp",
+    "target": "../mkdirp/bin/cmd.js"
+  },
+  {
+    "path": "node_modules/@npmcli/metavuln-calculator/node_modules/.bin/pacote",
+    "target": "../pacote/bin/index.js"
+  },
+  {
+    "path": "node_modules/@npmcli/promise-spawn/node_modules/.bin/node-which",
+    "target": "../which/bin/which.js"
+  },
+  {
+    "path": "node_modules/@npmcli/run-script/node_modules/.bin/node-which",
+    "target": "../which/bin/which.js"
+  },
+  {
+    "path": "node_modules/@parcel/watcher/node_modules/.bin/detect-libc",
+    "target": "../detect-libc/bin/detect-libc.js"
+  },
+  {
+    "path": "node_modules/@vendure/admin-ui",
+    "target": "../../packages/admin-ui"
+  },
+  {
+    "path": "node_modules/@vendure/common",
+    "target": "../../packages/common"
+  },
+  {
+    "path": "node_modules/@yarnpkg/parsers/node_modules/.bin/js-yaml",
+    "target": "../js-yaml/bin/js-yaml.js"
+  },
+  {
+    "path": "node_modules/babel-plugin-polyfill-corejs2/node_modules/.bin/semver",
+    "target": "../semver/bin/semver.js"
+  },
+  {
+    "path": "node_modules/cacache/node_modules/.bin/mkdirp",
+    "target": "../mkdirp/bin/cmd.js"
+  },
+  {
+    "path": "node_modules/conventional-recommended-bump/node_modules/.bin/conventional-commits-parser",
+    "target": "../conventional-commits-parser/cli.js"
+  },
+  {
+    "path": "node_modules/conventional-recommended-bump/node_modules/.bin/git-raw-commits",
+    "target": "../git-raw-commits/cli.js"
+  },
+  {
+    "path": "node_modules/conventional-recommended-bump/node_modules/.bin/git-semver-tags",
+    "target": "../git-semver-tags/cli.js"
+  },
+  {
+    "path": "node_modules/conventional-recommended-bump/node_modules/read-pkg/node_modules/.bin/semver",
+    "target": "../semver/bin/semver"
+  },
+  {
+    "path": "node_modules/eslint-plugin-import/node_modules/.bin/json5",
+    "target": "../json5/lib/cli.js"
+  },
+  {
+    "path": "node_modules/eslint-plugin-import/node_modules/.bin/semver",
+    "target": "../semver/bin/semver.js"
+  },
+  {
+    "path": "node_modules/fbjs/node_modules/.bin/ua-parser-js",
+    "target": "../ua-parser-js/script/cli.js"
+  },
+  {
+    "path": "node_modules/flat-cache/node_modules/.bin/rimraf",
+    "target": "../rimraf/bin.js"
+  },
+  {
+    "path": "node_modules/front-matter/node_modules/.bin/js-yaml",
+    "target": "../js-yaml/bin/js-yaml.js"
+  },
+  {
+    "path": "node_modules/istanbul-lib-source-maps/node_modules/.bin/rimraf",
+    "target": "../rimraf/bin.js"
+  },
+  {
+    "path": "node_modules/istanbul-lib-source-maps/node_modules/.bin/semver",
+    "target": "../semver/bin/semver"
+  },
+  {
+    "path": "node_modules/karma-chrome-launcher/node_modules/.bin/which",
+    "target": "../which/bin/which"
+  },
+  {
+    "path": "node_modules/karma/node_modules/.bin/rimraf",
+    "target": "../rimraf/bin.js"
+  },
+  {
+    "path": "node_modules/lerna/node_modules/.bin/conventional-changelog-writer",
+    "target": "../conventional-changelog-writer/cli.js"
+  },
+  {
+    "path": "node_modules/lerna/node_modules/.bin/conventional-commits-parser",
+    "target": "../conventional-commits-parser/cli.js"
+  },
+  {
+    "path": "node_modules/lerna/node_modules/.bin/git-raw-commits",
+    "target": "../git-raw-commits/cli.js"
+  },
+  {
+    "path": "node_modules/lerna/node_modules/.bin/git-semver-tags",
+    "target": "../git-semver-tags/cli.js"
+  },
+  {
+    "path": "node_modules/lerna/node_modules/.bin/mkdirp",
+    "target": "../mkdirp/bin/cmd.js"
+  },
+  {
+    "path": "node_modules/lerna/node_modules/.bin/pacote",
+    "target": "../pacote/bin/index.js"
+  },
+  {
+    "path": "node_modules/lerna/node_modules/.bin/rimraf",
+    "target": "../rimraf/dist/cjs/src/bin.js"
+  },
+  {
+    "path": "node_modules/lerna/node_modules/.bin/uuid",
+    "target": "../uuid/dist/bin/uuid"
+  },
+  {
+    "path": "node_modules/lerna/node_modules/meow/node_modules/.bin/semver",
+    "target": "../semver/bin/semver"
+  },
+  {
+    "path": "node_modules/lerna/node_modules/read-pkg/node_modules/.bin/semver",
+    "target": "../semver/bin/semver"
+  },
+  {
+    "path": "node_modules/less/node_modules/.bin/image-size",
+    "target": "../image-size/bin/image-size.js"
+  },
+  {
+    "path": "node_modules/less/node_modules/.bin/mime",
+    "target": "../mime/cli.js"
+  },
+  {
+    "path": "node_modules/less/node_modules/.bin/semver",
+    "target": "../semver/bin/semver"
+  },
+  {
+    "path": "node_modules/make-dir/node_modules/.bin/semver",
+    "target": "../semver/bin/semver.js"
+  },
+  {
+    "path": "node_modules/messageformat/node_modules/.bin/make-plural",
+    "target": "../make-plural/bin/make-plural"
+  },
+  {
+    "path": "node_modules/node-gyp/node_modules/.bin/mkdirp",
+    "target": "../mkdirp/bin/cmd.js"
+  },
+  {
+    "path": "node_modules/node-gyp/node_modules/.bin/node-which",
+    "target": "../which/bin/which.js"
+  },
+  {
+    "path": "node_modules/node-gyp/node_modules/.bin/nopt",
+    "target": "../nopt/bin/nopt.js"
+  },
+  {
+    "path": "node_modules/nx/node_modules/.bin/flat",
+    "target": "../flat/cli.js"
+  },
+  {
+    "path": "node_modules/nx/node_modules/.bin/is-docker",
+    "target": "../is-docker/cli.js"
+  },
+  {
+    "path": "node_modules/pacote/node_modules/.bin/installed-package-contents",
+    "target": "../@npmcli/installed-package-contents/bin/index.js"
+  },
+  {
+    "path": "node_modules/pacote/node_modules/.bin/mkdirp",
+    "target": "../mkdirp/bin/cmd.js"
+  },
+  {
+    "path": "node_modules/pacote/node_modules/.bin/node-gyp",
+    "target": "../node-gyp/bin/node-gyp.js"
+  },
+  {
+    "path": "node_modules/pacote/node_modules/.bin/node-which",
+    "target": "../which/bin/which.js"
+  },
+  {
+    "path": "node_modules/pacote/node_modules/.bin/nopt",
+    "target": "../nopt/bin/nopt.js"
+  },
+  {
+    "path": "node_modules/postcss-loader/node_modules/.bin/jiti",
+    "target": "../jiti/bin/jiti.js"
+  },
+  {
+    "path": "node_modules/sockjs/node_modules/.bin/uuid",
+    "target": "../uuid/dist/bin/uuid"
+  },
+  {
+    "path": "node_modules/webpack-dev-server/node_modules/.bin/mime",
+    "target": "../mime/cli.js"
+  },
+  {
+    "path": "node_modules/webpack-merge/node_modules/.bin/flat",
+    "target": "../flat/cli.js"
+  },
+  {
+    "path": "node_modules/write-json-file/node_modules/.bin/semver",
+    "target": "../semver/bin/semver"
+  }
+]

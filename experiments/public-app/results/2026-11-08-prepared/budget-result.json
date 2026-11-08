@@ -1,0 +1,20 @@
+{
+  "preparationStartUtc": "2026-11-08T05:37:37.919092+00:00",
+  "preparationEndUtc": "2026-11-08T05:43:37.587463+00:00",
+  "deadlineUtc": "2026-11-08T06:07:37.919092+00:00",
+  "elapsedSeconds": 359.668371,
+  "withinBudget": true,
+  "stopReason": "Scoped diagnostics resolved but unchanged context exceeds both default FCA input limits; no further environment investment or scope changes.",
+  "install": "success: selected workspaces plus root tools, lifecycle scripts ignored",
+  "commonBuild": "success: upstream TypeScript 5.8.2",
+  "originalAnalysis": "495 errors, all in .spec.ts; original config preserved",
+  "scopedAnalysis": "0 diagnostics; 2264 objects / 4288 attributes exceed 128 / 64",
+  "repeatAnalysis": "same installed cache observations reproduced; installation/build not independently repeated",
+  "originalIntegrity": {
+    "verifiedEntries": 4735,
+    "changed": []
+  },
+  "humanPreparationTimeMs": null,
+  "humanTaskTimeMs": null,
+  "postPreparationWork": "Reporting, Ontosary regression checks and Git delivery tracked separately; not included in preparation deadline"
+}

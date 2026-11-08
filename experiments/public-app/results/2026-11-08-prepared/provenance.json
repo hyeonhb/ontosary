@@ -1,0 +1,39 @@
+{
+  "baseRevision": "ed32955e65f801cf3d511f446badf9b5e3b3383d",
+  "fingerprints": {
+    "src/core/analyzer.ts": "6b96a27b1e21272b8731bb38bb1ca34fedd347356f99781b77c8c4ce328ab95d",
+    "src/core/logic.ts": "487bf0172b793d043516f11023606ab94a4d5fa8c25907fec7ffd920dad00031",
+    "src/core/fca.ts": "4c0428641361232b969628b88eba15771f33f43efcbae9e70663fb3205fd1247",
+    "src/core/model.ts": "663e1babbcd54d7dde680930f0bc2e9822a97bcc080c72a2f9507cd91fa4a11c",
+    "src/core/index.ts": "1d0d132586ae1e4f87ef6739c5827774a24ab5ff78ba863522ef259c329ab493",
+    "pnpm-lock.yaml": "778efd97847a6132f336955c48d51c34690918d1db67a57590fc5459e444b784",
+    "dist/core/analyzer.js": "c97ce68612b8a4af3ee02fc750b7db15ce955ac9ba08cec8a66011a5ff32015b",
+    "dist/core/logic.js": "490a1e014d04b68447559bb7eea6ef4096af81a486e9c3094feea210acda2003",
+    "dist/core/fca.js": "01cd818cb1847b05c0a350a0808b406b04bc63e2f687509ac3690a2c9198f653",
+    "experiments/public-app/v1/manifest.json": "383db5f38189c0675b9a8132c1412d0ab6841935edd002ea31d269c1d514ff16",
+    "experiments/public-app/v1/vendure-task.json": "948090082bc6c655437b0811134667c538ccddc317e4f38a652697bf52a5e38c",
+    "experiments/public-app/prepared-v1/audit.py": "78430e99c619aff2aa50cd8d4b2d40a5666573e050f14f2eb747b14eafb1fed8",
+    "experiments/public-app/prepared-v1/command.py": "d201d6aedb2a65c2f42e520c6a71a28c5824f78f274991c2f6187b36c7fd703c",
+    "experiments/public-app/prepared-v1/config-check.mjs": "7dd126a536834583d2ba130dcae756b786af11cbbff1616c4c9590a4e8b08bf4",
+    "experiments/public-app/prepared-v1/manifest.json": "37bdf7532c8eaf42c7d7e7008f4d8b63d019cfa29d09dede3213e4216571906d",
+    "experiments/public-app/prepared-v1/observe.mjs": "3aeb913d9cb75d098cffc7c36bcd4ce5b1185a311996b9386c7d6c3697c96bd7",
+    "experiments/public-app/prepared-v1/verify.mjs": "5b6c1bc5732442381e490f9ab56fe6c721f280c790f8313a6c965bb945265840",
+    "experiments/public-app/prepared-v1/program-path-audit.mjs": "99369bddc6ae394f8d4d1f52f6670b3cbeedc004583faa823d8e0b9cf9ba304e"
+  },
+  "upstream": {
+    "archiveSha256": "6d2de93bc2476dcad4c76f7de20e354a1b41c0090b9ef5a8fd70acef66ed6435",
+    "inventorySha256": "223bf5b7b465a0fc934215db6b955a291ae1369e670f3c6030be4f1f5f167f3f",
+    "lockfileSha256": "36f9848d635ceca4f586e5cd1aab48ed1e99fa80dda5d2a91dfd59a8daff65db",
+    "buildTypescript": "5.8.2"
+  },
+  "analysisTypescript": "5.9.3",
+  "sourceNotice": "../2026-11-08/vendure/source-notice.json",
+  "licenseNotices": "../2026-11-08/vendure/licenses",
+  "limitations": [
+    "Installation and common build were executed once; only observations were repeated.",
+    "Lifecycle scripts skipped for install; no full Angular app build, native dependency validation or service startup.",
+    "Host TypeScript standard libraries are intentional analyzer inputs, not borrowed application dependencies.",
+    "Cross-cache path length can change truncated TypeChecker display text.",
+    "Original Program recorder abbreviates macOS realpaths under /private/tmp as external basenames; supplemental post-preparation program-path-audit recovers all source paths without changing original observations."
+  ]
+}

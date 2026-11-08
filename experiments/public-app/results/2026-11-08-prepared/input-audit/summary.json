@@ -1,0 +1,18 @@
+{
+  "originalEntries": 4735,
+  "changedOriginalFiles": [],
+  "dependencyFiles": 85192,
+  "dependencyBytes": 656572522,
+  "installedPackageEntries": 2230,
+  "generatedFiles": 37,
+  "generatedBytes": 489927,
+  "lockfileSha256": "36f9848d635ceca4f586e5cd1aab48ed1e99fa80dda5d2a91dfd59a8daff65db",
+  "originalInventorySha256": "223bf5b7b465a0fc934215db6b955a291ae1369e670f3c6030be4f1f5f167f3f",
+  "artifacts": {
+    "dependency-files.json.gz": "2f56c08b2b2dc77b895b55f9c2cd81ea8c0dd744cfa8d50d8f38c7d375a90561",
+    "packages.json.gz": "7102437be6cbb12a0e0b640b53580443c6f61b8c8e37dacd4f726ff76e52b926",
+    "generated-files.json": "fef3ea25d8aaadbcdc10f0a6e59fe6dfdfb73176e058f76e333a16df774fd97c",
+    "links.json": "49daa858f801acc47430f56815b60de2b638cba1ca14e1402f054dbc05e4e56f"
+  },
+  "note": "Package license declarations/file hashes and lockfile integrity are provenance, not a complete dependency license/legal audit. No installed dependencies or generated lib files are redistributed. Common build outputs are separate from pinned original generated source."
+}

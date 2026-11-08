@@ -1,0 +1,36 @@
+{
+  "status": "scanned",
+  "analyzedFiles": 327,
+  "types": 1577,
+  "functions": 2264,
+  "diagnostics": {},
+  "errorCount": 0,
+  "omissions": 440,
+  "predicateSupport": {
+    "supported": 7,
+    "unsupported": 2257
+  },
+  "programFiles": 1638,
+  "unresolvedImports": 0,
+  "unresolvedSpecifiers": [],
+  "groups": "not-run: preparation-only task",
+  "fca": "not-run: context exceeds default limits",
+  "analysisTypescript": "5.9.3",
+  "entryFunctions": {
+    "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts": 82,
+    "packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts": 14,
+    "packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts": 33,
+    "packages/admin-ui/src/lib/core/src/data/definitions/order-definitions.ts": 0
+  },
+  "context": {
+    "objects": 2264,
+    "attributes": 4288,
+    "limits": {
+      "maxObjects": 128,
+      "maxAttributes": 64,
+      "maxConcepts": 256
+    },
+    "fits": false
+  },
+  "scopeDecision": "environment prepared; exploration comparison scope unavailable"
+}

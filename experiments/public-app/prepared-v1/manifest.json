@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "baseRevision": "ed32955e65f801cf3d511f446badf9b5e3b3383d",
+  "candidate": "vendure",
+  "revision": "534e6003534f74761e82de1b8c6061cba89945d1",
+  "sourceManifest": "../v1/manifest.json",
+  "task": "../v1/vendure-task.json",
+  "cache": "/tmp/ontosary-vendure-preparation-20261108",
+  "budget": {
+    "startUtc": "2026-11-08T05:37:37.919092+00:00",
+    "deadlineUtc": "2026-11-08T06:07:37.919092+00:00",
+    "limitSeconds": 1800,
+    "scope": "Environment preflight, archive preparation, install, necessary common build, first and possible repeated observations; no reset on resume."
+  },
+  "plannedCommands": [
+    [
+      "node",
+      "--version"
+    ],
+    [
+      "npm",
+      "--version"
+    ],
+    [
+      "npm",
+      "ci",
+      "--ignore-scripts",
+      "--no-audit",
+      "--no-fund",
+      "--workspace=@vendure/admin-ui",
+      "--workspace=@vendure/common",
+      "--include-workspace-root"
+    ],
+    [
+      "npm",
+      "run",
+      "build",
+      "--workspace=@vendure/common"
+    ]
+  ],
+  "installScope": "Pinned root lockfile, selected Admin UI/common workspaces plus root build tools. Lifecycle scripts disabled for install, common build script inspected before explicit execution.",
+  "stopConditions": [
+    "30 minute deadline",
+    "Source/lock/config/generated patch or dependency override required",
+    "Analysis errors remain after bounded preparation",
+    "FCA objects >128 or attributes >64; no selection or limit change"
+  ],
+  "preserve": [
+    "core/CLI",
+    "V1 runner/verifier and observations",
+    "upstream source/lockfile/config/generated files",
+    "task anchors",
+    "strict and diagnostic policy"
+  ]
+}

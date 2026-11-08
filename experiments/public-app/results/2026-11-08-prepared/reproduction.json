@@ -1,0 +1,39 @@
+{
+  "equivalent": true,
+  "comparedFiles": 9,
+  "observations": {
+    "original": {
+      "status": "compiler-errors",
+      "errorCount": 495,
+      "functions": 4379,
+      "context": null
+    },
+    "scoped": {
+      "status": "scanned",
+      "errorCount": 0,
+      "functions": 2264,
+      "context": {
+        "objects": 2264,
+        "attributes": 4288,
+        "limits": {
+          "maxObjects": 128,
+          "maxAttributes": 64,
+          "maxConcepts": 256
+        },
+        "fits": false
+      }
+    }
+  },
+  "hashes": {
+    "original/config.json": "f33095c46eebb6ecef36ab65260ce835ee1fefecfe90796adc5ecbb200fda271",
+    "original/outcome.json": "54a2db26cfda1766a960c111ee66d01c7541453d243c236ec7fdc5eaf9bafc49",
+    "original/program.json.gz": "b8526a2ed55dbec87849e09fcf9b8af2bba903ca4e68c6f7b6eb2906fbc02b37",
+    "original/scan.json.gz": "855991e1bf4831e1d125f8573e07a582a1c66e27736ba34825589040030a1252",
+    "scoped/config.json": "2b029e4b50b8bc6ef95580f4204b3a34bc2fe1f8af8143f7a3f5f54d52ebfe0f",
+    "scoped/context.json.gz": "1fe6c30f20dc45c98e27663a3edb14fde8c8316e9c6fd0655ac36082e2c315a3",
+    "scoped/outcome.json": "f5cf0260a33ed5c34e4420e02c46942cd956d4898b0d31991aff396a4bd74583",
+    "scoped/program.json.gz": "485eb92de305743688de3159eb85cc85080347aa994c443b202d36c8ce09b5bd",
+    "scoped/scan.json.gz": "b91db4178c26829c0182f9c4c0d38c50647c0ec951a27fbf6ea39ba6825307c9"
+  },
+  "scope": "Same installed cache and absolute path, two new scan outputs. Dependency installation/build was not independently reproduced; cross-path type-display limitations remain."
+}

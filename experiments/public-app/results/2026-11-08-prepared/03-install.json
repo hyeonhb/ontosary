@@ -1,0 +1,22 @@
+{
+  "command": [
+    "npm",
+    "ci",
+    "--ignore-scripts",
+    "--no-audit",
+    "--no-fund",
+    "--workspace=@vendure/admin-ui",
+    "--workspace=@vendure/common",
+    "--include-workspace-root"
+  ],
+  "cwd": "<cache>/vendure",
+  "startUtc": "2026-11-08T05:38:53.883432+00:00",
+  "endUtc": "2026-11-08T05:39:11.382583+00:00",
+  "wallTimeMs": 17499,
+  "remainingAtStartMs": 1724036,
+  "exitCode": 0,
+  "signal": null,
+  "timedOut": false,
+  "deadlineUtc": "2026-11-08T06:07:37.919092+00:00",
+  "environmentPolicy": "Public registry; empty user/global npm config; isolated npm cache; inherited process environment not dumped."
+}

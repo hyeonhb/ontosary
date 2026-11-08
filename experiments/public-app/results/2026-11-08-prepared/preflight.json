@@ -1,0 +1,172 @@
+{
+  "timestampUtc": "2026-11-08T05:38:33.511502+00:00",
+  "node": "v22.19.0",
+  "npm": "10.9.3",
+  "platform": "Darwin arm64",
+  "lockfileVersion": 3,
+  "lockfileSha256": "36f9848d635ceca4f586e5cd1aab48ed1e99fa80dda5d2a91dfd59a8daff65db",
+  "archiveSha256": "6d2de93bc2476dcad4c76f7de20e354a1b41c0090b9ef5a8fd70acef66ed6435",
+  "inventorySha256": "223bf5b7b465a0fc934215db6b955a291ae1369e670f3c6030be4f1f5f167f3f",
+  "verifiedOriginalEntries": 4735,
+  "verifiedTaskAnchors": 11,
+  "manifests": {
+    "package.json": {
+      "name": "vendure",
+      "version": "0.0.0",
+      "engines": {
+        "node": ">= 18"
+      },
+      "workspaces": {
+        "packages": [
+          "packages/*"
+        ],
+        "nohoist": [
+          "**/@types/jasmine",
+          "**/@types/jasminewd2"
+        ]
+      },
+      "scripts": {
+        "watch": "lerna run watch --parallel",
+        "watch:core-common": "lerna run --scope @vendure/common --scope @vendure/core watch --parallel",
+        "build:core-common": "lerna run --scope @vendure/common --scope @vendure/core build",
+        "lint": "eslint --fix",
+        "format": "prettier --write --html-whitespace-sensitivity ignore",
+        "docs:generate-typescript-docs": "ts-node scripts/docs/generate-typescript-docs.ts",
+        "docs:generate-graphql-docs": "ts-node scripts/docs/generate-graphql-docs.ts --api=shop && ts-node scripts/docs/generate-graphql-docs.ts --api=admin",
+        "docs:build": "npm run docs:generate-typescript-docs && npm run docs:generate-graphql-docs",
+        "codegen": "tsc -p scripts/codegen/plugins && ts-node scripts/codegen/generate-graphql-types.ts",
+        "version": "npm i && npm run check-imports && npm run check-angular-versions && npm run build && npm run check-core-type-defs && npm run generate-changelog && git add CHANGELOG* && git add */version.ts",
+        "test": "lerna run test --stream --no-bail",
+        "e2e": "lerna run e2e --stream --no-bail",
+        "build": "lerna run build",
+        "check-imports": "ts-node scripts/check-imports.ts",
+        "check-core-type-defs": "ts-node scripts/check-core-type-defs.ts",
+        "check-angular-versions": "ts-node scripts/check-angular-versions.ts",
+        "generate-changelog": "ts-node scripts/changelogs/generate-changelog.ts",
+        "publish-release": "lerna version -m \"chore: Publish %s\" --no-push --force-publish --exact",
+        "publish-prerelease": "lerna version -m \"chore: Pre-release %s\" prerelease --exact --no-push --force-publish --preid next --dist-tag next",
+        "publish-local": "lerna version --force-publish --no-git-tag-version && cd scripts && ./publish-to-verdaccio.sh"
+      }
+    },
+    "packages/admin-ui/package.json": {
+      "name": "@vendure/admin-ui",
+      "version": "3.5.0",
+      "scripts": {
+        "ng": "ng",
+        "dev": "node scripts/set-version.js && ng serve",
+        "build:app": "ng build vendure-admin --configuration production",
+        "build": "node scripts/copy-package-json.js && node scripts/set-version.js && node scripts/build-public-api.js && ng build vendure-admin-lib --configuration production && node scripts/compile-styles.js",
+        "watch": "ng build --watch=true",
+        "test": "ng test --watch=false --browsers=ChromeHeadlessCI --progress=false",
+        "lint": "ng lint --fix",
+        "extract-translations": "node scripts/extract-translations.js",
+        "ngcc": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points"
+      },
+      "license": "GPL-3.0-or-later"
+    },
+    "packages/common/package.json": {
+      "name": "@vendure/common",
+      "version": "3.5.0",
+      "scripts": {
+        "watch": "tsc -p ./tsconfig.build.json -w",
+        "build": "rimraf lib && tsc -p ./tsconfig.build.json",
+        "lint": "eslint --fix .",
+        "test": "vitest --run",
+        "ci": "npm run build"
+      },
+      "license": "GPL-3.0-or-later"
+    }
+  },
+  "installScriptPackages": [
+    {
+      "path": "node_modules/@apollo/protobufjs",
+      "version": "1.2.7"
+    },
+    {
+      "path": "node_modules/@nestjs/core",
+      "version": "11.1.6"
+    },
+    {
+      "path": "node_modules/@parcel/watcher",
+      "version": "2.5.1"
+    },
+    {
+      "path": "node_modules/@sentry-internal/node-cpu-profiler",
+      "version": "2.2.0"
+    },
+    {
+      "path": "node_modules/@swc/core",
+      "version": "1.13.5"
+    },
+    {
+      "path": "node_modules/@tailwindcss/oxide",
+      "version": "4.1.14"
+    },
+    {
+      "path": "node_modules/bcrypt",
+      "version": "5.1.1"
+    },
+    {
+      "path": "node_modules/better-sqlite3",
+      "version": "11.10.0"
+    },
+    {
+      "path": "node_modules/esbuild",
+      "version": "0.25.4"
+    },
+    {
+      "path": "node_modules/fsevents",
+      "version": "2.3.3"
+    },
+    {
+      "path": "node_modules/google-gax/node_modules/@grpc/grpc-js/node_modules/protobufjs",
+      "version": "7.5.4"
+    },
+    {
+      "path": "node_modules/google-gax/node_modules/protobufjs",
+      "version": "6.11.2"
+    },
+    {
+      "path": "node_modules/husky",
+      "version": "4.3.8"
+    },
+    {
+      "path": "node_modules/lmdb",
+      "version": "3.2.6"
+    },
+    {
+      "path": "node_modules/msgpackr-extract",
+      "version": "3.0.3"
+    },
+    {
+      "path": "node_modules/nx",
+      "version": "20.8.2"
+    },
+    {
+      "path": "node_modules/playwright/node_modules/fsevents",
+      "version": "2.3.2"
+    },
+    {
+      "path": "node_modules/proto3-json-serializer/node_modules/protobufjs",
+      "version": "6.11.4"
+    },
+    {
+      "path": "node_modules/protobufjs",
+      "version": "7.5.4"
+    },
+    {
+      "path": "node_modules/puppeteer",
+      "version": "19.11.1"
+    },
+    {
+      "path": "node_modules/sharp",
+      "version": "0.33.5"
+    },
+    {
+      "path": "node_modules/sqlite3",
+      "version": "5.1.7"
+    }
+  ],
+  "lifecyclePolicy": "Ignore all install lifecycle scripts. Root/admin have no preinstall/install/postinstall/prepare scripts. Explicit common build runs rimraf lib and upstream local tsc only; no codegen or service.",
+  "ancestryIsolation": "Fresh /tmp cache with no ancestor node_modules"
+}

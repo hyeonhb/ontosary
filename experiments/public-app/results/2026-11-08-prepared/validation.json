@@ -1,0 +1,32 @@
+{
+  "phase": "Post-preparation reporting and repository regression checks; separate from preparation budget",
+  "phaseStartUtc": "2026-11-08T05:43:37.587463+00:00",
+  "recordedUtc": "2026-11-08T05:51:08.408108+00:00",
+  "checks": {
+    "pnpm check": {
+      "exitCode": 0,
+      "logLastWriteUtc": "2026-11-08T05:44:24.648760+00:00",
+      "result": "type checks, 8 test files / 136 tests, Vite build passed",
+      "rawLogSha256": "0068fbad6f18b063692ecde4e2c7975a6ed18758e6588182eaa78be8e4f1c1a2",
+      "publishedLog": "check.log",
+      "publishedLogSha256": "2678bfd29b6577a618aae2d10db25d84b30043fdaa9e427df8004bbf02739064"
+    },
+    "pnpm experiment": {
+      "exitCode": 0,
+      "logLastWriteUtc": "2026-11-08T05:44:26.793875+00:00",
+      "result": "4/4 comparisons; context 13x26; 20 concepts/8 candidates/8 relations; not truncated",
+      "rawLogSha256": "8194ddc8ad89e33f606c2aa11c3ce7eed4a604af26a864ded75637719eae9a9c",
+      "publishedLog": "experiment.log",
+      "publishedLogSha256": "8194ddc8ad89e33f606c2aa11c3ce7eed4a604af26a864ded75637719eae9a9c"
+    }
+  },
+  "additionalChecks": [
+    "Original and scoped observation replay: 9 files byte-identical",
+    "Prepared scoped config equals prior V1 config",
+    "Original/core/build/lock/input/script fingerprints verified",
+    "All Program source files/order/hash matched in supplementary canonical-path audit; no host application dependencies",
+    "No host user paths or npm auth token assignments in published evidence"
+  ],
+  "delivery": "Commit/push/PR/merge occur after this record; use Git commit and PR created_at/merged_at timestamps, separately from preparation.",
+  "reportingAndValidationElapsedSeconds": 450.820808
+}
