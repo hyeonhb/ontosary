@@ -1,0 +1,164 @@
+{
+  "reviewedRevision": "b4449c373eb97f68373cc3848623f5f8ba6e1b87",
+  "scope": "Independent review observations in the existing installed cache; no reinstall/build, no FCA enumeration or new task selection.",
+  "reproduction": {
+    "equivalent": true,
+    "comparedFiles": 9,
+    "observations": {
+      "original": {
+        "status": "compiler-errors",
+        "errorCount": 495,
+        "functions": 4379,
+        "context": null
+      },
+      "scoped": {
+        "status": "scanned",
+        "errorCount": 0,
+        "functions": 2264,
+        "context": {
+          "objects": 2264,
+          "attributes": 4288,
+          "limits": {
+            "maxObjects": 128,
+            "maxAttributes": 64,
+            "maxConcepts": 256
+          },
+          "fits": false
+        }
+      }
+    },
+    "hashes": {
+      "original/config.json": "f33095c46eebb6ecef36ab65260ce835ee1fefecfe90796adc5ecbb200fda271",
+      "original/outcome.json": "54a2db26cfda1766a960c111ee66d01c7541453d243c236ec7fdc5eaf9bafc49",
+      "original/program.json.gz": "b8526a2ed55dbec87849e09fcf9b8af2bba903ca4e68c6f7b6eb2906fbc02b37",
+      "original/scan.json.gz": "855991e1bf4831e1d125f8573e07a582a1c66e27736ba34825589040030a1252",
+      "scoped/config.json": "2b029e4b50b8bc6ef95580f4204b3a34bc2fe1f8af8143f7a3f5f54d52ebfe0f",
+      "scoped/context.json.gz": "1fe6c30f20dc45c98e27663a3edb14fde8c8316e9c6fd0655ac36082e2c315a3",
+      "scoped/outcome.json": "f5cf0260a33ed5c34e4420e02c46942cd956d4898b0d31991aff396a4bd74583",
+      "scoped/program.json.gz": "485eb92de305743688de3159eb85cc85080347aa994c443b202d36c8ce09b5bd",
+      "scoped/scan.json.gz": "b91db4178c26829c0182f9c4c0d38c50647c0ec951a27fbf6ea39ba6825307c9"
+    },
+    "scope": "Same installed cache and absolute path, two new scan outputs. Dependency installation/build was not independently reproduced; cross-path type-display limitations remain."
+  },
+  "provenanceFingerprintsVerified": 18,
+  "inputAuditArtifactsByteIdentical": 5,
+  "inputAuditSummary": {
+    "originalEntries": 4735,
+    "changedOriginalFiles": [],
+    "dependencyFiles": 85192,
+    "dependencyBytes": 656572522,
+    "installedPackageEntries": 2230,
+    "generatedFiles": 37,
+    "generatedBytes": 489927,
+    "lockfileSha256": "36f9848d635ceca4f586e5cd1aab48ed1e99fa80dda5d2a91dfd59a8daff65db",
+    "originalInventorySha256": "223bf5b7b465a0fc934215db6b955a291ae1369e670f3c6030be4f1f5f167f3f",
+    "artifacts": {
+      "dependency-files.json.gz": "2f56c08b2b2dc77b895b55f9c2cd81ea8c0dd744cfa8d50d8f38c7d375a90561",
+      "packages.json.gz": "7102437be6cbb12a0e0b640b53580443c6f61b8c8e37dacd4f726ff76e52b926",
+      "generated-files.json": "fef3ea25d8aaadbcdc10f0a6e59fe6dfdfb73176e058f76e333a16df774fd97c",
+      "links.json": "49daa858f801acc47430f56815b60de2b638cba1ca14e1402f054dbc05e4e56f"
+    },
+    "note": "Package license declarations/file hashes and lockfile integrity are provenance, not a complete dependency license/legal audit. No installed dependencies or generated lib files are redistributed. Common build outputs are separate from pinned original generated source."
+  },
+  "taskAnchorsVerified": 11,
+  "originalConfig": {
+    "diagnostics": 495,
+    "allInSpecs": true,
+    "codes": {
+      "2582": 203,
+      "2304": 292
+    }
+  },
+  "programPathAudit": {
+    "original": {
+      "fileCount": 2342,
+      "recoveredPaths": 1715,
+      "unexpectedExternalFiles": 0
+    },
+    "scoped": {
+      "fileCount": 1638,
+      "recoveredPaths": 1265,
+      "unexpectedExternalFiles": 0
+    }
+  },
+  "budgetRecordConsistent": true,
+  "reportedElapsedSeconds": 359.668371,
+  "commands": [
+    {
+      "record": "01-acquire.json",
+      "exitCode": 0,
+      "wallTimeMs": 5999
+    },
+    {
+      "record": "02-install.json",
+      "exitCode": 1,
+      "wallTimeMs": 124
+    },
+    {
+      "record": "03-install.json",
+      "exitCode": 0,
+      "wallTimeMs": 17499
+    },
+    {
+      "record": "04-common-build.json",
+      "exitCode": 0,
+      "wallTimeMs": 1591
+    },
+    {
+      "record": "05-observe-original.json",
+      "exitCode": 0,
+      "wallTimeMs": 10895
+    },
+    {
+      "record": "06-audit.json",
+      "exitCode": 0,
+      "wallTimeMs": 19306
+    },
+    {
+      "record": "07-observe-scoped.json",
+      "exitCode": 0,
+      "wallTimeMs": 5023
+    },
+    {
+      "record": "08-repeat-original.json",
+      "exitCode": 0,
+      "wallTimeMs": 9779
+    },
+    {
+      "record": "09-repeat-scoped.json",
+      "exitCode": 0,
+      "wallTimeMs": 4986
+    },
+    {
+      "record": "10-effective-npm-config.json",
+      "exitCode": 0,
+      "wallTimeMs": 510
+    }
+  ],
+  "contextReconstructedFromFacts": true,
+  "fullContext": {
+    "objects": 2264,
+    "attributes": 4288,
+    "attributeKinds": {
+      "condition": 5,
+      "property": 2481,
+      "returns": 719,
+      "type": 1083
+    }
+  },
+  "existingEntryInventory": {
+    "functions": 129,
+    "distinctAttributes": 314,
+    "attributeKinds": {
+      "property": 143,
+      "returns": 61,
+      "type": 110
+    }
+  },
+  "interpretation": "129 entry functions and 314 attributes also exceed both defaults. This is a size diagnostic of already-declared roots, not a selected successful FCA experiment or proof of utility.",
+  "defaultFcaGuard": "Formal context exceeds limits: 2264 objects / 4288 attributes (limits 128/64)",
+  "validation": {
+    "pnpm check": "passed: 8 files / 136 tests, type checks, production build",
+    "pnpm experiment": "passed: 4/4"
+  }
+}
