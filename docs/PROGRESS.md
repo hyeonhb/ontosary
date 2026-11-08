@@ -4,6 +4,8 @@
 
 ## 현재 단계
 
+2026-11-08 S1 독립 리뷰: **방향 유지 / S1 조건부 완료, R6/R7 Medium 보완 필요**다. PR #15/main `4480438`에서 163테스트·기존 비교 4/4·비시간 12파일 재현·64부분집합 FCA 독립 대조가 통과했다. R6은 개념→동작 안내와 relatedItems 방향 불일치, R7은 standalone validator의 대상 선언/분석 입력 변경 미검출이다. 전체 runner의 입력 검사는 R7 변조를 거부하며 기존 고정 결과의 오류는 아니다. [최신 독립 리뷰](reviews/2026-11-08-domain-model-independent-review.md), [현재 보완 지시](reviews/2026-11-08-domain-model-review-next-plan.md)를 따른다. 이번 리뷰는 제품/실험 구현을 고치지 않았고 원시 결과를 보존했다. S2는 보완 재검토 뒤 계약·fixture/oracle를 동결한다.
+
 2026-11-08 S1 구현: **Vendure 도메인 모델 12항목·근거 검증기·동일 context의 단순 그룹/FCA 대조를 완료**했다. 모두 검토 대기이며 승인 지식은 없다. 네 클래스 78메서드×6역할(468셀, unknown 0)에서 형식 개념 8/후보 5를 얻었지만 후보 전부 단순 그룹과 extent가 같다. 새 의미 항목/추가 교집합은 0이다. 정상 검증·변조 8개 거부·27개 새 회귀, 전체 163테스트·기존 비교 4/4, 비시간 12파일 재현이 통과했다. [최신 인계](reviews/2026-11-08-domain-model-prototype.md), [실험/모델](../experiments/domain-model/README.md). 다음 권고는 독립 리뷰 후 S2 reason 계약·fixture/oracle 동결이다. S2 비교·Vendure 변경·사람 승인·agent 효용은 미실행/미검증이다.
 
 2026-11-08 목표 정렬: **최종 목표는 기존 프로젝트를 agent가 도메인을 이해하고 수정하기 좋은 프로젝트로 점진적으로 전환하도록 돕는 것**이다. 업무 개념·관련 코드 탐색은 첫 사용 경로이고, 온톨로지는 명시적 도메인 모델의 수단, FCA는 구축 부담을 줄일 후보 발견 수단이다. ADR-020과 PRODUCT/RESEARCH/ROADMAP에 반영했다. 당시 다음 한 작업은 [S1 도메인 모델 개발 지시](reviews/2026-11-08-domain-model-next-plan.md)다. 당시 리뷰 세션은 지시·맥락 문서만 준비했으며 모델/validator·agent 변경 실험은 아직 구현/실행하지 않았다.
@@ -130,9 +132,9 @@ main `a58a88b`을 독립 검토해 `pnpm check` 89개·기존 실험 4/4 및 새
 
 ## 다음 작업
 
-1. [S1 개발 지시](reviews/2026-11-08-domain-model-next-plan.md)에 따라 고정 Vendure 취소·환불의 작은 도메인 모델 초안·근거 검증기·단순 그룹/FCA 대조를 만든다. 코드 사실/미검토 해석/사람 승인, 자동/수동 근거를 구분한다. 종료된 환경 준비를 반복하지 않는다.
-2. 전체 Program의 심볼 해석을 유지한 별도 역할 context의 객체/속성 계약을 고정한다. 상한·미확인 입력을 숨기지 않고 모델 작성에 FCA가 실제로 더한 항목과 비용을 기록한다. core/CLI·strict·논리 지원·상한을 바꾸는 작업은 포함하지 않는다.
-3. S1 독립 리뷰 후 같은 agent의 작은 변경 과업을 모델 제공 전후로 비교하는 S2를 진행한다. 모델의 효과와 FCA의 구축 기여를 분리한다. 변경 정확성·누락·회귀·사람 재작업·총비용을 보고, 효과가 있을 때 변경 후 모델 갱신 비용 S3로 이어간다. 모델·과업·의미가 미확정인 현재를 효용 검증/사람 승인으로 표시하지 않는다.
+1. [R6/R7 보완 지시](reviews/2026-11-08-domain-model-review-next-plan.md)에 따라 실제 개념→동작 탐색 계약과 standalone 검증의 분석 입력 전제를 맞춘다. V1·과거 결과·독립 실패 증거를 보존하고 새 버전에서 검증한다.
+2. 새 기능/표본/상한 확장보다 인계 계약을 먼저 보완한다. core/CLI·strict·논리 지원·FCA 기본 상한은 유지하고, 이미 아는 연결이나 탐색 링크 수정을 FCA의 새 의미 발견으로 세지 않는다.
+3. 보완 독립 재검토 후 S2의 로컬 reason 계약·원문에 충실한 fixture/oracle·A/B/C 격리 자료를 동결한다. 모델의 효과와 FCA의 구축 기여를 분리한다. 비교 실행에서 변경 정확성·누락·회귀·사람 재작업·총비용을 보고, 효과가 있을 때 S3 유지 비용으로 이어간다. 현재 agent 효용·사람 승인은 미검증이다.
 4. 주요 기술적·철학적/방향성 선택이 필요하면 관찰·선택지·권고를 사용자에게 제시한다. 작은 수정과 이미 승인된 원격 반영은 반복 승인 대상으로 만들지 않는다.
 
 핵심 코드: `src/core/{analyzer,logic,fca,model}.ts`, `src/cli/index.ts`. 최신 평가기: [V3 README](../experiments/corpus/v3/README.md), [수정 인계](reviews/2026-11-08-type-context-fix.md). 지원 경계는 [ARCHITECTURE](ARCHITECTURE.md), 결정은 [DECISIONS](DECISIONS.md), 실험 해석은 [RESEARCH](RESEARCH.md), 순서는 [ROADMAP](ROADMAP.md)를 따른다.

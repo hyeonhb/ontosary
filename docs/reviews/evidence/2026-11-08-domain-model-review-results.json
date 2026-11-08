@@ -1,0 +1,87 @@
+{
+  "reviewedRevision": "4480438b462609971cac35aea61e4aa0a2a95d6f",
+  "reproduction": {
+    "nonTimeFiles": 12,
+    "byteIdentical": true,
+    "scope": "Same prepared cache, fresh result directory; no installation reproduction"
+  },
+  "independentFca": {
+    "subsetsEnumerated": 64,
+    "formalConcepts": 8,
+    "candidates": 5,
+    "allCandidateExtentsInSimpleGroups": true
+  },
+  "roleSupport": {
+    "calls-cancel": 2,
+    "calls-refund": 1,
+    "closes-dialog-empty": 2,
+    "opens-modal": 8,
+    "returns-dialog-payload": 2,
+    "sends-mutation": 28
+  },
+  "handoffHashesVerified": 5,
+  "navigation": {
+    "actual": [
+      {
+        "start": "order",
+        "reachable": [
+          "order"
+        ]
+      },
+      {
+        "start": "cancel-request",
+        "reachable": [
+          "cancel-request",
+          "line",
+          "order"
+        ]
+      },
+      {
+        "start": "refund-request",
+        "reachable": [
+          "line",
+          "order",
+          "payment",
+          "refund-request"
+        ]
+      }
+    ],
+    "expectedCancelTargets": [
+      "dialog-submit",
+      "cancel-transport",
+      "refund-also-cancels"
+    ],
+    "unreachable": [
+      "dialog-submit",
+      "cancel-transport",
+      "refund-also-cancels"
+    ],
+    "reverseLookupContract": "Not specified by the model useContract/relatedItems traversal; consumers could manually scan inbound references."
+  },
+  "targetDependency": {
+    "file": "packages/admin-ui/src/lib/core/src/providers/modal/modal.service.ts",
+    "mutation": "Rename the pinned fromComponent declaration in memory only",
+    "validatorReadTarget": false,
+    "validation": {
+      "valid": true,
+      "semanticApproval": "not-assessed; formal records cannot authenticate human review",
+      "errors": [],
+      "staleFacts": [],
+      "staleItems": [],
+      "requiresReview": false
+    },
+    "freshRoleCounts": {
+      "unknown": 78
+    },
+    "diagnostics": {
+      "count": 46,
+      "codes": [
+        2339,
+        2345,
+        2322
+      ]
+    },
+    "originalUnchanged": true,
+    "limitation": "Full run.mjs checks the complete prepared input and would reject this edit; validate-input.mjs does not."
+  }
+}

@@ -161,3 +161,9 @@ Saleor 일반 주문 취소 원문 근거 18개, 추가 Vendure Admin UI 취소 
 이미 알려진 취소/환불 연결과 선택된 역할을 사용한 목적 pilot이다. mutation·modal 기술 그룹이 업무 동일성을 뜻하지 않으며 callback 집계는 실행/호출 그래프가 아니다. 역할·source 설명·모델·해석은 agent가 수동 작성했다. 자동 runner 3.033/2.768초는 작성/검토 비용을 포함하지 않고 사람 시간/agent token·H-O는 미측정이다.
 
 전체163테스트/기존4비교·12비시간파일 재현과 근거/참조/승인 변조 거부는 구현·측정 계약의 검사다. 사람 업무 의미 승인과 agent 변경 효용은 별개다. S1 독립 리뷰 후 로컬 취소 reason 입력의 작은 변경 pilot을 코드+문서/모델/동등 정보 문서 조건으로 비교하는 [S2 설계](../experiments/domain-model/evaluation/S2-PROTOCOL.md)를 남겼다. 실제 변경·fixture 구현·비교·S3·Gate 2~4 상승은 하지 않았다.
+
+## 2026-11-08 S1 독립 검토 · 계산 재현과 인계 계약
+
+새 실행의 12비시간 파일 일치, 독립적인 6속성/64부분집합 폐포 대조가 통과했다. 후보 5개 모두 단순 그룹과 같다. 지지 집합은 mutation28/modal8/cancel2/refund1/결과반환2/닫기2다. 비어 있지 않은 쌍 교집합 세 가지는 모두 cancel/refund/modal의 포함 관계이며 나머지는 분리돼 있다. 이 역할 설계는 새로운 교차 묶음을 발견할 여지가 적으므로 H-F를 강하게 반증한 표본으로 해석하지 않는다. 수동 모델의 존재도 H-O를 입증하지 않는다.
+
+[독립 리뷰](reviews/2026-11-08-domain-model-independent-review.md)는 개념→동작의 기계적 탐색 불일치(R6), standalone validator의 target/분석 입력 변경 미검출(R7)을 재현했다. 전체 runner는 입력 변경을 거부하므로 과거 고정 결과의 무효를 뜻하지 않는다. agent 인계 계약을 보완하고 S2의 자료/fixture 동결을 준비하며, 사람 승인·유지 비용·agent 효용은 미검증으로 유지한다.
