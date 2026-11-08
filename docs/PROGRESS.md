@@ -1,5 +1,7 @@
 # 현재 작업 상태 — 새 세션은 이 문서부터 읽기
 
+2026-11-08 구현 아키텍처 감사: **조사 완료 / 다음 아키텍처·개발 지시는 미확정**. [상세 평가와 논의 안건](reviews/2026-11-08-architecture-audit.md). 기존 Vendure cache의 3회 측정에서 V2 전체 중앙값 8.25초, 역할 추출 5.60ms/FCA 0.67ms였고 Program·입력 감사의 3중 실행을 확인했다. core scan JSON은 약 23MB다. snapshot 수명주기, 탐색 관계/근거 의존 분리, ID·freshness·agent 조회 계약을 우선 논의하도록 권고한다. 174테스트·타입 검사·예제 빌드, 새 V2 마지막 실행의 비시간 15파일 일치 확인. 제품 구현·과거 증거는 그대로이며 S1/R6/R7 완료를 유지한다.
+
 2026-11-08 V2 독립 리뷰: **R6/R7 해결, S1 보완 완료 인정**. 174테스트·비교 4/4·새 V2 15파일/V1 12파일 일치, 12개 ID 탐색과 standalone 5상황·제공 hash 9개를 확인했다. [최신 독립 리뷰](reviews/2026-11-08-domain-model-contract-independent-review.md). 사용자 요청에 따라 다음 단계의 큰 아키텍처·구현 범위는 대화로 정한 뒤 착수한다. S2와 agent 효용 검증은 아직 미실행이다.
 
 2026-11-08 R6/R7 보완: **V2 구현·회귀 검증 완료, 독립 재검토 대기**. incoming/outgoing 한 단계 탐색과 전체 분석 입력/anchor 분리 검사를 제공한다. 모델 의미·78×6 context·후보5/추가 의미0은 유지한다. [최신 사용 경로](../experiments/domain-model/v2/README.md). [검증 인계](reviews/2026-11-08-domain-model-contract-fix.md): 174테스트·기존 비교4/4·15비시간 파일 재현 통과. S2는 미실행이다. 아래 리뷰/관찰은 당시 상태로 보존한다.

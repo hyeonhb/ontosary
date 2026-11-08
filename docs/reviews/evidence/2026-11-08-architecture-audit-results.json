@@ -1,0 +1,338 @@
+{
+  "revision": "c139d95d8e19b229a04edbe9d1b434e7042499e8",
+  "scriptSha256": "d37b07419ef3f656f5151f620bc5933590aceccdff418cba19970e1147a43216",
+  "environment": {
+    "node": "v22.19.0",
+    "typescript": "5.9.3",
+    "platform": "darwin",
+    "arch": "arm64",
+    "cpu": "Apple M1"
+  },
+  "method": "Serial processes; existing prepared cache; OS cache not flushed; 3 observations, not a performance guarantee. Compiler timers overlap; do not sum/subtract. RSS is per worker, not aggregate V2 parent+child.",
+  "v2": [
+    {
+      "wallMs": 8694.681167,
+      "v1InnerReportedMs": 2803
+    },
+    {
+      "wallMs": 8246.723583,
+      "v1InnerReportedMs": 2773
+    },
+    {
+      "wallMs": 8212.990542000003,
+      "v1InnerReportedMs": 2767
+    }
+  ],
+  "core": [
+    {
+      "wallMs": 3178.4485409999998,
+      "compilerMeasuresMs": {
+        "I/O Read": 58.63999300000347,
+        "Parse": 549.3890330000015,
+        "ResolveModule": 109.80319200000167,
+        "ResolveLibrary": 4.834334999999783,
+        "ResolveTypeReference": 1.1570420000001604,
+        "Program": 797.2492080000001,
+        "Bind": 235.09061900000074,
+        "Check": 1316.612923999998
+      },
+      "files": 327,
+      "functions": 2264,
+      "diagnostics": 0,
+      "context": [
+        2264,
+        4288
+      ],
+      "jsonBytes": 22979177,
+      "gzipBytes": 1507052,
+      "references": 23539,
+      "rssHighWaterKiB": 872304
+    },
+    {
+      "wallMs": 3213.6959580000002,
+      "compilerMeasuresMs": {
+        "I/O Read": 62.29929099999768,
+        "Parse": 562.9010819999986,
+        "ResolveModule": 114.76327399999812,
+        "ResolveLibrary": 4.939580000000319,
+        "ResolveTypeReference": 1.150248999999917,
+        "Program": 810.6674170000001,
+        "Bind": 236.62352399999827,
+        "Check": 1325.4613850000023
+      },
+      "files": 327,
+      "functions": 2264,
+      "diagnostics": 0,
+      "context": [
+        2264,
+        4288
+      ],
+      "jsonBytes": 22979177,
+      "gzipBytes": 1507052,
+      "references": 23539,
+      "rssHighWaterKiB": 869200
+    },
+    {
+      "wallMs": 3214.106292,
+      "compilerMeasuresMs": {
+        "I/O Read": 51.27103799999816,
+        "Parse": 554.3817700000004,
+        "ResolveModule": 114.43236699999864,
+        "ResolveLibrary": 4.814332999999465,
+        "ResolveTypeReference": 1.1585420000000113,
+        "Program": 800.567916,
+        "Bind": 236.09215599999743,
+        "Check": 1332.5444139999972
+      },
+      "files": 327,
+      "functions": 2264,
+      "diagnostics": 0,
+      "context": [
+        2264,
+        4288
+      ],
+      "jsonBytes": 22979177,
+      "gzipBytes": 1507052,
+      "references": 23539,
+      "rssHighWaterKiB": 869552
+    }
+  ],
+  "roles": [
+    {
+      "programMs": 790.649125,
+      "diagnosticsMs": 1568.267542,
+      "rolesMs": 5.893750000000182,
+      "binaryMs": 0.20387499999969805,
+      "fcaMs": 0.6670000000003711,
+      "diagnostics": 0,
+      "objects": 78,
+      "concepts": 8,
+      "rssHighWaterKiB": 619040
+    },
+    {
+      "programMs": 808.1458329999999,
+      "diagnosticsMs": 1566.441,
+      "rolesMs": 5.583290999999917,
+      "binaryMs": 0.19849999999996726,
+      "fcaMs": 0.6668339999996533,
+      "diagnostics": 0,
+      "objects": 78,
+      "concepts": 8,
+      "rssHighWaterKiB": 618784
+    },
+    {
+      "programMs": 831.371,
+      "diagnosticsMs": 1576.442167,
+      "rolesMs": 5.602791999999681,
+      "binaryMs": 0.20208400000001348,
+      "fcaMs": 0.6637909999999465,
+      "diagnostics": 0,
+      "objects": 78,
+      "concepts": 8,
+      "rssHighWaterKiB": 620112
+    }
+  ],
+  "guard": [
+    {
+      "wallMs": 2642.402209,
+      "result": {
+        "valid": true,
+        "status": "verified",
+        "originalEntries": 4735,
+        "programFiles": 1638,
+        "diagnostics": []
+      },
+      "rssHighWaterKiB": 685632
+    },
+    {
+      "wallMs": 2621.5272910000003,
+      "result": {
+        "valid": true,
+        "status": "verified",
+        "originalEntries": 4735,
+        "programFiles": 1638,
+        "diagnostics": []
+      },
+      "rssHighWaterKiB": 686592
+    },
+    {
+      "wallMs": 2608.8485419999997,
+      "result": {
+        "valid": true,
+        "status": "verified",
+        "originalEntries": 4735,
+        "programFiles": 1638,
+        "diagnostics": []
+      },
+      "rssHighWaterKiB": 686048
+    }
+  ],
+  "anchors": {
+    "wallMs": 20.332458000004408,
+    "valid": true,
+    "readCalls": 484,
+    "bytes": 7457526,
+    "uniqueFiles": 7,
+    "uniqueBytes": 77107,
+    "readsPerFile": {
+      "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.html": 1,
+      "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts": 173,
+      "packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.html": 1,
+      "packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts": 39,
+      "packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts": 194,
+      "packages/admin-ui/src/lib/core/src/data/definitions/order-definitions.ts": 2,
+      "packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts": 74
+    }
+  },
+  "payload": {
+    "facts": 484,
+    "evidenceOccurrences": 484,
+    "factsJsonBytes": 486625,
+    "factsGzipBytes": 14881
+  },
+  "fca": {
+    "s1": {
+      "shape": [
+        78,
+        6
+      ],
+      "samples": [
+        0.32708300000376767,
+        0.28354099999705795,
+        0.3729160000002594
+      ],
+      "median": 0.32708300000376767,
+      "concepts": 8,
+      "truncated": false
+    },
+    "dense128x64": {
+      "shape": [
+        128,
+        64
+      ],
+      "samples": [
+        2.390165999997407,
+        2.424875000004249,
+        2.4011670000036247
+      ],
+      "median": 2.4011670000036247,
+      "concepts": 1,
+      "truncated": false
+    },
+    "sparse128x64": {
+      "shape": [
+        128,
+        64
+      ],
+      "samples": [
+        80.7033750000046,
+        81.35404199999903,
+        81.857124999995
+      ],
+      "median": 81.35404199999903,
+      "concepts": 256,
+      "truncated": true
+    },
+    "contranominal12": {
+      "shape": [
+        12,
+        12
+      ],
+      "samples": [
+        1.1699169999992591,
+        1.2102080000040587,
+        1.0992499999993015
+      ],
+      "median": 1.1699169999992591,
+      "concepts": 256,
+      "truncated": true
+    },
+    "contranominal64": {
+      "shape": [
+        64,
+        64
+      ],
+      "samples": [
+        94.61037499999657,
+        94.9175830000022,
+        94.06879200000549
+      ],
+      "median": 94.61037499999657,
+      "concepts": 256,
+      "truncated": true
+    }
+  },
+  "logic": {
+    "shape": "12 independent binary inputs; identical OR expression",
+    "samples": [
+      2.9186660000050324,
+      2.585417000002053,
+      2.4071659999972326
+    ],
+    "median": 2.585417000002053,
+    "status": "Equivalent",
+    "assignments": 4096
+  },
+  "reproduction": [
+    {
+      "file": "candidate-review.json",
+      "same": true
+    },
+    {
+      "file": "context.json",
+      "same": true
+    },
+    {
+      "file": "contract-v2.json",
+      "same": true
+    },
+    {
+      "file": "facts.json.gz",
+      "same": true
+    },
+    {
+      "file": "fca.json",
+      "same": true
+    },
+    {
+      "file": "model-after.json",
+      "same": true
+    },
+    {
+      "file": "model-before.json",
+      "same": true
+    },
+    {
+      "file": "model-changes.json",
+      "same": true
+    },
+    {
+      "file": "navigation.json",
+      "same": true
+    },
+    {
+      "file": "observation.json.gz",
+      "same": true
+    },
+    {
+      "file": "program-inputs.json.gz",
+      "same": true
+    },
+    {
+      "file": "simple-groups.json",
+      "same": true
+    },
+    {
+      "file": "summary.json",
+      "same": true
+    },
+    {
+      "file": "validation-v2.json",
+      "same": true
+    },
+    {
+      "file": "validation.json",
+      "same": true
+    }
+  ]
+}
