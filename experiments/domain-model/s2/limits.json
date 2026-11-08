@@ -1,0 +1,22 @@
+{
+  "items": 32,
+  "edges": 128,
+  "facts": 1024,
+  "candidates": 64,
+  "evidence": 2048,
+  "viewBytes": 1048576,
+  "totalBytes": 16777216,
+  "inputBytes": 16777216,
+  "measured": {
+    "items": 12,
+    "edges": 16,
+    "facts": 484,
+    "candidates": 5,
+    "selectedFacts": 22,
+    "selectedCandidates": 2,
+    "evidenceOccurrences": 22,
+    "evidenceBytes": 1205,
+    "artifactBytes": 76070
+  },
+  "reason": "Frozen before packaging: >2x record headroom, 1 MiB per view and 16 MiB total; no auto increase or silent trimming."
+}

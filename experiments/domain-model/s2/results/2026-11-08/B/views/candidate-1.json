@@ -1,0 +1,151 @@
+{
+  "candidate": {
+    "status": "Found",
+    "value": {
+      "id": "candidate:formal-5",
+      "factRefs": [
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:22379:calls-cancel",
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:22379:opens-modal",
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:23185:calls-cancel",
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:23185:opens-modal"
+      ],
+      "extent": [
+        "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:22379",
+        "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:23185"
+      ],
+      "intent": [
+        "calls-cancel",
+        "opens-modal"
+      ],
+      "source": {
+        "id": "candidate:formal-5",
+        "extent": [
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:22379",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:23185"
+        ],
+        "intent": [
+          "calls-cancel",
+          "opens-modal"
+        ],
+        "factRefs": [
+          "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:22379:calls-cancel",
+          "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:22379:opens-modal",
+          "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:23185:calls-cancel",
+          "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:23185:opens-modal"
+        ],
+        "status": "pending-review"
+      }
+    }
+  },
+  "objects": [
+    {
+      "id": "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:22379",
+      "class": "OrderDetailComponent",
+      "name": "cancelOrder",
+      "evidence": {
+        "file": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+        "symbol": "cancelOrder",
+        "offset": 22379,
+        "end": 23179,
+        "line": 576,
+        "anchor": "private cancelOrder(order: OrderDetailFragment) {",
+        "sha256": "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede"
+      }
+    },
+    {
+      "id": "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:23185",
+      "class": "OrderDetailComponent",
+      "name": "refundOrder",
+      "evidence": {
+        "file": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+        "symbol": "refundOrder",
+        "offset": 23185,
+        "end": 26909,
+        "line": 601,
+        "anchor": "private refundOrder(order: OrderDetailFragment) {",
+        "sha256": "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede"
+      }
+    },
+    {
+      "id": "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts:2469",
+      "class": "CancelOrderDialogComponent",
+      "name": "cancel",
+      "evidence": {
+        "file": "packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts",
+        "symbol": "cancel",
+        "offset": 2469,
+        "end": 2513,
+        "line": 78,
+        "anchor": "cancel() {",
+        "sha256": "a47e7000b222454302c8a0dfc374555f78616517fdc3ec03621a199ecf234cc5"
+      }
+    },
+    {
+      "id": "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:7491",
+      "class": "RefundOrderDialogComponent",
+      "name": "cancel",
+      "evidence": {
+        "file": "packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts",
+        "symbol": "cancel",
+        "offset": 7491,
+        "end": 7535,
+        "line": 205,
+        "anchor": "cancel() {",
+        "sha256": "d9ea112f17bff650686842306bef46fa6f7564278b1166762a7c9b7a8473a6fb"
+      }
+    }
+  ],
+  "attributes": [
+    {
+      "id": "calls-cancel",
+      "declarations": [
+        {
+          "file": "packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts",
+          "symbol": "cancelOrder",
+          "offset": 3319,
+          "end": 3571,
+          "line": 114,
+          "anchor": "cancelOrder(input: Codegen.CancelOrderInput) {\n        return this.baseDataService.mutate<Codegen.CancelOrderMutation, Codegen.CancelOrderMutationVariables>(\n            CANCEL_ORDER,\n            {\n                input,\n            },\n        );\n    }",
+          "sha256": "27ddd40b2430caebc5f0defc901d1e42aa54f1cb29038fe4e7657a2448c03811"
+        }
+      ]
+    },
+    {
+      "id": "opens-modal",
+      "declarations": [
+        {
+          "file": "packages/admin-ui/src/lib/core/src/providers/modal/modal.service.ts",
+          "symbol": "fromComponent",
+          "offset": 1985,
+          "end": 2882,
+          "line": 68,
+          "anchor": "fromComponent<T extends Dialog<any>, R>(\n        component: Type<T> & Type<Dialog<R>>,\n        options?: ModalOptions<T>,\n    ): Observable<R | undefined> {\n        return from(this.overlayHostService.getHostView()).pipe(\n            mergeMap(hostView => {\n                const modalComponentRef = hostView.createComponent(ModalDialogComponent);\n                const modalInstance: ModalDialogComponent<any> = modalComponentRef.instance;\n                modalInstance.childComponentType = component;\n                modalInstance.options = options;\n\n                return new Observable<R>(subscriber => {\n                    modalInstance.closeModal = (result: R) => {\n                        modalComponentRef.destroy();\n                        subscriber.next(result);\n                        subscriber.complete();\n                    };\n                });\n            }),\n        );\n    }",
+          "sha256": "d4096905f43f3134d12aa2567a2a0a6d1deb25b985222de877d7057fc336f365"
+        }
+      ]
+    },
+    {
+      "id": "closes-dialog-empty",
+      "declarations": [
+        {
+          "file": "packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts",
+          "symbol": "resolveWith",
+          "offset": 695,
+          "end": 744,
+          "line": 22,
+          "anchor": "resolveWith: (result?: CancelOrderInput) => void;",
+          "sha256": "a47e7000b222454302c8a0dfc374555f78616517fdc3ec03621a199ecf234cc5"
+        },
+        {
+          "file": "packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts",
+          "symbol": "resolveWith",
+          "offset": 1047,
+          "end": 1137,
+          "line": 30,
+          "anchor": "resolveWith: (result?: { cancel: CancelOrderInput; refunds: RefundOrderInput[] }) => void;",
+          "sha256": "d9ea112f17bff650686842306bef46fa6f7564278b1166762a7c9b7a8473a6fb"
+        }
+      ]
+    }
+  ]
+}

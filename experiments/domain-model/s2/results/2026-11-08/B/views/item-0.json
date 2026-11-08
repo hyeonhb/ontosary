@@ -1,0 +1,65 @@
+{
+  "item": {
+    "status": "Found",
+    "value": {
+      "id": "order",
+      "kind": "concept-candidate",
+      "factRefs": [
+        "source-V02",
+        "source-V08"
+      ],
+      "candidateRefs": [],
+      "source": {
+        "id": "order",
+        "kind": "concept-candidate",
+        "label": "주문",
+        "status": "pending-review",
+        "author": "agent",
+        "factRefs": [
+          "source-V02",
+          "source-V08"
+        ],
+        "candidateRefs": [],
+        "relatedItems": [],
+        "interpretation": "클라이언트의 주문 식별자·상태가 요청 경로에 참여한다.",
+        "unverified": [
+          "서버 상태 전이와 권한 정책은 무엇인가?"
+        ],
+        "intendedPolicy": null
+      }
+    }
+  },
+  "neighbors": {
+    "status": "Found",
+    "value": [
+      {
+        "from": "line",
+        "to": "order",
+        "kind": "related-item",
+        "provenance": "S1.items/1/relatedItems",
+        "direction": "incoming"
+      },
+      {
+        "from": "payment",
+        "to": "order",
+        "kind": "related-item",
+        "provenance": "S1.items/2/relatedItems",
+        "direction": "incoming"
+      },
+      {
+        "from": "cancel-request",
+        "to": "order",
+        "kind": "related-item",
+        "provenance": "S1.items/3/relatedItems",
+        "direction": "incoming"
+      },
+      {
+        "from": "branch",
+        "to": "order",
+        "kind": "related-item",
+        "provenance": "S1.items/5/relatedItems",
+        "direction": "incoming"
+      }
+    ]
+  }
+}

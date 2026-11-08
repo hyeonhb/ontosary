@@ -1,0 +1,61 @@
+{
+  "item": {
+    "status": "Found",
+    "value": {
+      "id": "refund-also-cancels",
+      "kind": "relationship-candidate",
+      "factRefs": [
+        "source-refund-cancel",
+        "source-refund-request",
+        "source-refund-payload"
+      ],
+      "candidateRefs": [
+        "candidate:formal-5"
+      ],
+      "source": {
+        "id": "refund-also-cancels",
+        "kind": "relationship-candidate",
+        "label": "환불 경로의 조건부 취소 요청",
+        "status": "pending-review",
+        "author": "agent",
+        "factRefs": [
+          "source-refund-cancel",
+          "source-refund-request",
+          "source-refund-payload"
+        ],
+        "candidateRefs": [
+          "candidate:formal-5"
+        ],
+        "relatedItems": [
+          "cancel-request",
+          "refund-request"
+        ],
+        "interpretation": "두 경로는 취소 service를 공유한다. 취소 입력 변경 검토에 refundOrder도 포함한다. 이미 원문에서 알려진 연결이다.",
+        "unverified": [
+          "모든 환불에 취소가 필수인 것은 아니다.",
+          "다른 화면의 호출은 이 모델의 완전성 범위 밖이다."
+        ],
+        "intendedPolicy": null
+      }
+    }
+  },
+  "neighbors": {
+    "status": "Found",
+    "value": [
+      {
+        "from": "refund-also-cancels",
+        "to": "cancel-request",
+        "kind": "related-item",
+        "provenance": "S1.items/7/relatedItems",
+        "direction": "outgoing"
+      },
+      {
+        "from": "refund-also-cancels",
+        "to": "refund-request",
+        "kind": "related-item",
+        "provenance": "S1.items/7/relatedItems",
+        "direction": "outgoing"
+      }
+    ]
+  }
+}

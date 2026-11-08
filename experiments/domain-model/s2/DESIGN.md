@@ -1,0 +1,5 @@
+# S2 preparation implementation plan (before packaging)
+
+analysis-session.ts owns one Program, source table, diagnostics, input inventory and seal recheck; no domain semantics. vendure-baseline.ts supplies pinned source/Program/S1 metadata. model.ts parses unknown JSON into typed records and separates navigation edges. validate.ts checks references/evidence through the session. query.ts owns copied data and indexed one-hop/evidence lookup with no filesystem/compiler imports. bundle.ts builds allowlisted static B/C views and evaluator-only parity metadata in atomic output staging. prepare.ts coordinates try/finally disposal. evaluation/ loads submitted code into an explicit test seam; unsupported dependencies fail evaluation rather than count as success.
+
+Failure codes include Schema/Reference/Evidence/InputChanged/Diagnostic/State/Limit/OutputExists/UnsupportedEvaluation. No verified boolean from JSON grants trust. Source offsets are UTF-16; snapshot is baseline-only. Source and artifact integrity do not prove semantic truth. Limits were measured/frozen before view generation in limits.json. No agent trial is authorized in this implementation.

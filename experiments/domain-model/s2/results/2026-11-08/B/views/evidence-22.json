@@ -1,0 +1,16 @@
+{
+  "status": "Found",
+  "value": {
+    "id": "object:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:22379",
+    "file": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+    "symbol": "cancelOrder",
+    "offset": 22379,
+    "end": 23179,
+    "line": 576,
+    "anchor": "private cancelOrder(order: OrderDetailFragment) {",
+    "sha256": "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede",
+    "text": "private cancelOrder(order: OrderDetailFragment) {\n        this.modalService\n            .fromComponent(CancelOrderDialogComponent, {\n                size: 'xl',\n                locals: {\n                    order,\n                },\n            })\n            .pipe(\n                switchMap(input => {\n                    if (input) {\n                        return this.dataService.order.cancelOrder(input);\n                    } else {\n                        return of(undefined);\n                    }\n                }),\n                switchMap(result => this.refetchOrder(result)),\n            )\n            .subscribe(result => {\n                if (result) {\n                    this.notificationService.success(_('order.cancelled-order-success'));\n                }\n            });\n    }",
+    "column": 5,
+    "sourceVersion": "baseline"
+  }
+}

@@ -1,0 +1,15 @@
+# evidence-18
+
+status: "Found"
+value:
+ id: "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:23185:calls-cancel/e0"
+ file: "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts"
+ symbol: "CallExpression"
+ offset: 23677
+ end: 23725
+ line: 616
+ anchor: "this.dataService.order.cancelOrder(input.cancel)"
+ sha256: "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede"
+ text: "this.dataService.order.cancelOrder(input.cancel)"
+ column: 32
+ sourceVersion: "baseline"

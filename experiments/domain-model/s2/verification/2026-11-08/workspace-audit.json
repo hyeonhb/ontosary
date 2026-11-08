@@ -1,0 +1,29 @@
+{
+  "A": {
+    "bundleId": "f8ed34c46cbcd6d09443260199bb031f2ecc545b993b88529c44625183d5ef8a",
+    "files": 4737,
+    "sourceFiles": 4735,
+    "allowlistExact": true,
+    "symlinks": 0,
+    "evaluatorFiles": 0,
+    "isolation": "unverified: same-host permissions"
+  },
+  "B": {
+    "bundleId": "f8ed34c46cbcd6d09443260199bb031f2ecc545b993b88529c44625183d5ef8a",
+    "files": 4805,
+    "sourceFiles": 4735,
+    "allowlistExact": true,
+    "symlinks": 0,
+    "evaluatorFiles": 0,
+    "isolation": "unverified: same-host permissions"
+  },
+  "C": {
+    "bundleId": "f8ed34c46cbcd6d09443260199bb031f2ecc545b993b88529c44625183d5ef8a",
+    "files": 4805,
+    "sourceFiles": 4735,
+    "allowlistExact": true,
+    "symlinks": 0,
+    "evaluatorFiles": 0,
+    "isolation": "unverified: same-host permissions"
+  }
+}

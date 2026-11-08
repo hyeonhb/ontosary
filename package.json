@@ -17,7 +17,7 @@
   },
   "scripts": {
     "build": "tsc -p tsconfig.json && node -e \"require('node:fs').chmodSync('dist/cli/index.js', 0o755)\"",
-    "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p examples/react-vite/tsconfig.json",
+    "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p examples/react-vite/tsconfig.json && tsc --noEmit -p experiments/domain-model/s2/tsconfig.json",
     "test": "pnpm build && vitest run",
     "ontosary": "node dist/cli/index.js",
     "example:dev": "vite examples/react-vite",
@@ -27,7 +27,13 @@
     "experiment:corpus:prepare": "node experiments/corpus/prepare.mjs",
     "experiment:corpus": "pnpm build && node experiments/corpus/v3/run.mjs",
     "experiment:corpus:v1": "pnpm build && node experiments/corpus/run.mjs",
-    "experiment:corpus:v2": "pnpm build && node experiments/corpus/v2/run.mjs"
+    "experiment:corpus:v2": "pnpm build && node experiments/corpus/v2/run.mjs",
+    "s2:build": "tsc -p experiments/domain-model/s2/tsconfig.json",
+    "s2:prepare": "pnpm s2:build && node work/s2-build/prepare.js",
+    "s2:evaluate": "pnpm s2:build && node work/s2-build/evaluation/run.js",
+    "s2:oracle-check": "pnpm s2:build && node work/s2-build/evaluation/oracle-check.js",
+    "s2:workspace": "pnpm s2:build && node work/s2-build/workspace.js",
+    "s2:verify": "pnpm s2:build && node work/s2-build/verify.js"
   },
   "dependencies": {
     "typescript": "5.9.3"

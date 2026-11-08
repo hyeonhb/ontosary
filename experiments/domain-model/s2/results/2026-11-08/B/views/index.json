@@ -1,0 +1,50 @@
+[
+  {
+    "id": "order",
+    "label": "주문"
+  },
+  {
+    "id": "line",
+    "label": "주문 항목"
+  },
+  {
+    "id": "payment",
+    "label": "결제"
+  },
+  {
+    "id": "cancel-request",
+    "label": "취소 요청"
+  },
+  {
+    "id": "refund-request",
+    "label": "환불 요청"
+  },
+  {
+    "id": "branch",
+    "label": "클라이언트 취소/환불 분기"
+  },
+  {
+    "id": "dialog-submit",
+    "label": "대화상자 결과 → 취소 요청"
+  },
+  {
+    "id": "refund-also-cancels",
+    "label": "환불 경로의 조건부 취소 요청"
+  },
+  {
+    "id": "dismiss",
+    "label": "대화상자 닫기 ≠ 주문 취소"
+  },
+  {
+    "id": "ui-gates",
+    "label": "메뉴 노출과 제출 비활성"
+  },
+  {
+    "id": "cancel-transport",
+    "label": "취소 service → GraphQL operation"
+  },
+  {
+    "id": "refund-transport",
+    "label": "환불 service → GraphQL operation"
+  }
+]

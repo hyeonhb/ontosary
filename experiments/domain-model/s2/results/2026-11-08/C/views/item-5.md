@@ -1,0 +1,52 @@
+# item-5
+
+item:
+ status: "Found"
+ value:
+  id: "branch"
+  kind: "observed-behavior-candidate"
+  factRefs:
+   항목 1:
+"source-V02"
+   항목 2:
+"source-V03"
+  candidateRefs:
+
+  source:
+   id: "branch"
+   kind: "observed-behavior-candidate"
+   label: "클라이언트 취소/환불 분기"
+   status: "pending-review"
+   author: "agent"
+   factRefs:
+    항목 1:
+"source-V02"
+    항목 2:
+"source-V03"
+   candidateRefs:
+
+   relatedItems:
+    항목 1:
+"order"
+    항목 2:
+"payment"
+   interpretation: "PaymentAuthorized 또는 active 또는 settled payment 없음이면 취소 경로, 그 외 환불 경로."
+   unverified:
+    항목 1:
+"이 분기는 서버의 완전한 허용 정책이 아니다."
+   intendedPolicy: null
+neighbors:
+ status: "Found"
+ value:
+  항목 1:
+   from: "branch"
+   to: "order"
+   kind: "related-item"
+   provenance: "S1.items/5/relatedItems"
+   direction: "outgoing"
+  항목 2:
+   from: "branch"
+   to: "payment"
+   kind: "related-item"
+   provenance: "S1.items/5/relatedItems"
+   direction: "outgoing"
