@@ -1,0 +1,31 @@
+flowchart TB
+  accTitle: S2의 준비와 소비 — 합의된 설계
+  accDescr: 준비 단계에서 기준 코드와 기존 S1 자료를 검증하고 동결 모델을 만든다. 순수 조회가 B 구조화 view를 미리 만들며 C에는 동등 정보의 일반 문서를 제공한다. 준비 세션은 종료된다. agent는 별도의 편집 코드와 조건별 고정 자료를 동일한 파일 도구로 읽으며, 제출한 변경은 별도 평가된다. 모델의 변경 후 갱신은 S3 범위다.
+  subgraph prep["준비 단계 · 한 기준 버전"]
+    input["기준 코드 + S1 자료"]
+    session["분석 세션<br/>Program 1개 · 입력/근거 검증"]
+    bundle["동결 모델 묶음<br/>baselineId · modelId · bundleId"]
+    query["순수 조회<br/>항목 · 1-hop 연결 · 근거"]
+    b["B · 사전 생성 구조화 view"]
+    c["C · 동등 정보의 일반 문서"]
+    input --> session --> bundle
+    bundle --> query --> b
+    bundle --> c
+  end
+  subgraph consume["소비 단계 · 독립된 agent 실행"]
+    work["기준 버전에서 시작한 편집 코드<br/>공통 기존 문서 · 과업"]
+    agent["동일한 파일 읽기 · 검색 · 수정 도구<br/>A: 공통 자료 / B·C: 조건별 자료 추가"]
+    edit["수정 결과 제출<br/>근거 자료는 수정 전 버전으로 유지"]
+    work --> agent --> edit
+  end
+  b --> consume
+  c --> consume
+  edit --> evaluation["별도 평가<br/>변경 성공 · 누락 · 회귀 · 비용"]
+  classDef source fill:#f1f5f9,stroke:#64748b,color:#0f172a;
+  classDef analysis fill:#eaf2ff,stroke:#4771a6,color:#102e50;
+  classDef output fill:#e7f4ee,stroke:#40806b,color:#164b3c;
+  classDef evaluation fill:#fff4df,stroke:#b88835,color:#624411;
+  class input,work source;
+  class session,query analysis;
+  class bundle,b,c,agent,edit output;
+  class evaluation evaluation;

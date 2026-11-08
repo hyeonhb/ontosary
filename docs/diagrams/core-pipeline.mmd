@@ -1,0 +1,24 @@
+flowchart TB
+  accTitle: 구현된 Ontosary 정적 분석 코어
+  accDescr: CLI가 분석기에 tsconfig 경로를 전달한다. 분석기는 TypeScript Program과 Checker로 코드 사실과 진단을 만들고 제한된 표현식을 정규화한다. FCA는 사실의 속성 context에서 후보를 열거한다. 논리 비교는 동일 입력 전제를 받아 유한 열거 결과와 반례를 반환한다. 모든 출력은 JSON이다.
+  cli["CLI<br/>인수 · 오류 처리 · JSON 출력"]
+  analyzer["분석기 · analyzer.ts<br/>tsconfig → Program + TypeChecker"]
+  facts["코드 사실 + 진단<br/>타입 · 함수 · 참조 · 조건 · 근거"]
+  context["속성 context<br/>함수 × 관찰 속성"]
+  fca["FCA · fca.ts<br/>상한이 있는 NextClosure"]
+  candidates["후보 + 형식적 포함 관계<br/>검토 대기 · 잘림 여부"]
+  ir["정규화 · logic.ts<br/>지원 표현식 → 제한된 논리 IR"]
+  compare["비교 · logic.ts<br/>동일 입력 전제 + 유한 열거"]
+  result["비교 결과 + 반례<br/>또는 Unsupported / Unknown"]
+  cli --> analyzer
+  analyzer --> facts
+  facts --> context --> fca --> candidates
+  analyzer -->|추출 중 조건식 전달| ir
+  ir -->|정규화 상태 포함| facts
+  facts -->|지원된 predicate 선택| compare --> result
+  classDef source fill:#f1f5f9,stroke:#64748b,color:#0f172a;
+  classDef analysis fill:#eaf2ff,stroke:#4771a6,color:#102e50;
+  classDef output fill:#e7f4ee,stroke:#40806b,color:#164b3c;
+  class cli,facts source;
+  class analyzer,context,fca,ir,compare analysis;
+  class candidates,result output;

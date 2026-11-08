@@ -1,0 +1,19 @@
+flowchart TB
+  accTitle: 취소 요청에서 관련 설명과 근거를 읽는 방법
+  accDescr: 취소 요청 항목에서 incoming 탐색을 하면 환불 경로의 조건부 취소라는 검토 대기 설명을 찾는다. 원래 relatedItems 선언 방향은 설명에서 취소 요청으로 향한다. 설명은 사실을 참조하고 사실은 기준 소스의 근거 구간에 연결된다. 미확인 질문은 해석과 함께 유지한다.
+  concept["개념 후보<br/>취소 요청"]
+  item["설명 후보 · 검토 대기<br/>환불 경로의 조건부 취소"]
+  fact["코드 관찰<br/>해당 원문 구간에 취소 호출식이 있음"]
+  evidence["기준 소스 근거<br/>파일 · 위치 · 내용 지문 · 원문"]
+  question["미확인 질문<br/>서버 정책과 조건은 별도 확인"]
+  item -->|원래 relatedItems 참조| concept
+  concept -.->|incoming으로 찾아 읽기| item
+  item -->|fact 참조| fact
+  fact -->|evidence| evidence
+  item --- question
+  classDef candidate fill:#fff4df,stroke:#b88835,color:#624411;
+  classDef fact fill:#eaf2ff,stroke:#4771a6,color:#102e50;
+  classDef source fill:#f1f5f9,stroke:#64748b,color:#0f172a;
+  class concept,item candidate;
+  class fact fact;
+  class evidence,question source;

@@ -1,0 +1,29 @@
+{
+  "theme": "base",
+  "look": "classic",
+  "htmlLabels": false,
+  "securityLevel": "strict",
+  "deterministicIds": true,
+  "deterministicIDSeed": "ontosary-human-guide",
+  "fontFamily": "Arial, Apple SD Gothic Neo, Noto Sans KR, sans-serif",
+  "themeVariables": {
+    "fontSize": "17px",
+    "fontFamily": "Arial, Apple SD Gothic Neo, Noto Sans KR, sans-serif",
+    "lineColor": "#64748b",
+    "textColor": "#0f172a",
+    "primaryTextColor": "#0f172a",
+    "edgeLabelBackground": "#ffffff",
+    "clusterBkg": "#f8fafc",
+    "clusterBorder": "#cbd5e1"
+  },
+  "flowchart": {
+    "htmlLabels": false,
+    "wrappingWidth": 340,
+    "curve": "linear",
+    "nodeSpacing": 32,
+    "rankSpacing": 50,
+    "padding": 20,
+    "diagramPadding": 20,
+    "useMaxWidth": true
+  }
+}

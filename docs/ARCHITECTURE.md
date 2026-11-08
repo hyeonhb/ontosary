@@ -1,5 +1,7 @@
 # 현재 아키텍처
 
+전체 구조와 설계 이유를 먼저 이해하려면 [사람을 위한 아키텍처 안내](guide/architecture.md)를 읽는다. 이 문서는 세부 지원 범위와 구현 계약을 관리한다.
+
 ## 구성과 의존성
 
 단일 private npm 패키지 `ontosary`를 사용한다. 작은 PoC에 workspace 패키지·플러그인 시스템·서버를 추가하지 않았다. `src/core`의 런타임 의존성은 TypeScript뿐이다. Node 내장 API로 tsconfig와 CLI를 처리한다. React·Vite·Vitest는 예제·개발 의존성이다. Vite 없이 `node dist/cli/index.js` 또는 코어 API를 실행할 수 있다.
@@ -56,7 +58,7 @@ Formal Context `(G, M, I)`에서 G는 함수, M은 `type:<declaration ID>`, `pro
 
 ## 확장 지점
 
-[S1 도메인 모델 실험](../experiments/domain-model/README.md)은 별도 경로에 구현됐다. 12개 검토 대기 모델 항목·근거 검증·네 클래스 78메서드×6직접 호출 역할의 단순 그룹/FCA를 제공한다. **제품 core/CLI 계약에는 통합하지 않았다.** 전체 Program을 유지하고 callback 호출식을 소속 메서드의 원문 영역 속성으로 집계하는 별도 계약이다. 위 core의 중첩 함수 facts와 같지 않다. [독립 리뷰](reviews/2026-11-08-domain-model-independent-review.md)의 R6/R7에 따라 개념→동작 탐색과 standalone 분석 입력 검증을 보완해야 한다.
+[S1 도메인 모델 실험](../experiments/domain-model/README.md)은 별도 경로에 구현됐다. 12개 검토 대기 모델 항목·근거 검증·네 클래스 78메서드×6직접 호출 역할의 단순 그룹/FCA를 제공한다. **제품 core/CLI 계약에는 통합하지 않았다.** 전체 Program을 유지하고 callback 호출식을 소속 메서드의 원문 영역 속성으로 집계하는 별도 계약이다. 위 core의 중첩 함수 facts와 같지 않다. 개념→동작 탐색과 standalone 분석 입력 검증의 R6/R7은 V2에서 보완했고 [독립 재검토](reviews/2026-11-08-domain-model-contract-independent-review.md)를 통과했다.
 
 기본 FCA 상한은 현재 PoC의 계산·결과 관리 예산이며 수학적 최대 크기나 제품의 영구 한계가 아니다. S1에서는 상한을 유지하고 의미 있는 범위에서도 넘으면 실패를 보존한다. 상한 조정이나 다른 열거 전략은 비용·완전성 근거를 갖춘 후속 결정이다.
 

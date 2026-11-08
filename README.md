@@ -2,7 +2,11 @@
 
 기존 TypeScript 프로젝트를 **AI agent가 도메인을 이해하고 수정하기 좋은 프로젝트로 점진적으로 전환**하도록 돕는 오픈소스 개발자 도구의 첫 PoC입니다. 코드 근거와 연결한 개념·관계·규칙의 모델을 지향하며, 온톨로지는 지식을 표현하는 수단이고 FCA는 모델 구축을 돕는 후보 발견 수단입니다. 전면 재작성이나 특정 온톨로지 표준을 요구하지 않습니다.
 
-현재는 정적 코드 사실 추출, FCA 형식 개념 후보, 유한 입력에서의 조건 비교를 구현했습니다. 후보는 승인된 업무 지식이 아니며, 조건의 차이는 버그 판정이 아닙니다. 별도 [Vendure 도메인 모델 실험](experiments/domain-model/README.md)은 검토 대기 모델과 근거 검증·FCA 대조를 제공합니다. [독립 리뷰](docs/reviews/2026-11-08-domain-model-independent-review.md)의 R6/R7을 [V2 탐색·검증 계약](experiments/domain-model/v2/README.md)으로 보완했으며 독립 재검토 대기 상태입니다. agent의 변경 성능 개선은 아직 미검증입니다.
+현재는 정적 코드 사실 추출, FCA 형식 개념 후보, 유한 입력에서의 조건 비교를 구현했습니다. 후보는 승인된 업무 지식이 아니며, 조건의 차이는 버그 판정이 아닙니다. 별도 [Vendure 도메인 모델 실험](experiments/domain-model/README.md)은 검토 대기 모델과 근거 검증·FCA 대조를 제공합니다. [V2 탐색·검증 계약](experiments/domain-model/v2/README.md)의 R6/R7 보완은 [독립 재검토](docs/reviews/2026-11-08-domain-model-contract-independent-review.md)를 통과했습니다. agent의 변경 성능 개선은 아직 미검증입니다.
+
+## 프로젝트 이해하기
+
+[사람을 위한 문서](docs/guide/README.md)에서 문제의식과 구조를 도식으로 설명합니다. [핵심 아이디어](docs/guide/idea.md)는 온톨로지와 FCA의 역할을, [아키텍처 안내](docs/guide/architecture.md)는 구현된 코어와 합의된 다음 설계를 구분해 설명합니다. 개발 지시나 세션 이력을 먼저 읽지 않아도 따라갈 수 있는 지속 관리 문서입니다.
 
 ## 시작
 
