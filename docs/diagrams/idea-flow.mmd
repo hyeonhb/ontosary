@@ -1,0 +1,28 @@
+flowchart TB
+  accTitle: Ontosary의 핵심 아이디어 — 개념 설명
+  accDescr: 소스 코드에서 사실을 추출한다. 사실은 직접 해석에 쓰이거나 FCA 후보 및 제한된 조건 비교를 거친다. 문서와 개발자의 맥락도 해석과 검토에 참여한다. 근거가 연결된 도메인 모델을 agent와 개발자가 코드 이해와 수정에 활용한다. 모든 단계가 구현됐다는 뜻은 아니다.
+  code["기존 소스 코드<br/>타입 · 함수 · 조건 · 참조"]
+  facts["정적 분석으로 확인한 사실<br/>소스 근거 · 분석 범위 · 미지원 이유"]
+  fca["FCA<br/>공통 속성을 갖는 후보 집합"]
+  logic["제한된 조건 비교<br/>동치 · 함의 · 차이의 근거"]
+  context["문서와 개발자의 설명<br/>업무 의도 · 예외 · 용어"]
+  review["의미 해석과 검토<br/>사실 · 후보 · 승인 상태 구분"]
+  model["코드 근거와 연결된 도메인 모델<br/>개념 · 관계 · 규칙 · 미확인 질문"]
+  use["agent와 개발자의 활용<br/>코드 이해 · 변경 위치와 조건 확인"]
+  code --> facts
+  facts -->|직접 해석| review
+  facts --> fca
+  facts --> logic
+  fca -->|검토 보조| review
+  logic -->|전제 안의 비교 결과| review
+  context --> review
+  review --> model
+  model --> use
+  classDef source fill:#f1f5f9,stroke:#64748b,color:#0f172a;
+  classDef analysis fill:#eaf2ff,stroke:#4771a6,color:#102e50;
+  classDef judgment fill:#fff4df,stroke:#b88835,color:#624411;
+  classDef knowledge fill:#e7f4ee,stroke:#40806b,color:#164b3c;
+  class code,context source;
+  class facts,fca,logic analysis;
+  class review judgment;
+  class model,use knowledge;

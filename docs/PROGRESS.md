@@ -147,3 +147,7 @@ main `a58a88b`을 독립 검토해 `pnpm check` 89개·기존 실험 4/4 및 새
 3. 준비 구현을 독립 리뷰한 뒤 과업·oracle·정보 동등성·격리·agent 버전/예산을 동결해 본 비교를 진행한다. H-O/H-F와 코드 사실/후보/사람 승인을 분리하며 큰 기술·방향 선택은 사용자와 결정한다.
 
 핵심 코드: `src/core/{analyzer,logic,fca,model}.ts`, `src/cli/index.ts`. 최신 평가기: [V3 README](../experiments/corpus/v3/README.md), [수정 인계](reviews/2026-11-08-type-context-fix.md). 지원 경계는 [ARCHITECTURE](ARCHITECTURE.md), 결정은 [DECISIONS](DECISIONS.md), 실험 해석은 [RESEARCH](RESEARCH.md), 순서는 [ROADMAP](ROADMAP.md)를 따른다.
+
+## 사람을 위한 안내 문서
+
+2026-11-08 사람 대상 문서: [안내서](guide/README.md)에 핵심 아이디어와 아키텍처 설명을 추가하고, 개념 흐름·구현 코어·모델 근거 읽기·합의된 S2 설계의 Mermaid 원본/SVG를 함께 관리한다. 일회성 개발 지시와 분리한 지속 관리 문서다. 확인 기준은 main `f080e39`이며 병행 개발 중인 S2를 완료로 표시하지 않았다. 제품 구현은 변경하지 않았다.
