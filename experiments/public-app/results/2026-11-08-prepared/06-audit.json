@@ -1,0 +1,17 @@
+{
+  "command": [
+    "python3",
+    "experiments/public-app/prepared-v1/audit.py",
+    "experiments/public-app/results/2026-11-08-prepared/input-audit"
+  ],
+  "cwd": "<workspace>",
+  "startUtc": "2026-11-08T05:41:03.386177+00:00",
+  "endUtc": "2026-11-08T05:41:22.691879+00:00",
+  "wallTimeMs": 19306,
+  "remainingAtStartMs": 1594533,
+  "exitCode": 0,
+  "signal": null,
+  "timedOut": false,
+  "deadlineUtc": "2026-11-08T06:07:37.919092+00:00",
+  "environmentPolicy": "Public registry; empty user/global npm config; isolated npm cache; inherited process environment not dumped."
+}

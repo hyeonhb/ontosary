@@ -1,0 +1,187 @@
+[
+  {
+    "path": "packages/admin-ui/ontosary.scope.json",
+    "bytes": 356,
+    "sha256": "98afa072585213a784aea6ac6f166463a4444b87f1d00a596949c182d1842478"
+  },
+  {
+    "path": "packages/common/lib/extension-host-types.d.ts",
+    "bytes": 1831,
+    "sha256": "d7a187f0430a276ab7ba2eac90cc23f6d7485187c1875284b8fb287c67e09c96"
+  },
+  {
+    "path": "packages/common/lib/extension-host-types.js",
+    "bytes": 125,
+    "sha256": "d56184db1db6e1602015f9263ab8d73baaa559605793fb495983668f685eb123"
+  },
+  {
+    "path": "packages/common/lib/extension-host-types.js.map",
+    "bytes": 132,
+    "sha256": "0fcacedadd2ccc77de612e74b9d7f4cdea90da70c6f373ae69d7b7fe93d65b2f"
+  },
+  {
+    "path": "packages/common/lib/filter-async.d.ts",
+    "bytes": 232,
+    "sha256": "499df8ce30c9a2033f7f1e9fe4a80ef436d6febabba757fde5d7bba80ea538b1"
+  },
+  {
+    "path": "packages/common/lib/filter-async.js",
+    "bytes": 442,
+    "sha256": "33d2792c567a480b59a9b13777da248b0f29514b591cf1f21324daf69a4b4145"
+  },
+  {
+    "path": "packages/common/lib/filter-async.js.map",
+    "bytes": 439,
+    "sha256": "81c44638348bfe421c032e040160802fffebe58255e035e5d009ca7817a92ba1"
+  },
+  {
+    "path": "packages/common/lib/generated-shop-types.d.ts",
+    "bytes": 123336,
+    "sha256": "c3d0da1383220d61a385f3437376046ce27e8c147864493a773e0c9d8b7e227b"
+  },
+  {
+    "path": "packages/common/lib/generated-shop-types.js",
+    "bytes": 36076,
+    "sha256": "dbffdec96dfed18f152ebb8f8eb57ceeb9336fc74c25929a7940d5a0630fe38a"
+  },
+  {
+    "path": "packages/common/lib/generated-shop-types.js.map",
+    "bytes": 14065,
+    "sha256": "7e3d265ac2fdb13ce93fdad78a5bd4dd4c58199bcec1be74abd87f3c1af585c1"
+  },
+  {
+    "path": "packages/common/lib/generated-types.d.ts",
+    "bytes": 227537,
+    "sha256": "af0d4f358f38bf893d67123ddc741cec000d69add93532b23398840b20a6b75c"
+  },
+  {
+    "path": "packages/common/lib/generated-types.js",
+    "bytes": 38472,
+    "sha256": "b8e50d1ec51e04e6f14f3a3fa13ca0dec31770d4e9d6e199c9ba89b947c97aaa"
+  },
+  {
+    "path": "packages/common/lib/generated-types.js.map",
+    "bytes": 14906,
+    "sha256": "2d6705d1f95f006061ec3c0cdaf105ee211394224d7b74ffb811dc729d314452"
+  },
+  {
+    "path": "packages/common/lib/normalize-string.d.ts",
+    "bytes": 252,
+    "sha256": "407c94c6d3b3616d6fa949f3dc30b9ca6e0d4dd0bc85f768c37b60df9b11c96a"
+  },
+  {
+    "path": "packages/common/lib/normalize-string.js",
+    "bytes": 878,
+    "sha256": "d5ed53af80833b9de98902fc4ad83ce29ba2ff1631c78cc93ec2fcce10af90cd"
+  },
+  {
+    "path": "packages/common/lib/normalize-string.js.map",
+    "bytes": 619,
+    "sha256": "6d8a85eb26d238ca9cc63a3cd5dd7d92c8fea203b5fc4835246fc30024393ad5"
+  },
+  {
+    "path": "packages/common/lib/omit.d.ts",
+    "bytes": 393,
+    "sha256": "c472d04adfa2833b7cc02f6cf29feb170a63449cef2add766b7d36ee988fca0d"
+  },
+  {
+    "path": "packages/common/lib/omit.js",
+    "bytes": 1068,
+    "sha256": "a9a90da930ee566351ac9b0d3f463804df36b1d274d92d8e139115a862998a5d"
+  },
+  {
+    "path": "packages/common/lib/omit.js.map",
+    "bytes": 1143,
+    "sha256": "1ce24a8854faab32ec62b79899506ec396dd947d1da295c67e7fe93c5012b888"
+  },
+  {
+    "path": "packages/common/lib/pick.d.ts",
+    "bytes": 440,
+    "sha256": "b36592ed88a952878c2caa472045820370bf3888fe3e5a4c607b8f8eb161baa1"
+  },
+  {
+    "path": "packages/common/lib/pick.js",
+    "bytes": 493,
+    "sha256": "102b8e65e2b0b2bfa46f33fc97a8c80629b78b51a125275d2134acd53e95c854"
+  },
+  {
+    "path": "packages/common/lib/pick.js.map",
+    "bytes": 577,
+    "sha256": "0e78dedba13f2795884979f7964b2182bcdd96c5b3060ddee9131967bd344f60"
+  },
+  {
+    "path": "packages/common/lib/shared-constants.d.ts",
+    "bytes": 978,
+    "sha256": "ed111a733d2bb38f48c7988ab4ab5d2ff2f885b0410758519556ad934fe0ef8a"
+  },
+  {
+    "path": "packages/common/lib/shared-constants.js",
+    "bytes": 1479,
+    "sha256": "b968a0856bb0847297389a0e192ae49f727bf27193a70b5ae9731f787c33f2fb"
+  },
+  {
+    "path": "packages/common/lib/shared-constants.js.map",
+    "bytes": 639,
+    "sha256": "fd1fc067daf8a3f055f36c092965d6abd7e538e3f8b7ef9f1f183808e3ae92e2"
+  },
+  {
+    "path": "packages/common/lib/shared-types.d.ts",
+    "bytes": 12499,
+    "sha256": "219c85026f0790308af595a34f56564fbdec947dbeda6df68340823969963cc8"
+  },
+  {
+    "path": "packages/common/lib/shared-types.js",
+    "bytes": 117,
+    "sha256": "f651b48a28ab2f577856f503bc9fa3ac423fe494de2f9ad9b6966e151bf968ac"
+  },
+  {
+    "path": "packages/common/lib/shared-types.js.map",
+    "bytes": 116,
+    "sha256": "8d4876675deffebe25c8af896b3e24936d59a0823cac9dc516024250fa2d5a5d"
+  },
+  {
+    "path": "packages/common/lib/shared-utils.d.ts",
+    "bytes": 1889,
+    "sha256": "6da54d4fffde707c54f3706a97a0b7303542b0c847c955646ab700e24e923ff3"
+  },
+  {
+    "path": "packages/common/lib/shared-utils.js",
+    "bytes": 2831,
+    "sha256": "b9e443bb696d7a53b1d3cb188a4267595a6e959c8d33c74ffb3fe3ca6b19ba75"
+  },
+  {
+    "path": "packages/common/lib/shared-utils.js.map",
+    "bytes": 1889,
+    "sha256": "215deddae803da99bbd06f51e71ae37c80600fa58f07c4374e76729b8725816f"
+  },
+  {
+    "path": "packages/common/lib/simple-deep-clone.d.ts",
+    "bytes": 252,
+    "sha256": "ddad1beee905bd1443fe4bd0d60dcd03523447ecdc86df078a647414f2fe2569"
+  },
+  {
+    "path": "packages/common/lib/simple-deep-clone.js",
+    "bytes": 1080,
+    "sha256": "551e1cab5c3ab6df6f1a8cce1111cfe3106bf2e9bd40a041465a191039f86b92"
+  },
+  {
+    "path": "packages/common/lib/simple-deep-clone.js.map",
+    "bytes": 973,
+    "sha256": "1bac5260b92a263bcf17a679cf6f28d48685c37d599be2a8f55c90ab768b9609"
+  },
+  {
+    "path": "packages/common/lib/unique.d.ts",
+    "bytes": 285,
+    "sha256": "5e692ba42a74f4c823f2e027339d3c8cf4d3695ae2ba85509f3e3b3f4584f808"
+  },
+  {
+    "path": "packages/common/lib/unique.js",
+    "bytes": 615,
+    "sha256": "423e7f9ee3e2bde359bf5223a6a297cdd7c5eabc8c0d5770a6f2a392897edbc8"
+  },
+  {
+    "path": "packages/common/lib/unique.js.map",
+    "bytes": 473,
+    "sha256": "27a7358f3d2d85cd71706f50843eb60134c77c41486cec390cbde458ef8e11e7"
+  }
+]

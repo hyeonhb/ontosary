@@ -1,0 +1,16 @@
+{
+  "command": [
+    "node",
+    "<workspace>/work/vendure-preparation/config-check.mjs"
+  ],
+  "cwd": "<cache>/vendure",
+  "startUtc": "2026-11-08T05:43:10.852006+00:00",
+  "endUtc": "2026-11-08T05:43:11.362367+00:00",
+  "wallTimeMs": 510,
+  "remainingAtStartMs": 1467067,
+  "exitCode": 0,
+  "signal": null,
+  "timedOut": false,
+  "deadlineUtc": "2026-11-08T06:07:37.919092+00:00",
+  "environmentPolicy": "Public registry; empty user/global npm config; isolated npm cache; inherited process environment not dumped."
+}

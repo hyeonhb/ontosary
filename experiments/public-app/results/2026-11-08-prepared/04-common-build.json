@@ -1,0 +1,18 @@
+{
+  "command": [
+    "npm",
+    "run",
+    "build",
+    "--workspace=@vendure/common"
+  ],
+  "cwd": "<cache>/vendure",
+  "startUtc": "2026-11-08T05:39:49.442373+00:00",
+  "endUtc": "2026-11-08T05:39:51.032921+00:00",
+  "wallTimeMs": 1591,
+  "remainingAtStartMs": 1668477,
+  "exitCode": 0,
+  "signal": null,
+  "timedOut": false,
+  "deadlineUtc": "2026-11-08T06:07:37.919092+00:00",
+  "environmentPolicy": "Public registry; empty user/global npm config; isolated npm cache; inherited process environment not dumped."
+}

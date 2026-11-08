@@ -1,0 +1,20 @@
+{
+  "command": [
+    "node",
+    "--max-old-space-size=4096",
+    "experiments/public-app/prepared-v1/observe.mjs",
+    "/tmp/ontosary-vendure-preparation-20261108/vendure",
+    "packages/admin-ui/ontosary.scope.json",
+    "work/vendure-preparation/repeat/scoped"
+  ],
+  "cwd": "<workspace>",
+  "startUtc": "2026-11-08T05:42:44.659429+00:00",
+  "endUtc": "2026-11-08T05:42:49.645445+00:00",
+  "wallTimeMs": 4986,
+  "remainingAtStartMs": 1493260,
+  "exitCode": 0,
+  "signal": null,
+  "timedOut": false,
+  "deadlineUtc": "2026-11-08T06:07:37.919092+00:00",
+  "environmentPolicy": "Public registry; empty user/global npm config; isolated npm cache; inherited process environment not dumped."
+}

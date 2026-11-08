@@ -4,9 +4,11 @@
 
 ## 현재 단계
 
-2026-11-08 최신 독립 리뷰: **PR #11의 과업/실패 관찰 완료를 인정하며 이번 범위의 새 결함은 확인하지 않았다.** 136개 테스트·기존 비교 4/4, 새 archive/inventory·Program·outcome·검색 결과 대조, 동일 cache 반복의 비시간 13개/17개 byte 재현을 확인했다. 분석 표본과 사람 효용은 여전히 미확보다. 사용자는 다음 작업으로 **Vendure 준비를 총 30분 한도로 한 번 더 검증**하기로 선택했다(ADR-019). [독립 리뷰](reviews/2026-11-08-public-app-independent-review.md)와 [현재 개발 지시](reviews/2026-11-08-vendure-preparation-next-plan.md)가 최신 판단이다. 설치 성공과 FCA 범위 적합성을 분리하며, 네 진입 파일의 현재 함수 inventory도 129개로 객체 상한 128을 넘는다.
+2026-11-08 Vendure 준비 후속: **환경 준비 성공 / 탐색 비교 범위 미확보로 종료**했다. 고정 의존성 설치·common 빌드 후 기존 4진입 설정의 진단은 0개다. 전체 context 2,264객체/4,288속성이 기본 128/64를 넘어 그룹/FCA를 실행하지 않았다. 원래 Admin UI 설정은 test 이름 오류 495개가 남았다. 30분 마감 안에서 총 359.668초를 사용했고 동일 설치 cache의 9개 관찰 파일이 재현됐다(설치/빌드 독립 재현은 미검증). 136테스트·기존 비교 4/4가 통과했다. [최신 인계](reviews/2026-11-08-vendure-preparation.md)와 [재현/경계](../experiments/public-app/prepared-v1/README.md)가 현재 상태다. 다음 권고는 과업 범위 선택 계약 검토이며 이번에 구현하지 않았다. 사람 효용·Gate 2~4는 미검증이다.
 
-2026-11-08 공개 업무 앱 적합성 점검: **과업/원문 근거와 재현 자료를 준비했고, 이번 예산에서는 분석 표본 미선정**이다. Saleor는 원래 strictNullChecks 전제에서 거부됐고 별도 과업 설정에서도 컴파일 오류가 남았다. 추가 후보 Vendure Admin UI는 strict를 유지하지만 미설치 의존성·workspace 빌드 경계로 실패했다. [실제 결과 인계](reviews/2026-11-08-public-app-suitability.md)와 [실험 README](../experiments/public-app/README.md)가 최신 준비 상태다. 사람 효용·Gate 2~4는 미검증이며 코어·기존 corpus는 그대로다.
+2026-11-08 준비 전 독립 리뷰: **PR #11의 과업/실패 관찰 완료를 인정하며 이번 범위의 새 결함은 확인하지 않았다.** 136개 테스트·기존 비교 4/4, 새 archive/inventory·Program·outcome·검색 결과 대조, 동일 cache 반복의 비시간 13개/17개 byte 재현을 확인했다. 분석 표본과 사람 효용은 여전히 미확보다. 사용자는 다음 작업으로 **Vendure 준비를 총 30분 한도로 한 번 더 검증**하기로 선택했다(ADR-019). [독립 리뷰](reviews/2026-11-08-public-app-independent-review.md)와 [현재 개발 지시](reviews/2026-11-08-vendure-preparation-next-plan.md)가 당시 판단이다. 설치 성공과 FCA 범위 적합성을 분리하며, 네 진입 파일의 현재 함수 inventory도 129개로 객체 상한 128을 넘는다.
+
+2026-11-08 공개 업무 앱 적합성 점검: **과업/원문 근거와 재현 자료를 준비했고, 이번 예산에서는 분석 표본 미선정**이다. Saleor는 원래 strictNullChecks 전제에서 거부됐고 별도 과업 설정에서도 컴파일 오류가 남았다. 추가 후보 Vendure Admin UI는 strict를 유지하지만 미설치 의존성·workspace 빌드 경계로 실패했다. [실제 결과 인계](reviews/2026-11-08-public-app-suitability.md)와 [실험 README](../experiments/public-app/README.md)가 당시 준비 상태다. 사람 효용·Gate 2~4는 미검증이며 코어·기존 corpus는 그대로다.
 
 직전 독립 판정(2026-11-08): **R5의 보고된 잔여 오류 해결, R4 해결 유지, 이번 변경 범위의 추가 결함 없음**이다. 136개 테스트·기존 비교 4/4, 원래 독립 사례 9/9·인접 사례 27/27·새 경계 사례 8/8, V1/V2/V3 비시간 14/16/16개 재현을 확인했다. [독립 리뷰](reviews/2026-11-08-type-context-independent-review.md)를 참조한다. 사용자는 다음 표본을 **공개 TypeScript 업무 앱 후보부터 조사**하기로 선택했다. [후보 조사](reviews/2026-11-08-public-app-candidates.md)와 [현재 개발 지시](reviews/2026-11-08-public-app-next-plan.md)는 이번 적합성 점검의 입력이다. 당시 앱 선정/scan·사람 효용 검증은 미완료였다.
 

@@ -1,0 +1,7 @@
+{
+  "originalEntries": 4735,
+  "changed": [],
+  "upstreamTypescript": "5.8.2",
+  "typescriptCli": "node_modules/typescript/bin/tsc",
+  "nodeModulesPresent": true
+}
