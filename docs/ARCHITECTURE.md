@@ -63,3 +63,7 @@ Formal Context `(G, M, I)`에서 G는 함수, M은 `type:<declaration ID>`, `pro
 정적 사실의 coverage 측정, 범위 선택, 비교 전제에 대한 명시적 변수 매핑, 소스 변경에 대한 ID 전략은 후속 후보로 남긴다. React/Next 전용 메타데이터는 공통 facts 위에 추가할 후보이며 현재 플러그인 인터페이스는 없다. 승인 워크플로·LLM 해석·SMT·온톨로지 포맷은 [ROADMAP](ROADMAP.md)의 미래 항목이다.
 
 S1 후속 [V2](../experiments/domain-model/v2/README.md)는 모델 참조의 incoming/outgoing 한 단계 조회와 공통 입력 무결성 검사를 추가한다. anchor-only는 부분 검사이며 분석 입력을 검증하지 않으면 전체 valid를 반환하지 않는다. 제품 core/CLI에는 통합하지 않았다. V1의 역사적 실행/판정은 유지한다.
+
+## 합의된 S2 구조 — 아직 미구현
+
+2026-11-08 ADR-024에 따라 준비 배치의 단일 baseline 분석 세션 → 검증된 동결 모델 → 순수 조회/사전 생성 view 구조를 채택했다. 새 모듈은 타입 검사되는 실험 내부에 두며 core/public API는 유지한다. 조회에는 Program/Checker를 전달하지 않고 agent는 A/B/C 모두 동일한 파일 도구로 자료를 소비한다. 모델은 변경 전 코드의 지식이며 현재 편집본의 자동 검증/모델 갱신은 S3로 둔다. [개발 지시](reviews/2026-11-08-s2-development-instructions.md)의 준비 구현·평가 하네스·재현·인계가 다음 작업이며, 실제 구현 후 이 문서의 현재 구조를 갱신한다.
