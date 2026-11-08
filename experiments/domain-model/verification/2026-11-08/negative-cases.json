@@ -1,0 +1,85 @@
+{
+  "scope": "Copied records/in-memory source edits only; upstream untouched. Structural evidence validity, not semantic truth.",
+  "cases": [
+    {
+      "name": "source hash changed (in-memory only)",
+      "valid": false,
+      "errorCodes": [
+        "stale-evidence"
+      ],
+      "staleItems": [
+        "branch",
+        "cancel-request",
+        "cancel-transport",
+        "dialog-submit",
+        "dismiss",
+        "line",
+        "order",
+        "payment",
+        "refund-also-cancels",
+        "refund-request",
+        "refund-transport",
+        "ui-gates"
+      ]
+    },
+    {
+      "name": "anchor mismatched",
+      "valid": false,
+      "errorCodes": [
+        "stale-evidence"
+      ],
+      "staleItems": [
+        "ui-gates"
+      ]
+    },
+    {
+      "name": "broken fact ref",
+      "valid": false,
+      "errorCodes": [
+        "broken-fact-ref"
+      ],
+      "staleItems": []
+    },
+    {
+      "name": "broken candidate ref",
+      "valid": false,
+      "errorCodes": [
+        "broken-candidate-ref"
+      ],
+      "staleItems": []
+    },
+    {
+      "name": "duplicate ID",
+      "valid": false,
+      "errorCodes": [
+        "duplicate-or-missing-id",
+        "broken-fact-ref"
+      ],
+      "staleItems": []
+    },
+    {
+      "name": "missing provenance",
+      "valid": false,
+      "errorCodes": [
+        "missing-provenance"
+      ],
+      "staleItems": []
+    },
+    {
+      "name": "approval without decision",
+      "valid": false,
+      "errorCodes": [
+        "missing-approval"
+      ],
+      "staleItems": []
+    },
+    {
+      "name": "incomplete human decision",
+      "valid": false,
+      "errorCodes": [
+        "invalid-approval"
+      ],
+      "staleItems": []
+    }
+  ]
+}

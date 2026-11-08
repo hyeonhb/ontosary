@@ -1,0 +1,22 @@
+{
+  "equivalent": true,
+  "comparedFiles": 12,
+  "excluded": {
+    "timing.json": "Wall time only; not an analysis result"
+  },
+  "scope": "Same pinned prepared cache, two new output paths; no independent installation reproduction",
+  "hashes": {
+    "candidate-review.json": "32d9fcf980746b9ae4c8a5c71fa01a27625241ea8234005446e8a232bcd3b465",
+    "context.json": "4b058899bc57e01d25503fa3723c3149488442dca4b5992a98dff04fd3486bed",
+    "facts.json.gz": "a2a1d8e296b8d6b215c40212b20758b009834d7af106e4beb50a742870ff9def",
+    "fca.json": "23d9fee3e16cb442f95012cd443dea8cb7299a7a8024244b61ea9d854267e296",
+    "model-after.json": "0cb9d47181cd73481a3e0dc569872c0890e77a2c6ebcaf67b424f1c85ed7a867",
+    "model-before.json": "975a2954ba5407337397f3325d4dcc4583b3ecc1e204591d6f4fc42e17252cb6",
+    "model-changes.json": "5a52ffd0c893d7c74098fdd1f7659eebdb9044691a1ba4b16620e5b070c39f65",
+    "observation.json.gz": "60ea1ceba7cac312e1b58e640f262baf83a92b3636a01632b05d087956a5e960",
+    "program-inputs.json.gz": "0155dd22100b381331c8765a34bb6417ec0000da96e8683086024d044ee78fb7",
+    "simple-groups.json": "9ca74b79b734cb5feb48afad1d157c7e5941307cfec498cc88b1e309869b7a9f",
+    "summary.json": "68feb9191cfa0434fe9430a06320368da697035873bf598e78f691673d5cadcc",
+    "validation.json": "469998080777095bf33ca64f28993bf3d474832b09032148b7d7ab66103f954c"
+  }
+}

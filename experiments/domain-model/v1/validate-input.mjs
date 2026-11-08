@@ -1,0 +1,11 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import { gunzipSync } from 'node:zlib';
+import { validateModel } from './validate.mjs';
+const [root, results] = process.argv.slice(2);
+if (!root || !results) throw new Error('Usage: node experiments/domain-model/v1/validate-input.mjs <source-root> <results>');
+const load = f => JSON.parse(fs.readFileSync(path.join(results,f),'utf8'));
+const facts = JSON.parse(gunzipSync(fs.readFileSync(path.join(results,'facts.json.gz'))));
+const result = validateModel(load('model-after.json'), facts, load('fca.json').candidates, file => fs.readFileSync(path.join(root,file),'utf8'));
+console.log(JSON.stringify(result,null,2));
+process.exitCode = result.valid ? 0 : 1;

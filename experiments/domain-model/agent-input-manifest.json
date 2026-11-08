@@ -1,0 +1,19 @@
+{
+  "stage": "S1 frozen handoff candidate; independent review before S2 adoption",
+  "revision": "534e6003534f74761e82de1b8c6061cba89945d1",
+  "providedFiles": {
+    "v1/MODEL.md": "8a2d0fe7715b445ab274f843a4552eafd70deb29026a1060e663ef775f36ccf7",
+    "results/2026-11-08/model-after.json": "0cb9d47181cd73481a3e0dc569872c0890e77a2c6ebcaf67b424f1c85ed7a867",
+    "results/2026-11-08/facts.json.gz": "a2a1d8e296b8d6b215c40212b20758b009834d7af106e4beb50a742870ff9def",
+    "results/2026-11-08/fca.json": "23d9fee3e16cb442f95012cd443dea8cb7299a7a8024244b61ea9d854267e296",
+    "results/2026-11-08/summary.json": "68feb9191cfa0434fe9430a06320368da697035873bf598e78f691673d5cadcc"
+  },
+  "sourceAccess": "Same fixed upstream source/tools/documents across all S2 conditions",
+  "exclude": [
+    "evaluation/",
+    "verification/",
+    "hidden evaluator fixture/oracle",
+    "previous agent solutions and comparisons"
+  ],
+  "approval": "No human domain approval; S2 not executed"
+}

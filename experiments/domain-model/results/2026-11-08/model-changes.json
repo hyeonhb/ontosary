@@ -1,0 +1,25 @@
+{
+  "changes": [
+    {
+      "itemRef": "refund-also-cancels",
+      "kind": "added-evidence-links-only",
+      "candidateRefs": [
+        "candidate:formal-5"
+      ],
+      "semanticChange": false,
+      "reason": "Already authored from source before FCA; same-extent direct role group is available. Not an FCA discovery."
+    },
+    {
+      "itemRef": "dismiss",
+      "kind": "added-evidence-links-only",
+      "candidateRefs": [
+        "candidate:formal-4"
+      ],
+      "semanticChange": false,
+      "reason": "Already authored from source before FCA; same-extent direct role group is available. Not an FCA discovery."
+    }
+  ],
+  "newSemanticItems": 0,
+  "removedSemanticItems": 0,
+  "interpretation": "FCA candidate links are review aids, not new approved knowledge or evidence of incremental utility."
+}

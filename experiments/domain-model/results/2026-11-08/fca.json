@@ -1,0 +1,355 @@
+{
+  "status": "compared",
+  "formal": {
+    "concepts": [
+      {
+        "id": "formal-0",
+        "extent": [
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:1193",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:1466",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:1638",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:1937",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:2170",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:2403",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:2716",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:2990",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:3319",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:3577",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:3835",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:4106",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:4372",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:4642",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:4884",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:5184",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:5483",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:5741",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:6008",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:6138",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:6373",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:6670",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:6971",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:7257",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:7653",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:7984",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:8311",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:8608",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:8901",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:9215",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:9541",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:9842",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts:1255",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts:1434",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts:1761",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts:2254",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts:2469",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts:2519",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:11809",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:12883",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:13032",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:13235",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:13854",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:15974",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:18188",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:18542",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:18858",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:19897",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:20416",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:21485",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:22238",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:22379",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:23185",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:26915",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:27202",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:3808",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:4834",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:4885",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:5343",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:6662",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:7253",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:7654",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:8231",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:8598",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:8877",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:9789",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:1985",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:2776",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:3186",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:4406",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:4721",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:5294",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:5953",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:6177",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:6421",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:6558",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:7491",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:7541"
+        ],
+        "intent": []
+      },
+      {
+        "id": "formal-1",
+        "extent": [
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:1937",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:2170",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:2403",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:2716",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:2990",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:3319",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:3577",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:3835",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:4106",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:4372",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:4642",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:4884",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:5184",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:5483",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:5741",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:6008",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:6138",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:6373",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:6670",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:6971",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:7257",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:7653",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:7984",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:8311",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:8608",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:8901",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:9215",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:9842"
+        ],
+        "intent": [
+          "sends-mutation"
+        ]
+      },
+      {
+        "id": "formal-2",
+        "extent": [
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts:2254",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:6558"
+        ],
+        "intent": [
+          "returns-dialog-payload"
+        ]
+      },
+      {
+        "id": "formal-3",
+        "extent": [
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:13854",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:15974",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:18858",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:20416",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:22379",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:23185",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:4885",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:5343"
+        ],
+        "intent": [
+          "opens-modal"
+        ]
+      },
+      {
+        "id": "formal-4",
+        "extent": [
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts:2469",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:7491"
+        ],
+        "intent": [
+          "closes-dialog-empty"
+        ]
+      },
+      {
+        "id": "formal-5",
+        "extent": [
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:22379",
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:23185"
+        ],
+        "intent": [
+          "calls-cancel",
+          "opens-modal"
+        ]
+      },
+      {
+        "id": "formal-6",
+        "extent": [
+          "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:23185"
+        ],
+        "intent": [
+          "calls-cancel",
+          "calls-refund",
+          "opens-modal"
+        ]
+      },
+      {
+        "id": "formal-7",
+        "extent": [],
+        "intent": [
+          "calls-cancel",
+          "calls-refund",
+          "closes-dialog-empty",
+          "opens-modal",
+          "returns-dialog-payload",
+          "sends-mutation"
+        ]
+      }
+    ],
+    "truncated": false,
+    "limits": {
+      "maxConcepts": 256,
+      "maxObjects": 128,
+      "maxAttributes": 64
+    }
+  },
+  "candidates": [
+    {
+      "id": "candidate:formal-1",
+      "extent": [
+        "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:1937",
+        "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:2170",
+        "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:2403",
+        "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:2716",
+        "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:2990",
+        "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:3319",
+        "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:3577",
+        "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:3835",
+        "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:4106",
+        "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:4372",
+        "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:4642",
+        "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:4884",
+        "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:5184",
+        "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:5483",
+        "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:5741",
+        "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:6008",
+        "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:6138",
+        "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:6373",
+        "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:6670",
+        "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:6971",
+        "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:7257",
+        "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:7653",
+        "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:7984",
+        "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:8311",
+        "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:8608",
+        "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:8901",
+        "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:9215",
+        "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:9842"
+      ],
+      "intent": [
+        "sends-mutation"
+      ],
+      "factRefs": [
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:1937:sends-mutation",
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:2170:sends-mutation",
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:2403:sends-mutation",
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:2716:sends-mutation",
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:2990:sends-mutation",
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:3319:sends-mutation",
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:3577:sends-mutation",
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:3835:sends-mutation",
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:4106:sends-mutation",
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:4372:sends-mutation",
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:4642:sends-mutation",
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:4884:sends-mutation",
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:5184:sends-mutation",
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:5483:sends-mutation",
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:5741:sends-mutation",
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:6008:sends-mutation",
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:6138:sends-mutation",
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:6373:sends-mutation",
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:6670:sends-mutation",
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:6971:sends-mutation",
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:7257:sends-mutation",
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:7653:sends-mutation",
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:7984:sends-mutation",
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:8311:sends-mutation",
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:8608:sends-mutation",
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:8901:sends-mutation",
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:9215:sends-mutation",
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:9842:sends-mutation"
+      ],
+      "status": "pending-review"
+    },
+    {
+      "id": "candidate:formal-2",
+      "extent": [
+        "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts:2254",
+        "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:6558"
+      ],
+      "intent": [
+        "returns-dialog-payload"
+      ],
+      "factRefs": [
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts:2254:returns-dialog-payload",
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:6558:returns-dialog-payload"
+      ],
+      "status": "pending-review"
+    },
+    {
+      "id": "candidate:formal-3",
+      "extent": [
+        "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:13854",
+        "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:15974",
+        "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:18858",
+        "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:20416",
+        "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:22379",
+        "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:23185",
+        "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:4885",
+        "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:5343"
+      ],
+      "intent": [
+        "opens-modal"
+      ],
+      "factRefs": [
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:13854:opens-modal",
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:15974:opens-modal",
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:18858:opens-modal",
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:20416:opens-modal",
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:22379:opens-modal",
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:23185:opens-modal",
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:4885:opens-modal",
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:5343:opens-modal"
+      ],
+      "status": "pending-review"
+    },
+    {
+      "id": "candidate:formal-4",
+      "extent": [
+        "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts:2469",
+        "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:7491"
+      ],
+      "intent": [
+        "closes-dialog-empty"
+      ],
+      "factRefs": [
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts:2469:closes-dialog-empty",
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:7491:closes-dialog-empty"
+      ],
+      "status": "pending-review"
+    },
+    {
+      "id": "candidate:formal-5",
+      "extent": [
+        "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:22379",
+        "534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:23185"
+      ],
+      "intent": [
+        "calls-cancel",
+        "opens-modal"
+      ],
+      "factRefs": [
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:22379:calls-cancel",
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:22379:opens-modal",
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:23185:calls-cancel",
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:23185:opens-modal"
+      ],
+      "status": "pending-review"
+    }
+  ],
+  "relations": [
+    {
+      "general": "candidate:formal-3",
+      "specific": "candidate:formal-5",
+      "kind": "formal-intent-inclusion-only"
+    }
+  ],
+  "relationScope": "All strict inclusion pairs among emitted candidates, not Hasse edges or business inheritance"
+}
