@@ -3,7 +3,8 @@
 먼저 [docs/PROGRESS.md](docs/PROGRESS.md)를 읽고 [ARCHITECTURE](docs/ARCHITECTURE.md),
 [ROADMAP](docs/ROADMAP.md)에서 현재 구현과 다음 실험을 확인한다.
 
-- 기존 코드베이스의 도메인 지식을 발견·이해·관리하는 개발자 도구다. 온톨로지 전환을 강요하지 않는다.
+- 기존 프로젝트를 AI agent가 도메인을 이해하고 수정하기 좋은 프로젝트로 점진적으로 전환하도록 돕는다. 코드 근거와 연결한 도메인 모델은 수단이며 전면 재작성·특정 온톨로지 형식을 강요하지 않는다.
+- 업무 개념·코드 탐색은 첫 사용 경로다. 모델의 agent 변경 효용과 FCA의 모델 구축 기여를 별도로 검증한다. 현재 구현과 다음 실험은 PROGRESS/ROADMAP을 따른다.
 - Developer Value First, Codebase First, Ontology as a Means, Incremental Adoption,
   Evidence Based, Human Verified, Framework Agnostic Core, Empirical Validation을 유지한다.
 - 코드 사실, 발견 후보, 승인된 지식을 분리한다. 구조적 타입 호환성은 업무 개념의 동일성이 아니다.
