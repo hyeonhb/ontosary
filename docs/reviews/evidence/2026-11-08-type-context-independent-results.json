@@ -1,0 +1,1058 @@
+{
+  "reviewedRevision": "2dba3e2e52a3e085fcfe35fdee87a1fd16aa1365",
+  "source": "const key = 'slot';\nexport function identity<T>(input: T) { return input; }\nexport function mixed() {\n  interface Same { flag: boolean }\n  const Same = { flag: true };\n  type Default<T = typeof Same> = T;\n  const result = { [key]: identity<boolean>(Same.flag) };\n  return result.slot;\n}\nexport function typeOnly() {\n  interface Shape { readonly [key]: boolean }\n  type Alias<U extends Shape = Shape> = U;\n  return true;\n}\n",
+  "diagnostics": [],
+  "total": 8,
+  "passed": 8,
+  "labelClarification": "The initial same-name value label targeted the const declaration and was mislinked. The unchanged analyzer represents a merged symbol by declarations[0], here interface Same. This probe tests acceptance of the runtime use with that documented source-code identity, not value-declaration or data-flow resolution.",
+  "observations": [
+    {
+      "id": "type-default-query",
+      "expected": "mismatch",
+      "label": {
+        "id": "type-default-query",
+        "name": "mixed",
+        "kind": "reference",
+        "contractVersion": 2,
+        "source": {
+          "file": "input.ts",
+          "anchor": "export function mixed(",
+          "offset": 76,
+          "line": 3
+        },
+        "use": {
+          "file": "input.ts",
+          "anchor": "Same> = T",
+          "offset": 194,
+          "line": 6
+        },
+        "target": {
+          "file": "input.ts",
+          "anchor": "interface Same",
+          "offset": 104,
+          "line": 4
+        },
+        "usageKind": "reference",
+        "unverified": []
+      },
+      "result": {
+        "id": "type-default-query",
+        "evaluatorVersion": 3,
+        "status": "mismatch",
+        "checks": [
+          {
+            "field": "declaration.file+offset",
+            "expected": {
+              "file": "input.ts",
+              "anchor": "export function mixed(",
+              "offset": 76,
+              "line": 3
+            },
+            "actual": {
+              "file": "input.ts",
+              "symbol": "mixed",
+              "start": {
+                "line": 3,
+                "column": 1,
+                "offset": 76
+              },
+              "end": {
+                "line": 9,
+                "column": 2,
+                "offset": 286
+              }
+            },
+            "passed": true
+          },
+          {
+            "field": "name",
+            "expected": "mixed",
+            "actual": "mixed",
+            "passed": true
+          },
+          {
+            "field": "source use role",
+            "expected": "reference",
+            "actual": "Type-only declaration or syntax is outside the runtime-expression reference contract",
+            "passed": false
+          }
+        ],
+        "unverified": [],
+        "evidence": [
+          {
+            "file": "input.ts",
+            "symbol": "mixed",
+            "start": {
+              "line": 3,
+              "column": 1,
+              "offset": 76
+            },
+            "end": {
+              "line": 9,
+              "column": 2,
+              "offset": 286
+            }
+          }
+        ],
+        "reason": "Type-only declaration or syntax is outside the runtime-expression reference contract"
+      }
+    },
+    {
+      "id": "runtime-computed-key",
+      "expected": "correct",
+      "label": {
+        "id": "runtime-computed-key",
+        "name": "mixed",
+        "kind": "reference",
+        "contractVersion": 2,
+        "source": {
+          "file": "input.ts",
+          "anchor": "export function mixed(",
+          "offset": 76,
+          "line": 3
+        },
+        "use": {
+          "file": "input.ts",
+          "anchor": "key]: identity",
+          "offset": 225,
+          "line": 7
+        },
+        "target": {
+          "file": "input.ts",
+          "anchor": "key = 'slot'",
+          "offset": 6,
+          "line": 1
+        },
+        "usageKind": "reference",
+        "unverified": []
+      },
+      "result": {
+        "id": "runtime-computed-key",
+        "evaluatorVersion": 3,
+        "status": "correct",
+        "checks": [
+          {
+            "field": "declaration.file+offset",
+            "expected": {
+              "file": "input.ts",
+              "anchor": "export function mixed(",
+              "offset": 76,
+              "line": 3
+            },
+            "actual": {
+              "file": "input.ts",
+              "symbol": "mixed",
+              "start": {
+                "line": 3,
+                "column": 1,
+                "offset": 76
+              },
+              "end": {
+                "line": 9,
+                "column": 2,
+                "offset": 286
+              }
+            },
+            "passed": true
+          },
+          {
+            "field": "name",
+            "expected": "mixed",
+            "actual": "mixed",
+            "passed": true
+          },
+          {
+            "field": "source use role",
+            "expected": "reference",
+            "actual": "reference",
+            "passed": true
+          },
+          {
+            "field": "target.file+offset",
+            "expected": {
+              "file": "input.ts",
+              "anchor": "key = 'slot'",
+              "offset": 6,
+              "line": 1
+            },
+            "actual": {
+              "file": "input.ts",
+              "symbol": "key",
+              "start": {
+                "line": 1,
+                "column": 7,
+                "offset": 6
+              },
+              "end": {
+                "line": 1,
+                "column": 19,
+                "offset": 18
+              }
+            },
+            "passed": true
+          }
+        ],
+        "unverified": [],
+        "evidence": [
+          {
+            "file": "input.ts",
+            "symbol": "mixed",
+            "start": {
+              "line": 3,
+              "column": 1,
+              "offset": 76
+            },
+            "end": {
+              "line": 9,
+              "column": 2,
+              "offset": 286
+            }
+          },
+          {
+            "file": "input.ts",
+            "symbol": "mixed",
+            "start": {
+              "line": 7,
+              "column": 21,
+              "offset": 225
+            },
+            "end": {
+              "line": 7,
+              "column": 24,
+              "offset": 228
+            }
+          },
+          {
+            "file": "input.ts",
+            "symbol": "key",
+            "start": {
+              "line": 1,
+              "column": 7,
+              "offset": 6
+            },
+            "end": {
+              "line": 1,
+              "column": 19,
+              "offset": 18
+            }
+          }
+        ],
+        "reason": "Syntactic source use and fact edge; not a runtime execution or call-graph proof",
+        "useEvidence": {
+          "file": "input.ts",
+          "symbol": "mixed",
+          "start": {
+            "line": 7,
+            "column": 21,
+            "offset": 225
+          },
+          "end": {
+            "line": 7,
+            "column": 24,
+            "offset": 228
+          }
+        },
+        "targetEvidence": {
+          "file": "input.ts",
+          "symbol": "key",
+          "start": {
+            "line": 1,
+            "column": 7,
+            "offset": 6
+          },
+          "end": {
+            "line": 1,
+            "column": 19,
+            "offset": 18
+          }
+        }
+      }
+    },
+    {
+      "id": "runtime-generic-call",
+      "expected": "correct",
+      "label": {
+        "id": "runtime-generic-call",
+        "name": "mixed",
+        "kind": "reference",
+        "contractVersion": 2,
+        "source": {
+          "file": "input.ts",
+          "anchor": "export function mixed(",
+          "offset": 76,
+          "line": 3
+        },
+        "use": {
+          "file": "input.ts",
+          "anchor": "identity<boolean>",
+          "offset": 231,
+          "line": 7
+        },
+        "target": {
+          "file": "input.ts",
+          "anchor": "export function identity",
+          "offset": 20,
+          "line": 2
+        },
+        "usageKind": "call",
+        "unverified": []
+      },
+      "result": {
+        "id": "runtime-generic-call",
+        "evaluatorVersion": 3,
+        "status": "correct",
+        "checks": [
+          {
+            "field": "declaration.file+offset",
+            "expected": {
+              "file": "input.ts",
+              "anchor": "export function mixed(",
+              "offset": 76,
+              "line": 3
+            },
+            "actual": {
+              "file": "input.ts",
+              "symbol": "mixed",
+              "start": {
+                "line": 3,
+                "column": 1,
+                "offset": 76
+              },
+              "end": {
+                "line": 9,
+                "column": 2,
+                "offset": 286
+              }
+            },
+            "passed": true
+          },
+          {
+            "field": "name",
+            "expected": "mixed",
+            "actual": "mixed",
+            "passed": true
+          },
+          {
+            "field": "source use role",
+            "expected": "call",
+            "actual": "call",
+            "passed": true
+          },
+          {
+            "field": "target.file+offset",
+            "expected": {
+              "file": "input.ts",
+              "anchor": "export function identity",
+              "offset": 20,
+              "line": 2
+            },
+            "actual": {
+              "file": "input.ts",
+              "symbol": "identity",
+              "start": {
+                "line": 2,
+                "column": 1,
+                "offset": 20
+              },
+              "end": {
+                "line": 2,
+                "column": 56,
+                "offset": 75
+              }
+            },
+            "passed": true
+          }
+        ],
+        "unverified": [],
+        "evidence": [
+          {
+            "file": "input.ts",
+            "symbol": "mixed",
+            "start": {
+              "line": 3,
+              "column": 1,
+              "offset": 76
+            },
+            "end": {
+              "line": 9,
+              "column": 2,
+              "offset": 286
+            }
+          },
+          {
+            "file": "input.ts",
+            "symbol": "mixed",
+            "start": {
+              "line": 7,
+              "column": 27,
+              "offset": 231
+            },
+            "end": {
+              "line": 7,
+              "column": 35,
+              "offset": 239
+            }
+          },
+          {
+            "file": "input.ts",
+            "symbol": "identity",
+            "start": {
+              "line": 2,
+              "column": 1,
+              "offset": 20
+            },
+            "end": {
+              "line": 2,
+              "column": 56,
+              "offset": 75
+            }
+          }
+        ],
+        "reason": "Syntactic source use and fact edge; not a runtime execution or call-graph proof",
+        "useEvidence": {
+          "file": "input.ts",
+          "symbol": "mixed",
+          "start": {
+            "line": 7,
+            "column": 27,
+            "offset": 231
+          },
+          "end": {
+            "line": 7,
+            "column": 35,
+            "offset": 239
+          }
+        },
+        "targetEvidence": {
+          "file": "input.ts",
+          "symbol": "identity",
+          "start": {
+            "line": 2,
+            "column": 1,
+            "offset": 20
+          },
+          "end": {
+            "line": 2,
+            "column": 56,
+            "offset": 75
+          }
+        }
+      }
+    },
+    {
+      "id": "runtime-same-name-value",
+      "expected": "correct",
+      "label": {
+        "id": "runtime-same-name-value",
+        "name": "mixed",
+        "kind": "reference",
+        "contractVersion": 2,
+        "source": {
+          "file": "input.ts",
+          "anchor": "export function mixed(",
+          "offset": 76,
+          "line": 3
+        },
+        "use": {
+          "file": "input.ts",
+          "anchor": "Same.flag)",
+          "offset": 249,
+          "line": 7
+        },
+        "target": {
+          "file": "input.ts",
+          "anchor": "interface Same",
+          "offset": 104,
+          "line": 4
+        },
+        "usageKind": "reference",
+        "unverified": []
+      },
+      "result": {
+        "id": "runtime-same-name-value",
+        "evaluatorVersion": 3,
+        "status": "correct",
+        "checks": [
+          {
+            "field": "declaration.file+offset",
+            "expected": {
+              "file": "input.ts",
+              "anchor": "export function mixed(",
+              "offset": 76,
+              "line": 3
+            },
+            "actual": {
+              "file": "input.ts",
+              "symbol": "mixed",
+              "start": {
+                "line": 3,
+                "column": 1,
+                "offset": 76
+              },
+              "end": {
+                "line": 9,
+                "column": 2,
+                "offset": 286
+              }
+            },
+            "passed": true
+          },
+          {
+            "field": "name",
+            "expected": "mixed",
+            "actual": "mixed",
+            "passed": true
+          },
+          {
+            "field": "source use role",
+            "expected": "reference",
+            "actual": "reference",
+            "passed": true
+          },
+          {
+            "field": "target.file+offset",
+            "expected": {
+              "file": "input.ts",
+              "anchor": "interface Same",
+              "offset": 104,
+              "line": 4
+            },
+            "actual": {
+              "file": "input.ts",
+              "symbol": "Same",
+              "start": {
+                "line": 4,
+                "column": 3,
+                "offset": 104
+              },
+              "end": {
+                "line": 4,
+                "column": 35,
+                "offset": 136
+              }
+            },
+            "passed": true
+          }
+        ],
+        "unverified": [],
+        "evidence": [
+          {
+            "file": "input.ts",
+            "symbol": "mixed",
+            "start": {
+              "line": 3,
+              "column": 1,
+              "offset": 76
+            },
+            "end": {
+              "line": 9,
+              "column": 2,
+              "offset": 286
+            }
+          },
+          {
+            "file": "input.ts",
+            "symbol": "mixed",
+            "start": {
+              "line": 7,
+              "column": 45,
+              "offset": 249
+            },
+            "end": {
+              "line": 7,
+              "column": 49,
+              "offset": 253
+            }
+          },
+          {
+            "file": "input.ts",
+            "symbol": "Same",
+            "start": {
+              "line": 4,
+              "column": 3,
+              "offset": 104
+            },
+            "end": {
+              "line": 4,
+              "column": 35,
+              "offset": 136
+            }
+          }
+        ],
+        "reason": "Syntactic source use and fact edge; not a runtime execution or call-graph proof",
+        "useEvidence": {
+          "file": "input.ts",
+          "symbol": "mixed",
+          "start": {
+            "line": 7,
+            "column": 45,
+            "offset": 249
+          },
+          "end": {
+            "line": 7,
+            "column": 49,
+            "offset": 253
+          }
+        },
+        "targetEvidence": {
+          "file": "input.ts",
+          "symbol": "Same",
+          "start": {
+            "line": 4,
+            "column": 3,
+            "offset": 104
+          },
+          "end": {
+            "line": 4,
+            "column": 35,
+            "offset": 136
+          }
+        }
+      }
+    },
+    {
+      "id": "runtime-property",
+      "expected": "correct",
+      "label": {
+        "id": "runtime-property",
+        "name": "mixed",
+        "kind": "reference",
+        "contractVersion": 2,
+        "source": {
+          "file": "input.ts",
+          "anchor": "export function mixed(",
+          "offset": 76,
+          "line": 3
+        },
+        "use": {
+          "file": "input.ts",
+          "anchor": "flag) }",
+          "offset": 254,
+          "line": 7
+        },
+        "target": {
+          "file": "input.ts",
+          "anchor": "flag: true",
+          "offset": 154,
+          "line": 5
+        },
+        "usageKind": "reference",
+        "unverified": []
+      },
+      "result": {
+        "id": "runtime-property",
+        "evaluatorVersion": 3,
+        "status": "correct",
+        "checks": [
+          {
+            "field": "declaration.file+offset",
+            "expected": {
+              "file": "input.ts",
+              "anchor": "export function mixed(",
+              "offset": 76,
+              "line": 3
+            },
+            "actual": {
+              "file": "input.ts",
+              "symbol": "mixed",
+              "start": {
+                "line": 3,
+                "column": 1,
+                "offset": 76
+              },
+              "end": {
+                "line": 9,
+                "column": 2,
+                "offset": 286
+              }
+            },
+            "passed": true
+          },
+          {
+            "field": "name",
+            "expected": "mixed",
+            "actual": "mixed",
+            "passed": true
+          },
+          {
+            "field": "source use role",
+            "expected": "reference",
+            "actual": "reference",
+            "passed": true
+          },
+          {
+            "field": "target.file+offset",
+            "expected": {
+              "file": "input.ts",
+              "anchor": "flag: true",
+              "offset": 154,
+              "line": 5
+            },
+            "actual": {
+              "file": "input.ts",
+              "symbol": "flag",
+              "start": {
+                "line": 5,
+                "column": 18,
+                "offset": 154
+              },
+              "end": {
+                "line": 5,
+                "column": 28,
+                "offset": 164
+              }
+            },
+            "passed": true
+          }
+        ],
+        "unverified": [],
+        "evidence": [
+          {
+            "file": "input.ts",
+            "symbol": "mixed",
+            "start": {
+              "line": 3,
+              "column": 1,
+              "offset": 76
+            },
+            "end": {
+              "line": 9,
+              "column": 2,
+              "offset": 286
+            }
+          },
+          {
+            "file": "input.ts",
+            "symbol": "mixed",
+            "start": {
+              "line": 7,
+              "column": 50,
+              "offset": 254
+            },
+            "end": {
+              "line": 7,
+              "column": 54,
+              "offset": 258
+            }
+          },
+          {
+            "file": "input.ts",
+            "symbol": "flag",
+            "start": {
+              "line": 5,
+              "column": 18,
+              "offset": 154
+            },
+            "end": {
+              "line": 5,
+              "column": 28,
+              "offset": 164
+            }
+          }
+        ],
+        "reason": "Syntactic source use and fact edge; not a runtime execution or call-graph proof",
+        "useEvidence": {
+          "file": "input.ts",
+          "symbol": "mixed",
+          "start": {
+            "line": 7,
+            "column": 50,
+            "offset": 254
+          },
+          "end": {
+            "line": 7,
+            "column": 54,
+            "offset": 258
+          }
+        },
+        "targetEvidence": {
+          "file": "input.ts",
+          "symbol": "flag",
+          "start": {
+            "line": 5,
+            "column": 18,
+            "offset": 154
+          },
+          "end": {
+            "line": 5,
+            "column": 28,
+            "offset": 164
+          }
+        }
+      }
+    },
+    {
+      "id": "type-computed-key",
+      "expected": "mismatch",
+      "label": {
+        "id": "type-computed-key",
+        "name": "typeOnly",
+        "kind": "reference",
+        "contractVersion": 2,
+        "source": {
+          "file": "input.ts",
+          "anchor": "export function typeOnly(",
+          "offset": 287,
+          "line": 10
+        },
+        "use": {
+          "file": "input.ts",
+          "anchor": "key]: boolean",
+          "offset": 346,
+          "line": 11
+        },
+        "target": {
+          "file": "input.ts",
+          "anchor": "key = 'slot'",
+          "offset": 6,
+          "line": 1
+        },
+        "usageKind": "reference",
+        "unverified": []
+      },
+      "result": {
+        "id": "type-computed-key",
+        "evaluatorVersion": 3,
+        "status": "mismatch",
+        "checks": [
+          {
+            "field": "declaration.file+offset",
+            "expected": {
+              "file": "input.ts",
+              "anchor": "export function typeOnly(",
+              "offset": 287,
+              "line": 10
+            },
+            "actual": {
+              "file": "input.ts",
+              "symbol": "typeOnly",
+              "start": {
+                "line": 10,
+                "column": 1,
+                "offset": 287
+              },
+              "end": {
+                "line": 14,
+                "column": 2,
+                "offset": 421
+              }
+            },
+            "passed": true
+          },
+          {
+            "field": "name",
+            "expected": "typeOnly",
+            "actual": "typeOnly",
+            "passed": true
+          },
+          {
+            "field": "source use role",
+            "expected": "reference",
+            "actual": "Type-only declaration or syntax is outside the runtime-expression reference contract",
+            "passed": false
+          }
+        ],
+        "unverified": [],
+        "evidence": [
+          {
+            "file": "input.ts",
+            "symbol": "typeOnly",
+            "start": {
+              "line": 10,
+              "column": 1,
+              "offset": 287
+            },
+            "end": {
+              "line": 14,
+              "column": 2,
+              "offset": 421
+            }
+          }
+        ],
+        "reason": "Type-only declaration or syntax is outside the runtime-expression reference contract"
+      }
+    },
+    {
+      "id": "constrained-type-parameter",
+      "expected": "mismatch",
+      "label": {
+        "id": "constrained-type-parameter",
+        "name": "typeOnly",
+        "kind": "reference",
+        "contractVersion": 2,
+        "source": {
+          "file": "input.ts",
+          "anchor": "export function typeOnly(",
+          "offset": 287,
+          "line": 10
+        },
+        "use": {
+          "file": "input.ts",
+          "anchor": "U extends Shape",
+          "offset": 375,
+          "line": 12
+        },
+        "target": {
+          "file": "input.ts",
+          "anchor": "U extends Shape",
+          "offset": 375,
+          "line": 12
+        },
+        "usageKind": "reference",
+        "unverified": []
+      },
+      "result": {
+        "id": "constrained-type-parameter",
+        "evaluatorVersion": 3,
+        "status": "mismatch",
+        "checks": [
+          {
+            "field": "declaration.file+offset",
+            "expected": {
+              "file": "input.ts",
+              "anchor": "export function typeOnly(",
+              "offset": 287,
+              "line": 10
+            },
+            "actual": {
+              "file": "input.ts",
+              "symbol": "typeOnly",
+              "start": {
+                "line": 10,
+                "column": 1,
+                "offset": 287
+              },
+              "end": {
+                "line": 14,
+                "column": 2,
+                "offset": 421
+              }
+            },
+            "passed": true
+          },
+          {
+            "field": "name",
+            "expected": "typeOnly",
+            "actual": "typeOnly",
+            "passed": true
+          },
+          {
+            "field": "source use role",
+            "expected": "reference",
+            "actual": "Type-only declaration or syntax is outside the runtime-expression reference contract",
+            "passed": false
+          }
+        ],
+        "unverified": [],
+        "evidence": [
+          {
+            "file": "input.ts",
+            "symbol": "typeOnly",
+            "start": {
+              "line": 10,
+              "column": 1,
+              "offset": 287
+            },
+            "end": {
+              "line": 14,
+              "column": 2,
+              "offset": 421
+            }
+          }
+        ],
+        "reason": "Type-only declaration or syntax is outside the runtime-expression reference contract"
+      }
+    },
+    {
+      "id": "type-constraint",
+      "expected": "mismatch",
+      "label": {
+        "id": "type-constraint",
+        "name": "typeOnly",
+        "kind": "reference",
+        "contractVersion": 2,
+        "source": {
+          "file": "input.ts",
+          "anchor": "export function typeOnly(",
+          "offset": 287,
+          "line": 10
+        },
+        "use": {
+          "file": "input.ts",
+          "anchor": "Shape = Shape",
+          "offset": 385,
+          "line": 12
+        },
+        "target": {
+          "file": "input.ts",
+          "anchor": "interface Shape",
+          "offset": 318,
+          "line": 11
+        },
+        "usageKind": "reference",
+        "unverified": []
+      },
+      "result": {
+        "id": "type-constraint",
+        "evaluatorVersion": 3,
+        "status": "mismatch",
+        "checks": [
+          {
+            "field": "declaration.file+offset",
+            "expected": {
+              "file": "input.ts",
+              "anchor": "export function typeOnly(",
+              "offset": 287,
+              "line": 10
+            },
+            "actual": {
+              "file": "input.ts",
+              "symbol": "typeOnly",
+              "start": {
+                "line": 10,
+                "column": 1,
+                "offset": 287
+              },
+              "end": {
+                "line": 14,
+                "column": 2,
+                "offset": 421
+              }
+            },
+            "passed": true
+          },
+          {
+            "field": "name",
+            "expected": "typeOnly",
+            "actual": "typeOnly",
+            "passed": true
+          },
+          {
+            "field": "source use role",
+            "expected": "reference",
+            "actual": "Type-only declaration or syntax is outside the runtime-expression reference contract",
+            "passed": false
+          }
+        ],
+        "unverified": [],
+        "evidence": [
+          {
+            "file": "input.ts",
+            "symbol": "typeOnly",
+            "start": {
+              "line": 10,
+              "column": 1,
+              "offset": 287
+            },
+            "end": {
+              "line": 14,
+              "column": 2,
+              "offset": 421
+            }
+          }
+        ],
+        "reason": "Type-only declaration or syntax is outside the runtime-expression reference contract"
+      }
+    }
+  ]
+}
