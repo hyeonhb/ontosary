@@ -1,0 +1,101 @@
+{
+  "config": "ontosary.scope.json",
+  "raw": {
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+      "strictNullChecks": true
+    },
+    "files": [
+      "src/orders/components/OrderDetailsPage/OrderDetailsPage.tsx",
+      "src/orders/views/OrderDetails/OrderNormalDetails/index.tsx",
+      "src/orders/components/OrderCancelDialog/OrderCancelDialog.tsx",
+      "src/orders/components/OrderCannotCancelOrderDialog/OrderCannotCancelOrderDialog.tsx",
+      "src/orders/containers/OrderOperations.tsx",
+      "src/orders/views/OrderDetails/OrderDetails.tsx",
+      "src/orders/mutations.ts",
+      "csstypes.d.ts",
+      "groupBy.d.ts",
+      "react-intl.d.ts",
+      "src/cssModules.d.ts",
+      "src/storybook.d.ts",
+      "src/vite-env.d.ts",
+      "types.d.ts",
+      "vitest.shims.d.ts"
+    ],
+    "include": [],
+    "compileOnSave": false,
+    "exclude": [
+      "node_modules",
+      "e2e",
+      "e2e-legacy",
+      "scripts"
+    ]
+  },
+  "effectiveOptions": {
+    "baseUrl": "<app>",
+    "esModuleInterop": true,
+    "jsx": 4,
+    "lib": [
+      "lib.es2020.d.ts",
+      "lib.dom.d.ts",
+      "lib.esnext.d.ts"
+    ],
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "target": 7,
+    "module": 6,
+    "moduleResolution": 2,
+    "downlevelIteration": true,
+    "strict": false,
+    "resolveJsonModule": true,
+    "plugins": [
+      {
+        "name": "typescript-strict-plugin"
+      }
+    ],
+    "paths": {
+      "@assets/*": [
+        "assets/*"
+      ],
+      "@locale/*": [
+        "locale/*"
+      ],
+      "@dashboard/*": [
+        "src/*"
+      ],
+      "@test/*": [
+        "testUtils/*"
+      ],
+      "@storybookUtils/*": [
+        "storybookUtils/*"
+      ],
+      "@mizdra/graphql-codegen-typescript-fabbrica/helper": [
+        "node_modules/@mizdra/graphql-codegen-typescript-fabbrica/dist/esm/helper/index"
+      ]
+    },
+    "pathsBasePath": "<app>",
+    "strictNullChecks": true,
+    "configFilePath": "<app>/ontosary.scope.json",
+    "noEmit": true
+  },
+  "scanEvidenceBase": ".",
+  "roots": [
+    "src/orders/components/OrderDetailsPage/OrderDetailsPage.tsx",
+    "src/orders/views/OrderDetails/OrderNormalDetails/index.tsx",
+    "src/orders/components/OrderCancelDialog/OrderCancelDialog.tsx",
+    "src/orders/components/OrderCannotCancelOrderDialog/OrderCannotCancelOrderDialog.tsx",
+    "src/orders/containers/OrderOperations.tsx",
+    "src/orders/views/OrderDetails/OrderDetails.tsx",
+    "src/orders/mutations.ts",
+    "csstypes.d.ts",
+    "groupBy.d.ts",
+    "react-intl.d.ts",
+    "src/cssModules.d.ts",
+    "src/storybook.d.ts",
+    "src/vite-env.d.ts",
+    "types.d.ts",
+    "vitest.shims.d.ts"
+  ],
+  "parseErrors": [],
+  "projectReferences": []
+}

@@ -1,0 +1,183 @@
+{
+  "equivalent": false,
+  "reason": "TypeChecker display truncation depends on absolute cache path length; post-serialization prefix redaction cannot restore truncated characters. Core/source unchanged. Not a portable-byte-reproduction claim.",
+  "runs": [
+    {
+      "candidate": "saleor",
+      "scope": "scoped",
+      "beforeGzipSha256": "f8d718ead7e86b88cf8242284b2c47690e6c32d824c560328fed229a53c0cc4b",
+      "afterGzipSha256": "c11abed6c063f928e17de1ef4f008667150b3b062d159235fb6b12f8e28b699b",
+      "differences": [
+        {
+          "path": [
+            "types",
+            6134,
+            "type"
+          ],
+          "before": "{ __typename: \"OrderLine\"; id: string; isShippingRequired: boolean; productName: string; productSku: string | null; isGift: boolean | null; quantity: number; quantityFulfilled: number; ... 17 more ...; discounts: Array<{ __typename: \"OrderLineDiscount\"; id: string; type: import(\"/tmp/ontosary-public-app-v1-saleor/sa...",
+          "after": "{ __typename: \"OrderLine\"; id: string; isShippingRequired: boolean; productName: string; productSku: string | null; isGift: boolean | null; quantity: number; quantityFulfilled: number; ... 17 more ...; discounts: Array<{ __typename: \"OrderLineDiscount\"; id: string; type: import(\"/tmp/ontosary-public-app-v1-repeat/sa..."
+        },
+        {
+          "path": [
+            "types",
+            6136,
+            "type"
+          ],
+          "before": "{ __typename: \"OrderLine\"; id: string; isShippingRequired: boolean; productName: string; productSku: string | null; isGift: boolean | null; quantity: number; quantityFulfilled: number; ... 17 more ...; discounts: Array<{ __typename: \"OrderLineDiscount\"; id: string; type: import(\"/tmp/ontosary-public-app-v1-saleor/sa...",
+          "after": "{ __typename: \"OrderLine\"; id: string; isShippingRequired: boolean; productName: string; productSku: string | null; isGift: boolean | null; quantity: number; quantityFulfilled: number; ... 17 more ...; discounts: Array<{ __typename: \"OrderLineDiscount\"; id: string; type: import(\"/tmp/ontosary-public-app-v1-repeat/sa..."
+        }
+      ]
+    },
+    {
+      "candidate": "vendure",
+      "scope": "original",
+      "beforeGzipSha256": "40becdb87b40542edd5efa0a0524b6cd9555e70ed876eb113241d8f4805ebd33",
+      "afterGzipSha256": "ede2c00f1453787eb60c49d029a0d6d5ac3855d2b72dfbd17a7b61b078f82cd9",
+      "differences": [
+        {
+          "path": [
+            "types",
+            0,
+            "type"
+          ],
+          "before": "{ __typename?: \"Channel\"; id: string; createdAt: any; updatedAt: any; code: string; token: string; pricesIncludeTax: boolean; availableCurrencyCodes: Array<import(\"<app>/packages/admin-ui/src/lib/core/src/public_api\").CurrencyCode>; ... 5 more ...; seller?: { __typename?: \"Selle...",
+          "after": "{ __typename?: \"Channel\"; id: string; createdAt: any; updatedAt: any; code: string; token: string; pricesIncludeTax: boolean; availableCurrencyCodes: Array<import(\"<app>/packages/admin-ui/src/lib/core/src/public_api\").CurrencyCode>; ... 5 more ...; seller?: { __typename?: \"Seller..."
+        },
+        {
+          "path": [
+            "types",
+            1500,
+            "type"
+          ],
+          "before": "{ __typename?: \"BooleanCustomFieldConfig\"; name: string; type: string; list: boolean; readonly?: boolean | null; nullable?: boolean | null; requiresPermission?: Array<import(\"<app>/packages/admin-ui/src/lib/core/src/common/generated-types\").Permission> | null; ui?: any | null; d...",
+          "after": "{ __typename?: \"BooleanCustomFieldConfig\"; name: string; type: string; list: boolean; readonly?: boolean | null; nullable?: boolean | null; requiresPermission?: Array<import(\"<app>/packages/admin-ui/src/lib/core/src/common/generated-types\").Permission> | null; ui?: any | null; de..."
+        },
+        {
+          "path": [
+            "types",
+            1503,
+            "type"
+          ],
+          "before": "{ __typename?: \"HistoryEntry\"; id: string; type: import(\"<app>/packages/admin-ui/src/lib/core/src/common/generated-types\").HistoryEntryType; createdAt: any; isPublic: boolean; data: any; administrator?: { __typename?: \"Administrator\"; id: string; firstName: string; lastName: str...",
+          "after": "{ __typename?: \"HistoryEntry\"; id: string; type: import(\"<app>/packages/admin-ui/src/lib/core/src/common/generated-types\").HistoryEntryType; createdAt: any; isPublic: boolean; data: any; administrator?: { __typename?: \"Administrator\"; id: string; firstName: string; lastName: stri..."
+        },
+        {
+          "path": [
+            "types",
+            1552,
+            "type"
+          ],
+          "before": "{ __typename?: \"Asset\"; id: string; createdAt: any; updatedAt: any; name: string; fileSize: number; mimeType: string; type: import(\"<app>/packages/admin-ui/src/lib/core/src/common/generated-types\").AssetType; ... 5 more ...; focalPoint?: { __typename?: \"Coordinate\"; x: number; y...",
+          "after": "{ __typename?: \"Asset\"; id: string; createdAt: any; updatedAt: any; name: string; fileSize: number; mimeType: string; type: import(\"<app>/packages/admin-ui/src/lib/core/src/common/generated-types\").AssetType; ... 5 more ...; focalPoint?: { __typename?: \"Coordinate\"; x: number; y:..."
+        },
+        {
+          "path": [
+            "types",
+            1555,
+            "type"
+          ],
+          "before": "{ __typename?: \"Channel\"; id: string; createdAt: any; updatedAt: any; code: string; token: string; pricesIncludeTax: boolean; availableCurrencyCodes: Array<import(\"<app>/packages/admin-ui/src/lib/core/src/common/generated-types\").CurrencyCode>; ... 5 more ...; seller?: { __typen...",
+          "after": "{ __typename?: \"Channel\"; id: string; createdAt: any; updatedAt: any; code: string; token: string; pricesIncludeTax: boolean; availableCurrencyCodes: Array<import(\"<app>/packages/admin-ui/src/lib/core/src/common/generated-types\").CurrencyCode>; ... 5 more ...; seller?: { __typena..."
+        },
+        {
+          "path": [
+            "types",
+            1568,
+            "type"
+          ],
+          "before": "{ __typename?: \"EntityDuplicatorDefinition\"; code: string; description: string; forEntities: Array<string>; requiresPermission: Array<import(\"<app>/packages/admin-ui/src/lib/core/src/common/generated-types\").Permission>; args: Array<{ __typename?: \"ConfigArgDefinition\"; name: st...",
+          "after": "{ __typename?: \"EntityDuplicatorDefinition\"; code: string; description: string; forEntities: Array<string>; requiresPermission: Array<import(\"<app>/packages/admin-ui/src/lib/core/src/common/generated-types\").Permission>; args: Array<{ __typename?: \"ConfigArgDefinition\"; name: str..."
+        },
+        {
+          "path": [
+            "types",
+            1574,
+            "type"
+          ],
+          "before": "{ __typename?: \"SearchResult\"; enabled: boolean; productId: string; productName: string; slug: string; currencyCode: import(\"<app>/packages/admin-ui/src/lib/core/src/common/generated-types\").CurrencyCode; ... 6 more ...; productVariantAsset?: { __typename?: \"SearchResultAsset\"; ...",
+          "after": "{ __typename?: \"SearchResult\"; enabled: boolean; productId: string; productName: string; slug: string; currencyCode: import(\"<app>/packages/admin-ui/src/lib/core/src/common/generated-types\").CurrencyCode; ... 6 more ...; productVariantAsset?: { __typename?: \"SearchResultAsset\"; i..."
+        },
+        {
+          "path": [
+            "types",
+            1596,
+            "type"
+          ],
+          "before": "{ id: import(\"<app>/packages/admin-ui/src/lib/core/src/public_api\").Scalars[\"ID\"][\"output\"]; createdAt: import(\"<app>/packages/admin-ui/src/lib/core/src/public_api\").Scalars[\"DateTime\"][\"output\"]; ... 4 more ...; title?: import(\"/tmp/ontosar...",
+          "after": "{ id: import(\"<app>/packages/admin-ui/src/lib/core/src/public_api\").Scalars[\"ID\"][\"output\"]; createdAt: import(\"<app>/packages/admin-ui/src/lib/core/src/public_api\").Scalars[\"DateTime\"][\"output\"]; ... 4 more ...; title?: import(\"/tmp/ontosary-..."
+        },
+        {
+          "path": [
+            "types",
+            1619,
+            "type"
+          ],
+          "before": "{ __typename?: \"Order\"; id: string; code: string; state: string; orderPlacedAt?: any | null; currencyCode: import(\"<app>/packages/admin-ui/src/lib/core/src/public_api\").CurrencyCode; totalWithTax: number; channels: Array<{ __typename?: \"Channel\"; id: string; code: string; seller...",
+          "after": "{ __typename?: \"Order\"; id: string; code: string; state: string; orderPlacedAt?: any | null; currencyCode: import(\"<app>/packages/admin-ui/src/lib/core/src/public_api\").CurrencyCode; totalWithTax: number; channels: Array<{ __typename?: \"Channel\"; id: string; code: string; seller?..."
+        }
+      ]
+    },
+    {
+      "candidate": "vendure",
+      "scope": "scoped",
+      "beforeGzipSha256": "07699d35b6e68e593b420411df8d82151a57ffde0b0a0f3ec4eee442af987664",
+      "afterGzipSha256": "b46e8d81b48a283c9bc4d77fdfd27a3a76311be563c1f4e5bc5fc2426d325d16",
+      "differences": [
+        {
+          "path": [
+            "types",
+            1477,
+            "type"
+          ],
+          "before": "{ __typename?: \"BooleanCustomFieldConfig\"; name: string; type: string; list: boolean; readonly?: boolean | null; nullable?: boolean | null; requiresPermission?: Array<import(\"<app>/packages/admin-ui/src/lib/core/src/common/generated-types\").Permission> | null; ui?: any | null; d...",
+          "after": "{ __typename?: \"BooleanCustomFieldConfig\"; name: string; type: string; list: boolean; readonly?: boolean | null; nullable?: boolean | null; requiresPermission?: Array<import(\"<app>/packages/admin-ui/src/lib/core/src/common/generated-types\").Permission> | null; ui?: any | null; de..."
+        },
+        {
+          "path": [
+            "types",
+            1480,
+            "type"
+          ],
+          "before": "{ __typename?: \"HistoryEntry\"; id: string; type: import(\"<app>/packages/admin-ui/src/lib/core/src/common/generated-types\").HistoryEntryType; createdAt: any; isPublic: boolean; data: any; administrator?: { __typename?: \"Administrator\"; id: string; firstName: string; lastName: str...",
+          "after": "{ __typename?: \"HistoryEntry\"; id: string; type: import(\"<app>/packages/admin-ui/src/lib/core/src/common/generated-types\").HistoryEntryType; createdAt: any; isPublic: boolean; data: any; administrator?: { __typename?: \"Administrator\"; id: string; firstName: string; lastName: stri..."
+        },
+        {
+          "path": [
+            "types",
+            1529,
+            "type"
+          ],
+          "before": "{ __typename?: \"Asset\"; id: string; createdAt: any; updatedAt: any; name: string; fileSize: number; mimeType: string; type: import(\"<app>/packages/admin-ui/src/lib/core/src/common/generated-types\").AssetType; ... 5 more ...; focalPoint?: { __typename?: \"Coordinate\"; x: number; y...",
+          "after": "{ __typename?: \"Asset\"; id: string; createdAt: any; updatedAt: any; name: string; fileSize: number; mimeType: string; type: import(\"<app>/packages/admin-ui/src/lib/core/src/common/generated-types\").AssetType; ... 5 more ...; focalPoint?: { __typename?: \"Coordinate\"; x: number; y:..."
+        },
+        {
+          "path": [
+            "types",
+            1532,
+            "type"
+          ],
+          "before": "{ __typename?: \"Channel\"; id: string; createdAt: any; updatedAt: any; code: string; token: string; pricesIncludeTax: boolean; availableCurrencyCodes: Array<import(\"<app>/packages/admin-ui/src/lib/core/src/common/generated-types\").CurrencyCode>; ... 5 more ...; seller?: { __typen...",
+          "after": "{ __typename?: \"Channel\"; id: string; createdAt: any; updatedAt: any; code: string; token: string; pricesIncludeTax: boolean; availableCurrencyCodes: Array<import(\"<app>/packages/admin-ui/src/lib/core/src/common/generated-types\").CurrencyCode>; ... 5 more ...; seller?: { __typena..."
+        },
+        {
+          "path": [
+            "types",
+            1545,
+            "type"
+          ],
+          "before": "{ __typename?: \"EntityDuplicatorDefinition\"; code: string; description: string; forEntities: Array<string>; requiresPermission: Array<import(\"<app>/packages/admin-ui/src/lib/core/src/common/generated-types\").Permission>; args: Array<{ __typename?: \"ConfigArgDefinition\"; name: st...",
+          "after": "{ __typename?: \"EntityDuplicatorDefinition\"; code: string; description: string; forEntities: Array<string>; requiresPermission: Array<import(\"<app>/packages/admin-ui/src/lib/core/src/common/generated-types\").Permission>; args: Array<{ __typename?: \"ConfigArgDefinition\"; name: str..."
+        },
+        {
+          "path": [
+            "types",
+            1551,
+            "type"
+          ],
+          "before": "{ __typename?: \"SearchResult\"; enabled: boolean; productId: string; productName: string; slug: string; currencyCode: import(\"<app>/packages/admin-ui/src/lib/core/src/common/generated-types\").CurrencyCode; ... 6 more ...; productVariantAsset?: { __typename?: \"SearchResultAsset\"; ...",
+          "after": "{ __typename?: \"SearchResult\"; enabled: boolean; productId: string; productName: string; slug: string; currencyCode: import(\"<app>/packages/admin-ui/src/lib/core/src/common/generated-types\").CurrencyCode; ... 6 more ...; productVariantAsset?: { __typename?: \"SearchResultAsset\"; i..."
+        }
+      ]
+    }
+  ]
+}

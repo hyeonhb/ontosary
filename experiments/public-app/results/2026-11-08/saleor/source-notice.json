@@ -1,0 +1,7 @@
+{
+  "repository": "saleor/saleor-dashboard",
+  "revision": "2e1776949e8cae747da480ec3712692554f3284c",
+  "archiveUrl": "https://codeload.github.com/saleor/saleor-dashboard/tar.gz/2e1776949e8cae747da480ec3712692554f3284c",
+  "license": "BSD-3-Clause",
+  "note": "Upstream files remain in the isolated cache. Extracted source fragments in raw scan and task anchors retain upstream licensing; no upstream source is relicensed as Ontosary Apache-2.0."
+}

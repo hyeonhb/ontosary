@@ -1,0 +1,10 @@
+{
+  "archiveSha256": "6d2de93bc2476dcad4c76f7de20e354a1b41c0090b9ef5a8fd70acef66ed6435",
+  "archiveBytes": 45557011,
+  "sourceFiles": 4735,
+  "sourceBytes": 76727631,
+  "wallTimeMs": 5392,
+  "method": "Download, SHA-256 validation, tar extraction, file inventory; no dependency install, codegen, submodule checkout or source execution.",
+  "humanPreparationTimeMs": null,
+  "humanTaskTimeMs": null
+}

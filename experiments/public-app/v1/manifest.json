@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "baseRevision": "87398ba6b61e9524dfb81f8063a19e1018933469",
+  "budget": {
+    "maxCandidates": 2,
+    "perProcessTimeoutMs": 120000,
+    "maxHeapMb": 4096,
+    "dependencyInstallation": "No bulk app installation in initial suitability screen. Stop for a bounded follow-up if diagnostics require workspace-wide dependencies or source changes.",
+    "scopeChanges": "One task-entry configuration per candidate; Saleor additionally enables strictNullChecks explicitly. Preserve originals first. No source patches, stubs or algorithm changes."
+  },
+  "candidates": [
+    {
+      "id": "saleor",
+      "repository": "saleor/saleor-dashboard",
+      "revision": "2e1776949e8cae747da480ec3712692554f3284c",
+      "license": "BSD-3-Clause",
+      "archiveUrl": "https://codeload.github.com/saleor/saleor-dashboard/tar.gz/2e1776949e8cae747da480ec3712692554f3284c",
+      "archiveSha256": "1c93594f05301676805772ea6a87e89c9d474941467b07456b95215a1758f9f7",
+      "task": "saleor-task.json",
+      "taskSha256": "8ec244fc590f8d4b0c2e2e4b2efc812cfc009bcce356183046ca75f561e7e1d3",
+      "originalConfig": "tsconfig.json",
+      "scopedConfig": {
+        "extends": "./tsconfig.json",
+        "compilerOptions": {
+          "strictNullChecks": true
+        },
+        "files": [
+          "src/orders/components/OrderDetailsPage/OrderDetailsPage.tsx",
+          "src/orders/views/OrderDetails/OrderNormalDetails/index.tsx",
+          "src/orders/components/OrderCancelDialog/OrderCancelDialog.tsx",
+          "src/orders/components/OrderCannotCancelOrderDialog/OrderCannotCancelOrderDialog.tsx",
+          "src/orders/containers/OrderOperations.tsx",
+          "src/orders/views/OrderDetails/OrderDetails.tsx",
+          "src/orders/mutations.ts",
+          "csstypes.d.ts",
+          "groupBy.d.ts",
+          "react-intl.d.ts",
+          "src/cssModules.d.ts",
+          "src/storybook.d.ts",
+          "src/vite-env.d.ts",
+          "types.d.ts",
+          "vitest.shims.d.ts"
+        ],
+        "include": []
+      },
+      "scopeReason": "Preserve imports/paths and upstream ambient declarations; enable required null semantics explicitly without asserting upstream equivalence. Roots fixed from task evidence before outputs.",
+      "licenseFiles": [
+        "LICENSE"
+      ],
+      "metadataFiles": [
+        "tsconfig.json",
+        "package.json",
+        "pnpm-lock.yaml",
+        ".gitmodules",
+        "codegen-main.ts",
+        "codegen-staging.ts",
+        "schema-main.graphql",
+        "schema-directives.graphql"
+      ]
+    },
+    {
+      "id": "vendure",
+      "repository": "vendurehq/vendure",
+      "revision": "534e6003534f74761e82de1b8c6061cba89945d1",
+      "release": "v3.5.0 (historical fixed release, not latest)",
+      "license": "GPL-3.0-or-later as declared by @vendure/admin-ui; repository LICENSE.md also describes commercial alternative and plugin exception",
+      "archiveUrl": "https://codeload.github.com/vendurehq/vendure/tar.gz/534e6003534f74761e82de1b8c6061cba89945d1",
+      "archiveSha256": "6d2de93bc2476dcad4c76f7de20e354a1b41c0090b9ef5a8fd70acef66ed6435",
+      "task": "vendure-task.json",
+      "taskSha256": "948090082bc6c655437b0811134667c538ccddc317e4f38a652697bf52a5e38c",
+      "originalConfig": "packages/admin-ui/tsconfig.json",
+      "appPackage": "packages/admin-ui/package.json",
+      "scopedConfigPath": "packages/admin-ui/ontosary.scope.json",
+      "scopedConfig": {
+        "extends": "./tsconfig.json",
+        "files": [
+          "src/lib/order/src/components/order-detail/order-detail.component.ts",
+          "src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts",
+          "src/lib/core/src/data/providers/order-data.service.ts",
+          "src/lib/core/src/data/definitions/order-definitions.ts"
+        ],
+        "include": []
+      },
+      "scopeReason": "Four TS entries fixed from UI question; preserve original strict options and alias/import closure. HTML evidence remains manual source, never rewritten as TS.",
+      "licenseFiles": [
+        "LICENSE.md",
+        "license/plugin-exception.txt",
+        "license/gpl-3.0.txt"
+      ],
+      "metadataFiles": [
+        "tsconfig.json",
+        "packages/admin-ui/tsconfig.json",
+        "packages/admin-ui/package.json",
+        "package.json",
+        "package-lock.json",
+        "scripts/codegen/generate-graphql-types.ts"
+      ]
+    }
+  ]
+}

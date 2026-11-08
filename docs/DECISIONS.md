@@ -120,3 +120,12 @@
 **현재 권고:** [후보 조사](reviews/2026-11-08-public-app-candidates.md)에 고정 revision과 원문/설정/라이선스 근거를 남겼다. Saleor Dashboard를 첫 적합성 점검 후보로 권하지만 strict=false·codegen/의존 경계가 있어 아직 채택하지 않는다. Medusa의 조사 revision은 주문 화면의 별도 라이선스 대상 hook 의존을 확인해 우선 보류한다. 이는 리뷰어의 후보 순서 권고이며 사용자가 특정 앱을 확정한 결정은 아니다.
 
 **전제와 범위:** 원래 설정 실패·비용을 공개하고 core의 strictNullChecks 전제는 유지한다. 별도 분석 설정은 변경 조건과 한계를 드러내야 한다. 앱 선정/분석 성공/사람 승인/효용 검증은 미완료다. 다음 작업은 [적합성 및 한 과업 준비](reviews/2026-11-08-public-app-next-plan.md)이며 주요 사용자 문제·기술 투자·근거 원칙 변경은 사용자 판단을 요청한다.
+
+
+## ADR-018 · 공개 앱의 실패를 보존하는 제한된 적합성 점검 — 2026-11-08
+
+**결정:** 각 후보의 원문 과업/anchor를 scan 전에 작성하고, 고정 archive의 원래 설정 → 명시적 과업 진입 설정을 차례로 관찰한다. 후보는 Saleor와 추가 Vendure 1개로 제한한다. 조상 node_modules 없는 cache에서 관찰하며 미설치 의존성을 임의 any/stub으로 대체하지 않는다. Saleor는 별도 설정에서 strictNullChecks를 켜되 upstream와 동일하다고 주장하지 않고, Vendure는 원래 strict를 유지한다.
+
+**결과:** 두 후보 모두 이번 준비 예산에서 오류 없는 입력을 확보하지 못했다. 이 상태의 facts로 단순 그룹/FCA·제품 효용 결과를 만들지 않는다. 원본/범위/의존 경계/원시 진단과 실패 재현을 완료물로 인정한다. 원래 generated source와 원문 any는 보존하되 정밀도 한계로 기록한다. Vendure HTML template는 수동 과업 근거이며 core TS coverage로 세지 않는다.
+
+**후속 권고:** 원래 strict가 켜진 고정 Vendure Admin UI의 의존성/common 빌드 준비 비용만 제한적으로 추가 검증한다. 이는 아직 앱 채택·새 기술 투자·사용자 실험 승인이 아니며 core 전제 완화나 원문 변경이 필요해지면 별도 판단 근거를 마련한다. ADR-014/017의 업무 탐색/공개 앱 방향은 유지한다. [결과 인계](reviews/2026-11-08-public-app-suitability.md).

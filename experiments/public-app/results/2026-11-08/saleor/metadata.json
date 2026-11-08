@@ -1,0 +1,56 @@
+[
+  {
+    "file": "LICENSE",
+    "bytes": 1562,
+    "sha256": "2723d1248394da475804b33008b525d8f40d0d1a9c12c6f43a200fbf5bac9c56",
+    "sourceUrl": "https://github.com/saleor/saleor-dashboard/blob/2e1776949e8cae747da480ec3712692554f3284c/LICENSE"
+  },
+  {
+    "file": "tsconfig.json",
+    "bytes": 924,
+    "sha256": "f2d3e33e43021c8169858b496f736874eb7d15730ea8a73d718ba8a92b58777a",
+    "sourceUrl": "https://github.com/saleor/saleor-dashboard/blob/2e1776949e8cae747da480ec3712692554f3284c/tsconfig.json"
+  },
+  {
+    "file": "package.json",
+    "bytes": 11310,
+    "sha256": "050c4a66db0b2190b8d917a881292f49b7380d5217f60b90d523760762e001e8",
+    "sourceUrl": "https://github.com/saleor/saleor-dashboard/blob/2e1776949e8cae747da480ec3712692554f3284c/package.json"
+  },
+  {
+    "file": "pnpm-lock.yaml",
+    "bytes": 710108,
+    "sha256": "48a16cfd533b20a3d3ceabc2565f746669c165ecead0e13cbbbaf9497d392a03",
+    "sourceUrl": "https://github.com/saleor/saleor-dashboard/blob/2e1776949e8cae747da480ec3712692554f3284c/pnpm-lock.yaml"
+  },
+  {
+    "file": ".gitmodules",
+    "bytes": 143,
+    "sha256": "b6a0a98ef50c02172c80ed5cd90fd7cf04d92003f395a27d789737264a44f237",
+    "sourceUrl": "https://github.com/saleor/saleor-dashboard/blob/2e1776949e8cae747da480ec3712692554f3284c/.gitmodules"
+  },
+  {
+    "file": "codegen-main.ts",
+    "bytes": 2791,
+    "sha256": "28d050cbf9eda687ef4da4322e7aa5606babc251deefc240e3bcbd5d3198c9cf",
+    "sourceUrl": "https://github.com/saleor/saleor-dashboard/blob/2e1776949e8cae747da480ec3712692554f3284c/codegen-main.ts"
+  },
+  {
+    "file": "codegen-staging.ts",
+    "bytes": 1894,
+    "sha256": "b541f9f41d31c99db73ba794094ede8ddb668c67ecb6138321452edb8d756f8f",
+    "sourceUrl": "https://github.com/saleor/saleor-dashboard/blob/2e1776949e8cae747da480ec3712692554f3284c/codegen-staging.ts"
+  },
+  {
+    "file": "schema-main.graphql",
+    "bytes": 1101746,
+    "sha256": "4b056b46f2c5f5906e6aef84344252982511087c5331b2e159b58ffa79cb1237",
+    "sourceUrl": "https://github.com/saleor/saleor-dashboard/blob/2e1776949e8cae747da480ec3712692554f3284c/schema-main.graphql"
+  },
+  {
+    "file": "schema-directives.graphql",
+    "bytes": 1322,
+    "sha256": "a757c93d61def208c5124d8ecd8772acfafa8d2a547ebfccef0f2ed3ab93060c",
+    "sourceUrl": "https://github.com/saleor/saleor-dashboard/blob/2e1776949e8cae747da480ec3712692554f3284c/schema-directives.graphql"
+  }
+]
