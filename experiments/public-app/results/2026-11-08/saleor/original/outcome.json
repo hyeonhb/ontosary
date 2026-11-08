@@ -1,0 +1,6 @@
+{
+  "status": "rejected-before-program",
+  "error": "Sound finite-domain analysis requires strictNullChecks (or strict) in tsconfig.json",
+  "groups": "not-run",
+  "fca": "not-run"
+}

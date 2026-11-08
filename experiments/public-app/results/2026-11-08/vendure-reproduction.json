@@ -1,0 +1,32 @@
+{
+  "equivalent": true,
+  "comparedFiles": 17,
+  "outcomes": {
+    "original": "compiler-errors",
+    "scoped": "compiler-errors"
+  },
+  "hashes": {
+    "input.json": "06c149d9f6170c75d24b074903d16a70061d02700866d7f250f2b7655e6564f3",
+    "inventory.json.gz": "223bf5b7b465a0fc934215db6b955a291ae1369e670f3c6030be4f1f5f167f3f",
+    "licenses/LICENSE.md": "b78a9d11922dff7b00efee72d40381bc3765e220fd31c575e2d39ffd42883013",
+    "licenses/gpl-3.0.txt": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+    "licenses/plugin-exception.txt": "8f45d1b72e087c70beca276a88dc462884debbdbca22497c60eadb9db2de2bad",
+    "metadata.json": "688cf2af97990cdfc4a5b598bf688dbae2dac48206ee21f885391477c608500c",
+    "original/config.json": "f33095c46eebb6ecef36ab65260ce835ee1fefecfe90796adc5ecbb200fda271",
+    "original/outcome.json": "661079082f7d4aac4162379f179d1f9bce494f85375a15c1d52acfbea8e917c1",
+    "original/process.json": "b37845bb9fd345a05c2feae8ca3848eb2866372d0be310d1cdb31c4f7a65153f",
+    "original/program.json.gz": "02e8de43e65cd32871e3bb41ccc2fc145ca04922977201d4bc5e321362646b4d",
+    "original/scan.json.gz": "40becdb87b40542edd5efa0a0524b6cd9555e70ed876eb113241d8f4805ebd33",
+    "scoped/config.json": "2b029e4b50b8bc6ef95580f4204b3a34bc2fe1f8af8143f7a3f5f54d52ebfe0f",
+    "scoped/outcome.json": "ef7da664be7fa5039a7717bd8366f234ea9f0213566634651566fec4555a6e8a",
+    "scoped/process.json": "b37845bb9fd345a05c2feae8ca3848eb2866372d0be310d1cdb31c4f7a65153f",
+    "scoped/program.json.gz": "e94c71e82bb84c18ab72ba45b5552c6763fd5477f602ade6aae44705114bd945",
+    "scoped/scan.json.gz": "07699d35b6e68e593b420411df8d82151a57ffde0b0a0f3ec4eee442af987664",
+    "source-notice.json": "349299d0d4e82d64643bd57766b5b2a250d4fd49ee85ea504482c6b51b658c10"
+  },
+  "excluded": [
+    "timings.json",
+    "preparation.json"
+  ],
+  "scope": "Reproduced failure observations at the same absolute cache path in this Node/TypeScript environment; not a successful application analysis or upstream build verdict."
+}

@@ -1,0 +1,101 @@
+{
+  "candidate": {
+    "id": "saleor",
+    "repository": "saleor/saleor-dashboard",
+    "revision": "2e1776949e8cae747da480ec3712692554f3284c",
+    "license": "BSD-3-Clause",
+    "archiveUrl": "https://codeload.github.com/saleor/saleor-dashboard/tar.gz/2e1776949e8cae747da480ec3712692554f3284c",
+    "archiveSha256": "1c93594f05301676805772ea6a87e89c9d474941467b07456b95215a1758f9f7",
+    "task": "saleor-task.json",
+    "taskSha256": "8ec244fc590f8d4b0c2e2e4b2efc812cfc009bcce356183046ca75f561e7e1d3",
+    "originalConfig": "tsconfig.json",
+    "scopedConfig": {
+      "extends": "./tsconfig.json",
+      "compilerOptions": {
+        "strictNullChecks": true
+      },
+      "files": [
+        "src/orders/components/OrderDetailsPage/OrderDetailsPage.tsx",
+        "src/orders/views/OrderDetails/OrderNormalDetails/index.tsx",
+        "src/orders/components/OrderCancelDialog/OrderCancelDialog.tsx",
+        "src/orders/components/OrderCannotCancelOrderDialog/OrderCannotCancelOrderDialog.tsx",
+        "src/orders/containers/OrderOperations.tsx",
+        "src/orders/views/OrderDetails/OrderDetails.tsx",
+        "src/orders/mutations.ts",
+        "csstypes.d.ts",
+        "groupBy.d.ts",
+        "react-intl.d.ts",
+        "src/cssModules.d.ts",
+        "src/storybook.d.ts",
+        "src/vite-env.d.ts",
+        "types.d.ts",
+        "vitest.shims.d.ts"
+      ],
+      "include": []
+    },
+    "scopeReason": "Preserve imports/paths and upstream ambient declarations; enable required null semantics explicitly without asserting upstream equivalence. Roots fixed from task evidence before outputs.",
+    "licenseFiles": [
+      "LICENSE"
+    ],
+    "metadataFiles": [
+      "tsconfig.json",
+      "package.json",
+      "pnpm-lock.yaml",
+      ".gitmodules",
+      "codegen-main.ts",
+      "codegen-staging.ts",
+      "schema-main.graphql",
+      "schema-directives.graphql"
+    ]
+  },
+  "budget": {
+    "maxCandidates": 2,
+    "perProcessTimeoutMs": 120000,
+    "maxHeapMb": 4096,
+    "dependencyInstallation": "No bulk app installation in initial suitability screen. Stop for a bounded follow-up if diagnostics require workspace-wide dependencies or source changes.",
+    "scopeChanges": "One task-entry configuration per candidate; Saleor additionally enables strictNullChecks explicitly. Preserve originals first. No source patches, stubs or algorithm changes."
+  },
+  "environment": {
+    "node": "v22.19.0",
+    "typescript": "5.9.3",
+    "platform": "darwin",
+    "arch": "arm64"
+  },
+  "upstream": {
+    "engines": {
+      "node": ">=24 <25",
+      "pnpm": ">=11"
+    },
+    "packageManager": "pnpm@11.13.1+sha512.b2fc7683b8a6525414e7d13e1ba28caaddde96bf66ec540bfaeb7e702b81f3e0be4d1f295edf7f9fe0396740a8dce4509c582ddf79891f4543fea32d37645f25",
+    "dependencies": 72,
+    "devDependencies": 74
+  },
+  "appPackage": {
+    "path": "package.json",
+    "engines": {
+      "node": ">=24 <25",
+      "pnpm": ">=11"
+    },
+    "dependencies": 72,
+    "devDependencies": 74
+  },
+  "inventorySha256": "7d873edd5dc2fdbe38ccd363735db3638984f2a7f6691f057ee6830f0c0f20f5",
+  "taskSha256": "8ec244fc590f8d4b0c2e2e4b2efc812cfc009bcce356183046ca75f561e7e1d3",
+  "fingerprints": {
+    "src/core/analyzer.ts": "6b96a27b1e21272b8731bb38bb1ca34fedd347356f99781b77c8c4ce328ab95d",
+    "src/core/fca.ts": "4c0428641361232b969628b88eba15771f33f43efcbae9e70663fb3205fd1247",
+    "src/core/logic.ts": "487bf0172b793d043516f11023606ab94a4d5fa8c25907fec7ffd920dad00031",
+    "src/core/model.ts": "663e1babbcd54d7dde680930f0bc2e9822a97bcc080c72a2f9507cd91fa4a11c",
+    "pnpm-lock.yaml": "778efd97847a6132f336955c48d51c34690918d1db67a57590fc5459e444b784",
+    "dist/core/analyzer.js": "c97ce68612b8a4af3ee02fc750b7db15ce955ac9ba08cec8a66011a5ff32015b",
+    "dist/core/fca.js": "01cd818cb1847b05c0a350a0808b406b04bc63e2f687509ac3690a2c9198f653",
+    "dist/core/logic.js": "490a1e014d04b68447559bb7eea6ef4096af81a486e9c3094feea210acda2003",
+    "experiments/public-app/v1/manifest.json": "383db5f38189c0675b9a8132c1412d0ab6841935edd002ea31d269c1d514ff16",
+    "experiments/public-app/v1/saleor-task.json": "8ec244fc590f8d4b0c2e2e4b2efc812cfc009bcce356183046ca75f561e7e1d3",
+    "experiments/public-app/v1/verify.mjs": "90d908eb142cbfc06b8d0729893b0a67517686f095bd917567f7a2d508d273cc",
+    "experiments/public-app/v1/prepare.mjs": "f6cc8d3222ebb980654754296b3db4451d75e52c58c6b1022e6c9d529fd6317d",
+    "experiments/public-app/v1/observe.mjs": "0686b6b6345eecb7f6b5f8dffa18748f286a6bd456f353d2d00384ad49afe1d4",
+    "experiments/public-app/v1/run.mjs": "060da7768650e55d9b2dc9781db2b58eb0a976bf9206b8e871f25bc1d7672884"
+  },
+  "method": "Isolated archive checkout; no app node_modules, source patches, generated stubs, submodule fetch or upstream execution. Missing dependencies are an environment failure, not proof upstream is invalid."
+}

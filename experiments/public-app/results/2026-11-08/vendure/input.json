@@ -1,0 +1,84 @@
+{
+  "candidate": {
+    "id": "vendure",
+    "repository": "vendurehq/vendure",
+    "revision": "534e6003534f74761e82de1b8c6061cba89945d1",
+    "release": "v3.5.0 (historical fixed release, not latest)",
+    "license": "GPL-3.0-or-later as declared by @vendure/admin-ui; repository LICENSE.md also describes commercial alternative and plugin exception",
+    "archiveUrl": "https://codeload.github.com/vendurehq/vendure/tar.gz/534e6003534f74761e82de1b8c6061cba89945d1",
+    "archiveSha256": "6d2de93bc2476dcad4c76f7de20e354a1b41c0090b9ef5a8fd70acef66ed6435",
+    "task": "vendure-task.json",
+    "taskSha256": "948090082bc6c655437b0811134667c538ccddc317e4f38a652697bf52a5e38c",
+    "originalConfig": "packages/admin-ui/tsconfig.json",
+    "appPackage": "packages/admin-ui/package.json",
+    "scopedConfigPath": "packages/admin-ui/ontosary.scope.json",
+    "scopedConfig": {
+      "extends": "./tsconfig.json",
+      "files": [
+        "src/lib/order/src/components/order-detail/order-detail.component.ts",
+        "src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts",
+        "src/lib/core/src/data/providers/order-data.service.ts",
+        "src/lib/core/src/data/definitions/order-definitions.ts"
+      ],
+      "include": []
+    },
+    "scopeReason": "Four TS entries fixed from UI question; preserve original strict options and alias/import closure. HTML evidence remains manual source, never rewritten as TS.",
+    "licenseFiles": [
+      "LICENSE.md",
+      "license/plugin-exception.txt",
+      "license/gpl-3.0.txt"
+    ],
+    "metadataFiles": [
+      "tsconfig.json",
+      "packages/admin-ui/tsconfig.json",
+      "packages/admin-ui/package.json",
+      "package.json",
+      "package-lock.json",
+      "scripts/codegen/generate-graphql-types.ts"
+    ]
+  },
+  "budget": {
+    "maxCandidates": 2,
+    "perProcessTimeoutMs": 120000,
+    "maxHeapMb": 4096,
+    "dependencyInstallation": "No bulk app installation in initial suitability screen. Stop for a bounded follow-up if diagnostics require workspace-wide dependencies or source changes.",
+    "scopeChanges": "One task-entry configuration per candidate; Saleor additionally enables strictNullChecks explicitly. Preserve originals first. No source patches, stubs or algorithm changes."
+  },
+  "environment": {
+    "node": "v22.19.0",
+    "typescript": "5.9.3",
+    "platform": "darwin",
+    "arch": "arm64"
+  },
+  "upstream": {
+    "engines": {
+      "node": ">= 18"
+    },
+    "dependencies": 7,
+    "devDependencies": 29
+  },
+  "appPackage": {
+    "path": "packages/admin-ui/package.json",
+    "dependencies": 48,
+    "devDependencies": 34
+  },
+  "inventorySha256": "223bf5b7b465a0fc934215db6b955a291ae1369e670f3c6030be4f1f5f167f3f",
+  "taskSha256": "948090082bc6c655437b0811134667c538ccddc317e4f38a652697bf52a5e38c",
+  "fingerprints": {
+    "src/core/analyzer.ts": "6b96a27b1e21272b8731bb38bb1ca34fedd347356f99781b77c8c4ce328ab95d",
+    "src/core/fca.ts": "4c0428641361232b969628b88eba15771f33f43efcbae9e70663fb3205fd1247",
+    "src/core/logic.ts": "487bf0172b793d043516f11023606ab94a4d5fa8c25907fec7ffd920dad00031",
+    "src/core/model.ts": "663e1babbcd54d7dde680930f0bc2e9822a97bcc080c72a2f9507cd91fa4a11c",
+    "pnpm-lock.yaml": "778efd97847a6132f336955c48d51c34690918d1db67a57590fc5459e444b784",
+    "dist/core/analyzer.js": "c97ce68612b8a4af3ee02fc750b7db15ce955ac9ba08cec8a66011a5ff32015b",
+    "dist/core/fca.js": "01cd818cb1847b05c0a350a0808b406b04bc63e2f687509ac3690a2c9198f653",
+    "dist/core/logic.js": "490a1e014d04b68447559bb7eea6ef4096af81a486e9c3094feea210acda2003",
+    "experiments/public-app/v1/manifest.json": "383db5f38189c0675b9a8132c1412d0ab6841935edd002ea31d269c1d514ff16",
+    "experiments/public-app/v1/vendure-task.json": "948090082bc6c655437b0811134667c538ccddc317e4f38a652697bf52a5e38c",
+    "experiments/public-app/v1/verify.mjs": "90d908eb142cbfc06b8d0729893b0a67517686f095bd917567f7a2d508d273cc",
+    "experiments/public-app/v1/prepare.mjs": "f6cc8d3222ebb980654754296b3db4451d75e52c58c6b1022e6c9d529fd6317d",
+    "experiments/public-app/v1/observe.mjs": "0686b6b6345eecb7f6b5f8dffa18748f286a6bd456f353d2d00384ad49afe1d4",
+    "experiments/public-app/v1/run.mjs": "060da7768650e55d9b2dc9781db2b58eb0a976bf9206b8e871f25bc1d7672884"
+  },
+  "method": "Isolated archive checkout; no app node_modules, source patches, generated stubs, submodule fetch or upstream execution. Missing dependencies are an environment failure, not proof upstream is invalid."
+}

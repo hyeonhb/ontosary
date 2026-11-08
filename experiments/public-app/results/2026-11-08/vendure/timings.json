@@ -1,0 +1,15 @@
+{
+  "runs": [
+    {
+      "name": "original",
+      "wallTimeMs": 4912
+    },
+    {
+      "name": "scoped",
+      "wallTimeMs": 3393
+    }
+  ],
+  "humanPreparationTimeMs": null,
+  "humanTaskTimeMs": null,
+  "note": "Machine wall time only; first observation may include cache effects. No human experiment."
+}

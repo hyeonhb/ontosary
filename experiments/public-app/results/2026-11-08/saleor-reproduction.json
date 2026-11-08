@@ -1,0 +1,28 @@
+{
+  "equivalent": true,
+  "comparedFiles": 13,
+  "outcomes": {
+    "original": "rejected-before-program",
+    "scoped": "compiler-errors"
+  },
+  "hashes": {
+    "input.json": "8a3657be1f7ea429c6cc5919da18bc52b962f46ab11e12e4c1b3a6861e662822",
+    "inventory.json.gz": "7d873edd5dc2fdbe38ccd363735db3638984f2a7f6691f057ee6830f0c0f20f5",
+    "licenses/LICENSE": "2723d1248394da475804b33008b525d8f40d0d1a9c12c6f43a200fbf5bac9c56",
+    "metadata.json": "b0beff956dc211f020829ff08ab94130661243747ca0c750ca54bd545607084f",
+    "original/config.json": "d464e1d3f111bd27c02282709deff088a157ecc0b79bc763a0ece62e9bd439d0",
+    "original/outcome.json": "23b943d07fab9997c75319e80a6e793c565240c62b8070d8994f7b9a7a9d5966",
+    "original/process.json": "b37845bb9fd345a05c2feae8ca3848eb2866372d0be310d1cdb31c4f7a65153f",
+    "scoped/config.json": "8d76f7730b9554821dfd6c34b36eef1ebc3fac3b3b7f86b2041775de51cfbf44",
+    "scoped/outcome.json": "13f674a06447d08acdb9609cfc1afbe98d210a8bfbd11f989bd7822e62ed1a8e",
+    "scoped/process.json": "b37845bb9fd345a05c2feae8ca3848eb2866372d0be310d1cdb31c4f7a65153f",
+    "scoped/program.json.gz": "a6f93645b09d5175ea058ceaef9fede18f04d6dcb9037a0975a27f50ab05f4f0",
+    "scoped/scan.json.gz": "f8d718ead7e86b88cf8242284b2c47690e6c32d824c560328fed229a53c0cc4b",
+    "source-notice.json": "bc1a88985d1427d924fef6168472f6e298dd0022f95df3bed7d6166e6858d971"
+  },
+  "excluded": [
+    "timings.json",
+    "preparation.json"
+  ],
+  "scope": "Reproduced failure observations at the same absolute cache path in this Node/TypeScript environment; not a successful application analysis or upstream build verdict."
+}

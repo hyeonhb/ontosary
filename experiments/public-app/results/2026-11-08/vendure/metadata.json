@@ -1,0 +1,56 @@
+[
+  {
+    "file": "LICENSE.md",
+    "bytes": 1861,
+    "sha256": "b78a9d11922dff7b00efee72d40381bc3765e220fd31c575e2d39ffd42883013",
+    "sourceUrl": "https://github.com/vendurehq/vendure/blob/534e6003534f74761e82de1b8c6061cba89945d1/LICENSE.md"
+  },
+  {
+    "file": "license/plugin-exception.txt",
+    "bytes": 1044,
+    "sha256": "8f45d1b72e087c70beca276a88dc462884debbdbca22497c60eadb9db2de2bad",
+    "sourceUrl": "https://github.com/vendurehq/vendure/blob/534e6003534f74761e82de1b8c6061cba89945d1/license/plugin-exception.txt"
+  },
+  {
+    "file": "license/gpl-3.0.txt",
+    "bytes": 35147,
+    "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+    "sourceUrl": "https://github.com/vendurehq/vendure/blob/534e6003534f74761e82de1b8c6061cba89945d1/license/gpl-3.0.txt"
+  },
+  {
+    "file": "tsconfig.json",
+    "bytes": 490,
+    "sha256": "e2825b9f270aa924ea42af876988a50763b189dabf6b1294480fd5b206c46297",
+    "sourceUrl": "https://github.com/vendurehq/vendure/blob/534e6003534f74761e82de1b8c6061cba89945d1/tsconfig.json"
+  },
+  {
+    "file": "packages/admin-ui/tsconfig.json",
+    "bytes": 1628,
+    "sha256": "b5e2f3a67b9de14fae6721525fca69486e10c65723cdffd606bd6d907ac8fab2",
+    "sourceUrl": "https://github.com/vendurehq/vendure/blob/534e6003534f74761e82de1b8c6061cba89945d1/packages/admin-ui/tsconfig.json"
+  },
+  {
+    "file": "packages/admin-ui/package.json",
+    "bytes": 4964,
+    "sha256": "8f43dbe5d966a97a73f4225eef5dbdfcacd9fa92983ec284566e79acf678601f",
+    "sourceUrl": "https://github.com/vendurehq/vendure/blob/534e6003534f74761e82de1b8c6061cba89945d1/packages/admin-ui/package.json"
+  },
+  {
+    "file": "package.json",
+    "bytes": 4338,
+    "sha256": "c74a133893e11c6365dfad41061d5c96df172b0a2d4282ba1fe34d633eb5e869",
+    "sourceUrl": "https://github.com/vendurehq/vendure/blob/534e6003534f74761e82de1b8c6061cba89945d1/package.json"
+  },
+  {
+    "file": "package-lock.json",
+    "bytes": 2285850,
+    "sha256": "36f9848d635ceca4f586e5cd1aab48ed1e99fa80dda5d2a91dfd59a8daff65db",
+    "sourceUrl": "https://github.com/vendurehq/vendure/blob/534e6003534f74761e82de1b8c6061cba89945d1/package-lock.json"
+  },
+  {
+    "file": "scripts/codegen/generate-graphql-types.ts",
+    "bytes": 9904,
+    "sha256": "f8f9a369bc0949d5e46a0ee00090d00808974816cdcffae52e4597a656abaeeb",
+    "sourceUrl": "https://github.com/vendurehq/vendure/blob/534e6003534f74761e82de1b8c6061cba89945d1/scripts/codegen/generate-graphql-types.ts"
+  }
+]

@@ -1,0 +1,204 @@
+{
+  "schemaVersion": 1,
+  "author": "agent; human review pending",
+  "writtenBeforeAnalysis": true,
+  "revision": "2e1776949e8cae747da480ec3712692554f3284c",
+  "question": "일반 주문의 취소 메뉴에서 API 요청까지 어떤 코드와 조건을 확인해야 하며, fulfilled fulfillment가 있을 때 어떤 UI 분기로 이어지는가?",
+  "start": "src/orders/components/OrderDetailsPage/OrderDetailsPage.tsx",
+  "scope": "Normal order UI and client mutation wiring; draft deletion, fulfillment cancellation and server final authorization/policy are excluded.",
+  "evidence": [
+    {
+      "id": "S01",
+      "role": "required",
+      "file": "src/orders/components/OrderDetailsPage/OrderDetailsPage.tsx",
+      "anchor": "const canCancel = order?.status !== OrderStatus.CANCELED;",
+      "line": 154,
+      "offsetUtf16": 6497,
+      "sha256": "be0a1290a47aacda663ee3e69704d167d5468469ef5ee4ef122b9399a27162b3",
+      "claim": "취소 메뉴의 로컬 상태 조건. 권한/로딩/서버 최종 정책 전체를 표현하지 않는다."
+    },
+    {
+      "id": "S02",
+      "role": "required",
+      "file": "src/orders/components/OrderDetailsPage/OrderDetailsPage.tsx",
+      "anchor": "onSelect: onOrderCancel,",
+      "line": 212,
+      "offsetUtf16": 8359,
+      "sha256": "be0a1290a47aacda663ee3e69704d167d5468469ef5ee4ef122b9399a27162b3",
+      "claim": "메뉴 선택 콜백 연결."
+    },
+    {
+      "id": "S03",
+      "role": "required",
+      "file": "src/orders/views/OrderDetails/OrderNormalDetails/index.tsx",
+      "anchor": "onOrderCancel={() => openModal(\"cancel\")}",
+      "line": 244,
+      "offsetUtf16": 9587,
+      "sha256": "d4e5843cb7ba866a25df2dcc6ef3f29ab6094bd8ce98d18a20924d810388b5ce",
+      "claim": "일반 주문 화면에서 cancel action을 연다."
+    },
+    {
+      "id": "S04",
+      "role": "required",
+      "file": "src/orders/views/OrderDetails/OrderNormalDetails/index.tsx",
+      "anchor": "const hasOrderFulfillmentsFulfilled = order?.fulfillments.some(",
+      "line": 202,
+      "offsetUtf16": 8439,
+      "sha256": "d4e5843cb7ba866a25df2dcc6ef3f29ab6094bd8ce98d18a20924d810388b5ce",
+      "claim": "FULFILLED fulfillment 존재 여부. 다른 fulfillment 상태 전체를 금지로 추론하지 않는다."
+    },
+    {
+      "id": "S05",
+      "role": "required",
+      "file": "src/orders/views/OrderDetails/OrderNormalDetails/index.tsx",
+      "anchor": "open={params.action === \"cancel\" && hasOrderFulfillmentsFulfilled}",
+      "line": 311,
+      "offsetUtf16": 12290,
+      "sha256": "d4e5843cb7ba866a25df2dcc6ef3f29ab6094bd8ce98d18a20924d810388b5ce",
+      "claim": "cancel action + fulfilled인 경우 차단 UI."
+    },
+    {
+      "id": "S06",
+      "role": "required",
+      "file": "src/orders/views/OrderDetails/OrderNormalDetails/index.tsx",
+      "anchor": "open={params.action === \"cancel\" && !hasOrderFulfillmentsFulfilled}",
+      "line": 317,
+      "offsetUtf16": 12548,
+      "sha256": "d4e5843cb7ba866a25df2dcc6ef3f29ab6094bd8ce98d18a20924d810388b5ce",
+      "claim": "그 외 cancel action은 확인 UI. order 누락/optional chaining의 undefined 가능성을 불확실 항목으로 남긴다."
+    },
+    {
+      "id": "S07",
+      "role": "required",
+      "file": "src/orders/views/OrderDetails/OrderNormalDetails/index.tsx",
+      "anchor": "orderCancel.mutate({\n            id,",
+      "line": 320,
+      "offsetUtf16": 12679,
+      "sha256": "d4e5843cb7ba866a25df2dcc6ef3f29ab6094bd8ce98d18a20924d810388b5ce",
+      "claim": "확인 제출이 id로 mutation provider를 호출."
+    },
+    {
+      "id": "S08",
+      "role": "required",
+      "file": "src/orders/components/OrderCancelDialog/OrderCancelDialog.tsx",
+      "anchor": "onClick={onSubmit}",
+      "line": 70,
+      "offsetUtf16": 2288,
+      "sha256": "89f1f5cafeed6ad68d9c558282fc06d6b40af718efef60a1e9cb1577d888640f",
+      "claim": "버튼 제출 콜백. apiErrors는 useModalDialogErrors를 거쳐 표시."
+    },
+    {
+      "id": "S09",
+      "role": "required",
+      "file": "src/orders/containers/OrderOperations.tsx",
+      "anchor": "const orderCancel = useOrderCancelMutation({",
+      "line": 200,
+      "offsetUtf16": 7359,
+      "sha256": "9810246a09d59b1c6e42224d5578fdf1e6aa3ec4718095b137b4df5eab936ae1",
+      "claim": "실제 generated hook과 onCompleted 연결."
+    },
+    {
+      "id": "S10",
+      "role": "required",
+      "file": "src/orders/containers/OrderOperations.tsx",
+      "anchor": "orderCancel: getMutationProviderData(...orderCancel),",
+      "line": 272,
+      "offsetUtf16": 9831,
+      "sha256": "9810246a09d59b1c6e42224d5578fdf1e6aa3ec4718095b137b4df5eab936ae1",
+      "claim": "provider 변환으로 children에 전달."
+    },
+    {
+      "id": "S11",
+      "role": "required",
+      "file": "src/orders/views/OrderDetails/OrderDetails.tsx",
+      "anchor": "<OrderNormalDetails",
+      "line": 195,
+      "offsetUtf16": 7805,
+      "sha256": "d26c572975856657497ea9ecc908603263168154d33a5948cd609e9a43dffde7",
+      "claim": "정상 주문 분기에 provider 출력 전달; draft/unconfirmed와 별도."
+    },
+    {
+      "id": "S12",
+      "role": "required",
+      "file": "src/graphql/hooks.generated.ts",
+      "anchor": "export const OrderCancelDocument = gql`",
+      "line": 14429,
+      "offsetUtf16": 568159,
+      "sha256": "663266ee199ce625e1ba04203705a669158de2179693470d01c3afc836a6a9c5",
+      "claim": "실행 hook이 사용하는 생성된 요청 정의. source mutations.ts와 경로를 함께 확인."
+    },
+    {
+      "id": "S13",
+      "role": "required",
+      "file": "src/graphql/hooks.generated.ts",
+      "anchor": "export function useOrderCancelMutation(",
+      "line": 14461,
+      "offsetUtf16": 569292,
+      "sha256": "663266ee199ce625e1ba04203705a669158de2179693470d01c3afc836a6a9c5",
+      "claim": "generated hook이 OrderCancelDocument로 useMutation을 호출."
+    },
+    {
+      "id": "S14",
+      "role": "required",
+      "file": "src/orders/mutations.ts",
+      "anchor": "mutation OrderCancel($id: ID!)",
+      "line": 4,
+      "offsetUtf16": 81,
+      "sha256": "43c7f9458f494309bc360f813188a2c2cf48d42d3bb09d932021ae7f8e37008c",
+      "claim": "원문 GraphQL 요청은 orderCancel(id), errors/order 선택. 서버 허용 정책의 증거는 아님."
+    },
+    {
+      "id": "S15",
+      "role": "allowed",
+      "file": "src/orders/components/OrderCannotCancelOrderDialog/OrderCannotCancelOrderDialog.tsx",
+      "anchor": "export const OrderCannotCancelOrderDialog",
+      "line": 9,
+      "offsetUtf16": 347,
+      "sha256": "7b5f1effb1f384fe5b3ec04c035ea35798693f7258e745eaa94315a27797b85f",
+      "claim": "차단 안내와 닫기 버튼; 취소 요청 없음."
+    },
+    {
+      "id": "S16",
+      "role": "allowed",
+      "file": "src/orders/views/OrderDetails/OrderDetailsMessages.tsx",
+      "anchor": "const errs = data.orderCancel?.errors;",
+      "line": 121,
+      "offsetUtf16": 4584,
+      "sha256": "369fb2c664441cf66012d6650ea5ee5743de2084ef688dd77ce72391c90295c9",
+      "claim": "응답 오류 후처리. UI 표시와 서버 성공 판정을 구분."
+    },
+    {
+      "id": "S17",
+      "role": "unrelated",
+      "file": "src/orders/mutations.ts",
+      "anchor": "mutation OrderFulfillmentCancel(",
+      "line": 249,
+      "offsetUtf16": 5023,
+      "sha256": "43c7f9458f494309bc360f813188a2c2cf48d42d3bb09d932021ae7f8e37008c",
+      "claim": "fulfillment 취소는 일반 주문 취소와 다른 요청."
+    },
+    {
+      "id": "S18",
+      "role": "unrelated",
+      "file": "src/orders/views/OrderDetails/OrderDraftDetails/index.tsx",
+      "anchor": "orderDraftCancel.mutate(",
+      "line": 176,
+      "offsetUtf16": 6676,
+      "sha256": "502c868006eced141b8dc8a05fa1380a3c4c41dbe49e7162b5d6fd4b3a0df908",
+      "claim": "draft 삭제는 별도 과업."
+    }
+  ],
+  "uncertain": [
+    "서버 최종 취소 정책/동시 상태 변경은 이 Dashboard revision으로 확정하지 않는다.",
+    "권한, 로딩, order 누락, 네트워크 오류, modal runtime behavior의 완전성은 추가 검토 대상.",
+    "원문에 이미 있는 any와 generated scalar any는 새로 작성한 stub이 아니며 정밀도 제약.",
+    "이 예비 목록은 완전성 보장이나 사람 승인 정답이 아니다."
+  ],
+  "officialMaterial": {
+    "url": "https://docs.saleor.io/api-reference/orders/mutations/order-cancel",
+    "accessed": "2026-11-08",
+    "schemaShown": "3.23.43",
+    "summary": "orderCancel receives order id, returns order and errors; MANAGE_ORDERS permission is documented. Documentation version is not pinned to this Dashboard revision.",
+    "use": "API contract context only, not complete server policy or normative answer for the pinned client"
+  }
+}

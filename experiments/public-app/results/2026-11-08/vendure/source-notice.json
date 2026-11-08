@@ -1,0 +1,7 @@
+{
+  "repository": "vendurehq/vendure",
+  "revision": "534e6003534f74761e82de1b8c6061cba89945d1",
+  "archiveUrl": "https://codeload.github.com/vendurehq/vendure/tar.gz/534e6003534f74761e82de1b8c6061cba89945d1",
+  "license": "GPL-3.0-or-later as declared by @vendure/admin-ui; repository LICENSE.md also describes commercial alternative and plugin exception",
+  "note": "Upstream files remain in the isolated cache. Extracted source fragments in raw scan and task anchors retain upstream licensing; no upstream source is relicensed as Ontosary Apache-2.0."
+}
