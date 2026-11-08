@@ -1,6 +1,6 @@
 # 독립 리뷰 맥락
 
-마지막 리뷰: 2026-11-08 Vendure 준비와 최종 목표 정렬. [최신 독립 보고](2026-11-08-vendure-preparation-independent-review.md) · [현재 개발 지시](2026-11-08-domain-model-next-plan.md).
+마지막 리뷰: 2026-11-08 S1 도메인 모델. [최신 독립 보고](2026-11-08-domain-model-independent-review.md) · [현재 개발 지시](2026-11-08-domain-model-review-next-plan.md).
 
 ## 역할과 사용자 협업
 
@@ -28,10 +28,14 @@
 | R3 | 해결 | files와 실제 순회 목록 일치, 제외 파일별 근거 |
 | R4 | V2 명시 계약 범위에서 해결 | 타입/종류 기대값 검사 및 미검증 generic/소속 설명 분리. 타입 변형을 mismatch로 거부 |
 | R5 | V3 보고된 범위에서 해결 | 타입 전용 선언 조상 검사로 기존/인접 오인 차단. 실제 use가 타입 signature를 target으로 갖는 경우는 보존 |
+| R6 | 미해결 / Medium | 안내의 개념→동작 탐색과 relatedItems의 실제 방향 불일치. reverse 조회 계약 필요 |
+| R7 | 미해결 / Medium | standalone validator가 심볼 target/분석 입력 변경을 놓침. 전체 runner 입력 검사는 거부 |
 
 [평가기 재현](evidence/2026-11-07-corpus-evaluator-check.mjs), [관찰 JSON](evidence/2026-11-07-corpus-evaluator-results.json), [산출물 재현 대조](evidence/2026-11-07-corpus-review-reproduction.json). R4는 실제 원본 타입이 틀린 발견이 아니며, R5가 현재 22개 중 특정 판정을 틀리게 했다는 결론도 아니다. 측정기가 오류를 탐지하는 계약을 보완해야 한다. 원래 코어 references는 선언 이름도 포함하며 호출 그래프가 아니다.
 
 ## 제품·연구 판단
+
+2026-11-08 S1 독립 검토: PR #15/main `4480438`에서 163테스트·비교 4/4·새 실행 12비시간 파일 byte 일치, 독립 64부분집합 열거로 개념 8/후보 5와 단순 그룹 동일성을 확인했다. [독립 증거](evidence/2026-11-08-domain-model-review-results.json)의 R6/R7 때문에 S1은 조건부 완료다. 고정 관찰과 FCA 계산은 유지되며 agent 인계 계약만 보완한다. 6역할의 지지 집합은 분리되거나 포함돼 새로운 교차 묶음이 나올 여지가 적다. H-F의 일반적 무효나 H-O 성공을 입증한 결과는 아니다.
 
 2026-11-08 준비 후 독립 검토: PR #13/main `b4449c3`에서 136테스트·비교 4/4, 동일 설치 cache 관찰 9파일·입력 감사 5파일 일치, 18개 fingerprint·11개 anchor·Program 경계·예산 기록 정합성을 확인했다. 준비 성공/새 결함 없음으로 판정하며 설치/빌드 독립 재현은 미검증이다. 전체 2,264×4,288과 기존 진입 파일 129×314 모두 기본 FCA 범위를 넘는다. [관찰 JSON](evidence/2026-11-08-vendure-review-verification.json). 준비를 반복하기보다 새 역할 context와 모델 연결을 실험한다.
 
@@ -49,6 +53,6 @@
 
 ## 다음 하나와 이후 판단
 
-ADR-019의 30분 준비는 약 6분에 종료됐고 범위 부적합을 보존했다. 최신 지시는 **S1: 고정 Vendure 취소·환불의 모델 초안·근거 검증기·단순 그룹/FCA 대조**다. 역할 범위와 수동 작성 비용을 드러내며 core/원문/상한은 유지한다. agent 변경 과업을 준비하되 비교 실행은 S1 독립 리뷰 뒤 S2에서 한다. 효과가 관찰되면 S3에서 변경 후 모델 갱신 비용을 확인한다.
+최신 지시는 **R6/R7: S1 탐색·검증 계약 보완**이다. V1 원시 결과와 독립 실패 증거는 보존하고 새 버전으로 확인한다. 보완 재검토 뒤 S2 reason 계약·원문에 충실한 fixture/oracle·A/B/C 제공 자료를 동결한다. 모델의 안내 예와 이미 대응하는 과업이므로 known-case pilot 한계를 유지한다. core/원문/상한·최종 목표는 그대로이며 효과가 관찰되면 S3 유지 비용을 확인한다.
 
 이전 [사람 탐색 절차 초안](../experiments/concept-exploration-protocol.md)은 보조 실험 후보로 보존한다. 업무 의미/후보의 자동 재판정을 사람 승인으로 채우지 않는다. 이미 아는 Vendure 연결을 FCA만의 발견으로 주장하지 않으며 H-O/H-F와 코드/모델 유지 비용을 각각 평가한다. 데이터가 지지하지 않으면 기술 추가보다 실험/표현 방식을 재검토하며 주요 방향 전환은 사용자에게 확인한다.

@@ -56,7 +56,7 @@ Formal Context `(G, M, I)`에서 G는 함수, M은 `type:<declaration ID>`, `pro
 
 ## 확장 지점
 
-다음은 [S1 도메인 모델 실험](reviews/2026-11-08-domain-model-next-plan.md)이다. 별도 실험 데이터로 코드 사실·FCA 후보·검토 대기 모델·승인 지식을 연결하고 원문 변경 시 근거가 만료됨을 검출한다. **현재 core/CLI 계약이나 구현된 기능이 아니다.** 기존 전체 Program과 별도로 FCA 객체/역할 속성을 선택하는 계약도 실험 안에서 명시한다. 중첩 callback을 소속 메서드에 집계한다면 위 core facts와 다른 파생 계약이다.
+[S1 도메인 모델 실험](../experiments/domain-model/README.md)은 별도 경로에 구현됐다. 12개 검토 대기 모델 항목·근거 검증·네 클래스 78메서드×6직접 호출 역할의 단순 그룹/FCA를 제공한다. **제품 core/CLI 계약에는 통합하지 않았다.** 전체 Program을 유지하고 callback 호출식을 소속 메서드의 원문 영역 속성으로 집계하는 별도 계약이다. 위 core의 중첩 함수 facts와 같지 않다. [독립 리뷰](reviews/2026-11-08-domain-model-independent-review.md)의 R6/R7에 따라 개념→동작 탐색과 standalone 분석 입력 검증을 보완해야 한다.
 
 기본 FCA 상한은 현재 PoC의 계산·결과 관리 예산이며 수학적 최대 크기나 제품의 영구 한계가 아니다. S1에서는 상한을 유지하고 의미 있는 범위에서도 넘으면 실패를 보존한다. 상한 조정이나 다른 열거 전략은 비용·완전성 근거를 갖춘 후속 결정이다.
 
