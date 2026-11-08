@@ -1,0 +1,104 @@
+[
+  {
+    "candidateRef": "candidate:formal-1",
+    "sameExtentGroups": [
+      "group:sends-mutation"
+    ],
+    "additionalIntersection": false,
+    "tooBroadForBusinessIdentity": true,
+    "members": [
+      "OrderDataService.settlePayment",
+      "OrderDataService.cancelPayment",
+      "OrderDataService.transitionPaymentToState",
+      "OrderDataService.createFulfillment",
+      "OrderDataService.transitionFulfillmentToState",
+      "OrderDataService.cancelOrder",
+      "OrderDataService.refundOrder",
+      "OrderDataService.settleRefund",
+      "OrderDataService.addNoteToOrder",
+      "OrderDataService.updateOrderNote",
+      "OrderDataService.deleteOrderNote",
+      "OrderDataService.transitionToState",
+      "OrderDataService.updateOrderCustomFields",
+      "OrderDataService.modifyOrder",
+      "OrderDataService.addManualPaymentToOrder",
+      "OrderDataService.createDraftOrder",
+      "OrderDataService.deleteDraftOrder",
+      "OrderDataService.addItemToDraftOrder",
+      "OrderDataService.adjustDraftOrderLine",
+      "OrderDataService.removeDraftOrderLine",
+      "OrderDataService.setCustomerForDraftOrder",
+      "OrderDataService.setDraftOrderShippingAddress",
+      "OrderDataService.setDraftOrderBillingAddress",
+      "OrderDataService.unsetDraftOrderShippingAddress",
+      "OrderDataService.unsetDraftOrderBillingAddress",
+      "OrderDataService.applyCouponCodeToDraftOrder",
+      "OrderDataService.removeCouponCodeFromDraftOrder",
+      "OrderDataService.setDraftOrderShippingMethod"
+    ],
+    "interpretation": "Static role sharing only; business meaning deferred. Direct member-reference search also finds these calls.",
+    "disposition": "No new business item inferred; known connections retained or broad grouping withheld."
+  },
+  {
+    "candidateRef": "candidate:formal-2",
+    "sameExtentGroups": [
+      "group:returns-dialog-payload"
+    ],
+    "additionalIntersection": false,
+    "tooBroadForBusinessIdentity": false,
+    "members": [
+      "CancelOrderDialogComponent.select",
+      "RefundOrderDialogComponent.select"
+    ],
+    "interpretation": "Static role sharing only; business meaning deferred. Direct member-reference search also finds these calls.",
+    "disposition": "No new business item inferred; known connections retained or broad grouping withheld."
+  },
+  {
+    "candidateRef": "candidate:formal-3",
+    "sameExtentGroups": [
+      "group:opens-modal"
+    ],
+    "additionalIntersection": false,
+    "tooBroadForBusinessIdentity": false,
+    "members": [
+      "OrderDetailComponent.addManualPayment",
+      "OrderDetailComponent.fulfillOrder",
+      "OrderDetailComponent.settleRefund",
+      "OrderDetailComponent.updateNote",
+      "OrderDetailComponent.cancelOrder",
+      "OrderDetailComponent.refundOrder",
+      "OrderDetailComponent.openStateDiagram",
+      "OrderDetailComponent.setOrderCustomer"
+    ],
+    "interpretation": "Static role sharing only; business meaning deferred. Direct member-reference search also finds these calls.",
+    "disposition": "No new business item inferred; known connections retained or broad grouping withheld."
+  },
+  {
+    "candidateRef": "candidate:formal-4",
+    "sameExtentGroups": [
+      "group:closes-dialog-empty"
+    ],
+    "additionalIntersection": false,
+    "tooBroadForBusinessIdentity": false,
+    "members": [
+      "CancelOrderDialogComponent.cancel",
+      "RefundOrderDialogComponent.cancel"
+    ],
+    "interpretation": "Static role sharing only; business meaning deferred. Direct member-reference search also finds these calls.",
+    "disposition": "No new business item inferred; known connections retained or broad grouping withheld."
+  },
+  {
+    "candidateRef": "candidate:formal-5",
+    "sameExtentGroups": [
+      "group:calls-cancel"
+    ],
+    "additionalIntersection": false,
+    "tooBroadForBusinessIdentity": false,
+    "members": [
+      "OrderDetailComponent.cancelOrder",
+      "OrderDetailComponent.refundOrder"
+    ],
+    "interpretation": "Static role sharing only; business meaning deferred. Direct member-reference search also finds these calls.",
+    "disposition": "No new business item inferred; known connections retained or broad grouping withheld."
+  }
+]

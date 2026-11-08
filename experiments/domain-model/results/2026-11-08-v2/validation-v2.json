@@ -1,0 +1,19 @@
+{
+  "valid": true,
+  "anchorValid": true,
+  "analysisInputsValid": true,
+  "status": "verified",
+  "requiresReview": false,
+  "semanticApproval": "not-assessed; formal records cannot authenticate human review",
+  "anchorErrors": [],
+  "analysisInputs": {
+    "valid": true,
+    "status": "verified",
+    "originalEntries": 4735,
+    "programFiles": 1638,
+    "diagnostics": []
+  },
+  "staleFacts": [],
+  "staleCandidates": [],
+  "staleItems": []
+}

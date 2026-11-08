@@ -1,0 +1,263 @@
+{
+  "schemaVersion": 1,
+  "revision": "534e6003534f74761e82de1b8c6061cba89945d1",
+  "stage": "after-fca",
+  "author": "agent",
+  "scope": "Pinned Vendure client cancellation/refund pilot; non-exhaustive model draft",
+  "useContract": "Trace concept → relatedItems → factRefs → source; confirm current hash/anchor before edits. On conflict/stale evidence reread source and request review. Never assume this list is complete or infer server policy.",
+  "items": [
+    {
+      "id": "order",
+      "kind": "concept-candidate",
+      "label": "주문",
+      "status": "pending-review",
+      "author": "agent",
+      "factRefs": [
+        "source-V02",
+        "source-V08"
+      ],
+      "candidateRefs": [],
+      "relatedItems": [],
+      "interpretation": "클라이언트의 주문 식별자·상태가 요청 경로에 참여한다.",
+      "unverified": [
+        "서버 상태 전이와 권한 정책은 무엇인가?"
+      ],
+      "intendedPolicy": null
+    },
+    {
+      "id": "line",
+      "kind": "concept-candidate",
+      "label": "주문 항목",
+      "status": "pending-review",
+      "author": "agent",
+      "factRefs": [
+        "source-V07",
+        "source-refund-payload"
+      ],
+      "candidateRefs": [],
+      "relatedItems": [
+        "order"
+      ],
+      "interpretation": "취소·환불 입력은 항목별 수량을 구성한다.",
+      "unverified": [
+        "부분 취소·환불의 서버 제약은 무엇인가?"
+      ],
+      "intendedPolicy": null
+    },
+    {
+      "id": "payment",
+      "kind": "concept-candidate",
+      "label": "결제",
+      "status": "pending-review",
+      "author": "agent",
+      "factRefs": [
+        "source-V03",
+        "source-refund-request"
+      ],
+      "candidateRefs": [],
+      "relatedItems": [
+        "order"
+      ],
+      "interpretation": "settled 결제 관찰과 환불 요청이 관련되지만 결제 정책 전체는 미확인이다.",
+      "unverified": [
+        "커스텀 결제 상태에서 분기 의도는 무엇인가?"
+      ],
+      "intendedPolicy": null
+    },
+    {
+      "id": "cancel-request",
+      "kind": "concept-candidate",
+      "label": "취소 요청",
+      "status": "pending-review",
+      "author": "agent",
+      "factRefs": [
+        "source-V06",
+        "source-V08",
+        "source-V09"
+      ],
+      "candidateRefs": [],
+      "relatedItems": [
+        "order",
+        "line"
+      ],
+      "interpretation": "dialog 결과를 service와 GraphQL operation에 연결한다.",
+      "unverified": [
+        "입력 계약 변경 시 서버·generated 타입 변경도 필요한가?"
+      ],
+      "intendedPolicy": null
+    },
+    {
+      "id": "refund-request",
+      "kind": "concept-candidate",
+      "label": "환불 요청",
+      "status": "pending-review",
+      "author": "agent",
+      "factRefs": [
+        "source-V11",
+        "source-refund-payload",
+        "source-refund-mutation"
+      ],
+      "candidateRefs": [],
+      "relatedItems": [
+        "payment",
+        "line"
+      ],
+      "interpretation": "환불 요청과 함께 조건부 취소 입력을 준비할 수 있다.",
+      "unverified": [
+        "취소 없는 환불의 허용 범위는 무엇인가?"
+      ],
+      "intendedPolicy": null
+    },
+    {
+      "id": "branch",
+      "kind": "observed-behavior-candidate",
+      "label": "클라이언트 취소/환불 분기",
+      "status": "pending-review",
+      "author": "agent",
+      "factRefs": [
+        "source-V02",
+        "source-V03"
+      ],
+      "candidateRefs": [],
+      "relatedItems": [
+        "order",
+        "payment"
+      ],
+      "interpretation": "PaymentAuthorized 또는 active 또는 settled payment 없음이면 취소 경로, 그 외 환불 경로.",
+      "unverified": [
+        "이 분기는 서버의 완전한 허용 정책이 아니다."
+      ],
+      "intendedPolicy": null
+    },
+    {
+      "id": "dialog-submit",
+      "kind": "relationship-candidate",
+      "label": "대화상자 결과 → 취소 요청",
+      "status": "pending-review",
+      "author": "agent",
+      "factRefs": [
+        "source-V04",
+        "source-V06",
+        "source-V08"
+      ],
+      "candidateRefs": [],
+      "relatedItems": [
+        "cancel-request"
+      ],
+      "interpretation": "modal 열기, 입력 생성, 결과 존재 확인, service 호출을 별개 단계로 검토한다.",
+      "unverified": [
+        "RxJS 실제 실행·오류 처리 정책은 별도 검증이 필요하다."
+      ],
+      "intendedPolicy": null
+    },
+    {
+      "id": "refund-also-cancels",
+      "kind": "relationship-candidate",
+      "label": "환불 경로의 조건부 취소 요청",
+      "status": "pending-review",
+      "author": "agent",
+      "factRefs": [
+        "source-refund-cancel",
+        "source-refund-request",
+        "source-refund-payload"
+      ],
+      "candidateRefs": [
+        "candidate:formal-5"
+      ],
+      "relatedItems": [
+        "cancel-request",
+        "refund-request"
+      ],
+      "interpretation": "두 경로는 취소 service를 공유한다. 취소 입력 변경 검토에 refundOrder도 포함한다. 이미 원문에서 알려진 연결이다.",
+      "unverified": [
+        "모든 환불에 취소가 필수인 것은 아니다.",
+        "다른 화면의 호출은 이 모델의 완전성 범위 밖이다."
+      ],
+      "intendedPolicy": null
+    },
+    {
+      "id": "dismiss",
+      "kind": "observed-behavior-candidate",
+      "label": "대화상자 닫기 ≠ 주문 취소",
+      "status": "pending-review",
+      "author": "agent",
+      "factRefs": [
+        "source-V10",
+        "source-refund-close"
+      ],
+      "candidateRefs": [
+        "candidate:formal-4"
+      ],
+      "relatedItems": [
+        "cancel-request",
+        "refund-request"
+      ],
+      "interpretation": "두 dialog의 cancel()은 resolveWith()를 인자 없이 호출한다. 주문 취소 요청으로 합치지 않는다.",
+      "unverified": [
+        "modal 서비스의 runtime 종료 동작은 이 정적 관찰 밖이다."
+      ],
+      "intendedPolicy": null
+    },
+    {
+      "id": "ui-gates",
+      "kind": "observed-behavior-candidate",
+      "label": "메뉴 노출과 제출 비활성",
+      "status": "pending-review",
+      "author": "agent",
+      "factRefs": [
+        "source-V01",
+        "source-V05"
+      ],
+      "candidateRefs": [],
+      "relatedItems": [
+        "cancel-request"
+      ],
+      "interpretation": "HTML 메뉴/버튼 조건은 수동 원문 근거이며 TS 자동 분석 결과가 아니다.",
+      "unverified": [
+        "서버 권한·요청 성공을 UI 조건으로 증명할 수 없다."
+      ],
+      "intendedPolicy": null
+    },
+    {
+      "id": "cancel-transport",
+      "kind": "relationship-candidate",
+      "label": "취소 service → GraphQL operation",
+      "status": "pending-review",
+      "author": "agent",
+      "factRefs": [
+        "source-V08",
+        "source-V09"
+      ],
+      "candidateRefs": [],
+      "relatedItems": [
+        "cancel-request"
+      ],
+      "interpretation": "CANCEL_ORDER 문서와 input 전달을 관찰한다.",
+      "unverified": [
+        "GraphQL/서버 실행 결과는 확인하지 않았다."
+      ],
+      "intendedPolicy": null
+    },
+    {
+      "id": "refund-transport",
+      "kind": "relationship-candidate",
+      "label": "환불 service → GraphQL operation",
+      "status": "pending-review",
+      "author": "agent",
+      "factRefs": [
+        "source-refund-mutation",
+        "source-V11"
+      ],
+      "candidateRefs": [],
+      "relatedItems": [
+        "refund-request"
+      ],
+      "interpretation": "REFUND_ORDER 요청은 취소 operation과 구분한다.",
+      "unverified": [
+        "서버 환불 정책과 취소 선행 조건은 미확인이다."
+      ],
+      "intendedPolicy": null
+    }
+  ],
+  "approvedKnowledge": []
+}

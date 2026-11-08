@@ -161,3 +161,7 @@
 **관찰:** 78×6에서 unknown 0, 후보 5개는 모두 단순 그룹과 동일하다. 기존 두 항목에 후보 링크만 추가했고 새 의미 발견은 0이다. 다음은 S1 독립 리뷰 후 S2 계약/fixture 동결 권고이며 H-O·H-F 일반 효과나 Gate 상승으로 해석하지 않는다. [인계](reviews/2026-11-08-domain-model-prototype.md).
 
 **ADR-021 독립 검토 후속(2026-11-08):** 계산·고정 결과는 재현됐으나 R6(탐색 방향 계약)·R7(standalone 분석 입력 검증) 보완이 필요하다. [현재 지시](reviews/2026-11-08-domain-model-review-next-plan.md)는 V1 보존과 새 버전 검증을 요구하며 S2 실행보다 우선한다. 최종 목표/상한/코어를 바꾸는 결정은 아니다. 역방향 조회의 구현 선택과 입력 검사 재사용은 개발 범위 내에서 정하되 근거 검사와 업무 의미 승인은 계속 분리한다.
+
+## ADR-022 · S1 V2 소비 계약 보완 — 2026-11-08
+
+R6은 모델 의미를 변경하지 않고 incoming/outgoing 한 단계 조회로 보완한다. direction/declaredEdge를 출력하며 역방향 조회는 대칭 업무 관계가 아니다. R7은 V1 runner의 고정 입력 검사 로직을 V2 공통 함수로 분리하여 새 runner/standalone 경로가 공유한다. V1은 역사적 재현을 위해 수정하지 않는다. 전체 입력 미검증/변경 시 모든 자동 역할 fact/candidate와 모델 항목을 보수적으로 재검토시킨다. anchor-only는 partial/exit1이며 승인/전체 성공이 아니다. [V2 사용 경로](../experiments/domain-model/v2/README.md). S2 비교·core 확장은 하지 않았다.

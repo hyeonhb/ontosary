@@ -1,0 +1,657 @@
+{
+  "order": {
+    "found": true,
+    "id": "order",
+    "factRefs": [
+      "source-V02",
+      "source-V08"
+    ],
+    "candidateRefs": [],
+    "contract": "One-hop incoming/outgoing reference lookup; no transitive closure or symmetric business relation inferred",
+    "paths": [
+      {
+        "from": "order",
+        "to": "line",
+        "direction": "incoming",
+        "declaredEdge": [
+          "line",
+          "order"
+        ],
+        "kind": "concept-candidate",
+        "factRefs": [
+          "source-V07",
+          "source-refund-payload"
+        ],
+        "candidateRefs": []
+      },
+      {
+        "from": "order",
+        "to": "payment",
+        "direction": "incoming",
+        "declaredEdge": [
+          "payment",
+          "order"
+        ],
+        "kind": "concept-candidate",
+        "factRefs": [
+          "source-V03",
+          "source-refund-request"
+        ],
+        "candidateRefs": []
+      },
+      {
+        "from": "order",
+        "to": "cancel-request",
+        "direction": "incoming",
+        "declaredEdge": [
+          "cancel-request",
+          "order"
+        ],
+        "kind": "concept-candidate",
+        "factRefs": [
+          "source-V06",
+          "source-V08",
+          "source-V09"
+        ],
+        "candidateRefs": []
+      },
+      {
+        "from": "order",
+        "to": "branch",
+        "direction": "incoming",
+        "declaredEdge": [
+          "branch",
+          "order"
+        ],
+        "kind": "observed-behavior-candidate",
+        "factRefs": [
+          "source-V02",
+          "source-V03"
+        ],
+        "candidateRefs": []
+      }
+    ]
+  },
+  "line": {
+    "found": true,
+    "id": "line",
+    "factRefs": [
+      "source-V07",
+      "source-refund-payload"
+    ],
+    "candidateRefs": [],
+    "contract": "One-hop incoming/outgoing reference lookup; no transitive closure or symmetric business relation inferred",
+    "paths": [
+      {
+        "from": "line",
+        "to": "order",
+        "direction": "outgoing",
+        "declaredEdge": [
+          "line",
+          "order"
+        ],
+        "kind": "concept-candidate",
+        "factRefs": [
+          "source-V02",
+          "source-V08"
+        ],
+        "candidateRefs": []
+      },
+      {
+        "from": "line",
+        "to": "cancel-request",
+        "direction": "incoming",
+        "declaredEdge": [
+          "cancel-request",
+          "line"
+        ],
+        "kind": "concept-candidate",
+        "factRefs": [
+          "source-V06",
+          "source-V08",
+          "source-V09"
+        ],
+        "candidateRefs": []
+      },
+      {
+        "from": "line",
+        "to": "refund-request",
+        "direction": "incoming",
+        "declaredEdge": [
+          "refund-request",
+          "line"
+        ],
+        "kind": "concept-candidate",
+        "factRefs": [
+          "source-V11",
+          "source-refund-payload",
+          "source-refund-mutation"
+        ],
+        "candidateRefs": []
+      }
+    ]
+  },
+  "payment": {
+    "found": true,
+    "id": "payment",
+    "factRefs": [
+      "source-V03",
+      "source-refund-request"
+    ],
+    "candidateRefs": [],
+    "contract": "One-hop incoming/outgoing reference lookup; no transitive closure or symmetric business relation inferred",
+    "paths": [
+      {
+        "from": "payment",
+        "to": "order",
+        "direction": "outgoing",
+        "declaredEdge": [
+          "payment",
+          "order"
+        ],
+        "kind": "concept-candidate",
+        "factRefs": [
+          "source-V02",
+          "source-V08"
+        ],
+        "candidateRefs": []
+      },
+      {
+        "from": "payment",
+        "to": "refund-request",
+        "direction": "incoming",
+        "declaredEdge": [
+          "refund-request",
+          "payment"
+        ],
+        "kind": "concept-candidate",
+        "factRefs": [
+          "source-V11",
+          "source-refund-payload",
+          "source-refund-mutation"
+        ],
+        "candidateRefs": []
+      },
+      {
+        "from": "payment",
+        "to": "branch",
+        "direction": "incoming",
+        "declaredEdge": [
+          "branch",
+          "payment"
+        ],
+        "kind": "observed-behavior-candidate",
+        "factRefs": [
+          "source-V02",
+          "source-V03"
+        ],
+        "candidateRefs": []
+      }
+    ]
+  },
+  "cancel-request": {
+    "found": true,
+    "id": "cancel-request",
+    "factRefs": [
+      "source-V06",
+      "source-V08",
+      "source-V09"
+    ],
+    "candidateRefs": [],
+    "contract": "One-hop incoming/outgoing reference lookup; no transitive closure or symmetric business relation inferred",
+    "paths": [
+      {
+        "from": "cancel-request",
+        "to": "order",
+        "direction": "outgoing",
+        "declaredEdge": [
+          "cancel-request",
+          "order"
+        ],
+        "kind": "concept-candidate",
+        "factRefs": [
+          "source-V02",
+          "source-V08"
+        ],
+        "candidateRefs": []
+      },
+      {
+        "from": "cancel-request",
+        "to": "line",
+        "direction": "outgoing",
+        "declaredEdge": [
+          "cancel-request",
+          "line"
+        ],
+        "kind": "concept-candidate",
+        "factRefs": [
+          "source-V07",
+          "source-refund-payload"
+        ],
+        "candidateRefs": []
+      },
+      {
+        "from": "cancel-request",
+        "to": "dialog-submit",
+        "direction": "incoming",
+        "declaredEdge": [
+          "dialog-submit",
+          "cancel-request"
+        ],
+        "kind": "relationship-candidate",
+        "factRefs": [
+          "source-V04",
+          "source-V06",
+          "source-V08"
+        ],
+        "candidateRefs": []
+      },
+      {
+        "from": "cancel-request",
+        "to": "refund-also-cancels",
+        "direction": "incoming",
+        "declaredEdge": [
+          "refund-also-cancels",
+          "cancel-request"
+        ],
+        "kind": "relationship-candidate",
+        "factRefs": [
+          "source-refund-cancel",
+          "source-refund-request",
+          "source-refund-payload"
+        ],
+        "candidateRefs": [
+          "candidate:formal-5"
+        ]
+      },
+      {
+        "from": "cancel-request",
+        "to": "dismiss",
+        "direction": "incoming",
+        "declaredEdge": [
+          "dismiss",
+          "cancel-request"
+        ],
+        "kind": "observed-behavior-candidate",
+        "factRefs": [
+          "source-V10",
+          "source-refund-close"
+        ],
+        "candidateRefs": [
+          "candidate:formal-4"
+        ]
+      },
+      {
+        "from": "cancel-request",
+        "to": "ui-gates",
+        "direction": "incoming",
+        "declaredEdge": [
+          "ui-gates",
+          "cancel-request"
+        ],
+        "kind": "observed-behavior-candidate",
+        "factRefs": [
+          "source-V01",
+          "source-V05"
+        ],
+        "candidateRefs": []
+      },
+      {
+        "from": "cancel-request",
+        "to": "cancel-transport",
+        "direction": "incoming",
+        "declaredEdge": [
+          "cancel-transport",
+          "cancel-request"
+        ],
+        "kind": "relationship-candidate",
+        "factRefs": [
+          "source-V08",
+          "source-V09"
+        ],
+        "candidateRefs": []
+      }
+    ]
+  },
+  "refund-request": {
+    "found": true,
+    "id": "refund-request",
+    "factRefs": [
+      "source-V11",
+      "source-refund-payload",
+      "source-refund-mutation"
+    ],
+    "candidateRefs": [],
+    "contract": "One-hop incoming/outgoing reference lookup; no transitive closure or symmetric business relation inferred",
+    "paths": [
+      {
+        "from": "refund-request",
+        "to": "line",
+        "direction": "outgoing",
+        "declaredEdge": [
+          "refund-request",
+          "line"
+        ],
+        "kind": "concept-candidate",
+        "factRefs": [
+          "source-V07",
+          "source-refund-payload"
+        ],
+        "candidateRefs": []
+      },
+      {
+        "from": "refund-request",
+        "to": "payment",
+        "direction": "outgoing",
+        "declaredEdge": [
+          "refund-request",
+          "payment"
+        ],
+        "kind": "concept-candidate",
+        "factRefs": [
+          "source-V03",
+          "source-refund-request"
+        ],
+        "candidateRefs": []
+      },
+      {
+        "from": "refund-request",
+        "to": "refund-also-cancels",
+        "direction": "incoming",
+        "declaredEdge": [
+          "refund-also-cancels",
+          "refund-request"
+        ],
+        "kind": "relationship-candidate",
+        "factRefs": [
+          "source-refund-cancel",
+          "source-refund-request",
+          "source-refund-payload"
+        ],
+        "candidateRefs": [
+          "candidate:formal-5"
+        ]
+      },
+      {
+        "from": "refund-request",
+        "to": "dismiss",
+        "direction": "incoming",
+        "declaredEdge": [
+          "dismiss",
+          "refund-request"
+        ],
+        "kind": "observed-behavior-candidate",
+        "factRefs": [
+          "source-V10",
+          "source-refund-close"
+        ],
+        "candidateRefs": [
+          "candidate:formal-4"
+        ]
+      },
+      {
+        "from": "refund-request",
+        "to": "refund-transport",
+        "direction": "incoming",
+        "declaredEdge": [
+          "refund-transport",
+          "refund-request"
+        ],
+        "kind": "relationship-candidate",
+        "factRefs": [
+          "source-refund-mutation",
+          "source-V11"
+        ],
+        "candidateRefs": []
+      }
+    ]
+  },
+  "branch": {
+    "found": true,
+    "id": "branch",
+    "factRefs": [
+      "source-V02",
+      "source-V03"
+    ],
+    "candidateRefs": [],
+    "contract": "One-hop incoming/outgoing reference lookup; no transitive closure or symmetric business relation inferred",
+    "paths": [
+      {
+        "from": "branch",
+        "to": "order",
+        "direction": "outgoing",
+        "declaredEdge": [
+          "branch",
+          "order"
+        ],
+        "kind": "concept-candidate",
+        "factRefs": [
+          "source-V02",
+          "source-V08"
+        ],
+        "candidateRefs": []
+      },
+      {
+        "from": "branch",
+        "to": "payment",
+        "direction": "outgoing",
+        "declaredEdge": [
+          "branch",
+          "payment"
+        ],
+        "kind": "concept-candidate",
+        "factRefs": [
+          "source-V03",
+          "source-refund-request"
+        ],
+        "candidateRefs": []
+      }
+    ]
+  },
+  "dialog-submit": {
+    "found": true,
+    "id": "dialog-submit",
+    "factRefs": [
+      "source-V04",
+      "source-V06",
+      "source-V08"
+    ],
+    "candidateRefs": [],
+    "contract": "One-hop incoming/outgoing reference lookup; no transitive closure or symmetric business relation inferred",
+    "paths": [
+      {
+        "from": "dialog-submit",
+        "to": "cancel-request",
+        "direction": "outgoing",
+        "declaredEdge": [
+          "dialog-submit",
+          "cancel-request"
+        ],
+        "kind": "concept-candidate",
+        "factRefs": [
+          "source-V06",
+          "source-V08",
+          "source-V09"
+        ],
+        "candidateRefs": []
+      }
+    ]
+  },
+  "refund-also-cancels": {
+    "found": true,
+    "id": "refund-also-cancels",
+    "factRefs": [
+      "source-refund-cancel",
+      "source-refund-request",
+      "source-refund-payload"
+    ],
+    "candidateRefs": [
+      "candidate:formal-5"
+    ],
+    "contract": "One-hop incoming/outgoing reference lookup; no transitive closure or symmetric business relation inferred",
+    "paths": [
+      {
+        "from": "refund-also-cancels",
+        "to": "cancel-request",
+        "direction": "outgoing",
+        "declaredEdge": [
+          "refund-also-cancels",
+          "cancel-request"
+        ],
+        "kind": "concept-candidate",
+        "factRefs": [
+          "source-V06",
+          "source-V08",
+          "source-V09"
+        ],
+        "candidateRefs": []
+      },
+      {
+        "from": "refund-also-cancels",
+        "to": "refund-request",
+        "direction": "outgoing",
+        "declaredEdge": [
+          "refund-also-cancels",
+          "refund-request"
+        ],
+        "kind": "concept-candidate",
+        "factRefs": [
+          "source-V11",
+          "source-refund-payload",
+          "source-refund-mutation"
+        ],
+        "candidateRefs": []
+      }
+    ]
+  },
+  "dismiss": {
+    "found": true,
+    "id": "dismiss",
+    "factRefs": [
+      "source-V10",
+      "source-refund-close"
+    ],
+    "candidateRefs": [
+      "candidate:formal-4"
+    ],
+    "contract": "One-hop incoming/outgoing reference lookup; no transitive closure or symmetric business relation inferred",
+    "paths": [
+      {
+        "from": "dismiss",
+        "to": "cancel-request",
+        "direction": "outgoing",
+        "declaredEdge": [
+          "dismiss",
+          "cancel-request"
+        ],
+        "kind": "concept-candidate",
+        "factRefs": [
+          "source-V06",
+          "source-V08",
+          "source-V09"
+        ],
+        "candidateRefs": []
+      },
+      {
+        "from": "dismiss",
+        "to": "refund-request",
+        "direction": "outgoing",
+        "declaredEdge": [
+          "dismiss",
+          "refund-request"
+        ],
+        "kind": "concept-candidate",
+        "factRefs": [
+          "source-V11",
+          "source-refund-payload",
+          "source-refund-mutation"
+        ],
+        "candidateRefs": []
+      }
+    ]
+  },
+  "ui-gates": {
+    "found": true,
+    "id": "ui-gates",
+    "factRefs": [
+      "source-V01",
+      "source-V05"
+    ],
+    "candidateRefs": [],
+    "contract": "One-hop incoming/outgoing reference lookup; no transitive closure or symmetric business relation inferred",
+    "paths": [
+      {
+        "from": "ui-gates",
+        "to": "cancel-request",
+        "direction": "outgoing",
+        "declaredEdge": [
+          "ui-gates",
+          "cancel-request"
+        ],
+        "kind": "concept-candidate",
+        "factRefs": [
+          "source-V06",
+          "source-V08",
+          "source-V09"
+        ],
+        "candidateRefs": []
+      }
+    ]
+  },
+  "cancel-transport": {
+    "found": true,
+    "id": "cancel-transport",
+    "factRefs": [
+      "source-V08",
+      "source-V09"
+    ],
+    "candidateRefs": [],
+    "contract": "One-hop incoming/outgoing reference lookup; no transitive closure or symmetric business relation inferred",
+    "paths": [
+      {
+        "from": "cancel-transport",
+        "to": "cancel-request",
+        "direction": "outgoing",
+        "declaredEdge": [
+          "cancel-transport",
+          "cancel-request"
+        ],
+        "kind": "concept-candidate",
+        "factRefs": [
+          "source-V06",
+          "source-V08",
+          "source-V09"
+        ],
+        "candidateRefs": []
+      }
+    ]
+  },
+  "refund-transport": {
+    "found": true,
+    "id": "refund-transport",
+    "factRefs": [
+      "source-refund-mutation",
+      "source-V11"
+    ],
+    "candidateRefs": [],
+    "contract": "One-hop incoming/outgoing reference lookup; no transitive closure or symmetric business relation inferred",
+    "paths": [
+      {
+        "from": "refund-transport",
+        "to": "refund-request",
+        "direction": "outgoing",
+        "declaredEdge": [
+          "refund-transport",
+          "refund-request"
+        ],
+        "kind": "concept-candidate",
+        "factRefs": [
+          "source-V11",
+          "source-refund-payload",
+          "source-refund-mutation"
+        ],
+        "candidateRefs": []
+      }
+    ]
+  }
+}
