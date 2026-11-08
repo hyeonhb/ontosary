@@ -1,0 +1,19 @@
+{
+  "baseRevision": "2cd6e72d553ae61954f8469c31f0d6e41ef0a883",
+  "version": 2,
+  "modelUnchanged": true,
+  "semanticChanges": 0,
+  "inputValidation": {
+    "valid": true,
+    "status": "verified",
+    "originalEntries": 4735,
+    "programFiles": 1638,
+    "diagnostics": []
+  },
+  "fingerprints": {
+    "inputs.mjs": "27ada5fac760ec5132c2a2d4617cdc2f39f9247c16dd9b162723ef3f3c6b4fb3",
+    "navigate.mjs": "1c619bdcaa6f4fc95fb8eede77261007b22b475514bbca005bf2f04066688c24",
+    "run.mjs": "81536feba3cb73a63da420248c62c0c641e7bac8f78b05596749b28b91b2259d",
+    "validate.mjs": "def0ac1a5bfe64b018be02558e8aad442923bf8de2d145c5e90ffd343a453fd6"
+  }
+}

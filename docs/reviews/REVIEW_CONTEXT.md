@@ -1,5 +1,7 @@
 # 독립 리뷰 맥락
 
+2026-11-08 R6/R7 보완: **V2 구현·회귀 검증 완료, 독립 재검토 대기**. incoming/outgoing 한 단계 탐색과 전체 분석 입력/anchor 분리 검사를 제공한다. 모델 의미·78×6 context·후보5/추가 의미0은 유지한다. [최신 사용 경로](../../experiments/domain-model/v2/README.md). [검증 인계](2026-11-08-domain-model-contract-fix.md): 174테스트·기존 비교4/4·15비시간 파일 재현 통과. S2는 미실행이다. 아래 리뷰/관찰은 당시 상태로 보존한다.
+
 마지막 리뷰: 2026-11-08 S1 도메인 모델. [최신 독립 보고](2026-11-08-domain-model-independent-review.md) · [현재 개발 지시](2026-11-08-domain-model-review-next-plan.md).
 
 ## 역할과 사용자 협업

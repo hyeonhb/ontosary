@@ -1,0 +1,55 @@
+{
+  "cliCases": {
+    "normal": {
+      "exitCode": 0,
+      "anchorValid": true,
+      "analysisInputsValid": true,
+      "status": "verified",
+      "requiresReview": false
+    },
+    "partial": {
+      "exitCode": 1,
+      "anchorValid": true,
+      "analysisInputsValid": false,
+      "status": "partial",
+      "requiresReview": true
+    },
+    "target-only": {
+      "exitCode": 1,
+      "anchorValid": true,
+      "analysisInputsValid": false,
+      "status": "requires-review",
+      "requiresReview": true
+    },
+    "missing-config": {
+      "exitCode": 1,
+      "anchorValid": true,
+      "analysisInputsValid": false,
+      "status": "requires-review",
+      "requiresReview": true
+    },
+    "source-edit": {
+      "exitCode": 1,
+      "anchorValid": false,
+      "analysisInputsValid": false,
+      "status": "requires-review",
+      "requiresReview": true
+    }
+  },
+  "unchangedV1Files": [
+    "candidate-review.json",
+    "context.json",
+    "facts.json.gz",
+    "fca.json",
+    "model-after.json",
+    "model-before.json",
+    "model-changes.json",
+    "observation.json.gz",
+    "program-inputs.json.gz",
+    "simple-groups.json",
+    "summary.json",
+    "validation.json"
+  ],
+  "V2NonTimeFiles": 15,
+  "preservedContext": "78 x 6; five candidates; zero new semantic items"
+}

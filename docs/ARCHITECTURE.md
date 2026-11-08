@@ -61,3 +61,5 @@ Formal Context `(G, M, I)`에서 G는 함수, M은 `type:<declaration ID>`, `pro
 기본 FCA 상한은 현재 PoC의 계산·결과 관리 예산이며 수학적 최대 크기나 제품의 영구 한계가 아니다. S1에서는 상한을 유지하고 의미 있는 범위에서도 넘으면 실패를 보존한다. 상한 조정이나 다른 열거 전략은 비용·완전성 근거를 갖춘 후속 결정이다.
 
 정적 사실의 coverage 측정, 범위 선택, 비교 전제에 대한 명시적 변수 매핑, 소스 변경에 대한 ID 전략은 후속 후보로 남긴다. React/Next 전용 메타데이터는 공통 facts 위에 추가할 후보이며 현재 플러그인 인터페이스는 없다. 승인 워크플로·LLM 해석·SMT·온톨로지 포맷은 [ROADMAP](ROADMAP.md)의 미래 항목이다.
+
+S1 후속 [V2](../experiments/domain-model/v2/README.md)는 모델 참조의 incoming/outgoing 한 단계 조회와 공통 입력 무결성 검사를 추가한다. anchor-only는 부분 검사이며 분석 입력을 검증하지 않으면 전체 valid를 반환하지 않는다. 제품 core/CLI에는 통합하지 않았다. V1의 역사적 실행/판정은 유지한다.

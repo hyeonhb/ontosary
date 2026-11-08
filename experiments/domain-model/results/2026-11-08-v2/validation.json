@@ -1,0 +1,8 @@
+{
+  "valid": true,
+  "semanticApproval": "not-assessed; formal records cannot authenticate human review",
+  "errors": [],
+  "staleFacts": [],
+  "staleItems": [],
+  "requiresReview": false
+}
