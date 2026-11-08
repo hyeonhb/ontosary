@@ -1,0 +1,29 @@
+{
+  "baseRevision": "f080e39b7a853fc0f06384294f3758897ddc5406",
+  "fingerprints": {
+    "experiments/domain-model/s2/evaluation/execute.ts": "e7c440d1dd56b189b090f572641b2f947a9f7431680b43d33e9a1112d3d0ec70",
+    "experiments/domain-model/s2/evaluation/oracle-check.ts": "95d00a3e290cedd59faeedb5e9c26bffea7f10371c2dc74ad26892add0c8f06d",
+    "experiments/domain-model/s2/evaluation/run.ts": "bba899509d6bce77351368cfabe0035d17d989ce19d495c9b0a0211dded5fa3e",
+    "experiments/domain-model/s2/lib/analysis-session.ts": "7656b8ec54e1059259536c8f25cd739adc7e6d6d3305080b65f3d405c26150ba",
+    "experiments/domain-model/s2/lib/bundle.ts": "d49f63c1e295b4068b511775e34800d68868048cd32549bbab2ec6cffae98680",
+    "experiments/domain-model/s2/lib/model.ts": "9de8eac98c91a65ccf623ae35b757cdd93524e9985b06c88f88cb05f54097ed7",
+    "experiments/domain-model/s2/lib/query.ts": "23ef9557b429bee8e4581354782c6121ead5e9fa0ac7d924d8002ce81d23e523",
+    "experiments/domain-model/s2/lib/validate.ts": "bc8e51188e4a3c24ee87179de37cbb6689b7308e370e4c436c147785d6e03aae",
+    "experiments/domain-model/s2/prepare.ts": "8874a7c3ecf9d151deca91428ce046829a45b1d282e8c547a7ecc14fd8a02736",
+    "experiments/domain-model/s2/vendure-baseline.ts": "c99fdc32a2d145973024def2e28e3f347892729f3a84f9f17aec2d366489134b",
+    "experiments/domain-model/s2/verify.ts": "fa81fb75179cdd71fe438919148e07a281240fbd284384164b025aabfa254ca6",
+    "experiments/domain-model/s2/workspace.ts": "9de8fff4ebf505cdb39762efd23eb147d296ea1a5ab77bf02866427e55303a5e",
+    "package.json": "543a582e25fd49501c02da218d39f442a7b59c239bd6fbe438c567cbdbd17e8a",
+    "tests/s2.test.ts": "92ba63cc2fbe52390253d8f2cda592468b3d4c450f156ce783f2c35ab73fe4e1"
+  },
+  "tests": {
+    "newAlwaysRun": 22,
+    "totalPassed": 196,
+    "skipped": 0,
+    "existingComparisonsPassed": 4
+  },
+  "humanAuthoringMs": null,
+  "humanReviewMs": null,
+  "agentTrial": null,
+  "logNormalization": "Absolute repository path in check.log replaced with <repository>; other output preserved"
+}

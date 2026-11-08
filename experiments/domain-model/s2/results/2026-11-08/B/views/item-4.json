@@ -1,0 +1,77 @@
+{
+  "item": {
+    "status": "Found",
+    "value": {
+      "id": "refund-request",
+      "kind": "concept-candidate",
+      "factRefs": [
+        "source-V11",
+        "source-refund-payload",
+        "source-refund-mutation"
+      ],
+      "candidateRefs": [],
+      "source": {
+        "id": "refund-request",
+        "kind": "concept-candidate",
+        "label": "환불 요청",
+        "status": "pending-review",
+        "author": "agent",
+        "factRefs": [
+          "source-V11",
+          "source-refund-payload",
+          "source-refund-mutation"
+        ],
+        "candidateRefs": [],
+        "relatedItems": [
+          "payment",
+          "line"
+        ],
+        "interpretation": "환불 요청과 함께 조건부 취소 입력을 준비할 수 있다.",
+        "unverified": [
+          "취소 없는 환불의 허용 범위는 무엇인가?"
+        ],
+        "intendedPolicy": null
+      }
+    }
+  },
+  "neighbors": {
+    "status": "Found",
+    "value": [
+      {
+        "from": "refund-request",
+        "to": "payment",
+        "kind": "related-item",
+        "provenance": "S1.items/4/relatedItems",
+        "direction": "outgoing"
+      },
+      {
+        "from": "refund-request",
+        "to": "line",
+        "kind": "related-item",
+        "provenance": "S1.items/4/relatedItems",
+        "direction": "outgoing"
+      },
+      {
+        "from": "refund-also-cancels",
+        "to": "refund-request",
+        "kind": "related-item",
+        "provenance": "S1.items/7/relatedItems",
+        "direction": "incoming"
+      },
+      {
+        "from": "dismiss",
+        "to": "refund-request",
+        "kind": "related-item",
+        "provenance": "S1.items/8/relatedItems",
+        "direction": "incoming"
+      },
+      {
+        "from": "refund-transport",
+        "to": "refund-request",
+        "kind": "related-item",
+        "provenance": "S1.items/11/relatedItems",
+        "direction": "incoming"
+      }
+    ]
+  }
+}

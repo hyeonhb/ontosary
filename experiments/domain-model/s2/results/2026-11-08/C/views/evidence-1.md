@@ -1,0 +1,15 @@
+# evidence-1
+
+status: "Found"
+value:
+ id: "source-V02/e0"
+ file: "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts"
+ symbol: "cancelOrRefund(order: OrderDetailFragment) {"
+ offset: 18542
+ end: 18586
+ line: 466
+ anchor: "cancelOrRefund(order: OrderDetailFragment) {"
+ sha256: "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede"
+ text: "cancelOrRefund(order: OrderDetailFragment) {"
+ column: 5
+ sourceVersion: "baseline"

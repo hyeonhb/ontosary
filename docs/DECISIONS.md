@@ -177,3 +177,11 @@ R6은 모델 의미를 변경하지 않고 incoming/outgoing 한 단계 조회�
 **사용자 결정:** [제안 구조](reviews/2026-11-08-s2-architecture-proposal.md)로 진행하고 구체적 개발 지시를 작성한다. 준비 배치의 단일 baseline 분석 세션, 동결 모델과 순수 조회, 사전 생성 view를 동일 파일 도구로 소비하는 방식, 타입 검사되는 S2 실험 내부 모듈 배치를 채택한다. 제품 core/public API 통합과 S3 지식 갱신은 이번 범위 밖이다.
 
 **다음 작업:** [S2 준비 구현 지시](reviews/2026-11-08-s2-development-instructions.md)에 따라 선행 부채·실험 배포·평가 하네스·재현 근거를 준비해 독립 리뷰에 넘긴다. 현재 리뷰 세션은 지시/맥락 문서만 작성했으며 구현·본 비교를 실행하지 않았다. 과업의 필수 행동·fixture 원문 충실성·B/C 동등성·agent 버전/예산·격리/실행 조건은 검토 가능한 자료로 만든 뒤 동결한다. 구조 합의가 미정 실험 조건이나 실제 업무 정책의 승인을 대신하지 않는다.
+
+## ADR-025 · S2 준비 구현의 검증·배포·평가 경계 — 2026-11-08
+
+**구현 선택:** S1의 고정 산출물을 runtime 타입 검사와 원문 입력 감사로 검증한 뒤 단일 Program 세션의 내부 seal 객체만 포장에 사용한다. 입력 baselineId, 모델 의미 modelId, 배포 bundleId를 분리하고 key 정렬/배열 순서 보존으로 결정성을 유지한다. query는 소유 복제와 순수 색인만 제공한다. 승인 ingest는 미지원이며 원래 검토 대기 상태를 유지한다. 관련 후보의 구성원 선언/속성 정의를 포함하고 무관한 cell 참조 제외는 selection에 기록한다. 제품 API 승격/새 FCA 의미 발견은 아니다.
+
+**평가 선택:** allowlist workspace에는 원문과 조건별 사전 생성 자료만 넣는다. evaluator/참조 수정은 별도이며 같은 호스트 폴더를 격리라고 주장하지 않는다. 제출 본문/상대 helper를 실제 실행하고 변경된 constructor/field/inheritance/decorator 및 Promise/async/미검토 RxJS 연산자는 unsupported로 보고한다. 제한된 fixture가 전체 Angular/서버 동작을 증명하지 않는다.
+
+**미결 사항:** invalid reason에서 요청과 연쇄 환불을 중단하는 참조 수정은 검토용 권고이며 제품 정책 승인이 아니다. 사람의 정보 동등성/원문 충실성 검토, 정책·agent 모델/예산·격리 동결 전 readyForTrial=false다. 이번 결과는 준비 구현·oracle 교정이며 H-O/H-F 효과나 Gate를 올리지 않는다. [실제 결과](reviews/2026-11-08-s2-preparation.md).

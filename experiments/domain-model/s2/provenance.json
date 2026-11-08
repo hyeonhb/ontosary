@@ -1,0 +1,12 @@
+{
+  "baseRevision": "f080e39b7a853fc0f06384294f3758897ddc5406",
+  "sourceRevision": "534e6003534f74761e82de1b8c6061cba89945d1",
+  "schemaVersion": 1,
+  "policyVersion": 1,
+  "S1Artifacts": {
+    "model-after.json": "0cb9d47181cd73481a3e0dc569872c0890e77a2c6ebcaf67b424f1c85ed7a867",
+    "facts.json.gz": "a2a1d8e296b8d6b215c40212b20758b009834d7af106e4beb50a742870ff9def",
+    "fca.json": "23d9fee3e16cb442f95012cd443dea8cb7299a7a8024244b61ea9d854267e296",
+    "observation.json.gz": "60ea1ceba7cac312e1b58e640f262baf83a92b3636a01632b05d087956a5e960"
+  }
+}

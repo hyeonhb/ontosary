@@ -66,6 +66,12 @@ Formal Context `(G, M, I)`에서 G는 함수, M은 `type:<declaration ID>`, `pro
 
 S1 후속 [V2](../experiments/domain-model/v2/README.md)는 모델 참조의 incoming/outgoing 한 단계 조회와 공통 입력 무결성 검사를 추가한다. anchor-only는 부분 검사이며 분석 입력을 검증하지 않으면 전체 valid를 반환하지 않는다. 제품 core/CLI에는 통합하지 않았다. V1의 역사적 실행/판정은 유지한다.
 
-## 합의된 S2 구조 — 아직 미구현
+## S2 준비 구현 — 실험 내부 모듈
 
-2026-11-08 ADR-024에 따라 준비 배치의 단일 baseline 분석 세션 → 검증된 동결 모델 → 순수 조회/사전 생성 view 구조를 채택했다. 새 모듈은 타입 검사되는 실험 내부에 두며 core/public API는 유지한다. 조회에는 Program/Checker를 전달하지 않고 agent는 A/B/C 모두 동일한 파일 도구로 자료를 소비한다. 모델은 변경 전 코드의 지식이며 현재 편집본의 자동 검증/모델 갱신은 S3로 둔다. [개발 지시](reviews/2026-11-08-s2-development-instructions.md)의 준비 구현·평가 하네스·재현·인계가 다음 작업이며, 실제 구현 후 이 문서의 현재 구조를 갱신한다.
+2026-11-08 ADR-024/025의 [S2 모듈](../experiments/domain-model/s2/README.md)은 별도 tsconfig로 전체 check에 포함된다. `analysis-session`이 고정 입력/CompilerHost를 검증하고 Program을 한 번 생성한다. 원문 hash와 필요한 text/lineStarts를 재사용하고 seal에서 입력·root/해석 lookup을 재검사한 뒤 dispose한다. `vendure-baseline`이 공개 앱별 입력 명세를 공급한다.
+
+`model`/`validate`는 unknown JSON의 타입·참조·원문 좌표·상태를 검사한다. `query`는 복제한 자료와 ID/방향 adjacency/evidence 색인만 소유하며 compiler/fs/process에 의존하지 않는다. `bundle`은 12항목의 fact22/candidate2 참조 closure와 구성원 선언/역할 정의를 포장한다. baselineId/modelId/bundleId가 입력·해석·배포 파일을 구분하며 baseline 근거를 현재 편집 코드의 사실로 표현하지 않는다.
+
+`prepare`는 B JSON/C Markdown view·대응표·실행 계획을 생성하고 `workspace`는 조건별 allowlist와 원문 inventory만 복사한다. `evaluation`은 제출 클래스 본문/지원 helper를 실행하고 DI/UI/서버 등 제외 seam을 명시한다. Promise/async와 미검토 operator는 unsupported다. evaluator 자료는 workspace에 복사하지 않지만 실제 OS 격리는 unverified다.
+
+제품 core/public API·S1/V1/V2는 유지한다. 과업 정책·B/C 의미 동등성·oracle 충실성·실행 조건은 검토 전이며 readyForTrial=false다. 본 비교·자동 모델 갱신/S3는 구현 완료 범위가 아니다. [인계와 검증](reviews/2026-11-08-s2-preparation.md).

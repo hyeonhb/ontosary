@@ -1,0 +1,30 @@
+# fact-14
+
+status: "Found"
+value:
+ id: "source-refund-close"
+ evidence:
+  항목 1:
+   id: "source-refund-close/e0"
+   file: "packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts"
+   symbol: "refund-close"
+   offset: 7491
+   end: 7529
+   line: 205
+   anchor: "cancel() {\n        this.resolveWith();"
+   sha256: "d9ea112f17bff650686842306bef46fa6f7564278b1166762a7c9b7a8473a6fb"
+ source:
+  id: "source-refund-close"
+  kind: "observed-in-source"
+  author: "agent"
+  method: "manual-source-reading"
+  scope: "Pinned Admin UI client static source; no runtime/server policy guarantee"
+  support: "manual; not a whole-function logical proof"
+  claim: "환불 dialog cancel은 결과 인자 없이 닫는다."
+  evidence:
+   file: "packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts"
+   symbol: "refund-close"
+   offset: 7491
+   line: 205
+   anchor: "cancel() {\n        this.resolveWith();"
+   sha256: "d9ea112f17bff650686842306bef46fa6f7564278b1166762a7c9b7a8473a6fb"

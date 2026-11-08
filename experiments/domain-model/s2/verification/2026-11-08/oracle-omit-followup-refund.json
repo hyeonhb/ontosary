@@ -1,0 +1,1105 @@
+{
+  "scope": "Submitted method bodies plus submitted relative helpers; real pinned RxJS; constructor/field/Angular/DI/server/UI excluded. No untrusted-code sandbox claim.",
+  "policy": "Draft: invalid reason suppresses submission; requires review before trial.",
+  "sourceMapping": [
+    {
+      "className": "OrderDetailComponent",
+      "file": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+      "submittedHash": "34211175dba9d9c0bdc06ee95556b88eaeb027a7f23ec15ee8319d2e129b593e",
+      "baselineHash": "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede",
+      "methods": [
+        {
+          "name": "ngOnInit",
+          "offset": 3808,
+          "end": 4828,
+          "line": 105,
+          "anchor": "ngOnInit() {"
+        },
+        {
+          "name": "ngOnDestroy",
+          "offset": 4834,
+          "end": 4879,
+          "line": 134,
+          "anchor": "ngOnDestroy() {"
+        },
+        {
+          "name": "openStateDiagram",
+          "offset": 4885,
+          "end": 5337,
+          "line": 138,
+          "anchor": "openStateDiagram() {"
+        },
+        {
+          "name": "setOrderCustomer",
+          "offset": 5343,
+          "end": 6656,
+          "line": 154,
+          "anchor": "setOrderCustomer() {"
+        },
+        {
+          "name": "transitionToState",
+          "offset": 6662,
+          "end": 7247,
+          "line": 189,
+          "anchor": "transitionToState(state: string) {"
+        },
+        {
+          "name": "manuallyTransitionToState",
+          "offset": 7253,
+          "end": 7648,
+          "line": 202,
+          "anchor": "manuallyTransitionToState(order: OrderDetailFragment) {"
+        },
+        {
+          "name": "transitionToModifying",
+          "offset": 7654,
+          "end": 8225,
+          "line": 214,
+          "anchor": "transitionToModifying() {"
+        },
+        {
+          "name": "updateCustomFields",
+          "offset": 8231,
+          "end": 8592,
+          "line": 228,
+          "anchor": "updateCustomFields() {"
+        },
+        {
+          "name": "getOrderAddressLines",
+          "offset": 8598,
+          "end": 8871,
+          "line": 239,
+          "anchor": "getOrderAddressLines(orderAddress?: { [key: string]: string }): string[] {"
+        },
+        {
+          "name": "settlePayment",
+          "offset": 8877,
+          "end": 9783,
+          "line": 248,
+          "anchor": "settlePayment(payment: Payment) {"
+        },
+        {
+          "name": "transitionPaymentState",
+          "offset": 9789,
+          "end": 11803,
+          "line": 268,
+          "anchor": "transitionPaymentState({ payment, state }: { payment: Payment; state: string }) {"
+        },
+        {
+          "name": "canAddFulfillment",
+          "offset": 11809,
+          "end": 12877,
+          "line": 310,
+          "anchor": "canAddFulfillment(order: OrderDetailFragment): boolean {"
+        },
+        {
+          "name": "hasUnsettledModifications",
+          "offset": 12883,
+          "end": 13026,
+          "line": 333,
+          "anchor": "hasUnsettledModifications(order: OrderDetailFragment): boolean {"
+        },
+        {
+          "name": "getOutstandingModificationAmount",
+          "offset": 13032,
+          "end": 13229,
+          "line": 337,
+          "anchor": "getOutstandingModificationAmount(order: OrderDetailFragment): number {"
+        },
+        {
+          "name": "outstandingPaymentAmount",
+          "offset": 13235,
+          "end": 13848,
+          "line": 344,
+          "anchor": "outstandingPaymentAmount(order: OrderDetailFragment): number {"
+        },
+        {
+          "name": "addManualPayment",
+          "offset": 13854,
+          "end": 15968,
+          "line": 357,
+          "anchor": "addManualPayment(order: OrderDetailFragment) {"
+        },
+        {
+          "name": "fulfillOrder",
+          "offset": 15974,
+          "end": 18182,
+          "line": 407,
+          "anchor": "fulfillOrder() {"
+        },
+        {
+          "name": "transitionFulfillment",
+          "offset": 18188,
+          "end": 18536,
+          "line": 457,
+          "anchor": "transitionFulfillment(id: string, state: string) {"
+        },
+        {
+          "name": "cancelOrRefund",
+          "offset": 18542,
+          "end": 18852,
+          "line": 466,
+          "anchor": "cancelOrRefund(order: OrderDetailFragment) {"
+        },
+        {
+          "name": "settleRefund",
+          "offset": 18858,
+          "end": 19891,
+          "line": 475,
+          "anchor": "settleRefund(refund: Payment['refunds'][number]) {"
+        },
+        {
+          "name": "addNote",
+          "offset": 19897,
+          "end": 20410,
+          "line": 506,
+          "anchor": "addNote(event: { note: string; isPublic: boolean }) {"
+        },
+        {
+          "name": "updateNote",
+          "offset": 20416,
+          "end": 21479,
+          "line": 522,
+          "anchor": "updateNote(entry: TimelineHistoryEntry) {"
+        },
+        {
+          "name": "deleteNote",
+          "offset": 21485,
+          "end": 22232,
+          "line": 553,
+          "anchor": "deleteNote(entry: TimelineHistoryEntry) {"
+        },
+        {
+          "name": "orderHasSettledPayments",
+          "offset": 22238,
+          "end": 22373,
+          "line": 572,
+          "anchor": "orderHasSettledPayments(order: OrderDetailFragment): boolean {"
+        },
+        {
+          "name": "cancelOrder",
+          "offset": 22379,
+          "end": 23179,
+          "line": 576,
+          "anchor": "private cancelOrder(order: OrderDetailFragment) {"
+        },
+        {
+          "name": "refundOrder",
+          "offset": 23185,
+          "end": 26940,
+          "line": 601,
+          "anchor": "private refundOrder(order: OrderDetailFragment) {"
+        },
+        {
+          "name": "refetchOrder",
+          "offset": 26946,
+          "end": 27227,
+          "line": 683,
+          "anchor": "private refetchOrder(result: object | undefined): Observable<GetOrderQuery | undefined> {"
+        },
+        {
+          "name": "setFormValues",
+          "offset": 27233,
+          "end": 27458,
+          "line": 692,
+          "anchor": "protected setFormValues(entity: OrderDetailFragment): void {"
+        }
+      ],
+      "testedCoverage": "Only scenarios listed below; not every extracted method is executed"
+    },
+    {
+      "className": "CancelOrderDialogComponent",
+      "file": "packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts",
+      "submittedHash": "fefc2b0634f3a38e4eaa9894457d77462403b445f24c01a8920bb1842a5f796c",
+      "baselineHash": "a47e7000b222454302c8a0dfc374555f78616517fdc3ec03621a199ecf234cc5",
+      "methods": [
+        {
+          "name": "selectionCount",
+          "offset": 995,
+          "end": 1113,
+          "line": 30,
+          "anchor": "get selectionCount(): number {"
+        },
+        {
+          "name": "ngOnInit",
+          "offset": 1255,
+          "end": 1428,
+          "line": 38,
+          "anchor": "ngOnInit() {"
+        },
+        {
+          "name": "radioChanged",
+          "offset": 1434,
+          "end": 1755,
+          "line": 45,
+          "anchor": "radioChanged() {"
+        },
+        {
+          "name": "checkIfAllSelected",
+          "offset": 1761,
+          "end": 2248,
+          "line": 57,
+          "anchor": "checkIfAllSelected() {"
+        },
+        {
+          "name": "select",
+          "offset": 2254,
+          "end": 2605,
+          "line": 69,
+          "anchor": "select() {"
+        },
+        {
+          "name": "cancel",
+          "offset": 2611,
+          "end": 2655,
+          "line": 80,
+          "anchor": "cancel() {"
+        },
+        {
+          "name": "getLineInputs",
+          "offset": 2661,
+          "end": 2998,
+          "line": 84,
+          "anchor": "private getLineInputs(): OrderLineInput[] | undefined {"
+        }
+      ],
+      "testedCoverage": "Only scenarios listed below; not every extracted method is executed"
+    },
+    {
+      "className": "RefundOrderDialogComponent",
+      "file": "packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts",
+      "submittedHash": "81f6fad6930171652d6c0b68376ce267cdc0f060b71090c82da3014aaae687b3",
+      "baselineHash": "d9ea112f17bff650686842306bef46fa6f7564278b1166762a7c9b7a8473a6fb",
+      "methods": [
+        {
+          "name": "totalRefundableAmount",
+          "offset": 1670,
+          "end": 1782,
+          "line": 46,
+          "anchor": "get totalRefundableAmount(): number {"
+        },
+        {
+          "name": "amountToRefundTotal",
+          "offset": 1788,
+          "end": 1979,
+          "line": 50,
+          "anchor": "get amountToRefundTotal(): number {"
+        },
+        {
+          "name": "lineCanBeRefundedOrCancelled",
+          "offset": 1985,
+          "end": 2770,
+          "line": 57,
+          "anchor": "lineCanBeRefundedOrCancelled(line: OrderDetailFragment['lines'][number]): boolean {"
+        },
+        {
+          "name": "ngOnInit",
+          "offset": 2776,
+          "end": 3180,
+          "line": 75,
+          "anchor": "ngOnInit() {"
+        },
+        {
+          "name": "updateRefundTotal",
+          "offset": 3186,
+          "end": 4400,
+          "line": 90,
+          "anchor": "updateRefundTotal() {"
+        },
+        {
+          "name": "toggleShippingRefund",
+          "offset": 4406,
+          "end": 4715,
+          "line": 117,
+          "anchor": "toggleShippingRefund(lineId: string) {"
+        },
+        {
+          "name": "onRefundQuantityChange",
+          "offset": 4721,
+          "end": 5288,
+          "line": 127,
+          "anchor": "onRefundQuantityChange(orderLineId: string, quantity: number) {"
+        },
+        {
+          "name": "onPaymentSelected",
+          "offset": 5294,
+          "end": 5947,
+          "line": 142,
+          "anchor": "onPaymentSelected(payment: RefundablePayment, selected: boolean) {"
+        },
+        {
+          "name": "isRefunding",
+          "offset": 5953,
+          "end": 6171,
+          "line": 159,
+          "anchor": "isRefunding(): boolean {"
+        },
+        {
+          "name": "isCancelling",
+          "offset": 6177,
+          "end": 6415,
+          "line": 167,
+          "anchor": "isCancelling(): boolean {"
+        },
+        {
+          "name": "canSubmit",
+          "offset": 6421,
+          "end": 6552,
+          "line": 175,
+          "anchor": "canSubmit(): boolean {"
+        },
+        {
+          "name": "select",
+          "offset": 6558,
+          "end": 7627,
+          "line": 179,
+          "anchor": "select() {"
+        },
+        {
+          "name": "cancel",
+          "offset": 7633,
+          "end": 7677,
+          "line": 207,
+          "anchor": "cancel() {"
+        },
+        {
+          "name": "getOrderLineInput",
+          "offset": 7683,
+          "end": 8043,
+          "line": 211,
+          "anchor": "private getOrderLineInput(filterFn: (line: SelectionLine) => boolean): OrderLineInput[] {"
+        }
+      ],
+      "testedCoverage": "Only scenarios listed below; not every extracted method is executed"
+    },
+    {
+      "className": "OrderDataService",
+      "file": "packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts",
+      "submittedHash": "39bace1b9678ab9769b78c24a1d425e8ee0b34764b54bfe45f3d3febda993538",
+      "baselineHash": "27ddd40b2430caebc5f0defc901d1e42aa54f1cb29038fe4e7657a2448c03811",
+      "methods": [
+        {
+          "name": "getOrders",
+          "offset": 1220,
+          "end": 1487,
+          "line": 43,
+          "anchor": "getOrders(options: Codegen.OrderListOptions = { take: 10 }) {"
+        },
+        {
+          "name": "getOrder",
+          "offset": 1493,
+          "end": 1659,
+          "line": 52,
+          "anchor": "getOrder(id: string) {"
+        },
+        {
+          "name": "getOrderHistory",
+          "offset": 1665,
+          "end": 1958,
+          "line": 58,
+          "anchor": "getOrderHistory(id: string, options?: Codegen.HistoryEntryListOptions) {"
+        },
+        {
+          "name": "settlePayment",
+          "offset": 1964,
+          "end": 2191,
+          "line": 68,
+          "anchor": "settlePayment(id: string) {"
+        },
+        {
+          "name": "cancelPayment",
+          "offset": 2197,
+          "end": 2424,
+          "line": 77,
+          "anchor": "cancelPayment(id: string) {"
+        },
+        {
+          "name": "transitionPaymentToState",
+          "offset": 2430,
+          "end": 2737,
+          "line": 86,
+          "anchor": "transitionPaymentToState(id: string, state: string) {"
+        },
+        {
+          "name": "createFulfillment",
+          "offset": 2743,
+          "end": 3011,
+          "line": 96,
+          "anchor": "createFulfillment(input: Codegen.FulfillOrderInput) {"
+        },
+        {
+          "name": "transitionFulfillmentToState",
+          "offset": 3017,
+          "end": 3340,
+          "line": 105,
+          "anchor": "transitionFulfillmentToState(id: string, state: string) {"
+        },
+        {
+          "name": "cancelOrder",
+          "offset": 3346,
+          "end": 3753,
+          "line": 115,
+          "anchor": "cancelOrder(input: Codegen.CancelOrderInput) {"
+        },
+        {
+          "name": "refundOrder",
+          "offset": 3759,
+          "end": 4011,
+          "line": 126,
+          "anchor": "refundOrder(input: Codegen.RefundOrderInput) {"
+        },
+        {
+          "name": "settleRefund",
+          "offset": 4017,
+          "end": 4282,
+          "line": 135,
+          "anchor": "settleRefund(input: Codegen.SettleRefundInput, orderId: string) {"
+        },
+        {
+          "name": "addNoteToOrder",
+          "offset": 4288,
+          "end": 4548,
+          "line": 144,
+          "anchor": "addNoteToOrder(input: Codegen.AddNoteToOrderInput) {"
+        },
+        {
+          "name": "updateOrderNote",
+          "offset": 4554,
+          "end": 4818,
+          "line": 153,
+          "anchor": "updateOrderNote(input: Codegen.UpdateOrderNoteInput) {"
+        },
+        {
+          "name": "deleteOrderNote",
+          "offset": 4824,
+          "end": 5060,
+          "line": 162,
+          "anchor": "deleteOrderNote(id: string) {"
+        },
+        {
+          "name": "transitionToState",
+          "offset": 5066,
+          "end": 5360,
+          "line": 171,
+          "anchor": "transitionToState(id: string, state: string) {"
+        },
+        {
+          "name": "updateOrderCustomFields",
+          "offset": 5366,
+          "end": 5659,
+          "line": 181,
+          "anchor": "updateOrderCustomFields(input: Codegen.UpdateOrderInput) {"
+        },
+        {
+          "name": "modifyOrder",
+          "offset": 5665,
+          "end": 5917,
+          "line": 190,
+          "anchor": "modifyOrder(input: Codegen.ModifyOrderInput) {"
+        },
+        {
+          "name": "addManualPaymentToOrder",
+          "offset": 5923,
+          "end": 6184,
+          "line": 199,
+          "anchor": "addManualPaymentToOrder(input: Codegen.ManualPaymentInput) {"
+        },
+        {
+          "name": "createDraftOrder",
+          "offset": 6190,
+          "end": 6314,
+          "line": 206,
+          "anchor": "createDraftOrder() {"
+        },
+        {
+          "name": "deleteDraftOrder",
+          "offset": 6320,
+          "end": 6549,
+          "line": 210,
+          "anchor": "deleteDraftOrder(orderId: string) {"
+        },
+        {
+          "name": "addItemToDraftOrder",
+          "offset": 6555,
+          "end": 6846,
+          "line": 217,
+          "anchor": "addItemToDraftOrder(orderId: string, input: Codegen.AddItemToDraftOrderInput) {"
+        },
+        {
+          "name": "adjustDraftOrderLine",
+          "offset": 6852,
+          "end": 7147,
+          "line": 224,
+          "anchor": "adjustDraftOrderLine(orderId: string, input: Codegen.AdjustDraftOrderLineInput) {"
+        },
+        {
+          "name": "removeDraftOrderLine",
+          "offset": 7153,
+          "end": 7433,
+          "line": 231,
+          "anchor": "removeDraftOrderLine(orderId: string, orderLineId: string) {"
+        },
+        {
+          "name": "setCustomerForDraftOrder",
+          "offset": 7439,
+          "end": 7829,
+          "line": 238,
+          "anchor": "setCustomerForDraftOrder("
+        },
+        {
+          "name": "setDraftOrderShippingAddress",
+          "offset": 7835,
+          "end": 8160,
+          "line": 248,
+          "anchor": "setDraftOrderShippingAddress(orderId: string, input: Codegen.CreateAddressInput) {"
+        },
+        {
+          "name": "setDraftOrderBillingAddress",
+          "offset": 8166,
+          "end": 8487,
+          "line": 255,
+          "anchor": "setDraftOrderBillingAddress(orderId: string, input: Codegen.CreateAddressInput) {"
+        },
+        {
+          "name": "unsetDraftOrderShippingAddress",
+          "offset": 8493,
+          "end": 8784,
+          "line": 262,
+          "anchor": "unsetDraftOrderShippingAddress(orderId: string) {"
+        },
+        {
+          "name": "unsetDraftOrderBillingAddress",
+          "offset": 8790,
+          "end": 9077,
+          "line": 269,
+          "anchor": "unsetDraftOrderBillingAddress(orderId: string) {"
+        },
+        {
+          "name": "applyCouponCodeToDraftOrder",
+          "offset": 9083,
+          "end": 9391,
+          "line": 276,
+          "anchor": "applyCouponCodeToDraftOrder(orderId: string, couponCode: string) {"
+        },
+        {
+          "name": "removeCouponCodeFromDraftOrder",
+          "offset": 9397,
+          "end": 9717,
+          "line": 283,
+          "anchor": "removeCouponCodeFromDraftOrder(orderId: string, couponCode: string) {"
+        },
+        {
+          "name": "getDraftOrderEligibleShippingMethods",
+          "offset": 9723,
+          "end": 10018,
+          "line": 290,
+          "anchor": "getDraftOrderEligibleShippingMethods(orderId: string) {"
+        },
+        {
+          "name": "setDraftOrderShippingMethod",
+          "offset": 10024,
+          "end": 10343,
+          "line": 297,
+          "anchor": "setDraftOrderShippingMethod(orderId: string, shippingMethodId: string) {"
+        }
+      ],
+      "testedCoverage": "Only scenarios listed below; not every extracted method is executed"
+    }
+  ],
+  "runtime": {
+    "typescript": "5.9.3",
+    "node": "v22.19.0",
+    "rxjsPackageHash": "2399f5d968d1d693ecd206e7972fd26cb7e3daa45931ecc12202b3a924be38b7"
+  },
+  "cases": [
+    {
+      "name": "direct-reason-0",
+      "category": "draft-requirement",
+      "pass": true,
+      "calls": [
+        {
+          "kind": "cancel",
+          "input": {
+            "orderId": "o",
+            "lines": [
+              {
+                "orderLineId": "l",
+                "quantity": 1
+              }
+            ],
+            "reason": "normal",
+            "cancelShipping": true
+          }
+        }
+      ],
+      "details": {
+        "dialogReturned": {
+          "orderId": "o",
+          "lines": [
+            {
+              "orderLineId": "l",
+              "quantity": 1
+            }
+          ],
+          "reason": "normal",
+          "cancelShipping": true
+        }
+      }
+    },
+    {
+      "name": "refund-reason-0",
+      "category": "draft-requirement",
+      "pass": false,
+      "calls": [
+        {
+          "kind": "cancel",
+          "input": {
+            "lines": [
+              {
+                "orderLineId": "l",
+                "quantity": 1
+              }
+            ],
+            "orderId": "o",
+            "reason": "normal",
+            "cancelShipping": false
+          }
+        }
+      ],
+      "details": {
+        "dialogReturned": {
+          "refunds": [
+            {
+              "lines": [
+                {
+                  "orderLineId": "l",
+                  "quantity": 1
+                }
+              ],
+              "reason": "normal",
+              "paymentId": "p",
+              "amount": 10,
+              "shipping": 0,
+              "adjustment": 0
+            }
+          ],
+          "cancel": {
+            "lines": [
+              {
+                "orderLineId": "l",
+                "quantity": 1
+              }
+            ],
+            "orderId": "o",
+            "reason": "normal",
+            "cancelShipping": false
+          }
+        }
+      }
+    },
+    {
+      "name": "direct-reason-1",
+      "category": "draft-requirement",
+      "pass": true,
+      "calls": [
+        {
+          "kind": "cancel",
+          "input": {
+            "orderId": "o",
+            "lines": [
+              {
+                "orderLineId": "l",
+                "quantity": 1
+              }
+            ],
+            "reason": "spaced",
+            "cancelShipping": true
+          }
+        }
+      ],
+      "details": {
+        "dialogReturned": {
+          "orderId": "o",
+          "lines": [
+            {
+              "orderLineId": "l",
+              "quantity": 1
+            }
+          ],
+          "reason": "spaced",
+          "cancelShipping": true
+        }
+      }
+    },
+    {
+      "name": "refund-reason-1",
+      "category": "draft-requirement",
+      "pass": false,
+      "calls": [
+        {
+          "kind": "cancel",
+          "input": {
+            "lines": [
+              {
+                "orderLineId": "l",
+                "quantity": 1
+              }
+            ],
+            "orderId": "o",
+            "reason": "spaced",
+            "cancelShipping": false
+          }
+        }
+      ],
+      "details": {
+        "dialogReturned": {
+          "refunds": [
+            {
+              "lines": [
+                {
+                  "orderLineId": "l",
+                  "quantity": 1
+                }
+              ],
+              "reason": "spaced",
+              "paymentId": "p",
+              "amount": 10,
+              "shipping": 0,
+              "adjustment": 0
+            }
+          ],
+          "cancel": {
+            "lines": [
+              {
+                "orderLineId": "l",
+                "quantity": 1
+              }
+            ],
+            "orderId": "o",
+            "reason": "spaced",
+            "cancelShipping": false
+          }
+        }
+      }
+    },
+    {
+      "name": "direct-reason-2",
+      "category": "draft-requirement",
+      "pass": true,
+      "calls": [],
+      "details": {
+        "dialogReturned": null
+      }
+    },
+    {
+      "name": "refund-reason-2",
+      "category": "draft-requirement",
+      "pass": true,
+      "calls": [],
+      "details": {
+        "dialogReturned": null
+      }
+    },
+    {
+      "name": "direct-reason-3",
+      "category": "draft-requirement",
+      "pass": true,
+      "calls": [],
+      "details": {
+        "dialogReturned": null
+      }
+    },
+    {
+      "name": "refund-reason-3",
+      "category": "draft-requirement",
+      "pass": true,
+      "calls": [],
+      "details": {
+        "dialogReturned": null
+      }
+    },
+    {
+      "name": "direct-reason-4",
+      "category": "draft-requirement",
+      "pass": true,
+      "calls": [],
+      "details": {
+        "dialogReturned": null
+      }
+    },
+    {
+      "name": "refund-reason-4",
+      "category": "draft-requirement",
+      "pass": true,
+      "calls": [],
+      "details": {
+        "dialogReturned": null
+      }
+    },
+    {
+      "name": "direct-reason-5",
+      "category": "draft-requirement",
+      "pass": true,
+      "calls": [],
+      "details": {
+        "dialogReturned": null
+      }
+    },
+    {
+      "name": "refund-reason-5",
+      "category": "draft-requirement",
+      "pass": true,
+      "calls": [],
+      "details": {
+        "dialogReturned": null
+      }
+    },
+    {
+      "name": "refund-only",
+      "category": "preservation",
+      "pass": true,
+      "calls": [
+        {
+          "kind": "refund",
+          "input": {
+            "lines": [
+              {
+                "orderLineId": "l",
+                "quantity": 1
+              }
+            ],
+            "reason": "normal",
+            "paymentId": "p",
+            "amount": 10,
+            "shipping": 0,
+            "adjustment": 0
+          }
+        }
+      ],
+      "details": {
+        "dialogReturned": {
+          "refunds": [
+            {
+              "lines": [
+                {
+                  "orderLineId": "l",
+                  "quantity": 1
+                }
+              ],
+              "reason": "normal",
+              "paymentId": "p",
+              "amount": 10,
+              "shipping": 0,
+              "adjustment": 0
+            }
+          ],
+          "cancel": {
+            "lines": [],
+            "orderId": "o",
+            "reason": "normal",
+            "cancelShipping": false
+          }
+        }
+      }
+    },
+    {
+      "name": "dismiss-cancel",
+      "category": "preservation",
+      "pass": true,
+      "calls": [],
+      "details": {
+        "dialogReturned": null
+      }
+    },
+    {
+      "name": "dismiss-refund",
+      "category": "preservation",
+      "pass": true,
+      "calls": [],
+      "details": {
+        "dialogReturned": null
+      }
+    },
+    {
+      "name": "cancel-failure-stops-refund",
+      "category": "preservation",
+      "pass": true,
+      "calls": [
+        {
+          "kind": "cancel",
+          "input": {
+            "lines": [
+              {
+                "orderLineId": "l",
+                "quantity": 1
+              }
+            ],
+            "orderId": "o",
+            "reason": "normal",
+            "cancelShipping": false
+          }
+        }
+      ],
+      "details": {
+        "dialogReturned": {
+          "refunds": [
+            {
+              "lines": [
+                {
+                  "orderLineId": "l",
+                  "quantity": 1
+                }
+              ],
+              "reason": "normal",
+              "paymentId": "p",
+              "amount": 10,
+              "shipping": 0,
+              "adjustment": 0
+            }
+          ],
+          "cancel": {
+            "lines": [
+              {
+                "orderLineId": "l",
+                "quantity": 1
+              }
+            ],
+            "orderId": "o",
+            "reason": "normal",
+            "cancelShipping": false
+          }
+        }
+      }
+    },
+    {
+      "name": "active-lines-omitted",
+      "category": "preservation",
+      "pass": true,
+      "calls": [
+        {
+          "kind": "cancel",
+          "input": {
+            "orderId": "o",
+            "reason": "normal",
+            "cancelShipping": true
+          }
+        }
+      ],
+      "details": {
+        "dialogReturned": {
+          "orderId": "o",
+          "reason": "normal",
+          "cancelShipping": true
+        }
+      }
+    },
+    {
+      "name": "positive-lines-only",
+      "category": "preservation",
+      "pass": true,
+      "calls": [
+        {
+          "kind": "cancel",
+          "input": {
+            "orderId": "o",
+            "lines": [
+              {
+                "orderLineId": "l",
+                "quantity": 1
+              }
+            ],
+            "reason": "normal",
+            "cancelShipping": true
+          }
+        }
+      ],
+      "details": {
+        "dialogReturned": {
+          "orderId": "o",
+          "lines": [
+            {
+              "orderLineId": "l",
+              "quantity": 1
+            }
+          ],
+          "reason": "normal",
+          "cancelShipping": true
+        }
+      }
+    },
+    {
+      "name": "api-reason-0",
+      "category": "draft-requirement",
+      "pass": true,
+      "calls": [
+        {
+          "kind": "cancel",
+          "input": {
+            "orderId": "o",
+            "reason": "normal"
+          }
+        }
+      ],
+      "details": {
+        "error": null
+      }
+    },
+    {
+      "name": "api-reason-1",
+      "category": "draft-requirement",
+      "pass": true,
+      "calls": [
+        {
+          "kind": "cancel",
+          "input": {
+            "orderId": "o",
+            "reason": "spaced"
+          }
+        }
+      ],
+      "details": {
+        "error": null
+      }
+    },
+    {
+      "name": "api-reason-2",
+      "category": "draft-requirement",
+      "pass": true,
+      "calls": [],
+      "details": {
+        "error": null
+      }
+    },
+    {
+      "name": "api-reason-3",
+      "category": "draft-requirement",
+      "pass": true,
+      "calls": [],
+      "details": {
+        "error": null
+      }
+    },
+    {
+      "name": "api-reason-4",
+      "category": "draft-requirement",
+      "pass": true,
+      "calls": [],
+      "details": {
+        "error": null
+      }
+    },
+    {
+      "name": "api-reason-5",
+      "category": "draft-requirement",
+      "pass": true,
+      "calls": [],
+      "details": {
+        "error": null
+      }
+    }
+  ],
+  "preservationPassed": 6,
+  "preservationTotal": 6,
+  "draftPassed": 16,
+  "draftTotal": 18
+}

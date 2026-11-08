@@ -1,0 +1,15 @@
+# evidence-6
+
+status: "Found"
+value:
+ id: "source-V07/e0"
+ file: "packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts"
+ symbol: "private getLineInputs(): OrderLineInput[] | undefined {"
+ offset: 2519
+ end: 2574
+ line: 82
+ anchor: "private getLineInputs(): OrderLineInput[] | undefined {"
+ sha256: "a47e7000b222454302c8a0dfc374555f78616517fdc3ec03621a199ecf234cc5"
+ text: "private getLineInputs(): OrderLineInput[] | undefined {"
+ column: 5
+ sourceVersion: "baseline"

@@ -1,0 +1,30 @@
+# fact-10
+
+status: "Found"
+value:
+ id: "source-V11"
+ evidence:
+  항목 1:
+   id: "source-V11/e0"
+   file: "packages/admin-ui/src/lib/core/src/data/definitions/order-definitions.ts"
+   symbol: "mutation RefundOrder($input: RefundOrderInput!) {"
+   offset: 7854
+   end: 7903
+   line: 384
+   anchor: "mutation RefundOrder($input: RefundOrderInput!) {"
+   sha256: "26a6b81368d53a731b2847e0587eeb94463ec706bb8df73bee13d304fb770701"
+ source:
+  id: "source-V11"
+  kind: "observed-in-source"
+  author: "agent"
+  method: "manual-source-reading"
+  scope: "Pinned Admin UI client static source; no runtime/server policy guarantee"
+  support: "manual; not a whole-function logical proof"
+  claim: "환불 요청은 연결된 별도 분기이며 취소 요청과 같은 규칙으로 취급하지 않는다."
+  evidence:
+   file: "packages/admin-ui/src/lib/core/src/data/definitions/order-definitions.ts"
+   symbol: "mutation RefundOrder($input: RefundOrderInput!) {"
+   offset: 7854
+   line: 384
+   anchor: "mutation RefundOrder($input: RefundOrderInput!) {"
+   sha256: "26a6b81368d53a731b2847e0587eeb94463ec706bb8df73bee13d304fb770701"
