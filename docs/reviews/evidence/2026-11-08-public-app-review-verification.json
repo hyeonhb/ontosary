@@ -1,0 +1,195 @@
+{
+  "reviewedRevision": "685545fe85d67a0559e5908c6cd0fda4163a65e3",
+  "method": "Fresh immutable downloads; two runs at one new absolute cache path. No app install/build.",
+  "candidates": {
+    "saleor": {
+      "reproduction": {
+        "equivalent": true,
+        "comparedFiles": 13,
+        "outcomes": {
+          "original": "rejected-before-program",
+          "scoped": "compiler-errors"
+        },
+        "hashes": {
+          "input.json": "8a3657be1f7ea429c6cc5919da18bc52b962f46ab11e12e4c1b3a6861e662822",
+          "inventory.json.gz": "7d873edd5dc2fdbe38ccd363735db3638984f2a7f6691f057ee6830f0c0f20f5",
+          "licenses/LICENSE": "2723d1248394da475804b33008b525d8f40d0d1a9c12c6f43a200fbf5bac9c56",
+          "metadata.json": "b0beff956dc211f020829ff08ab94130661243747ca0c750ca54bd545607084f",
+          "original/config.json": "d464e1d3f111bd27c02282709deff088a157ecc0b79bc763a0ece62e9bd439d0",
+          "original/outcome.json": "23b943d07fab9997c75319e80a6e793c565240c62b8070d8994f7b9a7a9d5966",
+          "original/process.json": "b37845bb9fd345a05c2feae8ca3848eb2866372d0be310d1cdb31c4f7a65153f",
+          "scoped/config.json": "8d76f7730b9554821dfd6c34b36eef1ebc3fac3b3b7f86b2041775de51cfbf44",
+          "scoped/outcome.json": "13f674a06447d08acdb9609cfc1afbe98d210a8bfbd11f989bd7822e62ed1a8e",
+          "scoped/process.json": "b37845bb9fd345a05c2feae8ca3848eb2866372d0be310d1cdb31c4f7a65153f",
+          "scoped/program.json.gz": "a6f93645b09d5175ea058ceaef9fede18f04d6dcb9037a0975a27f50ab05f4f0",
+          "scoped/scan.json.gz": "48ded4f29f4fbd08fbf84c01b0c59e87ed884ad7bbecf91f3f326808903499be",
+          "source-notice.json": "bc1a88985d1427d924fef6168472f6e298dd0022f95df3bed7d6166e6858d971"
+        },
+        "excluded": [
+          "timings.json",
+          "preparation.json"
+        ],
+        "scope": "Reproduced failure observations at the same absolute cache path in this Node/TypeScript environment; not a successful application analysis or upstream build verdict."
+      },
+      "inventoryMatchesHistorical": true,
+      "observations": {
+        "original": {
+          "status": "rejected-before-program",
+          "groups": "not-run",
+          "fca": "not-run",
+          "outcomeMatchesHistorical": true
+        },
+        "scoped": {
+          "status": "compiler-errors",
+          "analyzedFiles": 806,
+          "functions": 4205,
+          "errorCount": 1713,
+          "omissions": 506,
+          "groups": "not-run: compiler errors",
+          "fca": "not-run: compiler errors",
+          "outcomeMatchesHistorical": true,
+          "scanDifferencePathsFromHistorical": [
+            "/types/5/type",
+            "/types/6/type",
+            "/types/7/type",
+            "/types/10/type",
+            "/types/15/type",
+            "/types/17/type",
+            "/types/400/type",
+            "/types/509/type",
+            "/types/514/type",
+            "/types/526/type",
+            "/types/528/type",
+            "/types/6060/type",
+            "/types/6134/type",
+            "/types/6136/type",
+            "/types/6142/type",
+            "/types/6195/type",
+            "/types/6246/type"
+          ],
+          "programMatchesHistorical": true,
+          "entryFunctionInventory": {
+            "src/orders/components/OrderDetailsPage/OrderDetailsPage.tsx": 16,
+            "src/orders/views/OrderDetails/OrderNormalDetails/index.tsx": 59,
+            "src/orders/components/OrderCancelDialog/OrderCancelDialog.tsx": 3,
+            "src/orders/components/OrderCannotCancelOrderDialog/OrderCannotCancelOrderDialog.tsx": 1,
+            "src/orders/containers/OrderOperations.tsx": 1,
+            "src/orders/views/OrderDetails/OrderDetails.tsx": 13,
+            "src/orders/mutations.ts": 0
+          },
+          "entryFunctionTotal": 93
+        }
+      },
+      "search": {
+        "matchesHistorical": true,
+        "sha256": "9c85efb1ee5de2139e50d5c7a9d28603c7e922cd49ec8b14fa2551fe6358b7d6",
+        "inputFiles": 806,
+        "matchedFiles": 17,
+        "matchedLines": 96,
+        "required": 14,
+        "requiredFilesReached": 14,
+        "anchorLinesMatched": 8
+      }
+    },
+    "vendure": {
+      "reproduction": {
+        "equivalent": true,
+        "comparedFiles": 17,
+        "outcomes": {
+          "original": "compiler-errors",
+          "scoped": "compiler-errors"
+        },
+        "hashes": {
+          "input.json": "06c149d9f6170c75d24b074903d16a70061d02700866d7f250f2b7655e6564f3",
+          "inventory.json.gz": "223bf5b7b465a0fc934215db6b955a291ae1369e670f3c6030be4f1f5f167f3f",
+          "licenses/LICENSE.md": "b78a9d11922dff7b00efee72d40381bc3765e220fd31c575e2d39ffd42883013",
+          "licenses/gpl-3.0.txt": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+          "licenses/plugin-exception.txt": "8f45d1b72e087c70beca276a88dc462884debbdbca22497c60eadb9db2de2bad",
+          "metadata.json": "688cf2af97990cdfc4a5b598bf688dbae2dac48206ee21f885391477c608500c",
+          "original/config.json": "f33095c46eebb6ecef36ab65260ce835ee1fefecfe90796adc5ecbb200fda271",
+          "original/outcome.json": "661079082f7d4aac4162379f179d1f9bce494f85375a15c1d52acfbea8e917c1",
+          "original/process.json": "b37845bb9fd345a05c2feae8ca3848eb2866372d0be310d1cdb31c4f7a65153f",
+          "original/program.json.gz": "02e8de43e65cd32871e3bb41ccc2fc145ca04922977201d4bc5e321362646b4d",
+          "original/scan.json.gz": "8a4d00dfa3e162389888af4ec38b509f0655991f51d4f9e5a21e262cb961f5cb",
+          "scoped/config.json": "2b029e4b50b8bc6ef95580f4204b3a34bc2fe1f8af8143f7a3f5f54d52ebfe0f",
+          "scoped/outcome.json": "ef7da664be7fa5039a7717bd8366f234ea9f0213566634651566fec4555a6e8a",
+          "scoped/process.json": "b37845bb9fd345a05c2feae8ca3848eb2866372d0be310d1cdb31c4f7a65153f",
+          "scoped/program.json.gz": "e94c71e82bb84c18ab72ba45b5552c6763fd5477f602ade6aae44705114bd945",
+          "scoped/scan.json.gz": "1b15400efc21d6622b024a3f294cf23ae73003ed5e725915b014afb99d481562",
+          "source-notice.json": "349299d0d4e82d64643bd57766b5b2a250d4fd49ee85ea504482c6b51b658c10"
+        },
+        "excluded": [
+          "timings.json",
+          "preparation.json"
+        ],
+        "scope": "Reproduced failure observations at the same absolute cache path in this Node/TypeScript environment; not a successful application analysis or upstream build verdict."
+      },
+      "inventoryMatchesHistorical": true,
+      "observations": {
+        "original": {
+          "status": "compiler-errors",
+          "analyzedFiles": 581,
+          "functions": 4379,
+          "errorCount": 2372,
+          "omissions": 751,
+          "groups": "not-run: compiler errors",
+          "fca": "not-run: compiler errors",
+          "outcomeMatchesHistorical": true,
+          "scanDifferencePathsFromHistorical": [
+            "/types/0/type",
+            "/types/1500/type",
+            "/types/1503/type",
+            "/types/1552/type",
+            "/types/1555/type",
+            "/types/1568/type",
+            "/types/1574/type",
+            "/types/1596/type",
+            "/types/1619/type"
+          ],
+          "programMatchesHistorical": true
+        },
+        "scoped": {
+          "status": "compiler-errors",
+          "analyzedFiles": 327,
+          "functions": 2264,
+          "errorCount": 1058,
+          "omissions": 440,
+          "groups": "not-run: compiler errors",
+          "fca": "not-run: compiler errors",
+          "outcomeMatchesHistorical": true,
+          "scanDifferencePathsFromHistorical": [
+            "/types/1477/type",
+            "/types/1480/type",
+            "/types/1529/type",
+            "/types/1532/type",
+            "/types/1545/type",
+            "/types/1551/type"
+          ],
+          "programMatchesHistorical": true,
+          "entryFunctionInventory": {
+            "src/lib/order/src/components/order-detail/order-detail.component.ts": 82,
+            "src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts": 14,
+            "src/lib/core/src/data/providers/order-data.service.ts": 33,
+            "src/lib/core/src/data/definitions/order-definitions.ts": 0
+          },
+          "entryFunctionTotal": 129
+        }
+      },
+      "search": {
+        "matchesHistorical": true,
+        "sha256": "102ec456a7fd37f5cb3e943400cc81800086787516081204b6c0b1829ac272e7",
+        "inputFiles": 329,
+        "matchedFiles": 10,
+        "matchedLines": 37,
+        "required": 9,
+        "requiredFilesReached": 9,
+        "anchorLinesMatched": 4
+      }
+    }
+  },
+  "limits": {
+    "fcaObjects": 128,
+    "fcaAttributes": 64,
+    "interpretation": "Entry counts are syntax inventory under compiler errors, not successful semantic analysis/FCA. No human approval or utility measurement."
+  }
+}
