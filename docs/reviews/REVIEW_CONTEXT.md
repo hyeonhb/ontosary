@@ -2,7 +2,7 @@
 
 2026-11-08 R6/R7 보완: **V2 구현·회귀 검증 완료, 독립 재검토 대기**. incoming/outgoing 한 단계 탐색과 전체 분석 입력/anchor 분리 검사를 제공한다. 모델 의미·78×6 context·후보5/추가 의미0은 유지한다. [최신 사용 경로](../../experiments/domain-model/v2/README.md). [검증 인계](2026-11-08-domain-model-contract-fix.md): 174테스트·기존 비교4/4·15비시간 파일 재현 통과. S2는 미실행이다. 아래 리뷰/관찰은 당시 상태로 보존한다.
 
-마지막 리뷰: 2026-11-08 S1 도메인 모델. [최신 독립 보고](2026-11-08-domain-model-independent-review.md) · [현재 개발 지시](2026-11-08-domain-model-review-next-plan.md).
+마지막 리뷰: 2026-11-08 R6/R7 V2 독립 재검토. **R6/R7 해결, S1 보완 완료**. [최신 독립 보고](2026-11-08-domain-model-contract-independent-review.md). 174테스트·4비교·15파일 재현·12개 시작 ID·standalone 5상황을 확인했다. 다음 단계 구현 지시는 아직 확정하지 않았다.
 
 ## 역할과 사용자 협업
 
@@ -30,8 +30,8 @@
 | R3 | 해결 | files와 실제 순회 목록 일치, 제외 파일별 근거 |
 | R4 | V2 명시 계약 범위에서 해결 | 타입/종류 기대값 검사 및 미검증 generic/소속 설명 분리. 타입 변형을 mismatch로 거부 |
 | R5 | V3 보고된 범위에서 해결 | 타입 전용 선언 조상 검사로 기존/인접 오인 차단. 실제 use가 타입 signature를 target으로 갖는 경우는 보존 |
-| R6 | 미해결 / Medium | 안내의 개념→동작 탐색과 relatedItems의 실제 방향 불일치. reverse 조회 계약 필요 |
-| R7 | 미해결 / Medium | standalone validator가 심볼 target/분석 입력 변경을 놓침. 전체 runner 입력 검사는 거부 |
+| R6 | V2 검증 범위에서 해결 | incoming/outgoing 한 단계 조회와 원래 선언 방향·근거를 제공 |
+| R7 | V2 검증 범위에서 해결 | standalone도 공통 입력 검사를 수행. anchor-only/입력 변경은 전체 성공으로 처리하지 않음 |
 
 [평가기 재현](evidence/2026-11-07-corpus-evaluator-check.mjs), [관찰 JSON](evidence/2026-11-07-corpus-evaluator-results.json), [산출물 재현 대조](evidence/2026-11-07-corpus-review-reproduction.json). R4는 실제 원본 타입이 틀린 발견이 아니며, R5가 현재 22개 중 특정 판정을 틀리게 했다는 결론도 아니다. 측정기가 오류를 탐지하는 계약을 보완해야 한다. 원래 코어 references는 선언 이름도 포함하며 호출 그래프가 아니다.
 
@@ -54,6 +54,8 @@
 - 새 false proof·업무 의미 승인·사람의 과업 시간·시장 비교를 이번 리뷰에서 확인했다고 주장하지 않는다. 경쟁 문서 확인은 초기 리뷰의 제한된 조사이며 최신 성능 비교가 아니다.
 
 ## 다음 하나와 이후 판단
+
+**최신 사용자 요청:** 큰 아키텍처 선택은 새 단계 구현 전에 사용자와 대화로 정한다. 이번 V2는 완료된 보완 지시의 이행·방향성에 한정해 리뷰했다. R6/R7은 해결됐으며 다음은 S2 과업/구현 범위의 논의다. 아래 보완 지시는 이전 단계의 기록이다.
 
 최신 지시는 **R6/R7: S1 탐색·검증 계약 보완**이다. V1 원시 결과와 독립 실패 증거는 보존하고 새 버전으로 확인한다. 보완 재검토 뒤 S2 reason 계약·원문에 충실한 fixture/oracle·A/B/C 제공 자료를 동결한다. 모델의 안내 예와 이미 대응하는 과업이므로 known-case pilot 한계를 유지한다. core/원문/상한·최종 목표는 그대로이며 효과가 관찰되면 S3 유지 비용을 확인한다.
 

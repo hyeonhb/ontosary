@@ -1,0 +1,76 @@
+{
+  "reviewedRevision": "f991fc72a7a9439aacd814078ce39c517ae84450",
+  "reproducedV2Files": 15,
+  "preservedV1Files": 12,
+  "providedHashes": 9,
+  "navigationStartIds": 12,
+  "missingIdExit": 1,
+  "validatorCases": [
+    {
+      "case": "unchanged prepared input",
+      "exit": 0,
+      "anchorValid": true,
+      "analysisInputsValid": true,
+      "valid": true,
+      "status": "verified",
+      "requiresReview": false,
+      "staleFacts": 0,
+      "staleCandidates": 0,
+      "staleItems": 0,
+      "reason": null
+    },
+    {
+      "case": "explicit anchors-only",
+      "exit": 1,
+      "anchorValid": true,
+      "analysisInputsValid": false,
+      "valid": false,
+      "status": "partial",
+      "requiresReview": true,
+      "staleFacts": 468,
+      "staleCandidates": 5,
+      "staleItems": 12,
+      "reason": null
+    },
+    {
+      "case": "target declaration only",
+      "exit": 1,
+      "anchorValid": true,
+      "analysisInputsValid": false,
+      "valid": false,
+      "status": "requires-review",
+      "requiresReview": true,
+      "staleFacts": 468,
+      "staleCandidates": 5,
+      "staleItems": 12,
+      "reason": "Changed input: packages/admin-ui/src/lib/core/src/providers/modal/modal.service.ts"
+    },
+    {
+      "case": "actual scoped configuration missing",
+      "exit": 1,
+      "anchorValid": true,
+      "analysisInputsValid": false,
+      "valid": false,
+      "status": "requires-review",
+      "requiresReview": true,
+      "staleFacts": 468,
+      "staleCandidates": 5,
+      "staleItems": 12,
+      "reason": "Required source/config/dependency input missing"
+    },
+    {
+      "case": "occurrence source changed",
+      "exit": 1,
+      "anchorValid": false,
+      "analysisInputsValid": false,
+      "valid": false,
+      "status": "requires-review",
+      "requiresReview": true,
+      "staleFacts": 473,
+      "staleCandidates": 5,
+      "staleItems": 12,
+      "reason": "Changed input: packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts"
+    }
+  ],
+  "scope": "Same installed cache; sparse temporary copies only for negative cases. No installation/build or semantic approval."
+}

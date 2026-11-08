@@ -1,5 +1,7 @@
 # 현재 작업 상태 — 새 세션은 이 문서부터 읽기
 
+2026-11-08 V2 독립 리뷰: **R6/R7 해결, S1 보완 완료 인정**. 174테스트·비교 4/4·새 V2 15파일/V1 12파일 일치, 12개 ID 탐색과 standalone 5상황·제공 hash 9개를 확인했다. [최신 독립 리뷰](reviews/2026-11-08-domain-model-contract-independent-review.md). 사용자 요청에 따라 다음 단계의 큰 아키텍처·구현 범위는 대화로 정한 뒤 착수한다. S2와 agent 효용 검증은 아직 미실행이다.
+
 2026-11-08 R6/R7 보완: **V2 구현·회귀 검증 완료, 독립 재검토 대기**. incoming/outgoing 한 단계 탐색과 전체 분석 입력/anchor 분리 검사를 제공한다. 모델 의미·78×6 context·후보5/추가 의미0은 유지한다. [최신 사용 경로](../experiments/domain-model/v2/README.md). [검증 인계](reviews/2026-11-08-domain-model-contract-fix.md): 174테스트·기존 비교4/4·15비시간 파일 재현 통과. S2는 미실행이다. 아래 리뷰/관찰은 당시 상태로 보존한다.
 
 마지막 갱신: **2026-11-08, Asia/Seoul**.
@@ -134,9 +136,8 @@ main `a58a88b`을 독립 검토해 `pnpm check` 89개·기존 실험 4/4 및 새
 
 ## 다음 작업
 
-1. [R6/R7 보완 지시](reviews/2026-11-08-domain-model-review-next-plan.md)에 따라 실제 개념→동작 탐색 계약과 standalone 검증의 분석 입력 전제를 맞춘다. V1·과거 결과·독립 실패 증거를 보존하고 새 버전에서 검증한다.
-2. 새 기능/표본/상한 확장보다 인계 계약을 먼저 보완한다. core/CLI·strict·논리 지원·FCA 기본 상한은 유지하고, 이미 아는 연결이나 탐색 링크 수정을 FCA의 새 의미 발견으로 세지 않는다.
-3. 보완 독립 재검토 후 S2의 로컬 reason 계약·원문에 충실한 fixture/oracle·A/B/C 격리 자료를 동결한다. 모델의 효과와 FCA의 구축 기여를 분리한다. 비교 실행에서 변경 정확성·누락·회귀·사람 재작업·총비용을 보고, 효과가 있을 때 S3 유지 비용으로 이어간다. 현재 agent 효용·사람 승인은 미검증이다.
-4. 주요 기술적·철학적/방향성 선택이 필요하면 관찰·선택지·권고를 사용자에게 제시한다. 작은 수정과 이미 승인된 원격 반영은 반복 승인 대상으로 만들지 않는다.
+1. R6/R7 보완은 독립 검증 범위에서 완료됐다. 최신 소비 경로는 V2이며 V1/과거 실패 증거는 보존한다.
+2. 다음 단계 구현 전에 사용자와 큰 아키텍처·실험 범위를 논의한다. S2 변경 과업, 원문/fixture 경계, A/B/C 제공 자료와 검증 경로를 정한다. 현재 reason 과업은 설계 초안이며 구현 착수 지시가 아니다.
+3. 이후에도 실제 구현의 계약·오류 처리·테스트·재현을 리뷰한다. H-O/H-F와 코드 사실/후보/사람 승인을 분리하며 큰 기술·방향 선택은 사용자와 결정한다.
 
 핵심 코드: `src/core/{analyzer,logic,fca,model}.ts`, `src/cli/index.ts`. 최신 평가기: [V3 README](../experiments/corpus/v3/README.md), [수정 인계](reviews/2026-11-08-type-context-fix.md). 지원 경계는 [ARCHITECTURE](ARCHITECTURE.md), 결정은 [DECISIONS](DECISIONS.md), 실험 해석은 [RESEARCH](RESEARCH.md), 순서는 [ROADMAP](ROADMAP.md)를 따른다.
