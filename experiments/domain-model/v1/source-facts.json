@@ -1,0 +1,274 @@
+[
+  {
+    "id": "source-V01",
+    "kind": "observed-in-source",
+    "author": "agent",
+    "method": "manual-source-reading",
+    "scope": "Pinned Admin UI client static source; no runtime/server policy guarantee",
+    "support": "manual; not a whole-function logical proof",
+    "claim": "메뉴 노출 조건과 cancelOrRefund click. HTML은 core가 읽는 TS facts 밖이며 모든 조건에 원문을 제공해야 한다.",
+    "evidence": {
+      "file": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.html",
+      "symbol": "*ngIf=\"order.type !== 'Aggregate' && order.nextStates.includes('Cancelled')\"",
+      "offset": 2330,
+      "line": 51,
+      "anchor": "*ngIf=\"order.type !== 'Aggregate' && order.nextStates.includes('Cancelled')\"",
+      "sha256": "fecfd12fc47bb2f2d862b618a73e0c98104b87225436046d96938d3bc3220d89"
+    }
+  },
+  {
+    "id": "source-V02",
+    "kind": "observed-in-source",
+    "author": "agent",
+    "method": "manual-source-reading",
+    "scope": "Pinned Admin UI client static source; no runtime/server policy guarantee",
+    "support": "manual; not a whole-function logical proof",
+    "claim": "PaymentAuthorized 또는 active 또는 settled payment 없음이면 취소, 그 외 refund 분기.",
+    "evidence": {
+      "file": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+      "symbol": "cancelOrRefund(order: OrderDetailFragment) {",
+      "offset": 18542,
+      "line": 466,
+      "anchor": "cancelOrRefund(order: OrderDetailFragment) {",
+      "sha256": "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede"
+    }
+  },
+  {
+    "id": "source-V03",
+    "kind": "observed-in-source",
+    "author": "agent",
+    "method": "manual-source-reading",
+    "scope": "Pinned Admin UI client static source; no runtime/server policy guarantee",
+    "support": "manual; not a whole-function logical proof",
+    "claim": "Settled payment 존재 판정. 서버 최종 정책은 아님.",
+    "evidence": {
+      "file": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+      "symbol": "orderHasSettledPayments(order: OrderDetailFragment): boolean {",
+      "offset": 22238,
+      "line": 572,
+      "anchor": "orderHasSettledPayments(order: OrderDetailFragment): boolean {",
+      "sha256": "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede"
+    }
+  },
+  {
+    "id": "source-V04",
+    "kind": "observed-in-source",
+    "author": "agent",
+    "method": "manual-source-reading",
+    "scope": "Pinned Admin UI client static source; no runtime/server policy guarantee",
+    "support": "manual; not a whole-function logical proof",
+    "claim": "취소 dialog를 열고 입력이 있을 때 dataService.order.cancelOrder 호출; 닫기는 undefined.",
+    "evidence": {
+      "file": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+      "symbol": "private cancelOrder(order: OrderDetailFragment) {",
+      "offset": 22379,
+      "line": 576,
+      "anchor": "private cancelOrder(order: OrderDetailFragment) {",
+      "sha256": "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede"
+    }
+  },
+  {
+    "id": "source-V05",
+    "kind": "observed-in-source",
+    "author": "agent",
+    "method": "manual-source-reading",
+    "scope": "Pinned Admin UI client static source; no runtime/server policy guarantee",
+    "support": "manual; not a whole-function logical proof",
+    "claim": "사유와 선택 수에 의한 제출 비활성 조건. Angular template 의미는 자동 추출하지 못한다.",
+    "evidence": {
+      "file": "packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.html",
+      "symbol": "[disabled]=\"!reason || (!order.active && selectionCount === 0)\"",
+      "offset": 3463,
+      "line": 88,
+      "anchor": "[disabled]=\"!reason || (!order.active && selectionCount === 0)\"",
+      "sha256": "308499c673a3cf4fc514210e6ab9aef74e8b89c877cea72d25b371db5fa97dc3"
+    }
+  },
+  {
+    "id": "source-V06",
+    "kind": "observed-in-source",
+    "author": "agent",
+    "method": "manual-source-reading",
+    "scope": "Pinned Admin UI client static source; no runtime/server policy guarantee",
+    "support": "manual; not a whole-function logical proof",
+    "claim": "orderId/lines/reason/cancelShipping 구성; cancelAll과 연동.",
+    "evidence": {
+      "file": "packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts",
+      "symbol": "select() {",
+      "offset": 2254,
+      "line": 69,
+      "anchor": "select() {",
+      "sha256": "a47e7000b222454302c8a0dfc374555f78616517fdc3ec03621a199ecf234cc5"
+    }
+  },
+  {
+    "id": "source-V07",
+    "kind": "observed-in-source",
+    "author": "agent",
+    "method": "manual-source-reading",
+    "scope": "Pinned Admin UI client static source; no runtime/server policy guarantee",
+    "support": "manual; not a whole-function logical proof",
+    "claim": "active이면 lines 생략, 아니면 양수 quantity만 포함.",
+    "evidence": {
+      "file": "packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts",
+      "symbol": "private getLineInputs(): OrderLineInput[] | undefined {",
+      "offset": 2519,
+      "line": 82,
+      "anchor": "private getLineInputs(): OrderLineInput[] | undefined {",
+      "sha256": "a47e7000b222454302c8a0dfc374555f78616517fdc3ec03621a199ecf234cc5"
+    }
+  },
+  {
+    "id": "source-V08",
+    "kind": "observed-in-source",
+    "author": "agent",
+    "method": "manual-source-reading",
+    "scope": "Pinned Admin UI client static source; no runtime/server policy guarantee",
+    "support": "manual; not a whole-function logical proof",
+    "claim": "CANCEL_ORDER 문서와 input으로 BaseDataService.mutate를 호출.",
+    "evidence": {
+      "file": "packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts",
+      "symbol": "cancelOrder(input: Codegen.CancelOrderInput) {",
+      "offset": 3319,
+      "line": 114,
+      "anchor": "cancelOrder(input: Codegen.CancelOrderInput) {",
+      "sha256": "27ddd40b2430caebc5f0defc901d1e42aa54f1cb29038fe4e7657a2448c03811"
+    }
+  },
+  {
+    "id": "source-V09",
+    "kind": "observed-in-source",
+    "author": "agent",
+    "method": "manual-source-reading",
+    "scope": "Pinned Admin UI client static source; no runtime/server policy guarantee",
+    "support": "manual; not a whole-function logical proof",
+    "claim": "order detail 또는 error result를 받는 취소 요청.",
+    "evidence": {
+      "file": "packages/admin-ui/src/lib/core/src/data/definitions/order-definitions.ts",
+      "symbol": "mutation CancelOrder($input: CancelOrderInput!) {",
+      "offset": 7598,
+      "line": 373,
+      "anchor": "mutation CancelOrder($input: CancelOrderInput!) {",
+      "sha256": "26a6b81368d53a731b2847e0587eeb94463ec706bb8df73bee13d304fb770701"
+    }
+  },
+  {
+    "id": "source-V10",
+    "kind": "observed-in-source",
+    "author": "agent",
+    "method": "manual-source-reading",
+    "scope": "Pinned Admin UI client static source; no runtime/server policy guarantee",
+    "support": "manual; not a whole-function logical proof",
+    "claim": "대화상자 닫기는 resolveWith()로 입력을 반환하지 않는다. 업무 취소와 구별.",
+    "evidence": {
+      "file": "packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts",
+      "symbol": "cancel() {",
+      "offset": 2469,
+      "line": 78,
+      "anchor": "cancel() {",
+      "sha256": "a47e7000b222454302c8a0dfc374555f78616517fdc3ec03621a199ecf234cc5"
+    }
+  },
+  {
+    "id": "source-V11",
+    "kind": "observed-in-source",
+    "author": "agent",
+    "method": "manual-source-reading",
+    "scope": "Pinned Admin UI client static source; no runtime/server policy guarantee",
+    "support": "manual; not a whole-function logical proof",
+    "claim": "환불 요청은 연결된 별도 분기이며 취소 요청과 같은 규칙으로 취급하지 않는다.",
+    "evidence": {
+      "file": "packages/admin-ui/src/lib/core/src/data/definitions/order-definitions.ts",
+      "symbol": "mutation RefundOrder($input: RefundOrderInput!) {",
+      "offset": 7854,
+      "line": 384,
+      "anchor": "mutation RefundOrder($input: RefundOrderInput!) {",
+      "sha256": "26a6b81368d53a731b2847e0587eeb94463ec706bb8df73bee13d304fb770701"
+    }
+  },
+  {
+    "id": "source-refund-cancel",
+    "kind": "observed-in-source",
+    "author": "agent",
+    "method": "manual-source-reading",
+    "scope": "Pinned Admin UI client static source; no runtime/server policy guarantee",
+    "support": "manual; not a whole-function logical proof",
+    "claim": "환불 준비 경로도 cancel.lines 길이가 있을 때 cancelOrder(input.cancel) 호출을 포함한다.",
+    "evidence": {
+      "file": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+      "symbol": "refund-cancel",
+      "offset": 23612,
+      "line": 615,
+      "anchor": "if (input.cancel.lines?.length) {",
+      "sha256": "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede"
+    }
+  },
+  {
+    "id": "source-refund-request",
+    "kind": "observed-in-source",
+    "author": "agent",
+    "method": "manual-source-reading",
+    "scope": "Pinned Admin UI client static source; no runtime/server policy guarantee",
+    "support": "manual; not a whole-function logical proof",
+    "claim": "앞선 결과 input이 있고 refunds 길이가 있을 때 각 refund의 service 호출식을 구성한다. 모든 환불에 취소가 필수라는 뜻은 아니다.",
+    "evidence": {
+      "file": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+      "symbol": "refund-request",
+      "offset": 25321,
+      "line": 647,
+      "anchor": "if (input.refunds.length) {",
+      "sha256": "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede"
+    }
+  },
+  {
+    "id": "source-refund-payload",
+    "kind": "observed-in-source",
+    "author": "agent",
+    "method": "manual-source-reading",
+    "scope": "Pinned Admin UI client static source; no runtime/server policy guarantee",
+    "support": "manual; not a whole-function logical proof",
+    "claim": "환불 dialog select는 refunds와 별도로 cancel 입력(orderId/lines/reason/cancelShipping)을 구성한다.",
+    "evidence": {
+      "file": "packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts",
+      "symbol": "refund-payload",
+      "offset": 7259,
+      "line": 196,
+      "anchor": "cancel: {\n                lines: cancelLines,",
+      "sha256": "d9ea112f17bff650686842306bef46fa6f7564278b1166762a7c9b7a8473a6fb"
+    }
+  },
+  {
+    "id": "source-refund-close",
+    "kind": "observed-in-source",
+    "author": "agent",
+    "method": "manual-source-reading",
+    "scope": "Pinned Admin UI client static source; no runtime/server policy guarantee",
+    "support": "manual; not a whole-function logical proof",
+    "claim": "환불 dialog cancel은 결과 인자 없이 닫는다.",
+    "evidence": {
+      "file": "packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts",
+      "symbol": "refund-close",
+      "offset": 7491,
+      "line": 205,
+      "anchor": "cancel() {\n        this.resolveWith();",
+      "sha256": "d9ea112f17bff650686842306bef46fa6f7564278b1166762a7c9b7a8473a6fb"
+    }
+  },
+  {
+    "id": "source-refund-mutation",
+    "kind": "observed-in-source",
+    "author": "agent",
+    "method": "manual-source-reading",
+    "scope": "Pinned Admin UI client static source; no runtime/server policy guarantee",
+    "support": "manual; not a whole-function logical proof",
+    "claim": "환불 service는 REFUND_ORDER 문서와 input으로 mutation을 전달한다.",
+    "evidence": {
+      "file": "packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts",
+      "symbol": "refund-mutation",
+      "offset": 3577,
+      "line": 123,
+      "anchor": "refundOrder(input: Codegen.RefundOrderInput) {",
+      "sha256": "27ddd40b2430caebc5f0defc901d1e42aa54f1cb29038fe4e7657a2448c03811"
+    }
+  }
+]

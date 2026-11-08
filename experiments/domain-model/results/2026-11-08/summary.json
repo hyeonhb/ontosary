@@ -1,0 +1,44 @@
+{
+  "status": "compared",
+  "revision": "534e6003534f74761e82de1b8c6061cba89945d1",
+  "typescript": "5.9.3",
+  "node": "v22.19.0",
+  "originalInventoryVerified": 4735,
+  "preparedProgramFilesVerified": 1638,
+  "diagnostics": [],
+  "selectedMethods": 78,
+  "classes": {
+    "OrderDetailComponent": 28,
+    "CancelOrderDialogComponent": 6,
+    "RefundOrderDialogComponent": 12,
+    "OrderDataService": 32
+  },
+  "attributes": 6,
+  "cellCounts": {
+    "yes": 43,
+    "no": 425,
+    "unknown": 0
+  },
+  "manualFacts": 16,
+  "automatedCellFacts": 468,
+  "formalConcepts": 8,
+  "candidates": 5,
+  "simpleGroups": 6,
+  "additionalIntersections": 0,
+  "truncated": false,
+  "approvedKnowledge": 0,
+  "newSemanticItems": 0,
+  "humanTimeMs": null,
+  "agentTaskEffect": null,
+  "fingerprints": {
+    "manifest.json": "f747e2ad9894f1eb8a1e06bbffa8b6dbe0c130c3bd730d752a6e2f2501c282d8",
+    "model-before.json": "975a2954ba5407337397f3325d4dcc4583b3ecc1e204591d6f4fc42e17252cb6",
+    "negative-check.mjs": "17e5e90a2b8a7743219e6ce2149fb85fa02f0cf49df5479ebcff6f4667e519f1",
+    "observe.mjs": "320da8932c9864fdd066aadc716b4ae3a84b768bd9738258f198744e8bed6037",
+    "run.mjs": "94f853cdf3e34f52f0281a34ec0bfffb3a0cda0edf486e39a099a564c28e3aa9",
+    "source-facts.json": "29f2e8b17651a2ecad42b6dda9f98177922f7a9d115290e0483e029933812587",
+    "validate-input.mjs": "d512645e0393788ce70716e17f868d3d2a301b240b09cdb41823990436041c84",
+    "validate.mjs": "877a3fd467c432d0cb5355155a3b92641bf67a24227abd1c8fe120dea2ba3b7c",
+    "verify.mjs": "6164860c1ffe424a32d50b0f03c448a7ae46c391192d02b4eb09ab37c1a36d83"
+  }
+}

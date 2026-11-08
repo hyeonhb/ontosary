@@ -1,0 +1,30 @@
+{
+  "recordedUtc": "2026-11-08T07:15:18.771508+00:00",
+  "automaticRunMs": [
+    3033,
+    2768
+  ],
+  "automaticScope": "Input integrity + compiler + cells/groups/FCA/model linking/validation only",
+  "manualAuthoring": "Agent-authored six roles, sixteen source claims, twelve model items, candidate interpretations and S2 evaluation design",
+  "manualAuthoringWallTimeMs": null,
+  "humanAuthoringMs": null,
+  "humanReviewMs": null,
+  "agentTokens": null,
+  "modelUpdateCostMs": null,
+  "agentTaskEffect": null,
+  "checks": {
+    "pnpm check": "9 files / 163 tests, typecheck, Vite build passed",
+    "pnpm experiment": "4/4 expected comparisons",
+    "negativeCases": 8,
+    "nonTimeFilesCompared": 12
+  },
+  "repeatTiming": {
+    "wallTimeMs": 2768,
+    "scope": "Input integrity, live compiler diagnostics, role cells, groups/FCA, model linking and validation. Excludes authoring/tests/delivery.",
+    "humanTimeMs": null
+  },
+  "logHashes": {
+    "check.log": "fbf23a9127276a425e5abd3a67ca336d9bb42c9f6ee88f1e53709973da23b709",
+    "experiment.log": "8194ddc8ad89e33f606c2aa11c3ce7eed4a604af26a864ded75637719eae9a9c"
+  }
+}

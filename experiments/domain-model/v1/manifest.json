@@ -1,0 +1,174 @@
+{
+  "schemaVersion": 1,
+  "revision": "534e6003534f74761e82de1b8c6061cba89945d1",
+  "baseRevision": "41f7d680ac18b0cf2bcfc89976a59463a9ae1345",
+  "frozenBeforeObservationUtc": "2026-11-08T07:07:15.555809+00:00",
+  "question": "취소·환불의 요청 준비와 호출에 참여하는 메서드들이 어떤 관찰 속성을 공유하는가?",
+  "classes": [
+    {
+      "name": "OrderDetailComponent",
+      "file": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts"
+    },
+    {
+      "name": "CancelOrderDialogComponent",
+      "file": "packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts"
+    },
+    {
+      "name": "RefundOrderDialogComponent",
+      "file": "packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts"
+    },
+    {
+      "name": "OrderDataService",
+      "file": "packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts"
+    }
+  ],
+  "attributes": [
+    {
+      "id": "calls-cancel",
+      "label": "주문 취소 service 호출",
+      "targets": [
+        {
+          "name": "OrderDataService",
+          "file": "packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts",
+          "member": "cancelOrder"
+        }
+      ],
+      "arguments": "any"
+    },
+    {
+      "id": "calls-refund",
+      "label": "환불 service 호출",
+      "targets": [
+        {
+          "name": "OrderDataService",
+          "file": "packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts",
+          "member": "refundOrder"
+        }
+      ],
+      "arguments": "any"
+    },
+    {
+      "id": "opens-modal",
+      "label": "modal component 열기",
+      "targets": [
+        {
+          "name": "ModalService",
+          "file": "packages/admin-ui/src/lib/core/src/providers/modal/modal.service.ts",
+          "member": "fromComponent"
+        }
+      ],
+      "arguments": "any"
+    },
+    {
+      "id": "sends-mutation",
+      "label": "BaseDataService mutation 전달",
+      "targets": [
+        {
+          "name": "BaseDataService",
+          "file": "packages/admin-ui/src/lib/core/src/data/providers/base-data.service.ts",
+          "member": "mutate"
+        }
+      ],
+      "arguments": "any"
+    },
+    {
+      "id": "returns-dialog-payload",
+      "label": "dialog 결과 인자 반환",
+      "targets": [
+        {
+          "name": "CancelOrderDialogComponent",
+          "file": "packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts",
+          "member": "resolveWith"
+        },
+        {
+          "name": "RefundOrderDialogComponent",
+          "file": "packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts",
+          "member": "resolveWith"
+        }
+      ],
+      "arguments": "positive"
+    },
+    {
+      "id": "closes-dialog-empty",
+      "label": "dialog 인자 없이 닫기",
+      "targets": [
+        {
+          "name": "CancelOrderDialogComponent",
+          "file": "packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts",
+          "member": "resolveWith"
+        },
+        {
+          "name": "RefundOrderDialogComponent",
+          "file": "packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts",
+          "member": "resolveWith"
+        }
+      ],
+      "arguments": "zero"
+    }
+  ],
+  "selection": {
+    "include": "All own named MethodDeclaration members, public/private/static, in the four named classes; declaration-only methods become unknown. No outcome-based selection.",
+    "exclude": [
+      "constructors",
+      "get/set accessors",
+      "field initializers",
+      "anonymous callbacks as separate objects",
+      "inherited methods",
+      "HTML",
+      "GraphQL operations"
+    ],
+    "nested": "All call expressions lexically inside a method body, including nested callbacks/functions; nested classes excluded. Syntactic occurrence only, not execution/reachability/call graph."
+  },
+  "cellContract": {
+    "yes": "Direct member CallExpression (property or literal element access), symbol declarations intersect pinned class member declarations, argument count matches role. Optional calls count only as static occurrences.",
+    "no": "Complete method region inspected, no matching direct member call and no unresolved potentially matching member call. Absence only under this role contract, not absence of transitive calls.",
+    "unknown": "Missing body/target, compilation errors, nonliteral element-call name, or matching member name with unresolved/any symbol; never converted to false.",
+    "excludedForms": "Identifier calls/aliases, call/apply indirection, runtime dynamic dispatch and other transitive execution are outside these direct-member roles."
+  },
+  "limits": {
+    "maxObjects": 128,
+    "maxAttributes": 64,
+    "maxConcepts": 256
+  },
+  "candidateFilter": "extent >= 2 and nonempty intent; all strict intent inclusion relations, not business inheritance",
+  "author": "agent",
+  "humanReview": "pending",
+  "bias": "Targets and cancellation/refund connection already known from source/review. Purposeful pilot; no blind discovery or generalization.",
+  "sourceNotice": "../../public-app/results/2026-11-08/vendure/source-notice.json",
+  "savedScan": "../../public-app/results/2026-11-08-prepared/scoped/scan.json.gz",
+  "config": "packages/admin-ui/ontosary.scope.json",
+  "inputHashes": {
+    "package-lock.json": "36f9848d635ceca4f586e5cd1aab48ed1e99fa80dda5d2a91dfd59a8daff65db",
+    "packages/admin-ui/ontosary.scope.json": "98afa072585213a784aea6ac6f166463a4444b87f1d00a596949c182d1842478",
+    "packages/admin-ui/src/lib/core/src/data/definitions/order-definitions.ts": "26a6b81368d53a731b2847e0587eeb94463ec706bb8df73bee13d304fb770701",
+    "packages/admin-ui/src/lib/core/src/data/providers/base-data.service.ts": "0a6db92e5fab822c00b9210251693af883ceab8d3c027e417e77a9e47eeb1824",
+    "packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts": "27ddd40b2430caebc5f0defc901d1e42aa54f1cb29038fe4e7657a2448c03811",
+    "packages/admin-ui/src/lib/core/src/providers/modal/modal.service.ts": "d4096905f43f3134d12aa2567a2a0a6d1deb25b985222de877d7057fc336f365",
+    "packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.html": "308499c673a3cf4fc514210e6ab9aef74e8b89c877cea72d25b371db5fa97dc3",
+    "packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts": "a47e7000b222454302c8a0dfc374555f78616517fdc3ec03621a199ecf234cc5",
+    "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.html": "fecfd12fc47bb2f2d862b618a73e0c98104b87225436046d96938d3bc3220d89",
+    "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts": "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede",
+    "packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts": "d9ea112f17bff650686842306bef46fa6f7564278b1166762a7c9b7a8473a6fb",
+    "packages/admin-ui/tsconfig.json": "b5e2f3a67b9de14fae6721525fca69486e10c65723cdffd606bd6d907ac8fab2",
+    "tsconfig.json": "e2825b9f270aa924ea42af876988a50763b189dabf6b1294480fd5b206c46297"
+  },
+  "unsupported": [
+    "runtime/Angular/RxJS semantics",
+    "server policy/permissions",
+    "whole-function logical proof",
+    "stable IDs across edits",
+    "complete impact analysis"
+  ],
+  "costs": {
+    "humanAuthorTimeMs": null,
+    "humanReviewTimeMs": null,
+    "agentTokens": null,
+    "manualScope": "Agent authors six role definitions, source claims, model interpretations and S2 protocol; AST cells/groups/FCA/reference/hash checks automated."
+  },
+  "repositoryInputs": {
+    "../../public-app/results/2026-11-08-prepared/scoped/scan.json.gz": "b91db4178c26829c0182f9c4c0d38c50647c0ec951a27fbf6ea39ba6825307c9",
+    "../../public-app/v1/vendure-task.json": "948090082bc6c655437b0811134667c538ccddc317e4f38a652697bf52a5e38c"
+  },
+  "broadGroupThreshold": 8,
+  "broadGroupPolicy": "More than 8 members is a review flag only, not an ontology truth or FCA filter. Set before first observation."
+}
