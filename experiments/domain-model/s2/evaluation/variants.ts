@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import { gunzipSync } from 'node:zlib';
 import { Sources, Delta } from './submission.js';
 import { mappings } from './behavior.js';
-export const variants=['baseline','reference','historical-reference','helper','helper-type-error','helper-syntax-error','missing-helper','deleted-module','out-of-scope','direct-only','no-trim','force-cancel','dismiss-request','continue-after-failure','omit-followup-refund','wrong-order-id','wrong-payment-id','wrong-refund-amount','wrong-cancel-line-id','wrong-cancel-quantity','guard-refund-only','trim-refund-reason'];
+export const variants=['baseline','reference','historical-reference','helper','helper-type-error','helper-syntax-error','missing-helper','deleted-module','out-of-scope','direct-only','no-trim','force-cancel','dismiss-request','continue-after-failure','omit-followup-refund','wrong-order-id','wrong-payment-id','wrong-refund-amount','wrong-cancel-line-id','wrong-cancel-quantity','guard-refund-only','trim-refund-reason','wrong-modal-order','wrong-modal-active'];
 export function patch(source:string,from:string,to:string) {
     if(source.split(from).length!==2) throw Error('Nonunique patch anchor: '+from);
     return source.replace(from,to);
@@ -42,5 +42,11 @@ export function variantDelta(name:string,baseline:Sources,repo:string):Delta {
     if(name==='wrong-cancel-line-id'||name==='wrong-cancel-quantity')delta[refund]=patch(delta[refund], 'lines: cancelLines,',`lines: cancelLines.map(line => ({ ...line, ${name==='wrong-cancel-line-id'?"orderLineId: 'wrong-line'":'quantity: line.quantity + 1'} })),`);
     if(name==='guard-refund-only')delta[refund]=patch(delta[refund],"if (cancelLines.length && (typeof this.reason !== 'string' || !this.reason.trim()))", "if (typeof this.reason !== 'string' || !this.reason.trim())");
     if(name==='trim-refund-reason')delta[refund]=patch(delta[refund], 'reason: this.reason,','reason: this.reason.trim(),');
+    if (name==='wrong-modal-order' || name==='wrong-modal-active') {
+        const source=original(detail), start=source.indexOf('    private cancelOrder(order: OrderDetailFragment) {'), end=source.indexOf('    private refundOrder(',start);
+        if(start<0 || end<start) throw Error('Missing cancel modal method');
+        const order=name==='wrong-modal-order'?"order: { ...order, id: 'wrong-modal-order' },":'order: { ...order, active: true },';
+        delta[detail]=source.slice(0,start)+patch(source.slice(start,end),'                    order,','                    '+order)+source.slice(end);
+    }
     return delta;
 }

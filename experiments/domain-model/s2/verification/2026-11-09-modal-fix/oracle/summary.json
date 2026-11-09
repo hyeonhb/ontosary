@@ -1,0 +1,999 @@
+{
+  "contractVersion": "s2-evaluation-v3-modal-connected",
+  "baselineEnvironment": {
+    "wallTimeMs": 2909.357667,
+    "programs": 1,
+    "programFiles": 1638
+  },
+  "wallTimeMs": 57677.517875,
+  "summaries": [
+    {
+      "variant": "baseline",
+      "typecheck": "passed",
+      "diagnostics": [],
+      "behavior": "failed",
+      "overall": "failed",
+      "preservation": 16,
+      "preservationTotal": 16,
+      "draft": 6,
+      "draftTotal": 36,
+      "failedCases": [
+        {
+          "name": "o-one/direct-reason-1",
+          "status": "failed"
+        },
+        {
+          "name": "o-one/refund-reason-1",
+          "status": "failed"
+        },
+        {
+          "name": "o-one/api-reason-1",
+          "status": "failed"
+        },
+        {
+          "name": "o-one/direct-reason-2",
+          "status": "failed"
+        },
+        {
+          "name": "o-one/refund-reason-2",
+          "status": "failed"
+        },
+        {
+          "name": "o-one/api-reason-2",
+          "status": "failed"
+        },
+        {
+          "name": "o-one/direct-reason-3",
+          "status": "failed"
+        },
+        {
+          "name": "o-one/refund-reason-3",
+          "status": "failed"
+        },
+        {
+          "name": "o-one/api-reason-3",
+          "status": "failed"
+        },
+        {
+          "name": "o-one/direct-reason-4",
+          "status": "failed"
+        },
+        {
+          "name": "o-one/refund-reason-4",
+          "status": "failed"
+        },
+        {
+          "name": "o-one/api-reason-4",
+          "status": "failed"
+        },
+        {
+          "name": "o-one/direct-reason-5",
+          "status": "failed"
+        },
+        {
+          "name": "o-one/refund-reason-5",
+          "status": "failed"
+        },
+        {
+          "name": "o-one/api-reason-5",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/direct-reason-1",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/refund-reason-1",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/api-reason-1",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/direct-reason-2",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/refund-reason-2",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/api-reason-2",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/direct-reason-3",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/refund-reason-3",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/api-reason-3",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/direct-reason-4",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/refund-reason-4",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/api-reason-4",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/direct-reason-5",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/refund-reason-5",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/api-reason-5",
+          "status": "failed"
+        }
+      ],
+      "submissionId": "25a2ed5eeb60d53f8255ecebd2f19dfde699e14aafc45bc4b7504dd09c7de20a",
+      "programFiles": 1638,
+      "sourceBinding": true
+    },
+    {
+      "variant": "reference",
+      "typecheck": "passed",
+      "diagnostics": [],
+      "behavior": "passed",
+      "overall": "passed",
+      "preservation": 16,
+      "preservationTotal": 16,
+      "draft": 36,
+      "draftTotal": 36,
+      "failedCases": [],
+      "submissionId": "dde3b75c151fb9847929ce9d3dd7e76081f791fc7a779f7124245644419bed54",
+      "programFiles": 1638,
+      "sourceBinding": true
+    },
+    {
+      "variant": "historical-reference",
+      "typecheck": "failed",
+      "diagnostics": [
+        2554,
+        18046,
+        2339,
+        2339,
+        2488
+      ],
+      "behavior": "not-run",
+      "overall": "failed",
+      "preservation": null,
+      "preservationTotal": null,
+      "draft": null,
+      "draftTotal": null,
+      "failedCases": [],
+      "submissionId": "fdde794342d35d84bbbab4ab2ef3515cf6dbebea77bcde45095add73d4e7b1bd",
+      "programFiles": 1638,
+      "sourceBinding": null
+    },
+    {
+      "variant": "helper",
+      "typecheck": "passed",
+      "diagnostics": [],
+      "behavior": "passed",
+      "overall": "passed",
+      "preservation": 16,
+      "preservationTotal": 16,
+      "draft": 36,
+      "draftTotal": 36,
+      "failedCases": [],
+      "submissionId": "1eeb24e63e6916d0fd6cc01249c6d9f3dd641fc66aafd0309dba47a3c3fef23c",
+      "programFiles": 1639,
+      "sourceBinding": true
+    },
+    {
+      "variant": "helper-type-error",
+      "typecheck": "failed",
+      "diagnostics": [
+        2322
+      ],
+      "behavior": "not-run",
+      "overall": "failed",
+      "preservation": null,
+      "preservationTotal": null,
+      "draft": null,
+      "draftTotal": null,
+      "failedCases": [],
+      "submissionId": "f4298f9a94dd037e9e312e7a8c22f6c0fd1481cb3bc00cd4451e3a3fa425f3ac",
+      "programFiles": 1639,
+      "sourceBinding": null
+    },
+    {
+      "variant": "helper-syntax-error",
+      "typecheck": "failed",
+      "diagnostics": [
+        1005
+      ],
+      "behavior": "not-run",
+      "overall": "failed",
+      "preservation": null,
+      "preservationTotal": null,
+      "draft": null,
+      "draftTotal": null,
+      "failedCases": [],
+      "submissionId": "3e53541e272964b0774fc373152fb1e65da9b86c2cf69e81340531ade664ed5d",
+      "programFiles": 1639,
+      "sourceBinding": null
+    },
+    {
+      "variant": "missing-helper",
+      "typecheck": "failed",
+      "diagnostics": [
+        2307,
+        2307,
+        2307
+      ],
+      "behavior": "not-run",
+      "overall": "failed",
+      "preservation": null,
+      "preservationTotal": null,
+      "draft": null,
+      "draftTotal": null,
+      "failedCases": [],
+      "submissionId": "4b2324c85d58919aa05b0687c527d1f75076f212b553ee42ec010be6fc86907a",
+      "programFiles": 1638,
+      "sourceBinding": null
+    },
+    {
+      "variant": "deleted-module",
+      "typecheck": "failed",
+      "diagnostics": [
+        6053,
+        2307,
+        2353,
+        2345
+      ],
+      "behavior": "not-run",
+      "overall": "failed",
+      "preservation": null,
+      "preservationTotal": null,
+      "draft": null,
+      "draftTotal": null,
+      "failedCases": [],
+      "submissionId": "bffe95d4fffc2e048a94fd139433a27e83488730a30927931d9537ed87a7f144",
+      "programFiles": 1637,
+      "sourceBinding": null
+    },
+    {
+      "variant": "out-of-scope",
+      "typecheck": "unsupported",
+      "diagnostics": [],
+      "behavior": "not-run",
+      "overall": "unsupported",
+      "preservation": null,
+      "preservationTotal": null,
+      "draft": null,
+      "draftTotal": null,
+      "failedCases": [],
+      "submissionId": "21054c2bb7cf7139b9fee1872f809dd98b0a6e614e587deb7e550d672a3aae0c",
+      "programFiles": 1638,
+      "sourceBinding": null
+    },
+    {
+      "variant": "direct-only",
+      "typecheck": "passed",
+      "diagnostics": [],
+      "behavior": "failed",
+      "overall": "failed",
+      "preservation": 16,
+      "preservationTotal": 16,
+      "draft": 16,
+      "draftTotal": 36,
+      "failedCases": [
+        {
+          "name": "o-one/refund-reason-1",
+          "status": "failed"
+        },
+        {
+          "name": "o-one/api-reason-1",
+          "status": "failed"
+        },
+        {
+          "name": "o-one/refund-reason-2",
+          "status": "failed"
+        },
+        {
+          "name": "o-one/api-reason-2",
+          "status": "failed"
+        },
+        {
+          "name": "o-one/refund-reason-3",
+          "status": "failed"
+        },
+        {
+          "name": "o-one/api-reason-3",
+          "status": "failed"
+        },
+        {
+          "name": "o-one/refund-reason-4",
+          "status": "failed"
+        },
+        {
+          "name": "o-one/api-reason-4",
+          "status": "failed"
+        },
+        {
+          "name": "o-one/refund-reason-5",
+          "status": "failed"
+        },
+        {
+          "name": "o-one/api-reason-5",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/refund-reason-1",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/api-reason-1",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/refund-reason-2",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/api-reason-2",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/refund-reason-3",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/api-reason-3",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/refund-reason-4",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/api-reason-4",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/refund-reason-5",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/api-reason-5",
+          "status": "failed"
+        }
+      ],
+      "submissionId": "a5991ad09263cddf97d519f3c5b1c19d923b30d9147df8e985b6d4970f57043e",
+      "programFiles": 1638,
+      "sourceBinding": true
+    },
+    {
+      "variant": "no-trim",
+      "typecheck": "passed",
+      "diagnostics": [],
+      "behavior": "failed",
+      "overall": "failed",
+      "preservation": 16,
+      "preservationTotal": 16,
+      "draft": 24,
+      "draftTotal": 36,
+      "failedCases": [
+        {
+          "name": "o-one/direct-reason-1",
+          "status": "failed"
+        },
+        {
+          "name": "o-one/refund-reason-1",
+          "status": "failed"
+        },
+        {
+          "name": "o-one/api-reason-1",
+          "status": "failed"
+        },
+        {
+          "name": "o-one/direct-reason-3",
+          "status": "failed"
+        },
+        {
+          "name": "o-one/refund-reason-3",
+          "status": "failed"
+        },
+        {
+          "name": "o-one/api-reason-3",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/direct-reason-1",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/refund-reason-1",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/api-reason-1",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/direct-reason-3",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/refund-reason-3",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/api-reason-3",
+          "status": "failed"
+        }
+      ],
+      "submissionId": "1039e2d19058f239ad528eea74d4d9e555a44bc3ac4023d2c61649e36882be71",
+      "programFiles": 1638,
+      "sourceBinding": true
+    },
+    {
+      "variant": "force-cancel",
+      "typecheck": "passed",
+      "diagnostics": [],
+      "behavior": "failed",
+      "overall": "failed",
+      "preservation": 10,
+      "preservationTotal": 16,
+      "draft": 36,
+      "draftTotal": 36,
+      "failedCases": [
+        {
+          "name": "o-one/refund-only-0",
+          "status": "failed"
+        },
+        {
+          "name": "o-one/refund-only-1",
+          "status": "failed"
+        },
+        {
+          "name": "o-one/refund-only-2",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/refund-only-0",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/refund-only-1",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/refund-only-2",
+          "status": "failed"
+        }
+      ],
+      "submissionId": "e653764ac5f95293045edc15f5d6b7f512a180690d719427c341733f800f2619",
+      "programFiles": 1638,
+      "sourceBinding": true
+    },
+    {
+      "variant": "dismiss-request",
+      "typecheck": "passed",
+      "diagnostics": [],
+      "behavior": "failed",
+      "overall": "failed",
+      "preservation": 14,
+      "preservationTotal": 16,
+      "draft": 36,
+      "draftTotal": 36,
+      "failedCases": [
+        {
+          "name": "o-one/dismiss-cancel",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/dismiss-cancel",
+          "status": "failed"
+        }
+      ],
+      "submissionId": "4c1ee9feb1ebd60ef0fe32b53c41a8badba490d6a68ab8932d7926d15f6ea57f",
+      "programFiles": 1638,
+      "sourceBinding": true
+    },
+    {
+      "variant": "continue-after-failure",
+      "typecheck": "passed",
+      "diagnostics": [],
+      "behavior": "failed",
+      "overall": "failed",
+      "preservation": 14,
+      "preservationTotal": 16,
+      "draft": 36,
+      "draftTotal": 36,
+      "failedCases": [
+        {
+          "name": "o-one/cancel-failure-stops-refund",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/cancel-failure-stops-refund",
+          "status": "failed"
+        }
+      ],
+      "submissionId": "db0d71ae6047140dcd04f659630f46966594891f05238fd6fb6c6508f46e27e7",
+      "programFiles": 1638,
+      "sourceBinding": true
+    },
+    {
+      "variant": "omit-followup-refund",
+      "typecheck": "passed",
+      "diagnostics": [],
+      "behavior": "failed",
+      "overall": "failed",
+      "preservation": 16,
+      "preservationTotal": 16,
+      "draft": 32,
+      "draftTotal": 36,
+      "failedCases": [
+        {
+          "name": "o-one/refund-reason-0",
+          "status": "failed"
+        },
+        {
+          "name": "o-one/refund-reason-1",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/refund-reason-0",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/refund-reason-1",
+          "status": "failed"
+        }
+      ],
+      "submissionId": "679aef53cc396306e1fd0512693cb4f44e9baf6017e23bc3b216ef79b5577916",
+      "programFiles": 1638,
+      "sourceBinding": true
+    },
+    {
+      "variant": "wrong-order-id",
+      "typecheck": "passed",
+      "diagnostics": [],
+      "behavior": "failed",
+      "overall": "failed",
+      "preservation": 10,
+      "preservationTotal": 16,
+      "draft": 24,
+      "draftTotal": 36,
+      "failedCases": [
+        {
+          "name": "o-one/direct-reason-0",
+          "status": "failed"
+        },
+        {
+          "name": "o-one/refund-reason-0",
+          "status": "failed"
+        },
+        {
+          "name": "o-one/api-reason-0",
+          "status": "failed"
+        },
+        {
+          "name": "o-one/direct-reason-1",
+          "status": "failed"
+        },
+        {
+          "name": "o-one/refund-reason-1",
+          "status": "failed"
+        },
+        {
+          "name": "o-one/api-reason-1",
+          "status": "failed"
+        },
+        {
+          "name": "o-one/cancel-failure-stops-refund",
+          "status": "failed"
+        },
+        {
+          "name": "o-one/active-lines-omitted",
+          "status": "failed"
+        },
+        {
+          "name": "o-one/positive-lines-only",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/direct-reason-0",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/refund-reason-0",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/api-reason-0",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/direct-reason-1",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/refund-reason-1",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/api-reason-1",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/cancel-failure-stops-refund",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/active-lines-omitted",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/positive-lines-only",
+          "status": "failed"
+        }
+      ],
+      "submissionId": "370080c7e943690d7db1ea58de2fa1185600d0447c2af7bf9c62e22a5bc44eaa",
+      "programFiles": 1638,
+      "sourceBinding": true
+    },
+    {
+      "variant": "wrong-payment-id",
+      "typecheck": "passed",
+      "diagnostics": [],
+      "behavior": "failed",
+      "overall": "failed",
+      "preservation": 10,
+      "preservationTotal": 16,
+      "draft": 32,
+      "draftTotal": 36,
+      "failedCases": [
+        {
+          "name": "o-one/refund-reason-0",
+          "status": "failed"
+        },
+        {
+          "name": "o-one/refund-reason-1",
+          "status": "failed"
+        },
+        {
+          "name": "o-one/refund-only-0",
+          "status": "failed"
+        },
+        {
+          "name": "o-one/refund-only-1",
+          "status": "failed"
+        },
+        {
+          "name": "o-one/refund-only-2",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/refund-reason-0",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/refund-reason-1",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/refund-only-0",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/refund-only-1",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/refund-only-2",
+          "status": "failed"
+        }
+      ],
+      "submissionId": "ee85ab3b525e77a80accf77a49e67f5944bf79c8a0cf8b4e0b43979ffecf230c",
+      "programFiles": 1638,
+      "sourceBinding": true
+    },
+    {
+      "variant": "wrong-refund-amount",
+      "typecheck": "passed",
+      "diagnostics": [],
+      "behavior": "failed",
+      "overall": "failed",
+      "preservation": 10,
+      "preservationTotal": 16,
+      "draft": 32,
+      "draftTotal": 36,
+      "failedCases": [
+        {
+          "name": "o-one/refund-reason-0",
+          "status": "failed"
+        },
+        {
+          "name": "o-one/refund-reason-1",
+          "status": "failed"
+        },
+        {
+          "name": "o-one/refund-only-0",
+          "status": "failed"
+        },
+        {
+          "name": "o-one/refund-only-1",
+          "status": "failed"
+        },
+        {
+          "name": "o-one/refund-only-2",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/refund-reason-0",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/refund-reason-1",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/refund-only-0",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/refund-only-1",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/refund-only-2",
+          "status": "failed"
+        }
+      ],
+      "submissionId": "e678531255e4993ee367b3e378735284913f4b671dc646f39ee83dd340e58983",
+      "programFiles": 1638,
+      "sourceBinding": true
+    },
+    {
+      "variant": "wrong-cancel-line-id",
+      "typecheck": "passed",
+      "diagnostics": [],
+      "behavior": "failed",
+      "overall": "failed",
+      "preservation": 14,
+      "preservationTotal": 16,
+      "draft": 32,
+      "draftTotal": 36,
+      "failedCases": [
+        {
+          "name": "o-one/refund-reason-0",
+          "status": "failed"
+        },
+        {
+          "name": "o-one/refund-reason-1",
+          "status": "failed"
+        },
+        {
+          "name": "o-one/cancel-failure-stops-refund",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/refund-reason-0",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/refund-reason-1",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/cancel-failure-stops-refund",
+          "status": "failed"
+        }
+      ],
+      "submissionId": "b57ca60a15e53e8619d6cf81521983204335ef969d3c20c19edcf1deb21b5cd3",
+      "programFiles": 1638,
+      "sourceBinding": true
+    },
+    {
+      "variant": "wrong-cancel-quantity",
+      "typecheck": "passed",
+      "diagnostics": [],
+      "behavior": "failed",
+      "overall": "failed",
+      "preservation": 14,
+      "preservationTotal": 16,
+      "draft": 32,
+      "draftTotal": 36,
+      "failedCases": [
+        {
+          "name": "o-one/refund-reason-0",
+          "status": "failed"
+        },
+        {
+          "name": "o-one/refund-reason-1",
+          "status": "failed"
+        },
+        {
+          "name": "o-one/cancel-failure-stops-refund",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/refund-reason-0",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/refund-reason-1",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/cancel-failure-stops-refund",
+          "status": "failed"
+        }
+      ],
+      "submissionId": "2995466deae4b168456a1ad47833e34662852bf206c9bfc3d3d96dc758d1f334",
+      "programFiles": 1638,
+      "sourceBinding": true
+    },
+    {
+      "variant": "guard-refund-only",
+      "typecheck": "passed",
+      "diagnostics": [],
+      "behavior": "failed",
+      "overall": "failed",
+      "preservation": 14,
+      "preservationTotal": 16,
+      "draft": 36,
+      "draftTotal": 36,
+      "failedCases": [
+        {
+          "name": "o-one/refund-only-2",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/refund-only-2",
+          "status": "failed"
+        }
+      ],
+      "submissionId": "87f67b3c072933fe0988663cfff7c1153d56706f2f44b996edd1acf422122e36",
+      "programFiles": 1638,
+      "sourceBinding": true
+    },
+    {
+      "variant": "trim-refund-reason",
+      "typecheck": "passed",
+      "diagnostics": [],
+      "behavior": "failed",
+      "overall": "failed",
+      "preservation": 12,
+      "preservationTotal": 16,
+      "draft": 34,
+      "draftTotal": 36,
+      "failedCases": [
+        {
+          "name": "o-one/refund-reason-1",
+          "status": "failed"
+        },
+        {
+          "name": "o-one/refund-only-1",
+          "status": "failed"
+        },
+        {
+          "name": "o-one/refund-only-2",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/refund-reason-1",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/refund-only-1",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/refund-only-2",
+          "status": "failed"
+        }
+      ],
+      "submissionId": "f1a955f6571c5ed234f2f7b759f4b0a37d9553451e8f2799005e6bf61307d31e",
+      "programFiles": 1638,
+      "sourceBinding": true
+    },
+    {
+      "variant": "wrong-modal-order",
+      "typecheck": "passed",
+      "diagnostics": [],
+      "behavior": "failed",
+      "overall": "failed",
+      "preservation": 12,
+      "preservationTotal": 16,
+      "draft": 32,
+      "draftTotal": 36,
+      "failedCases": [
+        {
+          "name": "o-one/direct-reason-0",
+          "status": "failed"
+        },
+        {
+          "name": "o-one/direct-reason-1",
+          "status": "failed"
+        },
+        {
+          "name": "o-one/active-lines-omitted",
+          "status": "failed"
+        },
+        {
+          "name": "o-one/positive-lines-only",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/direct-reason-0",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/direct-reason-1",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/active-lines-omitted",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/positive-lines-only",
+          "status": "failed"
+        }
+      ],
+      "submissionId": "6e0e88747c30bfa2418ea13267aea4c0e266fa4d2b3528725d8671c01fd27d6e",
+      "programFiles": 1638,
+      "sourceBinding": true
+    },
+    {
+      "variant": "wrong-modal-active",
+      "typecheck": "passed",
+      "diagnostics": [],
+      "behavior": "failed",
+      "overall": "failed",
+      "preservation": 14,
+      "preservationTotal": 16,
+      "draft": 32,
+      "draftTotal": 36,
+      "failedCases": [
+        {
+          "name": "o-one/direct-reason-0",
+          "status": "failed"
+        },
+        {
+          "name": "o-one/direct-reason-1",
+          "status": "failed"
+        },
+        {
+          "name": "o-one/positive-lines-only",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/direct-reason-0",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/direct-reason-1",
+          "status": "failed"
+        },
+        {
+          "name": "o-two/positive-lines-only",
+          "status": "failed"
+        }
+      ],
+      "submissionId": "aba7249148084bb690ca877a1c68c5bd44718784fda9706c1839c39bce6c9cfa",
+      "programFiles": 1638,
+      "sourceBinding": true
+    }
+  ],
+  "readyForTrial": false
+}

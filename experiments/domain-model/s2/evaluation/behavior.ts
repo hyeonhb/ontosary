@@ -5,6 +5,7 @@ import { hash } from '../lib/analysis-session.js';
 import { performance } from 'node:perf_hooks';
 import { executor, invoke, Runtime, Mapping } from './execute.js';
 import { sourceView, Sources } from './submission.js';
+import { createModal, orderLocals, Observer, ModalTrace } from './modal.js';
 
 export const base = 'packages/admin-ui/src/lib/';
 export const mappings: Mapping[] = [
@@ -33,7 +34,7 @@ const fixtures: Fixture[] = [
     { order: 'o-two', line: 'l-two', extra: 'l-other', payment: 'p-two', quantity: 3, extraQuantity: 4, amount: 75, shipping: false },
 ];
 interface Stream { subscribe(next: (v: unknown) => void): void; }
-interface Rx { config: { onUnhandledError: ((error: unknown) => void) | null }; of: (...v: unknown[]) => Stream; }
+interface Rx { Observable: new (subscribe: (observer: Observer) => void) => Stream; config: { onUnhandledError: ((error: unknown) => void) | null }; of: (...v: unknown[]) => Stream; }
 const bindings: Runtime = { marker: (s: unknown) => s, gql: () => 'unused-document-seam', ORDER_DETAIL_FRAGMENT: 'unused-fragment-seam', _: (s: unknown) => s, CANCEL_ORDER: 'cancel', REFUND_ORDER: 'refund', summate: (rows: Runtime[], k: string) => rows.reduce((s,r) => s + Number(r[k]), 0) };
 export async function evaluateBehavior(root: string, sources: Sources) {
     const start = performance.now(), require = createRequire(path.join(root,'package.json')), rx = require('rxjs') as Rx;
@@ -53,7 +54,7 @@ export async function evaluateBehavior(root: string, sources: Sources) {
         else if (mode === 'refund-only') expected=[{kind:'refund',input:refundInput}];
         else if (mode === 'api') expected=[{kind:'cancel',input:{orderId:f.order,reason:valid ? reason.trim() : reason,lines:[line],cancelShipping:f.shipping}}];
         else expected=[{kind:'cancel',input:cancelInput}, ...(mode === 'refund' && !failCancel ? [{kind:'refund',input:refundInput}] : [])];
-        let returned: unknown, error: string | null = null;
+        let modalTraces: ModalTrace[] = [], error: string | null = null;
         try {
             const service = engine.instance('OrderDataService');
             service.baseDataService={mutate:(kind:string,args:Runtime) => {
@@ -66,18 +67,40 @@ export async function evaluateBehavior(root: string, sources: Sources) {
                 if (!stream || typeof stream.subscribe!=='function') throw Error('Unsupported non-observable API result');
                 stream.subscribe(()=>undefined);
             } else {
-                const isRefund=mode.includes('refund'), dialog=engine.instance(isRefund?'RefundOrderDialogComponent':'CancelOrderDialogComponent');
-                Object.assign(dialog,{order:{id:f.order,active,lines:[{id:f.line,quantity:f.quantity+1,orderPlacedQuantity:f.quantity+1},{id:f.extra,quantity:f.extraQuantity,orderPlacedQuantity:f.extraQuantity}]},reason,cancelAll:f.shipping,
-                    lineQuantities:isRefund?{[f.line]:{quantity:f.quantity,cancel:mode!=='refund-only'},[f.extra]:{quantity:f.extraQuantity,cancel:false},excluded:{quantity:0,cancel:true}}:{[f.line]:f.quantity,[f.extra]:f.extraQuantity,excluded:0,negative:-1},
-                    refundShippingLineIds:f.shipping?['shipping-line']:[],refundablePayments:[{id:f.payment,selected:true,amountToRefundControl:{value:f.amount}},{id:'unselected',selected:false,amountToRefundControl:{value:13}},{id:'zero',selected:true,amountToRefundControl:{value:0}}],resolveWith:(v:unknown)=>{returned=v;}});
-                invoke(dialog,mode.startsWith('dismiss')?'cancel':'select');
+                const isRefund=mode.includes('refund');
+                const userState = (refundDialog: boolean): Runtime => ({
+                    reason, cancelAll:f.shipping,
+                    lineQuantities:refundDialog ? {
+                        [f.line]:{quantity:f.quantity,cancel:mode!=='refund-only'},
+                        [f.extra]:{quantity:f.extraQuantity,cancel:false}, excluded:{quantity:0,cancel:true},
+                    } : {[f.line]:f.quantity,[f.extra]:f.extraQuantity,excluded:0,negative:-1},
+                    refundShippingLineIds:f.shipping?['shipping-line']:[],
+                    refundablePayments:[{id:f.payment,selected:true,amountToRefundControl:{value:f.amount}},
+                        {id:'unselected',selected:false,amountToRefundControl:{value:13}},
+                        {id:'zero',selected:true,amountToRefundControl:{value:0}}],
+                });
+                const modal = createModal({
+                    registrations:[mappings[1]!,mappings[2]!].map(declaration=>({
+                        declaration, component:engine.component(declaration.className),
+                        create:()=>engine.instance(declaration.className),
+                        userState:()=>userState(declaration.className==='RefundOrderDialogComponent'),
+                    })),
+                    observable:subscribe=>new rx.Observable(subscribe),
+                    action:mode.startsWith('dismiss')?'cancel':'select', validateLocals:orderLocals,
+                });
+                modalTraces=modal.traces;
                 const detail=engine.instance('OrderDetailComponent');
-                Object.assign(detail,{id:f.order,dataService:{order:service},modalService:{fromComponent:()=>rx.of(returned)},notificationService:{success:()=>undefined,error:()=>undefined},fetchHistory:{next:()=>undefined}});
-                invoke(detail,'cancelOrRefund',{id:f.order,active,payments:isRefund?[{state:'Settled'}]:[],state:'PaymentSettled'});
+                Object.assign(detail,{id:f.order,dataService:{order:service},modalService:{fromComponent:modal.fromComponent},notificationService:{success:()=>undefined,error:()=>undefined},fetchHistory:{next:()=>undefined}});
+                invoke(detail,'cancelOrRefund',{
+                    id:f.order,active,payments:isRefund?[{state:'Settled'}]:[],state:'PaymentSettled',
+                    lines:[{id:f.line,quantity:f.quantity+1,orderPlacedQuantity:f.quantity+1},
+                        {id:f.extra,quantity:f.extraQuantity,orderPlacedQuantity:f.extraQuantity}],
+                });
+                modal.assertComplete();
             }
         } catch(e) { error=String(e); }
         const assertion=compareCalls(calls,expected);
-        cases.push({name:f.order+'/'+name,category,status:error?'unsupported':assertion.pass?'passed':'failed',assertion,details:{error,dialogReturned:returned??null,inputReason:reason??null,reasonInput:reason===undefined?'undefined':typeof reason,uiCoverage:typeof reason==='string'&&!!reason?'truthy reason; other template constraints not evaluated':'forced method input; original truthiness UI condition would reject'}});
+        cases.push({name:f.order+'/'+name,category,status:error?'unsupported':assertion.pass?'passed':'failed',assertion,details:{error,modalTraces,inputReason:reason??null,reasonInput:reason===undefined?'undefined':typeof reason,uiCoverage:typeof reason==='string'&&!!reason?'truthy reason; other template constraints not evaluated':'forced method input; original truthiness UI condition would reject'}});
     }
     try {
         for(const f of fixtures) {

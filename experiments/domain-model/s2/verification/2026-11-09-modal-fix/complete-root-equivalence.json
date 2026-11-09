@@ -1,0 +1,10 @@
+{
+  "sameSubmissionId": true,
+  "sameCaseAssertionsAndModalTraces": true,
+  "sourceBinding": true,
+  "typecheck": "passed",
+  "behavior": "passed",
+  "overall": "passed",
+  "submissionId": "dde3b75c151fb9847929ce9d3dd7e76081f791fc7a779f7124245644419bed54",
+  "evaluatorId": "af983f72401890c157c5d6e54f7ab189ce9195fb9f81a38659beebb5c91ec2ef"
+}

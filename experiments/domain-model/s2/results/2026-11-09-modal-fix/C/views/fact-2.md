@@ -1,0 +1,30 @@
+# fact-2
+
+status: "Found"
+value:
+ id: "source-V03"
+ evidence:
+  항목 1:
+   id: "source-V03/e0"
+   file: "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts"
+   symbol: "orderHasSettledPayments(order: OrderDetailFragment): boolean {"
+   offset: 22238
+   end: 22300
+   line: 572
+   anchor: "orderHasSettledPayments(order: OrderDetailFragment): boolean {"
+   sha256: "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede"
+ source:
+  id: "source-V03"
+  kind: "observed-in-source"
+  author: "agent"
+  method: "manual-source-reading"
+  scope: "Pinned Admin UI client static source; no runtime/server policy guarantee"
+  support: "manual; not a whole-function logical proof"
+  claim: "Settled payment 존재 판정. 서버 최종 정책은 아님."
+  evidence:
+   file: "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts"
+   symbol: "orderHasSettledPayments(order: OrderDetailFragment): boolean {"
+   offset: 22238
+   line: 572
+   anchor: "orderHasSettledPayments(order: OrderDetailFragment): boolean {"
+   sha256: "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede"

@@ -71,7 +71,15 @@ export function executor(root: string, mappings: Mapping[], bindings: Runtime, e
             throw e;
         }
     }
-    return { instance(className: string): Runtime { const m = mappings.find(m => m.className === className); if (!m)
-            throw new Failure('UnsupportedEvaluation', className, 'Unknown class'); const cls = load(path.resolve(root, m.file))[className]; if (typeof cls !== 'function')
-            throw new Failure('UnsupportedEvaluation', className, 'No constructor'); return Object.create(cls.prototype) as Runtime; } };
+    function component(className: string): Function {
+        const mapping = mappings.find(m => m.className === className);
+        if (!mapping) throw new Failure('UnsupportedEvaluation', className, 'Unknown class');
+        const constructor = load(path.resolve(root, mapping.file))[className];
+        if (typeof constructor !== 'function') throw new Failure('UnsupportedEvaluation', className, 'No constructor');
+        return constructor;
+    }
+    return {
+        component,
+        instance(className: string): Runtime { return Object.create(component(className).prototype) as Runtime; },
+    };
 }

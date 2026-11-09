@@ -1,5 +1,21 @@
 # S2 준비 구현 — R9 잔여 보완 필요, 본 비교 미실행
 
+2026-11-09 **R9 modal 연결 보완 구현·검증 완료, 독립 재검토 대기**. [최신 보고](../../../docs/reviews/2026-11-09-s2-modal-fix.md), [평가 v3 계약](evaluation/TASK-REVIEW.md). 제출 부모의 실제 component/locals로 dialog를 구독 시 실행하고, resolve 결과를 부모 Observable로 전달한다. constructor identity·locals/사용자 상태 소유권·호출별 trace·미해결/중복 실행 경계를 검사한다. 잘못된 modal 주문 ID/active는 진단0 후 실제 잘못된 요청으로 검출된다.
+
+전체230테스트(skip0)·비교4/4, 24제출 교정50파일(시간만 제외) 재현을 확인했다. baseline 보존16/16·요구6/36, 참조/helper52/52, 동작 결함15종 검출이다. 완전한 제출 CLI와 delta의 submissionId·판정/요청/modal trace가 같다. agent142파일·세 ID/모델은 그대로이고 evaluator metadata만 새 results/2026-11-09-modal-fix에 보존한다. readyForTrial=false다.
+
+```sh
+pnpm s2:oracle-check /tmp/ontosary-vendure-preparation-20261108/vendure work/s2-modal-oracle-a
+pnpm s2:oracle-check /tmp/ontosary-vendure-preparation-20261108/vendure work/s2-modal-oracle-b
+pnpm s2:verify-evaluation work/s2-modal-oracle-a work/s2-modal-oracle-b work/s2-modal-oracle-reproduction.json
+pnpm s2:evaluate <complete-submitted-source-root> <prepared-environment-root> <new-result.json> [repo]
+pnpm exec vitest run tests/s2-modal.test.ts
+```
+
+modal은 비API 사례마다1호출·1구독·1동기 resolve를 지원한다. 실제 undefined 닫기와 미해결은 다르며 미해결/다중 resolve/재구독/추가 호출/미지원 component·locals는 성공으로 대체하지 않는다. constructor/field/ngOnInit/HTML/전체 UI 계산·비동기 overlay/네트워크와 실제 격리·정책/사람 검토는 범위 밖/미정이다. 사용자 선택 상태는 fixture이지만 order를 복구하거나 payload를 대역에서 만들지 않는다.
+
+### v2 보완 기록 — 아래는 당시 인계
+
 2026-11-09 [독립 재검토](../../../docs/reviews/2026-11-09-s2-contract-independent-review.md): **R8/R10 해결, R9 부분 해결**. 제출 타입 검사·기존 교정은 재현됐으나 실제 modal component/locals를 무시해 부모의 잘못된 주문 ID/active 전달도52/52로 통과한다. 하네스의 데이터 전달 경계 보완이 먼저이며 readyForTrial=false를 유지한다. 아래 인계는 당시 자체 검증 기록이다.
 
 2026-11-09 **R8/R9/R10 보완 구현·검증 인계, 독립 재검토 대기**. [새 보고](../../../docs/reviews/2026-11-09-s2-contract-fix.md), [v2 평가 계약](evaluation/TASK-REVIEW.md). 제출의 원래 타입 문맥/추가 helper와 같은 snapshot의 실행을 결합하고, 전체 요청 payload를 판정한다. 취소 reason 정책을 환불 reason에 확장하지 않는다. baseline 보존16/16·요구6/36, 새 참조와 helper52/52다. 역사적 참조의 TS 오류5개는 전체 합격을 막는다. 아래2026-11-08 수치는 당시 기록이며 현재 평가는 v2/52사례를 따른다.

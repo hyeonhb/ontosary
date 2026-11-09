@@ -195,3 +195,13 @@ R6은 모델 의미를 변경하지 않고 incoming/outgoing 한 단계 조회�
 **판정:** 기대 요청은 fixture/명시 계약에서 독립 작성한다. 전체 취소·환불 payload, 호출 수/순서를 비교하고 기록 시점에 복제한다. 객체 key/line 순서는 무시하되 line 중복·누락은 유지한다. undefined 필드 부재는 JSON 전송과 동일하게 처리한다. 취소 reason만 trim/nonblank를 적용하며 환불만·혼합 경로의 환불 reason은 보존한다. 별도 helper 해법도 통과하므로 정확한 참조 diff를 요구하지 않는다.
 
 **보류:** 빈 stream 기반 참조 수정은 초안(a)의 검토 자료다. 최종 제품 정책, UI·stream error 대안, 사람의 원문 충실성/B-C 동등성, OS 격리·agent 실행 조건을 승인하지 않는다. readyForTrial=false이고 본 비교·H-O/H-F 효과·S3는 미검증이다. [실제 결과](reviews/2026-11-09-s2-contract-fix.md).
+
+## ADR-027 · 실제 modal 입력과 동기 resolve를 잇는 평가 대역 — 2026-11-09
+
+**근거:** R8/R10 독립 해결 뒤 R9의 부모→dialog 입력 우회를 발견했다. [보완 지시](reviews/2026-11-09-s2-modal-fix-instructions.md)에 따라 평가 대역만 보완한다. 제출 타입/snapshot/전체 payload 비교와 준비·모델·조회 구조는 유지한다.
+
+**선택:** 사전 실행 dialog/고정 반환값을 제거한다. executor가 로드한 실제 constructor 참조를 식별하고 부모의 options.locals.order를 복구 없이 적용한다. 사용자 선택·제외된 UI 계산 상태는 별도 fixture이며 locals/resolveWith와 충돌하면 미지원이다. 구독 시 dialog를 생성해 제출 select/cancel을 실행하고 resolve 즉시 해당 구독의 next/complete로 전달한다. 호출별 identity/입력/행동/resolve/전달 trace를 보존한다.
+
+**지원 경계:** 비API 시나리오마다1modal·1구독·1동기 resolve다. undefined 닫기는 실제 전달하지만 미해결을 임의 dismiss로 바꾸지 않는다. 미해결/다중 resolve/재구독/추가 호출·알 수 없는 component·잘못된 locals 형식/옵션은 unsupported다. 정상 형식의 잘못된 ID/active는 실행 후 독립 payload assertion으로 검출한다. 함수/절대 경로 대신 상대 선언 정보와 안전한 trace 값을 남긴다.
+
+**보류:** Angular 생성/field/ngOnInit/HTML/전체 UI 계산·비동기 overlay와 네트워크는 대역/제외 상태다. 구현 선택은 최종 닫힘/invalid 정책·사람 충실성/동등성·격리/agent 조건의 승인이 아니다. readyForTrial=false이며 본 비교·효용/S3는 미검증이다. [실제 결과](reviews/2026-11-09-s2-modal-fix.md).

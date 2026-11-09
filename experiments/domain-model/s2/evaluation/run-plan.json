@@ -48,14 +48,22 @@
   "results": null,
   "missingOrInterrupted": "Record failure/unsupported/missing telemetry separately; never impute success",
   "readyForTrial": false,
-  "contractVersion": "s2-evaluation-v2-cancel-only",
-  "evaluatorId": "856e7cfc5c48c15d3955decb3bca9fe02fa65409a09b17b2fa4fa23992708381",
+  "contractVersion": "s2-evaluation-v3-modal-connected",
+  "evaluatorId": "af983f72401890c157c5d6e54f7ab189ce9195fb9f81a38659beebb5c91ec2ef",
   "evaluatorHashes": {
     "submission.js": "919cb44e116186d34e45a567f151ca5810a0c2d371f76e7efe1488e37e782b0f",
-    "evaluate.js": "269a03f40138847bf0f3f626cfd49100f2dc3180f559ecf670b2d3ce76dd7948",
-    "behavior.js": "941e9c4e8da8bd185726228c16370afdc8d74e2f4991d7f1dc540723616d8081",
-    "execute.js": "6384e2834e1276894f6652947e8a3b83b36885ff61138eec850b5889f8a9fa76"
+    "evaluate.js": "3cd4243c11d8e01364cc0a675caf00158245b3dd5a4b26c04982d9dc6703b44c",
+    "behavior.js": "ed6c29aa288196dfd7afe6a96e74dff1f24367391c20bd2226603b8b3a6a8094",
+    "execute.js": "374f9671e59debbc666ffef025e70afe31b16589f248d217a2382ab3524893bd",
+    "modal.js": "98c84a085ee2169c3ec2b396e9a4c4d3e1ea2247f36435dd800bc583c1929770"
   },
   "submissionMode": "Complete inventory source tree. Only calibration explicitly combines baseline plus declared delta; missing original source is never silently restored.",
-  "scope": "Cancellation reason only; preserve refund-only behavior and refund reason, including mixed cancel/refund. No agent trial authorized."
+  "scope": "Cancellation reason only; preserve refund-only behavior and refund reason, including mixed cancel/refund. No agent trial authorized.",
+  "modalContract": {
+    "entry": "Submitted parent selects executor-loaded component and actual options.locals",
+    "ownership": "locals.order comes only from parent; selected component gets fixture user choices and external UI state; no order replacement",
+    "execution": "One modal per non-API scenario, one subscription, synchronous select/cancel, exactly one resolve then next/complete; unresolved/multiple resolve/repeated or extra calls unsupported",
+    "trace": "Constructor reference identity with source declaration, call-time options, action, subscribe/resolve/delivery events; undefined explicitly encoded",
+    "excluded": "Angular construction, field initialization, ngOnInit, HTML, rendered UI and asynchronous overlay/network scheduling"
+  }
 }

@@ -1,0 +1,51 @@
+{
+  "programs": 1,
+  "hostReads": 1762,
+  "explicitReads": 6057,
+  "hashes": 7819,
+  "sealReads": 6134,
+  "stages": {
+    "inspectMs": 4623.2657500000005,
+    "evidenceMs": 27.295207999999548,
+    "sealMs": 236.6275000000005,
+    "viewsMs": 16.081458000000566
+  },
+  "wallTimeMs": 4957.4944590000005,
+  "rssBytes": 688308224,
+  "memoryScope": "Process RSS at end; not peak",
+  "inputEntries": 6386,
+  "originalInventoryEntries": 4735,
+  "programEntries": 1638,
+  "artifactHashes": [
+    {
+      "name": "model-after.json",
+      "sha256": "0cb9d47181cd73481a3e0dc569872c0890e77a2c6ebcaf67b424f1c85ed7a867"
+    },
+    {
+      "name": "facts.json.gz",
+      "sha256": "a2a1d8e296b8d6b215c40212b20758b009834d7af106e4beb50a742870ff9def"
+    },
+    {
+      "name": "fca.json",
+      "sha256": "23d9fee3e16cb442f95012cd443dea8cb7299a7a8024244b61ea9d854267e296"
+    },
+    {
+      "name": "observation.json.gz",
+      "sha256": "60ea1ceba7cac312e1b58e640f262baf83a92b3636a01632b05d087956a5e960"
+    },
+    {
+      "name": "scan.json.gz",
+      "sha256": "b91db4178c26829c0182f9c4c0d38c50647c0ec951a27fbf6ea39ba6825307c9"
+    },
+    {
+      "name": "vendure-task.json",
+      "sha256": "948090082bc6c655437b0811134667c538ccddc317e4f38a652697bf52a5e38c"
+    }
+  ],
+  "ids": {
+    "baselineId": "7707db72b46a21570152b2b8920e6526996952abaac1574642d6638c477ba0d8",
+    "modelId": "2ba6c772263da8814256efaa5491c69f723d79157a7f8aad7f22d898e297e5cf",
+    "bundleId": "f8ed34c46cbcd6d09443260199bb031f2ecc545b993b88529c44625183d5ef8a"
+  },
+  "node": "v22.19.0"
+}

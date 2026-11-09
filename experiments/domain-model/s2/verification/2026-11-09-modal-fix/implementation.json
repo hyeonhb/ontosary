@@ -1,0 +1,28 @@
+{
+  "baseRevision": "9224872cbe08412d125dff3e844e32432e89d7f6",
+  "contractVersion": "s2-evaluation-v3-modal-connected",
+  "evaluatorId": "af983f72401890c157c5d6e54f7ab189ce9195fb9f81a38659beebb5c91ec2ef",
+  "tests": {
+    "passed": 230,
+    "skipped": 0,
+    "newAlwaysRun": 16,
+    "existingComparisonsPassed": 4
+  },
+  "sourceHashes": {
+    "experiments/domain-model/s2/evaluation/behavior.ts": "722dd6cf64d4083a3ff10efb0ffd009dcc6a04f4435735fa25706ebb394c1d4a",
+    "experiments/domain-model/s2/evaluation/evaluate.ts": "e82671b1cfb33ce454484237ccf469c39e33228b9f4c27a17e2ec6d2defd8dc5",
+    "experiments/domain-model/s2/evaluation/execute.ts": "38216e00c223c10f546103f1cf5062e649318f68a661608abed93fc4c33d7852",
+    "experiments/domain-model/s2/evaluation/modal.ts": "f94b1c13d18b911c1bd50d6666800f55b46d4e631d2c591b9e70fad6271e2617",
+    "experiments/domain-model/s2/evaluation/oracle-check.ts": "1429f2220af90b72ecc9da4ce0f19e1f1f126626445c864300118b5162dbed36",
+    "experiments/domain-model/s2/evaluation/run.ts": "0a1d13b139814d5c6dbd4ac736df8077d9b320552fbdc6ea19a67b977b535f9d",
+    "experiments/domain-model/s2/evaluation/submission.ts": "62bf36de697a08275d79b2c1225974ea55d4570aab40c6f86365698b8f16e83d",
+    "experiments/domain-model/s2/evaluation/variants.ts": "fc2539cf1449bcacae83535b37339ce8256f1e90ba225f288f6231c60fdc2047",
+    "experiments/domain-model/s2/evaluation/verify.ts": "ff4b9b24fd0b91e9f9b22b80bac59e111c90fef60b4fdabff8c024dc29cd8190",
+    "tests/fixtures/s2-modal/first.ts": "7633bce4ce543cb47fe6826f9fe750b49a438b658f246fa53ef3b8bdddf1f62e",
+    "tests/fixtures/s2-modal/parent.ts": "665647f8ae48810b628fc49798cc3919b78151ca90e539580becc898802017c9",
+    "tests/fixtures/s2-modal/second.ts": "533aee4140a90c8921b37cb9b1819c80a22257bde2d495822d2ae1831c4dcf88",
+    "tests/s2-modal.test.ts": "6c012af8803100a8df3ea0dc299a2f4c36c38f7e9648add7b1b0eea3fa4e3b67"
+  },
+  "logNormalization": "Absolute repository path replaced with <repository> only",
+  "readyForTrial": false
+}

@@ -8,7 +8,7 @@ import { hash, stable } from '../lib/analysis-session.js';
 import { array, object, string, Failure } from '../lib/model.js';
 import { Sources, checkSubmission, overallStatus } from './submission.js';
 import { evaluateBehavior, mappings } from './behavior.js';
-export const contractVersion = 's2-evaluation-v2-cancel-only';
+export const contractVersion = 's2-evaluation-v3-modal-connected';
 export function openEnvironment(root: string, repo: string) {
     const start=performance.now(), {spec}=vendure(root,repo);
     const fingerprints: Record<string,string>={};
@@ -38,7 +38,7 @@ export async function evaluateSubmission(env: Environment,sources:Sources,inputM
     const recheckStart=performance.now();
     env.assertUnchanged();
     const environmentRecheck={wallTimeMs:performance.now()-recheckStart};
-    const moduleFiles=['submission.js','evaluate.js','behavior.js','execute.js'];
+    const moduleFiles=['submission.js','evaluate.js','behavior.js','execute.js','modal.js'];
     const evaluatorHashes=Object.fromEntries(moduleFiles.map(f=>[f,hash(fs.readFileSync(fileURLToPath(new URL(f,import.meta.url))))]));
     return {contractVersion,evaluatorId:hash(stable({contractVersion,evaluatorHashes})),evaluatorHashes,inputMode,
         environment:{id:hash(stable(env.fingerprints)),inputHashes:env.fingerprints,baselineTypecheck:{status:env.checked.status,diagnostics:env.checked.diagnostics,programFiles:env.checked.cost.programFiles},cost:env.cost},
