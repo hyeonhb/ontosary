@@ -1,5 +1,7 @@
 # 현재 작업 상태 — 새 세션은 이 문서부터 읽기
 
+2026-11-09 R9 modal 보완 지시: 사용자가 잔여 데이터 전달 문제의 개발 지시 작성을 요청했다. 다음 개발 세션은 [modal 연결 보완 지시](reviews/2026-11-09-s2-modal-fix-instructions.md)를 따른다. 실제 component/locals로 dialog를 실행하고 resolve 결과를 부모 흐름에 연결하며, 주문 ID/active 변형을 타입 통과 후 payload assertion에서 거부한다. 기존 R8/R10·13동작 결함·모델/배포 경계를 유지한다. 이번 세션은 지시·맥락 문서만 작성했으며 구현·본 비교·미정 정책 동결은 하지 않았다. 문서 링크와 pnpm check(214테스트·타입 검사·예제 빌드)를 확인했으며 이는 잔여 결함 수정의 검증이 아니다. readyForTrial=false다.
+
 2026-11-09 S2 보완 독립 재검토: **R8/R10 해결, R9 부분 해결**. [최신 독립 리뷰](reviews/2026-11-09-s2-contract-independent-review.md). 214테스트(skip0)·비교4/4·22제출46파일/준비147파일 재현,142 agent 파일·세 ID·실제 A/B/C workspace hash를 확인했다. 그러나 modal 대역이 실제 component/locals를 무시해 부모의 잘못된 주문 ID·active 전달도 타입 진단0·52/52·sourceBinding=true로 통과한다. 같은 제출 메서드에 실제 전달값을 연결하면 잘못된 주문 취소/부분 취소 lines 누락이 관찰된다. 다음은 이 R9 데이터 전달 경계 보완·재검토이며 큰 구조 변경은 필요하지 않다. 준비 전체 완료/본 비교는 보류, readyForTrial=false·미정 정책/격리/agent 조건을 유지한다. 아래 인계는 당시 자체 검증 기록이다.
 
 2026-11-09 S2 R8/R9/R10 보완: **구현·검증 완료, 독립 재검토 대기**. [인계](reviews/2026-11-09-s2-contract-fix.md), [평가 v2 계약](../experiments/domain-model/s2/evaluation/TASK-REVIEW.md). 완전한 제출/명시적 delta를 구분하고 원래 타입 문맥·추가 helper와 실행 snapshot을 hash로 결합했다. 요청 payload를 독립 기대값과 대조하고 환불만/혼합 환불 reason을 보존한다. 전체214테스트(skip0)·비교4/4, 22제출 교정 반복, 준비147파일 재현을 확인했다. baseline 진단0·보존16/16, 새 참조/helper 진단0·52/52, 역사적 참조 진단5 거부, 동작 결함13종은 타입 통과 후 검출했다. 기존142 agent 파일·세 ID는 그대로이며 evaluator run-plan만 갱신했다. 독립 reviewer의 해결 판정을 대신하지 않으며 readyForTrial=false·본 비교 미실행·H-O/H-F 미검증을 유지한다. 아래 기록은 각 시점의 상태다.
