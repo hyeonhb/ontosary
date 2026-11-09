@@ -1,0 +1,421 @@
+{
+  "reviewedCommit": "8007771cb9a248a5040565d96a58d4b6e177087c",
+  "node": "v22.19.0",
+  "typescript": "5.9.3",
+  "scope": "Independent oracle counterexamples and read-only submitted-reference type checking; no agent trial",
+  "summaries": [
+    {
+      "variant": "baseline",
+      "evaluator": "original",
+      "preservation": "6/6",
+      "draft": "3/18",
+      "failedCases": [
+        "direct-reason-1",
+        "refund-reason-1",
+        "direct-reason-2",
+        "refund-reason-2",
+        "direct-reason-3",
+        "refund-reason-3",
+        "direct-reason-4",
+        "refund-reason-4",
+        "direct-reason-5",
+        "refund-reason-5",
+        "api-reason-1",
+        "api-reason-2",
+        "api-reason-3",
+        "api-reason-4",
+        "api-reason-5"
+      ],
+      "observedCancel": [
+        {
+          "kind": "cancel",
+          "input": {
+            "orderId": "o",
+            "lines": [
+              {
+                "orderLineId": "l",
+                "quantity": 1
+              }
+            ],
+            "reason": "normal",
+            "cancelShipping": true
+          }
+        }
+      ],
+      "observedRefund": [
+        {
+          "kind": "refund",
+          "input": {
+            "lines": [
+              {
+                "orderLineId": "l",
+                "quantity": 1
+              }
+            ],
+            "reason": "normal",
+            "paymentId": "p",
+            "amount": 10,
+            "shipping": 0,
+            "adjustment": 0
+          }
+        }
+      ]
+    },
+    {
+      "variant": "baseline",
+      "evaluator": "refund-only-extension",
+      "preservation": "7/7",
+      "draft": "3/18",
+      "failedCases": [
+        "direct-reason-1",
+        "refund-reason-1",
+        "direct-reason-2",
+        "refund-reason-2",
+        "direct-reason-3",
+        "refund-reason-3",
+        "direct-reason-4",
+        "refund-reason-4",
+        "direct-reason-5",
+        "refund-reason-5",
+        "api-reason-1",
+        "api-reason-2",
+        "api-reason-3",
+        "api-reason-4",
+        "api-reason-5"
+      ],
+      "observedCancel": [
+        {
+          "kind": "cancel",
+          "input": {
+            "orderId": "o",
+            "lines": [
+              {
+                "orderLineId": "l",
+                "quantity": 1
+              }
+            ],
+            "reason": "normal",
+            "cancelShipping": true
+          }
+        }
+      ],
+      "observedRefund": [
+        {
+          "kind": "refund",
+          "input": {
+            "lines": [
+              {
+                "orderLineId": "l",
+                "quantity": 1
+              }
+            ],
+            "reason": "normal",
+            "paymentId": "p",
+            "amount": 10,
+            "shipping": 0,
+            "adjustment": 0
+          }
+        }
+      ]
+    },
+    {
+      "variant": "reference",
+      "evaluator": "original",
+      "preservation": "6/6",
+      "draft": "18/18",
+      "failedCases": [],
+      "observedCancel": [
+        {
+          "kind": "cancel",
+          "input": {
+            "orderId": "o",
+            "lines": [
+              {
+                "orderLineId": "l",
+                "quantity": 1
+              }
+            ],
+            "reason": "normal",
+            "cancelShipping": true
+          }
+        }
+      ],
+      "observedRefund": [
+        {
+          "kind": "refund",
+          "input": {
+            "lines": [
+              {
+                "orderLineId": "l",
+                "quantity": 1
+              }
+            ],
+            "reason": "normal",
+            "paymentId": "p",
+            "amount": 10,
+            "shipping": 0,
+            "adjustment": 0
+          }
+        }
+      ]
+    },
+    {
+      "variant": "reference",
+      "evaluator": "refund-only-extension",
+      "preservation": "6/7",
+      "draft": "18/18",
+      "failedCases": [
+        "refund-only-whitespace"
+      ],
+      "observedCancel": [
+        {
+          "kind": "cancel",
+          "input": {
+            "orderId": "o",
+            "lines": [
+              {
+                "orderLineId": "l",
+                "quantity": 1
+              }
+            ],
+            "reason": "normal",
+            "cancelShipping": true
+          }
+        }
+      ],
+      "observedRefund": [
+        {
+          "kind": "refund",
+          "input": {
+            "lines": [
+              {
+                "orderLineId": "l",
+                "quantity": 1
+              }
+            ],
+            "reason": "normal",
+            "paymentId": "p",
+            "amount": 10,
+            "shipping": 0,
+            "adjustment": 0
+          }
+        }
+      ]
+    },
+    {
+      "variant": "wrong-order-id",
+      "evaluator": "original",
+      "preservation": "6/6",
+      "draft": "18/18",
+      "failedCases": [],
+      "observedCancel": [
+        {
+          "kind": "cancel",
+          "input": {
+            "orderId": "wrong-order",
+            "lines": [
+              {
+                "orderLineId": "l",
+                "quantity": 1
+              }
+            ],
+            "reason": "normal",
+            "cancelShipping": true
+          }
+        }
+      ],
+      "observedRefund": [
+        {
+          "kind": "refund",
+          "input": {
+            "lines": [
+              {
+                "orderLineId": "l",
+                "quantity": 1
+              }
+            ],
+            "reason": "normal",
+            "paymentId": "p",
+            "amount": 10,
+            "shipping": 0,
+            "adjustment": 0
+          }
+        }
+      ]
+    },
+    {
+      "variant": "wrong-order-id",
+      "evaluator": "refund-only-extension",
+      "preservation": "6/7",
+      "draft": "18/18",
+      "failedCases": [
+        "refund-only-whitespace"
+      ],
+      "observedCancel": [
+        {
+          "kind": "cancel",
+          "input": {
+            "orderId": "wrong-order",
+            "lines": [
+              {
+                "orderLineId": "l",
+                "quantity": 1
+              }
+            ],
+            "reason": "normal",
+            "cancelShipping": true
+          }
+        }
+      ],
+      "observedRefund": [
+        {
+          "kind": "refund",
+          "input": {
+            "lines": [
+              {
+                "orderLineId": "l",
+                "quantity": 1
+              }
+            ],
+            "reason": "normal",
+            "paymentId": "p",
+            "amount": 10,
+            "shipping": 0,
+            "adjustment": 0
+          }
+        }
+      ]
+    },
+    {
+      "variant": "wrong-refund-payment-amount",
+      "evaluator": "original",
+      "preservation": "6/6",
+      "draft": "18/18",
+      "failedCases": [],
+      "observedCancel": [
+        {
+          "kind": "cancel",
+          "input": {
+            "orderId": "o",
+            "lines": [
+              {
+                "orderLineId": "l",
+                "quantity": 1
+              }
+            ],
+            "reason": "normal",
+            "cancelShipping": true
+          }
+        }
+      ],
+      "observedRefund": [
+        {
+          "kind": "refund",
+          "input": {
+            "lines": [
+              {
+                "orderLineId": "l",
+                "quantity": 1
+              }
+            ],
+            "reason": "normal",
+            "paymentId": "wrong-payment",
+            "amount": 999999,
+            "shipping": 0,
+            "adjustment": 0
+          }
+        }
+      ]
+    },
+    {
+      "variant": "wrong-refund-payment-amount",
+      "evaluator": "refund-only-extension",
+      "preservation": "6/7",
+      "draft": "18/18",
+      "failedCases": [
+        "refund-only-whitespace"
+      ],
+      "observedCancel": [
+        {
+          "kind": "cancel",
+          "input": {
+            "orderId": "o",
+            "lines": [
+              {
+                "orderLineId": "l",
+                "quantity": 1
+              }
+            ],
+            "reason": "normal",
+            "cancelShipping": true
+          }
+        }
+      ],
+      "observedRefund": [
+        {
+          "kind": "refund",
+          "input": {
+            "lines": [
+              {
+                "orderLineId": "l",
+                "quantity": 1
+              }
+            ],
+            "reason": "normal",
+            "paymentId": "wrong-payment",
+            "amount": 999999,
+            "shipping": 0,
+            "adjustment": 0
+          }
+        }
+      ]
+    }
+  ],
+  "diagnostics": [
+    {
+      "variant": "baseline",
+      "programFiles": 1638,
+      "overridesVerified": true,
+      "diagnosticCount": 0,
+      "diagnostics": []
+    },
+    {
+      "variant": "reference",
+      "programFiles": 1638,
+      "overridesVerified": true,
+      "diagnosticCount": 5,
+      "diagnostics": [
+        {
+          "code": 2554,
+          "file": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+          "line": 617,
+          "message": "Expected 0 arguments, but got 1."
+        },
+        {
+          "code": 18046,
+          "file": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+          "line": 618,
+          "message": "'res' is of type 'unknown'."
+        },
+        {
+          "code": 2339,
+          "file": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+          "line": 647,
+          "message": "Property 'refunds' does not exist on type 'CancelOrderMutation | { cancel: CancelOrderInput; refunds: RefundOrderInput[]; }'.\n  Property 'refunds' does not exist on type 'CancelOrderMutation'."
+        },
+        {
+          "code": 2339,
+          "file": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+          "line": 649,
+          "message": "Property 'refunds' does not exist on type 'CancelOrderMutation | { cancel: CancelOrderInput; refunds: RefundOrderInput[]; }'.\n  Property 'refunds' does not exist on type 'CancelOrderMutation'."
+        },
+        {
+          "code": 2488,
+          "file": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+          "line": 659,
+          "message": "Type '{}' must have a '[Symbol.iterator]()' method that returns an iterator."
+        }
+      ]
+    }
+  ]
+}

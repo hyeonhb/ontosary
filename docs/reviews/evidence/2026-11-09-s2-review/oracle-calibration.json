@@ -1,0 +1,107 @@
+{
+  "wallTimeMs": 3176.885125,
+  "policyStatus": "draft-not-approved",
+  "humanFidelityReview": "pending",
+  "scope": "Temporary submitted source clones; actual cache untouched; reference changes are evaluator-only, not agent trials",
+  "summaries": [
+    {
+      "variant": "baseline",
+      "wallTimeMs": 435.997667,
+      "preservationPassed": 6,
+      "draftPassed": 3,
+      "failedCases": [
+        "direct-reason-1",
+        "refund-reason-1",
+        "direct-reason-2",
+        "refund-reason-2",
+        "direct-reason-3",
+        "refund-reason-3",
+        "direct-reason-4",
+        "refund-reason-4",
+        "direct-reason-5",
+        "refund-reason-5",
+        "api-reason-1",
+        "api-reason-2",
+        "api-reason-3",
+        "api-reason-4",
+        "api-reason-5"
+      ]
+    },
+    {
+      "variant": "reference",
+      "wallTimeMs": 388.99679100000014,
+      "preservationPassed": 6,
+      "draftPassed": 18,
+      "failedCases": []
+    },
+    {
+      "variant": "direct-only",
+      "wallTimeMs": 388.55254200000013,
+      "preservationPassed": 6,
+      "draftPassed": 8,
+      "failedCases": [
+        "refund-reason-1",
+        "refund-reason-2",
+        "refund-reason-3",
+        "refund-reason-4",
+        "refund-reason-5",
+        "api-reason-1",
+        "api-reason-2",
+        "api-reason-3",
+        "api-reason-4",
+        "api-reason-5"
+      ]
+    },
+    {
+      "variant": "no-trim",
+      "wallTimeMs": 390.19775000000004,
+      "preservationPassed": 6,
+      "draftPassed": 12,
+      "failedCases": [
+        "direct-reason-1",
+        "refund-reason-1",
+        "direct-reason-3",
+        "refund-reason-3",
+        "api-reason-1",
+        "api-reason-3"
+      ]
+    },
+    {
+      "variant": "force-cancel",
+      "wallTimeMs": 388.4205000000002,
+      "preservationPassed": 5,
+      "draftPassed": 18,
+      "failedCases": [
+        "refund-only"
+      ]
+    },
+    {
+      "variant": "dismiss-request",
+      "wallTimeMs": 387.7199169999999,
+      "preservationPassed": 5,
+      "draftPassed": 18,
+      "failedCases": [
+        "dismiss-cancel"
+      ]
+    },
+    {
+      "variant": "continue-after-failure",
+      "wallTimeMs": 388.680875,
+      "preservationPassed": 5,
+      "draftPassed": 18,
+      "failedCases": [
+        "cancel-failure-stops-refund"
+      ]
+    },
+    {
+      "variant": "omit-followup-refund",
+      "wallTimeMs": 387.96304199999986,
+      "preservationPassed": 6,
+      "draftPassed": 16,
+      "failedCases": [
+        "refund-reason-0",
+        "refund-reason-1"
+      ]
+    }
+  ]
+}
