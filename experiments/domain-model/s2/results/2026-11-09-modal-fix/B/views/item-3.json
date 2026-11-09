@@ -1,0 +1,91 @@
+{
+  "item": {
+    "status": "Found",
+    "value": {
+      "id": "cancel-request",
+      "kind": "concept-candidate",
+      "factRefs": [
+        "source-V06",
+        "source-V08",
+        "source-V09"
+      ],
+      "candidateRefs": [],
+      "source": {
+        "id": "cancel-request",
+        "kind": "concept-candidate",
+        "label": "취소 요청",
+        "status": "pending-review",
+        "author": "agent",
+        "factRefs": [
+          "source-V06",
+          "source-V08",
+          "source-V09"
+        ],
+        "candidateRefs": [],
+        "relatedItems": [
+          "order",
+          "line"
+        ],
+        "interpretation": "dialog 결과를 service와 GraphQL operation에 연결한다.",
+        "unverified": [
+          "입력 계약 변경 시 서버·generated 타입 변경도 필요한가?"
+        ],
+        "intendedPolicy": null
+      }
+    }
+  },
+  "neighbors": {
+    "status": "Found",
+    "value": [
+      {
+        "from": "cancel-request",
+        "to": "order",
+        "kind": "related-item",
+        "provenance": "S1.items/3/relatedItems",
+        "direction": "outgoing"
+      },
+      {
+        "from": "cancel-request",
+        "to": "line",
+        "kind": "related-item",
+        "provenance": "S1.items/3/relatedItems",
+        "direction": "outgoing"
+      },
+      {
+        "from": "dialog-submit",
+        "to": "cancel-request",
+        "kind": "related-item",
+        "provenance": "S1.items/6/relatedItems",
+        "direction": "incoming"
+      },
+      {
+        "from": "refund-also-cancels",
+        "to": "cancel-request",
+        "kind": "related-item",
+        "provenance": "S1.items/7/relatedItems",
+        "direction": "incoming"
+      },
+      {
+        "from": "dismiss",
+        "to": "cancel-request",
+        "kind": "related-item",
+        "provenance": "S1.items/8/relatedItems",
+        "direction": "incoming"
+      },
+      {
+        "from": "ui-gates",
+        "to": "cancel-request",
+        "kind": "related-item",
+        "provenance": "S1.items/9/relatedItems",
+        "direction": "incoming"
+      },
+      {
+        "from": "cancel-transport",
+        "to": "cancel-request",
+        "kind": "related-item",
+        "provenance": "S1.items/10/relatedItems",
+        "direction": "incoming"
+      }
+    ]
+  }
+}

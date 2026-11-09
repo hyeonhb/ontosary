@@ -1,0 +1,46 @@
+{
+  "item": {
+    "status": "Found",
+    "value": {
+      "id": "cancel-transport",
+      "kind": "relationship-candidate",
+      "factRefs": [
+        "source-V08",
+        "source-V09"
+      ],
+      "candidateRefs": [],
+      "source": {
+        "id": "cancel-transport",
+        "kind": "relationship-candidate",
+        "label": "취소 service → GraphQL operation",
+        "status": "pending-review",
+        "author": "agent",
+        "factRefs": [
+          "source-V08",
+          "source-V09"
+        ],
+        "candidateRefs": [],
+        "relatedItems": [
+          "cancel-request"
+        ],
+        "interpretation": "CANCEL_ORDER 문서와 input 전달을 관찰한다.",
+        "unverified": [
+          "GraphQL/서버 실행 결과는 확인하지 않았다."
+        ],
+        "intendedPolicy": null
+      }
+    }
+  },
+  "neighbors": {
+    "status": "Found",
+    "value": [
+      {
+        "from": "cancel-transport",
+        "to": "cancel-request",
+        "kind": "related-item",
+        "provenance": "S1.items/10/relatedItems",
+        "direction": "outgoing"
+      }
+    ]
+  }
+}

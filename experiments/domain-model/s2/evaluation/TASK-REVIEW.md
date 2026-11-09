@@ -1,6 +1,20 @@
-# 검토용 reason 과업·평가 계약 v2 (평가자 전용)
+# 검토용 reason 과업·평가 계약 v3 (평가자 전용)
 
-2026-11-09 R8/R9/R10 보완 구현이다. 실제 Vendure 정책 승인이 아니며 `readyForTrial:false`다. 가상 요구는 **취소 payload의 reason만** trim/nonblank로 제한한다. invalid 취소 입력의 요청/연쇄 환불을 억제하는 대안(a)을 교정한다. 동기 예외/stream error 대안(b), UI 표시/닫힘, 사람의 원문 충실성·B/C 의미 동등성, 실제 격리·agent 조건은 별도 검토/동결 전이다. generated/server schema는 바꾸지 않는다.
+2026-11-09 R9 modal 연결 보완이다. R8/R10과 v2의 제출 타입/요청 비교 계약은 유지한다. 실제 Vendure 정책 승인이 아니며 `readyForTrial:false`다. 가상 요구는 **취소 payload의 reason만** trim/nonblank로 제한한다. invalid 취소 입력의 요청/연쇄 환불을 억제하는 대안(a)을 교정한다. 동기 예외/stream error 대안(b), UI 표시/닫힘, 사람의 원문 충실성·B/C 의미 동등성, 실제 격리·agent 조건은 별도 검토/동결 전이다. generated/server schema는 바꾸지 않는다.
+
+## 부모→modal→dialog→부모 연결
+
+부모 `cancelOrRefund`부터 실행한다. `fromComponent(component, options)`는 같은 executor/snapshot에서 로드한 두 dialog constructor와 **참조가 같은지** 확인한다. 이름 문자열이나 시나리오 mode로 component를 대체하지 않는다. registration의 인스턴스 생성도 기존 executor의 제외 seam 검사/파일 hash 추적을 사용한다.
+
+주문 fixture는 부모에게 한 번 전달한다. `options.locals.order`의 실제 id/active/lines를 dialog에 적용하며 정상 주문으로 복구하지 않는다. locals는 order만 지원하고 reason/항목 선택·cancelAll/선택 payment/배송 선택은 사용자 입력·미실행 UI 초기화/계산의 fixture 상태다. 해당 상태의 형식은 **실제 선택된 component**에 맞추며 order/resolveWith를 덮어쓰면 미지원이다. constructor/field 초기화·ngOnInit/HTML·화면 계산은 검증하지 않는다.
+
+`modal.ts`는 기존 환경의 실제 RxJS Observable을 생성한다. 구독 시에만 해당 dialog를 만들고 locals와 사용자 상태를 적용한 뒤 제출 `select` 또는 `cancel`을 한 번 실행한다. resolve 즉시 해당 구독으로 next(value)와 complete를 전달한다. 호출→구독→행동→resolve→next→complete→행동 반환을 기록한다. `resolveWith(undefined)`는 실제 undefined를 전달하며 미해결 상태와 구별한다. payload/reason/업무 분기는 제출 코드가 만든다.
+
+각 비API 시나리오는 modal1회·구독1회·동기 resolve1회를 지원한다. 미해결, 다중 resolve, 미구독/재구독, 추가 modal, 알 수 없는 constructor, 잘못된 locals 형식, size가 xl/undefined 이외이거나 locals/size 외 옵션은 이유 있는 unsupported다. 잘못됐지만 정상 형식인 주문 ID/active는 실행하며 최종 payload assertion이 failed가 된다. 단위 fixture는 명시적 상한2로 연속 호출의 상태 분리도 확인한다. 이 제한은 Angular overlay Promise/네트워크 비동기를 지원한다는 뜻이나 최종 닫힘 정책의 승인이 아니다.
+
+사례별 modalTraces는 상대 file/class 선언과 identity 판정 근거, 호출 시점 options/locals, 행동, 구독·resolve 횟수/상태, resolve 값과 부모 전달값, 순서/미지원 사유를 담는다. 함수/절대 경로는 직렬화하지 않는다. trace의 `{$type:"undefined"}`는 undefined 표시이고 null/미해결과 다르다. 요청 비교 규칙은 그대로이며 실제 locals를 기대값으로 사용하지 않는다. sourceBinding과 이 흐름 trace는 서로 다른 근거다.
+
+원문 대응은 새 검증 디렉터리의 modal-upstream-source.json에 있다. 실제 ModalService의 closeModal→next/complete 및 ModalDialogComponent.onCreate의 resolveWith/locals 전달에 대응한다. Angular 생성·뷰 lifecycle·비동기 overlay 자체는 여전히 대역이다.
 
 ## 적용 범위와 기대 요청
 
@@ -28,6 +42,6 @@
 
 검토용 참조 수정은 취소 service의 실제 Observable 반환 타입을 유지하고 invalid 입력에서 빈 stream을 반환한다. 환불 dialog는 실제 취소 lines가 있을 때만 guard를 적용하고 취소 payload만 trim한다. 이는 정답 diff가 아니다. 별도 상대 helper 해법도 실제 타입/동작 검사에서 통과한다. baseline은 보존16/16·요구6/36, 참조와 helper는52/52다. 역사적 참조의 TS 진단5개는 보존되며 v2에서 전체 합격을 거부한다.
 
-`variants.ts`의22제출 교정은 baseline/참조/helper, 역사적 참조·helper 타입/구문/누락·삭제·범위 밖 변경, 기존6동작 결함 및 주문 ID·결제 ID·금액·취소 line ID/수량·환불만 guard·환불 reason trim을 각각 독립적으로 만든다. 동작 결함13종은 타입 검사 통과 후 기대/관찰 요청 불일치로 검출한다. 참조 패치·교정 결과는 평가자 전용이고 A/B/C allowlist에 포함하지 않는다.
+`variants.ts`의24제출 교정은 baseline/참조/helper, 역사적 참조·helper 타입/구문/누락·삭제·범위 밖 변경, 기존6동작 결함 및 주문 ID·결제 ID·금액·취소 line ID/수량·환불만 guard·환불 reason trim 및 부모 modal 주문 ID/active를 각각 독립적으로 만든다. 동작 결함15종은 타입 검사 통과 후 기대/관찰 요청 불일치로 검출한다. 참조 패치·교정 결과는 평가자 전용이고 A/B/C allowlist에 포함하지 않는다.
 
-원래2026-11-08 결과와 독립 probe는 역사적 증거다. 새 교정은 `verification/2026-11-09/`와 인계 보고를 따른다. 정책/원문 충실성/의미 동등성 검토는 구현자가 대신 승인하지 않는다.
+원래2026-11-08 결과와 독립 probe는 역사적 증거다. 새 교정은 `verification/2026-11-09-modal-fix/`와 인계 보고를 따른다. 정책/원문 충실성/의미 동등성 검토는 구현자가 대신 승인하지 않는다.

@@ -1,0 +1,16 @@
+{
+  "status": "Found",
+  "value": {
+    "id": "source-refund-cancel/e0",
+    "file": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+    "symbol": "refund-cancel",
+    "offset": 23612,
+    "end": 23645,
+    "line": 615,
+    "anchor": "if (input.cancel.lines?.length) {",
+    "sha256": "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede",
+    "text": "if (input.cancel.lines?.length) {",
+    "column": 21,
+    "sourceVersion": "baseline"
+  }
+}

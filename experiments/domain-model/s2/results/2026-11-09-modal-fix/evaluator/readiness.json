@@ -1,0 +1,12 @@
+{
+  "implementation": "prepared-for-review",
+  "baseline": "verified",
+  "BCautomaticCoverage": "same value trees",
+  "humanParityReview": "pending",
+  "semanticReview": "pending",
+  "oracleFidelityReview": "pending",
+  "isolation": "unverified",
+  "runConditions": "not-frozen",
+  "readyForTrial": false,
+  "agentUtility": null
+}

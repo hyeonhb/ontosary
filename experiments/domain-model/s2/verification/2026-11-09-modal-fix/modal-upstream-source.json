@@ -1,0 +1,22 @@
+{
+  "revision": "534e6003534f74761e82de1b8c6061cba89945d1",
+  "sourceNotice": "experiments/domain-model/SOURCE-NOTICE.md",
+  "records": [
+    {
+      "file": "packages/admin-ui/src/lib/core/src/providers/modal/modal.service.ts",
+      "sha256": "d4096905f43f3134d12aa2567a2a0a6d1deb25b985222de877d7057fc336f365",
+      "anchor": "    fromComponent<T",
+      "offset": 1981,
+      "line": 68,
+      "source": "    fromComponent<T extends Dialog<any>, R>(\n        component: Type<T> & Type<Dialog<R>>,\n        options?: ModalOptions<T>,\n    ): Observable<R | undefined> {\n        return from(this.overlayHostService.getHostView()).pipe(\n            mergeMap(hostView => {\n                const modalComponentRef = hostView.createComponent(ModalDialogComponent);\n                const modalInstance: ModalDialogComponent<any> = modalComponentRef.instance;\n                modalInstance.childComponentType = component;\n                modalInstance.options = options;\n\n                return new Observable<R>(subscriber => {\n                    modalInstance.closeModal = (result: R) => {\n                        modalComponentRef.destroy();\n                        subscriber.next(result);\n                        subscriber.complete();\n                    };\n                });\n            }),\n        );\n    }\n\n    /**\n     * @description\n     * Displays a modal dialog with the provided title, body and buttons.\n     */\n    dialog<T>(config: DialogConfig<T>): Observable<T | undefined> {\n        return this.fromComponent(SimpleDialogComponent, {\n            locals: config,\n            size: config.size,\n        });\n    }\n}\n"
+    },
+    {
+      "file": "packages/admin-ui/src/lib/core/src/shared/components/modal-dialog/modal-dialog.component.ts",
+      "sha256": "7b05ca9a5b3e1d43b60bc238cd69bb7207a5ae94e1dc0128c8e6bc90d5501898",
+      "anchor": "    onCreate(componentInstance",
+      "offset": 1568,
+      "line": 46,
+      "source": "    onCreate(componentInstance: T) {\n        componentInstance.resolveWith = (result?: any) => {\n            this.closeModal(result);\n        };\n        if (this.options && this.options.locals) {\n            // eslint-disable-next-line\n            for (const key in this.options.locals) {\n                componentInstance[key] = this.options.locals[key] as T[Extract<keyof T, string>];\n            }\n        }\n    }\n\n    /**\n     * This should be called by the {@link DialogTitleDirective} only\n     */\n    registerTitleTemplate(titleTemplateRef: TemplateRef<any>) {\n        this.titleTemplateRef$.next(titleTemplateRef);\n    }\n\n    /**\n     * This should be called by the {@link DialogButtonsDirective} only\n     */\n    registerButtonsTemplate(buttonsTemplateRef: TemplateRef<any>) {\n        this.buttonsTemplateRef$.next(buttonsTemplateRef);\n    }\n\n    /**\n     * Called when the modal is closed by clicking the X or the mask.\n     */\n    modalOpenChange(status: any) {\n        if (status === false) {\n            this.closeModal();\n        }\n    }\n}\n"
+    }
+  ]
+}

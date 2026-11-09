@@ -1,0 +1,29 @@
+{
+  "variants": [
+    "baseline",
+    "reference",
+    "historical-reference",
+    "helper",
+    "helper-type-error",
+    "helper-syntax-error",
+    "missing-helper",
+    "deleted-module",
+    "out-of-scope",
+    "direct-only",
+    "no-trim",
+    "force-cancel",
+    "dismiss-request",
+    "continue-after-failure",
+    "omit-followup-refund",
+    "wrong-order-id",
+    "wrong-payment-id",
+    "wrong-refund-amount",
+    "wrong-cancel-line-id",
+    "wrong-cancel-quantity",
+    "guard-refund-only",
+    "trim-refund-reason"
+  ],
+  "count": 22,
+  "sameSubmissionIDsDiagnosticsOverallAndAssertions": true,
+  "newModalTracesNotComparedToHistoricalPrecomputedDialogDetails": true
+}
