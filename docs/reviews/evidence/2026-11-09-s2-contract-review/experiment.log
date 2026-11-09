@@ -1,0 +1,23 @@
+Already up to date
+Done in 207ms using pnpm v11.19.0
+$ pnpm build && node experiments/run.mjs
+$ tsc -p tsconfig.json && node -e "require('node:fs').chmodSync('dist/cli/index.js', 0o755)"
+{
+  "dataset": "Synthetic vehicle/listing/consultation example; no real-world ground truth",
+  "files": 4,
+  "types": 6,
+  "functions": 13,
+  "supportedPredicates": 6,
+  "unsupportedPredicates": 7,
+  "context": {
+    "objects": 13,
+    "attributes": 26
+  },
+  "formalConcepts": 20,
+  "candidates": 8,
+  "relations": 8,
+  "truncated": false,
+  "comparisonCases": 4,
+  "comparisonCasesPassed": 4,
+  "interpretation": "Implementation feasibility demonstrated on this fixture; business concept accuracy, developer value, and superiority over LLM baselines remain untested."
+}

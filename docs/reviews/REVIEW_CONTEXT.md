@@ -1,5 +1,7 @@
 # 독립 리뷰 맥락
 
+2026-11-09 최신 독립 판정: **R8/R10 해결, R9 부분 해결**. [새 독립 보고](2026-11-09-s2-contract-independent-review.md), [반례 요약](evidence/2026-11-09-s2-contract-review/probes.json). PR #26/main `4ed405b`에서214테스트·비교4/4·22제출46파일/준비147파일 재현·142제공 파일과 세 ID를 확인했다. 부모가 modal에 잘못된 주문 ID/active를 전달하는 두 변형은 진단0·52/52로 통과하지만, 같은 제출 메서드에 실제 component/locals를 연결하면 요청 인자가 잘못된다. 실제 modal 호출 시 dialog를 실행하도록 하네스 연결을 보완하고 두 변형을 타입 통과 후 동작에서 거부해야 한다. source hash 결합은 데이터 흐름 충실성의 증명이 아니다. 본 비교/정책·격리·agent 조건 동결은 아직 진행하지 않는다.
+
 2026-11-09 최신 개발 인계: **R8/R9/R10 보완 구현·자체 검증 완료, 독립 재검토 대기**. [완료 보고](2026-11-09-s2-contract-fix.md), [평가 계약 v2](../../experiments/domain-model/s2/evaluation/TASK-REVIEW.md), [새 원시 근거](../../experiments/domain-model/s2/verification/2026-11-09/)를 먼저 본다. 전체214테스트·비교4/4, 준비147파일·22제출 교정 반복을 확인했다. 제출 원래 타입 문맥/추가 helper, 완전한 제출과 delta 경계, typecheck/behavior/overall·hash 결합, 요청 인자/횟수/순서와 취소 정책 범위 보존이 재검토 대상이다. 새 참조와 helper는 진단0·52/52이고 역사적 참조의 진단5를 거부한다. 동작 결함13종은 타입 통과 후 검출된다. 독립 해결 판정은 아직 아니며 readyForTrial=false·미정 정책/격리/agent 조건은 유지한다. 과거 리뷰/probe와 2026-11-08 결과는 그대로다.
 
 2026-11-09 최신 개발 지시: 사용자의 요청으로 [R8/R9/R10 보완 지시](2026-11-09-s2-contract-fix-instructions.md)를 작성했다. 실제 제출의 타입 문맥·새 helper/삭제 반영, 유효한 참조 수정, 요청 인자 검증, 취소 정책과 환불 보존의 경계를 명시했다. 새 동작 결함 변형을 타입 오류 때문에 거부한 결과는 해결 증거가 아니다. 다음 독립 리뷰는 이 지시의 교정 행렬·완료 조건과 새 날짜 증거를 대조한다. 이 세션에서 구현을 수정하거나 미정 과업 정책/실행 조건을 확정하지 않았다.
@@ -46,9 +48,9 @@
 | R5 | V3 보고된 범위에서 해결 | 타입 전용 선언 조상 검사로 기존/인접 오인 차단. 실제 use가 타입 signature를 target으로 갖는 경우는 보존 |
 | R6 | V2 검증 범위에서 해결 | incoming/outgoing 한 단계 조회와 원래 선언 방향·근거를 제공 |
 | R7 | V2 검증 범위에서 해결 | standalone도 공통 입력 검사를 수행. anchor-only/입력 변경은 전체 성공으로 처리하지 않음 |
-| R8 | 보완 필요 · High | S2 oracle 참조 수정24/24에도 제출 TS 진단5개. 제출 타입 검사와 유효한 참조 수정 필요 |
-| R9 | 보완 필요 · High | 잘못된 주문 ID·환불 결제/금액 변형도24/24 통과. 핵심 요청 인자 보존 검사 필요 |
-| R10 | 보완 필요 · Medium | 취소 없는 환불에도 새 취소 reason guard를 적용해 공백 reason 보존 회귀 |
+| R8 | v2 검증 범위에서 해결 | 실제 제출/추가 helper 타입 검사, 역사적 참조 진단5 거부, 새 참조/helper 진단0 |
+| R9 | 부분 해결 · High | payload 검사는 보완됐지만 실제 modal locals를 무시해 잘못된 주문 ID/active 전달도52/52 통과 |
+| R10 | v2 검증 범위에서 해결 | 취소 payload만 정규화하고 환불만/혼합 경로의 환불 사유를 보존 |
 
 [평가기 재현](evidence/2026-11-07-corpus-evaluator-check.mjs), [관찰 JSON](evidence/2026-11-07-corpus-evaluator-results.json), [산출물 재현 대조](evidence/2026-11-07-corpus-review-reproduction.json). R4는 실제 원본 타입이 틀린 발견이 아니며, R5가 현재 22개 중 특정 판정을 틀리게 했다는 결론도 아니다. 측정기가 오류를 탐지하는 계약을 보완해야 한다. 원래 코어 references는 선언 이름도 포함하며 호출 그래프가 아니다.
 
