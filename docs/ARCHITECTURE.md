@@ -76,4 +76,4 @@ S1 후속 [V2](../experiments/domain-model/v2/README.md)는 모델 참조의 inc
 
 제품 core/public API·S1/V1/V2는 유지한다. [독립 리뷰](reviews/2026-11-09-s2-preparation-independent-review.md)의 R8/R9/R10에 따라 평가 경계를 보완했다. `submission`은 고정 설정/의존성에 완전한 제출 snapshot을 반영해 원래 클래스/호출자와 추가 helper를 검사한다. 삭제·범위 밖 변경은 전체 합격이 아니며 교정 runner의 baseline+명시적 delta와 일반 제출을 구분한다. `evaluate`는 typecheck/behavior/overall과 입력·실행 hash 결합을 관리하고 `behavior`는 독립 기대 payload·순서·횟수를 비교한다. 참조 수정은 취소 reason만 바꾸고 환불 reason을 보존한다. 평가 baseline과 제출별 Program은 준비 Program1회와 별도 계측한다.
 
-[보완 인계](reviews/2026-11-09-s2-contract-fix.md)는 자체 검증이며 독립 재검토 대기다. 과업 정책·B/C 의미 동등성·실제 격리/agent 실행 조건은 미동결, readyForTrial=false다. 본 비교·S3는 실행하지 않았다.
+[독립 재검토](reviews/2026-11-09-s2-contract-independent-review.md)는 R8/R10 해결과 R9 부분 해결로 판정했다. 현재 modal 대역은 실제 component/locals를 전달하지 않아 부모→dialog 데이터 흐름을 보완해야 한다. 같은 파일 hash의 타입 검사/실행 결합이 이 흐름의 충실성을 보장하지는 않는다. 과업 정책·B/C 의미 동등성·실제 격리/agent 실행 조건은 미동결, readyForTrial=false다. 본 비교·S3는 실행하지 않았다. [개발 인계](reviews/2026-11-09-s2-contract-fix.md)는 당시 자체 검증 기록이다.

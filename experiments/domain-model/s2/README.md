@@ -1,4 +1,6 @@
-# S2 준비 구현 — 독립 리뷰 대기, 본 비교 미실행
+# S2 준비 구현 — R9 잔여 보완 필요, 본 비교 미실행
+
+2026-11-09 [독립 재검토](../../../docs/reviews/2026-11-09-s2-contract-independent-review.md): **R8/R10 해결, R9 부분 해결**. 제출 타입 검사·기존 교정은 재현됐으나 실제 modal component/locals를 무시해 부모의 잘못된 주문 ID/active 전달도52/52로 통과한다. 하네스의 데이터 전달 경계 보완이 먼저이며 readyForTrial=false를 유지한다. 아래 인계는 당시 자체 검증 기록이다.
 
 2026-11-09 **R8/R9/R10 보완 구현·검증 인계, 독립 재검토 대기**. [새 보고](../../../docs/reviews/2026-11-09-s2-contract-fix.md), [v2 평가 계약](evaluation/TASK-REVIEW.md). 제출의 원래 타입 문맥/추가 helper와 같은 snapshot의 실행을 결합하고, 전체 요청 payload를 판정한다. 취소 reason 정책을 환불 reason에 확장하지 않는다. baseline 보존16/16·요구6/36, 새 참조와 helper52/52다. 역사적 참조의 TS 오류5개는 전체 합격을 막는다. 아래2026-11-08 수치는 당시 기록이며 현재 평가는 v2/52사례를 따른다.
 
