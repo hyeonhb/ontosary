@@ -1,0 +1,41 @@
+{
+  "workspaces": [
+    {
+      "condition": "A",
+      "sourceFiles": 4735,
+      "materialFiles": 2,
+      "exactFilesAndHashes": true,
+      "symlinks": [],
+      "isolation": "unverified"
+    },
+    {
+      "condition": "B",
+      "sourceFiles": 4735,
+      "materialFiles": 70,
+      "exactFilesAndHashes": true,
+      "symlinks": [],
+      "isolation": "unverified"
+    },
+    {
+      "condition": "C",
+      "sourceFiles": 4735,
+      "materialFiles": 70,
+      "exactFilesAndHashes": true,
+      "symlinks": [],
+      "isolation": "unverified"
+    }
+  ],
+  "preservedItems": 12,
+  "preservedDirectedLinks": 16,
+  "allOneHopViewsMatchSource": true,
+  "approvedKnowledge": [],
+  "selectedFacts": 22,
+  "selectedCandidates": 2,
+  "evidenceViews": 30,
+  "parityUnits": 68,
+  "BBytes": 133134,
+  "CBytes": 120100,
+  "semanticReview": "pending",
+  "humanParityReview": "pending",
+  "auditScope": "Independent file/hash/12-item/1-hop matching and B/C pair presence; render function and representative C files read; no human semantic approval"
+}

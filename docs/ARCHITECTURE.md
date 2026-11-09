@@ -74,4 +74,4 @@ S1 후속 [V2](../experiments/domain-model/v2/README.md)는 모델 참조의 inc
 
 `prepare`는 B JSON/C Markdown view·대응표·실행 계획을 생성하고 `workspace`는 조건별 allowlist와 원문 inventory만 복사한다. `evaluation`은 제출 클래스 본문/지원 helper를 실행하고 DI/UI/서버 등 제외 seam을 명시한다. Promise/async와 미검토 operator는 unsupported다. evaluator 자료는 workspace에 복사하지 않지만 실제 OS 격리는 unverified다.
 
-제품 core/public API·S1/V1/V2는 유지한다. 과업 정책·B/C 의미 동등성·oracle 충실성·실행 조건은 검토 전이며 readyForTrial=false다. 본 비교·자동 모델 갱신/S3는 구현 완료 범위가 아니다. [인계와 검증](reviews/2026-11-08-s2-preparation.md).
+제품 core/public API·S1/V1/V2는 유지한다. [2026-11-09 독립 리뷰](reviews/2026-11-09-s2-preparation-independent-review.md)는 준비/조회/배포 경계와 재현을 확인했으나 제출 타입 검사 누락·요청 인자 판정 누락·참조 수정의 환불만 경로 회귀(R8/R9/R10)를 발견했다. oracle 보완이 필요하며 과업 정책·B/C 의미 동등성·격리/실행 조건도 미동결이다. readyForTrial=false다. 본 비교·자동 모델 갱신/S3는 구현 완료 범위가 아니다. [기존 구현 인계](reviews/2026-11-08-s2-preparation.md).
