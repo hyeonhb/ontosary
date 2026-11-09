@@ -1,0 +1,39 @@
+{
+  "changedFiles": [
+    "evaluator/timing.json",
+    "evaluator/run-plan.json"
+  ],
+  "agentFilesUnchanged": 142,
+  "IDs": {
+    "baselineId": "7707db72b46a21570152b2b8920e6526996952abaac1574642d6638c477ba0d8",
+    "modelId": "2ba6c772263da8814256efaa5491c69f723d79157a7f8aad7f22d898e297e5cf",
+    "bundleId": "f8ed34c46cbcd6d09443260199bb031f2ecc545b993b88529c44625183d5ef8a"
+  },
+  "workspace": {
+    "A": {
+      "files": 4737,
+      "sourceFiles": 4735,
+      "allowlistExact": true,
+      "symlinks": 0,
+      "evaluatorFiles": 0,
+      "isolation": "unverified"
+    },
+    "B": {
+      "files": 4805,
+      "sourceFiles": 4735,
+      "allowlistExact": true,
+      "symlinks": 0,
+      "evaluatorFiles": 0,
+      "isolation": "unverified"
+    },
+    "C": {
+      "files": 4805,
+      "sourceFiles": 4735,
+      "allowlistExact": true,
+      "symlinks": 0,
+      "evaluatorFiles": 0,
+      "isolation": "unverified"
+    }
+  },
+  "modelAndEvidenceBytesUnchanged": true
+}

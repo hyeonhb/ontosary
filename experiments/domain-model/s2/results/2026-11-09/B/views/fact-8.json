@@ -1,0 +1,35 @@
+{
+  "status": "Found",
+  "value": {
+    "id": "source-V09",
+    "evidence": [
+      {
+        "id": "source-V09/e0",
+        "file": "packages/admin-ui/src/lib/core/src/data/definitions/order-definitions.ts",
+        "symbol": "mutation CancelOrder($input: CancelOrderInput!) {",
+        "offset": 7598,
+        "end": 7647,
+        "line": 373,
+        "anchor": "mutation CancelOrder($input: CancelOrderInput!) {",
+        "sha256": "26a6b81368d53a731b2847e0587eeb94463ec706bb8df73bee13d304fb770701"
+      }
+    ],
+    "source": {
+      "id": "source-V09",
+      "kind": "observed-in-source",
+      "author": "agent",
+      "method": "manual-source-reading",
+      "scope": "Pinned Admin UI client static source; no runtime/server policy guarantee",
+      "support": "manual; not a whole-function logical proof",
+      "claim": "order detail 또는 error result를 받는 취소 요청.",
+      "evidence": {
+        "file": "packages/admin-ui/src/lib/core/src/data/definitions/order-definitions.ts",
+        "symbol": "mutation CancelOrder($input: CancelOrderInput!) {",
+        "offset": 7598,
+        "line": 373,
+        "anchor": "mutation CancelOrder($input: CancelOrderInput!) {",
+        "sha256": "26a6b81368d53a731b2847e0587eeb94463ec706bb8df73bee13d304fb770701"
+      }
+    }
+  }
+}

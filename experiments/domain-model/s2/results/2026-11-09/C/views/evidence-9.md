@@ -1,0 +1,15 @@
+# evidence-9
+
+status: "Found"
+value:
+ id: "source-V10/e0"
+ file: "packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts"
+ symbol: "cancel() {"
+ offset: 2469
+ end: 2479
+ line: 78
+ anchor: "cancel() {"
+ sha256: "a47e7000b222454302c8a0dfc374555f78616517fdc3ec03621a199ecf234cc5"
+ text: "cancel() {"
+ column: 5
+ sourceVersion: "baseline"

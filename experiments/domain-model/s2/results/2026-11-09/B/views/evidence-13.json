@@ -1,0 +1,16 @@
+{
+  "status": "Found",
+  "value": {
+    "id": "source-refund-payload/e0",
+    "file": "packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts",
+    "symbol": "refund-payload",
+    "offset": 7259,
+    "end": 7304,
+    "line": 196,
+    "anchor": "cancel: {\n                lines: cancelLines,",
+    "sha256": "d9ea112f17bff650686842306bef46fa6f7564278b1166762a7c9b7a8473a6fb",
+    "text": "cancel: {\n                lines: cancelLines,",
+    "column": 13,
+    "sourceVersion": "baseline"
+  }
+}

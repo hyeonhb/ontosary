@@ -1,0 +1,1881 @@
+{
+  "objectProjection": "Member identity/declaration retained; unrelated cell references omitted, candidate shared-role facts retained",
+  "selectedFacts": [
+    "source-V01",
+    "source-V02",
+    "source-V03",
+    "source-V04",
+    "source-V05",
+    "source-V06",
+    "source-V07",
+    "source-V08",
+    "source-V09",
+    "source-V10",
+    "source-V11",
+    "source-refund-cancel",
+    "source-refund-request",
+    "source-refund-payload",
+    "source-refund-close",
+    "source-refund-mutation",
+    "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:22379:calls-cancel",
+    "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:22379:opens-modal",
+    "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:23185:calls-cancel",
+    "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:23185:opens-modal",
+    "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts:2469:closes-dialog-empty",
+    "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:7491:closes-dialog-empty"
+  ],
+  "excludedFacts": [
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:3808:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:3808:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:3808:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:3808:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:3808:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:3808:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:4834:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:4834:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:4834:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:4834:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:4834:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:4834:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:4885:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:4885:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:4885:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:4885:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:4885:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:4885:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:5343:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:5343:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:5343:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:5343:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:5343:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:5343:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:6662:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:6662:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:6662:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:6662:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:6662:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:6662:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:7253:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:7253:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:7253:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:7253:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:7253:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:7253:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:7654:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:7654:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:7654:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:7654:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:7654:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:7654:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:8231:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:8231:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:8231:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:8231:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:8231:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:8231:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:8598:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:8598:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:8598:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:8598:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:8598:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:8598:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:8877:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:8877:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:8877:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:8877:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:8877:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:8877:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:9789:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:9789:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:9789:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:9789:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:9789:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:9789:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:11809:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:11809:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:11809:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:11809:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:11809:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:11809:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:12883:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:12883:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:12883:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:12883:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:12883:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:12883:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:13032:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:13032:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:13032:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:13032:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:13032:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:13032:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:13235:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:13235:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:13235:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:13235:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:13235:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:13235:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:13854:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:13854:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:13854:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:13854:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:13854:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:13854:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:15974:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:15974:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:15974:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:15974:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:15974:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:15974:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:18188:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:18188:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:18188:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:18188:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:18188:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:18188:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:18542:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:18542:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:18542:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:18542:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:18542:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:18542:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:18858:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:18858:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:18858:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:18858:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:18858:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:18858:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:19897:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:19897:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:19897:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:19897:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:19897:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:19897:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:20416:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:20416:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:20416:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:20416:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:20416:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:20416:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:21485:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:21485:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:21485:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:21485:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:21485:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:21485:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:22238:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:22238:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:22238:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:22238:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:22238:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:22238:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:22379:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:22379:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:22379:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:22379:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:23185:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:23185:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:23185:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:23185:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:26915:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:26915:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:26915:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:26915:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:26915:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:26915:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:27202:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:27202:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:27202:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:27202:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:27202:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:27202:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts:1255:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts:1255:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts:1255:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts:1255:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts:1255:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts:1255:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts:1434:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts:1434:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts:1434:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts:1434:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts:1434:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts:1434:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts:1761:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts:1761:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts:1761:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts:1761:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts:1761:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts:1761:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts:2254:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts:2254:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts:2254:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts:2254:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts:2254:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts:2254:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts:2469:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts:2469:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts:2469:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts:2469:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts:2469:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts:2519:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts:2519:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts:2519:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts:2519:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts:2519:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts:2519:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:1985:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:1985:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:1985:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:1985:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:1985:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:1985:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:2776:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:2776:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:2776:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:2776:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:2776:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:2776:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:3186:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:3186:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:3186:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:3186:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:3186:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:3186:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:4406:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:4406:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:4406:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:4406:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:4406:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:4406:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:4721:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:4721:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:4721:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:4721:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:4721:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:4721:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:5294:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:5294:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:5294:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:5294:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:5294:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:5294:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:5953:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:5953:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:5953:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:5953:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:5953:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:5953:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:6177:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:6177:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:6177:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:6177:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:6177:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:6177:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:6421:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:6421:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:6421:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:6421:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:6421:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:6421:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:6558:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:6558:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:6558:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:6558:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:6558:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:6558:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:7491:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:7491:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:7491:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:7491:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:7491:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:7541:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:7541:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:7541:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:7541:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:7541:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:7541:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:1193:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:1193:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:1193:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:1193:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:1193:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:1193:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:1466:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:1466:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:1466:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:1466:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:1466:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:1466:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:1638:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:1638:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:1638:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:1638:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:1638:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:1638:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:1937:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:1937:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:1937:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:1937:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:1937:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:1937:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:2170:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:2170:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:2170:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:2170:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:2170:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:2170:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:2403:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:2403:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:2403:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:2403:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:2403:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:2403:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:2716:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:2716:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:2716:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:2716:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:2716:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:2716:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:2990:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:2990:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:2990:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:2990:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:2990:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:2990:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:3319:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:3319:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:3319:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:3319:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:3319:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:3319:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:3577:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:3577:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:3577:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:3577:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:3577:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:3577:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:3835:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:3835:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:3835:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:3835:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:3835:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:3835:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:4106:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:4106:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:4106:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:4106:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:4106:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:4106:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:4372:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:4372:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:4372:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:4372:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:4372:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:4372:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:4642:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:4642:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:4642:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:4642:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:4642:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:4642:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:4884:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:4884:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:4884:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:4884:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:4884:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:4884:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:5184:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:5184:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:5184:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:5184:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:5184:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:5184:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:5483:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:5483:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:5483:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:5483:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:5483:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:5483:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:5741:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:5741:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:5741:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:5741:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:5741:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:5741:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:6008:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:6008:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:6008:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:6008:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:6008:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:6008:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:6138:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:6138:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:6138:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:6138:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:6138:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:6138:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:6373:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:6373:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:6373:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:6373:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:6373:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:6373:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:6670:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:6670:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:6670:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:6670:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:6670:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:6670:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:6971:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:6971:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:6971:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:6971:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:6971:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:6971:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:7257:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:7257:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:7257:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:7257:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:7257:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:7257:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:7653:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:7653:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:7653:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:7653:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:7653:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:7653:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:7984:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:7984:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:7984:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:7984:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:7984:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:7984:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:8311:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:8311:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:8311:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:8311:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:8311:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:8311:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:8608:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:8608:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:8608:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:8608:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:8608:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:8608:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:8901:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:8901:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:8901:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:8901:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:8901:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:8901:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:9215:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:9215:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:9215:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:9215:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:9215:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:9215:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:9541:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:9541:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:9541:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:9541:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:9541:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:9541:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:9842:calls-cancel",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:9842:calls-refund",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:9842:opens-modal",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:9842:sends-mutation",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:9842:returns-dialog-payload",
+      "reason": "Outside twelve-item reference closure"
+    },
+    {
+      "id": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts:9842:closes-dialog-empty",
+      "reason": "Outside twelve-item reference closure"
+    }
+  ],
+  "selectedCandidates": [
+    "candidate:formal-4",
+    "candidate:formal-5"
+  ]
+}

@@ -185,3 +185,13 @@ R6은 모델 의미를 변경하지 않고 incoming/outgoing 한 단계 조회�
 **평가 선택:** allowlist workspace에는 원문과 조건별 사전 생성 자료만 넣는다. evaluator/참조 수정은 별도이며 같은 호스트 폴더를 격리라고 주장하지 않는다. 제출 본문/상대 helper를 실제 실행하고 변경된 constructor/field/inheritance/decorator 및 Promise/async/미검토 RxJS 연산자는 unsupported로 보고한다. 제한된 fixture가 전체 Angular/서버 동작을 증명하지 않는다.
 
 **미결 사항:** invalid reason에서 요청과 연쇄 환불을 중단하는 참조 수정은 검토용 권고이며 제품 정책 승인이 아니다. 사람의 정보 동등성/원문 충실성 검토, 정책·agent 모델/예산·격리 동결 전 readyForTrial=false다. 이번 결과는 준비 구현·oracle 교정이며 H-O/H-F 효과나 Gate를 올리지 않는다. [실제 결과](reviews/2026-11-08-s2-preparation.md).
+
+## ADR-026 · 제출 타입 문맥·동일 소스 결합·취소 요청 보존 계약 — 2026-11-09
+
+**근거/범위:** 독립 리뷰 R8/R9/R10과 [보완 지시](reviews/2026-11-09-s2-contract-fix-instructions.md)에 따라 S2 평가기를 보완한다. 준비 세션·모델/조회·제품 API는 유지한다.
+
+**선택:** 일반 제출은 완전한 source inventory를 읽은 메모리 snapshot이다. 교정에만 고정 baseline+명시적 delta를 사용한다. 원래 클래스/호출자와 새 helper를 고정 설정/의존성의 CompilerHost로 검사하며 사라진 원문을 복구하지 않는다. 타입/검사 범위가 실패·미지원이면 동작은 not-run이다. 실행기는 같은 snapshot을 읽고 Program·제출·실행 hash를 대조한다. 설정/비TS/삭제·검사 범위 밖 변경, 기존 실행 seam/비동기 한계는 합격이 아니다.
+
+**판정:** 기대 요청은 fixture/명시 계약에서 독립 작성한다. 전체 취소·환불 payload, 호출 수/순서를 비교하고 기록 시점에 복제한다. 객체 key/line 순서는 무시하되 line 중복·누락은 유지한다. undefined 필드 부재는 JSON 전송과 동일하게 처리한다. 취소 reason만 trim/nonblank를 적용하며 환불만·혼합 경로의 환불 reason은 보존한다. 별도 helper 해법도 통과하므로 정확한 참조 diff를 요구하지 않는다.
+
+**보류:** 빈 stream 기반 참조 수정은 초안(a)의 검토 자료다. 최종 제품 정책, UI·stream error 대안, 사람의 원문 충실성/B-C 동등성, OS 격리·agent 실행 조건을 승인하지 않는다. readyForTrial=false이고 본 비교·H-O/H-F 효과·S3는 미검증이다. [실제 결과](reviews/2026-11-09-s2-contract-fix.md).

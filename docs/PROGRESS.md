@@ -1,5 +1,7 @@
 # 현재 작업 상태 — 새 세션은 이 문서부터 읽기
 
+2026-11-09 S2 R8/R9/R10 보완: **구현·검증 완료, 독립 재검토 대기**. [인계](reviews/2026-11-09-s2-contract-fix.md), [평가 v2 계약](../experiments/domain-model/s2/evaluation/TASK-REVIEW.md). 완전한 제출/명시적 delta를 구분하고 원래 타입 문맥·추가 helper와 실행 snapshot을 hash로 결합했다. 요청 payload를 독립 기대값과 대조하고 환불만/혼합 환불 reason을 보존한다. 전체214테스트(skip0)·비교4/4, 22제출 교정 반복, 준비147파일 재현을 확인했다. baseline 진단0·보존16/16, 새 참조/helper 진단0·52/52, 역사적 참조 진단5 거부, 동작 결함13종은 타입 통과 후 검출했다. 기존142 agent 파일·세 ID는 그대로이며 evaluator run-plan만 갱신했다. 독립 reviewer의 해결 판정을 대신하지 않으며 readyForTrial=false·본 비교 미실행·H-O/H-F 미검증을 유지한다. 아래 기록은 각 시점의 상태다.
+
 2026-11-09 S2 보완 지시: 사용자가 R8/R9/R10 보완 작업 지시 작성을 요청했다. 다음 개발 세션은 [S2 평가 계약 보완 지시](reviews/2026-11-09-s2-contract-fix-instructions.md)를 따른다. 제출 타입/구문 검사와 동작 판정을 분리하고, 유효한 참조 수정·핵심 요청 인자 검증·환불만 경로 보존을 먼저 완료한다. 동작 결함 변형은 타입 검사 통과 후 해당 assertion에서 거부해야 한다. 이번 세션은 지시·맥락 문서만 작성했으며 구현/과업 최종 동결/본 비교는 하지 않았다. 문서 링크와 pnpm check(196테스트·타입 검사·예제 빌드)를 확인했다. 이는 보완 구현의 검증이 아니다. readyForTrial=false와 기존 합의 구조를 유지한다.
 
 2026-11-09 S2 준비 독립 리뷰: **방향·세션/모델/조회/배포 구조 유지, 평가기 R8/R9와 참조 수정 R10 보완 필요**. [독립 보고](reviews/2026-11-09-s2-preparation-independent-review.md). 196테스트(skip0)·비교4/4·새 준비 두 번 및 커밋 결과의147비시간 파일/세 ID 일치, 12항목/16링크·A/B/C 배포 hash를 확인했다. 그러나 참조 수정은 oracle24/24에도 실제 TS 진단5개가 있고, 잘못된 주문 ID·환불 결제/금액 변형도24/24를 통과한다. 환불만+공백 reason 보존 사례에서는 참조 수정이 회귀한다. 준비 전체 완료는 보완 재검토까지 보류하며 readyForTrial=false다. H-O/H-F·사람 의미 승인·본 비교·S3는 미검증이다. 아래 개발 인계와 과거 리뷰는 당시 기록이다.
@@ -149,7 +151,7 @@ main `a58a88b`을 독립 검토해 `pnpm check` 89개·기존 실험 4/4 및 새
 ## 다음 작업
 
 1. R6/R7 보완은 독립 검증 범위에서 완료됐다. 최신 소비 경로는 V2이며 V1/과거 실패 증거는 보존한다.
-2. S2 범위·큰 구조는 ADR-023/024로 합의했다. [준비 구현 인계](reviews/2026-11-08-s2-preparation.md)의 완료 조건과 실제 증거를 독립 검토한다. reason 과업은 검토용 후보이며 본 비교의 과업/조건 동결을 대체하지 않는다.
+2. S2 범위·큰 구조는 ADR-023/024로 합의했다. [R8/R9/R10 보완 인계](reviews/2026-11-09-s2-contract-fix.md)의 타입·요청 인자·환불 범위 보존 증거를 독립 재검토한다. reason 과업은 검토용 후보이며 본 비교의 과업/조건 동결을 대체하지 않는다.
 3. 준비 구현을 독립 리뷰한 뒤 과업·oracle·정보 동등성·격리·agent 버전/예산을 동결해 본 비교를 진행한다. H-O/H-F와 코드 사실/후보/사람 승인을 분리하며 큰 기술·방향 선택은 사용자와 결정한다.
 
 핵심 코드: `src/core/{analyzer,logic,fca,model}.ts`, `src/cli/index.ts`. 최신 평가기: [V3 README](../experiments/corpus/v3/README.md), [수정 인계](reviews/2026-11-08-type-context-fix.md). 지원 경계는 [ARCHITECTURE](ARCHITECTURE.md), 결정은 [DECISIONS](DECISIONS.md), 실험 해석은 [RESEARCH](RESEARCH.md), 순서는 [ROADMAP](ROADMAP.md)를 따른다.

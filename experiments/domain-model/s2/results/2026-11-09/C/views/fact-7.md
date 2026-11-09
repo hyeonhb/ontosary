@@ -1,0 +1,30 @@
+# fact-7
+
+status: "Found"
+value:
+ id: "source-V08"
+ evidence:
+  항목 1:
+   id: "source-V08/e0"
+   file: "packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts"
+   symbol: "cancelOrder(input: Codegen.CancelOrderInput) {"
+   offset: 3319
+   end: 3365
+   line: 114
+   anchor: "cancelOrder(input: Codegen.CancelOrderInput) {"
+   sha256: "27ddd40b2430caebc5f0defc901d1e42aa54f1cb29038fe4e7657a2448c03811"
+ source:
+  id: "source-V08"
+  kind: "observed-in-source"
+  author: "agent"
+  method: "manual-source-reading"
+  scope: "Pinned Admin UI client static source; no runtime/server policy guarantee"
+  support: "manual; not a whole-function logical proof"
+  claim: "CANCEL_ORDER 문서와 input으로 BaseDataService.mutate를 호출."
+  evidence:
+   file: "packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts"
+   symbol: "cancelOrder(input: Codegen.CancelOrderInput) {"
+   offset: 3319
+   line: 114
+   anchor: "cancelOrder(input: Codegen.CancelOrderInput) {"
+   sha256: "27ddd40b2430caebc5f0defc901d1e42aa54f1cb29038fe4e7657a2448c03811"

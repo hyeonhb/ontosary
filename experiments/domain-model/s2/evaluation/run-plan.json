@@ -7,19 +7,55 @@
   "timeBudgetSeconds": null,
   "tokenBudget": null,
   "randomSeed": null,
-  "repetitionsPerCondition": {"proposed":3,"frozen":false},
+  "repetitionsPerCondition": {
+    "proposed": 3,
+    "frozen": false
+  },
   "unresolvedReason": "Independent review and user trial configuration decisions pending; no agent run authorized here",
   "commonInputs": "Pinned baseline source/upstream docs plus identical TASK.txt; generated A/B/C manifests provide exact hashes",
-  "conditions": {"A":"common only","B":"common + structured frozen views","C":"common + same value trees in labelled Markdown"},
+  "conditions": {
+    "A": "common only",
+    "B": "common + structured frozen views",
+    "C": "common + same value trees in labelled Markdown"
+  },
   "sourceEnvironment": "534e6003534f74761e82de1b8c6061cba89945d1; prepared RxJS cache; actual source/runtime hashes recorded per preparation/evaluation",
-  "isolation": {"status":"unverified","required":"Separate enforced OS/container evaluator boundary, no host mounts exposing Ontosary checkout, oracle, review documents, answers or prior submissions","current":"Builder copies allowlisted material and original source only; same filesystem permissions are not isolation"},
+  "isolation": {
+    "status": "unverified",
+    "required": "Separate enforced OS/container evaluator boundary, no host mounts exposing Ontosary checkout, oracle, review documents, answers or prior submissions",
+    "current": "Builder copies allowlisted material and original source only; same filesystem permissions are not isolation"
+  },
   "publicTests": null,
-  "privateTests": "evaluation/run.ts draft cases; source fidelity and behavioral policy pending review",
+  "privateTests": "evaluation/behavior.ts: 16 preservation and 36 draft cases; typecheck and source binding are separate gates; human fidelity/policy pending",
   "submissionCommand": null,
-  "evaluationCommand": "pnpm s2:evaluate <submitted-source-root> <prepared-environment-root> <new-result.json>",
-  "freezeBeforeTrial": ["behavior for invalid reason and stream errors","model/tool versions and budgets","seed/order and repetitions","isolated source/dependency runtime","human B/C parity and oracle fidelity review","public/private test split"],
-  "metrics": ["missed paths","incorrect edits/regressions","assumption violations","oracle success","human rework","agent tokens/time","model author/review/update cost"],
+  "evaluationCommand": "pnpm s2:evaluate <complete-submitted-source-root> <prepared-environment-root> <new-result.json> [repo]",
+  "freezeBeforeTrial": [
+    "behavior for invalid reason and stream errors",
+    "model/tool versions and budgets",
+    "seed/order and repetitions",
+    "isolated source/dependency runtime",
+    "human B/C parity and oracle fidelity review",
+    "public/private test split"
+  ],
+  "metrics": [
+    "missed paths",
+    "incorrect edits/regressions",
+    "assumption violations",
+    "oracle success",
+    "human rework",
+    "agent tokens/time",
+    "model author/review/update cost"
+  ],
   "results": null,
   "missingOrInterrupted": "Record failure/unsupported/missing telemetry separately; never impute success",
-  "readyForTrial": false
+  "readyForTrial": false,
+  "contractVersion": "s2-evaluation-v2-cancel-only",
+  "evaluatorId": "856e7cfc5c48c15d3955decb3bca9fe02fa65409a09b17b2fa4fa23992708381",
+  "evaluatorHashes": {
+    "submission.js": "919cb44e116186d34e45a567f151ca5810a0c2d371f76e7efe1488e37e782b0f",
+    "evaluate.js": "269a03f40138847bf0f3f626cfd49100f2dc3180f559ecf670b2d3ce76dd7948",
+    "behavior.js": "941e9c4e8da8bd185726228c16370afdc8d74e2f4991d7f1dc540723616d8081",
+    "execute.js": "6384e2834e1276894f6652947e8a3b83b36885ff61138eec850b5889f8a9fa76"
+  },
+  "submissionMode": "Complete inventory source tree. Only calibration explicitly combines baseline plus declared delta; missing original source is never silently restored.",
+  "scope": "Cancellation reason only; preserve refund-only behavior and refund reason, including mixed cancel/refund. No agent trial authorized."
 }
