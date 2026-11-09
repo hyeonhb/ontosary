@@ -1,0 +1,26 @@
+{
+  "baseRevision": "af5e56ffeb3875bb2545c04ca857095e4227c6b2",
+  "contractVersion": "s2-evaluation-v2-cancel-only",
+  "evaluatorId": "856e7cfc5c48c15d3955decb3bca9fe02fa65409a09b17b2fa4fa23992708381",
+  "tests": {
+    "passed": 214,
+    "skipped": 0,
+    "newAlwaysRun": 18,
+    "existingComparisonsPassed": 4
+  },
+  "sourceHashes": {
+    "experiments/domain-model/s2/evaluation/behavior.ts": "3313a78547a3693c462422b406a0e0486ebae06b8db13ca827c6099a78ec7e4f",
+    "experiments/domain-model/s2/evaluation/evaluate.ts": "7c892e9c57d691e854da53940768e5559f40374f62dafada3d38444e1c6ddbee",
+    "experiments/domain-model/s2/evaluation/execute.ts": "14628632f4b1cd0bf0a2febd95dc97530211221de7074065d7a139b882f48976",
+    "experiments/domain-model/s2/evaluation/oracle-check.ts": "1429f2220af90b72ecc9da4ce0f19e1f1f126626445c864300118b5162dbed36",
+    "experiments/domain-model/s2/evaluation/run.ts": "0a1d13b139814d5c6dbd4ac736df8077d9b320552fbdc6ea19a67b977b535f9d",
+    "experiments/domain-model/s2/evaluation/submission.ts": "62bf36de697a08275d79b2c1225974ea55d4570aab40c6f86365698b8f16e83d",
+    "experiments/domain-model/s2/evaluation/variants.ts": "382a07c9163692974fc20fa8c8f86dbe4e0de7cad45041775b5750f88a73f699",
+    "experiments/domain-model/s2/evaluation/verify.ts": "ff4b9b24fd0b91e9f9b22b80bac59e111c90fef60b4fdabff8c024dc29cd8190",
+    "package.json": "b40600d86079c977130d771d42154b5781930c525d61f0c7a1112f2ff543003b",
+    "tests/s2-contract.test.ts": "dcfe09afeb0cc5b35c1ebda9d5749d5450ca366d8fb6579fde0c4877e3b85cca"
+  },
+  "completeAndDeltaEquivalent": true,
+  "logNormalization": "Only absolute repository path replaced with <repository>",
+  "readyForTrial": false
+}

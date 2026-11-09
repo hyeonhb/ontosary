@@ -1,5 +1,22 @@
 # S2 준비 구현 — 독립 리뷰 대기, 본 비교 미실행
 
+2026-11-09 **R8/R9/R10 보완 구현·검증 인계, 독립 재검토 대기**. [새 보고](../../../docs/reviews/2026-11-09-s2-contract-fix.md), [v2 평가 계약](evaluation/TASK-REVIEW.md). 제출의 원래 타입 문맥/추가 helper와 같은 snapshot의 실행을 결합하고, 전체 요청 payload를 판정한다. 취소 reason 정책을 환불 reason에 확장하지 않는다. baseline 보존16/16·요구6/36, 새 참조와 helper52/52다. 역사적 참조의 TS 오류5개는 전체 합격을 막는다. 아래2026-11-08 수치는 당시 기록이며 현재 평가는 v2/52사례를 따른다.
+
+### v2 제출 평가·교정 명령
+
+```sh
+pnpm s2:evaluate <complete-submitted-source-root> <prepared-environment-root> <new-result.json> [repo]
+pnpm s2:oracle-check /tmp/ontosary-vendure-preparation-20261108/vendure work/s2-contract-oracle-a
+pnpm s2:oracle-check /tmp/ontosary-vendure-preparation-20261108/vendure work/s2-contract-oracle-b
+pnpm s2:verify-evaluation work/s2-contract-oracle-a work/s2-contract-oracle-b work/s2-contract-reproduction.json
+```
+
+일반 제출은 inventory 원문 전체와 변경/추가 파일을 포함한다. 교정 runner만 baseline+명시적 delta를 사용하며 삭제는 실제 결손으로 남는다. 타입 검사/미지원 시 behavior는 not-run, 전체 판정은 비합격이다. exit0은 결과 수집 완료이며 합격은 overall을 읽는다. `*.json.gz`는 전체 진단/기대·관찰/manifest/hash/원문 대응을 보존한다. 반복 비교는 wallTimeMs만 제외하고 진단·실패를 제외하지 않는다. 준비 Program1회와 평가 baseline Program1회·제출별 Program1회 비용을 분리한다.
+
+새 평가기 버전/지문은 run-plan과 평가 보고에 기록한다. 기존 A/B/C142파일·세 ID는 동일하며 준비147파일 중 evaluator/run-plan metadata만 갱신됐다(timing 별도). 실제 OS 격리와 정책/사람 검토/실행 조건은 미정이고 본 비교는 실행하지 않았다.
+
+### 2026-11-08 준비 구조와 기록
+
 단일 baseline 분석 세션으로 S1 자료를 검증하고, 동결 모델의 순수 조회로 B 구조화 view와 C 일반 문서를 생성한다. 제품 core/API가 아닌 타입 검사되는 실험 내부 모듈이다. [개발 지시](../../../docs/reviews/2026-11-08-s2-development-instructions.md), [설계 메모](DESIGN.md), [원문 고지](../SOURCE-NOTICE.md).
 
 **준비 구현과 실행 가능 판정은 별개다.** 자료와 제출 코드 기반 oracle는 구현했으나 과업 실패 처리·사람 동등성/원문 충실성 검토·agent 버전/예산·격리는 미확정이다. [readiness](results/2026-11-08/evaluator/readiness.json)의 readyForTrial은 false다. agent/chat을 생성하거나 A/B/C 본 비교를 실행하지 않았다.
@@ -34,7 +51,7 @@ pnpm s2:prepare /tmp/ontosary-vendure-preparation-20261108/vendure work/s2-prepa
 pnpm s2:verify work/s2-prepare-a work/s2-prepare-b work/s2-reproduction.json
 pnpm exec vitest run tests/s2.test.ts
 pnpm s2:oracle-check /tmp/ontosary-vendure-preparation-20261108/vendure work/s2-oracle
-pnpm s2:evaluate <submitted-source-root> <prepared-environment-root> <new-result.json>
+pnpm s2:evaluate <complete-submitted-source-root> <prepared-environment-root> <new-result.json>
 pnpm s2:workspace work/s2-prepare-a /tmp/ontosary-vendure-preparation-20261108/vendure B work/s2-agent-b
 pnpm check
 pnpm experiment

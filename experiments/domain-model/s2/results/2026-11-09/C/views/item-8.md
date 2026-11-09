@@ -1,0 +1,54 @@
+# item-8
+
+item:
+ status: "Found"
+ value:
+  id: "dismiss"
+  kind: "observed-behavior-candidate"
+  factRefs:
+   항목 1:
+"source-V10"
+   항목 2:
+"source-refund-close"
+  candidateRefs:
+   항목 1:
+"candidate:formal-4"
+  source:
+   id: "dismiss"
+   kind: "observed-behavior-candidate"
+   label: "대화상자 닫기 ≠ 주문 취소"
+   status: "pending-review"
+   author: "agent"
+   factRefs:
+    항목 1:
+"source-V10"
+    항목 2:
+"source-refund-close"
+   candidateRefs:
+    항목 1:
+"candidate:formal-4"
+   relatedItems:
+    항목 1:
+"cancel-request"
+    항목 2:
+"refund-request"
+   interpretation: "두 dialog의 cancel()은 resolveWith()를 인자 없이 호출한다. 주문 취소 요청으로 합치지 않는다."
+   unverified:
+    항목 1:
+"modal 서비스의 runtime 종료 동작은 이 정적 관찰 밖이다."
+   intendedPolicy: null
+neighbors:
+ status: "Found"
+ value:
+  항목 1:
+   from: "dismiss"
+   to: "cancel-request"
+   kind: "related-item"
+   provenance: "S1.items/8/relatedItems"
+   direction: "outgoing"
+  항목 2:
+   from: "dismiss"
+   to: "refund-request"
+   kind: "related-item"
+   provenance: "S1.items/8/relatedItems"
+   direction: "outgoing"

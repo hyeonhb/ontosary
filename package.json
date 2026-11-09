@@ -33,7 +33,8 @@
     "s2:evaluate": "pnpm s2:build && node work/s2-build/evaluation/run.js",
     "s2:oracle-check": "pnpm s2:build && node work/s2-build/evaluation/oracle-check.js",
     "s2:workspace": "pnpm s2:build && node work/s2-build/workspace.js",
-    "s2:verify": "pnpm s2:build && node work/s2-build/verify.js"
+    "s2:verify": "pnpm s2:build && node work/s2-build/verify.js",
+    "s2:verify-evaluation": "pnpm s2:build && node work/s2-build/evaluation/verify.js"
   },
   "dependencies": {
     "typescript": "5.9.3"

@@ -1,0 +1,35 @@
+{
+  "status": "Found",
+  "value": {
+    "id": "source-V02",
+    "evidence": [
+      {
+        "id": "source-V02/e0",
+        "file": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+        "symbol": "cancelOrRefund(order: OrderDetailFragment) {",
+        "offset": 18542,
+        "end": 18586,
+        "line": 466,
+        "anchor": "cancelOrRefund(order: OrderDetailFragment) {",
+        "sha256": "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede"
+      }
+    ],
+    "source": {
+      "id": "source-V02",
+      "kind": "observed-in-source",
+      "author": "agent",
+      "method": "manual-source-reading",
+      "scope": "Pinned Admin UI client static source; no runtime/server policy guarantee",
+      "support": "manual; not a whole-function logical proof",
+      "claim": "PaymentAuthorized 또는 active 또는 settled payment 없음이면 취소, 그 외 refund 분기.",
+      "evidence": {
+        "file": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+        "symbol": "cancelOrRefund(order: OrderDetailFragment) {",
+        "offset": 18542,
+        "line": 466,
+        "anchor": "cancelOrRefund(order: OrderDetailFragment) {",
+        "sha256": "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede"
+      }
+    }
+  }
+}

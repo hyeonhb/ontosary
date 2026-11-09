@@ -12,17 +12,17 @@ export interface Mapping {
     className: string;
 }
 /** Executes submitted class method/accessor bodies. DI, field initialization, inheritance and decorators are explicit excluded seams. */
-export function executor(root: string, mappings: Mapping[], bindings: Runtime, environmentRoot = root) {
+export function executor(root: string, mappings: Mapping[], bindings: Runtime, environmentRoot = root, view?: { has(file: string): boolean; read(file: string): string }) {
     const loaded = new Map<string, Runtime>(), req = createRequire(path.join(environmentRoot, 'package.json'));
     const resolve = (from: string, spec: string) => { const p = path.resolve(path.dirname(from), spec); for (const f of [p, p + '.ts', p + '.js', path.join(p, 'index.ts')])
-        if (fs.existsSync(f) && fs.statSync(f).isFile())
+        if (view ? view.has(path.relative(root, f)) : fs.existsSync(f) && fs.statSync(f).isFile())
             return f; throw new Failure('UnsupportedEvaluation', spec, 'Missing submitted helper'); };
     function load(file: string): Runtime {
         if (loaded.has(file))
             return loaded.get(file)!;
         if (!file.startsWith(path.resolve(root) + path.sep))
             throw new Failure('UnsupportedEvaluation', file, 'Helper outside submission');
-        const source = fs.readFileSync(file, 'utf8'), sf = ts.createSourceFile(file, source, ts.ScriptTarget.Latest, true);
+        const source = view ? view.read(path.relative(root, file)) : fs.readFileSync(file, 'utf8'), sf = ts.createSourceFile(file, source, ts.ScriptTarget.Latest, true);
         const selected = mappings.find(m => path.resolve(root, m.file) === file);
         let code = source;
         if (selected) {
