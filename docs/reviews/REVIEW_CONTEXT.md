@@ -1,5 +1,7 @@
 # 독립 리뷰 맥락
 
+2026-11-09 최신 개발 지시: 사용자의 요청으로 [R9 modal 데이터 전달 보완 지시](2026-11-09-s2-modal-fix-instructions.md)를 작성했다. 실제 component/locals·사용자 행동·resolve·부모 후속 요청의 연결과 필드 소유권을 명시했다. 두 반례는 진단0 후 동작 assertion 실패여야 하며 정상 fixture fallback이나 일반 미지원 처리로 해결을 주장할 수 없다. 자체 연결 fixture, 기존22제출+두 반례, 완전한 제출 CLI·반복/배포 보존이 재검토 기준이다. 이번 세션은 구현을 고치거나 본 비교/미정 정책을 승인하지 않았다.
+
 2026-11-09 최신 독립 판정: **R8/R10 해결, R9 부분 해결**. [새 독립 보고](2026-11-09-s2-contract-independent-review.md), [반례 요약](evidence/2026-11-09-s2-contract-review/probes.json). PR #26/main `4ed405b`에서214테스트·비교4/4·22제출46파일/준비147파일 재현·142제공 파일과 세 ID를 확인했다. 부모가 modal에 잘못된 주문 ID/active를 전달하는 두 변형은 진단0·52/52로 통과하지만, 같은 제출 메서드에 실제 component/locals를 연결하면 요청 인자가 잘못된다. 실제 modal 호출 시 dialog를 실행하도록 하네스 연결을 보완하고 두 변형을 타입 통과 후 동작에서 거부해야 한다. source hash 결합은 데이터 흐름 충실성의 증명이 아니다. 본 비교/정책·격리·agent 조건 동결은 아직 진행하지 않는다.
 
 2026-11-09 최신 개발 인계: **R8/R9/R10 보완 구현·자체 검증 완료, 독립 재검토 대기**. [완료 보고](2026-11-09-s2-contract-fix.md), [평가 계약 v2](../../experiments/domain-model/s2/evaluation/TASK-REVIEW.md), [새 원시 근거](../../experiments/domain-model/s2/verification/2026-11-09/)를 먼저 본다. 전체214테스트·비교4/4, 준비147파일·22제출 교정 반복을 확인했다. 제출 원래 타입 문맥/추가 helper, 완전한 제출과 delta 경계, typecheck/behavior/overall·hash 결합, 요청 인자/횟수/순서와 취소 정책 범위 보존이 재검토 대상이다. 새 참조와 helper는 진단0·52/52이고 역사적 참조의 진단5를 거부한다. 동작 결함13종은 타입 통과 후 검출된다. 독립 해결 판정은 아직 아니며 readyForTrial=false·미정 정책/격리/agent 조건은 유지한다. 과거 리뷰/probe와 2026-11-08 결과는 그대로다.
