@@ -1,0 +1,119 @@
+{
+  "baselineHash": "5060e46e04973fd8c1b5ea902c48e0028e4350edc5b55b7c9e15cf2dcaa79d5c",
+  "classification": "normal-fixture",
+  "collection": {
+    "limitSeconds": 10,
+    "started": {
+      "mono": 965.137918103,
+      "utc": "2026-11-10T14:27:01.570662+00:00"
+    },
+    "verified": {
+      "mono": 965.138485893,
+      "utc": "2026-11-10T14:27:01.571230+00:00"
+    }
+  },
+  "delta": {
+    "added": [
+      "auxiliary/note.txt",
+      "source/access.json",
+      "source/added.bin",
+      "source/ready.json",
+      "source/started.json"
+    ],
+    "deleted": [
+      "source/delete.txt"
+    ],
+    "modified": [
+      "source/original.txt"
+    ]
+  },
+  "fixtureOnly": true,
+  "schema": "s2-lifecycle-fixture-v1",
+  "snapshot": {
+    "bytes": 5610,
+    "directories": [],
+    "fileCount": 6,
+    "files": {
+      "auxiliary/note.txt": {
+        "bytes": 9,
+        "sha256": "49143cc866b6be9d4312eb70144ad34f6fac9a30eebf5e327ab694509967c2c7"
+      },
+      "source/access.json": {
+        "bytes": 5505,
+        "sha256": "1e6a9f5808311359a9cb83ae88ef2f30de35d4ae1670f09f5842afc705e07fd8"
+      },
+      "source/added.bin": {
+        "bytes": 4,
+        "sha256": "3d1f57c984978ef98a18378c8166c1cb8ede02c03eeb6aee7e2f121dfeee3e56"
+      },
+      "source/original.txt": {
+        "bytes": 14,
+        "sha256": "40c0d41e0f7a3858035cb7b8c951bab65308f015b45cbf8f4c32e010e8b0b51b"
+      },
+      "source/ready.json": {
+        "bytes": 31,
+        "sha256": "a684333d68d1bee9da10d5f456d83d4dd44f6bf1d45c3064553fd2cc948c3ef1"
+      },
+      "source/started.json": {
+        "bytes": 47,
+        "sha256": "12a7b2b4cf86326d144cb7e2ee648e16b9bada6b575d79b1831e88188d0666e1"
+      }
+    }
+  },
+  "termination": {
+    "admissionClosed": true,
+    "auxiliary": "/opt/ontosary-fixture/runs/07f0f3690fe3/auxiliary",
+    "cgroup": "/sys/fs/cgroup/ontosary.slice/ontosary-07f0f3690fe3.slice",
+    "cgroupInode": 13728,
+    "confirmed": true,
+    "confirmedAt": {
+      "mono": 965.131185671,
+      "utc": "2026-11-10T14:27:01.563931+00:00"
+    },
+    "containerId": "862bb34a58e8f872e48019eeb84fd1b63b94c233123933982473482ce62f9911",
+    "deadlineMono": 974.893215333,
+    "exitCode": 0,
+    "image": {
+      "chain": "sha256:583c527747de6961a51ab03890133296d58eaaa0bb813b0bddabb335f6a12fb1",
+      "config": "sha256:0bfba8c93e0cc814e74c26de1701e48e293a5ec6602949153d2767ff54adff05",
+      "name": "docker.io/library/ontosary-s2-lifecycle:20261110",
+      "platform": "linux/arm64",
+      "target": "sha256:1a06fe32cc6768b5e7819b6a352d6cbd64269327c746f279524030d5550db917"
+    },
+    "kernel": {
+      "events": {
+        "frozen": "0",
+        "populated": "0"
+      },
+      "inode": 13728,
+      "members": [],
+      "mono": 965.131169921,
+      "path": "/sys/fs/cgroup/ontosary.slice/ontosary-07f0f3690fe3.slice",
+      "utc": "2026-11-10T14:27:01.563914+00:00"
+    },
+    "reason": "exit",
+    "runId": "07f0f3690fe3",
+    "runtimeState": {
+      "Error": "",
+      "ExitCode": 137,
+      "FinishedAt": "2026-11-10T14:27:01.473106728Z",
+      "Paused": false,
+      "Pid": 0,
+      "Restarting": false,
+      "Running": false,
+      "StartedAt": "2026-11-10T14:27:01.383861237Z",
+      "Status": "exited"
+    },
+    "source": "/opt/ontosary-fixture/runs/07f0f3690fe3/source",
+    "start": {
+      "mono": 964.893215333,
+      "utc": "2026-11-10T14:27:01.325957+00:00"
+    },
+    "state": "stopped-confirmed",
+    "stopRequested": {
+      "mono": 965.033321879,
+      "utc": "2026-11-10T14:27:01.466066+00:00"
+    }
+  },
+  "validSubmission": false
+}

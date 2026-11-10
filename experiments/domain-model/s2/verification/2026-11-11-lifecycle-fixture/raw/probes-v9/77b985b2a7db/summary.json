@@ -1,0 +1,8 @@
+{
+  "mode": "kill-error",
+  "runId": "77b985b2a7db",
+  "state": "blocked",
+  "reason": "management-failure",
+  "blockReason": "injected-kill-command-failure",
+  "seconds": 9.95419370799209
+}

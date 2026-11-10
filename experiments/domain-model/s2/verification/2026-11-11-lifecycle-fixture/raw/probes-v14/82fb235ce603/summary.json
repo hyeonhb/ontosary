@@ -1,0 +1,8 @@
+{
+  "mode": "symlink",
+  "runId": "82fb235ce603",
+  "state": "blocked",
+  "reason": "supervisor-failed",
+  "blockReason": "nonregular:source/bad:40960",
+  "seconds": 1.5242799580155406
+}

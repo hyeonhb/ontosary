@@ -1,5 +1,7 @@
 # 단계별 계획
 
+2026-11-11 현재 우선순위: [lifecycle fixture 결과](reviews/2026-11-11-s2-lifecycle-fixture.md)의 **독립 리뷰**다. 수정 후25개 확인과 두 VM 정리를 마쳤다. 최초 supervisor 지연 cleanup 실패, 공개 직후 사망 시 결과 철회, 실제 cgroup/FD/수집 증거와 비용을 함께 검토한다. R11 unresolved·production/live 차단을 유지한다. 성공한 fixture 결과를 Vendure·실제 CLI/provider·평가·본 비교 승인으로 확대하지 않고 후속 범위/예산을 리뷰 뒤 정한다.
+
 2026-11-10 현재 우선순위: [R11 fixture 종료·수집 경계](reviews/2026-11-10-s2-lifecycle-fixture-instructions.md)를 새3시간 안에서 구현·검증한다(ADR-035). 환경20분·정상/timeout 핵심 경로90분·탐색150분을 중간 한도로 두고 마지막30분은 검증·정리·인계다. 독립 감독자와 cgroup 전체 종료, 제한된 전체 수집 및 실패 시 차단을 확인한 뒤 리뷰한다. Vendure 준비·실제 CLI 연결·평가·본 비교는 후속 결정이며 기존 회차 잔여 예산을 자동 재개하지 않는다.
 
 2026-11-10 현재 우선순위: [동일 후보 최소 실행 결과](reviews/2026-11-10-s2-container-smoke.md)의 **smoke-passed 리뷰**다. 이미지/실제 container 대응과 비특권 셸·Node·CLI version/help를 확인하고 임시 자원을 정리했다. 승인된30분 회차는 끝났으며, 다음 R11 종료·수집/평가 경계와 Linux Vendure 재현의 범위·비용을 별도로 결정한다. 실제 모델/본 비교·R11 해결은 미승인/미검증이다.

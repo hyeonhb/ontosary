@@ -1,0 +1,8 @@
+{
+  "mode": "depth",
+  "runId": "93675b4da980",
+  "state": "blocked",
+  "reason": "exit",
+  "blockReason": "path-depth-limit:source/nested/nested/nested/nested/nested/nested/nested/nested/nested/nested/nested/nested/nested/nested/nested/nested/nested",
+  "seconds": 1.485489915998187
+}

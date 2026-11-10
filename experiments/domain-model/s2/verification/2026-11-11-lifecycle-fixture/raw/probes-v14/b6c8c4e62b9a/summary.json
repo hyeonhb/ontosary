@@ -1,0 +1,8 @@
+{
+  "mode": "copy-failure",
+  "runId": "b6c8c4e62b9a",
+  "state": "blocked",
+  "reason": "supervisor-failed",
+  "blockReason": "injected-copy-failure",
+  "seconds": 1.491494457994122
+}

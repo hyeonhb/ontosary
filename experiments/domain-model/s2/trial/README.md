@@ -1,5 +1,7 @@
 # S2 실행 전 준비 도구
 
+2026-11-11 [lifecycle fixture 인계](../../../../docs/reviews/2026-11-11-s2-lifecycle-fixture.md): **fixture-boundary-passed, 독립 리뷰 대기**. [구현](container/lifecycle/)은 독립 guest 감독자·cgroup 전체 종료·manager 전용 전체 수집을 알려진 fixture25개로 확인했다. 공개 직후 supervisor 사망 결과도 격리/차단한다. 실제 CLI/Vendure evaluator/live adapter로 연결하지 않았고 R11 unresolved와 아래 production/live 거부는 유지한다. 이전 타당성 실패 기록은 당시 결과다.
+
 2026-11-10 [컨테이너 타당성 인계](../../../../docs/reviews/2026-11-10-s2-container-feasibility.md): **inconclusive**. [container/](container/)의 Lima/Dockerfile 준비는 VM/image build까지 성공했으나 실행 image 식별자 오류와 수정1회 실패로 중단했다. worker·CLI·Linux 평가/수집/종료 probe는 미실행이다. 자원은 삭제했고 verified receipt/live adapter를 추가하지 않았다. 아래 macOS runtime과 production/live 거부, R11 미해결/R12 기존 판정을 유지한다.
 
 2026-11-10 다음 작업: ADR-031로 [일회성 컨테이너 경계 타당성 검증](../../../../docs/reviews/2026-11-10-s2-container-feasibility-instructions.md)을 승인했다. 기존 CLI/셸을 유지하고 실행·평가 단위의 종료/수집과 Linux 환경을 비용 상한 안에서 확인한다. 아직 컨테이너 도입/종료 검증이 완료된 것은 아니며 아래 macOS 경로와 live/production 차단은 유지한다. 본 비교는 검증 결과 리뷰 이후다.

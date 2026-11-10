@@ -1,0 +1,8 @@
+{
+  "mode": "bytes",
+  "runId": "552fdc2c1b75",
+  "state": "blocked",
+  "reason": "exit",
+  "blockReason": "byte-limit",
+  "seconds": 1.515876625024248
+}

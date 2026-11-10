@@ -1,0 +1,8 @@
+{
+  "mode": "fifo",
+  "runId": "d74fd5d1ef26",
+  "state": "blocked",
+  "reason": "exit",
+  "blockReason": "nonregular:source/bad:4096",
+  "seconds": 1.4953470409964211
+}

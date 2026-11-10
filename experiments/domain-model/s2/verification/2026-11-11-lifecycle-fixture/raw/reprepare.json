@@ -1,0 +1,10 @@
+{
+  "start": {
+    "utc": "2026-11-10T14:49:11.205127+00:00",
+    "mono": 140296.172928666,
+    "reason": "Self-review found service failure after publication; same candidate, original round deadlines, no new budget."
+  },
+  "endUtc": "2026-11-10T14:53:20.754331+00:00",
+  "endMono": 140545.727627833,
+  "seconds": 249.55469983399962
+}

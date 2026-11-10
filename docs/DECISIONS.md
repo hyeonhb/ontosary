@@ -269,3 +269,12 @@ ADR-033 회차에서 같은 Lima/VZ·nerdctl 후보를 유지하고 현재 targe
 **운영 상한:** 읽기·환경 재준비·구현/대기·검증·보고를 포함한180분, 환경20분·정상/timeout 핵심 경로90분·새 탐색150분을 중간 한도로 둔다. 근거 있는 국소 재시도는 시간 내 허용하고 후보/버전 교체·호스트 권한 확대·새 유료 비용은 제외한다. 이전 회차와 비용을 분리·누적 기록하며 과거90분/4시간 잔여 예산은 재개하지 않는다. 정상·timeout·래퍼 사망의 핵심 사례는 새 단위로 각2회, 나머지 부정 경계는 유한 fixture로 검증한다.
 
 **판정 한계:** fixture-boundary-passed는 선택 환경/fixture의 확인이며 아직 구현된 상태가 아니다. 독립 리뷰 전 R11 unresolved·R12 기존 범위·production/live 거부·trialAuthorized/readyForTrial=false·results=null을 유지한다. Vendure 준비·CLI helper 경고/실제 도구 연결·인증/provider·평가 재현·본 비교는 이번에 진행하지 않는다. 실제 모델/provider/본 비교0회다.
+
+
+## ADR-036 · Fixture cgroup 종료와 service 성공에 연결한 결과 공개 — 2026-11-11
+
+ADR-035의 한 후보/원래3시간 범위에서 [실제 fixture 결과](reviews/2026-11-11-s2-lifecycle-fixture.md)를 얻었다. worker는 비특권 container, 감독자는 별도 systemd service, 종료 authority는 manager 소유 persistent parent slice다. parent cgroup.kill/populated=0·runtime task/pending 요청·실제 PID/namespace를 결합하고 no-follow 일반 파일 전체 수집과 원자 rename을 사용한다. worker가 제공한 경로나 manifest는 권한이 아니다.
+
+실제 supervisor SIGKILL에서 남은 exec client가 cleanup을 지연시켜 늦은 쓰기를 허용했으므로 service KillSignal=SIGKILL을 채택했다. systemd 성공 결과 전 수동 cleanup은 admission을 열지 않는다. 공개 직후 supervisor 사망은 결과를 격리하고 blocked/next 거부로 남긴다. 최종 self-review에서 발견한 이 경로는 같은 후보를 재준비하여 실제 SIGKILL과25개 전체 fixture로 확인했고 추가 준비249.555초도 원래 회차에 합산했다. 불명확한 runtime 요청·cleanup 실패를 빈 cgroup이나 안정된 hash만으로 복구하지 않는다.
+
+결과는 fixtureOnly=true, validSubmission=false이며 정상 exit0/확인된 종료만 정상 fixture다. timeout/wrapper loss/nonzero는 진단, 감독/관리/수집 실패는 차단이다. 최종25개 통과는 독립 리뷰 대상이고 R11 unresolved·R12 기존 판정·production/live 거부를 유지한다. 실제 CLI/provider, Linux Vendure 평가와 본 비교의 범위/비용은 이후 리뷰에서 별도로 정한다.

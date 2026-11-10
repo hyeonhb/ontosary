@@ -1,0 +1,8 @@
+{
+  "mode": "kill-error",
+  "runId": "ff318a3d294b",
+  "state": "blocked",
+  "reason": "supervisor-failed",
+  "blockReason": "injected-kill-command-failure",
+  "seconds": 8.991094833007082
+}

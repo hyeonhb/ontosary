@@ -1,0 +1,8 @@
+{
+  "mode": "symlink",
+  "runId": "82dd977e854e",
+  "state": "blocked",
+  "reason": "exit",
+  "blockReason": "nonregular:source/bad:40960",
+  "seconds": 1.6855237080017105
+}

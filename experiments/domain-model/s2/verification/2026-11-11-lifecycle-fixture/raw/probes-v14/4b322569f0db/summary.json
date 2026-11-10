@@ -1,0 +1,8 @@
+{
+  "mode": "fifo",
+  "runId": "4b322569f0db",
+  "state": "blocked",
+  "reason": "supervisor-failed",
+  "blockReason": "nonregular:source/bad:4096",
+  "seconds": 1.459627250005724
+}

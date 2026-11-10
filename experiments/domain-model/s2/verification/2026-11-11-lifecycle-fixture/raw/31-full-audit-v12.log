@@ -1,0 +1,362 @@
+[
+  {
+    "runId": "552fdc2c1b75",
+    "mode": "bytes",
+    "state": "blocked",
+    "reason": "exit",
+    "exitCode": 0,
+    "classification": null,
+    "stopConfirmationSeconds": 0.10122884299994439,
+    "limits": {
+      "cpu.max": "200000 100000\n",
+      "memory.max": "4294967296\n",
+      "pids.max": "256\n"
+    },
+    "independentChecks": "passed"
+  },
+  {
+    "runId": "de1c837fcabc",
+    "mode": "consume",
+    "state": "finalized",
+    "reason": "exit",
+    "exitCode": 0,
+    "classification": "normal-fixture",
+    "stopConfirmationSeconds": 0.08997213599991483,
+    "limits": {
+      "cpu.max": "200000 100000\n",
+      "memory.max": "4294967296\n",
+      "pids.max": "256\n"
+    },
+    "independentChecks": "passed"
+  },
+  {
+    "runId": "db249647aae2",
+    "mode": "control",
+    "state": "finalized",
+    "reason": "exit",
+    "exitCode": 0,
+    "classification": "normal-fixture",
+    "stopConfirmationSeconds": 0.09468013200012138,
+    "limits": {
+      "cpu.max": "200000 100000\n",
+      "memory.max": "4294967296\n",
+      "pids.max": "256\n"
+    },
+    "independentChecks": "passed"
+  },
+  {
+    "runId": "b079fae95df1",
+    "mode": "copy-failure",
+    "state": "blocked",
+    "reason": "exit",
+    "exitCode": 0,
+    "classification": null,
+    "stopConfirmationSeconds": 0.0931824179999694,
+    "limits": {
+      "cpu.max": "200000 100000\n",
+      "memory.max": "4294967296\n",
+      "pids.max": "256\n"
+    },
+    "independentChecks": "passed"
+  },
+  {
+    "runId": "93675b4da980",
+    "mode": "depth",
+    "state": "blocked",
+    "reason": "exit",
+    "exitCode": 0,
+    "classification": null,
+    "stopConfirmationSeconds": 0.09343562399999428,
+    "limits": {
+      "cpu.max": "200000 100000\n",
+      "memory.max": "4294967296\n",
+      "pids.max": "256\n"
+    },
+    "independentChecks": "passed"
+  },
+  {
+    "runId": "e01f82179fab",
+    "mode": "device",
+    "state": "blocked",
+    "reason": "exit",
+    "exitCode": 0,
+    "classification": null,
+    "stopConfirmationSeconds": 0.08555444800003897,
+    "limits": {
+      "cpu.max": "200000 100000\n",
+      "memory.max": "4294967296\n",
+      "pids.max": "256\n"
+    },
+    "independentChecks": "passed"
+  },
+  {
+    "runId": "d74fd5d1ef26",
+    "mode": "fifo",
+    "state": "blocked",
+    "reason": "exit",
+    "exitCode": 0,
+    "classification": null,
+    "stopConfirmationSeconds": 0.08891425000001618,
+    "limits": {
+      "cpu.max": "200000 100000\n",
+      "memory.max": "4294967296\n",
+      "pids.max": "256\n"
+    },
+    "independentChecks": "passed"
+  },
+  {
+    "runId": "9f6045073b2d",
+    "mode": "files",
+    "state": "blocked",
+    "reason": "exit",
+    "exitCode": 0,
+    "classification": null,
+    "stopConfirmationSeconds": 0.08446924999998373,
+    "limits": {
+      "cpu.max": "200000 100000\n",
+      "memory.max": "4294967296\n",
+      "pids.max": "256\n"
+    },
+    "independentChecks": "passed"
+  },
+  {
+    "runId": "ff339485262d",
+    "mode": "hardlink",
+    "state": "blocked",
+    "reason": "exit",
+    "exitCode": 0,
+    "classification": null,
+    "stopConfirmationSeconds": 0.08584386200004701,
+    "limits": {
+      "cpu.max": "200000 100000\n",
+      "memory.max": "4294967296\n",
+      "pids.max": "256\n"
+    },
+    "independentChecks": "passed"
+  },
+  {
+    "runId": "dda23ad422f0",
+    "mode": "kill-error",
+    "state": "blocked",
+    "reason": "management-failure",
+    "exitCode": null,
+    "classification": null,
+    "stopConfirmationSeconds": 0.09953581500008113,
+    "limits": {
+      "cpu.max": "200000 100000\n",
+      "memory.max": "4294967296\n",
+      "pids.max": "256\n"
+    },
+    "independentChecks": "passed"
+  },
+  {
+    "runId": "74a3a54de6f4",
+    "mode": "logs",
+    "state": "blocked",
+    "reason": "log-limit",
+    "exitCode": null,
+    "classification": null,
+    "stopConfirmationSeconds": 0.09448227600000791,
+    "limits": {
+      "cpu.max": "200000 100000\n",
+      "memory.max": "4294967296\n",
+      "pids.max": "256\n"
+    },
+    "independentChecks": "passed"
+  },
+  {
+    "runId": "e78862857fab",
+    "mode": "nonzero",
+    "state": "finalized",
+    "reason": "exit",
+    "exitCode": 7,
+    "classification": "diagnostic",
+    "stopConfirmationSeconds": 0.08452200100009577,
+    "limits": {
+      "cpu.max": "200000 100000\n",
+      "memory.max": "4294967296\n",
+      "pids.max": "256\n"
+    },
+    "independentChecks": "passed"
+  },
+  {
+    "runId": "9cfefc92d21d",
+    "mode": "normal",
+    "state": "finalized",
+    "reason": "exit",
+    "exitCode": 0,
+    "classification": "normal-fixture",
+    "stopConfirmationSeconds": 0.08583957699988787,
+    "limits": {
+      "cpu.max": "200000 100000\n",
+      "memory.max": "4294967296\n",
+      "pids.max": "256\n"
+    },
+    "independentChecks": "passed"
+  },
+  {
+    "runId": "cf98ec4c04e6",
+    "mode": "normal",
+    "state": "finalized",
+    "reason": "exit",
+    "exitCode": 0,
+    "classification": "normal-fixture",
+    "stopConfirmationSeconds": 0.09101275500006523,
+    "limits": {
+      "cpu.max": "200000 100000\n",
+      "memory.max": "4294967296\n",
+      "pids.max": "256\n"
+    },
+    "independentChecks": "passed"
+  },
+  {
+    "runId": "ee66e76199b5",
+    "mode": "query-error",
+    "state": "blocked",
+    "reason": "management-failure",
+    "exitCode": null,
+    "classification": null,
+    "stopConfirmationSeconds": 0.07745990700004768,
+    "limits": {
+      "cpu.max": "200000 100000\n",
+      "memory.max": "4294967296\n",
+      "pids.max": "256\n"
+    },
+    "independentChecks": "passed"
+  },
+  {
+    "runId": "b02e9b4093bc",
+    "mode": "race",
+    "state": "finalized",
+    "reason": "exit",
+    "exitCode": 0,
+    "classification": "normal-fixture",
+    "stopConfirmationSeconds": 0.11630271300009554,
+    "limits": {
+      "cpu.max": "200000 100000\n",
+      "memory.max": "4294967296\n",
+      "pids.max": "256\n"
+    },
+    "independentChecks": "passed"
+  },
+  {
+    "runId": "17897dbdbddb",
+    "mode": "simple",
+    "state": "finalized",
+    "reason": "exit",
+    "exitCode": 0,
+    "classification": "normal-fixture",
+    "stopConfirmationSeconds": 0.096974136000199,
+    "limits": {
+      "cpu.max": "200000 100000\n",
+      "memory.max": "4294967296\n",
+      "pids.max": "256\n"
+    },
+    "independentChecks": "passed"
+  },
+  {
+    "runId": "ee1e3c37d7f0",
+    "mode": "socket",
+    "state": "blocked",
+    "reason": "exit",
+    "exitCode": 0,
+    "classification": null,
+    "stopConfirmationSeconds": 0.08742697200000293,
+    "limits": {
+      "cpu.max": "200000 100000\n",
+      "memory.max": "4294967296\n",
+      "pids.max": "256\n"
+    },
+    "independentChecks": "passed"
+  },
+  {
+    "runId": "03f90a19291f",
+    "mode": "supervisor",
+    "state": "blocked",
+    "reason": "supervisor-failed",
+    "exitCode": null,
+    "classification": null,
+    "stopConfirmationSeconds": 0.09873078600003282,
+    "limits": {
+      "cpu.max": "200000 100000\n",
+      "memory.max": "4294967296\n",
+      "pids.max": "256\n"
+    },
+    "independentChecks": "passed"
+  },
+  {
+    "runId": "82dd977e854e",
+    "mode": "symlink",
+    "state": "blocked",
+    "reason": "exit",
+    "exitCode": 0,
+    "classification": null,
+    "stopConfirmationSeconds": 0.09444607299997188,
+    "limits": {
+      "cpu.max": "200000 100000\n",
+      "memory.max": "4294967296\n",
+      "pids.max": "256\n"
+    },
+    "independentChecks": "passed"
+  },
+  {
+    "runId": "9029b843afd0",
+    "mode": "timeout",
+    "state": "finalized",
+    "reason": "timeout",
+    "exitCode": null,
+    "classification": "diagnostic",
+    "stopConfirmationSeconds": 0.08314105199997357,
+    "limits": {
+      "cpu.max": "200000 100000\n",
+      "memory.max": "4294967296\n",
+      "pids.max": "256\n"
+    },
+    "independentChecks": "passed"
+  },
+  {
+    "runId": "c7a1b351a30d",
+    "mode": "timeout",
+    "state": "finalized",
+    "reason": "timeout",
+    "exitCode": null,
+    "classification": "diagnostic",
+    "stopConfirmationSeconds": 0.09810529600008522,
+    "limits": {
+      "cpu.max": "200000 100000\n",
+      "memory.max": "4294967296\n",
+      "pids.max": "256\n"
+    },
+    "independentChecks": "passed"
+  },
+  {
+    "runId": "009f9d7499dd",
+    "mode": "wrapper",
+    "state": "finalized",
+    "reason": "wrapper-lost",
+    "exitCode": null,
+    "classification": "diagnostic",
+    "stopConfirmationSeconds": 0.0908900580000136,
+    "limits": {
+      "cpu.max": "200000 100000\n",
+      "memory.max": "4294967296\n",
+      "pids.max": "256\n"
+    },
+    "independentChecks": "passed"
+  },
+  {
+    "runId": "f5d26969ac66",
+    "mode": "wrapper",
+    "state": "finalized",
+    "reason": "wrapper-lost",
+    "exitCode": null,
+    "classification": "diagnostic",
+    "stopConfirmationSeconds": 0.08880504500007191,
+    "limits": {
+      "cpu.max": "200000 100000\n",
+      "memory.max": "4294967296\n",
+      "pids.max": "256\n"
+    },
+    "independentChecks": "passed"
+  }
+]

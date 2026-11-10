@@ -1,0 +1,8 @@
+test_empty_parent_does_not_settle_an_unknown_exec_request (__main__.CleanupTests.test_empty_parent_does_not_settle_an_unknown_exec_request) ... ok
+test_manual_cleanup_cannot_preempt_systemd_success (__main__.CleanupTests.test_manual_cleanup_cannot_preempt_systemd_success) ... ok
+test_service_death_revokes_already_published_result (__main__.CleanupTests.test_service_death_revokes_already_published_result) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.014s
+
+OK

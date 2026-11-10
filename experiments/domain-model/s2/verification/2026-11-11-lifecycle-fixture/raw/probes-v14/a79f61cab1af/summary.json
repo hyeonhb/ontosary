@@ -1,0 +1,8 @@
+{
+  "mode": "query-error",
+  "runId": "a79f61cab1af",
+  "state": "blocked",
+  "reason": "supervisor-failed",
+  "blockReason": "injected-state-query-failure",
+  "seconds": 9.011734625004465
+}

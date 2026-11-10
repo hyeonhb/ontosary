@@ -1,0 +1,56 @@
+{
+  "admissionClosed": true,
+  "cgroup": "/sys/fs/cgroup/ontosary.slice/ontosary-e212fb9e76e7.slice",
+  "cgroupInode": 22260,
+  "classification": "diagnostic",
+  "cleanupDone": true,
+  "collectionFinished": {
+    "mono": 1252.239804009,
+    "utc": "2026-11-10T14:31:48.672549+00:00"
+  },
+  "collectionStarted": {
+    "mono": 1252.238399147,
+    "utc": "2026-11-10T14:31:48.671144+00:00"
+  },
+  "containerId": "b21d365ac1a8f023cf818952245ccaa9c225d8fba4166b923bdf2f4ba97bd879",
+  "createPending": false,
+  "deadlineMono": 1257.297965372,
+  "execClientExit": 137,
+  "execPending": false,
+  "exitCode": null,
+  "image": {
+    "chain": "sha256:583c527747de6961a51ab03890133296d58eaaa0bb813b0bddabb335f6a12fb1",
+    "config": "sha256:0bfba8c93e0cc814e74c26de1701e48e293a5ec6602949153d2767ff54adff05",
+    "name": "docker.io/library/ontosary-s2-lifecycle:20261110",
+    "platform": "linux/arm64",
+    "target": "sha256:1a06fe32cc6768b5e7819b6a352d6cbd64269327c746f279524030d5550db917"
+  },
+  "mode": "wrapper",
+  "prepared": {
+    "mono": 1246.983930649,
+    "utc": "2026-11-10T14:31:43.416675+00:00"
+  },
+  "reason": "wrapper-lost",
+  "runId": "e212fb9e76e7",
+  "service": "ontosary-fixture-e212fb9e76e7.service",
+  "slice": "ontosary-e212fb9e76e7.slice",
+  "snapshot": null,
+  "startPending": false,
+  "state": "finalized",
+  "stopRequested": {
+    "mono": 1252.137580009,
+    "utc": "2026-11-10T14:31:48.570322+00:00"
+  },
+  "stopTrigger": {
+    "mono": 1252.134974408,
+    "utc": "2026-11-10T14:31:48.567706+00:00"
+  },
+  "taskSeconds": 10,
+  "terminationConfirmed": true,
+  "workStarted": {
+    "mono": 1247.297965372,
+    "utc": "2026-11-10T14:31:43.730706+00:00"
+  },
+  "workerReady": true,
+  "workloadLogBytesObserved": 0
+}
