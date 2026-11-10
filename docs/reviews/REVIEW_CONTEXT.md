@@ -1,5 +1,7 @@
 # 독립 리뷰 맥락
 
+2026-11-10 최신 독립 판정: **R12 검증 범위에서 해결, R11 미해결 차단 유지**. [독립 보고](2026-11-10-s2-runtime-accounting-independent-review.md)와 [새 증거](evidence/2026-11-10-s2-runtime-review/)를 참조한다.303테스트·비교4/4·29제출60파일/참조52사례, usage3,279조합·추가20사례·18fixture, macOS22실행·동결 지문/재생성을 확인했다. 늦은 쓰기8건은 여전히 발생하며 정상 제출로 승격되지 않는다. 추가 차단 결함 없이 부분 인계 조건을 충족했다. 다음은 사용자와 실행 경계/허용 도구 정책을 정하는 단계다. 본 비교/실제 모델0회·사람 승인 pending·trialAuthorized/readyForTrial=false다.
+
 2026-11-10 R11/R12 보완: **R12 구현·자체 검증 완료, R11 종료 경계 unresolved**. [인계](2026-11-10-s2-runtime-accounting-fix.md). turn 상태·중복 철회·unknown 입력/overflow·종료/EOF/절단을 결합했고303테스트(skip0)·비교4/4·29제출60파일 일치를 확인했다. 현재 runtime은 정상 부모 종료에도 모든 writer의 정지를 증명하지 못하므로 production 수집/평가와 전체 usage 확정을 차단한다. 진단과 알려진 참조 교정을 분리했으며 실제 macOS 반복에서 detached/손자/열린 핸들의 늦은 쓰기를 재현했다. TASK/B/C84파일·모델·세 ID는 그대로다. 다음은 독립 리뷰와 R11의 별도 경계/도구 정책 선택이다. 새 플랫폼·API·권한을 도입하지 않았고 실제 모델/본 비교0회, trialAuthorized/readyForTrial=false·results=null·사람 검토 pending을 유지한다. 아래는 각 시점 기록이다.
 
 2026-11-10 현재 개발 지시: 사용자는 [R11/R12 보완 지시](2026-11-10-s2-runtime-accounting-fix-instructions.md)에 따라 기존 CLI·macOS에서 종료/수집 경계와 usage 수명주기를 먼저 보완하기로 했다. API/새 플랫폼·hard cap으로 확대하지 않는다. 정상/timeout·분리 자손·수집 실패와 불완전/모순 JSONL을 검증하고 새 구현/환경 증거를 동결한다. R11 해결 불가 시 R12 완료와 잔여 차단/대안 비용을 분리해 인계한다. 이는 수정 지시이며 아래 R11/R12 판정을 해결로 바꾸지 않는다. 실제 모델/본 비교는 보완 결과 리뷰 이후이며 trialAuthorized/readyForTrial=false다.
@@ -67,8 +69,8 @@
 | R8 | v2 검증 범위에서 해결 | 실제 제출/추가 helper 타입 검사, 역사적 참조 진단5 거부, 새 참조/helper 진단0 |
 | R9 | v3 검증 범위에서 해결 | 실제 component/locals→resolve→부모 요청 연결. 두 modal 반례 진단0 후 payload 실패, 기존13동작 결함 검출 유지 |
 | R10 | v2 검증 범위에서 해결 | 취소 payload만 정규화하고 환불만/혼합 경로의 환불 사유를 보존 |
-| R11 | High · 알려진 실행 차단 재현 | process-group 종료를 벗어난 detached 자손이 deadline 뒤 파일 작성. 실제 실행/최종 수집 차단 유지 |
-| R12 | Medium · 보완 필요 | usage 이벤트 수 비교가 모순 완료/미완료 turn을 놓쳐 complete=true로 표시. turn 상태·구조 검증 필요 |
+| R11 | High · 미해결·차단 동작 재검증 | 분리 자손의 늦은 쓰기 재현. production 수집/평가 거부와 진단 분리는 확인했으나 종료 보장은 없음 |
+| R12 | v2 검증 범위에서 해결 | 순차 turn/구조 검사·중복 철회·종료/EOF/절단 결합 확인. 실제 provider 사용량 관측은 별도 미검증 |
 
 [평가기 재현](evidence/2026-11-07-corpus-evaluator-check.mjs), [관찰 JSON](evidence/2026-11-07-corpus-evaluator-results.json), [산출물 재현 대조](evidence/2026-11-07-corpus-review-reproduction.json). R4는 실제 원본 타입이 틀린 발견이 아니며, R5가 현재 22개 중 특정 판정을 틀리게 했다는 결론도 아니다. 측정기가 오류를 탐지하는 계약을 보완해야 한다. 원래 코어 references는 선언 이름도 포함하며 호출 그래프가 아니다.
 
