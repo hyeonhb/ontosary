@@ -9,7 +9,7 @@
 최종 목표는 기존 프로젝트를 agent가 도메인을 이해하고 수정하기 좋은 프로젝트로 전환하도록 돕는 것이다. 업무 개념·관련 코드 탐색은 첫 사용 경로다. 아래 S1~S3이 현재의 실행 순서이며, 기존 번호별 PoC/연구 단계는 경과와 후속 후보로 보존한다(ADR-020).
 
 1. **S1 · 보완 독립 검증 완료:** R6/R7 해결, 174테스트·4비교·V2 15파일 재현을 확인했다. [독립 리뷰](reviews/2026-11-08-domain-model-contract-independent-review.md). 모델 의미·FCA 결과는 유지되며 agent 효용은 미검증이다.
-2. **S2 · 자료/평가 검증 유지, 종료·usage 보완 필요:** [독립 리뷰](reviews/2026-11-10-s2-trial-preparation-independent-review.md)에서252테스트·비교4/4·29제출60파일/준비157파일과 실제 배포를 재현했다. 알려진 R11 detached 자손 종료 문제와 새 R12 usage 완료 판정을 보완한다. C 사람 대응 검토와 실제 CLI 미검증 조건 확인도 남는다. token hard cap은 필수가 아니며 API 실행기로 확대하지 않는다(ADR-029). 본 비교는 준비 보완/리뷰 뒤 별도 승인으로 진행하고 readyForTrial=false·H-O/H-F 미검증을 유지한다.
+2. **S2 · 자료/평가 검증 유지, 종료·usage 보완 필요:** [독립 리뷰](reviews/2026-11-10-s2-trial-preparation-independent-review.md)에서252테스트·비교4/4·29제출60파일/준비157파일과 실제 배포를 재현했다. 사용자 승인에 따라 [R11/R12 개발 지시](reviews/2026-11-10-s2-runtime-accounting-fix-instructions.md)로 기존 CLI·macOS의 종료/수집 경계와 turn 상태 기반 계측을 보완한다. 현재 환경에서 R11 경계가 성립하지 않으면 실패·대안 비용을 인계하고 새 구조는 사용자와 결정한다. C 사람 대응 검토와 실제 CLI 미검증 조건 확인도 남는다. token hard cap은 필수가 아니며 API 실행기로 확대하지 않는다(ADR-029). 본 비교는 준비 보완/리뷰 뒤 별도 승인으로 진행하고 readyForTrial=false·H-O/H-F 미검증을 유지한다.
 3. **S3 · 효과가 관찰된 경우:** 변경 후 모델 근거 만료·재검토·갱신을 실험한다. 그 비용을 포함해 재사용 가치가 있는지 판단한 뒤 제품 계약·구조 변경을 선택한다.
 
 [R9 modal 데이터 전달 보완 지시](reviews/2026-11-09-s2-modal-fix-instructions.md)와 [직전 R8/R9/R10 지시](reviews/2026-11-09-s2-contract-fix-instructions.md)는 지원 범위 내 독립 검증을 마쳤다. 새 실행 전 준비 범위는 ADR-028로 승인됐다. 현재 지시는 준비 결과의 리뷰 인계까지이며 본 비교 실행 승인은 포함하지 않는다.
