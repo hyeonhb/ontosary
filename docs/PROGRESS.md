@@ -1,5 +1,7 @@
 # 현재 작업 상태 — 새 세션은 이 문서부터 읽기
 
+2026-11-10 R11/R12 독립 재검토: **R12 검증 범위에서 해결, R11 미해결·실제 비교 차단 유지**. [독립 보고](reviews/2026-11-10-s2-runtime-accounting-independent-review.md).303테스트(skip0)·비교4/4·29제출60파일·참조52사례/trace를 재현했다. usage 순차 조합3,279개·추가20사례·기록18fixture가 일치했고 macOS22실행의 늦은 쓰기8건과 production 차단을 재확인했다. agent84파일·세 ID와 execution manifest 재생성도 일치했다. 추가 차단 결함은 발견하지 않았으며 지시의 ‘R12 완료 + R11 차단 인계’는 충족했다. 다음은 사용자와 R11 실행 경계/허용 도구 정책을 결정한다. 새 플랫폼·API를 채택하지 않았고 실제 모델/본 비교0회·trialAuthorized/readyForTrial=false·사람 검토 pending을 유지한다. 아래는 당시 자체 검증 기록이다.
+
 2026-11-10 R11/R12 보완: **R12 구현·자체 검증 완료, R11 종료 경계 unresolved**. [인계](reviews/2026-11-10-s2-runtime-accounting-fix.md). turn 상태·중복 철회·unknown 입력/overflow·종료/EOF/절단을 결합했고303테스트(skip0)·비교4/4·29제출60파일 일치를 확인했다. 현재 runtime은 정상 부모 종료에도 모든 writer의 정지를 증명하지 못하므로 production 수집/평가와 전체 usage 확정을 차단한다. 진단과 알려진 참조 교정을 분리했으며 실제 macOS 반복에서 detached/손자/열린 핸들의 늦은 쓰기를 재현했다. TASK/B/C84파일·모델·세 ID는 그대로다. 다음은 독립 리뷰와 R11의 별도 경계/도구 정책 선택이다. 새 플랫폼·API·권한을 도입하지 않았고 실제 모델/본 비교0회, trialAuthorized/readyForTrial=false·results=null·사람 검토 pending을 유지한다. 아래는 각 시점 기록이다.
 
 2026-11-10 R11/R12 보완 지시: 사용자가 기존 CLI·macOS 범위의 보완을 승인했다. [개발 지시](reviews/2026-11-10-s2-runtime-accounting-fix-instructions.md)는 종료 확인→전체 제출 수집 경계, turn 상태 기반 usage·불완전 계측, 실제 모델 없는 회귀와 새 실행 증거 동결을 다룬다. API/새 플랫폼·token hard cap 확대 없이 진행하며, native 경계가 성립하지 않으면 R12 완료와 R11 차단을 구분해 인계한다. 이번 변경은 지시·맥락 문서 작성이며 R11/R12를 수정한 것이 아니다. pnpm check(252테스트·타입 검사·예제 빌드)와 문서 내 로컬 링크 경로153개를 확인했다. 본 비교는 보완 결과 리뷰 뒤 진행하고 trialAuthorized/readyForTrial=false를 유지한다.

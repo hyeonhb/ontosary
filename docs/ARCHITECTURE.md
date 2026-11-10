@@ -1,5 +1,7 @@
 # 현재 아키텍처
 
+2026-11-10 [R11/R12 독립 재검토](reviews/2026-11-10-s2-runtime-accounting-independent-review.md): turn 상태·중복 철회·종료/절단 결합의 R12를 검증 범위에서 해결로 판정했다. R11은 여전히 모든 writer의 종료를 보장하지 못하며 production 수집/평가 차단을 유지한다. 진단 receipt와 알려진 참조 fixture 평가를 실제 제출 authority와 구분한 구조를 확인했다. 다음 실행 경계/도구 정책은 사용자와 별도로 결정하며 제품 코어·모델/조회 계약은 변경하지 않는다. 아래는 당시 구현 인계다.
+
 2026-11-10 R11/R12 보완: **R12 구현·자체 검증 완료, R11 종료 경계 unresolved**. [인계](reviews/2026-11-10-s2-runtime-accounting-fix.md). turn 상태·중복 철회·unknown 입력/overflow·종료/EOF/절단을 결합했고303테스트(skip0)·비교4/4·29제출60파일 일치를 확인했다. 현재 runtime은 정상 부모 종료에도 모든 writer의 정지를 증명하지 못하므로 production 수집/평가와 전체 usage 확정을 차단한다. 진단과 알려진 참조 교정을 분리했으며 실제 macOS 반복에서 detached/손자/열린 핸들의 늦은 쓰기를 재현했다. TASK/B/C84파일·모델·세 ID는 그대로다. 다음은 독립 리뷰와 R11의 별도 경계/도구 정책 선택이다. 새 플랫폼·API·권한을 도입하지 않았고 실제 모델/본 비교0회, trialAuthorized/readyForTrial=false·results=null·사람 검토 pending을 유지한다. 아래는 각 시점 기록이다.
 
 2026-11-10 다음 보완 구조: [R11/R12 개발 지시](reviews/2026-11-10-s2-runtime-accounting-fix-instructions.md)에 따라 실험 내부에서 실행 종료 확인·제출 수집·usage 집계를 구분한다. native 종료 경계는 근거/실제 probe로 선택하며 아직 확정 구현이 아니다. 종료 확인 실패는 평가 가능한 제출로 승격하지 않고, usage는 turn 상태와 runtime의 종료/절단 정보를 결합한다. 제품 코어·모델/조회·A/B/C 의미와 ADR-029는 유지한다. 아래는 현재 구현과 역사적 기록이다.

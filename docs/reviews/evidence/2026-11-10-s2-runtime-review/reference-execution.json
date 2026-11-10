@@ -1,0 +1,44 @@
+{
+  "runId": "6f286b96-32a6-4898-8286-a0ff49df45f8",
+  "code": 0,
+  "signal": null,
+  "reason": "completed",
+  "wallTimeMs": 7006.4596249999995,
+  "stdout": "{\"overall\":\"passed\",\"sourceBinding\":true,\"validTrialSubmission\":false}\n",
+  "stderr": "",
+  "outputTruncated": false,
+  "normalEOF": true,
+  "readErrors": [],
+  "lifecycle": {
+    "state": "blocked",
+    "collectionAllowed": false,
+    "boundary": "unverified-process-group",
+    "deadlineMs": 1800000,
+    "stopRequestedMs": 7006.256167,
+    "parentExitMs": 7006.255459,
+    "returnedMs": 7006.4596249999995,
+    "cleanupMs": 0.20345799999995506,
+    "cleanupLimitMs": 250,
+    "errors": []
+  },
+  "binding": {
+    "source": "75807fd27535216b10a0b6331d1a8fcf3fd40af48b2f26b9b167114f588ee091",
+    "auxiliary": "1e3a44136061a581027f191f1847a0d9a7b811cd8311bbd1b39de57b9f5afc4e",
+    "configuration": "2da63e5f375315bd8a47b6dbdfef3ea78efbafb239c44db9c5659f8b3644d10d"
+  },
+  "profile": "model = \"gpt-6-astra\"\nmodel_reasoning_effort = \"high\"\napproval_policy = \"never\"\ndefault_permissions = \"trial\"\nweb_search = \"disabled\"\nproject_doc_max_bytes = 0\nallow_login_shell = false\n[features]\napps = false\nmulti_agent = false\nremote_plugin = false\nshell_snapshot = false\n[plugins._default]\nenabled = false\n[permissions.trial.filesystem]\n\":minimal\" = \"read\"\n\"/System/Library/OpenSSL\" = \"read\"\n\"<control>/repository\" = \"read\"\n\"<control>/results/auxiliary\" = \"write\"\n\"<control>/results\" = \"write\"\n\"<control>/home\" = \"write\"\n\"<cache>\" = \"read\"\n\"<control>/node\" = \"read\"\n\"<control>/input-1\" = \"read\"\n\"<control>/input-2\" = \"read\"\n\"/Users\" = \"deny\"\n\"<repository>\" = \"deny\"\n\"<control>/config.toml\" = \"deny\"\n[permissions.trial.network]\nenabled = false\n[shell_environment_policy]\ninherit = \"none\"\n",
+  "hostPackageReadDenied": true,
+  "copiedEvaluatorPaths": [
+    "work/s2-build",
+    "experiments/domain-model/s2/provenance.json",
+    "experiments/domain-model/v1/manifest.json",
+    "experiments/domain-model/results/2026-11-08-v2",
+    "experiments/public-app/results/2026-11-08/vendure/inventory.json.gz",
+    "experiments/public-app/results/2026-11-08-prepared/program-path-audit.json.gz",
+    "experiments/public-app/results/2026-11-08-prepared/scoped/scan.json.gz",
+    "experiments/public-app/v1/vendure-task.json",
+    "experiments/domain-model/s2/verification/2026-11-08/reference-patches.json.gz"
+  ],
+  "validTrialSubmission": false,
+  "scope": "Known calibration/complete-root in copied read-only evaluator, explicit host-home deny, network denied; detached process gate remains open"
+}

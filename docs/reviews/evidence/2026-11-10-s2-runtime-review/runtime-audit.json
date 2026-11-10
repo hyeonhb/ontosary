@@ -1,0 +1,352 @@
+{
+  "rows": 22,
+  "failures": [],
+  "lateWrites": 8,
+  "allProductionBlocked": true,
+  "allWholeTotalsNull": true,
+  "allNextCanariesUnchanged": true,
+  "allReadOnlyChecksDenied": true,
+  "maxReturnMs": 604.4872920000053,
+  "rowsSummary": [
+    {
+      "repeat": 1,
+      "name": "normal",
+      "reason": "completed",
+      "wallTimeMs": 71.78079099999991,
+      "lateText": null,
+      "readErrors": [],
+      "usageIssues": [
+        {
+          "line": null,
+          "code": "incomplete-log-or-execution"
+        }
+      ]
+    },
+    {
+      "repeat": 1,
+      "name": "timeout",
+      "reason": "timeout",
+      "wallTimeMs": 355.72370799999953,
+      "lateText": null,
+      "readErrors": [],
+      "usageIssues": [
+        {
+          "line": null,
+          "code": "incomplete-log-or-execution"
+        }
+      ]
+    },
+    {
+      "repeat": 1,
+      "name": "normal-child",
+      "reason": "completed",
+      "wallTimeMs": 94.88937499999884,
+      "lateText": "late",
+      "readErrors": [],
+      "usageIssues": [
+        {
+          "line": null,
+          "code": "incomplete-log-or-execution"
+        }
+      ]
+    },
+    {
+      "repeat": 1,
+      "name": "detached",
+      "reason": "timeout",
+      "wallTimeMs": 355.95358300000044,
+      "lateText": "late",
+      "readErrors": [],
+      "usageIssues": [
+        {
+          "line": null,
+          "code": "incomplete-log-or-execution"
+        }
+      ]
+    },
+    {
+      "repeat": 1,
+      "name": "grandchild",
+      "reason": "timeout",
+      "wallTimeMs": 356.7732500000002,
+      "lateText": "late",
+      "readErrors": [],
+      "usageIssues": [
+        {
+          "line": null,
+          "code": "incomplete-log-or-execution"
+        }
+      ]
+    },
+    {
+      "repeat": 1,
+      "name": "open-handle",
+      "reason": "timeout",
+      "wallTimeMs": 356.86924999999974,
+      "lateText": "late",
+      "readErrors": [],
+      "usageIssues": [
+        {
+          "line": null,
+          "code": "incomplete-log-or-execution"
+        }
+      ]
+    },
+    {
+      "repeat": 1,
+      "name": "inherited-pipe",
+      "reason": "timeout",
+      "wallTimeMs": 604.4840829999994,
+      "lateText": null,
+      "readErrors": [
+        "pipe-close-deadline"
+      ],
+      "usageIssues": [
+        {
+          "line": null,
+          "code": "incomplete-log-or-execution"
+        }
+      ]
+    },
+    {
+      "repeat": 1,
+      "name": "truncated",
+      "reason": "completed",
+      "wallTimeMs": 75.24908399999913,
+      "lateText": null,
+      "readErrors": [],
+      "usageIssues": [
+        {
+          "line": 3,
+          "code": "accounting-capacity-exceeded"
+        },
+        {
+          "line": null,
+          "code": "incomplete-log-or-execution"
+        }
+      ]
+    },
+    {
+      "repeat": 1,
+      "name": "spawn-error",
+      "reason": "spawn-error",
+      "wallTimeMs": 0.7943749999976717,
+      "lateText": null,
+      "readErrors": [],
+      "usageIssues": [
+        {
+          "line": 1,
+          "code": "malformed-json"
+        },
+        {
+          "line": null,
+          "code": "no-started-turn"
+        },
+        {
+          "line": null,
+          "code": "incomplete-log-or-execution"
+        }
+      ]
+    },
+    {
+      "repeat": 1,
+      "name": "interrupted",
+      "reason": "interrupted",
+      "wallTimeMs": 103.27129200000127,
+      "lateText": null,
+      "readErrors": [],
+      "usageIssues": [
+        {
+          "line": null,
+          "code": "incomplete-log-or-execution"
+        }
+      ]
+    },
+    {
+      "repeat": 1,
+      "name": "kill-error",
+      "reason": "timeout",
+      "wallTimeMs": 603.3598750000019,
+      "lateText": null,
+      "readErrors": [
+        "pipe-close-deadline"
+      ],
+      "usageIssues": [
+        {
+          "line": null,
+          "code": "incomplete-log-or-execution"
+        }
+      ]
+    },
+    {
+      "repeat": 2,
+      "name": "normal",
+      "reason": "completed",
+      "wallTimeMs": 72.62283300000126,
+      "lateText": null,
+      "readErrors": [],
+      "usageIssues": [
+        {
+          "line": null,
+          "code": "incomplete-log-or-execution"
+        }
+      ]
+    },
+    {
+      "repeat": 2,
+      "name": "timeout",
+      "reason": "timeout",
+      "wallTimeMs": 354.45254099999875,
+      "lateText": null,
+      "readErrors": [],
+      "usageIssues": [
+        {
+          "line": null,
+          "code": "incomplete-log-or-execution"
+        }
+      ]
+    },
+    {
+      "repeat": 2,
+      "name": "normal-child",
+      "reason": "completed",
+      "wallTimeMs": 96.68737500000134,
+      "lateText": "late",
+      "readErrors": [],
+      "usageIssues": [
+        {
+          "line": null,
+          "code": "incomplete-log-or-execution"
+        }
+      ]
+    },
+    {
+      "repeat": 2,
+      "name": "detached",
+      "reason": "timeout",
+      "wallTimeMs": 353.97458399999596,
+      "lateText": "late",
+      "readErrors": [],
+      "usageIssues": [
+        {
+          "line": null,
+          "code": "incomplete-log-or-execution"
+        }
+      ]
+    },
+    {
+      "repeat": 2,
+      "name": "grandchild",
+      "reason": "timeout",
+      "wallTimeMs": 354.79541600000084,
+      "lateText": "late",
+      "readErrors": [],
+      "usageIssues": [
+        {
+          "line": null,
+          "code": "incomplete-log-or-execution"
+        }
+      ]
+    },
+    {
+      "repeat": 2,
+      "name": "open-handle",
+      "reason": "timeout",
+      "wallTimeMs": 354.2569999999978,
+      "lateText": "late",
+      "readErrors": [],
+      "usageIssues": [
+        {
+          "line": null,
+          "code": "incomplete-log-or-execution"
+        }
+      ]
+    },
+    {
+      "repeat": 2,
+      "name": "inherited-pipe",
+      "reason": "timeout",
+      "wallTimeMs": 602.8427920000031,
+      "lateText": null,
+      "readErrors": [
+        "pipe-close-deadline"
+      ],
+      "usageIssues": [
+        {
+          "line": null,
+          "code": "incomplete-log-or-execution"
+        }
+      ]
+    },
+    {
+      "repeat": 2,
+      "name": "truncated",
+      "reason": "completed",
+      "wallTimeMs": 82.55770800000028,
+      "lateText": null,
+      "readErrors": [],
+      "usageIssues": [
+        {
+          "line": 3,
+          "code": "accounting-capacity-exceeded"
+        },
+        {
+          "line": null,
+          "code": "incomplete-log-or-execution"
+        }
+      ]
+    },
+    {
+      "repeat": 2,
+      "name": "spawn-error",
+      "reason": "spawn-error",
+      "wallTimeMs": 0.40354099999240134,
+      "lateText": null,
+      "readErrors": [],
+      "usageIssues": [
+        {
+          "line": 1,
+          "code": "malformed-json"
+        },
+        {
+          "line": null,
+          "code": "no-started-turn"
+        },
+        {
+          "line": null,
+          "code": "incomplete-log-or-execution"
+        }
+      ]
+    },
+    {
+      "repeat": 2,
+      "name": "interrupted",
+      "reason": "interrupted",
+      "wallTimeMs": 102.38629100000253,
+      "lateText": null,
+      "readErrors": [],
+      "usageIssues": [
+        {
+          "line": null,
+          "code": "incomplete-log-or-execution"
+        }
+      ]
+    },
+    {
+      "repeat": 2,
+      "name": "kill-error",
+      "reason": "timeout",
+      "wallTimeMs": 604.4872920000053,
+      "lateText": null,
+      "readErrors": [
+        "pipe-close-deadline"
+      ],
+      "usageIssues": [
+        {
+          "line": null,
+          "code": "incomplete-log-or-execution"
+        }
+      ]
+    }
+  ]
+}
