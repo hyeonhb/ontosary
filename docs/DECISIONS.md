@@ -253,3 +253,9 @@ ADR-031의 후보1개/환경 수정·재시도1회 상한을 적용했다. Lima 
 **운영 선택:** 이전의 고정 수정·재시도1회 규칙은 이미지 호출 오류에도 전체 중단을 유발했다. 이번 회차에서는 같은 후보의 원인이 확인된 국소 수정은 시간 안에서 허용하고, 새 근거 없는 반복·후보/버전 교체·권한 확대는 중단한다. 읽기/재준비/대기를 포함해30분,20분부터 새 탐색을 멈추고 마지막10분은 검증·정리·최소 보고에 쓴다. 유료 비용0이며 이전/이번/누적 비용을 구분한다. 기존90분/4시간을 초기화하거나 잔여 예산을 자동 사용하는 승인이 아니다.
 
 **판정 경계:** smoke-passed는 최소 실행 확인에만 사용한다. 이전 manifest/config는 과거 증거이고 새 build의 실행 identity는 다시 관찰한다. R11 unresolved·R12 기존 검증 범위·trialAuthorized/readyForTrial=false·results=null을 유지한다. 실제 모델/provider/본 비교0회이며 CLI help를 실제 모델 도구/인증 경로의 검증으로 해석하지 않는다. ADR-031/032와 이전 원시 증거는 보존한다.
+
+## ADR-034 · 최소 smoke의 native image 연결과 판정 한계 — 2026-11-10
+
+ADR-033 회차에서 같은 Lima/VZ·nerdctl 후보를 유지하고 현재 target digest를 native metadata에서 조회해 `--pull=never` create에 사용했다. config digest/개별 diff ID/누적 chain ID를 분리하고 실제 container의 image target 및 snapshot parent로 연결을 확인한다. Docker 호환 RootFS.Layers와 개별 diff ID가 같다는 첫 검증의 잘못된 가정은 원시 metadata로 진단해 국소 수정했으며 실패 실행본을 보존했다. [smoke 결과](reviews/2026-11-10-s2-container-smoke.md)는4개 유한 최소 실행과 자원 정리의 통과다.
+
+이를 전체 격리/자손 종료·불변 수집·Linux Vendure 평가·실제 모델 사용의 성공으로 확대하지 않는다. 이번 회차는 성공 후 종료하며 후속 경계/환경 준비의 범위·비용을 결과 리뷰 뒤 정한다. R11 unresolved, R12 기존 검증 범위와 production/live 거부를 유지한다.

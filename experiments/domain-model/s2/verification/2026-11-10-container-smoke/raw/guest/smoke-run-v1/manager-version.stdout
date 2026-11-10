@@ -1,0 +1,15 @@
+Client:
+ Version:	v2.4.2
+ OS/Arch:	linux/arm64
+ Git commit:	94bc03df5247ece1781c4b115a44ef3d4b1e0e65
+ buildctl:
+  Version:	v0.34.1
+  GitCommit:	f5b59a1f2fb25a0cb7072c398cab9aed7835da4e
+
+Server:
+ containerd:
+  Version:	v2.4.2
+  GitCommit:	b7a25261e029d68978bbf290df0a62fc819b3c51
+ runc:
+  Version:	1.5.2
+  GitCommit:	v1.5.2-0-g29dd3dc

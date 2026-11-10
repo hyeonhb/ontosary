@@ -1,0 +1,6 @@
+CONTAINER ID    IMAGE    COMMAND    CREATED    STATUS    PORTS    NAMES
+REPOSITORY           TAG         DIGEST                                                                     IMAGE ID                                                                   CREATED               PLATFORM       SIZE       BLOB SIZE
+ontosary-s2-smoke    20261110    sha256:a0bdb967ba82f09eb3646daf81bdd4162fe33bd18a0253b08c468c48e0bdede5    sha256:a0bdb967ba82f09eb3646daf81bdd4162fe33bd18a0253b08c468c48e0bdede5    About a minute ago    linux/arm64    998.4MB    444.4MB
+2385224	/var/lib/containerd
+204	/var/lib/buildkit
+20	/tmp/smoke-context

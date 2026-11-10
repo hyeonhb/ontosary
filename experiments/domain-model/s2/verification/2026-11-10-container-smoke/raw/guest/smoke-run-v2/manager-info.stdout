@@ -1,0 +1,26 @@
+Client:
+ Namespace:	default
+ Debug Mode:	false
+
+Server:
+ Server Version: v2.4.2
+ Storage Driver: overlayfs
+ Logging Driver: json-file
+ Cgroup Driver: systemd
+ Cgroup Version: 2
+ Plugins:
+  Log:     fluentd journald json-file none syslog
+  Storage: native overlayfs stargz
+ Security Options:
+  apparmor
+  seccomp
+   Profile: builtin
+  cgroupns
+ Kernel Version:   7.0.0-38-generic
+ Operating System: Ubuntu 26.04.1 LTS
+ OSType:           linux
+ Architecture:     aarch64
+ CPUs:             4
+ Total Memory:     5.763GiB
+ Name:             lima-s2-smoke
+ ID:               36296ad7-6fdf-4dd5-a2dd-b89e59b8239a

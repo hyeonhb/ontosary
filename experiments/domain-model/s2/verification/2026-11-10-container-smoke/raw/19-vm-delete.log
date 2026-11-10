@@ -1,0 +1,5 @@
+time="2026-11-10T22:30:57+09:00" level=info msg="The vz driver process seems already stopped"
+time="2026-11-10T22:30:57+09:00" level=info msg="The host agent process seems already stopped"
+time="2026-11-10T22:30:57+09:00" level=info msg="Removing *.pid *.sock *.tmp under `<task-root>/lima/s2-smoke`"
+time="2026-11-10T22:30:57+09:00" level=info msg="Removing `<task-root>/lima/s2-smoke/boot-session.tmp`"
+time="2026-11-10T22:30:58+09:00" level=info msg="Deleted `s2-smoke` (`<task-root>/lima/s2-smoke`)"
