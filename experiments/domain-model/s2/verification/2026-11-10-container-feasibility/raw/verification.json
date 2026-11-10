@@ -1,0 +1,64 @@
+{
+  "hostCheck": {
+    "exitCode": 0,
+    "tests": 303,
+    "files": 15,
+    "skipped": 0
+  },
+  "hostExperiment": {
+    "exitCode": 0,
+    "passed": 4,
+    "total": 4
+  },
+  "hostS2Build": {
+    "exitCode": 0
+  },
+  "accounting": {
+    "exitCode": 0,
+    "fixtures": 18,
+    "matchesHistorical": true
+  },
+  "staticBundle": {
+    "files": 84,
+    "allHashesMatch": true,
+    "bundleId": "ab522d70da78c0e71b6ddc01f32056980b85de245e150bdde55f39c16a17c509",
+    "baselineId": "7707db72b46a21570152b2b8920e6526996952abaac1574642d6638c477ba0d8",
+    "modelId": "2ba6c772263da8814256efaa5491c69f723d79157a7f8aad7f22d898e297e5cf",
+    "evaluatorId": "b7b6407b46b40d25e760f4e44e9a1839fddf8629c2c20c9d2c1430e760ec3aae"
+  },
+  "originalSource": {
+    "files": 4735,
+    "allHashesMatch": true,
+    "revision": "534e6003534f74761e82de1b8c6061cba89945d1"
+  },
+  "refusals": [
+    {
+      "command": [
+        "node",
+        "work/s2-build/trial/freeze.js",
+        "run"
+      ],
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "file://<repo>/work/s2-build/trial/telemetry.js:218\nexport function refuseTrial() { throw Error('Trial not authorized: preparation entry point cannot dispatch a model. Independent review and hash-bound approval are pending.'); }\n                                      ^\n\nError: Trial not authorized: preparation entry point cannot dispatch a model. Independent review and hash-bound approval are pending.\n    at refuseTrial (file://<repo>/work/s2-build/trial/telemetry.js:218:39)\n    at file://<repo>/work/s2-build/trial/freeze.js:7:5\n    at ModuleJob.run (node:internal/modules/esm/module_job:345:25)\n    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:651:26)\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5)\n\nNode.js v22.19.0\n"
+    },
+    {
+      "command": [
+        "node",
+        "work/s2-build/trial/evaluate-snapshot.js",
+        "/nonexistent-fixture",
+        "/nonexistent-environment",
+        "/nonexistent-output"
+      ],
+      "exitCode": 1,
+      "stdout": "",
+      "stderr": "file://<repo>/work/s2-build/trial/snapshot-gate.js:8\n    throw Error('R11 unresolved: no verified termination receipt; production evaluation blocked');\n          ^\n\nError: R11 unresolved: no verified termination receipt; production evaluation blocked\n    at checkedSnapshot (file://<repo>/work/s2-build/trial/snapshot-gate.js:8:11)\n    at file://<repo>/work/s2-build/trial/evaluate-snapshot.js:6:1\n    at ModuleJob.run (node:internal/modules/esm/module_job:345:25)\n    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:651:26)\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5)\n\nNode.js v22.19.0\n"
+    }
+  ],
+  "linuxTests": {
+    "executed": 0,
+    "status": "not-run"
+  },
+  "providerCalls": 0,
+  "trialRuns": 0
+}

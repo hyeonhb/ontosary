@@ -1,0 +1,702 @@
+{
+    "version": "v2.3.0",
+    "templates": [
+        {
+            "name": "_default/mounts",
+            "location": "<task-root>/prefix/share/lima/templates/_default/mounts.yaml"
+        },
+        {
+            "name": "_images/almalinux-10",
+            "location": "<task-root>/prefix/share/lima/templates/_images/almalinux-10.yaml"
+        },
+        {
+            "name": "_images/almalinux-8",
+            "location": "<task-root>/prefix/share/lima/templates/_images/almalinux-8.yaml"
+        },
+        {
+            "name": "_images/almalinux-9",
+            "location": "<task-root>/prefix/share/lima/templates/_images/almalinux-9.yaml"
+        },
+        {
+            "name": "_images/almalinux-kitten-10",
+            "location": "<task-root>/prefix/share/lima/templates/_images/almalinux-kitten-10.yaml"
+        },
+        {
+            "name": "_images/alpine-3.21",
+            "location": "<task-root>/prefix/share/lima/templates/_images/alpine-3.21.yaml"
+        },
+        {
+            "name": "_images/alpine-3.22",
+            "location": "<task-root>/prefix/share/lima/templates/_images/alpine-3.22.yaml"
+        },
+        {
+            "name": "_images/alpine-3.23",
+            "location": "<task-root>/prefix/share/lima/templates/_images/alpine-3.23.yaml"
+        },
+        {
+            "name": "_images/alpine-3.24",
+            "location": "<task-root>/prefix/share/lima/templates/_images/alpine-3.24.yaml"
+        },
+        {
+            "name": "_images/alpine-iso",
+            "location": "<task-root>/prefix/share/lima/templates/_images/alpine-iso.yaml"
+        },
+        {
+            "name": "_images/archlinux",
+            "location": "<task-root>/prefix/share/lima/templates/_images/archlinux.yaml"
+        },
+        {
+            "name": "_images/centos-stream-10",
+            "location": "<task-root>/prefix/share/lima/templates/_images/centos-stream-10.yaml"
+        },
+        {
+            "name": "_images/centos-stream-9",
+            "location": "<task-root>/prefix/share/lima/templates/_images/centos-stream-9.yaml"
+        },
+        {
+            "name": "_images/debian-11",
+            "location": "<task-root>/prefix/share/lima/templates/_images/debian-11.yaml"
+        },
+        {
+            "name": "_images/debian-12",
+            "location": "<task-root>/prefix/share/lima/templates/_images/debian-12.yaml"
+        },
+        {
+            "name": "_images/debian-13",
+            "location": "<task-root>/prefix/share/lima/templates/_images/debian-13.yaml"
+        },
+        {
+            "name": "_images/fedora",
+            "location": "<task-root>/prefix/share/lima/templates/_images/fedora.yaml"
+        },
+        {
+            "name": "_images/fedora-41",
+            "location": "<task-root>/prefix/share/lima/templates/_images/fedora-41.yaml"
+        },
+        {
+            "name": "_images/fedora-42",
+            "location": "<task-root>/prefix/share/lima/templates/_images/fedora-42.yaml"
+        },
+        {
+            "name": "_images/fedora-43",
+            "location": "<task-root>/prefix/share/lima/templates/_images/fedora-43.yaml"
+        },
+        {
+            "name": "_images/fedora-44",
+            "location": "<task-root>/prefix/share/lima/templates/_images/fedora-44.yaml"
+        },
+        {
+            "name": "_images/fedora-45",
+            "location": "<task-root>/prefix/share/lima/templates/_images/fedora-45.yaml"
+        },
+        {
+            "name": "_images/freebsd",
+            "location": "<task-root>/prefix/share/lima/templates/_images/freebsd.yaml"
+        },
+        {
+            "name": "_images/freebsd-15",
+            "location": "<task-root>/prefix/share/lima/templates/_images/freebsd-15.yaml"
+        },
+        {
+            "name": "_images/macos",
+            "location": "<task-root>/prefix/share/lima/templates/_images/macos.yaml"
+        },
+        {
+            "name": "_images/macos-15",
+            "location": "<task-root>/prefix/share/lima/templates/_images/macos-15.yaml"
+        },
+        {
+            "name": "_images/macos-26",
+            "location": "<task-root>/prefix/share/lima/templates/_images/macos-26.yaml"
+        },
+        {
+            "name": "_images/macos-27",
+            "location": "<task-root>/prefix/share/lima/templates/_images/macos-27.yaml"
+        },
+        {
+            "name": "_images/opensuse-leap",
+            "location": "<task-root>/prefix/share/lima/templates/_images/opensuse-leap.yaml"
+        },
+        {
+            "name": "_images/opensuse-leap-15",
+            "location": "<task-root>/prefix/share/lima/templates/_images/opensuse-leap-15.yaml"
+        },
+        {
+            "name": "_images/opensuse-leap-16",
+            "location": "<task-root>/prefix/share/lima/templates/_images/opensuse-leap-16.yaml"
+        },
+        {
+            "name": "_images/oraclelinux-10",
+            "location": "<task-root>/prefix/share/lima/templates/_images/oraclelinux-10.yaml"
+        },
+        {
+            "name": "_images/oraclelinux-8",
+            "location": "<task-root>/prefix/share/lima/templates/_images/oraclelinux-8.yaml"
+        },
+        {
+            "name": "_images/oraclelinux-9",
+            "location": "<task-root>/prefix/share/lima/templates/_images/oraclelinux-9.yaml"
+        },
+        {
+            "name": "_images/rocky-10",
+            "location": "<task-root>/prefix/share/lima/templates/_images/rocky-10.yaml"
+        },
+        {
+            "name": "_images/rocky-8",
+            "location": "<task-root>/prefix/share/lima/templates/_images/rocky-8.yaml"
+        },
+        {
+            "name": "_images/rocky-9",
+            "location": "<task-root>/prefix/share/lima/templates/_images/rocky-9.yaml"
+        },
+        {
+            "name": "_images/ubuntu",
+            "location": "<task-root>/prefix/share/lima/templates/_images/ubuntu.yaml"
+        },
+        {
+            "name": "_images/ubuntu-20.04",
+            "location": "<task-root>/prefix/share/lima/templates/_images/ubuntu-20.04.yaml"
+        },
+        {
+            "name": "_images/ubuntu-22.04",
+            "location": "<task-root>/prefix/share/lima/templates/_images/ubuntu-22.04.yaml"
+        },
+        {
+            "name": "_images/ubuntu-24.04",
+            "location": "<task-root>/prefix/share/lima/templates/_images/ubuntu-24.04.yaml"
+        },
+        {
+            "name": "_images/ubuntu-24.10",
+            "location": "<task-root>/prefix/share/lima/templates/_images/ubuntu-24.10.yaml"
+        },
+        {
+            "name": "_images/ubuntu-25.04",
+            "location": "<task-root>/prefix/share/lima/templates/_images/ubuntu-25.04.yaml"
+        },
+        {
+            "name": "_images/ubuntu-25.10",
+            "location": "<task-root>/prefix/share/lima/templates/_images/ubuntu-25.10.yaml"
+        },
+        {
+            "name": "_images/ubuntu-26.04",
+            "location": "<task-root>/prefix/share/lima/templates/_images/ubuntu-26.04.yaml"
+        },
+        {
+            "name": "_images/ubuntu-26.10",
+            "location": "<task-root>/prefix/share/lima/templates/_images/ubuntu-26.10.yaml"
+        },
+        {
+            "name": "_images/ubuntu-lts",
+            "location": "<task-root>/prefix/share/lima/templates/_images/ubuntu-lts.yaml"
+        },
+        {
+            "name": "almalinux",
+            "location": "<task-root>/prefix/share/lima/templates/almalinux.yaml"
+        },
+        {
+            "name": "almalinux-10",
+            "location": "<task-root>/prefix/share/lima/templates/almalinux-10.yaml"
+        },
+        {
+            "name": "almalinux-8",
+            "location": "<task-root>/prefix/share/lima/templates/almalinux-8.yaml"
+        },
+        {
+            "name": "almalinux-9",
+            "location": "<task-root>/prefix/share/lima/templates/almalinux-9.yaml"
+        },
+        {
+            "name": "alpine",
+            "location": "<task-root>/prefix/share/lima/templates/alpine.yaml"
+        },
+        {
+            "name": "alpine-3.21",
+            "location": "<task-root>/prefix/share/lima/templates/alpine-3.21.yaml"
+        },
+        {
+            "name": "alpine-3.22",
+            "location": "<task-root>/prefix/share/lima/templates/alpine-3.22.yaml"
+        },
+        {
+            "name": "alpine-3.23",
+            "location": "<task-root>/prefix/share/lima/templates/alpine-3.23.yaml"
+        },
+        {
+            "name": "alpine-3.24",
+            "location": "<task-root>/prefix/share/lima/templates/alpine-3.24.yaml"
+        },
+        {
+            "name": "alpine-iso",
+            "location": "<task-root>/prefix/share/lima/templates/alpine-iso.yaml"
+        },
+        {
+            "name": "apptainer",
+            "location": "<task-root>/prefix/share/lima/templates/apptainer.yaml"
+        },
+        {
+            "name": "apptainer-rootful",
+            "location": "<task-root>/prefix/share/lima/templates/apptainer-rootful.yaml"
+        },
+        {
+            "name": "archlinux",
+            "location": "<task-root>/prefix/share/lima/templates/archlinux.yaml"
+        },
+        {
+            "name": "buildkit",
+            "location": "<task-root>/prefix/share/lima/templates/buildkit.yaml"
+        },
+        {
+            "name": "centos-stream",
+            "location": "<task-root>/prefix/share/lima/templates/centos-stream.yaml"
+        },
+        {
+            "name": "centos-stream-10",
+            "location": "<task-root>/prefix/share/lima/templates/centos-stream-10.yaml"
+        },
+        {
+            "name": "centos-stream-9",
+            "location": "<task-root>/prefix/share/lima/templates/centos-stream-9.yaml"
+        },
+        {
+            "name": "debian",
+            "location": "<task-root>/prefix/share/lima/templates/debian.yaml"
+        },
+        {
+            "name": "debian-11",
+            "location": "<task-root>/prefix/share/lima/templates/debian-11.yaml"
+        },
+        {
+            "name": "debian-12",
+            "location": "<task-root>/prefix/share/lima/templates/debian-12.yaml"
+        },
+        {
+            "name": "debian-13",
+            "location": "<task-root>/prefix/share/lima/templates/debian-13.yaml"
+        },
+        {
+            "name": "default",
+            "location": "<task-root>/prefix/share/lima/templates/default.yaml"
+        },
+        {
+            "name": "docker",
+            "location": "<task-root>/prefix/share/lima/templates/docker.yaml"
+        },
+        {
+            "name": "docker-rootful",
+            "location": "<task-root>/prefix/share/lima/templates/docker-rootful.yaml"
+        },
+        {
+            "name": "experimental/almalinux-kitten",
+            "location": "<task-root>/prefix/share/lima/templates/experimental/almalinux-kitten.yaml"
+        },
+        {
+            "name": "experimental/almalinux-kitten-10",
+            "location": "<task-root>/prefix/share/lima/templates/experimental/almalinux-kitten-10.yaml"
+        },
+        {
+            "name": "experimental/alsa",
+            "location": "<task-root>/prefix/share/lima/templates/experimental/alsa.yaml"
+        },
+        {
+            "name": "experimental/debian-sid",
+            "location": "<task-root>/prefix/share/lima/templates/experimental/debian-sid.yaml"
+        },
+        {
+            "name": "experimental/fedora-rawhide",
+            "location": "<task-root>/prefix/share/lima/templates/experimental/fedora-rawhide.yaml"
+        },
+        {
+            "name": "experimental/freebsd-16",
+            "location": "<task-root>/prefix/share/lima/templates/experimental/freebsd-16.yaml"
+        },
+        {
+            "name": "experimental/freebsd-current",
+            "location": "<task-root>/prefix/share/lima/templates/experimental/freebsd-current.yaml"
+        },
+        {
+            "name": "experimental/gentoo",
+            "location": "<task-root>/prefix/share/lima/templates/experimental/gentoo.yaml"
+        },
+        {
+            "name": "experimental/hcs",
+            "location": "<task-root>/prefix/share/lima/templates/experimental/hcs.yaml"
+        },
+        {
+            "name": "experimental/opensuse-tumbleweed",
+            "location": "<task-root>/prefix/share/lima/templates/experimental/opensuse-tumbleweed.yaml"
+        },
+        {
+            "name": "experimental/rke2",
+            "location": "<task-root>/prefix/share/lima/templates/experimental/rke2.yaml"
+        },
+        {
+            "name": "experimental/u7s",
+            "location": "<task-root>/prefix/share/lima/templates/experimental/u7s.yaml"
+        },
+        {
+            "name": "experimental/ubuntu-next",
+            "location": "<task-root>/prefix/share/lima/templates/experimental/ubuntu-next.yaml"
+        },
+        {
+            "name": "experimental/vnc",
+            "location": "<task-root>/prefix/share/lima/templates/experimental/vnc.yaml"
+        },
+        {
+            "name": "experimental/wsl2",
+            "location": "<task-root>/prefix/share/lima/templates/experimental/wsl2.yaml"
+        },
+        {
+            "name": "faasd",
+            "location": "<task-root>/prefix/share/lima/templates/faasd.yaml"
+        },
+        {
+            "name": "fedora",
+            "location": "<task-root>/prefix/share/lima/templates/fedora.yaml"
+        },
+        {
+            "name": "fedora-41",
+            "location": "<task-root>/prefix/share/lima/templates/fedora-41.yaml"
+        },
+        {
+            "name": "fedora-42",
+            "location": "<task-root>/prefix/share/lima/templates/fedora-42.yaml"
+        },
+        {
+            "name": "fedora-43",
+            "location": "<task-root>/prefix/share/lima/templates/fedora-43.yaml"
+        },
+        {
+            "name": "fedora-44",
+            "location": "<task-root>/prefix/share/lima/templates/fedora-44.yaml"
+        },
+        {
+            "name": "fedora-45",
+            "location": "<task-root>/prefix/share/lima/templates/fedora-45.yaml"
+        },
+        {
+            "name": "freebsd",
+            "location": "<task-root>/prefix/share/lima/templates/freebsd.yaml"
+        },
+        {
+            "name": "freebsd-15",
+            "location": "<task-root>/prefix/share/lima/templates/freebsd-15.yaml"
+        },
+        {
+            "name": "homebrew-linux",
+            "location": "<task-root>/prefix/share/lima/templates/homebrew-linux.yaml"
+        },
+        {
+            "name": "homebrew-macos",
+            "location": "<task-root>/prefix/share/lima/templates/homebrew-macos.yaml"
+        },
+        {
+            "name": "k0s",
+            "location": "<task-root>/prefix/share/lima/templates/k0s.yaml"
+        },
+        {
+            "name": "k3s",
+            "location": "<task-root>/prefix/share/lima/templates/k3s.yaml"
+        },
+        {
+            "name": "k8s",
+            "location": "<task-root>/prefix/share/lima/templates/k8s.yaml"
+        },
+        {
+            "name": "linuxbrew",
+            "location": "<task-root>/prefix/share/lima/templates/linuxbrew.yaml"
+        },
+        {
+            "name": "macos",
+            "location": "<task-root>/prefix/share/lima/templates/macos.yaml"
+        },
+        {
+            "name": "macos-15",
+            "location": "<task-root>/prefix/share/lima/templates/macos-15.yaml"
+        },
+        {
+            "name": "macos-26",
+            "location": "<task-root>/prefix/share/lima/templates/macos-26.yaml"
+        },
+        {
+            "name": "macos-27",
+            "location": "<task-root>/prefix/share/lima/templates/macos-27.yaml"
+        },
+        {
+            "name": "opensuse",
+            "location": "<task-root>/prefix/share/lima/templates/opensuse.yaml"
+        },
+        {
+            "name": "opensuse-leap",
+            "location": "<task-root>/prefix/share/lima/templates/opensuse-leap.yaml"
+        },
+        {
+            "name": "opensuse-leap-15",
+            "location": "<task-root>/prefix/share/lima/templates/opensuse-leap-15.yaml"
+        },
+        {
+            "name": "opensuse-leap-16",
+            "location": "<task-root>/prefix/share/lima/templates/opensuse-leap-16.yaml"
+        },
+        {
+            "name": "oraclelinux",
+            "location": "<task-root>/prefix/share/lima/templates/oraclelinux.yaml"
+        },
+        {
+            "name": "oraclelinux-10",
+            "location": "<task-root>/prefix/share/lima/templates/oraclelinux-10.yaml"
+        },
+        {
+            "name": "oraclelinux-8",
+            "location": "<task-root>/prefix/share/lima/templates/oraclelinux-8.yaml"
+        },
+        {
+            "name": "oraclelinux-9",
+            "location": "<task-root>/prefix/share/lima/templates/oraclelinux-9.yaml"
+        },
+        {
+            "name": "podman",
+            "location": "<task-root>/prefix/share/lima/templates/podman.yaml"
+        },
+        {
+            "name": "podman-rootful",
+            "location": "<task-root>/prefix/share/lima/templates/podman-rootful.yaml"
+        },
+        {
+            "name": "rocky",
+            "location": "<task-root>/prefix/share/lima/templates/rocky.yaml"
+        },
+        {
+            "name": "rocky-10",
+            "location": "<task-root>/prefix/share/lima/templates/rocky-10.yaml"
+        },
+        {
+            "name": "rocky-8",
+            "location": "<task-root>/prefix/share/lima/templates/rocky-8.yaml"
+        },
+        {
+            "name": "rocky-9",
+            "location": "<task-root>/prefix/share/lima/templates/rocky-9.yaml"
+        },
+        {
+            "name": "ubuntu",
+            "location": "<task-root>/prefix/share/lima/templates/ubuntu.yaml"
+        },
+        {
+            "name": "ubuntu-20.04",
+            "location": "<task-root>/prefix/share/lima/templates/ubuntu-20.04.yaml"
+        },
+        {
+            "name": "ubuntu-22.04",
+            "location": "<task-root>/prefix/share/lima/templates/ubuntu-22.04.yaml"
+        },
+        {
+            "name": "ubuntu-24.04",
+            "location": "<task-root>/prefix/share/lima/templates/ubuntu-24.04.yaml"
+        },
+        {
+            "name": "ubuntu-24.10",
+            "location": "<task-root>/prefix/share/lima/templates/ubuntu-24.10.yaml"
+        },
+        {
+            "name": "ubuntu-25.04",
+            "location": "<task-root>/prefix/share/lima/templates/ubuntu-25.04.yaml"
+        },
+        {
+            "name": "ubuntu-25.10",
+            "location": "<task-root>/prefix/share/lima/templates/ubuntu-25.10.yaml"
+        },
+        {
+            "name": "ubuntu-26.04",
+            "location": "<task-root>/prefix/share/lima/templates/ubuntu-26.04.yaml"
+        },
+        {
+            "name": "ubuntu-26.10",
+            "location": "<task-root>/prefix/share/lima/templates/ubuntu-26.10.yaml"
+        },
+        {
+            "name": "ubuntu-lts",
+            "location": "<task-root>/prefix/share/lima/templates/ubuntu-lts.yaml"
+        },
+        {
+            "name": "windows",
+            "location": "<task-root>/prefix/share/lima/templates/windows.yaml"
+        },
+        {
+            "name": "windows-11",
+            "location": "<task-root>/prefix/share/lima/templates/windows-11.yaml"
+        },
+        {
+            "name": "windows-2025",
+            "location": "<task-root>/prefix/share/lima/templates/windows-2025.yaml"
+        }
+    ],
+    "defaultTemplate": {
+        "base": [
+            {
+                "url": "template:_images/ubuntu"
+            },
+            {
+                "url": "template:_default/mounts"
+            }
+        ],
+        "minimumLimaVersion": "2.0.0",
+        "vmOpts": {
+            "qemu": {
+                "cpuType": null,
+                "minimumVersion": null
+            },
+            "vz": {
+                "diskImageFormat": null,
+                "rosetta": {
+                    "binfmt": null,
+                    "enabled": null
+                }
+            }
+        },
+        "os": "Linux",
+        "arch": "aarch64",
+        "cpus": 4,
+        "memory": "4GiB",
+        "disk": "100GiB",
+        "mountInotify": false,
+        "ssh": {
+            "localPort": 0,
+            "loadDotSSHPubKeys": false,
+            "forwardAgent": false,
+            "forwardX11": false,
+            "forwardX11Trusted": false
+        },
+        "firmware": {
+            "legacyBIOS": false
+        },
+        "audio": {
+            "device": "",
+            "interface": "",
+            "microphone": false
+        },
+        "video": {
+            "display": "none",
+            "vnc": {}
+        },
+        "upgradePackages": false,
+        "containerd": {
+            "system": false,
+            "user": true,
+            "archives": [
+                {
+                    "location": "https://github.com/containerd/nerdctl/releases/download/v2.4.2/nerdctl-full-2.4.2-linux-amd64.tar.gz",
+                    "arch": "x86_64",
+                    "digest": "sha256:1f12c1a5840744fdf7029483c55a69813d44aa2ec1ef879d52d81ff6a3049ecd"
+                },
+                {
+                    "location": "https://github.com/containerd/nerdctl/releases/download/v2.4.2/nerdctl-full-2.4.2-linux-arm64.tar.gz",
+                    "arch": "aarch64",
+                    "digest": "sha256:fe0ef0e9840ee8932640e6058f84b7fa98050f9726e44af44883a5b804ae830e"
+                }
+            ]
+        },
+        "guestInstallPrefix": "/usr/local",
+        "networkOpts": {
+            "hostLoopback": true
+        },
+        "hostResolver": {
+            "ipv6": false
+        },
+        "propagateProxyEnv": true,
+        "caCerts": {
+            "removeDefaults": false
+        },
+        "rosetta": {},
+        "plain": false,
+        "timezone": "Asia/Seoul",
+        "nestedVirtualization": false,
+        "user": {
+            "name": "<host-user>",
+            "comment": "<host-display-name>",
+            "home": "<guest-home>",
+            "shell": "/bin/bash",
+            "uid": 501,
+            "passwordlessSudo": true
+        },
+        "tpm": false
+    },
+    "limaHome": "<task-root>/lima",
+    "vmTypes": [
+        "qemu",
+        "vz",
+        "krunkit"
+    ],
+    "vmTypesEx": {
+        "krunkit": {
+            "location": "<task-root>/prefix/libexec/lima/lima-driver-krunkit"
+        },
+        "qemu": {
+            "location": "internal"
+        },
+        "vz": {
+            "location": "internal"
+        }
+    },
+    "guestAgents": {
+        "Darwin-aarch64": {
+            "location": "<task-root>/prefix/share/lima/lima-guestagent.Darwin-aarch64.gz"
+        },
+        "aarch64": {
+            "location": "<task-root>/prefix/share/lima/lima-guestagent.Linux-aarch64.gz"
+        }
+    },
+    "shellEnvBlock": [
+        "BASH*",
+        "DISPLAY",
+        "DYLD_*",
+        "EUID",
+        "FPATH",
+        "GID",
+        "GROUP",
+        "HOME",
+        "HOSTNAME",
+        "LD_*",
+        "LOGNAME",
+        "OLDPWD",
+        "PATH",
+        "PWD",
+        "SHELL",
+        "SHLVL",
+        "SSH_*",
+        "TERM",
+        "TERMINFO",
+        "TMPDIR",
+        "UID",
+        "USER",
+        "XAUTHORITY",
+        "XDG_*",
+        "ZDOTDIR",
+        "ZSH*",
+        "_*"
+    ],
+    "hostOS": "darwin",
+    "hostArch": "aarch64",
+    "identityFile": "<task-root>/lima/_config/user",
+    "plugins": [
+        {
+            "name": "mcp",
+            "path": "<task-root>/prefix/libexec/lima/limactl-mcp"
+        },
+        {
+            "name": "menu",
+            "path": "<task-root>/prefix/libexec/lima/limactl-menu"
+        },
+        {
+            "name": "url-fedora-rawhide",
+            "path": "<task-root>/prefix/libexec/lima/limactl-url-fedora-rawhide"
+        }
+    ],
+    "libexecPaths": [
+        "<task-root>/prefix/libexec/lima",
+        "<task-root>/prefix/libexec/lima"
+    ],
+    "sharePaths": [
+        "<task-root>/prefix/share/lima",
+        "<task-root>/prefix/share/lima"
+    ]
+}

@@ -1,5 +1,7 @@
 # S2 실행 전 준비 도구
 
+2026-11-10 [컨테이너 타당성 인계](../../../../docs/reviews/2026-11-10-s2-container-feasibility.md): **inconclusive**. [container/](container/)의 Lima/Dockerfile 준비는 VM/image build까지 성공했으나 실행 image 식별자 오류와 수정1회 실패로 중단했다. worker·CLI·Linux 평가/수집/종료 probe는 미실행이다. 자원은 삭제했고 verified receipt/live adapter를 추가하지 않았다. 아래 macOS runtime과 production/live 거부, R11 미해결/R12 기존 판정을 유지한다.
+
 2026-11-10 다음 작업: ADR-031로 [일회성 컨테이너 경계 타당성 검증](../../../../docs/reviews/2026-11-10-s2-container-feasibility-instructions.md)을 승인했다. 기존 CLI/셸을 유지하고 실행·평가 단위의 종료/수집과 Linux 환경을 비용 상한 안에서 확인한다. 아직 컨테이너 도입/종료 검증이 완료된 것은 아니며 아래 macOS 경로와 live/production 차단은 유지한다. 본 비교는 검증 결과 리뷰 이후다.
 
 2026-11-10 [독립 재검토](../../../../docs/reviews/2026-11-10-s2-runtime-accounting-independent-review.md): R12는 검증 범위에서 해결됐고 R11은 미해결이다. 실제22실행에서 늦은 쓰기와 production 차단을 다시 확인했다. 본 비교/실제 모델은 실행하지 않았으며 다음 실행 경계/도구 정책은 사용자와 결정한다. 아래는 구현과 당시 자체 검증 설명이다.

@@ -1,0 +1,49 @@
+[
+    {
+        "Id": "sha256:40eb3fb277b72f8a66eb99d646ed3ea3dfd65f693c8b9c4fc5657c80352186e5",
+        "RepoTags": [
+            "node:22.19.0-bookworm-slim"
+        ],
+        "RepoDigests": [
+            "node@sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90"
+        ],
+        "Parent": "",
+        "Comment": "buildkit.dockerfile.v0",
+        "Created": "2025-08-28T22:35:08Z",
+        "DockerVersion": "",
+        "Author": "",
+        "Config": {
+            "AttachStdin": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "NODE_VERSION=22.19.0",
+                "YARN_VERSION=1.22.22"
+            ],
+            "Cmd": [
+                "node"
+            ],
+            "Image": "docker.io/library/node:22.19.0-bookworm-slim",
+            "Entrypoint": [
+                "docker-entrypoint.sh"
+            ]
+        },
+        "Architecture": "arm64",
+        "Variant": "v8",
+        "Os": "linux",
+        "Size": 264863744,
+        "VirtualSize": 264863744,
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:07d4c428e5bd1876bbc1c2412d105f749f49898b64c684185c5123c73c8e9e7e",
+                "sha256:3676c71868af400ab87a3508846b4fdc5b660179f079aee60adeee60d3d196b8",
+                "sha256:8ebb6eee5b619e37c41ff81415b497f17d584edeadb5621d8ebe8a16df41df8d",
+                "sha256:dfffa763492598f78af2738905cbd806aaf031d2fbe4ff8a8f851c94be9d5f1e",
+                "sha256:a4c3026f0b16e589c2fc45b474e5a25f11c3554a66f0296e5477678a8f804c52"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "0001-01-01T00:00:00Z"
+        }
+    }
+]

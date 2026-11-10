@@ -1,0 +1,14 @@
+{
+  "downloads/repo.tar.gz": {
+    "bytes": 106398999,
+    "sha256": "be9c4af4e3b4768ed74658a0bc2039000740a4510e5901ba5681dc7e4e4d960d"
+  },
+  "downloads/lima.tar.gz": {
+    "bytes": 50317981,
+    "sha256": "b7af444bd8f91d3c307477e562f2cf3bd7595d62b9429185e4fa841563578cfc"
+  },
+  "downloads/source.tar.gz": {
+    "bytes": 45439322,
+    "sha256": "1d17c0e7ec9b38e368359c677f0ecbab173b2209a486bf9dc4df79078d52b93e"
+  }
+}

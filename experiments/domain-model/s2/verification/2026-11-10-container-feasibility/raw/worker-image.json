@@ -1,0 +1,54 @@
+[
+    {
+        "Id": "sha256:c7fb3d12a1f8d73febec26ad54fbf1987cd55af0d573947b95a91d95a1e9a6d2",
+        "RepoTags": [
+            "ontosary-s2-feasibility:20261110"
+        ],
+        "RepoDigests": [
+            "ontosary-s2-feasibility@sha256:fbea81dbc73da64f8798dd025d17d7bfb559a953671b520a235220ae9dc3e47b"
+        ],
+        "Parent": "",
+        "Comment": "buildkit.dockerfile.v0",
+        "Created": "2026-11-10T20:08:53.513190992+09:00",
+        "DockerVersion": "",
+        "Author": "",
+        "Config": {
+            "User": "1000:1000",
+            "AttachStdin": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "NODE_VERSION=22.19.0",
+                "YARN_VERSION=1.22.22",
+                "NODE_PATH=/usr/local/lib/node_modules"
+            ],
+            "Cmd": [
+                "node"
+            ],
+            "Image": "docker.io/library/ontosary-s2-feasibility:20261110",
+            "WorkingDir": "/source",
+            "Entrypoint": [
+                "docker-entrypoint.sh"
+            ]
+        },
+        "Architecture": "arm64",
+        "Os": "linux",
+        "Size": 998412288,
+        "VirtualSize": 998412288,
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:07d4c428e5bd1876bbc1c2412d105f749f49898b64c684185c5123c73c8e9e7e",
+                "sha256:3676c71868af400ab87a3508846b4fdc5b660179f079aee60adeee60d3d196b8",
+                "sha256:8ebb6eee5b619e37c41ff81415b497f17d584edeadb5621d8ebe8a16df41df8d",
+                "sha256:dfffa763492598f78af2738905cbd806aaf031d2fbe4ff8a8f851c94be9d5f1e",
+                "sha256:a4c3026f0b16e589c2fc45b474e5a25f11c3554a66f0296e5477678a8f804c52",
+                "sha256:0907aa2bc35cdabce484825b69724e86300f65d8e7902efd69246d160665b7aa",
+                "sha256:9f150f4505487e1b2d96e0e179a49c65f9874a447037dd5ac8d6ec9f60a8c954",
+                "sha256:fbed3203b7fd2799a22f88ab8ccb16cdaba5dd77ad5b60deee3e4ee04a981bfb"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "0001-01-01T00:00:00Z"
+        }
+    }
+]

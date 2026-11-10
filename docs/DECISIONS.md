@@ -239,3 +239,9 @@ usage는 순차 turn 상태와 이벤트 identity, EOF/종료/절단을 결합�
 **유지할 계약:** agent 실행과 제출 코드 평가에 각각 일회성 경계를 두는 타당성을 검증하며 제품 코어·과업·모델/B/C 지식·평가기 지원 범위는 유지한다. 전체 단위 종료 확인 전에 정상 제출을 수집하지 않는다. timeout 뒤 수집 코드는 진단용이며 정상 성공으로 계산하지 않고 실제 정지 시각을 기록한다. token hard cap 제외·100,000 참고선과30분 과업 제한은 유지한다. 준비의4시간 상한과 과업의30분 제한은 별개다.
 
 **완료/보류:** feasible-for-next-preparation·conditional·blocked/inconclusive와 근거/비용을 인계하고 결과를 독립 리뷰한다. 기존 macOS 차단 경로와 live 거부는 유지하며 fixture 검증으로 실제 모델/인증을 검증했다고 표현하지 않는다. 실제 모델 호출·연결 시험·본 비교는 이번 범위 밖이다. trialAuthorized/readyForTrial=false·results=null·사람 검토 pending을 유지한다. 새 구조의 도입·본 비교 실행은 결과 리뷰 이후에 정한다.
+
+## ADR-032 · 한정 컨테이너 조사 중단과 결과 범위 — 2026-11-10
+
+ADR-031의 후보1개/환경 수정·재시도1회 상한을 적용했다. Lima 2.3.0/VZ와 준비 image build는 성공했지만, repo@manifest 실행 실패 후 Docker 호환 config ID로 바꾼 한 번의 시도도 실패했다. [인계](reviews/2026-11-10-s2-container-feasibility.md)의 판정은 inconclusive이며 런타임 자체의 부적합이나 R11 해결을 뜻하지 않는다. 남은 시간이 있어도 두 번째 수정을 자동 시도하지 않고 소유 VM/image/cache를 정리했다.
+
+다음 결정 대상은 동일 후보의 native image identity 연결을 확인할 별도 작은 예산이다. 사용자에게 새 플랫폼/권한 확대를 이미 승인받았다고 가정하지 않는다. worker 종료·불변 수집·별도 평가 단위 및 Linux 의미 동등성의 모든 미실행 항목을 남기고, 기존 macOS production/live 차단·R12 계약·정적 자료를 보존한다. 초기 CLI stderr와 수정 실패 원문·재귀 manifest/cleanup을 보존하며 실제 모델/provider/본 비교는0회다.

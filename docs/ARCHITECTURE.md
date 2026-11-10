@@ -1,5 +1,7 @@
 # 현재 아키텍처
 
+2026-11-10 컨테이너 타당성 결과: **준비 이미지까지 확인, 실행 경계는 미구현·미검증**. [인계](reviews/2026-11-10-s2-container-feasibility.md). `trial/container/`에는 Lima 선언·Dockerfile·준비 명령 기록/증거 도구만 있다. 로컬 이미지 식별자 해석과 수정1회가 실패해 worker/evaluator를 시작하지 않았다. guest cgroup v2 관찰이나 VM 삭제를 단위 종료→불변 수집의 증명으로 쓰지 않는다. 모든 임시 runtime 자원을 정리했고 기존 macOS production/live 거부·R11 unresolved·R12 기존 검증 범위를 유지한다.
+
 2026-11-10 다음 검증 구조: ADR-031로 **기존 CLI/셸을 유지하는 로컬 일회성 컨테이너 경계의 타당성 검증**을 승인했다. [지시](reviews/2026-11-10-s2-container-feasibility-instructions.md)는 실행 단위 전체 종료→수집→별도 평가 단위와 비용/환경 재현을 검증한다. 컨테이너 adapter는 실험 내부의 한 후보로 제한하고 제품 코어·모델/조회·평가 의미를 유지한다. 아직 설치/구현/종료 보장을 확인한 상태가 아니며 기존 macOS production/live 차단은 그대로다.
 
 2026-11-10 [R11/R12 독립 재검토](reviews/2026-11-10-s2-runtime-accounting-independent-review.md): turn 상태·중복 철회·종료/절단 결합의 R12를 검증 범위에서 해결로 판정했다. R11은 여전히 모든 writer의 종료를 보장하지 못하며 production 수집/평가 차단을 유지한다. 진단 receipt와 알려진 참조 fixture 평가를 실제 제출 authority와 구분한 구조를 확인했다. 다음 실행 경계/도구 정책은 사용자와 별도로 결정하며 제품 코어·모델/조회 계약은 변경하지 않는다. 아래는 당시 구현 인계다.

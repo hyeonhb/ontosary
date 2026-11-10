@@ -1,0 +1,591 @@
+docker.io/library/node:22.19.0-bookworm-slim	fetching image content
+application/vnd.oci.image.index.v1+json sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+Pulling from OCI Registry (docker.io/library/node:22.19.0-bookworm-slim)	elapsed: 1.6 s	total:   0.0 B	(0.0 B/s)
+docker.io/library/node:22.19.0-bookworm-slim	fetching image content
+└──index-sha256:4a4884e8a44826194dff92ba	waiting    	|--------------------------------------|
+application/vnd.oci.image.index.v1+json sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+Pulling from OCI Registry (docker.io/library/node:22.19.0-bookworm-slim)	elapsed: 1.6 s	total:   0.0 B	(0.0 B/s)
+docker.io/library/node:22.19.0-bookworm-slim	fetching image content
+└──index-sha256:4a4884e8a44826194dff92ba	waiting    	|--------------------------------------|
+   └──manifest-sha256:1162d0dd01d730cb41	waiting    	|--------------------------------------|
+application/vnd.oci.image.index.v1+json sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+Pulling from OCI Registry (docker.io/library/node:22.19.0-bookworm-slim)	elapsed: 3.1 s	total:   0.0 B	(0.0 B/s)
+docker.io/library/node:22.19.0-bookworm-slim	fetching image content
+└──index-sha256:4a4884e8a44826194dff92ba	complete   	|++++++++++++++++++++++++++++++++++++++|
+   └──manifest-sha256:1162d0dd01d730cb41	waiting    	|--------------------------------------|
+application/vnd.oci.image.index.v1+json sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+Pulling from OCI Registry (docker.io/library/node:22.19.0-bookworm-slim)	elapsed: 3.4 s	total:  6.3 Ki	(1.9 KiB/s)
+docker.io/library/node:22.19.0-bookworm-slim	fetching image content
+└──index-sha256:4a4884e8a44826194dff92ba	complete   	|++++++++++++++++++++++++++++++++++++++|
+   └──manifest-sha256:1162d0dd01d730cb41	waiting    	|--------------------------------------|
+      └──config-sha256:40eb3fb277b72f8a6	waiting    	|--------------------------------------|
+application/vnd.oci.image.index.v1+json sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+Pulling from OCI Registry (docker.io/library/node:22.19.0-bookworm-slim)	elapsed: 3.4 s	total:  6.3 Ki	(1.9 KiB/s)
+docker.io/library/node:22.19.0-bookworm-slim	fetching image content
+└──index-sha256:4a4884e8a44826194dff92ba	complete   	|++++++++++++++++++++++++++++++++++++++|
+   └──manifest-sha256:1162d0dd01d730cb41	complete   	|++++++++++++++++++++++++++++++++++++++|
+      └──config-sha256:40eb3fb277b72f8a6	waiting    	|--------------------------------------|
+application/vnd.oci.image.index.v1+json sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+Pulling from OCI Registry (docker.io/library/node:22.19.0-bookworm-slim)	elapsed: 3.7 s	total:  8.2 Ki	(2.2 KiB/s)
+docker.io/library/node:22.19.0-bookworm-slim	fetching image content
+└──index-sha256:4a4884e8a44826194dff92ba	complete   	|++++++++++++++++++++++++++++++++++++++|
+   └──manifest-sha256:1162d0dd01d730cb41	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──config-sha256:40eb3fb277b72f8a6	waiting    	|--------------------------------------|
+      └──layer-sha256:b56ec4d7bd508eaadc	waiting    	|--------------------------------------|
+application/vnd.oci.image.index.v1+json sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+Pulling from OCI Registry (docker.io/library/node:22.19.0-bookworm-slim)	elapsed: 3.9 s	total:  8.2 Ki	(2.1 KiB/s)
+docker.io/library/node:22.19.0-bookworm-slim	fetching image content
+└──index-sha256:4a4884e8a44826194dff92ba	complete   	|++++++++++++++++++++++++++++++++++++++|
+   └──manifest-sha256:1162d0dd01d730cb41	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──config-sha256:40eb3fb277b72f8a6	waiting    	|--------------------------------------|
+      ├──layer-sha256:b56ec4d7bd508eaadc	waiting    	|--------------------------------------|
+      └──layer-sha256:8474919cf0553dec4e	waiting    	|--------------------------------------|
+application/vnd.oci.image.index.v1+json sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+Pulling from OCI Registry (docker.io/library/node:22.19.0-bookworm-slim)	elapsed: 3.9 s	total:  8.2 Ki	(2.1 KiB/s)
+docker.io/library/node:22.19.0-bookworm-slim	fetching image content
+└──index-sha256:4a4884e8a44826194dff92ba	complete   	|++++++++++++++++++++++++++++++++++++++|
+   └──manifest-sha256:1162d0dd01d730cb41	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──config-sha256:40eb3fb277b72f8a6	waiting    	|--------------------------------------|
+      ├──layer-sha256:b56ec4d7bd508eaadc	waiting    	|--------------------------------------|
+      ├──layer-sha256:8474919cf0553dec4e	waiting    	|--------------------------------------|
+      └──layer-sha256:0878ecc8b0afd0d835	waiting    	|--------------------------------------|
+application/vnd.oci.image.index.v1+json sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+Pulling from OCI Registry (docker.io/library/node:22.19.0-bookworm-slim)	elapsed: 3.9 s	total:  8.2 Ki	(2.1 KiB/s)
+docker.io/library/node:22.19.0-bookworm-slim	fetching image content
+└──index-sha256:4a4884e8a44826194dff92ba	complete   	|++++++++++++++++++++++++++++++++++++++|
+   └──manifest-sha256:1162d0dd01d730cb41	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──config-sha256:40eb3fb277b72f8a6	waiting    	|--------------------------------------|
+      ├──layer-sha256:b56ec4d7bd508eaadc	waiting    	|--------------------------------------|
+      ├──layer-sha256:8474919cf0553dec4e	waiting    	|--------------------------------------|
+      ├──layer-sha256:0878ecc8b0afd0d835	waiting    	|--------------------------------------|
+      └──layer-sha256:050cc65304670b77c0	waiting    	|--------------------------------------|
+application/vnd.oci.image.index.v1+json sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+Pulling from OCI Registry (docker.io/library/node:22.19.0-bookworm-slim)	elapsed: 3.9 s	total:  8.2 Ki	(2.1 KiB/s)
+docker.io/library/node:22.19.0-bookworm-slim	fetching image content
+└──index-sha256:4a4884e8a44826194dff92ba	complete   	|++++++++++++++++++++++++++++++++++++++|
+   └──manifest-sha256:1162d0dd01d730cb41	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──config-sha256:40eb3fb277b72f8a6	waiting    	|--------------------------------------|
+      ├──layer-sha256:b56ec4d7bd508eaadc	waiting    	|--------------------------------------|
+      ├──layer-sha256:8474919cf0553dec4e	waiting    	|--------------------------------------|
+      ├──layer-sha256:0878ecc8b0afd0d835	waiting    	|--------------------------------------|
+      ├──layer-sha256:050cc65304670b77c0	waiting    	|--------------------------------------|
+      └──layer-sha256:50ac3c1bc6412649b4	waiting    	|--------------------------------------|
+application/vnd.oci.image.index.v1+json sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+Pulling from OCI Registry (docker.io/library/node:22.19.0-bookworm-slim)	elapsed: 3.9 s	total:  8.2 Ki	(2.1 KiB/s)
+docker.io/library/node:22.19.0-bookworm-slim	fetching image content
+└──index-sha256:4a4884e8a44826194dff92ba	complete   	|++++++++++++++++++++++++++++++++++++++|
+   └──manifest-sha256:1162d0dd01d730cb41	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──config-sha256:40eb3fb277b72f8a6	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:b56ec4d7bd508eaadc	waiting    	|--------------------------------------|
+      ├──layer-sha256:8474919cf0553dec4e	waiting    	|--------------------------------------|
+      ├──layer-sha256:0878ecc8b0afd0d835	waiting    	|--------------------------------------|
+      ├──layer-sha256:050cc65304670b77c0	waiting    	|--------------------------------------|
+      └──layer-sha256:50ac3c1bc6412649b4	waiting    	|--------------------------------------|
+application/vnd.oci.image.index.v1+json sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+Pulling from OCI Registry (docker.io/library/node:22.19.0-bookworm-slim)	elapsed: 4.0 s	total:  14.9 K	(3.7 KiB/s)
+docker.io/library/node:22.19.0-bookworm-slim	fetching image content
+└──index-sha256:4a4884e8a44826194dff92ba	complete   	|++++++++++++++++++++++++++++++++++++++|
+   └──manifest-sha256:1162d0dd01d730cb41	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──config-sha256:40eb3fb277b72f8a6	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:b56ec4d7bd508eaadc	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:8474919cf0553dec4e	waiting    	|--------------------------------------|
+      ├──layer-sha256:0878ecc8b0afd0d835	waiting    	|--------------------------------------|
+      ├──layer-sha256:050cc65304670b77c0	waiting    	|--------------------------------------|
+      └──layer-sha256:50ac3c1bc6412649b4	waiting    	|--------------------------------------|
+application/vnd.oci.image.index.v1+json sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+Pulling from OCI Registry (docker.io/library/node:22.19.0-bookworm-slim)	elapsed: 4.3 s	total:  15.3 K	(3.6 KiB/s)
+docker.io/library/node:22.19.0-bookworm-slim	fetching image content
+└──index-sha256:4a4884e8a44826194dff92ba	complete   	|++++++++++++++++++++++++++++++++++++++|
+   └──manifest-sha256:1162d0dd01d730cb41	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──config-sha256:40eb3fb277b72f8a6	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:b56ec4d7bd508eaadc	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:8474919cf0553dec4e	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:0878ecc8b0afd0d835	waiting    	|--------------------------------------|
+      ├──layer-sha256:050cc65304670b77c0	waiting    	|--------------------------------------|
+      └──layer-sha256:50ac3c1bc6412649b4	waiting    	|--------------------------------------|
+application/vnd.oci.image.index.v1+json sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+Pulling from OCI Registry (docker.io/library/node:22.19.0-bookworm-slim)	elapsed: 4.6 s	total:  18.5 K	(4.1 KiB/s)
+docker.io/library/node:22.19.0-bookworm-slim	fetching image content
+└──index-sha256:4a4884e8a44826194dff92ba	complete   	|++++++++++++++++++++++++++++++++++++++|
+   └──manifest-sha256:1162d0dd01d730cb41	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──config-sha256:40eb3fb277b72f8a6	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:b56ec4d7bd508eaadc	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:8474919cf0553dec4e	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:0878ecc8b0afd0d835	downloading	|+-------------------------------------|	 1.0 MiB/26.8 MiB
+      ├──layer-sha256:050cc65304670b77c0	waiting    	|--------------------------------------|
+      └──layer-sha256:50ac3c1bc6412649b4	waiting    	|--------------------------------------|
+application/vnd.oci.image.index.v1+json sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+Pulling from OCI Registry (docker.io/library/node:22.19.0-bookworm-slim)	elapsed: 4.9 s	total:  1.0 Mi	(214.0 KiB/s)
+docker.io/library/node:22.19.0-bookworm-slim	fetching image content
+└──index-sha256:4a4884e8a44826194dff92ba	complete   	|++++++++++++++++++++++++++++++++++++++|
+   └──manifest-sha256:1162d0dd01d730cb41	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──config-sha256:40eb3fb277b72f8a6	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:b56ec4d7bd508eaadc	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:8474919cf0553dec4e	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:0878ecc8b0afd0d835	downloading	|+-------------------------------------|	 1.0 MiB/26.8 MiB
+      ├──layer-sha256:050cc65304670b77c0	waiting    	|--------------------------------------|
+      └──layer-sha256:50ac3c1bc6412649b4	complete   	|++++++++++++++++++++++++++++++++++++++|
+application/vnd.oci.image.index.v1+json sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+Pulling from OCI Registry (docker.io/library/node:22.19.0-bookworm-slim)	elapsed: 4.9 s	total:  2.7 Mi	(557.4 KiB/s)
+docker.io/library/node:22.19.0-bookworm-slim	fetching image content
+└──index-sha256:4a4884e8a44826194dff92ba	complete   	|++++++++++++++++++++++++++++++++++++++|
+   └──manifest-sha256:1162d0dd01d730cb41	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──config-sha256:40eb3fb277b72f8a6	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:b56ec4d7bd508eaadc	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:8474919cf0553dec4e	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:0878ecc8b0afd0d835	downloading	|+++++---------------------------------|	 4.0 MiB/26.8 MiB
+      ├──layer-sha256:050cc65304670b77c0	waiting    	|--------------------------------------|
+      └──layer-sha256:50ac3c1bc6412649b4	complete   	|++++++++++++++++++++++++++++++++++++++|
+application/vnd.oci.image.index.v1+json sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+Pulling from OCI Registry (docker.io/library/node:22.19.0-bookworm-slim)	elapsed: 5.2 s	total:  5.7 Mi	(1.1 MiB/s)
+docker.io/library/node:22.19.0-bookworm-slim	fetching image content
+└──index-sha256:4a4884e8a44826194dff92ba	complete   	|++++++++++++++++++++++++++++++++++++++|
+   └──manifest-sha256:1162d0dd01d730cb41	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──config-sha256:40eb3fb277b72f8a6	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:b56ec4d7bd508eaadc	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:8474919cf0553dec4e	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:0878ecc8b0afd0d835	downloading	|+++++---------------------------------|	 4.0 MiB/26.8 MiB
+      ├──layer-sha256:050cc65304670b77c0	downloading	|--------------------------------------|	 1.0 MiB/46.4 MiB
+      └──layer-sha256:50ac3c1bc6412649b4	complete   	|++++++++++++++++++++++++++++++++++++++|
+application/vnd.oci.image.index.v1+json sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+Pulling from OCI Registry (docker.io/library/node:22.19.0-bookworm-slim)	elapsed: 5.2 s	total:  6.7 Mi	(1.3 MiB/s)
+docker.io/library/node:22.19.0-bookworm-slim	fetching image content
+└──index-sha256:4a4884e8a44826194dff92ba	complete   	|++++++++++++++++++++++++++++++++++++++|
+   └──manifest-sha256:1162d0dd01d730cb41	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──config-sha256:40eb3fb277b72f8a6	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:b56ec4d7bd508eaadc	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:8474919cf0553dec4e	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:0878ecc8b0afd0d835	downloading	|++++++++------------------------------|	 6.0 MiB/26.8 MiB
+      ├──layer-sha256:050cc65304670b77c0	downloading	|--------------------------------------|	 1.0 MiB/46.4 MiB
+      └──layer-sha256:50ac3c1bc6412649b4	complete   	|++++++++++++++++++++++++++++++++++++++|
+application/vnd.oci.image.index.v1+json sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+Pulling from OCI Registry (docker.io/library/node:22.19.0-bookworm-slim)	elapsed: 5.5 s	total:  8.7 Mi	(1.6 MiB/s)
+docker.io/library/node:22.19.0-bookworm-slim	fetching image content
+└──index-sha256:4a4884e8a44826194dff92ba	complete   	|++++++++++++++++++++++++++++++++++++++|
+   └──manifest-sha256:1162d0dd01d730cb41	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──config-sha256:40eb3fb277b72f8a6	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:b56ec4d7bd508eaadc	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:8474919cf0553dec4e	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:0878ecc8b0afd0d835	downloading	|++++++++------------------------------|	 6.0 MiB/26.8 MiB
+      ├──layer-sha256:050cc65304670b77c0	downloading	|+-------------------------------------|	 2.0 MiB/46.4 MiB
+      └──layer-sha256:50ac3c1bc6412649b4	complete   	|++++++++++++++++++++++++++++++++++++++|
+application/vnd.oci.image.index.v1+json sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+Pulling from OCI Registry (docker.io/library/node:22.19.0-bookworm-slim)	elapsed: 5.5 s	total:  9.7 Mi	(1.8 MiB/s)
+docker.io/library/node:22.19.0-bookworm-slim	fetching image content
+└──index-sha256:4a4884e8a44826194dff92ba	complete   	|++++++++++++++++++++++++++++++++++++++|
+   └──manifest-sha256:1162d0dd01d730cb41	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──config-sha256:40eb3fb277b72f8a6	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:b56ec4d7bd508eaadc	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:8474919cf0553dec4e	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:0878ecc8b0afd0d835	downloading	|+++++++++++---------------------------|	 8.0 MiB/26.8 MiB
+      ├──layer-sha256:050cc65304670b77c0	downloading	|+-------------------------------------|	 2.0 MiB/46.4 MiB
+      └──layer-sha256:50ac3c1bc6412649b4	complete   	|++++++++++++++++++++++++++++++++++++++|
+application/vnd.oci.image.index.v1+json sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+Pulling from OCI Registry (docker.io/library/node:22.19.0-bookworm-slim)	elapsed: 5.8 s	total:  11.7 M	(2.0 MiB/s)
+docker.io/library/node:22.19.0-bookworm-slim	fetching image content
+└──index-sha256:4a4884e8a44826194dff92ba	complete   	|++++++++++++++++++++++++++++++++++++++|
+   └──manifest-sha256:1162d0dd01d730cb41	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──config-sha256:40eb3fb277b72f8a6	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:b56ec4d7bd508eaadc	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:8474919cf0553dec4e	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:0878ecc8b0afd0d835	downloading	|+++++++++++---------------------------|	 8.0 MiB/26.8 MiB
+      ├──layer-sha256:050cc65304670b77c0	downloading	|++------------------------------------|	 3.0 MiB/46.4 MiB
+      └──layer-sha256:50ac3c1bc6412649b4	complete   	|++++++++++++++++++++++++++++++++++++++|
+application/vnd.oci.image.index.v1+json sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+Pulling from OCI Registry (docker.io/library/node:22.19.0-bookworm-slim)	elapsed: 5.8 s	total:  12.7 M	(2.2 MiB/s)
+docker.io/library/node:22.19.0-bookworm-slim	fetching image content
+└──index-sha256:4a4884e8a44826194dff92ba	complete   	|++++++++++++++++++++++++++++++++++++++|
+   └──manifest-sha256:1162d0dd01d730cb41	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──config-sha256:40eb3fb277b72f8a6	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:b56ec4d7bd508eaadc	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:8474919cf0553dec4e	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:0878ecc8b0afd0d835	downloading	|+++++++++++++++-----------------------|	11.0 MiB/26.8 MiB
+      ├──layer-sha256:050cc65304670b77c0	downloading	|++------------------------------------|	 3.0 MiB/46.4 MiB
+      └──layer-sha256:50ac3c1bc6412649b4	complete   	|++++++++++++++++++++++++++++++++++++++|
+application/vnd.oci.image.index.v1+json sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+Pulling from OCI Registry (docker.io/library/node:22.19.0-bookworm-slim)	elapsed: 6.1 s	total:  15.7 M	(2.6 MiB/s)
+docker.io/library/node:22.19.0-bookworm-slim	fetching image content
+└──index-sha256:4a4884e8a44826194dff92ba	complete   	|++++++++++++++++++++++++++++++++++++++|
+   └──manifest-sha256:1162d0dd01d730cb41	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──config-sha256:40eb3fb277b72f8a6	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:b56ec4d7bd508eaadc	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:8474919cf0553dec4e	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:0878ecc8b0afd0d835	downloading	|+++++++++++++++-----------------------|	11.0 MiB/26.8 MiB
+      ├──layer-sha256:050cc65304670b77c0	downloading	|+++-----------------------------------|	 4.0 MiB/46.4 MiB
+      └──layer-sha256:50ac3c1bc6412649b4	complete   	|++++++++++++++++++++++++++++++++++++++|
+application/vnd.oci.image.index.v1+json sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+Pulling from OCI Registry (docker.io/library/node:22.19.0-bookworm-slim)	elapsed: 6.1 s	total:  16.7 M	(2.7 MiB/s)
+docker.io/library/node:22.19.0-bookworm-slim	fetching image content
+└──index-sha256:4a4884e8a44826194dff92ba	complete   	|++++++++++++++++++++++++++++++++++++++|
+   └──manifest-sha256:1162d0dd01d730cb41	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──config-sha256:40eb3fb277b72f8a6	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:b56ec4d7bd508eaadc	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:8474919cf0553dec4e	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:0878ecc8b0afd0d835	downloading	|++++++++++++++++++--------------------|	13.0 MiB/26.8 MiB
+      ├──layer-sha256:050cc65304670b77c0	downloading	|+++-----------------------------------|	 4.0 MiB/46.4 MiB
+      └──layer-sha256:50ac3c1bc6412649b4	complete   	|++++++++++++++++++++++++++++++++++++++|
+application/vnd.oci.image.index.v1+json sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+Pulling from OCI Registry (docker.io/library/node:22.19.0-bookworm-slim)	elapsed: 6.4 s	total:  18.7 M	(2.9 MiB/s)
+docker.io/library/node:22.19.0-bookworm-slim	fetching image content
+└──index-sha256:4a4884e8a44826194dff92ba	complete   	|++++++++++++++++++++++++++++++++++++++|
+   └──manifest-sha256:1162d0dd01d730cb41	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──config-sha256:40eb3fb277b72f8a6	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:b56ec4d7bd508eaadc	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:8474919cf0553dec4e	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:0878ecc8b0afd0d835	downloading	|++++++++++++++++++--------------------|	13.0 MiB/26.8 MiB
+      ├──layer-sha256:050cc65304670b77c0	downloading	|++++----------------------------------|	 5.0 MiB/46.4 MiB
+      └──layer-sha256:50ac3c1bc6412649b4	complete   	|++++++++++++++++++++++++++++++++++++++|
+application/vnd.oci.image.index.v1+json sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+Pulling from OCI Registry (docker.io/library/node:22.19.0-bookworm-slim)	elapsed: 6.4 s	total:  19.7 M	(3.1 MiB/s)
+docker.io/library/node:22.19.0-bookworm-slim	fetching image content
+└──index-sha256:4a4884e8a44826194dff92ba	complete   	|++++++++++++++++++++++++++++++++++++++|
+   └──manifest-sha256:1162d0dd01d730cb41	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──config-sha256:40eb3fb277b72f8a6	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:b56ec4d7bd508eaadc	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:8474919cf0553dec4e	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:0878ecc8b0afd0d835	downloading	|++++++++++++++++++--------------------|	13.0 MiB/26.8 MiB
+      ├──layer-sha256:050cc65304670b77c0	downloading	|++++----------------------------------|	 6.0 MiB/46.4 MiB
+      └──layer-sha256:50ac3c1bc6412649b4	complete   	|++++++++++++++++++++++++++++++++++++++|
+application/vnd.oci.image.index.v1+json sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+Pulling from OCI Registry (docker.io/library/node:22.19.0-bookworm-slim)	elapsed: 6.7 s	total:  20.7 M	(3.1 MiB/s)
+docker.io/library/node:22.19.0-bookworm-slim	fetching image content
+└──index-sha256:4a4884e8a44826194dff92ba	complete   	|++++++++++++++++++++++++++++++++++++++|
+   └──manifest-sha256:1162d0dd01d730cb41	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──config-sha256:40eb3fb277b72f8a6	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:b56ec4d7bd508eaadc	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:8474919cf0553dec4e	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:0878ecc8b0afd0d835	downloading	|+++++++++++++++++++++-----------------|	15.0 MiB/26.8 MiB
+      ├──layer-sha256:050cc65304670b77c0	downloading	|++++----------------------------------|	 6.0 MiB/46.4 MiB
+      └──layer-sha256:50ac3c1bc6412649b4	complete   	|++++++++++++++++++++++++++++++++++++++|
+application/vnd.oci.image.index.v1+json sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+Pulling from OCI Registry (docker.io/library/node:22.19.0-bookworm-slim)	elapsed: 6.7 s	total:  22.7 M	(3.4 MiB/s)
+docker.io/library/node:22.19.0-bookworm-slim	fetching image content
+└──index-sha256:4a4884e8a44826194dff92ba	complete   	|++++++++++++++++++++++++++++++++++++++|
+   └──manifest-sha256:1162d0dd01d730cb41	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──config-sha256:40eb3fb277b72f8a6	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:b56ec4d7bd508eaadc	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:8474919cf0553dec4e	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:0878ecc8b0afd0d835	downloading	|++++++++++++++++++++++++--------------|	17.0 MiB/26.8 MiB
+      ├──layer-sha256:050cc65304670b77c0	downloading	|++++----------------------------------|	 6.0 MiB/46.4 MiB
+      └──layer-sha256:50ac3c1bc6412649b4	complete   	|++++++++++++++++++++++++++++++++++++++|
+application/vnd.oci.image.index.v1+json sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+Pulling from OCI Registry (docker.io/library/node:22.19.0-bookworm-slim)	elapsed: 7.0 s	total:  24.7 M	(3.5 MiB/s)
+docker.io/library/node:22.19.0-bookworm-slim	fetching image content
+└──index-sha256:4a4884e8a44826194dff92ba	complete   	|++++++++++++++++++++++++++++++++++++++|
+   └──manifest-sha256:1162d0dd01d730cb41	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──config-sha256:40eb3fb277b72f8a6	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:b56ec4d7bd508eaadc	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:8474919cf0553dec4e	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:0878ecc8b0afd0d835	downloading	|++++++++++++++++++++++++--------------|	17.0 MiB/26.8 MiB
+      ├──layer-sha256:050cc65304670b77c0	downloading	|++++++--------------------------------|	 8.0 MiB/46.4 MiB
+      └──layer-sha256:50ac3c1bc6412649b4	complete   	|++++++++++++++++++++++++++++++++++++++|
+application/vnd.oci.image.index.v1+json sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+Pulling from OCI Registry (docker.io/library/node:22.19.0-bookworm-slim)	elapsed: 7.0 s	total:  26.7 M	(3.8 MiB/s)
+docker.io/library/node:22.19.0-bookworm-slim	fetching image content
+└──index-sha256:4a4884e8a44826194dff92ba	complete   	|++++++++++++++++++++++++++++++++++++++|
+   └──manifest-sha256:1162d0dd01d730cb41	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──config-sha256:40eb3fb277b72f8a6	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:b56ec4d7bd508eaadc	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:8474919cf0553dec4e	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:0878ecc8b0afd0d835	downloading	|++++++++++++++++++++++++++------------|	19.0 MiB/26.8 MiB
+      ├──layer-sha256:050cc65304670b77c0	downloading	|++++++--------------------------------|	 8.0 MiB/46.4 MiB
+      └──layer-sha256:50ac3c1bc6412649b4	complete   	|++++++++++++++++++++++++++++++++++++++|
+application/vnd.oci.image.index.v1+json sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+Pulling from OCI Registry (docker.io/library/node:22.19.0-bookworm-slim)	elapsed: 7.3 s	total:  28.7 M	(3.9 MiB/s)
+docker.io/library/node:22.19.0-bookworm-slim	fetching image content
+└──index-sha256:4a4884e8a44826194dff92ba	complete   	|++++++++++++++++++++++++++++++++++++++|
+   └──manifest-sha256:1162d0dd01d730cb41	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──config-sha256:40eb3fb277b72f8a6	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:b56ec4d7bd508eaadc	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:8474919cf0553dec4e	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:0878ecc8b0afd0d835	downloading	|++++++++++++++++++++++++++------------|	19.0 MiB/26.8 MiB
+      ├──layer-sha256:050cc65304670b77c0	downloading	|+++++++-------------------------------|	 9.0 MiB/46.4 MiB
+      └──layer-sha256:50ac3c1bc6412649b4	complete   	|++++++++++++++++++++++++++++++++++++++|
+application/vnd.oci.image.index.v1+json sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+Pulling from OCI Registry (docker.io/library/node:22.19.0-bookworm-slim)	elapsed: 7.3 s	total:  29.7 M	(4.1 MiB/s)
+docker.io/library/node:22.19.0-bookworm-slim	fetching image content
+└──index-sha256:4a4884e8a44826194dff92ba	complete   	|++++++++++++++++++++++++++++++++++++++|
+   └──manifest-sha256:1162d0dd01d730cb41	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──config-sha256:40eb3fb277b72f8a6	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:b56ec4d7bd508eaadc	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:8474919cf0553dec4e	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:0878ecc8b0afd0d835	downloading	|+++++++++++++++++++++++++++++---------|	21.0 MiB/26.8 MiB
+      ├──layer-sha256:050cc65304670b77c0	downloading	|+++++++-------------------------------|	 9.0 MiB/46.4 MiB
+      └──layer-sha256:50ac3c1bc6412649b4	complete   	|++++++++++++++++++++++++++++++++++++++|
+application/vnd.oci.image.index.v1+json sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+Pulling from OCI Registry (docker.io/library/node:22.19.0-bookworm-slim)	elapsed: 7.6 s	total:  31.7 M	(4.2 MiB/s)
+docker.io/library/node:22.19.0-bookworm-slim	fetching image content
+└──index-sha256:4a4884e8a44826194dff92ba	complete   	|++++++++++++++++++++++++++++++++++++++|
+   └──manifest-sha256:1162d0dd01d730cb41	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──config-sha256:40eb3fb277b72f8a6	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:b56ec4d7bd508eaadc	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:8474919cf0553dec4e	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:0878ecc8b0afd0d835	downloading	|+++++++++++++++++++++++++++++---------|	21.0 MiB/26.8 MiB
+      ├──layer-sha256:050cc65304670b77c0	downloading	|++++++++------------------------------|	10.0 MiB/46.4 MiB
+      └──layer-sha256:50ac3c1bc6412649b4	complete   	|++++++++++++++++++++++++++++++++++++++|
+application/vnd.oci.image.index.v1+json sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+Pulling from OCI Registry (docker.io/library/node:22.19.0-bookworm-slim)	elapsed: 7.6 s	total:  32.7 M	(4.3 MiB/s)
+docker.io/library/node:22.19.0-bookworm-slim	fetching image content
+└──index-sha256:4a4884e8a44826194dff92ba	complete   	|++++++++++++++++++++++++++++++++++++++|
+   └──manifest-sha256:1162d0dd01d730cb41	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──config-sha256:40eb3fb277b72f8a6	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:b56ec4d7bd508eaadc	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:8474919cf0553dec4e	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:0878ecc8b0afd0d835	downloading	|++++++++++++++++++++++++++++++++------|	23.0 MiB/26.8 MiB
+      ├──layer-sha256:050cc65304670b77c0	downloading	|++++++++------------------------------|	10.0 MiB/46.4 MiB
+      └──layer-sha256:50ac3c1bc6412649b4	complete   	|++++++++++++++++++++++++++++++++++++++|
+application/vnd.oci.image.index.v1+json sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+Pulling from OCI Registry (docker.io/library/node:22.19.0-bookworm-slim)	elapsed: 7.9 s	total:  34.7 M	(4.4 MiB/s)
+docker.io/library/node:22.19.0-bookworm-slim	fetching image content
+└──index-sha256:4a4884e8a44826194dff92ba	complete   	|++++++++++++++++++++++++++++++++++++++|
+   └──manifest-sha256:1162d0dd01d730cb41	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──config-sha256:40eb3fb277b72f8a6	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:b56ec4d7bd508eaadc	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:8474919cf0553dec4e	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:0878ecc8b0afd0d835	downloading	|++++++++++++++++++++++++++++++++------|	23.0 MiB/26.8 MiB
+      ├──layer-sha256:050cc65304670b77c0	downloading	|+++++++++-----------------------------|	11.0 MiB/46.4 MiB
+      └──layer-sha256:50ac3c1bc6412649b4	complete   	|++++++++++++++++++++++++++++++++++++++|
+application/vnd.oci.image.index.v1+json sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+Pulling from OCI Registry (docker.io/library/node:22.19.0-bookworm-slim)	elapsed: 7.9 s	total:  35.7 M	(4.5 MiB/s)
+docker.io/library/node:22.19.0-bookworm-slim	fetching image content
+└──index-sha256:4a4884e8a44826194dff92ba	complete   	|++++++++++++++++++++++++++++++++++++++|
+   └──manifest-sha256:1162d0dd01d730cb41	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──config-sha256:40eb3fb277b72f8a6	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:b56ec4d7bd508eaadc	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:8474919cf0553dec4e	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:0878ecc8b0afd0d835	downloading	|++++++++++++++++++++++++++++++++++++--|	26.0 MiB/26.8 MiB
+      ├──layer-sha256:050cc65304670b77c0	downloading	|+++++++++-----------------------------|	11.0 MiB/46.4 MiB
+      └──layer-sha256:50ac3c1bc6412649b4	complete   	|++++++++++++++++++++++++++++++++++++++|
+application/vnd.oci.image.index.v1+json sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+Pulling from OCI Registry (docker.io/library/node:22.19.0-bookworm-slim)	elapsed: 8.2 s	total:  38.7 M	(4.7 MiB/s)
+docker.io/library/node:22.19.0-bookworm-slim	fetching image content
+└──index-sha256:4a4884e8a44826194dff92ba	complete   	|++++++++++++++++++++++++++++++++++++++|
+   └──manifest-sha256:1162d0dd01d730cb41	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──config-sha256:40eb3fb277b72f8a6	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:b56ec4d7bd508eaadc	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:8474919cf0553dec4e	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:0878ecc8b0afd0d835	downloading	|++++++++++++++++++++++++++++++++++++--|	26.0 MiB/26.8 MiB
+      ├──layer-sha256:050cc65304670b77c0	downloading	|++++++++++----------------------------|	13.0 MiB/46.4 MiB
+      └──layer-sha256:50ac3c1bc6412649b4	complete   	|++++++++++++++++++++++++++++++++++++++|
+application/vnd.oci.image.index.v1+json sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+Pulling from OCI Registry (docker.io/library/node:22.19.0-bookworm-slim)	elapsed: 8.2 s	total:  40.7 M	(5.0 MiB/s)
+docker.io/library/node:22.19.0-bookworm-slim	fetching image content
+└──index-sha256:4a4884e8a44826194dff92ba	complete   	|++++++++++++++++++++++++++++++++++++++|
+   └──manifest-sha256:1162d0dd01d730cb41	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──config-sha256:40eb3fb277b72f8a6	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:b56ec4d7bd508eaadc	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:8474919cf0553dec4e	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:0878ecc8b0afd0d835	extracting 	|++++++--------------------------------|	 4.2 MiB/26.8 MiB
+      ├──layer-sha256:050cc65304670b77c0	downloading	|++++++++++----------------------------|	13.0 MiB/46.4 MiB
+      └──layer-sha256:50ac3c1bc6412649b4	complete   	|++++++++++++++++++++++++++++++++++++++|
+application/vnd.oci.image.index.v1+json sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+Pulling from OCI Registry (docker.io/library/node:22.19.0-bookworm-slim)	elapsed: 8.5 s	total:  18.9 M	(2.2 MiB/s)
+docker.io/library/node:22.19.0-bookworm-slim	fetching image content
+└──index-sha256:4a4884e8a44826194dff92ba	complete   	|++++++++++++++++++++++++++++++++++++++|
+   └──manifest-sha256:1162d0dd01d730cb41	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──config-sha256:40eb3fb277b72f8a6	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:b56ec4d7bd508eaadc	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:8474919cf0553dec4e	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:0878ecc8b0afd0d835	extracting 	|++++++--------------------------------|	 4.2 MiB/26.8 MiB
+      ├──layer-sha256:050cc65304670b77c0	downloading	|+++++++++++---------------------------|	14.0 MiB/46.4 MiB
+      └──layer-sha256:50ac3c1bc6412649b4	complete   	|++++++++++++++++++++++++++++++++++++++|
+application/vnd.oci.image.index.v1+json sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+Pulling from OCI Registry (docker.io/library/node:22.19.0-bookworm-slim)	elapsed: 8.5 s	total:  19.9 M	(2.3 MiB/s)
+docker.io/library/node:22.19.0-bookworm-slim	fetching image content
+└──index-sha256:4a4884e8a44826194dff92ba	complete   	|++++++++++++++++++++++++++++++++++++++|
+   └──manifest-sha256:1162d0dd01d730cb41	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──config-sha256:40eb3fb277b72f8a6	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:b56ec4d7bd508eaadc	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:8474919cf0553dec4e	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:0878ecc8b0afd0d835	extracting 	|++++++++++++++++++++++++++++++++------|	22.6 MiB/26.8 MiB
+      ├──layer-sha256:050cc65304670b77c0	downloading	|+++++++++++---------------------------|	14.0 MiB/46.4 MiB
+      └──layer-sha256:50ac3c1bc6412649b4	complete   	|++++++++++++++++++++++++++++++++++++++|
+application/vnd.oci.image.index.v1+json sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+Pulling from OCI Registry (docker.io/library/node:22.19.0-bookworm-slim)	elapsed: 8.8 s	total:  38.3 M	(4.4 MiB/s)
+docker.io/library/node:22.19.0-bookworm-slim	fetching image content
+└──index-sha256:4a4884e8a44826194dff92ba	complete   	|++++++++++++++++++++++++++++++++++++++|
+   └──manifest-sha256:1162d0dd01d730cb41	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──config-sha256:40eb3fb277b72f8a6	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:b56ec4d7bd508eaadc	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:8474919cf0553dec4e	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:0878ecc8b0afd0d835	extracting 	|++++++++++++++++++++++++++++++++------|	22.6 MiB/26.8 MiB
+      ├──layer-sha256:050cc65304670b77c0	downloading	|++++++++++++++------------------------|	18.0 MiB/46.4 MiB
+      └──layer-sha256:50ac3c1bc6412649b4	complete   	|++++++++++++++++++++++++++++++++++++++|
+application/vnd.oci.image.index.v1+json sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+Pulling from OCI Registry (docker.io/library/node:22.19.0-bookworm-slim)	elapsed: 8.8 s	total:  42.3 M	(4.8 MiB/s)
+docker.io/library/node:22.19.0-bookworm-slim	fetching image content
+└──index-sha256:4a4884e8a44826194dff92ba	complete   	|++++++++++++++++++++++++++++++++++++++|
+   └──manifest-sha256:1162d0dd01d730cb41	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──config-sha256:40eb3fb277b72f8a6	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:b56ec4d7bd508eaadc	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:8474919cf0553dec4e	extracted  	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:0878ecc8b0afd0d835	extracting 	|++++++++++++++++++++++++++++++++------|	22.6 MiB/26.8 MiB
+      ├──layer-sha256:050cc65304670b77c0	downloading	|++++++++++++++------------------------|	18.0 MiB/46.4 MiB
+      └──layer-sha256:50ac3c1bc6412649b4	complete   	|++++++++++++++++++++++++++++++++++++++|
+application/vnd.oci.image.index.v1+json sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+Pulling from OCI Registry (docker.io/library/node:22.19.0-bookworm-slim)	elapsed: 9.1 s	total:  42.3 M	(4.7 MiB/s)
+docker.io/library/node:22.19.0-bookworm-slim	fetching image content
+└──index-sha256:4a4884e8a44826194dff92ba	complete   	|++++++++++++++++++++++++++++++++++++++|
+   └──manifest-sha256:1162d0dd01d730cb41	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──config-sha256:40eb3fb277b72f8a6	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:b56ec4d7bd508eaadc	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:8474919cf0553dec4e	extracted  	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:0878ecc8b0afd0d835	extracted  	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:050cc65304670b77c0	downloading	|++++++++++++++------------------------|	18.0 MiB/46.4 MiB
+      └──layer-sha256:50ac3c1bc6412649b4	complete   	|++++++++++++++++++++++++++++++++++++++|
+application/vnd.oci.image.index.v1+json sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+Pulling from OCI Registry (docker.io/library/node:22.19.0-bookworm-slim)	elapsed: 9.1 s	total:  46.5 M	(5.1 MiB/s)
+docker.io/library/node:22.19.0-bookworm-slim	fetching image content
+└──index-sha256:4a4884e8a44826194dff92ba	complete   	|++++++++++++++++++++++++++++++++++++++|
+   └──manifest-sha256:1162d0dd01d730cb41	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──config-sha256:40eb3fb277b72f8a6	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:b56ec4d7bd508eaadc	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:8474919cf0553dec4e	extracted  	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:0878ecc8b0afd0d835	extracted  	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:050cc65304670b77c0	downloading	|+++++++++++++++++---------------------|	21.0 MiB/46.4 MiB
+      └──layer-sha256:50ac3c1bc6412649b4	complete   	|++++++++++++++++++++++++++++++++++++++|
+application/vnd.oci.image.index.v1+json sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+Pulling from OCI Registry (docker.io/library/node:22.19.0-bookworm-slim)	elapsed: 9.1 s	total:  49.5 M	(5.5 MiB/s)
+docker.io/library/node:22.19.0-bookworm-slim	fetching image content
+└──index-sha256:4a4884e8a44826194dff92ba	complete   	|++++++++++++++++++++++++++++++++++++++|
+   └──manifest-sha256:1162d0dd01d730cb41	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──config-sha256:40eb3fb277b72f8a6	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:b56ec4d7bd508eaadc	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:8474919cf0553dec4e	extracted  	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:0878ecc8b0afd0d835	extracted  	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:050cc65304670b77c0	downloading	|+++++++++++++++++++-------------------|	24.0 MiB/46.4 MiB
+      └──layer-sha256:50ac3c1bc6412649b4	complete   	|++++++++++++++++++++++++++++++++++++++|
+application/vnd.oci.image.index.v1+json sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+Pulling from OCI Registry (docker.io/library/node:22.19.0-bookworm-slim)	elapsed: 9.4 s	total:  52.5 M	(5.6 MiB/s)
+docker.io/library/node:22.19.0-bookworm-slim	fetching image content
+└──index-sha256:4a4884e8a44826194dff92ba	complete   	|++++++++++++++++++++++++++++++++++++++|
+   └──manifest-sha256:1162d0dd01d730cb41	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──config-sha256:40eb3fb277b72f8a6	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:b56ec4d7bd508eaadc	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:8474919cf0553dec4e	extracted  	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:0878ecc8b0afd0d835	extracted  	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:050cc65304670b77c0	downloading	|++++++++++++++++++++++----------------|	28.0 MiB/46.4 MiB
+      └──layer-sha256:50ac3c1bc6412649b4	complete   	|++++++++++++++++++++++++++++++++++++++|
+application/vnd.oci.image.index.v1+json sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+Pulling from OCI Registry (docker.io/library/node:22.19.0-bookworm-slim)	elapsed: 9.7 s	total:  56.5 M	(5.8 MiB/s)
+docker.io/library/node:22.19.0-bookworm-slim	fetching image content
+└──index-sha256:4a4884e8a44826194dff92ba	complete   	|++++++++++++++++++++++++++++++++++++++|
+   └──manifest-sha256:1162d0dd01d730cb41	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──config-sha256:40eb3fb277b72f8a6	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:b56ec4d7bd508eaadc	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:8474919cf0553dec4e	extracted  	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:0878ecc8b0afd0d835	extracted  	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:050cc65304670b77c0	downloading	|+++++++++++++++++++++++++-------------|	31.0 MiB/46.4 MiB
+      └──layer-sha256:50ac3c1bc6412649b4	complete   	|++++++++++++++++++++++++++++++++++++++|
+application/vnd.oci.image.index.v1+json sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+Pulling from OCI Registry (docker.io/library/node:22.19.0-bookworm-slim)	elapsed: 10.0s	total:  59.5 M	(6.0 MiB/s)
+docker.io/library/node:22.19.0-bookworm-slim	fetching image content
+└──index-sha256:4a4884e8a44826194dff92ba	complete   	|++++++++++++++++++++++++++++++++++++++|
+   └──manifest-sha256:1162d0dd01d730cb41	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──config-sha256:40eb3fb277b72f8a6	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:b56ec4d7bd508eaadc	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:8474919cf0553dec4e	extracted  	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:0878ecc8b0afd0d835	extracted  	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:050cc65304670b77c0	downloading	|+++++++++++++++++++++++++++-----------|	34.0 MiB/46.4 MiB
+      └──layer-sha256:50ac3c1bc6412649b4	complete   	|++++++++++++++++++++++++++++++++++++++|
+application/vnd.oci.image.index.v1+json sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+Pulling from OCI Registry (docker.io/library/node:22.19.0-bookworm-slim)	elapsed: 10.3s	total:  62.5 M	(6.1 MiB/s)
+docker.io/library/node:22.19.0-bookworm-slim	fetching image content
+└──index-sha256:4a4884e8a44826194dff92ba	complete   	|++++++++++++++++++++++++++++++++++++++|
+   └──manifest-sha256:1162d0dd01d730cb41	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──config-sha256:40eb3fb277b72f8a6	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:b56ec4d7bd508eaadc	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:8474919cf0553dec4e	extracted  	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:0878ecc8b0afd0d835	extracted  	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:050cc65304670b77c0	downloading	|+++++++++++++++++++++++++++++++-------|	38.0 MiB/46.4 MiB
+      └──layer-sha256:50ac3c1bc6412649b4	complete   	|++++++++++++++++++++++++++++++++++++++|
+application/vnd.oci.image.index.v1+json sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+Pulling from OCI Registry (docker.io/library/node:22.19.0-bookworm-slim)	elapsed: 10.6s	total:  66.5 M	(6.3 MiB/s)
+docker.io/library/node:22.19.0-bookworm-slim	fetching image content
+└──index-sha256:4a4884e8a44826194dff92ba	complete   	|++++++++++++++++++++++++++++++++++++++|
+   └──manifest-sha256:1162d0dd01d730cb41	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──config-sha256:40eb3fb277b72f8a6	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:b56ec4d7bd508eaadc	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:8474919cf0553dec4e	extracted  	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:0878ecc8b0afd0d835	extracted  	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:050cc65304670b77c0	downloading	|+++++++++++++++++++++++++++++++++-----|	41.0 MiB/46.4 MiB
+      └──layer-sha256:50ac3c1bc6412649b4	complete   	|++++++++++++++++++++++++++++++++++++++|
+application/vnd.oci.image.index.v1+json sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+Pulling from OCI Registry (docker.io/library/node:22.19.0-bookworm-slim)	elapsed: 10.9s	total:  69.5 M	(6.4 MiB/s)
+docker.io/library/node:22.19.0-bookworm-slim	fetching image content
+└──index-sha256:4a4884e8a44826194dff92ba	complete   	|++++++++++++++++++++++++++++++++++++++|
+   └──manifest-sha256:1162d0dd01d730cb41	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──config-sha256:40eb3fb277b72f8a6	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:b56ec4d7bd508eaadc	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:8474919cf0553dec4e	extracted  	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:0878ecc8b0afd0d835	extracted  	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:050cc65304670b77c0	downloading	|++++++++++++++++++++++++++++++++++++--|	45.0 MiB/46.4 MiB
+      └──layer-sha256:50ac3c1bc6412649b4	complete   	|++++++++++++++++++++++++++++++++++++++|
+application/vnd.oci.image.index.v1+json sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+Pulling from OCI Registry (docker.io/library/node:22.19.0-bookworm-slim)	elapsed: 11.2s	total:  73.5 M	(6.6 MiB/s)
+docker.io/library/node:22.19.0-bookworm-slim	fetching image content
+└──index-sha256:4a4884e8a44826194dff92ba	complete   	|++++++++++++++++++++++++++++++++++++++|
+   └──manifest-sha256:1162d0dd01d730cb41	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──config-sha256:40eb3fb277b72f8a6	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:b56ec4d7bd508eaadc	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:8474919cf0553dec4e	extracted  	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:0878ecc8b0afd0d835	extracted  	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:050cc65304670b77c0	extracting 	|++++++--------------------------------|	 7.7 MiB/46.4 MiB
+      └──layer-sha256:50ac3c1bc6412649b4	complete   	|++++++++++++++++++++++++++++++++++++++|
+application/vnd.oci.image.index.v1+json sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+Pulling from OCI Registry (docker.io/library/node:22.19.0-bookworm-slim)	elapsed: 11.5s	total:  36.1 M	(3.1 MiB/s)
+docker.io/library/node:22.19.0-bookworm-slim	fetching image content
+└──index-sha256:4a4884e8a44826194dff92ba	complete   	|++++++++++++++++++++++++++++++++++++++|
+   └──manifest-sha256:1162d0dd01d730cb41	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──config-sha256:40eb3fb277b72f8a6	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:b56ec4d7bd508eaadc	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:8474919cf0553dec4e	extracted  	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:0878ecc8b0afd0d835	extracted  	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:050cc65304670b77c0	extracting 	|+++++++++++++++++++++++++++-----------|	33.6 MiB/46.4 MiB
+      └──layer-sha256:50ac3c1bc6412649b4	complete   	|++++++++++++++++++++++++++++++++++++++|
+application/vnd.oci.image.index.v1+json sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+Pulling from OCI Registry (docker.io/library/node:22.19.0-bookworm-slim)	elapsed: 11.8s	total:  62.0 M	(5.3 MiB/s)
+docker.io/library/node:22.19.0-bookworm-slim	fetching image content
+└──index-sha256:4a4884e8a44826194dff92ba	complete   	|++++++++++++++++++++++++++++++++++++++|
+   └──manifest-sha256:1162d0dd01d730cb41	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──config-sha256:40eb3fb277b72f8a6	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:b56ec4d7bd508eaadc	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:8474919cf0553dec4e	extracted  	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:0878ecc8b0afd0d835	extracted  	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:050cc65304670b77c0	extracted  	|++++++++++++++++++++++++++++++++++++++|
+      └──layer-sha256:50ac3c1bc6412649b4	complete   	|++++++++++++++++++++++++++++++++++++++|
+application/vnd.oci.image.index.v1+json sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+Pulling from OCI Registry (docker.io/library/node:22.19.0-bookworm-slim)	elapsed: 12.1s	total:  74.9 M	(6.2 MiB/s)
+docker.io/library/node:22.19.0-bookworm-slim	saved
+└──index-sha256:4a4884e8a44826194dff92ba	complete   	|++++++++++++++++++++++++++++++++++++++|
+   └──manifest-sha256:1162d0dd01d730cb41	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──config-sha256:40eb3fb277b72f8a6	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:b56ec4d7bd508eaadc	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:8474919cf0553dec4e	extracted  	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:0878ecc8b0afd0d835	extracted  	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:050cc65304670b77c0	extracted  	|++++++++++++++++++++++++++++++++++++++|
+      └──layer-sha256:50ac3c1bc6412649b4	complete   	|++++++++++++++++++++++++++++++++++++++|
+application/vnd.oci.image.index.v1+json sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+Pulling from OCI Registry (docker.io/library/node:22.19.0-bookworm-slim)	elapsed: 12.1s	total:  74.9 M	(6.2 MiB/s)
+docker.io/library/node:22.19.0-bookworm-slim	saved
+└──index-sha256:4a4884e8a44826194dff92ba	complete   	|++++++++++++++++++++++++++++++++++++++|
+   └──manifest-sha256:1162d0dd01d730cb41	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──config-sha256:40eb3fb277b72f8a6	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:b56ec4d7bd508eaadc	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:8474919cf0553dec4e	extracted  	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:0878ecc8b0afd0d835	extracted  	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:050cc65304670b77c0	extracted  	|++++++++++++++++++++++++++++++++++++++|
+      └──layer-sha256:50ac3c1bc6412649b4	extracted  	|++++++++++++++++++++++++++++++++++++++|
+application/vnd.oci.image.index.v1+json sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+Completed pull from OCI Registry (docker.io/library/node:22.19.0-bookworm-slim)	elapsed: 12.1s	total:  74.9 M	(6.2 MiB/s)
+docker.io/library/node:22.19.0-bookworm-slim	saved
+└──index-sha256:4a4884e8a44826194dff92ba	complete   	|++++++++++++++++++++++++++++++++++++++|
+   └──manifest-sha256:1162d0dd01d730cb41	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──config-sha256:40eb3fb277b72f8a6	complete   	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:b56ec4d7bd508eaadc	extracted  	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:8474919cf0553dec4e	extracted  	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:0878ecc8b0afd0d835	extracted  	|++++++++++++++++++++++++++++++++++++++|
+      ├──layer-sha256:050cc65304670b77c0	extracted  	|++++++++++++++++++++++++++++++++++++++|
+      └──layer-sha256:50ac3c1bc6412649b4	extracted  	|++++++++++++++++++++++++++++++++++++++|
+application/vnd.oci.image.index.v1+json sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+Completed pull from OCI Registry (docker.io/library/node:22.19.0-bookworm-slim)	elapsed: 12.1s	total:  74.9 M	(6.2 MiB/s)
