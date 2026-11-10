@@ -1,5 +1,7 @@
 # 단계별 계획
 
+2026-11-10 현재 우선순위: 사용자가 승인한 [동일 후보30분 최소 실행 재검증](reviews/2026-11-10-s2-container-smoke-instructions.md)(ADR-033)이다. 이미지 식별자/실제 target 대응과 비특권 셸·Node·모델 없는 CLI 기동만 확인한다.20분에 탐색을 중단하고 마지막10분에 검증·정리·인계한다. 결과를 리뷰하기 전 Vendure 준비·전체 종료/수집/평가 검증을 재개하지 않는다. 아래 타당성 조사와 실패 기록은 당시 범위/결과다.
+
 2026-11-10 다음 우선순위: [컨테이너 타당성 인계](reviews/2026-11-10-s2-container-feasibility.md)의 **inconclusive 결과 리뷰**다. Lima/VZ/준비 image build는 성공했으나 image 식별자 오류의 허용 수정1회도 실패했다. 같은 후보에 대한 작은 새 시도 예산/올바른 identity 연결부터 결정한다. 실행 경계나 Linux 평가 통과로 진도를 올리지 않으며 R11 차단·R12 기존 판정·실제 모델/본 비교 미실행을 유지한다.
 
 2026-11-10 R11/R12 보완: **R12 구현·자체 검증 완료, R11 종료 경계 unresolved**. [인계](reviews/2026-11-10-s2-runtime-accounting-fix.md). turn 상태·중복 철회·unknown 입력/overflow·종료/EOF/절단을 결합했고303테스트(skip0)·비교4/4·29제출60파일 일치를 확인했다. 현재 runtime은 정상 부모 종료에도 모든 writer의 정지를 증명하지 못하므로 production 수집/평가와 전체 usage 확정을 차단한다. 진단과 알려진 참조 교정을 분리했으며 실제 macOS 반복에서 detached/손자/열린 핸들의 늦은 쓰기를 재현했다. TASK/B/C84파일·모델·세 ID는 그대로다. 다음은 독립 리뷰와 R11의 별도 경계/도구 정책 선택이다. 새 플랫폼·API·권한을 도입하지 않았고 실제 모델/본 비교0회, trialAuthorized/readyForTrial=false·results=null·사람 검토 pending을 유지한다. 아래는 각 시점 기록이다.
@@ -13,7 +15,7 @@
 최종 목표는 기존 프로젝트를 agent가 도메인을 이해하고 수정하기 좋은 프로젝트로 전환하도록 돕는 것이다. 업무 개념·관련 코드 탐색은 첫 사용 경로다. 아래 S1~S3이 현재의 실행 순서이며, 기존 번호별 PoC/연구 단계는 경과와 후속 후보로 보존한다(ADR-020).
 
 1. **S1 · 보완 독립 검증 완료:** R6/R7 해결, 174테스트·4비교·V2 15파일 재현을 확인했다. [독립 리뷰](reviews/2026-11-08-domain-model-contract-independent-review.md). 모델 의미·FCA 결과는 유지되며 agent 효용은 미검증이다.
-2. **S2 · R12 독립 검증 완료, R11 컨테이너 경계 타당성 검증:** [독립 리뷰](reviews/2026-11-10-s2-runtime-accounting-independent-review.md)에서 부분 인계를 인정했다. 사용자는 일회성 컨테이너 우선·기존 CLI/셸 유지 방향을 승인했다(ADR-031). 다음은 [타당성 검증 지시](reviews/2026-11-10-s2-container-feasibility-instructions.md)의 총4시간/환경90분 상한 안에서 종료·수집/평가·Linux 재현을 확인하고 결과를 리뷰하는 단계다. 특정 플랫폼 채택/R11 해결·실제 모델/본 비교를 미리 승인하지 않는다. C 사람 검토와 실제 CLI 미검증 항목도 남으며 readyForTrial=false·H-O/H-F 미검증을 유지한다.
+2. **S2 · R12 독립 검증 완료, R11 차단과 동일 후보 최소 실행 재검증:** [독립 리뷰](reviews/2026-11-10-s2-runtime-accounting-independent-review.md)에서 부분 인계를 인정했다. ADR-031의 컨테이너 조사는 이미지 조회 오류로 inconclusive였다. 다음은 ADR-033의 [30분 최소 실행 지시](reviews/2026-11-10-s2-container-smoke-instructions.md)를 수행하고 리뷰하는 단계다. 이후 종료·수집/평가·Linux 재현 범위는 다시 정하며 이전4시간 계획을 자동 재개하지 않는다. 특정 플랫폼 채택/R11 해결·실제 모델/본 비교를 미리 승인하지 않는다. C 사람 검토와 실제 CLI 미검증 항목도 남으며 readyForTrial=false·H-O/H-F 미검증을 유지한다.
 3. **S3 · 효과가 관찰된 경우:** 변경 후 모델 근거 만료·재검토·갱신을 실험한다. 그 비용을 포함해 재사용 가치가 있는지 판단한 뒤 제품 계약·구조 변경을 선택한다.
 
 [R9 modal 데이터 전달 보완 지시](reviews/2026-11-09-s2-modal-fix-instructions.md)와 [직전 R8/R9/R10 지시](reviews/2026-11-09-s2-contract-fix-instructions.md)는 지원 범위 내 독립 검증을 마쳤다. 새 실행 전 준비 범위는 ADR-028로 승인됐다. 현재 지시는 준비 결과의 리뷰 인계까지이며 본 비교 실행 승인은 포함하지 않는다.
