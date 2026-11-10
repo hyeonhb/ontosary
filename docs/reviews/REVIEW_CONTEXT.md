@@ -1,5 +1,7 @@
 # 독립 리뷰 맥락
 
+2026-11-10 현재 개발 지시: 사용자는 [R11/R12 보완 지시](2026-11-10-s2-runtime-accounting-fix-instructions.md)에 따라 기존 CLI·macOS에서 종료/수집 경계와 usage 수명주기를 먼저 보완하기로 했다. API/새 플랫폼·hard cap으로 확대하지 않는다. 정상/timeout·분리 자손·수집 실패와 불완전/모순 JSONL을 검증하고 새 구현/환경 증거를 동결한다. R11 해결 불가 시 R12 완료와 잔여 차단/대안 비용을 분리해 인계한다. 이는 수정 지시이며 아래 R11/R12 판정을 해결로 바꾸지 않는다. 실제 모델/본 비교는 보완 결과 리뷰 이후이며 trialAuthorized/readyForTrial=false다.
+
 2026-11-10 S2 실행 전 준비 독립 리뷰: **자료/평가 방향 유지, R11 종료 차단 재현·R12 usage 완료 판정 보완 필요**. [독립 보고](2026-11-10-s2-trial-preparation-independent-review.md).252테스트(skip0)·비교4/4·29제출60파일/준비157파일 재현, 실제 A/B/C84파일·공개/private 타입7제출·참조 snapshot52사례를 확인했다. B68view와 C의12해석/22주장/30인용/방향 관계를 대조했고 사람 승인은 pending이다. detached 자손의 deadline 뒤 쓰기가 재현됐으며, 모순된 완료 이벤트가 후속 미완료 turn을 가려 usage를 complete=true로 만드는 새 반례를 확인했다. token hard cap 제외·API 확대 없음은 유지한다. 다음은 두 경계 보완과 C 사람 검토/실제 CLI 미검증 조건 확인이다. 실제 모델/본 비교0회, trialAuthorized/readyForTrial=false다. 아래는 당시 기록이다.
 
 2026-11-10 S2 실행 전 준비: **자료·평가·계측 준비 구현, 전체 실행 환경은 차단 상태**. [인계](2026-11-10-s2-trial-preparation.md). 사용자 후속 결정에 따라 token hard cap을 필수 조건에서 제외하고30분 제한·raw usage/누락/참고선 초과 기록을 채택했다. 동일 TASK/공개 안내, 일반 문서 C와68view·1511단위 대응/사람 검토 묶음, 공개 타입 검사, 실행/수집 대역을 구현했다.252테스트(skip0)·비교4/4,29제출60파일·새 준비157비시간 파일 재현, A/B/C 실제 배포를 확인했다. 모델12항목/16링크·승인0과 B68view는 유지했고 agent 자료는84파일·새 bundleId다. macOS 파일/네트워크 거부와 package.json 예외의 명시적 차단을 검증했지만 **분리된 자식 프로세스의 종료 탈출**이 남아 실제 실행과 불변 제출 보장을 차단한다. 실제 모델 호출0·본 비교0, trialAuthorized/readyForTrial=false·results=null·사람 동등성/의미 검토 pending이다. 다음은 종료 경계 보완과 독립/사람 리뷰이며 API·새 플랫폼 투자는 하지 않았다. 아래는 각 시점 기록이다.

@@ -1,5 +1,7 @@
 # S2 실행 전 준비 도구
 
+2026-11-10 독립 리뷰에서 R11 종료 탈출과 R12 usage false complete/구조 오류를 확인했다. 다음 변경은 [R11/R12 개발 지시](../../../../docs/reviews/2026-11-10-s2-runtime-accounting-fix-instructions.md)를 따른다. 아래 계측 설명은 의도한 계약이며 현재 구현이 모든 부정 사례를 충족한다는 뜻이 아니다. 보완 구현·독립 리뷰 전까지 두 항목과 실제 비교 차단을 유지한다.
+
 이번 버전은 과업·C 자료·공개 타입 검사·계측/수집과 macOS 도구 경계를 준비한다. 실제 모델 호출은 없다. `s2:trial:run`은 항상 거부한다. `trialAuthorized:false`, `readyForTrial:false`, `results:null`이며 사람 대응 검토와 별도 실행 승인이 필요하다.
 
 ## 계약
