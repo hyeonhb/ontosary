@@ -1,5 +1,9 @@
 # 현재 작업 상태 — 새 세션은 이 문서부터 읽기
 
+2026-11-11 Linux 평가 재현 검증 승인: lifecycle fixture의 독립 검토 후 사용자는 **같은 경계의 Linux Vendure baseline/reference 재현과 새3시간 상한**을 승인했다(ADR-037). [개발 지시](reviews/2026-11-11-s2-linux-evaluation-instructions.md)는 Linux 불변 환경1회 준비·읽기 전용 완전 소스·실행별 새 평가 container·출력만 수집하는 구조다. baseline/reference 각2회·부정2종·reference delta1회, 공개 타입 검사·timeout 통합·macOS/반복/입력 방식 대조를 확인한다. 환경45분/핵심90분/탐색150분/총180분이며 기존 Program hash 검사·평가 의미를 유지한다. 이번 세션은 지시·맥락 문서 작성이고 Linux 설치/평가는 미실행이다. pnpm check(304테스트·타입 검사·예제 빌드), pnpm s2:build, 문서 로컬 링크224개를 확인했다. 실제 CLI·인증/provider·본 비교는 결과 리뷰 뒤 별도 진행하며 R11 unresolved·R12 기존 범위·trialAuthorized/readyForTrial=false·results=null을 유지한다.
+
+2026-11-11 lifecycle 독립 검토: main `d840669`의 코드·최종25개 원시 기록·종료/수집/결과 철회·두 VM83개 등록 단위 정리 증거를 대조했고 검토 범위에서 새 차단 결함 없이 fixture-boundary-passed에 동의했다. 구현20/증거774/archive 내부3,202파일 hash, pnpm check304테스트·타입/예제 build 및 Python16회귀를 확인했다. VM을 재생성한 독립 실행은 아니며 RuntimeMaxSec 도달/불명확 create 중 감독자 사망의 실제 주입은 미검증이다. 이 검토가 R11 전체 해결이나 Linux/실제 agent 검증을 대신하지 않는다. 아래 인계는 독립 리뷰 전 기록으로 보존한다.
+
 2026-11-11 S2 lifecycle fixture: **fixture-boundary-passed, 독립 리뷰 대기**. [인계](reviews/2026-11-11-s2-lifecycle-fixture.md). 독립 systemd 감독자·실행별 persistent slice·전체 종료 후 manager 수집을 구현했다. 수정본의 필수24개와 공개 직후 감독자 사망1개가 통과했고, 정상/timeout/래퍼 사망은 각각2회다. 늦은 쓰기를 허용했던 최초 supervisor 실패와 공개 직후 실패 경로를 보완하고 두 VM의83개 등록 단위/소유 자원을 정리했다. pnpm check304테스트와 Python16회귀, 실제 fixture의 production/live 승격 거부를 확인했다. R11 unresolved·R12 기존 범위·trialAuthorized/readyForTrial=false·results=null·실제 모델/provider/본 비교0회를 유지한다. 후속 Vendure/실제 CLI/평가 준비는 결과 리뷰 뒤 별도 결정한다. 아래는 각 시점의 기록이다.
 
 2026-11-10 R11 fixture 경계 검증 승인: smoke 결과의 독립 대조 후 사용자는 **독립 게스트 감독자·실행별 cgroup·전체 종료 확인 뒤 관리자 수집**과 새3시간 상한을 승인했다(ADR-035). [개발 지시](reviews/2026-11-10-s2-lifecycle-fixture-instructions.md)는 환경20분/핵심 경로90분/탐색150분/마감180분, 정상·timeout·래퍼/감독자 사망·수집 실패/다음 실행 격리 검증을 정한다. fixture 전용 결과만 만들고 기존 production/live 경로는 계속 거부한다. 이번 세션은 지시·맥락 문서 작성이며 경계 구현/실험은 미실행이다. pnpm check(303테스트·타입 검사·예제 빌드)와 문서 로컬 링크215개를 확인했다. 성공해도 Vendure·실제 CLI/provider·평가·본 비교는 결과 리뷰 뒤 별도로 정한다. R11 unresolved·R12 기존 판정·trialAuthorized/readyForTrial=false·results=null을 유지한다.
@@ -182,7 +186,7 @@ main `a58a88b`을 독립 검토해 `pnpm check` 89개·기존 실험 4/4 및 새
 
 ## 다음 작업
 
-최신 순서: [S2 실행 전 준비 독립 리뷰](reviews/2026-11-10-s2-trial-preparation-independent-review.md)의 R11/R12 보완 → C 사람 검토·실제 CLI 남은 조건 확인 → 준비 재검토와 별도 실행 승인. 아래 합의 순서는 이 보완을 포함해 해석한다.
+최신 순서: [Linux Vendure 평가 재현 지시](reviews/2026-11-11-s2-linux-evaluation-instructions.md)의3시간 검증 → 결과 독립 리뷰 → 실제 CLI·인증/provider와 남은 실행 조건의 별도 준비 결정 → C 사람 검토·전체 준비 재검토와 본 비교 별도 승인. R12는 기존 검증 범위에서 해결됐으며 R11 전체 해결은 아직 아니다. 아래 합의 순서는 이 후속 경계를 포함해 해석한다.
 
 1. R6/R7 보완은 독립 검증 범위에서 완료됐다. 최신 소비 경로는 V2이며 V1/과거 실패 증거는 보존한다.
 2. S2 범위·큰 구조는 ADR-023/024, 과업 정책·비교 조합은 ADR-028로 합의했다. [실행 전 준비 지시](reviews/2026-11-10-s2-trial-preparation-instructions.md)에 따라 계약·C 의미 대응 검토 자료·격리/계측·새 배포 동결을 구현한다.
