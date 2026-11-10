@@ -1,5 +1,7 @@
 # S2 준비 구현 — 보완 독립 검증 완료, 본 비교 미실행
 
+2026-11-10 후속: **R12 usage 보완 자체 검증, R11 종료 경계 unresolved**. [인계](../../../docs/reviews/2026-11-10-s2-runtime-accounting-fix.md).303테스트·비교4/4·29제출60파일을 확인했고 TASK/B/C84파일과 세 ID는 유지했다. production 수집/평가와 미확인 runtime usage 확정을 차단하며 실제 모델/본 비교는0회다.
+
 2026-11-10 [실행 전 준비 독립 리뷰](../../../docs/reviews/2026-11-10-s2-trial-preparation-independent-review.md): 자료/평가 방향과252테스트·비교4/4·29제출60파일/준비157파일을 확인했다. R11 detached 자손 종료 차단은 재현됐고, R12 usage 완료 판정의 새 반례가 있어 보완이 필요하다. token hard cap 제외·API 확대 없음과 실제 실행 차단을 유지한다. C 사람 대응 검토·실제 CLI 미검증 조건은 별도다. 아래는 당시 인계다.
 
 

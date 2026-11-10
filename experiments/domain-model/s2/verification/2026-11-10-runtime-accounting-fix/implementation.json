@@ -1,0 +1,34 @@
+{
+  "baseCommit": "ef60bc98d408114b1368ed46e58b26ed726054be",
+  "sourceHashes": {
+    "experiments/domain-model/s2/trial/environment.ts": "921dadf813924a3b8ea03f3e6aafc598d2d25c290b33d0c9c9c41502f331bbab",
+    "experiments/domain-model/s2/trial/evaluate-calibration-snapshot.ts": "5f0304bfe6de16bdf7055b00c3db580defd05615e60a794f0c86475ec9402ae6",
+    "experiments/domain-model/s2/trial/evaluate-snapshot.ts": "742cc6e9917440a950e9cb2bc9731e3f5c864f41ba02ec48769e8d7be0e47ca5",
+    "experiments/domain-model/s2/trial/freeze.ts": "c04542d0c4c1b6b40546d2f2cba556c0d16a5afe0c7a3347d0859fd84e829a36",
+    "experiments/domain-model/s2/trial/isolated-command.ts": "4f9540004b4978abee5b3cc5ead088fff930705e2fa13dabd29222d68224f2a4",
+    "experiments/domain-model/s2/trial/probe.ts": "f614c30134329f26d2edd3613bf924bd74f927866ab2c8de79d0745d58e26365",
+    "experiments/domain-model/s2/trial/public-check.ts": "75a133f0023d606e46891423626119dedd65d8d8816e02070c2f9ea22e7cf3e7",
+    "experiments/domain-model/s2/trial/runtime-accounting-probe.ts": "52c0b4cf1a4bb0a423b040b2f5b5535a189c28eef3586e153b917e4bb13a07af",
+    "experiments/domain-model/s2/trial/runtime.ts": "5dd18d0fc14c4dd08074e9065a3440cbf05f77d835e141207d8fcf7890839402",
+    "experiments/domain-model/s2/trial/snapshot-gate.ts": "829e19ca20eb05c166ac29ca59849ce04da2e62726368864fbb3856ab438cb67",
+    "experiments/domain-model/s2/trial/task.ts": "ad558e7365442e0637e9ee1f6f9f486136b8809403e772accac30e23649f216e",
+    "experiments/domain-model/s2/trial/telemetry.ts": "b1fc3b59461de90a6ed62d1a2380d46d33d8e520d8a8bc680d561cb9de424616",
+    "experiments/domain-model/s2/trial/validate-environment.ts": "a5fee9ad8748ff43533a0273194da06dcff431b34598fc64edc93f8a40ff48ae",
+    "experiments/domain-model/s2/trial/validate-workspaces.ts": "23d26ac3462ac2df52a3b8e4a1b9262db5aa869d5ca7fcb8a26168a178b89752"
+  },
+  "testsHashes": {
+    "tests/s2-trial.test.ts": "71fcb33b461e6dcbb324aea75445b9710cead6c238e3cb246dd9cc6e83f444ac",
+    "tests/s2-accounting.test.ts": "318b2b0c434af36e96f424efb0bcecce2d7c2c4f87c936c3c2638fea82a989a8"
+  },
+  "tests": 303,
+  "newTests": 51,
+  "skipped": 0,
+  "experimentPassed": 4,
+  "R11": "unresolved; fail-closed collection implemented",
+  "R12": "implemented/self-verified; independent review pending",
+  "providerCalls": 0,
+  "trialRuns": 0,
+  "results": null,
+  "readyForTrial": false,
+  "trialAuthorized": false
+}

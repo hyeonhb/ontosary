@@ -1,0 +1,357 @@
+{
+  "providerCalls": 0,
+  "rows": [
+    {
+      "name": "nonzero",
+      "run": {
+        "runId": "3ec8981f-63c6-47dc-9e07-4efefe4798b1",
+        "code": 7,
+        "signal": null,
+        "reason": "completed",
+        "wallTimeMs": 71.50683299999992,
+        "stderr": "",
+        "outputTruncated": false,
+        "normalEOF": true,
+        "readErrors": [],
+        "lifecycle": {
+          "state": "blocked",
+          "collectionAllowed": false,
+          "boundary": "unverified-process-group",
+          "deadlineMs": 3000,
+          "stopRequestedMs": 71.31354099999999,
+          "parentExitMs": 71.3125829999999,
+          "returnedMs": 71.50683299999992,
+          "cleanupMs": 0.19329199999992852,
+          "cleanupLimitMs": 250,
+          "errors": []
+        },
+        "binding": {
+          "source": "6a37223e5de97335b07c4be3c9fee7e491bc70df07cb7cae771b4ee5dc0031e7",
+          "auxiliary": "60a4e1f0cda5780d19b757bad9f46b69f2205a274ed7eb33beebb3435adb0148",
+          "configuration": "74237cc439ebdb9f62eadbb89946f5be818b67044b0413bca499f969f3ca7337"
+        }
+      },
+      "raw": {
+        "file": "nonzero.stdout.jsonl.gz",
+        "bytes": 96,
+        "sha256": "23fe26abf4ae9068b424a47a3177d0d46d9883526ef56be8078ff5b250da7ec3",
+        "coverage": "captured stdout"
+      },
+      "summary": {
+        "schema": "s2-usage-v2-turn-state",
+        "complete": false,
+        "input": null,
+        "output": null,
+        "total": null,
+        "subtotal": {
+          "input": 10,
+          "output": 2,
+          "total": 12,
+          "cachedInput": null,
+          "reasoningOutput": null,
+          "turns": [
+            1
+          ],
+          "meaning": "Validated non-contradictory completed turns only; not a claimed lower bound of provider consumption"
+        },
+        "consumptionLowerBound": null,
+        "referenceTokens": 100000,
+        "hardCap": false,
+        "reference": {
+          "confirmedExcess": null,
+          "validatedSubtotalExcess": 0,
+          "wholeRunBelowReference": null
+        },
+        "issues": [
+          {
+            "line": null,
+            "code": "incomplete-log-or-execution"
+          }
+        ],
+        "turns": [
+          {
+            "ordinal": 1,
+            "startLine": 1,
+            "terminalLine": 2,
+            "state": "completed",
+            "valid": true,
+            "usage": {
+              "input": 10,
+              "output": 2,
+              "cachedInput": null,
+              "reasoningOutput": null
+            }
+          }
+        ],
+        "rows": [
+          {
+            "line": 1,
+            "sha256": "7306b54975174c6eb5111d663a47de795d167520e43cf66ee2923218b19fdb75",
+            "type": "turn.started",
+            "turn": 1,
+            "disposition": "started"
+          },
+          {
+            "line": 2,
+            "sha256": "9dd655ffd759f9349a367792299c4f7e232aeb75fe61867ef021ec632be65d3c",
+            "type": "turn.completed",
+            "turn": 1,
+            "disposition": "completed"
+          }
+        ],
+        "end": {
+          "termination": "unverified",
+          "reason": "completed",
+          "code": 7,
+          "normalEOF": true,
+          "outputTruncated": false,
+          "readErrors": []
+        },
+        "aggregationTruncated": false,
+        "limits": {
+          "lines": 10000,
+          "lineBytes": 65536,
+          "totalBytes": 4194304
+        },
+        "definition": "Sequential exec turns; input includes cache, output includes reasoning. Event IDs are optional stream-scoped replay identities, never turn IDs. No provider calls verified."
+      },
+      "accountingReplay": "Pure replay with final accounting implementation; original OS run metadata preserved"
+    },
+    {
+      "name": "signal",
+      "run": {
+        "runId": "954af98d-ad76-4e82-82f2-72c4833806d1",
+        "code": null,
+        "signal": "SIGKILL",
+        "reason": "interrupted",
+        "wallTimeMs": 152.80062500000008,
+        "stderr": "",
+        "outputTruncated": false,
+        "normalEOF": true,
+        "readErrors": [],
+        "lifecycle": {
+          "state": "blocked",
+          "collectionAllowed": false,
+          "boundary": "unverified-process-group",
+          "deadlineMs": 3000,
+          "stopRequestedMs": 151.20154200000002,
+          "parentExitMs": 152.77962500000012,
+          "returnedMs": 152.80062500000008,
+          "cleanupMs": 1.5990830000000642,
+          "cleanupLimitMs": 250,
+          "errors": []
+        },
+        "binding": {
+          "source": "6a37223e5de97335b07c4be3c9fee7e491bc70df07cb7cae771b4ee5dc0031e7",
+          "auxiliary": "60a4e1f0cda5780d19b757bad9f46b69f2205a274ed7eb33beebb3435adb0148",
+          "configuration": "74237cc439ebdb9f62eadbb89946f5be818b67044b0413bca499f969f3ca7337"
+        }
+      },
+      "raw": {
+        "file": "signal.stdout.jsonl.gz",
+        "bytes": 96,
+        "sha256": "23fe26abf4ae9068b424a47a3177d0d46d9883526ef56be8078ff5b250da7ec3",
+        "coverage": "captured stdout"
+      },
+      "summary": {
+        "schema": "s2-usage-v2-turn-state",
+        "complete": false,
+        "input": null,
+        "output": null,
+        "total": null,
+        "subtotal": {
+          "input": 10,
+          "output": 2,
+          "total": 12,
+          "cachedInput": null,
+          "reasoningOutput": null,
+          "turns": [
+            1
+          ],
+          "meaning": "Validated non-contradictory completed turns only; not a claimed lower bound of provider consumption"
+        },
+        "consumptionLowerBound": null,
+        "referenceTokens": 100000,
+        "hardCap": false,
+        "reference": {
+          "confirmedExcess": null,
+          "validatedSubtotalExcess": 0,
+          "wholeRunBelowReference": null
+        },
+        "issues": [
+          {
+            "line": null,
+            "code": "incomplete-log-or-execution"
+          }
+        ],
+        "turns": [
+          {
+            "ordinal": 1,
+            "startLine": 1,
+            "terminalLine": 2,
+            "state": "completed",
+            "valid": true,
+            "usage": {
+              "input": 10,
+              "output": 2,
+              "cachedInput": null,
+              "reasoningOutput": null
+            }
+          }
+        ],
+        "rows": [
+          {
+            "line": 1,
+            "sha256": "7306b54975174c6eb5111d663a47de795d167520e43cf66ee2923218b19fdb75",
+            "type": "turn.started",
+            "turn": 1,
+            "disposition": "started"
+          },
+          {
+            "line": 2,
+            "sha256": "9dd655ffd759f9349a367792299c4f7e232aeb75fe61867ef021ec632be65d3c",
+            "type": "turn.completed",
+            "turn": 1,
+            "disposition": "completed"
+          }
+        ],
+        "end": {
+          "termination": "unverified",
+          "reason": "interrupted",
+          "code": null,
+          "normalEOF": true,
+          "outputTruncated": false,
+          "readErrors": []
+        },
+        "aggregationTruncated": false,
+        "limits": {
+          "lines": 10000,
+          "lineBytes": 65536,
+          "totalBytes": 4194304
+        },
+        "definition": "Sequential exec turns; input includes cache, output includes reasoning. Event IDs are optional stream-scoped replay identities, never turn IDs. No provider calls verified."
+      },
+      "accountingReplay": "Pure replay with final accounting implementation; original OS run metadata preserved"
+    },
+    {
+      "name": "truncated",
+      "run": {
+        "runId": "af06dedd-ab72-4b64-bb8d-197121c9dace",
+        "code": 0,
+        "signal": null,
+        "reason": "completed",
+        "wallTimeMs": 86.38387499999999,
+        "stderr": "",
+        "outputTruncated": true,
+        "normalEOF": true,
+        "readErrors": [],
+        "lifecycle": {
+          "state": "blocked",
+          "collectionAllowed": false,
+          "boundary": "unverified-process-group",
+          "deadlineMs": 3000,
+          "stopRequestedMs": 86.13883299999998,
+          "parentExitMs": 86.138375,
+          "returnedMs": 86.38387499999999,
+          "cleanupMs": 0.2450420000000122,
+          "cleanupLimitMs": 250,
+          "errors": []
+        },
+        "binding": {
+          "source": "6a37223e5de97335b07c4be3c9fee7e491bc70df07cb7cae771b4ee5dc0031e7",
+          "auxiliary": "60a4e1f0cda5780d19b757bad9f46b69f2205a274ed7eb33beebb3435adb0148",
+          "configuration": "74237cc439ebdb9f62eadbb89946f5be818b67044b0413bca499f969f3ca7337"
+        }
+      },
+      "raw": {
+        "file": "truncated.stdout.jsonl.gz",
+        "bytes": 4194304,
+        "sha256": "850fd86b8c5e62f67134d450f245b047f1da3200951f7b94892c26e90c8fa8e0",
+        "coverage": "captured prefix only; truncated"
+      },
+      "summary": {
+        "schema": "s2-usage-v2-turn-state",
+        "complete": false,
+        "input": null,
+        "output": null,
+        "total": null,
+        "subtotal": {
+          "input": 10,
+          "output": 2,
+          "total": 12,
+          "cachedInput": null,
+          "reasoningOutput": null,
+          "turns": [
+            1
+          ],
+          "meaning": "Validated non-contradictory completed turns only; not a claimed lower bound of provider consumption"
+        },
+        "consumptionLowerBound": null,
+        "referenceTokens": 100000,
+        "hardCap": false,
+        "reference": {
+          "confirmedExcess": null,
+          "validatedSubtotalExcess": 0,
+          "wholeRunBelowReference": null
+        },
+        "issues": [
+          {
+            "line": 3,
+            "code": "accounting-capacity-exceeded"
+          },
+          {
+            "line": null,
+            "code": "incomplete-log-or-execution"
+          }
+        ],
+        "turns": [
+          {
+            "ordinal": 1,
+            "startLine": 1,
+            "terminalLine": 2,
+            "state": "completed",
+            "valid": true,
+            "usage": {
+              "input": 10,
+              "output": 2,
+              "cachedInput": null,
+              "reasoningOutput": null
+            }
+          }
+        ],
+        "rows": [
+          {
+            "line": 1,
+            "sha256": "7306b54975174c6eb5111d663a47de795d167520e43cf66ee2923218b19fdb75",
+            "type": "turn.started",
+            "turn": 1,
+            "disposition": "started"
+          },
+          {
+            "line": 2,
+            "sha256": "9dd655ffd759f9349a367792299c4f7e232aeb75fe61867ef021ec632be65d3c",
+            "type": "turn.completed",
+            "turn": 1,
+            "disposition": "completed"
+          }
+        ],
+        "end": {
+          "termination": "unverified",
+          "reason": "completed",
+          "code": 0,
+          "normalEOF": true,
+          "outputTruncated": true,
+          "readErrors": []
+        },
+        "aggregationTruncated": true,
+        "limits": {
+          "lines": 10000,
+          "lineBytes": 65536,
+          "totalBytes": 4194304
+        },
+        "definition": "Sequential exec turns; input includes cache, output includes reasoning. Event IDs are optional stream-scoped replay identities, never turn IDs. No provider calls verified."
+      },
+      "accountingReplay": "Pure replay with final accounting implementation; original OS run metadata preserved"
+    }
+  ]
+}

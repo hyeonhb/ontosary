@@ -223,3 +223,9 @@ R6은 모델 의미를 변경하지 않고 incoming/outgoing 한 단계 조회�
 **구현 선택:** 새 공통 TASK와 안내, B를 유지한 C 설명 문서·양방향 leaf inventory, 고정 환경의 공개 타입 검사, macOS Codex permission profile/usage 대역/전체 source·auxiliary 수집을 실험 내부에 둔다. leaf 일치와 문서 drift 검사는 자연어 동등성 증명이 아니다. 사용자/독립 agent를 사람이 승인한 것으로 기록하지 않는다. 정적 bundle과 자기 hash를 제외한 execution manifest를 분리하고 환경 증거 hash로 연결한다.
 
 **실제 차단:** 기본 최소 권한의 package.json 읽기 예외를 별도 Node 복제와 명시적 deny로 보완했다. 그러나 process-group 종료에서 탈출한 detached 자손 반례가 남아 전체 격리/불변 snapshot의 기술 준비를 완료로 표시하지 않는다. 실제 세션의 도구/인증/전역 지시 격리, backend immutable model version, 자원 상한도 별도 확인이 필요하다. 현재 run entry는 모델 dispatch를 거부한다. C 사람 대응 검토·업무 의미 승인·본 비교·H-O/H-F·S3는 수행하지 않았다. [완료 부분·남은 차단 인계](reviews/2026-11-10-s2-trial-preparation.md).
+
+## ADR-030 · R11 미확인 종료의 production 차단과 R12 관찰 합계 — 2026-11-10
+
+기존 CLI/macOS의 process-group 정리로 모든 writer 종료를 증명할 수 없고 kqueue NOTE_TRACK 최소 재현도 ENOTSUP였다. [선택 기록](../experiments/domain-model/s2/verification/2026-11-10-runtime-accounting-fix/SELECTION.md)에 근거·대안·비용을 남겼다. 추가 권한/플랫폼이나 셸 계약 변경을 자동 채택하지 않는다. R11은 unresolved이며 bounded 진단 실행 결과로 정상 제출 권한을 발급하지 않는다. production 수집/평가를 거부하고 진단/known reference 교정을 명시적으로 분리한다.
+
+usage는 순차 turn 상태와 이벤트 identity, EOF/종료/절단을 결합한다. 모순된 turn은 합계에서 철회하고 전체가 불완전하면 total=null이다. 정상 subtotal도 공급자 소비 하한이라고 부르지 않는다. 현재 runtime의 종료 미확인 역시 전체 확정을 차단한다. 합성 fixture만 확정 경로를 검증한다. ADR-029의 token hard cap 제외와 실제 호출 금지를 유지하며, 이 보완은 독립 리뷰나 사람 승인·본 비교 승인이 아니다.

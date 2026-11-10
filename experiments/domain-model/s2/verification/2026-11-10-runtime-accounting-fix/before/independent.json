@@ -1,0 +1,173 @@
+{
+  "usage": {
+    "valid": {
+      "raw": [
+        {
+          "type": "turn.started"
+        },
+        {
+          "type": "turn.completed",
+          "usage": {
+            "input_tokens": 10,
+            "output_tokens": 2,
+            "cached_input_tokens": 5,
+            "reasoning_output_tokens": 1
+          }
+        }
+      ],
+      "actual": {
+        "inputObserved": 10,
+        "outputObserved": 2,
+        "totalObserved": 12,
+        "input": 10,
+        "output": 2,
+        "total": 12,
+        "cachedInput": 5,
+        "reasoningOutput": 1,
+        "referenceTokens": 100000,
+        "overReference": 0,
+        "hardCap": false,
+        "complete": true,
+        "issues": [],
+        "definition": "Input includes cached input; output includes reasoning. Neither detail is added again."
+      }
+    },
+    "unfinishedSecondTurn": {
+      "raw": [
+        {
+          "type": "turn.started"
+        },
+        {
+          "type": "turn.completed",
+          "usage": {
+            "input_tokens": 10,
+            "output_tokens": 2,
+            "cached_input_tokens": 5,
+            "reasoning_output_tokens": 1
+          }
+        },
+        {
+          "type": "turn.started"
+        }
+      ],
+      "actual": {
+        "inputObserved": 10,
+        "outputObserved": 2,
+        "totalObserved": 12,
+        "input": null,
+        "output": null,
+        "total": null,
+        "cachedInput": 5,
+        "reasoningOutput": 1,
+        "referenceTokens": 100000,
+        "overReference": 0,
+        "hardCap": false,
+        "complete": false,
+        "issues": [
+          "Usage missing for started turn(s)"
+        ],
+        "definition": "Input includes cached input; output includes reasoning. Neither detail is added again."
+      }
+    },
+    "completionWithoutStart": {
+      "raw": [
+        {
+          "type": "turn.completed",
+          "usage": {
+            "input_tokens": 10,
+            "output_tokens": 2,
+            "cached_input_tokens": 5,
+            "reasoning_output_tokens": 1
+          }
+        }
+      ],
+      "actual": {
+        "inputObserved": 10,
+        "outputObserved": 2,
+        "totalObserved": 12,
+        "input": 10,
+        "output": 2,
+        "total": 12,
+        "cachedInput": 5,
+        "reasoningOutput": 1,
+        "referenceTokens": 100000,
+        "overReference": 0,
+        "hardCap": false,
+        "complete": true,
+        "issues": [],
+        "definition": "Input includes cached input; output includes reasoning. Neither detail is added again."
+      }
+    },
+    "twoCompletionsMaskUnfinishedTurn": {
+      "raw": [
+        {
+          "type": "turn.started"
+        },
+        {
+          "type": "turn.completed",
+          "id": "a",
+          "usage": {
+            "input_tokens": 10,
+            "output_tokens": 2,
+            "cached_input_tokens": 5,
+            "reasoning_output_tokens": 1
+          }
+        },
+        {
+          "type": "turn.completed",
+          "id": "b",
+          "usage": {
+            "input_tokens": 10,
+            "output_tokens": 2,
+            "cached_input_tokens": 5,
+            "reasoning_output_tokens": 1
+          }
+        },
+        {
+          "type": "turn.started"
+        }
+      ],
+      "actual": {
+        "inputObserved": 20,
+        "outputObserved": 4,
+        "totalObserved": 24,
+        "input": 20,
+        "output": 4,
+        "total": 24,
+        "cachedInput": 10,
+        "reasoningOutput": 2,
+        "referenceTokens": 100000,
+        "overReference": 0,
+        "hardCap": false,
+        "complete": true,
+        "issues": [],
+        "definition": "Input includes cached input; output includes reasoning. Neither detail is added again."
+      }
+    },
+    "nullEvent": {
+      "raw": [
+        null
+      ],
+      "thrown": "TypeError: Cannot read properties of null (reading 'type')"
+    }
+  },
+  "inheritedPipeTimeout": {
+    "limitMs": 350,
+    "code": null,
+    "signal": "SIGKILL",
+    "reason": "timeout",
+    "wallTimeMs": 359.099125,
+    "stdout": "",
+    "stderr": "",
+    "outputTruncated": false
+  },
+  "materialChecks": {
+    "unchangedBViews": 68,
+    "interpretations": 12,
+    "claims": 22,
+    "sourceQuotes": 30,
+    "directedNeighborOccurrences": 32,
+    "humanApproval": false
+  },
+  "scope": "Synthetic event boundaries and bounded sandbox process probe; no provider or agent calls"
+}

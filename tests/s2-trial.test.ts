@@ -1,11 +1,11 @@
-import { it, expect } from 'vitest';
+import { it, expect, vi } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
 import os from 'node:os';
 import { proseViews, auditProse } from '../experiments/domain-model/s2/lib/prose.js';
-import { Ledger, collectUsage, schedule, refuseTrial } from '../experiments/domain-model/s2/trial/telemetry.js';
-import { checkedSnapshot } from '../experiments/domain-model/s2/trial/snapshot-gate.js';
-import { tree, snapshot } from '../experiments/domain-model/s2/trial/runtime.js';
+import { collectUsage, LogEnd, schedule, refuseTrial } from '../experiments/domain-model/s2/trial/telemetry.js';
+import { checkedDiagnosticSnapshot } from '../experiments/domain-model/s2/trial/snapshot-gate.js';
+import { tree, calibrationSnapshot } from '../experiments/domain-model/s2/trial/runtime.js';
 import { hash } from '../experiments/domain-model/s2/lib/analysis-session.js';
 import { Failure } from '../experiments/domain-model/s2/lib/model.js';
 import { observeStream, emptyCompletion } from '../experiments/domain-model/s2/evaluation/stream.js';
@@ -21,10 +21,11 @@ it.each(['negation','direction','approval','evidence','extra-solution','missing-
     if(kind==='missing-unit')p.units.pop();if(kind==='duplicate-unit')p.units.push(p.units[0]!);
     p.files.set(file,t);expect(auditProse(views,p.files,p.units).pass).toBe(false);
 });
-it('usage includes cache and reasoning only once; identical events are deduplicated',()=>{const l=new Ledger();const e={id:'x',input:99999,output:5,cachedInput:80000,reasoningOutput:2};l.add(e);l.add(e);expect(l.summary()).toMatchObject({total:100004,overReference:4,hardCap:false,complete:true});l.add({...e,output:6});expect(l.summary().complete).toBe(false);});
-it('missing and invalid usage are not zero-cost success',()=>{expect(collectUsage(['{"type":"turn.started"}']).summary().complete).toBe(false);const l=new Ledger();l.add({id:'x',input:1,output:1,cachedInput:2,reasoningOutput:null});expect(l.summary().complete).toBe(false);});
+const normalLog:LogEnd={termination:'fixture',reason:'completed',code:0,normalEOF:true,outputTruncated:false,readErrors:[]};
+it('usage includes cache and reasoning only once; identical events are deduplicated',()=>{const e={type:'turn.completed',id:'x',usage:{input_tokens:99999,output_tokens:5,cached_input_tokens:80000,reasoning_output_tokens:2}};const events=[{type:'turn.started'},e,e];expect(collectUsage(events.map(x=>JSON.stringify(x)),normalLog).summary()).toMatchObject({total:100004,reference:{confirmedExcess:4},hardCap:false,complete:true});events.push({...e,usage:{...e.usage,output_tokens:6}});expect(collectUsage(events.map(x=>JSON.stringify(x)),normalLog).summary().complete).toBe(false);});
+it('missing and invalid usage are not zero-cost success',()=>{expect(collectUsage(['{"type":"turn.started"}'],normalLog).summary().complete).toBe(false);expect(collectUsage([JSON.stringify({type:'turn.started'}),JSON.stringify({type:'turn.completed',usage:{input_tokens:1,output_tokens:1,cached_input_tokens:2}})],normalLog).summary().complete).toBe(false);});
 it('assignment balances all conditions in every block and position',()=>{const s=schedule('s2-20261110-v1');expect(s).toEqual(schedule('s2-20261110-v1'));for(const field of ['block','position'] as const)for(const n of [1,2,3])expect(s.filter(x=>x[field]===n).map(x=>x.condition).sort()).toEqual(['A','B','C']);expect(()=>refuseTrial()).toThrow('not authorized');});
-it('snapshot preserves additions/deletions and separates auxiliary; never restores baseline',()=>{const root=fs.mkdtempSync(path.join(os.tmpdir(),'s2-snapshot-'));try{const src=path.join(root,'src'),aux=path.join(root,'aux');fs.mkdirSync(src);fs.mkdirSync(aux);fs.writeFileSync(path.join(src,'a.ts'),'one');fs.writeFileSync(path.join(src,'c.ts'),'old');const base=tree(src);fs.writeFileSync(path.join(src,'c.ts'),'new');fs.unlinkSync(path.join(src,'a.ts'));fs.writeFileSync(path.join(src,'b.ts'),'two');fs.writeFileSync(path.join(aux,'note.md'),'notes');const s=snapshot(src,aux,path.join(root,'out'),base);expect(s.delta.map(x=>x.kind)).toEqual(['deleted','added','modified']);expect(Object.keys(s.source)).toEqual(['b.ts','c.ts']);expect(Object.keys(s.auxiliary)).toEqual(['note.md']);fs.symlinkSync('/tmp',path.join(src,'escape'));expect(()=>tree(src)).toThrow('Nonregular');}finally{fs.rmSync(root,{recursive:true,force:true});}});
+it('snapshot preserves additions/deletions and separates auxiliary; never restores baseline',()=>{const root=fs.mkdtempSync(path.join(os.tmpdir(),'s2-snapshot-'));try{const src=path.join(root,'src'),aux=path.join(root,'aux');fs.mkdirSync(src);fs.mkdirSync(aux);fs.writeFileSync(path.join(src,'a.ts'),'one');fs.writeFileSync(path.join(src,'c.ts'),'old');const base=tree(src);fs.writeFileSync(path.join(src,'c.ts'),'new');fs.unlinkSync(path.join(src,'a.ts'));fs.writeFileSync(path.join(src,'b.ts'),'two');fs.writeFileSync(path.join(aux,'note.md'),'notes');const s=calibrationSnapshot(src,aux,path.join(root,'out'),base);expect(s.delta.map(x=>x.kind)).toEqual(['deleted','added','modified']);expect(Object.keys(s.source)).toEqual(['b.ts','c.ts']);expect(Object.keys(s.auxiliary)).toEqual(['note.md']);fs.symlinkSync('/tmp',path.join(src,'escape'));expect(()=>tree(src)).toThrow('Nonregular');}finally{fs.rmSync(root,{recursive:true,force:true});}});
 it.each(['value','never','error','throw'])('invalid service must complete without values/errors: %s',kind=>{const o=observeStream(()=>{if(kind==='throw')throw Error('bad');return {subscribe(s:any){if(kind==='value'){s.next(undefined);s.complete();}if(kind==='error')s.error('bad');}};});expect(emptyCompletion(o)).toBe(false);});
 it('empty synchronous completion passes',()=>expect(emptyCompletion(observeStream(()=>({subscribe(s:any){s.complete();}})))).toBe(true));
 
@@ -42,9 +43,23 @@ it('non-policy calls keep unexpected exceptions and stream errors unsupported',(
 
 it('snapshot gate rejects omitted production directories without discarding their evidence',()=>{
     const root=fs.mkdtempSync(path.join(os.tmpdir(),'s2-full-snapshot-'));
-    try {const src=path.join(root,'src'),aux=path.join(root,'aux');fs.mkdirSync(src);fs.mkdirSync(aux);fs.mkdirSync(path.join(src,'node_modules'));fs.writeFileSync(path.join(src,'node_modules/hidden.ts'),'export const x=1;');const out=path.join(root,'out');snapshot(src,aux,out,{});expect(()=>checkedSnapshot(out)).toThrow('would be omitted');expect(fs.existsSync(path.join(out,'source/node_modules/hidden.ts'))).toBe(true);}finally{fs.rmSync(root,{recursive:true,force:true});}
+    try {const src=path.join(root,'src'),aux=path.join(root,'aux');fs.mkdirSync(src);fs.mkdirSync(aux);fs.mkdirSync(path.join(src,'node_modules'));fs.writeFileSync(path.join(src,'node_modules/hidden.ts'),'export const x=1;');const out=path.join(root,'out');calibrationSnapshot(src,aux,out,{});expect(()=>checkedDiagnosticSnapshot(out)).toThrow('would be omitted');expect(fs.existsSync(path.join(out,'source/node_modules/hidden.ts'))).toBe(true);}finally{fs.rmSync(root,{recursive:true,force:true});}
 });
 it('snapshot gate accepts all captured source and detects later modification',()=>{
     const root=fs.mkdtempSync(path.join(os.tmpdir(),'s2-frozen-source-'));
-    try {const src=path.join(root,'src'),aux=path.join(root,'aux');fs.mkdirSync(src);fs.mkdirSync(aux);fs.writeFileSync(path.join(src,'input.ts'),'export const x=1;');const out=path.join(root,'out');snapshot(src,aux,out,{});expect(checkedSnapshot(out).size).toBe(1);fs.chmodSync(path.join(out,'source/input.ts'),0o644);fs.writeFileSync(path.join(out,'source/input.ts'),'changed');expect(()=>checkedSnapshot(out)).toThrow('integrity mismatch');}finally{fs.rmSync(root,{recursive:true,force:true});}
+    try {const src=path.join(root,'src'),aux=path.join(root,'aux');fs.mkdirSync(src);fs.mkdirSync(aux);fs.writeFileSync(path.join(src,'input.ts'),'export const x=1;');const out=path.join(root,'out');calibrationSnapshot(src,aux,out,{});expect(checkedDiagnosticSnapshot(out).size).toBe(1);fs.chmodSync(path.join(out,'source/input.ts'),0o644);fs.writeFileSync(path.join(out,'source/input.ts'),'changed');expect(()=>checkedDiagnosticSnapshot(out)).toThrow('integrity mismatch');}finally{fs.rmSync(root,{recursive:true,force:true});}
+});
+
+it.each(['auxiliary','manifest'])('diagnostic snapshot rejects changed %s',target=>{
+    const root=fs.mkdtempSync(path.join(os.tmpdir(),'s2-diagnostic-drift-'));
+    try{const src=path.join(root,'src'),aux=path.join(root,'aux');fs.mkdirSync(src);fs.mkdirSync(aux);fs.writeFileSync(path.join(src,'input.ts'),'export const x=1;');fs.writeFileSync(path.join(aux,'note'),'fixture');const out=path.join(root,'out');calibrationSnapshot(src,aux,out,{});const file=path.join(out,target==='auxiliary'?'auxiliary/note':'manifest.json');fs.chmodSync(file,0o644);fs.writeFileSync(file,'changed');expect(()=>checkedDiagnosticSnapshot(out)).toThrow('integrity mismatch');}finally{fs.rmSync(root,{recursive:true,force:true});}
+});
+
+it('failed diagnostic collection preserves source and never exposes a completed directory',()=>{
+    const root=fs.mkdtempSync(path.join(os.tmpdir(),'s2-failed-collection-'));
+    const real=fs.cpSync;
+    try{const src=path.join(root,'src'),aux=path.join(root,'aux'),out=path.join(root,'out');fs.mkdirSync(src);fs.mkdirSync(aux);fs.writeFileSync(path.join(src,'input.ts'),'before');
+    const spy=vi.spyOn(fs,'cpSync').mockImplementation((from,to,options)=>{real(from,to,options);if(String(from)===src)fs.writeFileSync(path.join(src,'input.ts'),'concurrent mutation');});
+    expect(()=>calibrationSnapshot(src,aux,out,{})).toThrow('changed during snapshot');spy.mockRestore();expect(fs.existsSync(out)).toBe(false);expect(fs.readFileSync(path.join(src,'input.ts'),'utf8')).toBe('concurrent mutation');expect(fs.readdirSync(root).sort()).toEqual(['aux','src']);
+    }finally{vi.restoreAllMocks();fs.rmSync(root,{recursive:true,force:true});}
 });
