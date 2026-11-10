@@ -1,5 +1,9 @@
 # 독립 리뷰 맥락
 
+2026-11-10 현재 개발 지시: 사용자는 **R11 fixture 종료·수집 경계와 새3시간 상한**을 승인했다(ADR-035). [지시](2026-11-10-s2-lifecycle-fixture-instructions.md)는 호스트 래퍼와 독립된 systemd 감독자, 전용 cgroup, 전체 종료 확인 후 수집과 실패 시 차단을 다룬다. 정상/timeout/래퍼 사망 핵심 사례를 새 단위로 각2회 확인하고 supervisor/관리 실패·수집/다음 실행 경계를 검증한다. environment20분·핵심90분·탐색150분·총180분이며 지시 작성 세션에서는 구현/실험하지 않았다. 다음 인계는 fixture-boundary-passed/inconclusive/blocked와 원시 증거이고, R11 전체 해결/production 경로 활성화나 후속 Vendure·실제 CLI·평가·본 비교의 승인이 아니다.
+
+2026-11-10 smoke 독립 검토: PR #40/main `45fdcd6`의 보고·구현·원시 증거를 대조해 최소 smoke 통과에 동의했다. 구현10/증거155파일 hash와154 exports, OCI chain→4개 container·자원/종료 코드·명령 시한을 확인했고 pnpm check303테스트·타입/예제 build가 통과했다. VM을 재생성하지 않은 증거 대조이며 R11 해결 판정은 아니다. 최초 읽기 전 시계 기록 누락(60초 보정)과 임시 CODEX_HOME의 helper 생성 경고를 후속 관리 항목으로 남겼다. 경고 보완은 실제 CLI 환경 준비 시 검토하며 이번 fixture 범위를 넓히지 않는다.
+
 2026-11-10 최신 개발 인계: **동일 후보 smoke-passed**. [보고](2026-11-10-s2-container-smoke.md), [원시 증거](../../experiments/domain-model/s2/verification/2026-11-10-container-smoke/). 현재 image target/config/rootfs chain과4개 실제 container를 대조했고 셸·Node 반복/exit7·CLI version/help 및 정리를 확인했다. v1은 읽기 전용 chain-ID 가정 오류로 중단했고 근거 확인 후 v2에서 수정했다. 호스트303테스트(skip0) 통과. 최초 읽기 전 시계 기록을 놓친 점은60초 보수적 추가 청구로 명시했다. R11 unresolved·R12 기존 범위·trialAuthorized/readyForTrial=false·results=null·모델/provider/본 비교0회를 유지한다. 다음은 이 결과 리뷰와 후속 범위·예산 결정이며 Vendure/종료/수집/평가 검증으로 자동 진행하지 않는다.
 
 2026-11-10 현재 개발 지시: 사용자는 **동일 후보의 이미지 식별자 수정·최소 실행 재검증30분**을 승인했다(ADR-033). [지시](2026-11-10-s2-container-smoke-instructions.md)는20분 탐색/10분 검증·정리·인계와 근거 있는 국소 재시도를 적용한다. image target→container 연결, 셸·Node·CLI version/help, 새 단위 반복과 정리를 확인하고 smoke-passed/inconclusive/blocked로 인계한다. 성공해도 Vendure 준비·R11 전체 경계·평가·실제 호출/본 비교로 진행하지 않는다. 이번 문서 작성 세션에서는 실험하지 않았고 결과 리뷰 대기까지가 다음 개발 세션의 범위다. 아래 기록은 이전 회차의 범위/관찰로 보존한다.

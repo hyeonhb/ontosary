@@ -259,3 +259,13 @@ ADR-031의 후보1개/환경 수정·재시도1회 상한을 적용했다. Lima 
 ADR-033 회차에서 같은 Lima/VZ·nerdctl 후보를 유지하고 현재 target digest를 native metadata에서 조회해 `--pull=never` create에 사용했다. config digest/개별 diff ID/누적 chain ID를 분리하고 실제 container의 image target 및 snapshot parent로 연결을 확인한다. Docker 호환 RootFS.Layers와 개별 diff ID가 같다는 첫 검증의 잘못된 가정은 원시 metadata로 진단해 국소 수정했으며 실패 실행본을 보존했다. [smoke 결과](reviews/2026-11-10-s2-container-smoke.md)는4개 유한 최소 실행과 자원 정리의 통과다.
 
 이를 전체 격리/자손 종료·불변 수집·Linux Vendure 평가·실제 모델 사용의 성공으로 확대하지 않는다. 이번 회차는 성공 후 종료하며 후속 경계/환경 준비의 범위·비용을 결과 리뷰 뒤 정한다. R11 unresolved, R12 기존 검증 범위와 production/live 거부를 유지한다.
+
+## ADR-035 · 독립 감독자와 cgroup을 이용한 fixture 종료·수집 검증 — 2026-11-10
+
+**사용자 결정:** 최소 smoke 독립 검토 이후 호스트 래퍼와 독립된 게스트 감독자, 실행별 cgroup, 전체 종료 확인 뒤 관리자 전용 수집 구조와 새3시간 상한을 승인했다. [개발 지시](reviews/2026-11-10-s2-lifecycle-fixture-instructions.md)에 따라 작은 셸·Node fixture로 정상 종료·timeout·래퍼/감독자 사망과 수집 실패를 확인한다. 이후 단계는 결과 리뷰 뒤 정한다.
+
+**구조:** VM 내부 임시 systemd service가 시한과 생존 신호를 소유하며 worker와 별도 cgroup에서 실행한다. 작업별 상위 cgroup의 배치/이동 권한·전체 종료 상태를 확인한 뒤 source/auxiliary 전체를 manager staging으로 수집하고 원자적으로 결과를 공개한다. supervisor 사망에는 종료 후 별도 정리를 사용하고 정상 결과 발급을 금지한다. 상태 확인 불가·미완료 시작 요청·복사 실패에는 결과 확정과 다음 실행을 차단한다. 일반 파일/디렉터리와 유한 크기만 지원하는 fixture 전용 수집이며 범용 제출 권한/저장소를 만들지 않는다.
+
+**운영 상한:** 읽기·환경 재준비·구현/대기·검증·보고를 포함한180분, 환경20분·정상/timeout 핵심 경로90분·새 탐색150분을 중간 한도로 둔다. 근거 있는 국소 재시도는 시간 내 허용하고 후보/버전 교체·호스트 권한 확대·새 유료 비용은 제외한다. 이전 회차와 비용을 분리·누적 기록하며 과거90분/4시간 잔여 예산은 재개하지 않는다. 정상·timeout·래퍼 사망의 핵심 사례는 새 단위로 각2회, 나머지 부정 경계는 유한 fixture로 검증한다.
+
+**판정 한계:** fixture-boundary-passed는 선택 환경/fixture의 확인이며 아직 구현된 상태가 아니다. 독립 리뷰 전 R11 unresolved·R12 기존 범위·production/live 거부·trialAuthorized/readyForTrial=false·results=null을 유지한다. Vendure 준비·CLI helper 경고/실제 도구 연결·인증/provider·평가 재현·본 비교는 이번에 진행하지 않는다. 실제 모델/provider/본 비교0회다.

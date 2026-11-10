@@ -1,5 +1,7 @@
 # 현재 아키텍처
 
+2026-11-10 다음 fixture 구조 승인(ADR-035): [지시](reviews/2026-11-10-s2-lifecycle-fixture-instructions.md)에 따라 호스트 래퍼와 독립된 VM 내부 systemd 감독자가 실행별 cgroup·시한·생존 신호를 소유한다. worker의 전체 종료와 새 실행 차단을 확인한 뒤 관리자 전용 staging을 수집·검증하고 원자적으로 결과를 공개한다. supervisor와 cleanup은 worker의 종료 대상 밖에 두고 실패 시 정상 결과/다음 실행을 차단한다. 이는 **다음 실험 설계이며 아직 구현되지 않았다**. fixture 결과는 production 제출 권한이 아니며 기존 snapshot/live 거부·R12/모델 계약을 유지한다.
+
 2026-11-10 [최소 실행 smoke 통과](reviews/2026-11-10-s2-container-smoke.md): `trial/container/smoke.py`는 명시적 containerd endpoint/namespace에서 native target을 조회하고 OCI config/rootfs chain과 실제 container snapshot을 대조한다. `--pull=never`·UID1000·network none·자원 상한의4개 유한 실행만 확인했다. smoke는 live dispatcher/종료·수집 adapter가 아니며 준비용 process-group timeout이나 VM 삭제를 R11 보장으로 쓰지 않는다. 기존 production/live 차단을 유지하고 후속 구조는 결과 리뷰 뒤 결정한다.
 
 2026-11-10 다음 검증 범위 축소: ADR-033의 [30분 최소 실행 재검증](reviews/2026-11-10-s2-container-smoke-instructions.md)은 동일 Lima/VZ·nerdctl의 image 이름/target/config와 실제 container 연결, 비특권 셸·Node·CLI version/help만 확인한다. 이는 기존 준비 스크립트의 국소 보완이며 전체 종료·수집/평가 adapter 설계/구현의 재개가 아니다. 성공해도 R11 해결 판정이나 live 경로를 열지 않고 결과 리뷰에서 다음 범위를 정한다.
