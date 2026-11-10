@@ -1,5 +1,7 @@
 # 독립 리뷰 맥락
 
+2026-11-10 최신 사용자 결정: ADR-028로 무요청 종료 과업 정책, 같은 지식의 일반 문서 C, 기존 제한 평가, 동일 모델/설정 각3회 조합을 승인했다. [개발 지시](2026-11-10-s2-trial-preparation-instructions.md)는 공통 정책/실행 안내·C 의미 대응 검토 자료·격리/계측·새 배포 동결까지다. 준비 결과를 독립 리뷰한 뒤 본 비교를 진행하며 이번에 비교 agent 생성/과업 실행은 금지한다. 정확한 모델/runtime·token 강제 가능성은 준비에서 확인하고, 개발자 의미 검토와 사람 동등성 승인을 구분한다. 새 C/과업으로 bundleId·파일 수는 바뀔 수 있으며 모델/근거 의미는 유지한다. trialAuthorized/readyForTrial=false, H-O/H-F·S3 미실행이다.
+
 2026-11-10 최신 독립 판정: **R9 잔여 해결, R8/R10 해결 유지**. [독립 보고](2026-11-10-s2-modal-independent-review.md), [검증 근거](evidence/2026-11-10-s2-modal-review/). PR #29/main `5bd30c7`에서230테스트·비교4/4·교정24제출50파일/준비147파일 재현, 두 과거 반례의 타입 통과 후 요청 실패, complete-root/delta와 실제 RxJS 경계를 확인했다. 준비 구현 보완은 완료로 인정하되 본 비교 준비 전체 완료는 아니다. 다음은 사용자와 과업/의미 동등성·평가 범위/실제 격리/agent 조건을 확정한다. readyForTrial=false, 의미 승인0·H-O/H-F 미검증·S3 미착수를 유지한다. 과거 인계/판정은 아래에 보존한다.
 
 2026-11-09 최신 개발 인계: **R9 modal 연결 보완 구현·자체 검증 완료, 독립 재검토 대기**. [완료 보고](2026-11-09-s2-modal-fix.md), [새 근거](../../experiments/domain-model/s2/verification/2026-11-09-modal-fix/)를 검토한다. 실제 constructor identity/locals→dialog select/cancel→resolve→부모 요청과 상태/trace를 연결했다. 두 modal 반례는 진단0 후 assertion failed, 기존 R8/R10·13결함은 유지됐다. 전체230테스트·비교4/4·24제출50파일 재현 및 complete-root/delta의 판정/요청/trace 일치를 확인했다. 독립 해결 판정은 아직 아니며 constructor/field/ngOnInit/HTML/전체 UI·비동기 overlay/네트워크는 평가 밖이다. readyForTrial=false·미정 정책/사람 검토/격리/agent 조건을 유지한다. 과거 리뷰/probe와2026-11-08/2026-11-09 결과는 보존한다.
