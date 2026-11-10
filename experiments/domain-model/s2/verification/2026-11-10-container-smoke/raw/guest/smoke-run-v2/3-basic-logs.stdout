@@ -1,0 +1,88 @@
+S2_SMOKE_STARTED
+uid=1000(node) gid=1000(node) groups=1000(node)
+{"kind":"fixed-local-smoke","value":42,"node":"v22.19.0","uid":1000,"gid":1000}
+{"cpuMax":"200000 100000","memoryMax":"4294967296","pidsMax":"256"}
+Name:	cat
+Umask:	0022
+State:	R (running)
+Tgid:	23
+Ngid:	0
+Pid:	23
+PPid:	1
+TracerPid:	0
+Uid:	1000	1000	1000	1000
+Gid:	1000	1000	1000	1000
+FDSize:	64
+Groups:	1000
+NStgid:	23
+NSpid:	23
+NSpgid:	1
+NSsid:	1
+Kthread:	0
+VmPeak:	    2380 kB
+VmSize:	    2380 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	     932 kB
+VmRSS:	     932 kB
+RssAnon:	      92 kB
+RssFile:	     840 kB
+RssShmem:	       0 kB
+VmData:	     356 kB
+VmStk:	     132 kB
+VmExe:	      36 kB
+VmLib:	    1744 kB
+VmPTE:	      48 kB
+VmSwap:	       0 kB
+HugetlbPages:	       0 kB
+CoreDumping:	0
+THP_enabled:	1
+untag_mask:	0xffffffffffffff
+Threads:	1
+SigQ:	0/21089
+SigPnd:	0000000000000000
+ShdPnd:	0000000000000000
+SigBlk:	0000000000000000
+SigIgn:	0000000000000000
+SigCgt:	0000000000000000
+CapInh:	0000000000000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	0000000000000000
+CapAmb:	0000000000000000
+NoNewPrivs:	1
+Seccomp:	2
+Seccomp_filters:	1
+Speculation_Store_Bypass:	vulnerable
+SpeculationIndirectBranch:	unknown
+Cpus_allowed:	f
+Cpus_allowed_list:	0-3
+Mems_allowed:	00000000,00000001
+Mems_allowed_list:	0
+voluntary_ctxt_switches:	0
+nonvoluntary_ctxt_switches:	0
+387 306 0:54 / / ro,relatime - overlay overlay rw,lowerdir=/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/22/fs:/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/21/fs:/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/20/fs:/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/19/fs:/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/18/fs:/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/17/fs:/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/16/fs:/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/15/fs,upperdir=/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/28/fs,workdir=/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/28/work,uuid=on,nouserxattr
+389 387 0:67 / /proc rw,nosuid,nodev,noexec,relatime - proc proc rw
+390 387 0:68 / /dev rw,nosuid - tmpfs tmpfs rw,size=65536k,mode=755,inode64
+391 387 0:69 / /sys ro,nosuid,nodev,noexec,relatime - sysfs sysfs ro
+424 387 0:70 / /tmp rw,nosuid,nodev,noexec,relatime - tmpfs tmpfs rw,size=65536k,inode64
+425 390 0:71 / /dev/pts rw,nosuid,noexec,relatime - devpts devpts rw,gid=5,mode=620,ptmxmode=666
+426 390 0:72 / /dev/shm rw,nosuid,nodev,noexec,relatime - tmpfs shm rw,size=65536k,inode64
+427 390 0:65 / /dev/mqueue rw,nosuid,nodev,noexec,relatime - mqueue mqueue rw
+428 391 0:31 / /sys/fs/cgroup ro,nosuid,nodev,noexec,relatime - cgroup2 cgroup rw,nsdelegate,memory_recursiveprot,memory_hugetlb_accounting
+429 387 253:1 /var/lib/nerdctl/1935db59/containers/default/c0c8d7cc23ad800fd5762e4a149a30ea6dd1a6603da06ee1936e6e3699364825/resolv.conf /etc/resolv.conf rw,relatime - ext4 /dev/vda1 rw,discard,errors=remount-ro,commit=30
+430 387 253:1 /var/lib/nerdctl/1935db59/etchosts/default/c0c8d7cc23ad800fd5762e4a149a30ea6dd1a6603da06ee1936e6e3699364825/hosts /etc/hosts rw,relatime - ext4 /dev/vda1 rw,discard,errors=remount-ro,commit=30
+431 387 253:1 /var/lib/nerdctl/1935db59/containers/default/c0c8d7cc23ad800fd5762e4a149a30ea6dd1a6603da06ee1936e6e3699364825/hostname /etc/hostname rw,relatime - ext4 /dev/vda1 rw,discard,errors=remount-ro,commit=30
+307 389 0:67 /bus /proc/bus ro,nosuid,nodev,noexec,relatime - proc proc rw
+308 389 0:67 /fs /proc/fs ro,nosuid,nodev,noexec,relatime - proc proc rw
+309 389 0:67 /irq /proc/irq ro,nosuid,nodev,noexec,relatime - proc proc rw
+310 389 0:67 /sys /proc/sys ro,nosuid,nodev,noexec,relatime - proc proc rw
+311 389 0:67 /sysrq-trigger /proc/sysrq-trigger ro,nosuid,nodev,noexec,relatime - proc proc rw
+312 389 0:73 / /proc/acpi ro,relatime - tmpfs tmpfs ro,size=4k,nr_inodes=1,inode64
+313 389 0:68 /null /proc/interrupts rw,nosuid - tmpfs tmpfs rw,size=65536k,mode=755,inode64
+314 389 0:68 /null /proc/kcore rw,nosuid - tmpfs tmpfs rw,size=65536k,mode=755,inode64
+315 389 0:68 /null /proc/keys rw,nosuid - tmpfs tmpfs rw,size=65536k,mode=755,inode64
+316 389 0:68 /null /proc/latency_stats rw,nosuid - tmpfs tmpfs rw,size=65536k,mode=755,inode64
+317 389 0:68 /null /proc/timer_list rw,nosuid - tmpfs tmpfs rw,size=65536k,mode=755,inode64
+365 391 0:73 / /sys/firmware ro,relatime - tmpfs tmpfs ro,size=4k,nr_inodes=1,inode64
+366 389 0:73 / /proc/scsi ro,relatime - tmpfs tmpfs ro,size=4k,nr_inodes=1,inode64

@@ -1,0 +1,458 @@
+{
+  "accountingStart": "2026-11-10T13:22:00.806690+00:00",
+  "clockObserved": "2026-11-10T13:23:00.806690+00:00",
+  "monotonicObserved": 135125.653496666,
+  "monotonicAccountingStart": 135065.653496666,
+  "timingNote": "Clock captured immediately after the first instruction read, not before it. Conservatively charge an extra 60 seconds; do not label the start as measured. All later stages use UTC and monotonic measurements.",
+  "explorationDeadline": "2026-11-10T13:42:00.806690+00:00",
+  "absoluteDeadline": "2026-11-10T13:52:00.806690+00:00",
+  "priorEnvironmentChargedSeconds": 1251.26447,
+  "priorBudget": "experiments/domain-model/s2/verification/2026-11-10-container-feasibility/raw/budget.json",
+  "events": [
+    {
+      "utcStart": "2026-11-10T13:23:25.591874+00:00",
+      "monotonicStart": 135150.438764125,
+      "seconds": 6.996124541008612,
+      "timeoutSeconds": 180,
+      "finishPhase": false,
+      "command": [
+        "curl",
+        "-fL",
+        "--max-time",
+        "170",
+        "-o",
+        "<task-root>/downloads/lima.tar.gz",
+        "https://github.com/lima-vm/lima/releases/download/v2.3.0/lima-2.3.0-Darwin-arm64.tar.gz"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-container-smoke/01-download.log"
+    },
+    {
+      "utcStart": "2026-11-10T13:23:58.858870+00:00",
+      "monotonicStart": 135183.706043041,
+      "seconds": 177.7385044170078,
+      "timeoutSeconds": 480,
+      "finishPhase": false,
+      "command": [
+        "env",
+        "LIMA_HOME=<task-root>/lima",
+        "<task-root>/prefix/bin/limactl",
+        "start",
+        "--yes",
+        "--name=s2-smoke",
+        "--timeout=7m",
+        "experiments/domain-model/s2/trial/container/lima.yaml"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-container-smoke/02-vm-start.log"
+    },
+    {
+      "utcStart": "2026-11-10T13:27:36.822808+00:00",
+      "monotonicStart": 135401.671905083,
+      "seconds": 0.1814339580014348,
+      "timeoutSeconds": 30,
+      "finishPhase": false,
+      "command": [
+        "env",
+        "LIMA_HOME=<task-root>/lima",
+        "<task-root>/prefix/bin/limactl",
+        "copy",
+        "<task-root>/downloads/smoke.tar.gz",
+        "s2-smoke:/tmp/smoke.tar.gz"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-container-smoke/03-copy.log"
+    },
+    {
+      "utcStart": "2026-11-10T13:27:37.115140+00:00",
+      "monotonicStart": 135401.96404325,
+      "seconds": 0.12318900000536814,
+      "timeoutSeconds": 30,
+      "finishPhase": false,
+      "command": [
+        "env",
+        "LIMA_HOME=<task-root>/lima",
+        "<task-root>/prefix/bin/limactl",
+        "shell",
+        "--workdir=/tmp",
+        "s2-smoke",
+        "sh",
+        "-c",
+        "mkdir /tmp/smoke-context; tar xzf /tmp/smoke.tar.gz -C /tmp/smoke-context"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-container-smoke/04-extract.log"
+    },
+    {
+      "utcStart": "2026-11-10T13:27:54.304082+00:00",
+      "monotonicStart": 135419.153187666,
+      "seconds": 0.2252694169874303,
+      "timeoutSeconds": 30,
+      "finishPhase": false,
+      "command": [
+        "env",
+        "LIMA_HOME=<task-root>/lima",
+        "<task-root>/prefix/bin/limactl",
+        "shell",
+        "--workdir=/tmp",
+        "s2-smoke",
+        "sudo",
+        "sh",
+        "-c",
+        "uname -a; cat /etc/os-release; nerdctl --address /run/containerd/containerd.sock --namespace default version; ctr --address /run/containerd/containerd.sock namespaces ls; cat /proc/self/mountinfo"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-container-smoke/06-guest-diagnostics.log"
+    },
+    {
+      "utcStart": "2026-11-10T13:27:37.345271+00:00",
+      "monotonicStart": 135402.194182083,
+      "seconds": 54.84023012500256,
+      "timeoutSeconds": 240,
+      "finishPhase": false,
+      "command": [
+        "env",
+        "LIMA_HOME=<task-root>/lima",
+        "<task-root>/prefix/bin/limactl",
+        "shell",
+        "--workdir=/tmp",
+        "s2-smoke",
+        "sudo",
+        "nerdctl",
+        "--address",
+        "/run/containerd/containerd.sock",
+        "--namespace",
+        "default",
+        "build",
+        "--iidfile",
+        "/tmp/smoke-context/image-id",
+        "--build-arg",
+        "BASE_IMAGE=docker.io/library/node@sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90",
+        "-t",
+        "ontosary-s2-smoke:20261110",
+        "/tmp/smoke-context"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-container-smoke/05-build.log"
+    },
+    {
+      "utcStart": "2026-11-10T13:28:47.383204+00:00",
+      "monotonicStart": 135472.232927041,
+      "seconds": 0.4435839169891551,
+      "timeoutSeconds": 300,
+      "finishPhase": false,
+      "command": [
+        "env",
+        "LIMA_HOME=<task-root>/lima",
+        "<task-root>/prefix/bin/limactl",
+        "shell",
+        "--workdir=/tmp",
+        "s2-smoke",
+        "sudo",
+        "python3",
+        "/tmp/smoke-context/smoke.py",
+        "--image",
+        "docker.io/library/ontosary-s2-smoke:20261110",
+        "--deadline",
+        "2026-11-10T13:42:00.806690+00:00",
+        "--out",
+        "/tmp/smoke-run-v1",
+        "--payload",
+        "/tmp/smoke-context/smoke-payload.sh"
+      ],
+      "exitCode": 1,
+      "log": "work/s2-container-smoke/07-smoke-v1.log"
+    },
+    {
+      "utcStart": "2026-11-10T13:28:55.815519+00:00",
+      "monotonicStart": 135480.665069958,
+      "seconds": 0.23220758300158195,
+      "timeoutSeconds": 30,
+      "finishPhase": false,
+      "command": [
+        "env",
+        "LIMA_HOME=<task-root>/lima",
+        "<task-root>/prefix/bin/limactl",
+        "shell",
+        "--workdir=/tmp",
+        "s2-smoke",
+        "sudo",
+        "sh",
+        "-c",
+        "cat /tmp/smoke-run-v1/commands.json; cat /tmp/smoke-run-v1/*stderr; nerdctl --address /run/containerd/containerd.sock --namespace default ps -a --no-trunc"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-container-smoke/08-diagnose-v1.log"
+    },
+    {
+      "utcStart": "2026-11-10T13:29:05.960772+00:00",
+      "monotonicStart": 135490.810403916,
+      "seconds": 0.22478175000287592,
+      "timeoutSeconds": 30,
+      "finishPhase": false,
+      "command": [
+        "env",
+        "LIMA_HOME=<task-root>/lima",
+        "<task-root>/prefix/bin/limactl",
+        "shell",
+        "--workdir=/tmp",
+        "s2-smoke",
+        "sudo",
+        "python3",
+        "-c",
+        "import json,pathlib; p=pathlib.Path(\"/tmp/smoke-run-v1\"); c=json.loads((p/\"image-config.stdout\").read_text()); m=json.loads((p/\"image-manifest.stdout\").read_text()); d=json.loads((p/\"image-dockercompat.stdout\").read_text())[0]; n=json.loads((p/\"image-native.stdout\").read_text())[0]; print(json.dumps({\"configDiffIDs\":c[\"rootfs\"][\"diff_ids\"],\"manifestLayers\":[x[\"digest\"] for x in m[\"layers\"]],\"compatRootFS\":d[\"RootFS\"],\"nativeSnapshots\":n[\"Snapshots\"]},indent=2))"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-container-smoke/09-layer-diagnosis.log"
+    },
+    {
+      "utcStart": "2026-11-10T13:29:20.159606+00:00",
+      "monotonicStart": 135505.009328708,
+      "seconds": 0.1839314580138307,
+      "timeoutSeconds": 30,
+      "finishPhase": false,
+      "command": [
+        "env",
+        "LIMA_HOME=<task-root>/lima",
+        "<task-root>/prefix/bin/limactl",
+        "copy",
+        "experiments/domain-model/s2/trial/container/smoke.py",
+        "s2-smoke:/tmp/smoke-context/smoke.py"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-container-smoke/10-copy-v2.log"
+    },
+    {
+      "utcStart": "2026-11-10T13:29:20.456061+00:00",
+      "monotonicStart": 135505.305795875,
+      "seconds": 2.2676260829903185,
+      "timeoutSeconds": 300,
+      "finishPhase": false,
+      "command": [
+        "env",
+        "LIMA_HOME=<task-root>/lima",
+        "<task-root>/prefix/bin/limactl",
+        "shell",
+        "--workdir=/tmp",
+        "s2-smoke",
+        "sudo",
+        "python3",
+        "/tmp/smoke-context/smoke.py",
+        "--image",
+        "docker.io/library/ontosary-s2-smoke:20261110",
+        "--deadline",
+        "2026-11-10T13:42:00.806690+00:00",
+        "--out",
+        "/tmp/smoke-run-v2",
+        "--payload",
+        "/tmp/smoke-context/smoke-payload.sh"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-container-smoke/11-smoke-v2.log"
+    },
+    {
+      "utcStart": "2026-11-10T13:29:57.920050+00:00",
+      "monotonicStart": 135542.770091208,
+      "seconds": 0.12245412499760278,
+      "timeoutSeconds": 30,
+      "finishPhase": true,
+      "command": [
+        "env",
+        "LIMA_HOME=<task-root>/lima",
+        "<task-root>/prefix/bin/limactl",
+        "shell",
+        "--workdir=/tmp",
+        "s2-smoke",
+        "sudo",
+        "tar",
+        "czf",
+        "/tmp/smoke-evidence.tar.gz",
+        "-C",
+        "/tmp",
+        "smoke-run-v1",
+        "smoke-run-v2",
+        "smoke-context/image-id"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-container-smoke/12-archive-evidence.log"
+    },
+    {
+      "utcStart": "2026-11-10T13:29:58.148117+00:00",
+      "monotonicStart": 135542.998147375,
+      "seconds": 0.12771995799266733,
+      "timeoutSeconds": 30,
+      "finishPhase": true,
+      "command": [
+        "env",
+        "LIMA_HOME=<task-root>/lima",
+        "<task-root>/prefix/bin/limactl",
+        "copy",
+        "s2-smoke:/tmp/smoke-evidence.tar.gz",
+        "work/s2-container-smoke/guest-evidence.tar.gz"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-container-smoke/13-collect-evidence.log"
+    },
+    {
+      "utcStart": "2026-11-10T13:29:58.511073+00:00",
+      "monotonicStart": 135543.361308125,
+      "seconds": 19.231979625008535,
+      "timeoutSeconds": 180,
+      "finishPhase": true,
+      "command": [
+        "pnpm",
+        "check"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-container-smoke/14-host-check.log"
+    },
+    {
+      "utcStart": "2026-11-10T13:30:20.332360+00:00",
+      "monotonicStart": 135565.182607416,
+      "seconds": 0.13216649999958463,
+      "timeoutSeconds": 30,
+      "finishPhase": true,
+      "command": [
+        "env",
+        "LIMA_HOME=<task-root>/lima",
+        "<task-root>/prefix/bin/limactl",
+        "list",
+        "--json"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-container-smoke/15-pre-cleanup-vm.json"
+    },
+    {
+      "utcStart": "2026-11-10T13:30:20.573370+00:00",
+      "monotonicStart": 135565.423598291,
+      "seconds": 0.28023354199831374,
+      "timeoutSeconds": 30,
+      "finishPhase": true,
+      "command": [
+        "env",
+        "LIMA_HOME=<task-root>/lima",
+        "<task-root>/prefix/bin/limactl",
+        "shell",
+        "--workdir=/tmp",
+        "s2-smoke",
+        "sudo",
+        "sh",
+        "-c",
+        "nerdctl --address /run/containerd/containerd.sock --namespace default ps -a --no-trunc; nerdctl --address /run/containerd/containerd.sock --namespace default images --digests --no-trunc; du -sk /var/lib/containerd /var/lib/buildkit /tmp/smoke-context"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-container-smoke/16-pre-cleanup-guest.log"
+    },
+    {
+      "utcStart": "2026-11-10T13:30:22.154073+00:00",
+      "monotonicStart": 135567.004320666,
+      "seconds": 1.6096339590149,
+      "timeoutSeconds": 60,
+      "finishPhase": true,
+      "command": [
+        "env",
+        "LIMA_HOME=<task-root>/lima",
+        "<task-root>/prefix/bin/limactl",
+        "stop",
+        "s2-smoke"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-container-smoke/17-vm-stop.log"
+    },
+    {
+      "utcStart": "2026-11-10T13:30:23.902676+00:00",
+      "monotonicStart": 135568.752914541,
+      "seconds": 0.07719404200906865,
+      "timeoutSeconds": 30,
+      "finishPhase": true,
+      "command": [
+        "env",
+        "LIMA_HOME=<task-root>/lima",
+        "<task-root>/prefix/bin/limactl",
+        "list",
+        "--json"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-container-smoke/18-stopped-vm.json"
+    },
+    {
+      "utcStart": "2026-11-10T13:30:57.856601+00:00",
+      "monotonicStart": 135602.707141125,
+      "seconds": 0.18355620800866745,
+      "timeoutSeconds": 30,
+      "finishPhase": true,
+      "command": [
+        "env",
+        "LIMA_HOME=<task-root>/lima",
+        "<task-root>/prefix/bin/limactl",
+        "delete",
+        "--yes",
+        "s2-smoke"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-container-smoke/19-vm-delete.log"
+    },
+    {
+      "utcStart": "2026-11-10T13:30:58.152076+00:00",
+      "monotonicStart": 135603.0026015,
+      "seconds": 0.0751048750244081,
+      "timeoutSeconds": 30,
+      "finishPhase": true,
+      "command": [
+        "env",
+        "LIMA_HOME=<task-root>/lima",
+        "<task-root>/prefix/bin/limactl",
+        "list",
+        "--json"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-container-smoke/20-deleted-vm-list.log"
+    }
+  ],
+  "runtimeCandidates": [
+    "Lima 2.3.0 VZ + bundled nerdctl 2.4.2"
+  ],
+  "paidCost": 0,
+  "explorationStop": "2026-11-10T13:29:57.805701+00:00",
+  "explorationStopMonotonic": 135542.655734833,
+  "environmentChargedSeconds": 477.0022381670133,
+  "cumulativeEnvironmentChargedSeconds": 1728.2667081670133,
+  "retries": [
+    {
+      "kind": "identity-validation correction, no worker had been created",
+      "failure": "Docker-compatible RootFS.Layers was assumed to equal config diff_ids",
+      "evidence": "09-layer-diagnosis.log: RootFS.Layers equals cumulative chain IDs and native snapshot names",
+      "change": "Compare every computed diff-id prefix chain ID; preserve manifest/config byte hash checks and container snapshot parent check",
+      "retry": "smoke-v2",
+      "result": "four probes passed"
+    }
+  ],
+  "evidenceFreezeTime": "2026-11-10T13:35:21.053985+00:00",
+  "evidenceFreezeMonotonic": 135865.906632166,
+  "totalAtEvidenceFreezeSeconds": 800.2531355000101,
+  "cumulativeCoreSeconds": 2513.70486750001,
+  "priorCoreSeconds": 1713.451732,
+  "priorTiming": "conservative estimate from first round budget, not exact first-read timing",
+  "reviewWaitIncluded": false,
+  "status": "smoke-passed",
+  "overruns": [],
+  "gitDelivery": "Separate post-freeze commit/push/PR/merge interval; no further runtime exploration. PR timestamps record delivery.",
+  "finalVerificationTime": "2026-11-10T13:36:36.300160+00:00",
+  "finalVerificationMonotonic": 135941.153233875,
+  "totalRoundSeconds": 875.4997372090002,
+  "cumulativeRoundSeconds": 2588.951469209,
+  "validation": {
+    "hostCheck": {
+      "tests": 303,
+      "files": 15,
+      "skipped": 0,
+      "exitCode": 0
+    },
+    "localDocumentationLinks": 209,
+    "pythonSyntax": "passed",
+    "shellSyntax": "passed",
+    "manifestHashes": "passed",
+    "privacyScan": "no matches",
+    "historicalArtifacts": "unchanged"
+  }
+}

@@ -1,0 +1,163 @@
+[
+    {
+        "Id": "4390e04f5fdc5eef66c9b6e3da465b64218184900bc87368687ad2e3710e66e1",
+        "Created": "2026-11-10T13:29:21.590404923Z",
+        "Path": "docker-entrypoint.sh",
+        "Args": [
+            "sh",
+            "-c",
+            "#!/bin/sh\nset -eu\n# Invoked in a fresh nonprivileged, network-none container; no model session.\ncase \"$1\" in\n  basic)\n    printf 'S2_SMOKE_STARTED\\n'\n    id\n    node -e 'if(process.version!==\"v22.19.0\" || process.getuid()!==1000 || process.getgid()!==1000) process.exit(9); console.log(JSON.stringify({kind:\"fixed-local-smoke\",value:42,node:process.version,uid:process.getuid(),gid:process.getgid()}))'\n    node -e 'const fs=require(\"fs\"); const read=n=>fs.readFileSync(\"/sys/fs/cgroup/\"+n,\"utf8\").trim(); const cpu=read(\"cpu.max\").split(\" \").map(Number); const limits={cpuMax:read(\"cpu.max\"),memoryMax:read(\"memory.max\"),pidsMax:read(\"pids.max\")}; if(cpu[0]/cpu[1]!==2 || limits.memoryMax!==\"4294967296\" || limits.pidsMax!==\"256\") process.exit(10);console.log(JSON.stringify(limits))'\n    cat /proc/self/status\n    cat /proc/self/mountinfo\n    ;;\n  exit7)\n    printf 'S2_EXIT7_STARTED\\n'\n    exit 7\n    ;;\n  cli)\n    printf 'S2_CLI_STARTED\\n'\n    mkdir -p /tmp/smoke-home/codex\n    test -z \"$(ls -A /tmp/smoke-home/codex)\"\n    codex --version\n    codex --help\n    command -v codex\n    sha256sum \"$(command -v codex)\"\n    find /usr/local/lib/node_modules/@openai -type f -name codex -exec sha256sum '{}' ';'\n    ;;\n  *) exit 64 ;;\nesac\n",
+            "smoke",
+            "cli"
+        ],
+        "State": {
+            "Status": "exited",
+            "Running": false,
+            "Paused": false,
+            "Restarting": false,
+            "Pid": 0,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-11-10T13:29:21.678068355Z",
+            "FinishedAt": "2026-11-10T13:29:22.600083986Z"
+        },
+        "Image": "sha256:a0bdb967ba82f09eb3646daf81bdd4162fe33bd18a0253b08c468c48e0bdede5",
+        "ResolvConfPath": "/var/lib/nerdctl/1935db59/containers/default/4390e04f5fdc5eef66c9b6e3da465b64218184900bc87368687ad2e3710e66e1/resolv.conf",
+        "HostnamePath": "/var/lib/nerdctl/1935db59/containers/default/4390e04f5fdc5eef66c9b6e3da465b64218184900bc87368687ad2e3710e66e1/hostname",
+        "HostsPath": "/var/lib/nerdctl/1935db59/etchosts/default/4390e04f5fdc5eef66c9b6e3da465b64218184900bc87368687ad2e3710e66e1/hosts",
+        "LogPath": "/var/lib/nerdctl/1935db59/containers/default/4390e04f5fdc5eef66c9b6e3da465b64218184900bc87368687ad2e3710e66e1/4390e04f5fdc5eef66c9b6e3da465b64218184900bc87368687ad2e3710e66e1-json.log",
+        "Name": "s2-smoke-4-cli",
+        "RestartCount": 0,
+        "Driver": "overlayfs",
+        "Platform": "linux",
+        "AppArmorProfile": "nerdctl-default",
+        "HostConfig": {
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "driver": "json-file",
+                "address": "/run/containerd/containerd.sock"
+            },
+            "NetworkMode": "none",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "CapAdd": [],
+            "CapDrop": [
+                "CAP_NET_RAW",
+                "CAP_SETUID",
+                "CAP_SETFCAP",
+                "CAP_SETPCAP",
+                "CAP_FOWNER",
+                "CAP_SETGID",
+                "CAP_NET_BIND_SERVICE",
+                "CAP_SYS_CHROOT",
+                "CAP_KILL",
+                "CAP_AUDIT_WRITE",
+                "CAP_CHOWN",
+                "CAP_DAC_OVERRIDE",
+                "CAP_FSETID",
+                "CAP_MKNOD"
+            ],
+            "CgroupnsMode": "private",
+            "Dns": null,
+            "DnsOptions": null,
+            "DnsSearch": null,
+            "ExtraHosts": [],
+            "GroupAdd": [
+                "1000"
+            ],
+            "IpcMode": "private",
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "ReadonlyRootfs": true,
+            "Tmpfs": {
+                "/tmp": "noexec,rw,nosuid,nodev,size=64m"
+            },
+            "UTSMode": "",
+            "ShmSize": 0,
+            "Sysctls": {
+                "net.ipv4.ip_unprivileged_port_start": "0"
+            },
+            "Runtime": "io.containerd.runc.v2",
+            "CpusetMems": "",
+            "CpusetCpus": "",
+            "CpuQuota": 200000,
+            "CpuShares": 0,
+            "CpuPeriod": 100000,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "Memory": 4294967296,
+            "MemorySwap": 8589934592,
+            "MemoryReservation": 0,
+            "MemorySwappiness": null,
+            "PidsLimit": 256,
+            "Ulimits": null,
+            "OomKillDisable": false,
+            "Devices": null,
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": [],
+            "BlkioDeviceReadBps": [],
+            "BlkioDeviceWriteBps": [],
+            "BlkioDeviceReadIOps": [],
+            "BlkioDeviceWriteIOps": []
+        },
+        "Mounts": [
+            {
+                "Type": "tmpfs",
+                "Source": "tmpfs",
+                "Destination": "/tmp",
+                "Mode": "noexec,rw,nosuid,nodev,size=64m",
+                "RW": true,
+                "Propagation": ""
+            }
+        ],
+        "Config": {
+            "Hostname": "4390e04f5fdc",
+            "User": "1000:1000",
+            "AttachStdin": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "NODE_VERSION=22.19.0",
+                "YARN_VERSION=1.22.22",
+                "NODE_PATH=/usr/local/lib/node_modules",
+                "HOME=/tmp/smoke-home",
+                "CODEX_HOME=/tmp/smoke-home/codex",
+                "HOSTNAME=4390e04f5fdc"
+            ],
+            "Image": "docker.io/library/ontosary-s2-smoke:20261110",
+            "Labels": {
+                "containerd.io/restart.explicitly-stopped": "false",
+                "io.containerd.image.config.stop-signal": "SIGTERM",
+                "nerdctl/auto-remove": "false",
+                "nerdctl/dns": "{\"DNSServers\":null,\"DNSResolvConfOptions\":null,\"DNSSearchDomains\":null}",
+                "nerdctl/extraHosts": "[]",
+                "nerdctl/host-config": "{\"BlkioWeight\":0,\"CidFile\":\"\",\"Devices\":null}",
+                "nerdctl/hostname": "4390e04f5fdc",
+                "nerdctl/image-digest": "sha256:a0bdb967ba82f09eb3646daf81bdd4162fe33bd18a0253b08c468c48e0bdede5",
+                "nerdctl/ipc": "{\"mode\":\"private\"}",
+                "nerdctl/log-config": "{\"driver\":\"json-file\",\"address\":\"/run/containerd/containerd.sock\"}",
+                "nerdctl/log-uri": "binary:///usr/local/bin/nerdctl?_NERDCTL_INTERNAL_LOGGING=%2Fvar%2Flib%2Fnerdctl%2F1935db59",
+                "nerdctl/mounts.0": "{\"Type\":\"tmpfs\",\"Source\":\"tmpfs\",\"Destination\":\"/tmp\",\"Mode\":\"noexec,rw,nosuid,nodev,size=64m\",\"RW\":true,\"Propagation\":\"\"}",
+                "nerdctl/name": "s2-smoke-4-cli",
+                "nerdctl/namespace": "default",
+                "nerdctl/networks": "[\"none\"]",
+                "nerdctl/platform": "linux/arm64/v8",
+                "nerdctl/state-dir": "/var/lib/nerdctl/1935db59/containers/default/4390e04f5fdc5eef66c9b6e3da465b64218184900bc87368687ad2e3710e66e1",
+                "nerdctl/user": "1000:1000"
+            }
+        },
+        "NetworkSettings": {
+            "Ports": {},
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "",
+            "IPPrefixLen": 0,
+            "MacAddress": "",
+            "Networks": {}
+        }
+    }
+]

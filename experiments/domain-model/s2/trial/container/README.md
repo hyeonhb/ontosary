@@ -1,5 +1,7 @@
 # Disposable Linux container feasibility — incomplete
 
+2026-11-10 follow-up: **[minimum smoke passed](../../../../../docs/reviews/2026-11-10-s2-container-smoke.md)** under ADR-033. `smoke.py` resolves the current native target at an explicit endpoint/namespace, verifies OCI hashes and container snapshot chains, then creates four finite nonprivileged network-none probes with `--pull=never`. `smoke-payload.sh` runs shell/Node/exit7 or Codex version/help only; `smoke-command.py` records UTC/monotonic deadlines and `freeze-smoke.py` verifies collected evidence. The diagnosed chain-ID validation correction and both executed versions are preserved in the new evidence. All resources were removed. This is not a live dispatcher or R11 termination/collection adapter; subsequent work awaits review. The inconclusive attempt below is historical.
+
 The 2026-11-10 attempt is **inconclusive**. Lima/VZ boot and image build succeeded; both the initial local image reference and its one corrected invocation failed before a task container started. This directory is preparation evidence, **not an execution adapter**. No termination/collection receipt or live dispatcher is implemented. Existing macOS production/live refusal remains intact.
 
 - `lima.yaml`: executed with Lima 2.3.0, a dedicated `LIMA_HOME`, no host mounts or SSH-agent forwarding; guest system containerd. The macOS downloader ignored `XDG_CACHE_HOME` and used `~/Library/Caches/lima`; the two owned URL-keyed entries were inventoried and removed.

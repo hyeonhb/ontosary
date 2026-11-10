@@ -1,0 +1,19 @@
+{
+  "utc": "2026-11-10T13:30:58.422985+00:00",
+  "monotonic": 135603.273618375,
+  "vmStopped": true,
+  "vmDeleted": true,
+  "finalContainerCount": 0,
+  "hostAgentPid": 10426,
+  "hostAgentAbsent": true,
+  "removed": [
+    "<host-cache>/lima/download/by-url-sha256/274d59968f7fc4016d852a0fa9a95e78a7253670ae8095bcb06076eec1f922f8",
+    "<host-cache>/lima/download/by-url-sha256/975f12320da58d431eba0c59caf918381721d37c81297f52a261383a54420186",
+    "<task-root>"
+  ],
+  "allRemovedPathsAbsent": true,
+  "preexistingCachesRetained": [],
+  "retainedRuntimeResources": [],
+  "globalPrune": false,
+  "status": "cleanup-passed"
+}

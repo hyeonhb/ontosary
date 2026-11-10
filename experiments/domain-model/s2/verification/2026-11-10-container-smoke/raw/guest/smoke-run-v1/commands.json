@@ -1,0 +1,141 @@
+[
+  {
+    "label": "manager-version",
+    "command": [
+      "nerdctl",
+      "--address",
+      "/run/containerd/containerd.sock",
+      "--namespace",
+      "default",
+      "version"
+    ],
+    "utcStart": "2026-11-10T13:28:47.657714+00:00",
+    "monotonicStart": 126.948993388,
+    "seconds": 0.033918288999998936,
+    "timeoutSeconds": 30,
+    "exitCode": 0
+  },
+  {
+    "label": "manager-info",
+    "command": [
+      "nerdctl",
+      "--address",
+      "/run/containerd/containerd.sock",
+      "--namespace",
+      "default",
+      "info"
+    ],
+    "utcStart": "2026-11-10T13:28:47.691784+00:00",
+    "monotonicStart": 126.983066206,
+    "seconds": 0.011433044999989761,
+    "timeoutSeconds": 30,
+    "exitCode": 0
+  },
+  {
+    "label": "native-images",
+    "command": [
+      "nerdctl",
+      "--address",
+      "/run/containerd/containerd.sock",
+      "--namespace",
+      "default",
+      "images",
+      "--digests",
+      "--no-trunc"
+    ],
+    "utcStart": "2026-11-10T13:28:47.703358+00:00",
+    "monotonicStart": 126.994640156,
+    "seconds": 0.013245482999991509,
+    "timeoutSeconds": 30,
+    "exitCode": 0
+  },
+  {
+    "label": "endpoint",
+    "command": [
+      "ctr",
+      "--address",
+      "/run/containerd/containerd.sock",
+      "--namespace",
+      "default",
+      "version"
+    ],
+    "utcStart": "2026-11-10T13:28:47.716763+00:00",
+    "monotonicStart": 127.008044668,
+    "seconds": 0.013643451999996614,
+    "timeoutSeconds": 30,
+    "exitCode": 0
+  },
+  {
+    "label": "image-native",
+    "command": [
+      "nerdctl",
+      "--address",
+      "/run/containerd/containerd.sock",
+      "--namespace",
+      "default",
+      "image",
+      "inspect",
+      "--mode=native",
+      "docker.io/library/ontosary-s2-smoke:20261110"
+    ],
+    "utcStart": "2026-11-10T13:28:47.730551+00:00",
+    "monotonicStart": 127.021832983,
+    "seconds": 0.015030465000009485,
+    "timeoutSeconds": 30,
+    "exitCode": 0
+  },
+  {
+    "label": "image-dockercompat",
+    "command": [
+      "nerdctl",
+      "--address",
+      "/run/containerd/containerd.sock",
+      "--namespace",
+      "default",
+      "image",
+      "inspect",
+      "docker.io/library/ontosary-s2-smoke:20261110"
+    ],
+    "utcStart": "2026-11-10T13:28:47.745881+00:00",
+    "monotonicStart": 127.037163341,
+    "seconds": 0.013573707000006152,
+    "timeoutSeconds": 30,
+    "exitCode": 0
+  },
+  {
+    "label": "image-manifest",
+    "command": [
+      "ctr",
+      "--address",
+      "/run/containerd/containerd.sock",
+      "--namespace",
+      "default",
+      "content",
+      "get",
+      "sha256:a0bdb967ba82f09eb3646daf81bdd4162fe33bd18a0253b08c468c48e0bdede5"
+    ],
+    "utcStart": "2026-11-10T13:28:47.759614+00:00",
+    "monotonicStart": 127.050896243,
+    "seconds": 0.005933193000004167,
+    "timeoutSeconds": 30,
+    "exitCode": 0
+  },
+  {
+    "label": "image-config",
+    "command": [
+      "ctr",
+      "--address",
+      "/run/containerd/containerd.sock",
+      "--namespace",
+      "default",
+      "content",
+      "get",
+      "sha256:35edd6a7243347e91578669c721c1deb52c2415272947cb185c0fc171ce6dd6a"
+    ],
+    "utcStart": "2026-11-10T13:28:47.765755+00:00",
+    "monotonicStart": 127.057037794,
+    "seconds": 0.0054337740000107715,
+    "timeoutSeconds": 30,
+    "exitCode": 0
+  }
+]

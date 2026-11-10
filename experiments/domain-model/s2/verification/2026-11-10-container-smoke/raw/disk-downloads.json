@@ -1,0 +1,32 @@
+{
+  "taskRoot": "<task-root>",
+  "taskAllocatedKiB": 6095620,
+  "cache": [
+    {
+      "url": "https://cloud-images.ubuntu.com/releases/resolute/release-20261016/ubuntu-26.04-server-cloudimg-arm64.img",
+      "path": "<host-cache>/lima/download/by-url-sha256/274d59968f7fc4016d852a0fa9a95e78a7253670ae8095bcb06076eec1f922f8",
+      "existedBefore": false,
+      "allocatedKiB": 3516404,
+      "downloadBytes": 940373504,
+      "downloadSha256": "8eb876c2ccc4b6ff89e4a65d511815923b285e04503ba465809bf587f763da24"
+    },
+    {
+      "url": "https://github.com/containerd/nerdctl/releases/download/v2.4.2/nerdctl-full-2.4.2-linux-arm64.tar.gz",
+      "path": "<host-cache>/lima/download/by-url-sha256/975f12320da58d431eba0c59caf918381721d37c81297f52a261383a54420186",
+      "existedBefore": false,
+      "allocatedKiB": 279260,
+      "downloadBytes": 270513423,
+      "downloadSha256": "fe0ef0e9840ee8932640e6058f84b7fa98050f9726e44af44883a5b804ae830e"
+    }
+  ],
+  "downloads": {
+    "lima.tar.gz": {
+      "bytes": 50317981,
+      "sha256": "b7af444bd8f91d3c307477e562f2cf3bd7595d62b9429185e4fa841563578cfc"
+    },
+    "smoke.tar.gz": {
+      "bytes": 3882,
+      "sha256": "99a556f267e84a04cc46caf614d4e3f937f9b1f85dbdd3e93d1535a8b31d2897"
+    }
+  }
+}

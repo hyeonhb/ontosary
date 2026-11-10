@@ -1,0 +1,1055 @@
+[
+  {
+    "label": "manager-version",
+    "command": [
+      "nerdctl",
+      "--address",
+      "/run/containerd/containerd.sock",
+      "--namespace",
+      "default",
+      "version"
+    ],
+    "utcStart": "2026-11-10T13:29:20.570391+00:00",
+    "monotonicStart": 159.861673775,
+    "seconds": 0.01960702099998457,
+    "timeoutSeconds": 30,
+    "exitCode": 0
+  },
+  {
+    "label": "manager-info",
+    "command": [
+      "nerdctl",
+      "--address",
+      "/run/containerd/containerd.sock",
+      "--namespace",
+      "default",
+      "info"
+    ],
+    "utcStart": "2026-11-10T13:29:20.590163+00:00",
+    "monotonicStart": 159.881445088,
+    "seconds": 0.011169923000011295,
+    "timeoutSeconds": 30,
+    "exitCode": 0
+  },
+  {
+    "label": "native-images",
+    "command": [
+      "nerdctl",
+      "--address",
+      "/run/containerd/containerd.sock",
+      "--namespace",
+      "default",
+      "images",
+      "--digests",
+      "--no-trunc"
+    ],
+    "utcStart": "2026-11-10T13:29:20.601500+00:00",
+    "monotonicStart": 159.892782218,
+    "seconds": 0.013311749999985523,
+    "timeoutSeconds": 30,
+    "exitCode": 0
+  },
+  {
+    "label": "endpoint",
+    "command": [
+      "ctr",
+      "--address",
+      "/run/containerd/containerd.sock",
+      "--namespace",
+      "default",
+      "version"
+    ],
+    "utcStart": "2026-11-10T13:29:20.614991+00:00",
+    "monotonicStart": 159.906273176,
+    "seconds": 0.006014938999982178,
+    "timeoutSeconds": 30,
+    "exitCode": 0
+  },
+  {
+    "label": "image-native",
+    "command": [
+      "nerdctl",
+      "--address",
+      "/run/containerd/containerd.sock",
+      "--namespace",
+      "default",
+      "image",
+      "inspect",
+      "--mode=native",
+      "docker.io/library/ontosary-s2-smoke:20261110"
+    ],
+    "utcStart": "2026-11-10T13:29:20.621152+00:00",
+    "monotonicStart": 159.912434323,
+    "seconds": 0.02001297900000054,
+    "timeoutSeconds": 30,
+    "exitCode": 0
+  },
+  {
+    "label": "image-dockercompat",
+    "command": [
+      "nerdctl",
+      "--address",
+      "/run/containerd/containerd.sock",
+      "--namespace",
+      "default",
+      "image",
+      "inspect",
+      "docker.io/library/ontosary-s2-smoke:20261110"
+    ],
+    "utcStart": "2026-11-10T13:29:20.641415+00:00",
+    "monotonicStart": 159.932697884,
+    "seconds": 0.015569243000015831,
+    "timeoutSeconds": 30,
+    "exitCode": 0
+  },
+  {
+    "label": "image-manifest",
+    "command": [
+      "ctr",
+      "--address",
+      "/run/containerd/containerd.sock",
+      "--namespace",
+      "default",
+      "content",
+      "get",
+      "sha256:a0bdb967ba82f09eb3646daf81bdd4162fe33bd18a0253b08c468c48e0bdede5"
+    ],
+    "utcStart": "2026-11-10T13:29:20.657180+00:00",
+    "monotonicStart": 159.948462001,
+    "seconds": 0.004816484999992099,
+    "timeoutSeconds": 30,
+    "exitCode": 0
+  },
+  {
+    "label": "image-config",
+    "command": [
+      "ctr",
+      "--address",
+      "/run/containerd/containerd.sock",
+      "--namespace",
+      "default",
+      "content",
+      "get",
+      "sha256:35edd6a7243347e91578669c721c1deb52c2415272947cb185c0fc171ce6dd6a"
+    ],
+    "utcStart": "2026-11-10T13:29:20.662209+00:00",
+    "monotonicStart": 159.953490443,
+    "seconds": 0.005771941000006109,
+    "timeoutSeconds": 30,
+    "exitCode": 0
+  },
+  {
+    "label": "1-basic-image-before",
+    "command": [
+      "nerdctl",
+      "--address",
+      "/run/containerd/containerd.sock",
+      "--namespace",
+      "default",
+      "image",
+      "inspect",
+      "--mode=native",
+      "docker.io/library/ontosary-s2-smoke:20261110"
+    ],
+    "utcStart": "2026-11-10T13:29:20.668345+00:00",
+    "monotonicStart": 159.959627632,
+    "seconds": 0.015824866999992082,
+    "timeoutSeconds": 59.999997334,
+    "exitCode": 0
+  },
+  {
+    "label": "1-basic-create",
+    "command": [
+      "nerdctl",
+      "--address",
+      "/run/containerd/containerd.sock",
+      "--namespace",
+      "default",
+      "create",
+      "--pull=never",
+      "--name",
+      "s2-smoke-1-basic",
+      "--user",
+      "1000:1000",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--network",
+      "none",
+      "--cpus",
+      "2",
+      "--memory",
+      "4g",
+      "--pids-limit",
+      "256",
+      "--read-only",
+      "--tmpfs",
+      "/tmp:rw,nosuid,nodev,size=64m",
+      "--env",
+      "HOME=/tmp/smoke-home",
+      "--env",
+      "CODEX_HOME=/tmp/smoke-home/codex",
+      "sha256:a0bdb967ba82f09eb3646daf81bdd4162fe33bd18a0253b08c468c48e0bdede5",
+      "sh",
+      "-c",
+      "#!/bin/sh\nset -eu\n# Invoked in a fresh nonprivileged, network-none container; no model session.\ncase \"$1\" in\n  basic)\n    printf 'S2_SMOKE_STARTED\\n'\n    id\n    node -e 'if(process.version!==\"v22.19.0\" || process.getuid()!==1000 || process.getgid()!==1000) process.exit(9); console.log(JSON.stringify({kind:\"fixed-local-smoke\",value:42,node:process.version,uid:process.getuid(),gid:process.getgid()}))'\n    node -e 'const fs=require(\"fs\"); const read=n=>fs.readFileSync(\"/sys/fs/cgroup/\"+n,\"utf8\").trim(); const cpu=read(\"cpu.max\").split(\" \").map(Number); const limits={cpuMax:read(\"cpu.max\"),memoryMax:read(\"memory.max\"),pidsMax:read(\"pids.max\")}; if(cpu[0]/cpu[1]!==2 || limits.memoryMax!==\"4294967296\" || limits.pidsMax!==\"256\") process.exit(10);console.log(JSON.stringify(limits))'\n    cat /proc/self/status\n    cat /proc/self/mountinfo\n    ;;\n  exit7)\n    printf 'S2_EXIT7_STARTED\\n'\n    exit 7\n    ;;\n  cli)\n    printf 'S2_CLI_STARTED\\n'\n    mkdir -p /tmp/smoke-home/codex\n    test -z \"$(ls -A /tmp/smoke-home/codex)\"\n    codex --version\n    codex --help\n    command -v codex\n    sha256sum \"$(command -v codex)\"\n    find /usr/local/lib/node_modules/@openai -type f -name codex -exec sha256sum '{}' ';'\n    ;;\n  *) exit 64 ;;\nesac\n",
+      "smoke",
+      "basic"
+    ],
+    "utcStart": "2026-11-10T13:29:20.684403+00:00",
+    "monotonicStart": 159.975685832,
+    "seconds": 0.07643754999998009,
+    "timeoutSeconds": 59.98393925900001,
+    "exitCode": 0
+  },
+  {
+    "label": "1-basic-native",
+    "command": [
+      "nerdctl",
+      "--address",
+      "/run/containerd/containerd.sock",
+      "--namespace",
+      "default",
+      "inspect",
+      "--mode=native",
+      "5e535cd59ddbdfef79b329a940d5ccf66afe5051ea2872e3c1f2fecbaa755ab8"
+    ],
+    "utcStart": "2026-11-10T13:29:20.761082+00:00",
+    "monotonicStart": 160.052363506,
+    "seconds": 0.012631960999982539,
+    "timeoutSeconds": 59.90726166800002,
+    "exitCode": 0
+  },
+  {
+    "label": "1-basic-inspect-before",
+    "command": [
+      "nerdctl",
+      "--address",
+      "/run/containerd/containerd.sock",
+      "--namespace",
+      "default",
+      "inspect",
+      "5e535cd59ddbdfef79b329a940d5ccf66afe5051ea2872e3c1f2fecbaa755ab8"
+    ],
+    "utcStart": "2026-11-10T13:29:20.774013+00:00",
+    "monotonicStart": 160.065294799,
+    "seconds": 0.013859831000019085,
+    "timeoutSeconds": 59.89433033400002,
+    "exitCode": 0
+  },
+  {
+    "label": "1-basic-snapshot",
+    "command": [
+      "ctr",
+      "--address",
+      "/run/containerd/containerd.sock",
+      "--namespace",
+      "default",
+      "snapshots",
+      "--snapshotter",
+      "overlayfs",
+      "info",
+      "5e535cd59ddbdfef79b329a940d5ccf66afe5051ea2872e3c1f2fecbaa755ab8"
+    ],
+    "utcStart": "2026-11-10T13:29:20.788189+00:00",
+    "monotonicStart": 160.079470712,
+    "seconds": 0.005066693000003397,
+    "timeoutSeconds": 59.88015417,
+    "exitCode": 0
+  },
+  {
+    "label": "1-basic-start",
+    "command": [
+      "nerdctl",
+      "--address",
+      "/run/containerd/containerd.sock",
+      "--namespace",
+      "default",
+      "start",
+      "5e535cd59ddbdfef79b329a940d5ccf66afe5051ea2872e3c1f2fecbaa755ab8"
+    ],
+    "utcStart": "2026-11-10T13:29:20.793456+00:00",
+    "monotonicStart": 160.084738446,
+    "seconds": 0.0841837340000211,
+    "timeoutSeconds": 59.874885937000016,
+    "exitCode": 0
+  },
+  {
+    "label": "1-basic-wait",
+    "command": [
+      "nerdctl",
+      "--address",
+      "/run/containerd/containerd.sock",
+      "--namespace",
+      "default",
+      "wait",
+      "5e535cd59ddbdfef79b329a940d5ccf66afe5051ea2872e3c1f2fecbaa755ab8"
+    ],
+    "utcStart": "2026-11-10T13:29:20.877876+00:00",
+    "monotonicStart": 160.169157388,
+    "seconds": 0.05303137399999969,
+    "timeoutSeconds": 59.79046803700001,
+    "exitCode": 0
+  },
+  {
+    "label": "1-basic-logs",
+    "command": [
+      "nerdctl",
+      "--address",
+      "/run/containerd/containerd.sock",
+      "--namespace",
+      "default",
+      "logs",
+      "5e535cd59ddbdfef79b329a940d5ccf66afe5051ea2872e3c1f2fecbaa755ab8"
+    ],
+    "utcStart": "2026-11-10T13:29:20.931120+00:00",
+    "monotonicStart": 160.222401386,
+    "seconds": 0.010956507000003057,
+    "timeoutSeconds": 59.737223580000006,
+    "exitCode": 0
+  },
+  {
+    "label": "1-basic-inspect-after",
+    "command": [
+      "nerdctl",
+      "--address",
+      "/run/containerd/containerd.sock",
+      "--namespace",
+      "default",
+      "inspect",
+      "5e535cd59ddbdfef79b329a940d5ccf66afe5051ea2872e3c1f2fecbaa755ab8"
+    ],
+    "utcStart": "2026-11-10T13:29:20.942290+00:00",
+    "monotonicStart": 160.233572226,
+    "seconds": 0.012222710999992614,
+    "timeoutSeconds": 59.726052823,
+    "exitCode": 0
+  },
+  {
+    "label": "1-basic-image-after",
+    "command": [
+      "nerdctl",
+      "--address",
+      "/run/containerd/containerd.sock",
+      "--namespace",
+      "default",
+      "image",
+      "inspect",
+      "--mode=native",
+      "docker.io/library/ontosary-s2-smoke:20261110"
+    ],
+    "utcStart": "2026-11-10T13:29:20.954776+00:00",
+    "monotonicStart": 160.246057603,
+    "seconds": 0.015308118999996623,
+    "timeoutSeconds": 59.71356761300001,
+    "exitCode": 0
+  },
+  {
+    "label": "1-basic-remove",
+    "command": [
+      "nerdctl",
+      "--address",
+      "/run/containerd/containerd.sock",
+      "--namespace",
+      "default",
+      "rm",
+      "5e535cd59ddbdfef79b329a940d5ccf66afe5051ea2872e3c1f2fecbaa755ab8"
+    ],
+    "utcStart": "2026-11-10T13:29:20.970335+00:00",
+    "monotonicStart": 160.261616929,
+    "seconds": 0.04432602699998256,
+    "timeoutSeconds": 59.698007828000016,
+    "exitCode": 0
+  },
+  {
+    "label": "2-exit7-image-before",
+    "command": [
+      "nerdctl",
+      "--address",
+      "/run/containerd/containerd.sock",
+      "--namespace",
+      "default",
+      "image",
+      "inspect",
+      "--mode=native",
+      "docker.io/library/ontosary-s2-smoke:20261110"
+    ],
+    "utcStart": "2026-11-10T13:29:21.014925+00:00",
+    "monotonicStart": 160.306206705,
+    "seconds": 0.014751786999994465,
+    "timeoutSeconds": 59.99999712499999,
+    "exitCode": 0
+  },
+  {
+    "label": "2-exit7-create",
+    "command": [
+      "nerdctl",
+      "--address",
+      "/run/containerd/containerd.sock",
+      "--namespace",
+      "default",
+      "create",
+      "--pull=never",
+      "--name",
+      "s2-smoke-2-exit7",
+      "--user",
+      "1000:1000",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--network",
+      "none",
+      "--cpus",
+      "2",
+      "--memory",
+      "4g",
+      "--pids-limit",
+      "256",
+      "--read-only",
+      "--tmpfs",
+      "/tmp:rw,nosuid,nodev,size=64m",
+      "--env",
+      "HOME=/tmp/smoke-home",
+      "--env",
+      "CODEX_HOME=/tmp/smoke-home/codex",
+      "sha256:a0bdb967ba82f09eb3646daf81bdd4162fe33bd18a0253b08c468c48e0bdede5",
+      "sh",
+      "-c",
+      "#!/bin/sh\nset -eu\n# Invoked in a fresh nonprivileged, network-none container; no model session.\ncase \"$1\" in\n  basic)\n    printf 'S2_SMOKE_STARTED\\n'\n    id\n    node -e 'if(process.version!==\"v22.19.0\" || process.getuid()!==1000 || process.getgid()!==1000) process.exit(9); console.log(JSON.stringify({kind:\"fixed-local-smoke\",value:42,node:process.version,uid:process.getuid(),gid:process.getgid()}))'\n    node -e 'const fs=require(\"fs\"); const read=n=>fs.readFileSync(\"/sys/fs/cgroup/\"+n,\"utf8\").trim(); const cpu=read(\"cpu.max\").split(\" \").map(Number); const limits={cpuMax:read(\"cpu.max\"),memoryMax:read(\"memory.max\"),pidsMax:read(\"pids.max\")}; if(cpu[0]/cpu[1]!==2 || limits.memoryMax!==\"4294967296\" || limits.pidsMax!==\"256\") process.exit(10);console.log(JSON.stringify(limits))'\n    cat /proc/self/status\n    cat /proc/self/mountinfo\n    ;;\n  exit7)\n    printf 'S2_EXIT7_STARTED\\n'\n    exit 7\n    ;;\n  cli)\n    printf 'S2_CLI_STARTED\\n'\n    mkdir -p /tmp/smoke-home/codex\n    test -z \"$(ls -A /tmp/smoke-home/codex)\"\n    codex --version\n    codex --help\n    command -v codex\n    sha256sum \"$(command -v codex)\"\n    find /usr/local/lib/node_modules/@openai -type f -name codex -exec sha256sum '{}' ';'\n    ;;\n  *) exit 64 ;;\nesac\n",
+      "smoke",
+      "exit7"
+    ],
+    "utcStart": "2026-11-10T13:29:21.029995+00:00",
+    "monotonicStart": 160.321276658,
+    "seconds": 0.044140819000006104,
+    "timeoutSeconds": 59.98492713099998,
+    "exitCode": 0
+  },
+  {
+    "label": "2-exit7-native",
+    "command": [
+      "nerdctl",
+      "--address",
+      "/run/containerd/containerd.sock",
+      "--namespace",
+      "default",
+      "inspect",
+      "--mode=native",
+      "2ba229ceb544162334060f9c655110b523fc85d7339d3665436afaed9a66b26a"
+    ],
+    "utcStart": "2026-11-10T13:29:21.074387+00:00",
+    "monotonicStart": 160.365668976,
+    "seconds": 0.01321612500001379,
+    "timeoutSeconds": 59.94053522899998,
+    "exitCode": 0
+  },
+  {
+    "label": "2-exit7-inspect-before",
+    "command": [
+      "nerdctl",
+      "--address",
+      "/run/containerd/containerd.sock",
+      "--namespace",
+      "default",
+      "inspect",
+      "2ba229ceb544162334060f9c655110b523fc85d7339d3665436afaed9a66b26a"
+    ],
+    "utcStart": "2026-11-10T13:29:21.087981+00:00",
+    "monotonicStart": 160.379262891,
+    "seconds": 0.012156795000009879,
+    "timeoutSeconds": 59.926941314000004,
+    "exitCode": 0
+  },
+  {
+    "label": "2-exit7-snapshot",
+    "command": [
+      "ctr",
+      "--address",
+      "/run/containerd/containerd.sock",
+      "--namespace",
+      "default",
+      "snapshots",
+      "--snapshotter",
+      "overlayfs",
+      "info",
+      "2ba229ceb544162334060f9c655110b523fc85d7339d3665436afaed9a66b26a"
+    ],
+    "utcStart": "2026-11-10T13:29:21.100410+00:00",
+    "monotonicStart": 160.391692269,
+    "seconds": 0.005632732000009355,
+    "timeoutSeconds": 59.914511936,
+    "exitCode": 0
+  },
+  {
+    "label": "2-exit7-start",
+    "command": [
+      "nerdctl",
+      "--address",
+      "/run/containerd/containerd.sock",
+      "--namespace",
+      "default",
+      "start",
+      "2ba229ceb544162334060f9c655110b523fc85d7339d3665436afaed9a66b26a"
+    ],
+    "utcStart": "2026-11-10T13:29:21.106301+00:00",
+    "monotonicStart": 160.397582417,
+    "seconds": 0.07361076699999103,
+    "timeoutSeconds": 59.908621705,
+    "exitCode": 0
+  },
+  {
+    "label": "2-exit7-wait",
+    "command": [
+      "nerdctl",
+      "--address",
+      "/run/containerd/containerd.sock",
+      "--namespace",
+      "default",
+      "wait",
+      "2ba229ceb544162334060f9c655110b523fc85d7339d3665436afaed9a66b26a"
+    ],
+    "utcStart": "2026-11-10T13:29:21.180118+00:00",
+    "monotonicStart": 160.471399975,
+    "seconds": 0.011920046000000184,
+    "timeoutSeconds": 59.83480410499999,
+    "exitCode": 0
+  },
+  {
+    "label": "2-exit7-logs",
+    "command": [
+      "nerdctl",
+      "--address",
+      "/run/containerd/containerd.sock",
+      "--namespace",
+      "default",
+      "logs",
+      "2ba229ceb544162334060f9c655110b523fc85d7339d3665436afaed9a66b26a"
+    ],
+    "utcStart": "2026-11-10T13:29:21.192257+00:00",
+    "monotonicStart": 160.48353852,
+    "seconds": 0.012038046000014901,
+    "timeoutSeconds": 59.822665392999994,
+    "exitCode": 0
+  },
+  {
+    "label": "2-exit7-inspect-after",
+    "command": [
+      "nerdctl",
+      "--address",
+      "/run/containerd/containerd.sock",
+      "--namespace",
+      "default",
+      "inspect",
+      "2ba229ceb544162334060f9c655110b523fc85d7339d3665436afaed9a66b26a"
+    ],
+    "utcStart": "2026-11-10T13:29:21.204515+00:00",
+    "monotonicStart": 160.49579669,
+    "seconds": 0.01268004300001735,
+    "timeoutSeconds": 59.81040718199998,
+    "exitCode": 0
+  },
+  {
+    "label": "2-exit7-image-after",
+    "command": [
+      "nerdctl",
+      "--address",
+      "/run/containerd/containerd.sock",
+      "--namespace",
+      "default",
+      "image",
+      "inspect",
+      "--mode=native",
+      "docker.io/library/ontosary-s2-smoke:20261110"
+    ],
+    "utcStart": "2026-11-10T13:29:21.217449+00:00",
+    "monotonicStart": 160.508731357,
+    "seconds": 0.013970081000024948,
+    "timeoutSeconds": 59.797472723,
+    "exitCode": 0
+  },
+  {
+    "label": "2-exit7-remove",
+    "command": [
+      "nerdctl",
+      "--address",
+      "/run/containerd/containerd.sock",
+      "--namespace",
+      "default",
+      "rm",
+      "2ba229ceb544162334060f9c655110b523fc85d7339d3665436afaed9a66b26a"
+    ],
+    "utcStart": "2026-11-10T13:29:21.231687+00:00",
+    "monotonicStart": 160.522968813,
+    "seconds": 0.041689284999989695,
+    "timeoutSeconds": 59.78323543399998,
+    "exitCode": 0
+  },
+  {
+    "label": "3-basic-image-before",
+    "command": [
+      "nerdctl",
+      "--address",
+      "/run/containerd/containerd.sock",
+      "--namespace",
+      "default",
+      "image",
+      "inspect",
+      "--mode=native",
+      "docker.io/library/ontosary-s2-smoke:20261110"
+    ],
+    "utcStart": "2026-11-10T13:29:21.273633+00:00",
+    "monotonicStart": 160.564915222,
+    "seconds": 0.015045411000016884,
+    "timeoutSeconds": 59.999997667,
+    "exitCode": 0
+  },
+  {
+    "label": "3-basic-create",
+    "command": [
+      "nerdctl",
+      "--address",
+      "/run/containerd/containerd.sock",
+      "--namespace",
+      "default",
+      "create",
+      "--pull=never",
+      "--name",
+      "s2-smoke-3-basic",
+      "--user",
+      "1000:1000",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--network",
+      "none",
+      "--cpus",
+      "2",
+      "--memory",
+      "4g",
+      "--pids-limit",
+      "256",
+      "--read-only",
+      "--tmpfs",
+      "/tmp:rw,nosuid,nodev,size=64m",
+      "--env",
+      "HOME=/tmp/smoke-home",
+      "--env",
+      "CODEX_HOME=/tmp/smoke-home/codex",
+      "sha256:a0bdb967ba82f09eb3646daf81bdd4162fe33bd18a0253b08c468c48e0bdede5",
+      "sh",
+      "-c",
+      "#!/bin/sh\nset -eu\n# Invoked in a fresh nonprivileged, network-none container; no model session.\ncase \"$1\" in\n  basic)\n    printf 'S2_SMOKE_STARTED\\n'\n    id\n    node -e 'if(process.version!==\"v22.19.0\" || process.getuid()!==1000 || process.getgid()!==1000) process.exit(9); console.log(JSON.stringify({kind:\"fixed-local-smoke\",value:42,node:process.version,uid:process.getuid(),gid:process.getgid()}))'\n    node -e 'const fs=require(\"fs\"); const read=n=>fs.readFileSync(\"/sys/fs/cgroup/\"+n,\"utf8\").trim(); const cpu=read(\"cpu.max\").split(\" \").map(Number); const limits={cpuMax:read(\"cpu.max\"),memoryMax:read(\"memory.max\"),pidsMax:read(\"pids.max\")}; if(cpu[0]/cpu[1]!==2 || limits.memoryMax!==\"4294967296\" || limits.pidsMax!==\"256\") process.exit(10);console.log(JSON.stringify(limits))'\n    cat /proc/self/status\n    cat /proc/self/mountinfo\n    ;;\n  exit7)\n    printf 'S2_EXIT7_STARTED\\n'\n    exit 7\n    ;;\n  cli)\n    printf 'S2_CLI_STARTED\\n'\n    mkdir -p /tmp/smoke-home/codex\n    test -z \"$(ls -A /tmp/smoke-home/codex)\"\n    codex --version\n    codex --help\n    command -v codex\n    sha256sum \"$(command -v codex)\"\n    find /usr/local/lib/node_modules/@openai -type f -name codex -exec sha256sum '{}' ';'\n    ;;\n  *) exit 64 ;;\nesac\n",
+      "smoke",
+      "basic"
+    ],
+    "utcStart": "2026-11-10T13:29:21.288985+00:00",
+    "monotonicStart": 160.58026659,
+    "seconds": 0.040086331999987124,
+    "timeoutSeconds": 59.98464663200002,
+    "exitCode": 0
+  },
+  {
+    "label": "3-basic-native",
+    "command": [
+      "nerdctl",
+      "--address",
+      "/run/containerd/containerd.sock",
+      "--namespace",
+      "default",
+      "inspect",
+      "--mode=native",
+      "c0c8d7cc23ad800fd5762e4a149a30ea6dd1a6603da06ee1936e6e3699364825"
+    ],
+    "utcStart": "2026-11-10T13:29:21.329345+00:00",
+    "monotonicStart": 160.620626921,
+    "seconds": 0.014042622000005167,
+    "timeoutSeconds": 59.944286592,
+    "exitCode": 0
+  },
+  {
+    "label": "3-basic-inspect-before",
+    "command": [
+      "nerdctl",
+      "--address",
+      "/run/containerd/containerd.sock",
+      "--namespace",
+      "default",
+      "inspect",
+      "c0c8d7cc23ad800fd5762e4a149a30ea6dd1a6603da06ee1936e6e3699364825"
+    ],
+    "utcStart": "2026-11-10T13:29:21.343751+00:00",
+    "monotonicStart": 160.635033209,
+    "seconds": 0.01490691099999708,
+    "timeoutSeconds": 59.929880513,
+    "exitCode": 0
+  },
+  {
+    "label": "3-basic-snapshot",
+    "command": [
+      "ctr",
+      "--address",
+      "/run/containerd/containerd.sock",
+      "--namespace",
+      "default",
+      "snapshots",
+      "--snapshotter",
+      "overlayfs",
+      "info",
+      "c0c8d7cc23ad800fd5762e4a149a30ea6dd1a6603da06ee1936e6e3699364825"
+    ],
+    "utcStart": "2026-11-10T13:29:21.358964+00:00",
+    "monotonicStart": 160.650245661,
+    "seconds": 0.004405068999972173,
+    "timeoutSeconds": 59.914667436,
+    "exitCode": 0
+  },
+  {
+    "label": "3-basic-start",
+    "command": [
+      "nerdctl",
+      "--address",
+      "/run/containerd/containerd.sock",
+      "--namespace",
+      "default",
+      "start",
+      "c0c8d7cc23ad800fd5762e4a149a30ea6dd1a6603da06ee1936e6e3699364825"
+    ],
+    "utcStart": "2026-11-10T13:29:21.363607+00:00",
+    "monotonicStart": 160.654889229,
+    "seconds": 0.07476643100000047,
+    "timeoutSeconds": 59.91002349200002,
+    "exitCode": 0
+  },
+  {
+    "label": "3-basic-wait",
+    "command": [
+      "nerdctl",
+      "--address",
+      "/run/containerd/containerd.sock",
+      "--namespace",
+      "default",
+      "wait",
+      "c0c8d7cc23ad800fd5762e4a149a30ea6dd1a6603da06ee1936e6e3699364825"
+    ],
+    "utcStart": "2026-11-10T13:29:21.438626+00:00",
+    "monotonicStart": 160.729907451,
+    "seconds": 0.028900784000001067,
+    "timeoutSeconds": 59.83500564600001,
+    "exitCode": 0
+  },
+  {
+    "label": "3-basic-logs",
+    "command": [
+      "nerdctl",
+      "--address",
+      "/run/containerd/containerd.sock",
+      "--namespace",
+      "default",
+      "logs",
+      "c0c8d7cc23ad800fd5762e4a149a30ea6dd1a6603da06ee1936e6e3699364825"
+    ],
+    "utcStart": "2026-11-10T13:29:21.467774+00:00",
+    "monotonicStart": 160.759055484,
+    "seconds": 0.010442759000000024,
+    "timeoutSeconds": 59.80585823800001,
+    "exitCode": 0
+  },
+  {
+    "label": "3-basic-inspect-after",
+    "command": [
+      "nerdctl",
+      "--address",
+      "/run/containerd/containerd.sock",
+      "--namespace",
+      "default",
+      "inspect",
+      "c0c8d7cc23ad800fd5762e4a149a30ea6dd1a6603da06ee1936e6e3699364825"
+    ],
+    "utcStart": "2026-11-10T13:29:21.478450+00:00",
+    "monotonicStart": 160.769731534,
+    "seconds": 0.013569998000008354,
+    "timeoutSeconds": 59.79518185500001,
+    "exitCode": 0
+  },
+  {
+    "label": "3-basic-image-after",
+    "command": [
+      "nerdctl",
+      "--address",
+      "/run/containerd/containerd.sock",
+      "--namespace",
+      "default",
+      "image",
+      "inspect",
+      "--mode=native",
+      "docker.io/library/ontosary-s2-smoke:20261110"
+    ],
+    "utcStart": "2026-11-10T13:29:21.492385+00:00",
+    "monotonicStart": 160.783667365,
+    "seconds": 0.013940955999999005,
+    "timeoutSeconds": 59.781245815000005,
+    "exitCode": 0
+  },
+  {
+    "label": "3-basic-remove",
+    "command": [
+      "nerdctl",
+      "--address",
+      "/run/containerd/containerd.sock",
+      "--namespace",
+      "default",
+      "rm",
+      "c0c8d7cc23ad800fd5762e4a149a30ea6dd1a6603da06ee1936e6e3699364825"
+    ],
+    "utcStart": "2026-11-10T13:29:21.506625+00:00",
+    "monotonicStart": 160.797906903,
+    "seconds": 0.038352586999991445,
+    "timeoutSeconds": 59.767006484999996,
+    "exitCode": 0
+  },
+  {
+    "label": "4-cli-image-before",
+    "command": [
+      "nerdctl",
+      "--address",
+      "/run/containerd/containerd.sock",
+      "--namespace",
+      "default",
+      "image",
+      "inspect",
+      "--mode=native",
+      "docker.io/library/ontosary-s2-smoke:20261110"
+    ],
+    "utcStart": "2026-11-10T13:29:21.545264+00:00",
+    "monotonicStart": 160.836545989,
+    "seconds": 0.012779792999992878,
+    "timeoutSeconds": 59.99999787500002,
+    "exitCode": 0
+  },
+  {
+    "label": "4-cli-create",
+    "command": [
+      "nerdctl",
+      "--address",
+      "/run/containerd/containerd.sock",
+      "--namespace",
+      "default",
+      "create",
+      "--pull=never",
+      "--name",
+      "s2-smoke-4-cli",
+      "--user",
+      "1000:1000",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--network",
+      "none",
+      "--cpus",
+      "2",
+      "--memory",
+      "4g",
+      "--pids-limit",
+      "256",
+      "--read-only",
+      "--tmpfs",
+      "/tmp:rw,nosuid,nodev,size=64m",
+      "--env",
+      "HOME=/tmp/smoke-home",
+      "--env",
+      "CODEX_HOME=/tmp/smoke-home/codex",
+      "sha256:a0bdb967ba82f09eb3646daf81bdd4162fe33bd18a0253b08c468c48e0bdede5",
+      "sh",
+      "-c",
+      "#!/bin/sh\nset -eu\n# Invoked in a fresh nonprivileged, network-none container; no model session.\ncase \"$1\" in\n  basic)\n    printf 'S2_SMOKE_STARTED\\n'\n    id\n    node -e 'if(process.version!==\"v22.19.0\" || process.getuid()!==1000 || process.getgid()!==1000) process.exit(9); console.log(JSON.stringify({kind:\"fixed-local-smoke\",value:42,node:process.version,uid:process.getuid(),gid:process.getgid()}))'\n    node -e 'const fs=require(\"fs\"); const read=n=>fs.readFileSync(\"/sys/fs/cgroup/\"+n,\"utf8\").trim(); const cpu=read(\"cpu.max\").split(\" \").map(Number); const limits={cpuMax:read(\"cpu.max\"),memoryMax:read(\"memory.max\"),pidsMax:read(\"pids.max\")}; if(cpu[0]/cpu[1]!==2 || limits.memoryMax!==\"4294967296\" || limits.pidsMax!==\"256\") process.exit(10);console.log(JSON.stringify(limits))'\n    cat /proc/self/status\n    cat /proc/self/mountinfo\n    ;;\n  exit7)\n    printf 'S2_EXIT7_STARTED\\n'\n    exit 7\n    ;;\n  cli)\n    printf 'S2_CLI_STARTED\\n'\n    mkdir -p /tmp/smoke-home/codex\n    test -z \"$(ls -A /tmp/smoke-home/codex)\"\n    codex --version\n    codex --help\n    command -v codex\n    sha256sum \"$(command -v codex)\"\n    find /usr/local/lib/node_modules/@openai -type f -name codex -exec sha256sum '{}' ';'\n    ;;\n  *) exit 64 ;;\nesac\n",
+      "smoke",
+      "cli"
+    ],
+    "utcStart": "2026-11-10T13:29:21.558359+00:00",
+    "monotonicStart": 160.849640948,
+    "seconds": 0.035607387999988305,
+    "timeoutSeconds": 59.986903541000004,
+    "exitCode": 0
+  },
+  {
+    "label": "4-cli-native",
+    "command": [
+      "nerdctl",
+      "--address",
+      "/run/containerd/containerd.sock",
+      "--namespace",
+      "default",
+      "inspect",
+      "--mode=native",
+      "4390e04f5fdc5eef66c9b6e3da465b64218184900bc87368687ad2e3710e66e1"
+    ],
+    "utcStart": "2026-11-10T13:29:21.594262+00:00",
+    "monotonicStart": 160.885544251,
+    "seconds": 0.012018879000009974,
+    "timeoutSeconds": 59.951000238000006,
+    "exitCode": 0
+  },
+  {
+    "label": "4-cli-inspect-before",
+    "command": [
+      "nerdctl",
+      "--address",
+      "/run/containerd/containerd.sock",
+      "--namespace",
+      "default",
+      "inspect",
+      "4390e04f5fdc5eef66c9b6e3da465b64218184900bc87368687ad2e3710e66e1"
+    ],
+    "utcStart": "2026-11-10T13:29:21.606649+00:00",
+    "monotonicStart": 160.897931921,
+    "seconds": 0.012838166999983969,
+    "timeoutSeconds": 59.938612527000004,
+    "exitCode": 0
+  },
+  {
+    "label": "4-cli-snapshot",
+    "command": [
+      "ctr",
+      "--address",
+      "/run/containerd/containerd.sock",
+      "--namespace",
+      "default",
+      "snapshots",
+      "--snapshotter",
+      "overlayfs",
+      "info",
+      "4390e04f5fdc5eef66c9b6e3da465b64218184900bc87368687ad2e3710e66e1"
+    ],
+    "utcStart": "2026-11-10T13:29:21.619795+00:00",
+    "monotonicStart": 160.911076712,
+    "seconds": 0.005209775999986732,
+    "timeoutSeconds": 59.92546731800002,
+    "exitCode": 0
+  },
+  {
+    "label": "4-cli-start",
+    "command": [
+      "nerdctl",
+      "--address",
+      "/run/containerd/containerd.sock",
+      "--namespace",
+      "default",
+      "start",
+      "4390e04f5fdc5eef66c9b6e3da465b64218184900bc87368687ad2e3710e66e1"
+    ],
+    "utcStart": "2026-11-10T13:29:21.625282+00:00",
+    "monotonicStart": 160.916564612,
+    "seconds": 0.06728607899998451,
+    "timeoutSeconds": 59.919979127000005,
+    "exitCode": 0
+  },
+  {
+    "label": "4-cli-wait",
+    "command": [
+      "nerdctl",
+      "--address",
+      "/run/containerd/containerd.sock",
+      "--namespace",
+      "default",
+      "wait",
+      "4390e04f5fdc5eef66c9b6e3da465b64218184900bc87368687ad2e3710e66e1"
+    ],
+    "utcStart": "2026-11-10T13:29:21.692861+00:00",
+    "monotonicStart": 160.984142148,
+    "seconds": 0.9083410080000078,
+    "timeoutSeconds": 59.85240192400002,
+    "exitCode": 0
+  },
+  {
+    "label": "4-cli-logs",
+    "command": [
+      "nerdctl",
+      "--address",
+      "/run/containerd/containerd.sock",
+      "--namespace",
+      "default",
+      "logs",
+      "4390e04f5fdc5eef66c9b6e3da465b64218184900bc87368687ad2e3710e66e1"
+    ],
+    "utcStart": "2026-11-10T13:29:22.601503+00:00",
+    "monotonicStart": 161.892784238,
+    "seconds": 0.010772050000014133,
+    "timeoutSeconds": 58.94376029200001,
+    "exitCode": 0
+  },
+  {
+    "label": "4-cli-inspect-after",
+    "command": [
+      "nerdctl",
+      "--address",
+      "/run/containerd/containerd.sock",
+      "--namespace",
+      "default",
+      "inspect",
+      "4390e04f5fdc5eef66c9b6e3da465b64218184900bc87368687ad2e3710e66e1"
+    ],
+    "utcStart": "2026-11-10T13:29:22.612551+00:00",
+    "monotonicStart": 161.903832537,
+    "seconds": 0.014340954999994437,
+    "timeoutSeconds": 58.93271191000002,
+    "exitCode": 0
+  },
+  {
+    "label": "4-cli-image-after",
+    "command": [
+      "nerdctl",
+      "--address",
+      "/run/containerd/containerd.sock",
+      "--namespace",
+      "default",
+      "image",
+      "inspect",
+      "--mode=native",
+      "docker.io/library/ontosary-s2-smoke:20261110"
+    ],
+    "utcStart": "2026-11-10T13:29:22.627277+00:00",
+    "monotonicStart": 161.91855924,
+    "seconds": 0.014753453999986732,
+    "timeoutSeconds": 58.91798487400001,
+    "exitCode": 0
+  },
+  {
+    "label": "4-cli-remove",
+    "command": [
+      "nerdctl",
+      "--address",
+      "/run/containerd/containerd.sock",
+      "--namespace",
+      "default",
+      "rm",
+      "4390e04f5fdc5eef66c9b6e3da465b64218184900bc87368687ad2e3710e66e1"
+    ],
+    "utcStart": "2026-11-10T13:29:22.642361+00:00",
+    "monotonicStart": 161.933643484,
+    "seconds": 0.04116416200000117,
+    "timeoutSeconds": 58.90290075500002,
+    "exitCode": 0
+  },
+  {
+    "label": "containers-final",
+    "command": [
+      "nerdctl",
+      "--address",
+      "/run/containerd/containerd.sock",
+      "--namespace",
+      "default",
+      "ps",
+      "-a",
+      "--no-trunc"
+    ],
+    "utcStart": "2026-11-10T13:29:22.683875+00:00",
+    "monotonicStart": 161.975156562,
+    "seconds": 0.00969580200001019,
+    "timeoutSeconds": 30,
+    "exitCode": 0
+  }
+]

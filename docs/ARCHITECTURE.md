@@ -1,5 +1,7 @@
 # 현재 아키텍처
 
+2026-11-10 [최소 실행 smoke 통과](reviews/2026-11-10-s2-container-smoke.md): `trial/container/smoke.py`는 명시적 containerd endpoint/namespace에서 native target을 조회하고 OCI config/rootfs chain과 실제 container snapshot을 대조한다. `--pull=never`·UID1000·network none·자원 상한의4개 유한 실행만 확인했다. smoke는 live dispatcher/종료·수집 adapter가 아니며 준비용 process-group timeout이나 VM 삭제를 R11 보장으로 쓰지 않는다. 기존 production/live 차단을 유지하고 후속 구조는 결과 리뷰 뒤 결정한다.
+
 2026-11-10 다음 검증 범위 축소: ADR-033의 [30분 최소 실행 재검증](reviews/2026-11-10-s2-container-smoke-instructions.md)은 동일 Lima/VZ·nerdctl의 image 이름/target/config와 실제 container 연결, 비특권 셸·Node·CLI version/help만 확인한다. 이는 기존 준비 스크립트의 국소 보완이며 전체 종료·수집/평가 adapter 설계/구현의 재개가 아니다. 성공해도 R11 해결 판정이나 live 경로를 열지 않고 결과 리뷰에서 다음 범위를 정한다.
 
 2026-11-10 컨테이너 타당성 결과: **준비 이미지까지 확인, 실행 경계는 미구현·미검증**. [인계](reviews/2026-11-10-s2-container-feasibility.md). `trial/container/`에는 Lima 선언·Dockerfile·준비 명령 기록/증거 도구만 있다. 로컬 이미지 식별자 해석과 수정1회가 실패해 worker/evaluator를 시작하지 않았다. guest cgroup v2 관찰이나 VM 삭제를 단위 종료→불변 수집의 증명으로 쓰지 않는다. 모든 임시 runtime 자원을 정리했고 기존 macOS production/live 거부·R11 unresolved·R12 기존 검증 범위를 유지한다.

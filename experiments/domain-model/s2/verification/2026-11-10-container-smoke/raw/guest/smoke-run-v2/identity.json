@@ -1,0 +1,10 @@
+{
+  "name": "docker.io/library/ontosary-s2-smoke:20261110",
+  "target": "sha256:a0bdb967ba82f09eb3646daf81bdd4162fe33bd18a0253b08c468c48e0bdede5",
+  "config": "sha256:35edd6a7243347e91578669c721c1deb52c2415272947cb185c0fc171ce6dd6a",
+  "platform": "linux/arm64",
+  "rootfsChainId": "sha256:a69bf3c27762398127567b88451d993a079f4913cdcba2e8351efff72397abac",
+  "reference": "sha256:a0bdb967ba82f09eb3646daf81bdd4162fe33bd18a0253b08c468c48e0bdede5",
+  "endpoint": "/run/containerd/containerd.sock",
+  "namespace": "default"
+}

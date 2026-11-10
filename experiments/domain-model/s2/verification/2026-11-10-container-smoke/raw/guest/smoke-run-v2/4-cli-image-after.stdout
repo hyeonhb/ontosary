@@ -1,0 +1,252 @@
+[
+    {
+        "Image": {
+            "Name": "docker.io/library/ontosary-s2-smoke:20261110",
+            "Labels": null,
+            "Target": {
+                "mediaType": "application/vnd.oci.image.manifest.v1+json",
+                "digest": "sha256:a0bdb967ba82f09eb3646daf81bdd4162fe33bd18a0253b08c468c48e0bdede5",
+                "size": 1817,
+                "annotations": {
+                    "config.digest": "sha256:35edd6a7243347e91578669c721c1deb52c2415272947cb185c0fc171ce6dd6a"
+                }
+            },
+            "CreatedAt": "2026-11-10T13:28:27.979702619Z",
+            "UpdatedAt": "2026-11-10T13:28:27.979702619Z"
+        },
+        "ManifestDesc": {
+            "mediaType": "application/vnd.oci.image.manifest.v1+json",
+            "digest": "sha256:a0bdb967ba82f09eb3646daf81bdd4162fe33bd18a0253b08c468c48e0bdede5",
+            "size": 1817,
+            "annotations": {
+                "config.digest": "sha256:35edd6a7243347e91578669c721c1deb52c2415272947cb185c0fc171ce6dd6a"
+            }
+        },
+        "Manifest": {
+            "schemaVersion": 2,
+            "mediaType": "application/vnd.oci.image.manifest.v1+json",
+            "config": {
+                "mediaType": "application/vnd.oci.image.config.v1+json",
+                "digest": "sha256:35edd6a7243347e91578669c721c1deb52c2415272947cb185c0fc171ce6dd6a",
+                "size": 7998
+            },
+            "layers": [
+                {
+                    "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+                    "digest": "sha256:0878ecc8b0afd0d835641c015541aacd4780ec19e5565a3e1a5af3f77d208d42",
+                    "size": 28102099
+                },
+                {
+                    "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+                    "digest": "sha256:8474919cf0553dec4ec2c59bf1b8b095811587318f086a74aa06d67198ec08d8",
+                    "size": 3308
+                },
+                {
+                    "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+                    "digest": "sha256:050cc65304670b77c0cbdad5cc622b762fd3e4c69b0c45fad068df13c895e5db",
+                    "size": 48681583
+                },
+                {
+                    "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+                    "digest": "sha256:50ac3c1bc6412649b494dd6cfd5e177debc6ac2a0498b934200e2e847ecd607d",
+                    "size": 1712635
+                },
+                {
+                    "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+                    "digest": "sha256:b56ec4d7bd508eaadc07555ca6b5b1817577da79bb8ae406239e0d27f94d9b93",
+                    "size": 447
+                },
+                {
+                    "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+                    "digest": "sha256:9810f4d323dce58bebf294761c216ae8fc44339ccda20327c15cca9baeb8b8a0",
+                    "size": 359020218
+                },
+                {
+                    "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+                    "digest": "sha256:70e2f1bb4e7de0967b340e7e918a14b72e7e088933bc2a6858304cf627abe48e",
+                    "size": 6869357
+                },
+                {
+                    "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+                    "digest": "sha256:1e410c5aaea11b5117d868d79498377cda3a7ed88e588bacf53b4fddb0d89d80",
+                    "size": 99
+                }
+            ]
+        },
+        "ImageConfigDesc": {
+            "mediaType": "application/vnd.oci.image.config.v1+json",
+            "digest": "sha256:35edd6a7243347e91578669c721c1deb52c2415272947cb185c0fc171ce6dd6a",
+            "size": 7998
+        },
+        "ImageConfig": {
+            "created": "2026-11-10T22:28:15.248390152+09:00",
+            "architecture": "arm64",
+            "os": "linux",
+            "config": {
+                "User": "1000:1000",
+                "Env": [
+                    "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                    "NODE_VERSION=22.19.0",
+                    "YARN_VERSION=1.22.22",
+                    "NODE_PATH=/usr/local/lib/node_modules"
+                ],
+                "Entrypoint": [
+                    "docker-entrypoint.sh"
+                ],
+                "Cmd": [
+                    "node"
+                ],
+                "WorkingDir": "/source"
+            },
+            "rootfs": {
+                "type": "layers",
+                "diff_ids": [
+                    "sha256:07d4c428e5bd1876bbc1c2412d105f749f49898b64c684185c5123c73c8e9e7e",
+                    "sha256:3676c71868af400ab87a3508846b4fdc5b660179f079aee60adeee60d3d196b8",
+                    "sha256:8ebb6eee5b619e37c41ff81415b497f17d584edeadb5621d8ebe8a16df41df8d",
+                    "sha256:dfffa763492598f78af2738905cbd806aaf031d2fbe4ff8a8f851c94be9d5f1e",
+                    "sha256:a4c3026f0b16e589c2fc45b474e5a25f11c3554a66f0296e5477678a8f804c52",
+                    "sha256:4f71f44829cce69322f9201a4ddbedeb2cc5ee53138f74892b70cf989dc2ffe4",
+                    "sha256:96ed53aa0f171c3be75922574be05c188cf254bdedf909fb0741be3f12afeb0b",
+                    "sha256:a69bf3c27762398127567b88451d993a079f4913cdcba2e8351efff72397abac"
+                ]
+            },
+            "history": [
+                {
+                    "created": "2025-08-28T22:35:08Z",
+                    "created_by": "# debian.sh --arch 'arm64' out/ 'bookworm' '@1757289600'",
+                    "comment": "debuerreotype 0.16"
+                },
+                {
+                    "created": "2025-08-28T22:35:08Z",
+                    "created_by": "RUN /bin/sh -c groupadd --gid 1000 node   && useradd --uid 1000 --gid node --shell /bin/bash --create-home node # buildkit",
+                    "comment": "buildkit.dockerfile.v0"
+                },
+                {
+                    "created": "2025-08-28T22:35:08Z",
+                    "created_by": "ENV NODE_VERSION=22.19.0",
+                    "comment": "buildkit.dockerfile.v0",
+                    "empty_layer": true
+                },
+                {
+                    "created": "2025-08-28T22:35:08Z",
+                    "created_by": "RUN /bin/sh -c ARCH= OPENSSL_ARCH= && dpkgArch=\"$(dpkg --print-architecture)\"     && case \"${dpkgArch##*-}\" in       amd64) ARCH='x64' OPENSSL_ARCH='linux-x86_64';;       ppc64el) ARCH='ppc64le' OPENSSL_ARCH='linux-ppc64le';;       s390x) ARCH='s390x' OPENSSL_ARCH='linux*-s390x';;       arm64) ARCH='arm64' OPENSSL_ARCH='linux-aarch64';;       armhf) ARCH='armv7l' OPENSSL_ARCH='linux-armv4';;       i386) ARCH='x86' OPENSSL_ARCH='linux-elf';;       *) echo \"unsupported architecture\"; exit 1 ;;     esac     && set -ex     && apt-get update && apt-get install -y ca-certificates curl wget gnupg dirmngr xz-utils libatomic1 --no-install-recommends     && rm -rf /var/lib/apt/lists/*     && export GNUPGHOME=\"$(mktemp -d)\"     && for key in       5BE8A3F6C8A5C01D106C0AD820B1A390B168D356       DD792F5973C6DE52C432CBDAC77ABFA00DDBF2B7       CC68F5A3106FF448322E48ED27F5E38D5B0A215F       8FCCA13FEF1D0C2E91008E09770F7A9A5AE15600       890C08DB8579162FEE0DF9DB8BEAB4DFCF555EF4       C82FA3AE1CBEDC6BE46B9360C43CEC45C17AB93C       108F52B48DB57BB0CC439B2997B01419BD92F80A       A363A499291CBBC940DD62E41F10027AF002F8B0     ; do       { gpg --batch --keyserver hkps://keys.openpgp.org --recv-keys \"$key\" && gpg --batch --fingerprint \"$key\"; } ||       { gpg --batch --keyserver keyserver.ubuntu.com --recv-keys \"$key\" && gpg --batch --fingerprint \"$key\"; } ;     done     && curl -fsSLO --compressed \"https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-$ARCH.tar.xz\"     && curl -fsSLO --compressed \"https://nodejs.org/dist/v$NODE_VERSION/SHASUMS256.txt.asc\"     && gpg --batch --decrypt --output SHASUMS256.txt SHASUMS256.txt.asc     && gpgconf --kill all     && rm -rf \"$GNUPGHOME\"     && grep \" node-v$NODE_VERSION-linux-$ARCH.tar.xz\\$\" SHASUMS256.txt | sha256sum -c -     && tar -xJf \"node-v$NODE_VERSION-linux-$ARCH.tar.xz\" -C /usr/local --strip-components=1 --no-same-owner     && rm \"node-v$NODE_VERSION-linux-$ARCH.tar.xz\" SHASUMS256.txt.asc SHASUMS256.txt     && find /usr/local/include/node/openssl/archs -mindepth 1 -maxdepth 1 ! -name \"$OPENSSL_ARCH\" -exec rm -rf {} \\;     && apt-mark auto '.*' > /dev/null     && find /usr/local -type f -executable -exec ldd '{}' ';'       | awk '/=>/ { so = $(NF-1); if (index(so, \"/usr/local/\") == 1) { next }; gsub(\"^/(usr/)?\", \"\", so); print so }'       | sort -u       | xargs -r dpkg-query --search       | cut -d: -f1       | sort -u       | xargs -r apt-mark manual     && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false     && ln -s /usr/local/bin/node /usr/local/bin/nodejs     && node --version     && npm --version     && rm -rf /tmp/* # buildkit",
+                    "comment": "buildkit.dockerfile.v0"
+                },
+                {
+                    "created": "2025-08-28T22:35:08Z",
+                    "created_by": "ENV YARN_VERSION=1.22.22",
+                    "comment": "buildkit.dockerfile.v0",
+                    "empty_layer": true
+                },
+                {
+                    "created": "2025-08-28T22:35:08Z",
+                    "created_by": "RUN /bin/sh -c set -ex   && savedAptMark=\"$(apt-mark showmanual)\"   && apt-get update && apt-get install -y ca-certificates curl wget gnupg dirmngr --no-install-recommends   && rm -rf /var/lib/apt/lists/*   && export GNUPGHOME=\"$(mktemp -d)\"   && for key in     6A010C5166006599AA17F08146C2130DFD2497F5   ; do     { gpg --batch --keyserver hkps://keys.openpgp.org --recv-keys \"$key\" && gpg --batch --fingerprint \"$key\"; } ||     { gpg --batch --keyserver keyserver.ubuntu.com --recv-keys \"$key\" && gpg --batch --fingerprint \"$key\"; } ;   done   && curl -fsSLO --compressed \"https://yarnpkg.com/downloads/$YARN_VERSION/yarn-v$YARN_VERSION.tar.gz\"   && curl -fsSLO --compressed \"https://yarnpkg.com/downloads/$YARN_VERSION/yarn-v$YARN_VERSION.tar.gz.asc\"   && gpg --batch --verify yarn-v$YARN_VERSION.tar.gz.asc yarn-v$YARN_VERSION.tar.gz   && gpgconf --kill all   && rm -rf \"$GNUPGHOME\"   && mkdir -p /opt   && tar -xzf yarn-v$YARN_VERSION.tar.gz -C /opt/   && ln -s /opt/yarn-v$YARN_VERSION/bin/yarn /usr/local/bin/yarn   && ln -s /opt/yarn-v$YARN_VERSION/bin/yarnpkg /usr/local/bin/yarnpkg   && rm yarn-v$YARN_VERSION.tar.gz.asc yarn-v$YARN_VERSION.tar.gz   && apt-mark auto '.*' > /dev/null   && { [ -z \"$savedAptMark\" ] || apt-mark manual $savedAptMark > /dev/null; }   && find /usr/local -type f -executable -exec ldd '{}' ';'     | awk '/=>/ { so = $(NF-1); if (index(so, \"/usr/local/\") == 1) { next }; gsub(\"^/(usr/)?\", \"\", so); print so }'     | sort -u     | xargs -r dpkg-query --search     | cut -d: -f1     | sort -u     | xargs -r apt-mark manual   && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false   && yarn --version   && rm -rf /tmp/* # buildkit",
+                    "comment": "buildkit.dockerfile.v0"
+                },
+                {
+                    "created": "2025-08-28T22:35:08Z",
+                    "created_by": "COPY docker-entrypoint.sh /usr/local/bin/ # buildkit",
+                    "comment": "buildkit.dockerfile.v0"
+                },
+                {
+                    "created": "2025-08-28T22:35:08Z",
+                    "created_by": "ENTRYPOINT [\"docker-entrypoint.sh\"]",
+                    "comment": "buildkit.dockerfile.v0",
+                    "empty_layer": true
+                },
+                {
+                    "created": "2025-08-28T22:35:08Z",
+                    "created_by": "CMD [\"node\"]",
+                    "comment": "buildkit.dockerfile.v0",
+                    "empty_layer": true
+                },
+                {
+                    "created": "2026-11-10T22:28:14.084796151+09:00",
+                    "created_by": "RUN /bin/sh -c npm install --global npm@10.9.3 @openai/codex@0.167.0-alpha.3.2 typescript@5.9.3 --ignore-scripts --no-audit --no-fund # buildkit",
+                    "comment": "buildkit.dockerfile.v0"
+                },
+                {
+                    "created": "2026-11-10T22:28:15.237109095+09:00",
+                    "created_by": "RUN /bin/sh -c npm install --prefix /opt/s2-tools typescript@5.9.3 @types/node@22.20.5 --ignore-scripts --no-audit --no-fund # buildkit",
+                    "comment": "buildkit.dockerfile.v0"
+                },
+                {
+                    "created": "2026-11-10T22:28:15.248390152+09:00",
+                    "created_by": "ENV NODE_PATH=/usr/local/lib/node_modules",
+                    "comment": "buildkit.dockerfile.v0",
+                    "empty_layer": true
+                },
+                {
+                    "created": "2026-11-10T22:28:15.248390152+09:00",
+                    "created_by": "USER 1000:1000",
+                    "comment": "buildkit.dockerfile.v0",
+                    "empty_layer": true
+                },
+                {
+                    "created": "2026-11-10T22:28:15.248390152+09:00",
+                    "created_by": "WORKDIR /source",
+                    "comment": "buildkit.dockerfile.v0"
+                }
+            ]
+        },
+        "size": 998412288,
+        "Snapshots": [
+            {
+                "Kind": "Committed",
+                "Name": "sha256:07d4c428e5bd1876bbc1c2412d105f749f49898b64c684185c5123c73c8e9e7e",
+                "Created": "2026-11-10T13:28:28.421486852Z",
+                "Updated": "2026-11-10T13:28:28.421486852Z"
+            },
+            {
+                "Kind": "Committed",
+                "Name": "sha256:3676c71868af400ab87a3508846b4fdc5b660179f079aee60adeee60d3d196b8",
+                "Parent": "sha256:07d4c428e5bd1876bbc1c2412d105f749f49898b64c684185c5123c73c8e9e7e",
+                "Created": "2026-11-10T13:28:28.438123814Z",
+                "Updated": "2026-11-10T13:28:28.438123814Z"
+            },
+            {
+                "Kind": "Committed",
+                "Name": "sha256:8ebb6eee5b619e37c41ff81415b497f17d584edeadb5621d8ebe8a16df41df8d",
+                "Parent": "sha256:3676c71868af400ab87a3508846b4fdc5b660179f079aee60adeee60d3d196b8",
+                "Created": "2026-11-10T13:28:29.097173223Z",
+                "Updated": "2026-11-10T13:28:29.097173223Z"
+            },
+            {
+                "Kind": "Committed",
+                "Name": "sha256:dfffa763492598f78af2738905cbd806aaf031d2fbe4ff8a8f851c94be9d5f1e",
+                "Parent": "sha256:8ebb6eee5b619e37c41ff81415b497f17d584edeadb5621d8ebe8a16df41df8d",
+                "Created": "2026-11-10T13:28:29.136948045Z",
+                "Updated": "2026-11-10T13:28:29.136948045Z"
+            },
+            {
+                "Kind": "Committed",
+                "Name": "sha256:a4c3026f0b16e589c2fc45b474e5a25f11c3554a66f0296e5477678a8f804c52",
+                "Parent": "sha256:dfffa763492598f78af2738905cbd806aaf031d2fbe4ff8a8f851c94be9d5f1e",
+                "Created": "2026-11-10T13:28:29.140554798Z",
+                "Updated": "2026-11-10T13:28:29.140554798Z"
+            },
+            {
+                "Kind": "Committed",
+                "Name": "sha256:4f71f44829cce69322f9201a4ddbedeb2cc5ee53138f74892b70cf989dc2ffe4",
+                "Parent": "sha256:a4c3026f0b16e589c2fc45b474e5a25f11c3554a66f0296e5477678a8f804c52",
+                "Created": "2026-11-10T13:28:31.822923788Z",
+                "Updated": "2026-11-10T13:28:31.822923788Z"
+            },
+            {
+                "Kind": "Committed",
+                "Name": "sha256:96ed53aa0f171c3be75922574be05c188cf254bdedf909fb0741be3f12afeb0b",
+                "Parent": "sha256:4f71f44829cce69322f9201a4ddbedeb2cc5ee53138f74892b70cf989dc2ffe4",
+                "Created": "2026-11-10T13:28:31.980170887Z",
+                "Updated": "2026-11-10T13:28:31.980170887Z"
+            },
+            {
+                "Kind": "Committed",
+                "Name": "sha256:a69bf3c27762398127567b88451d993a079f4913cdcba2e8351efff72397abac",
+                "Parent": "sha256:96ed53aa0f171c3be75922574be05c188cf254bdedf909fb0741be3f12afeb0b",
+                "Created": "2026-11-10T13:28:32.096222112Z",
+                "Updated": "2026-11-10T13:28:32.096222112Z"
+            }
+        ]
+    }
+]

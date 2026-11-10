@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/tmp/smoke-context/smoke.py", line 36, in <module>
+    chain=chain_id(config['rootfs']['diff_ids']);assert compat['RootFS']['Layers']==config['rootfs']['diff_ids']
+                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
