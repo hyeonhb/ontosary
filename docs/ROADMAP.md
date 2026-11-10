@@ -1,5 +1,7 @@
 # 단계별 계획
 
+2026-11-10 현재 우선순위: [R11 fixture 종료·수집 경계](reviews/2026-11-10-s2-lifecycle-fixture-instructions.md)를 새3시간 안에서 구현·검증한다(ADR-035). 환경20분·정상/timeout 핵심 경로90분·탐색150분을 중간 한도로 두고 마지막30분은 검증·정리·인계다. 독립 감독자와 cgroup 전체 종료, 제한된 전체 수집 및 실패 시 차단을 확인한 뒤 리뷰한다. Vendure 준비·실제 CLI 연결·평가·본 비교는 후속 결정이며 기존 회차 잔여 예산을 자동 재개하지 않는다.
+
 2026-11-10 현재 우선순위: [동일 후보 최소 실행 결과](reviews/2026-11-10-s2-container-smoke.md)의 **smoke-passed 리뷰**다. 이미지/실제 container 대응과 비특권 셸·Node·CLI version/help를 확인하고 임시 자원을 정리했다. 승인된30분 회차는 끝났으며, 다음 R11 종료·수집/평가 경계와 Linux Vendure 재현의 범위·비용을 별도로 결정한다. 실제 모델/본 비교·R11 해결은 미승인/미검증이다.
 
 2026-11-10 현재 우선순위: 사용자가 승인한 [동일 후보30분 최소 실행 재검증](reviews/2026-11-10-s2-container-smoke-instructions.md)(ADR-033)이다. 이미지 식별자/실제 target 대응과 비특권 셸·Node·모델 없는 CLI 기동만 확인한다.20분에 탐색을 중단하고 마지막10분에 검증·정리·인계한다. 결과를 리뷰하기 전 Vendure 준비·전체 종료/수집/평가 검증을 재개하지 않는다. 아래 타당성 조사와 실패 기록은 당시 범위/결과다.
@@ -17,7 +19,7 @@
 최종 목표는 기존 프로젝트를 agent가 도메인을 이해하고 수정하기 좋은 프로젝트로 전환하도록 돕는 것이다. 업무 개념·관련 코드 탐색은 첫 사용 경로다. 아래 S1~S3이 현재의 실행 순서이며, 기존 번호별 PoC/연구 단계는 경과와 후속 후보로 보존한다(ADR-020).
 
 1. **S1 · 보완 독립 검증 완료:** R6/R7 해결, 174테스트·4비교·V2 15파일 재현을 확인했다. [독립 리뷰](reviews/2026-11-08-domain-model-contract-independent-review.md). 모델 의미·FCA 결과는 유지되며 agent 효용은 미검증이다.
-2. **S2 · R12 독립 검증 완료, R11 차단과 동일 후보 최소 실행 재검증:** [독립 리뷰](reviews/2026-11-10-s2-runtime-accounting-independent-review.md)에서 부분 인계를 인정했다. ADR-031의 컨테이너 조사는 이미지 조회 오류로 inconclusive였다. 다음은 ADR-033의 [30분 최소 실행 지시](reviews/2026-11-10-s2-container-smoke-instructions.md)를 수행하고 리뷰하는 단계다. 이후 종료·수집/평가·Linux 재현 범위는 다시 정하며 이전4시간 계획을 자동 재개하지 않는다. 특정 플랫폼 채택/R11 해결·실제 모델/본 비교를 미리 승인하지 않는다. C 사람 검토와 실제 CLI 미검증 항목도 남으며 readyForTrial=false·H-O/H-F 미검증을 유지한다.
+2. **S2 · R12 독립 검증 완료, R11 fixture 종료·수집 검증:** [독립 리뷰](reviews/2026-11-10-s2-runtime-accounting-independent-review.md)의 R12 판정을 유지한다. ADR-033/034의 최소 smoke 결과를 대조했고, 다음은 ADR-035의 [3시간 fixture 지시](reviews/2026-11-10-s2-lifecycle-fixture-instructions.md)다. 전체 종료 확인→수집과 실패 시 차단을 검증하고 결과 리뷰에서 Linux Vendure/실제 CLI/평가의 범위·비용을 정한다. R11 전체 해결·실제 모델/본 비교를 미리 승인하지 않는다. C 사람 검토와 실제 CLI 미검증 항목도 남으며 readyForTrial=false·H-O/H-F 미검증을 유지한다.
 3. **S3 · 효과가 관찰된 경우:** 변경 후 모델 근거 만료·재검토·갱신을 실험한다. 그 비용을 포함해 재사용 가치가 있는지 판단한 뒤 제품 계약·구조 변경을 선택한다.
 
 [R9 modal 데이터 전달 보완 지시](reviews/2026-11-09-s2-modal-fix-instructions.md)와 [직전 R8/R9/R10 지시](reviews/2026-11-09-s2-contract-fix-instructions.md)는 지원 범위 내 독립 검증을 마쳤다. 새 실행 전 준비 범위는 ADR-028로 승인됐다. 현재 지시는 준비 결과의 리뷰 인계까지이며 본 비교 실행 승인은 포함하지 않는다.
