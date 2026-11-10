@@ -1,0 +1,346 @@
+{
+  "views": [
+    {
+      "view": "candidate-0.json",
+      "units": 85,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "candidate-1.json",
+      "units": 91,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "evidence-0.json",
+      "units": 12,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "evidence-1.json",
+      "units": 12,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "evidence-10.json",
+      "units": 12,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "evidence-11.json",
+      "units": 12,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "evidence-12.json",
+      "units": 12,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "evidence-13.json",
+      "units": 12,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "evidence-14.json",
+      "units": 12,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "evidence-15.json",
+      "units": 12,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "evidence-16.json",
+      "units": 12,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "evidence-17.json",
+      "units": 12,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "evidence-18.json",
+      "units": 12,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "evidence-19.json",
+      "units": 12,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "evidence-2.json",
+      "units": 12,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "evidence-20.json",
+      "units": 12,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "evidence-21.json",
+      "units": 12,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "evidence-22.json",
+      "units": 12,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "evidence-23.json",
+      "units": 12,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "evidence-24.json",
+      "units": 12,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "evidence-25.json",
+      "units": 12,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "evidence-26.json",
+      "units": 12,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "evidence-27.json",
+      "units": 12,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "evidence-28.json",
+      "units": 12,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "evidence-29.json",
+      "units": 12,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "evidence-3.json",
+      "units": 12,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "evidence-4.json",
+      "units": 12,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "evidence-5.json",
+      "units": 12,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "evidence-6.json",
+      "units": 12,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "evidence-7.json",
+      "units": 12,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "evidence-8.json",
+      "units": 12,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "evidence-9.json",
+      "units": 12,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "fact-0.json",
+      "units": 23,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "fact-1.json",
+      "units": 23,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "fact-10.json",
+      "units": 23,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "fact-11.json",
+      "units": 23,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "fact-12.json",
+      "units": 23,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "fact-13.json",
+      "units": 23,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "fact-14.json",
+      "units": 23,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "fact-15.json",
+      "units": 23,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "fact-16.json",
+      "units": 28,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "fact-17.json",
+      "units": 28,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "fact-18.json",
+      "units": 28,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "fact-19.json",
+      "units": 28,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "fact-2.json",
+      "units": 23,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "fact-20.json",
+      "units": 28,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "fact-21.json",
+      "units": 28,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "fact-3.json",
+      "units": 23,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "fact-4.json",
+      "units": 23,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "fact-5.json",
+      "units": 23,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "fact-6.json",
+      "units": 23,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "fact-7.json",
+      "units": 23,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "fact-8.json",
+      "units": 23,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "fact-9.json",
+      "units": 23,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "index.json",
+      "units": 24,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "item-0.json",
+      "units": 39,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "item-1.json",
+      "units": 34,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "item-10.json",
+      "units": 24,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "item-11.json",
+      "units": 24,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "item-2.json",
+      "units": 34,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "item-3.json",
+      "units": 57,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "item-4.json",
+      "units": 47,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "item-5.json",
+      "units": 30,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "item-6.json",
+      "units": 26,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "item-7.json",
+      "units": 33,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "item-8.json",
+      "units": 30,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "item-9.json",
+      "units": 24,
+      "sourceValuesAndExactCIntervalsMatch": true
+    },
+    {
+      "view": "status.json",
+      "units": 13,
+      "sourceValuesAndExactCIntervalsMatch": true
+    }
+  ],
+  "totalUnits": 1511,
+  "meaningProven": false
+}

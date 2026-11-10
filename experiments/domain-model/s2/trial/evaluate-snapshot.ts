@@ -1,0 +1,12 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import { checkedSnapshot } from './snapshot-gate.js';
+import { openEnvironment, evaluateSubmission } from '../evaluation/evaluate.js';
+const [snapshot,cache,out,repo=process.cwd()]=process.argv.slice(2);
+if(!snapshot||!cache||!out)throw Error('Usage: evaluate-snapshot <immutable-snapshot> <cache> <new-output> [repo]');
+if(fs.existsSync(out))throw Error('Output exists');
+const sources=checkedSnapshot(snapshot),env=openEnvironment(path.resolve(cache),path.resolve(repo));
+const result=await evaluateSubmission(env,sources,'complete-root');
+checkedSnapshot(snapshot);
+fs.writeFileSync(out,JSON.stringify(result,null,2)+'\n');
+console.log(JSON.stringify({overall:result.overall,sourceBinding:result.sourceBinding,submissionId:result.typecheck.submissionId}));

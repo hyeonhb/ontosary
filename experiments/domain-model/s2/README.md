@@ -1,5 +1,8 @@
 # S2 준비 구현 — 보완 독립 검증 완료, 본 비교 미실행
 
+
+2026-11-10 실행 전 준비는 **부분 완료·격리 차단 유지**다. [운영 계약/명령/한계](trial/README.md), [인계](../../../docs/reviews/2026-11-10-s2-trial-preparation.md), [새 배포](results/2026-11-10-trial-preparation/), [검증](verification/2026-11-10-trial-preparation/)를 먼저 본다. token hard cap은 사용자 결정으로 필수 조건에서 제외했고30분·raw usage 관측을 준비했다. 같은 과업/안내와 C 설명 문서,68view/1511단위 대응·사람 검토 자료, 공개 checker·대역 계측을 추가했다. 현재29제출·52사례·252테스트이며 B68view/모델/근거는 그대로다. 실행기는 실제 모델을 호출하지 않았고 detached 자손 종료 결함으로 readyForTrial=false다. 아래 v3/v2 기록은 각 시점의 계약이다.
+
 2026-11-10 실행 전 준비 승인: [개발 지시](../../../docs/reviews/2026-11-10-s2-trial-preparation-instructions.md)에 따라 공통 과업/실행 계약·일반 설명 문서 C와 의미 대응·격리/계측·새 배포 동결을 준비한다. 무요청 종료 정책과 동일 설정 조건별3회 조합은 승인됐으나 구현·검증과 본 비교 실행은 아직이다. 새 자료는 별도 버전으로 만들고 이전 결과를 보존한다. 준비 결과의 독립 리뷰까지 trialAuthorized/readyForTrial=false를 유지한다.
 
 2026-11-10 [독립 재검토](../../../docs/reviews/2026-11-10-s2-modal-independent-review.md): **R9 잔여 해결, R8/R10 유지**. 230테스트·비교4/4, 교정24제출50파일/준비147파일 재현과 실제 RxJS·complete-root/delta 연결을 확인했다. 준비 구현 보완은 완료됐으며 다음은 사용자와 본 비교의 과업/의미 동등성·평가 범위/격리/agent 조건을 확정한다. readyForTrial=false·H-O/H-F 미검증을 유지한다. 아래는 개발 당시 인계다.

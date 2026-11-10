@@ -1,0 +1,8 @@
+{
+  "authorType": "human or agent",
+  "sourceHash": null,
+  "evidenceSupported": null,
+  "unnecessaryChanges": null,
+  "scopeViolation": null,
+  "referenceDiffUsedForScoring": false
+}

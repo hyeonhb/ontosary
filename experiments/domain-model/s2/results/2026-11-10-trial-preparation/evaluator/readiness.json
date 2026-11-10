@@ -1,0 +1,14 @@
+{
+  "implementation": "prepared-for-review",
+  "baseline": "verified",
+  "BCautomaticCoverage": "leaf inventory and C text integrity; semantic review separate",
+  "humanParityReview": "pending",
+  "semanticReview": "pending",
+  "oracleFidelityReview": "pending",
+  "isolation": "not established by packaging; see separate execution evidence",
+  "runConditions": "preparation-only",
+  "trialAuthorized": false,
+  "results": null,
+  "readyForTrial": false,
+  "agentUtility": null
+}

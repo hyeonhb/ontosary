@@ -1,0 +1,86 @@
+{
+  "snapshotWriteDenied": true,
+  "version": 1,
+  "platform": "darwin",
+  "arch": "arm64",
+  "node": "v22.19.0",
+  "uid": 501,
+  "sameToolBoundary": "codex sandbox with generated trial profile; no model call",
+  "accessVerified": true,
+  "observation": {
+    "errors": {
+      "outside": "EPERM",
+      "packageException": "EPERM",
+      "parent": "EPERM",
+      "symlink": "EPERM",
+      "control": "EPERM"
+    },
+    "write": "EPERM",
+    "read": "material",
+    "source": "original-edited",
+    "network": {
+      "external": "EPERM",
+      "socket": "EPERM"
+    }
+  },
+  "probeExit": 0,
+  "probeError": "",
+  "usageFixture": {
+    "inputObserved": 99999,
+    "outputObserved": 5,
+    "totalObserved": 100004,
+    "input": 99999,
+    "output": 5,
+    "total": 100004,
+    "cachedInput": 90000,
+    "reasoningOutput": 2,
+    "referenceTokens": 100000,
+    "overReference": 4,
+    "hardCap": false,
+    "complete": true,
+    "issues": [],
+    "definition": "Input includes cached input; output includes reasoning. Neither detail is added again."
+  },
+  "usageRaw": "{\"type\":\"turn.started\"}\n{\"id\":\"u1\",\"type\":\"turn.completed\",\"usage\":{\"input_tokens\":99999,\"output_tokens\":5,\"cached_input_tokens\":90000,\"reasoning_output_tokens\":2}}\n",
+  "usageCoverage": "Deterministic stub events only; no provider requests",
+  "timeout": {
+    "reason": "timeout",
+    "limitMs": 350,
+    "wallTimeMs": 356.644,
+    "detachedDescendantContained": false
+  },
+  "snapshot": {
+    "version": 1,
+    "source": {
+      "added.ts": "c504694a78af4c2fd507f0923d02e9ca593a9f3dd0a1326eb7d1b3b2264cde55",
+      "allowed.txt": "5089124d80fae66fbcbcf71d7b31a59fcf334fc53002733da2110270d7675891"
+    },
+    "auxiliary": {
+      "notes.txt": "65f93c726c889784ec2e62ebfe100e57145635ddffae4d4f1b32d8cae5c93c99"
+    },
+    "delta": [
+      {
+        "file": "added.ts",
+        "kind": "added",
+        "before": null,
+        "after": "c504694a78af4c2fd507f0923d02e9ca593a9f3dd0a1326eb7d1b3b2264cde55"
+      },
+      {
+        "file": "allowed.txt",
+        "kind": "modified",
+        "before": "0682c5f2076f099c34cfdd15a9e063849ed437a49677e6fcc5b4198c76575be5",
+        "after": "5089124d80fae66fbcbcf71d7b31a59fcf334fc53002733da2110270d7675891"
+      }
+    ],
+    "sourceId": "b99f3ad6055a6e7f49b40f081c9b0c0f968ec22aeb92ab279df0d22169abd904",
+    "readOnlyEnforcement": "evaluate only under a profile granting read, never chmod alone"
+  },
+  "readOnlySnapshotProfile": "model = \"gpt-6-astra\"\nmodel_reasoning_effort = \"high\"\napproval_policy = \"never\"\ndefault_permissions = \"trial\"\nweb_search = \"disabled\"\nproject_doc_max_bytes = 0\nallow_login_shell = false\n[features]\napps = false\nmulti_agent = false\nremote_plugin = false\nshell_snapshot = false\n[plugins._default]\nenabled = false\n[permissions.trial.filesystem]\n\":minimal\" = \"read\"\n\"/System/Library/OpenSSL\" = \"read\"\n\"<probe>/final/source\" = \"read\"\n\"<probe>/agent/materials\" = \"read\"\n\"<probe>/agent/auxiliary\" = \"write\"\n\"<probe>/agent/scratch\" = \"write\"\n\"<probe>/agent/home\" = \"write\"\n\"<probe>/bin\" = \"read\"\n\"<probe>/final\" = \"read\"\n\"<probe>/outside\" = \"deny\"\n\"<probe>/control\" = \"deny\"\n\"/Users\" = \"deny\"\n[permissions.trial.network]\nenabled = false\n[shell_environment_policy]\ninherit = \"none\"\n",
+  "readyForTrial": false,
+  "blockers": [
+    "Detached descendants escape process-group shutdown; immutable final collection not guaranteed for hostile processes",
+    "Live CLI tool inventory, credential separation and inherited instruction exclusion not exercised without a model session"
+  ],
+  "measurement": "Probe/script stub only; no provider usage, no agent task",
+  "results": null
+}

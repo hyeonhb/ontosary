@@ -1,0 +1,223 @@
+[
+  {
+    "id": "status#/integrity",
+    "view": "B/views/status.json",
+    "pointer": "/integrity",
+    "value": "verified",
+    "kind": "status",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 8,
+      "endLine": 8,
+      "sha256": "1797fd5bac671b5eb36d5dd2f55c2701565334a8b49f38766f3c58dc5b067b83"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "status#/baselineEvidence",
+    "view": "B/views/status.json",
+    "pointer": "/baselineEvidence",
+    "value": "verified",
+    "kind": "status",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 8,
+      "endLine": 8,
+      "sha256": "1797fd5bac671b5eb36d5dd2f55c2701565334a8b49f38766f3c58dc5b067b83"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "status#/semanticReview",
+    "view": "B/views/status.json",
+    "pointer": "/semanticReview",
+    "value": "pending",
+    "kind": "status",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 8,
+      "endLine": 8,
+      "sha256": "1797fd5bac671b5eb36d5dd2f55c2701565334a8b49f38766f3c58dc5b067b83"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "status#/sourceVersion",
+    "view": "B/views/status.json",
+    "pointer": "/sourceVersion",
+    "value": "baseline",
+    "kind": "status",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 8,
+      "endLine": 8,
+      "sha256": "1797fd5bac671b5eb36d5dd2f55c2701565334a8b49f38766f3c58dc5b067b83"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "status#/currentWorkspaceAssessment",
+    "view": "B/views/status.json",
+    "pointer": "/currentWorkspaceAssessment",
+    "value": "not-performed",
+    "kind": "status",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 8,
+      "endLine": 8,
+      "sha256": "1797fd5bac671b5eb36d5dd2f55c2701565334a8b49f38766f3c58dc5b067b83"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "status#/coverage",
+    "view": "B/views/status.json",
+    "pointer": "/coverage",
+    "value": "Purposeful S1 client model; partial app coverage; no complete impact/runtime/server policy guarantee",
+    "kind": "status",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 8,
+      "endLine": 8,
+      "sha256": "1797fd5bac671b5eb36d5dd2f55c2701565334a8b49f38766f3c58dc5b067b83"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "status#/baseline/baselineId",
+    "view": "B/views/status.json",
+    "pointer": "/baseline/baselineId",
+    "value": "7707db72b46a21570152b2b8920e6526996952abaac1574642d6638c477ba0d8",
+    "kind": "metadata",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 12,
+      "endLine": 12,
+      "sha256": "44d69d403b59b327df2faef933d91d12d6b620a3507c173e325005c7e0694406"
+    },
+    "transformation": "verbatim metadata",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "status#/baseline/revision",
+    "view": "B/views/status.json",
+    "pointer": "/baseline/revision",
+    "value": "534e6003534f74761e82de1b8c6061cba89945d1",
+    "kind": "metadata",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 13,
+      "endLine": 13,
+      "sha256": "400925138f0f961dd1e8d4a84474a9a5cd92105aefcdf90d1881e8ea86bd7f3b"
+    },
+    "transformation": "verbatim metadata",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "status#/baseline/inputs",
+    "view": "B/views/status.json",
+    "pointer": "/baseline/inputs",
+    "value": 6386,
+    "kind": "metadata",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 14,
+      "endLine": 14,
+      "sha256": "6ee26ce890760ec69107967a82c096fc4a412c64aa192398007d7b4f23609d1a"
+    },
+    "transformation": "verbatim metadata",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "status#/baseline/programFiles",
+    "view": "B/views/status.json",
+    "pointer": "/baseline/programFiles",
+    "value": 1638,
+    "kind": "metadata",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 15,
+      "endLine": 15,
+      "sha256": "8bc18d486f48b287982790be096b56f0795163b2ca437769f02d7ce2a9191749"
+    },
+    "transformation": "verbatim metadata",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "status#/baseline/sourceVersion",
+    "view": "B/views/status.json",
+    "pointer": "/baseline/sourceVersion",
+    "value": "baseline",
+    "kind": "metadata",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 16,
+      "endLine": 16,
+      "sha256": "653d077d0751c4ca36c8b6ee6acd85ab775afae30e934e29db4abdba8ec8bb09"
+    },
+    "transformation": "verbatim metadata",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "status#/baseline/currentWorkspaceAssessment",
+    "view": "B/views/status.json",
+    "pointer": "/baseline/currentWorkspaceAssessment",
+    "value": "not-performed",
+    "kind": "metadata",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 17,
+      "endLine": 17,
+      "sha256": "68c15020205111e602fa7718b4f32aca64fdf1ce1785e73cb7c0133a0c63309a"
+    },
+    "transformation": "verbatim metadata",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "status#/modelId",
+    "view": "B/views/status.json",
+    "pointer": "/modelId",
+    "value": "2ba6c772263da8814256efaa5491c69f723d79157a7f8aad7f22d898e297e5cf",
+    "kind": "metadata",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 18,
+      "endLine": 18,
+      "sha256": "c18055d15cdad23d24470b5f00181ba0244c9d71f1e4570ae75ee9bd1890e9c6"
+    },
+    "transformation": "verbatim metadata",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  }
+]

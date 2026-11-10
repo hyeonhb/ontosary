@@ -1,0 +1,801 @@
+[
+  {
+    "id": "item-4#/item/value/source/kind",
+    "view": "B/views/item-4.json",
+    "pointer": "/item/value/source/kind",
+    "value": "concept-candidate",
+    "kind": "statement",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 110,
+      "endLine": 112,
+      "sha256": "359ab14ea916f750a1fa2e2ba07484a57909a095851003880e15d4cddf070210"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-4#/item/value/source/label",
+    "view": "B/views/item-4.json",
+    "pointer": "/item/value/source/label",
+    "value": "환불 요청",
+    "kind": "statement",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 110,
+      "endLine": 112,
+      "sha256": "359ab14ea916f750a1fa2e2ba07484a57909a095851003880e15d4cddf070210"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-4#/item/value/source/status",
+    "view": "B/views/item-4.json",
+    "pointer": "/item/value/source/status",
+    "value": "pending-review",
+    "kind": "statement",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 110,
+      "endLine": 112,
+      "sha256": "359ab14ea916f750a1fa2e2ba07484a57909a095851003880e15d4cddf070210"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-4#/item/value/source/author",
+    "view": "B/views/item-4.json",
+    "pointer": "/item/value/source/author",
+    "value": "agent",
+    "kind": "statement",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 110,
+      "endLine": 112,
+      "sha256": "359ab14ea916f750a1fa2e2ba07484a57909a095851003880e15d4cddf070210"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-4#/item/value/source/interpretation",
+    "view": "B/views/item-4.json",
+    "pointer": "/item/value/source/interpretation",
+    "value": "환불 요청과 함께 조건부 취소 입력을 준비할 수 있다.",
+    "kind": "statement",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 110,
+      "endLine": 112,
+      "sha256": "359ab14ea916f750a1fa2e2ba07484a57909a095851003880e15d4cddf070210"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-4#/item/value/source/unverified/0",
+    "view": "B/views/item-4.json",
+    "pointer": "/item/value/source/unverified/0",
+    "value": "취소 없는 환불의 허용 범위는 무엇인가?",
+    "kind": "statement",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 110,
+      "endLine": 112,
+      "sha256": "359ab14ea916f750a1fa2e2ba07484a57909a095851003880e15d4cddf070210"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-4#/item/value/source/intendedPolicy",
+    "view": "B/views/item-4.json",
+    "pointer": "/item/value/source/intendedPolicy",
+    "value": null,
+    "kind": "statement",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 110,
+      "endLine": 112,
+      "sha256": "359ab14ea916f750a1fa2e2ba07484a57909a095851003880e15d4cddf070210"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-4#/item/value/factRefs/0",
+    "view": "B/views/item-4.json",
+    "pointer": "/item/value/factRefs/0",
+    "value": "source-V11",
+    "kind": "reference",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 114,
+      "endLine": 114,
+      "sha256": "3998f5a0e2b26df0f05a398c3024d2618fe8fecbddccbae21ec78490ea7d90cc"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-4#/item/value/factRefs/1",
+    "view": "B/views/item-4.json",
+    "pointer": "/item/value/factRefs/1",
+    "value": "source-refund-payload",
+    "kind": "reference",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 114,
+      "endLine": 114,
+      "sha256": "3998f5a0e2b26df0f05a398c3024d2618fe8fecbddccbae21ec78490ea7d90cc"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-4#/item/value/factRefs/2",
+    "view": "B/views/item-4.json",
+    "pointer": "/item/value/factRefs/2",
+    "value": "source-refund-mutation",
+    "kind": "reference",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 114,
+      "endLine": 114,
+      "sha256": "3998f5a0e2b26df0f05a398c3024d2618fe8fecbddccbae21ec78490ea7d90cc"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-4#/item/value/candidateRefs",
+    "view": "B/views/item-4.json",
+    "pointer": "/item/value/candidateRefs",
+    "value": [],
+    "kind": "reference",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 114,
+      "endLine": 114,
+      "sha256": "3998f5a0e2b26df0f05a398c3024d2618fe8fecbddccbae21ec78490ea7d90cc"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-4#/neighbors/value/0/from",
+    "view": "B/views/item-4.json",
+    "pointer": "/neighbors/value/0/from",
+    "value": "refund-request",
+    "kind": "relation",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 116,
+      "endLine": 116,
+      "sha256": "cb0373f9915a941990f10e375af3e65675824ed2ae786e3af610ea9766a1e69e"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-4#/neighbors/value/0/to",
+    "view": "B/views/item-4.json",
+    "pointer": "/neighbors/value/0/to",
+    "value": "payment",
+    "kind": "relation",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 116,
+      "endLine": 116,
+      "sha256": "cb0373f9915a941990f10e375af3e65675824ed2ae786e3af610ea9766a1e69e"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-4#/neighbors/value/0/kind",
+    "view": "B/views/item-4.json",
+    "pointer": "/neighbors/value/0/kind",
+    "value": "related-item",
+    "kind": "relation",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 116,
+      "endLine": 116,
+      "sha256": "cb0373f9915a941990f10e375af3e65675824ed2ae786e3af610ea9766a1e69e"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-4#/neighbors/value/0/provenance",
+    "view": "B/views/item-4.json",
+    "pointer": "/neighbors/value/0/provenance",
+    "value": "S1.items/4/relatedItems",
+    "kind": "relation",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 116,
+      "endLine": 116,
+      "sha256": "cb0373f9915a941990f10e375af3e65675824ed2ae786e3af610ea9766a1e69e"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-4#/neighbors/value/0/direction",
+    "view": "B/views/item-4.json",
+    "pointer": "/neighbors/value/0/direction",
+    "value": "outgoing",
+    "kind": "relation",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 116,
+      "endLine": 116,
+      "sha256": "cb0373f9915a941990f10e375af3e65675824ed2ae786e3af610ea9766a1e69e"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-4#/neighbors/value/1/from",
+    "view": "B/views/item-4.json",
+    "pointer": "/neighbors/value/1/from",
+    "value": "refund-request",
+    "kind": "relation",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 118,
+      "endLine": 118,
+      "sha256": "451dae2a5afc52f68f5653fe5846ec7330860a3b1526b9000e40b28a6e88945e"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-4#/neighbors/value/1/to",
+    "view": "B/views/item-4.json",
+    "pointer": "/neighbors/value/1/to",
+    "value": "line",
+    "kind": "relation",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 118,
+      "endLine": 118,
+      "sha256": "451dae2a5afc52f68f5653fe5846ec7330860a3b1526b9000e40b28a6e88945e"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-4#/neighbors/value/1/kind",
+    "view": "B/views/item-4.json",
+    "pointer": "/neighbors/value/1/kind",
+    "value": "related-item",
+    "kind": "relation",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 118,
+      "endLine": 118,
+      "sha256": "451dae2a5afc52f68f5653fe5846ec7330860a3b1526b9000e40b28a6e88945e"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-4#/neighbors/value/1/provenance",
+    "view": "B/views/item-4.json",
+    "pointer": "/neighbors/value/1/provenance",
+    "value": "S1.items/4/relatedItems",
+    "kind": "relation",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 118,
+      "endLine": 118,
+      "sha256": "451dae2a5afc52f68f5653fe5846ec7330860a3b1526b9000e40b28a6e88945e"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-4#/neighbors/value/1/direction",
+    "view": "B/views/item-4.json",
+    "pointer": "/neighbors/value/1/direction",
+    "value": "outgoing",
+    "kind": "relation",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 118,
+      "endLine": 118,
+      "sha256": "451dae2a5afc52f68f5653fe5846ec7330860a3b1526b9000e40b28a6e88945e"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-4#/neighbors/value/2/from",
+    "view": "B/views/item-4.json",
+    "pointer": "/neighbors/value/2/from",
+    "value": "refund-also-cancels",
+    "kind": "relation",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 120,
+      "endLine": 120,
+      "sha256": "464c8b571ae5a951978a7163ed37462dcc054bc4f4aa206f9201d5786a934941"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-4#/neighbors/value/2/to",
+    "view": "B/views/item-4.json",
+    "pointer": "/neighbors/value/2/to",
+    "value": "refund-request",
+    "kind": "relation",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 120,
+      "endLine": 120,
+      "sha256": "464c8b571ae5a951978a7163ed37462dcc054bc4f4aa206f9201d5786a934941"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-4#/neighbors/value/2/kind",
+    "view": "B/views/item-4.json",
+    "pointer": "/neighbors/value/2/kind",
+    "value": "related-item",
+    "kind": "relation",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 120,
+      "endLine": 120,
+      "sha256": "464c8b571ae5a951978a7163ed37462dcc054bc4f4aa206f9201d5786a934941"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-4#/neighbors/value/2/provenance",
+    "view": "B/views/item-4.json",
+    "pointer": "/neighbors/value/2/provenance",
+    "value": "S1.items/7/relatedItems",
+    "kind": "relation",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 120,
+      "endLine": 120,
+      "sha256": "464c8b571ae5a951978a7163ed37462dcc054bc4f4aa206f9201d5786a934941"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-4#/neighbors/value/2/direction",
+    "view": "B/views/item-4.json",
+    "pointer": "/neighbors/value/2/direction",
+    "value": "incoming",
+    "kind": "relation",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 120,
+      "endLine": 120,
+      "sha256": "464c8b571ae5a951978a7163ed37462dcc054bc4f4aa206f9201d5786a934941"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-4#/neighbors/value/3/from",
+    "view": "B/views/item-4.json",
+    "pointer": "/neighbors/value/3/from",
+    "value": "dismiss",
+    "kind": "relation",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 122,
+      "endLine": 122,
+      "sha256": "4e2829cf71ef6316224ee242fcd23d78247c9e172c6c62991814a64bef839cc6"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-4#/neighbors/value/3/to",
+    "view": "B/views/item-4.json",
+    "pointer": "/neighbors/value/3/to",
+    "value": "refund-request",
+    "kind": "relation",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 122,
+      "endLine": 122,
+      "sha256": "4e2829cf71ef6316224ee242fcd23d78247c9e172c6c62991814a64bef839cc6"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-4#/neighbors/value/3/kind",
+    "view": "B/views/item-4.json",
+    "pointer": "/neighbors/value/3/kind",
+    "value": "related-item",
+    "kind": "relation",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 122,
+      "endLine": 122,
+      "sha256": "4e2829cf71ef6316224ee242fcd23d78247c9e172c6c62991814a64bef839cc6"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-4#/neighbors/value/3/provenance",
+    "view": "B/views/item-4.json",
+    "pointer": "/neighbors/value/3/provenance",
+    "value": "S1.items/8/relatedItems",
+    "kind": "relation",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 122,
+      "endLine": 122,
+      "sha256": "4e2829cf71ef6316224ee242fcd23d78247c9e172c6c62991814a64bef839cc6"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-4#/neighbors/value/3/direction",
+    "view": "B/views/item-4.json",
+    "pointer": "/neighbors/value/3/direction",
+    "value": "incoming",
+    "kind": "relation",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 122,
+      "endLine": 122,
+      "sha256": "4e2829cf71ef6316224ee242fcd23d78247c9e172c6c62991814a64bef839cc6"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-4#/neighbors/value/4/from",
+    "view": "B/views/item-4.json",
+    "pointer": "/neighbors/value/4/from",
+    "value": "refund-transport",
+    "kind": "relation",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 124,
+      "endLine": 124,
+      "sha256": "3ebb039f2ff7190d54ddb871d77d1d31513b107ffaaa85d95f8b8eede61f905b"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-4#/neighbors/value/4/to",
+    "view": "B/views/item-4.json",
+    "pointer": "/neighbors/value/4/to",
+    "value": "refund-request",
+    "kind": "relation",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 124,
+      "endLine": 124,
+      "sha256": "3ebb039f2ff7190d54ddb871d77d1d31513b107ffaaa85d95f8b8eede61f905b"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-4#/neighbors/value/4/kind",
+    "view": "B/views/item-4.json",
+    "pointer": "/neighbors/value/4/kind",
+    "value": "related-item",
+    "kind": "relation",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 124,
+      "endLine": 124,
+      "sha256": "3ebb039f2ff7190d54ddb871d77d1d31513b107ffaaa85d95f8b8eede61f905b"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-4#/neighbors/value/4/provenance",
+    "view": "B/views/item-4.json",
+    "pointer": "/neighbors/value/4/provenance",
+    "value": "S1.items/11/relatedItems",
+    "kind": "relation",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 124,
+      "endLine": 124,
+      "sha256": "3ebb039f2ff7190d54ddb871d77d1d31513b107ffaaa85d95f8b8eede61f905b"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-4#/neighbors/value/4/direction",
+    "view": "B/views/item-4.json",
+    "pointer": "/neighbors/value/4/direction",
+    "value": "incoming",
+    "kind": "relation",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 124,
+      "endLine": 124,
+      "sha256": "3ebb039f2ff7190d54ddb871d77d1d31513b107ffaaa85d95f8b8eede61f905b"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-4#/item/status",
+    "view": "B/views/item-4.json",
+    "pointer": "/item/status",
+    "value": "Found",
+    "kind": "metadata",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 82,
+      "endLine": 82,
+      "sha256": "b4b84a0a368190fcc8d4c6952204cc7a30ee8901decf1fa95e73b9af67337a92"
+    },
+    "transformation": "verbatim metadata",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-4#/item/value/id",
+    "view": "B/views/item-4.json",
+    "pointer": "/item/value/id",
+    "value": "refund-request",
+    "kind": "metadata",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 83,
+      "endLine": 83,
+      "sha256": "d8932ed5b3aee24744878a4488b96d7ef4c8beee3665b833d73da8c89ff283cf"
+    },
+    "transformation": "verbatim metadata",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-4#/item/value/kind",
+    "view": "B/views/item-4.json",
+    "pointer": "/item/value/kind",
+    "value": "concept-candidate",
+    "kind": "metadata",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 84,
+      "endLine": 84,
+      "sha256": "0300327690822e77cb4fe406c6e322b86e30a6cf96753c605c222ec6cb847fa8"
+    },
+    "transformation": "verbatim metadata",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-4#/item/value/source/id",
+    "view": "B/views/item-4.json",
+    "pointer": "/item/value/source/id",
+    "value": "refund-request",
+    "kind": "metadata",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 85,
+      "endLine": 85,
+      "sha256": "446d155ac3617d9950f0cde70080f307268d088791a62f811f2833c931007f4f"
+    },
+    "transformation": "verbatim metadata",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-4#/item/value/source/factRefs/0",
+    "view": "B/views/item-4.json",
+    "pointer": "/item/value/source/factRefs/0",
+    "value": "source-V11",
+    "kind": "metadata",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 86,
+      "endLine": 86,
+      "sha256": "0d65854c15fe849672922273b627a416addb8ab8e02820bf6e46a61d27ec223d"
+    },
+    "transformation": "verbatim metadata",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-4#/item/value/source/factRefs/1",
+    "view": "B/views/item-4.json",
+    "pointer": "/item/value/source/factRefs/1",
+    "value": "source-refund-payload",
+    "kind": "metadata",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 87,
+      "endLine": 87,
+      "sha256": "372f32863883e1ca9d818f8b423811f58200d267f6388ebfb0f5a848faf87ff5"
+    },
+    "transformation": "verbatim metadata",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-4#/item/value/source/factRefs/2",
+    "view": "B/views/item-4.json",
+    "pointer": "/item/value/source/factRefs/2",
+    "value": "source-refund-mutation",
+    "kind": "metadata",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 88,
+      "endLine": 88,
+      "sha256": "8b478550086d590a56d9868226a0e28a4ebcc0b710db18359adee22cd936fde7"
+    },
+    "transformation": "verbatim metadata",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-4#/item/value/source/candidateRefs",
+    "view": "B/views/item-4.json",
+    "pointer": "/item/value/source/candidateRefs",
+    "value": [],
+    "kind": "metadata",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 89,
+      "endLine": 89,
+      "sha256": "628e9889030a6bc624c125c57af3f624a381b2b7bf93f37173aaa087c108fe66"
+    },
+    "transformation": "verbatim metadata",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-4#/item/value/source/relatedItems/0",
+    "view": "B/views/item-4.json",
+    "pointer": "/item/value/source/relatedItems/0",
+    "value": "payment",
+    "kind": "metadata",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 90,
+      "endLine": 90,
+      "sha256": "65ec39f567b62da3948b82e2fa0b9575440b0359d2bbfe74cf561744725f58bb"
+    },
+    "transformation": "verbatim metadata",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-4#/item/value/source/relatedItems/1",
+    "view": "B/views/item-4.json",
+    "pointer": "/item/value/source/relatedItems/1",
+    "value": "line",
+    "kind": "metadata",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 91,
+      "endLine": 91,
+      "sha256": "ad0c0f89ad7188ab720aa2a863dc37b61d22cfdb1849fdbf9a4ba247af9314cb"
+    },
+    "transformation": "verbatim metadata",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-4#/neighbors/status",
+    "view": "B/views/item-4.json",
+    "pointer": "/neighbors/status",
+    "value": "Found",
+    "kind": "metadata",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 92,
+      "endLine": 92,
+      "sha256": "ff0b8781bcebe848de7b336ad95f2628203a18156bc648a3a7cf556f57d499b1"
+    },
+    "transformation": "verbatim metadata",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  }
+]

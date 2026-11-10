@@ -3,9 +3,9 @@ import path from 'node:path';
 import { gunzipSync } from 'node:zlib';
 import { array, object, string, choice, Failure } from './lib/model.js';
 import { hash } from './lib/analysis-session.js';
-const [bundleArg, sourceArg, conditionArg, outArg, repoArg] = process.argv.slice(2);
+const [bundleArg, sourceArg, conditionArg, outArg, repoArg, environmentArg] = process.argv.slice(2);
 if (!bundleArg || !sourceArg || !conditionArg || !outArg)
-    throw Error('Usage: workspace <bundle-dir> <baseline-root> <A|B|C> <new-workspace> [repo]');
+    throw Error('Usage: workspace <bundle-dir> <baseline-root> <A|B|C> <new-workspace> [repo] [isolated-environment]');
 const condition = choice(conditionArg, ['A', 'B', 'C'], 'condition'), bundle = path.resolve(bundleArg), source = path.resolve(sourceArg), out = path.resolve(outArg), repo = path.resolve(repoArg ?? '.');
 if (fs.existsSync(out))
     throw new Failure('OutputExists', out, 'No overwrite');
@@ -40,6 +40,11 @@ try {
         const dest = safe(path.join(stage, 'source'), file);
         fs.mkdirSync(path.dirname(dest), { recursive: true });
         fs.writeFileSync(dest, bytes, { flag: 'wx' });
+    }
+    if(environmentArg) {
+        const tools=fs.realpathSync(path.join(path.resolve(environmentArg),'tools'));
+        for(const name of ['public-check','public-check.js','baseline-manifest.json'])if(!fs.statSync(path.join(tools,name)).isFile())throw new Failure('Packaging',name,'Public tool missing');
+        fs.symlinkSync(tools,path.join(stage,'tools'));
     }
     fs.renameSync(stage, out);
     console.log(JSON.stringify({ condition, sourceFiles: inv.length, isolation: 'unverified', dependencies: 'not copied; runtime mount/permissions must be fixed before trial', evaluationFilesCopied: 0 }));

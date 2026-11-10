@@ -1,0 +1,23 @@
+{
+  "code": 0,
+  "signal": null,
+  "reason": "completed",
+  "wallTimeMs": 7355.540417000004,
+  "stdout": "{\"overall\":\"passed\",\"sourceBinding\":true,\"submissionId\":\"dde3b75c151fb9847929ce9d3dd7e76081f791fc7a779f7124245644419bed54\"}\n",
+  "stderr": "",
+  "outputTruncated": false,
+  "profile": "model = \"gpt-6-astra\"\nmodel_reasoning_effort = \"high\"\napproval_policy = \"never\"\ndefault_permissions = \"trial\"\nweb_search = \"disabled\"\nproject_doc_max_bytes = 0\nallow_login_shell = false\n[features]\napps = false\nmulti_agent = false\nremote_plugin = false\nshell_snapshot = false\n[plugins._default]\nenabled = false\n[permissions.trial.filesystem]\n\":minimal\" = \"read\"\n\"/System/Library/OpenSSL\" = \"read\"\n\"<control>/repository\" = \"read\"\n\"<control>/results/auxiliary\" = \"write\"\n\"<control>/results\" = \"write\"\n\"<control>/home\" = \"write\"\n\"<cache>\" = \"read\"\n\"<control>/node\" = \"read\"\n\"<control>/input-1\" = \"read\"\n\"<control>/input-2\" = \"read\"\n\"/Users\" = \"deny\"\n\"<repository>\" = \"deny\"\n\"<control>/config.toml\" = \"deny\"\n[permissions.trial.network]\nenabled = false\n[shell_environment_policy]\ninherit = \"none\"\n",
+  "hostPackageReadDenied": true,
+  "copiedEvaluatorPaths": [
+    "work/s2-build",
+    "experiments/domain-model/s2/provenance.json",
+    "experiments/domain-model/v1/manifest.json",
+    "experiments/domain-model/results/2026-11-08-v2",
+    "experiments/public-app/results/2026-11-08/vendure/inventory.json.gz",
+    "experiments/public-app/results/2026-11-08-prepared/program-path-audit.json.gz",
+    "experiments/public-app/results/2026-11-08-prepared/scoped/scan.json.gz",
+    "experiments/public-app/v1/vendure-task.json",
+    "experiments/domain-model/s2/verification/2026-11-08/reference-patches.json.gz"
+  ],
+  "scope": "Known calibration/complete-root in copied read-only evaluator, explicit host-home deny, network denied; detached process gate remains open"
+}

@@ -1,0 +1,64 @@
+[
+  {
+    "variant": "baseline",
+    "public": "passed",
+    "private": "passed",
+    "diagnostics": [],
+    "programFiles": 1638
+  },
+  {
+    "variant": "reference",
+    "public": "passed",
+    "private": "passed",
+    "diagnostics": [],
+    "programFiles": 1638
+  },
+  {
+    "variant": "helper",
+    "public": "passed",
+    "private": "passed",
+    "diagnostics": [],
+    "programFiles": 1639
+  },
+  {
+    "variant": "helper-type-error",
+    "public": "failed",
+    "private": "failed",
+    "diagnostics": [
+      2322
+    ],
+    "programFiles": 1639
+  },
+  {
+    "variant": "helper-syntax-error",
+    "public": "failed",
+    "private": "failed",
+    "diagnostics": [
+      1005
+    ],
+    "programFiles": 1639
+  },
+  {
+    "variant": "missing-helper",
+    "public": "failed",
+    "private": "failed",
+    "diagnostics": [
+      2307,
+      2307,
+      2307
+    ],
+    "programFiles": 1638
+  },
+  {
+    "variant": "deleted-module",
+    "public": "failed",
+    "private": "failed",
+    "diagnostics": [
+      6053,
+      2307,
+      2353,
+      2345
+    ],
+    "programFiles": 1637
+  }
+]

@@ -1,5 +1,16 @@
 # 검토용 reason 과업·평가 계약 v3 (평가자 전용)
 
+
+## 2026-11-10 v4 현재 계약
+
+`lib/bundle.ts`는 `trial/task.ts`의 단일 TASK/공개 안내를 모든 조건에 동일 bytes로 제공한다. 무요청 종료는 사용자 승인된 실험용 클라이언트 로컬 정책이다. invalid dialog는 undefined로1회 resolve, invalid service는 값0·동기 완료1·stream error0·동기 예외0이다. `stream.ts`가 실제 synchronous subscribe를 관찰하고 `behavior.ts`의 기존52사례 안에서 payload와 종료 assertion을 함께 판정한다. 요청0만으로 성공시키지 않는다. 미지원 문법/의존성 Failure는 기존 unsupported 상태로 유지한다.
+
+기존24제출·15동작 결함을 유지하고 service 잘못된 방출/미완료/error/throw와 dialog null반환5개를 추가해29제출·20동작 결함이다. 모든 결함은 타입 통과 후 failed이며 참조/helper는52/52다. 기존24제출의 submissionId·판정·payload assertion은 같다. complete-root/delta의52case·modal/termination 관찰도 같다. 새 버전은 `s2-evaluation-v4-termination`; stream.js를 evaluator 지문에 포함한다.
+
+C는 설명 본문과 원문/메타데이터 부록이며68view·1511leaf에 B경로/C줄·변환/근거/상태를 연결한다. 단위·text drift 자동 검사는 의미 동등성 증명이 아니다. developer 검토와 사람 검토를 분리하며 humanParityReview/semanticReview는 pending, 승인 지식0이다. 모델의12항목/16링크와 B뷰는 변경하지 않았다.
+
+[실행 계약](../trial/README.md)과 [새 근거](../verification/2026-11-10-trial-preparation/)를 참조한다. 토큰 강제 상한은 사용자 후속 결정으로 필수 준비 gate가 아니고 usage 관측과30분 제한을 사용한다. 실제 비교/모델 호출은0회다. 파일/네트워크 접근 거부는 검증했지만 detached 자손 종료 결함으로 전체 격리는 blocked이며, 실행 entry는 거부한다. trialAuthorized/readyForTrial=false·results=null이다. 이하 초안/v3의 미정 정책·분모는 역사적 경과로 읽는다.
+
 2026-11-09 R9 modal 연결 보완이다. R8/R10과 v2의 제출 타입/요청 비교 계약은 유지한다. 실제 Vendure 정책 승인이 아니며 `readyForTrial:false`다. 가상 요구는 **취소 payload의 reason만** trim/nonblank로 제한한다. invalid 취소 입력의 요청/연쇄 환불을 억제하는 대안(a)을 교정한다. 동기 예외/stream error 대안(b), UI 표시/닫힘, 사람의 원문 충실성·B/C 의미 동등성, 실제 격리·agent 조건은 별도 검토/동결 전이다. generated/server schema는 바꾸지 않는다.
 
 ## 부모→modal→dialog→부모 연결

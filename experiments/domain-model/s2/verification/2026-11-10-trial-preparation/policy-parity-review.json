@@ -1,0 +1,74 @@
+[
+  {
+    "topic": "직접 취소",
+    "B": "B/views/item-6.json",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 142,
+      "endLine": 144,
+      "sha256": "9c407a166e02a8f8f30c97a94033ef83574a4d92eeeae6f7e17cba222dace913"
+    },
+    "developerReview": "source-preserving; limitations retained",
+    "humanReview": "pending"
+  },
+  {
+    "topic": "환불 중 취소",
+    "B": "B/views/item-7.json",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 153,
+      "endLine": 155,
+      "sha256": "5ee33609d3c0dad3125088ad6ab3929f40056681c954ffd839df4caf902a2744"
+    },
+    "developerReview": "source-preserving; limitations retained",
+    "humanReview": "pending"
+  },
+  {
+    "topic": "취소 없는 환불",
+    "B": "B/views/fact-12.json",
+    "C": {
+      "file": "C/observations.md",
+      "startLine": 92,
+      "endLine": 94,
+      "sha256": "3075819b3472613e36eda1cb2e829dbfd7eaaee058fd4f6b9171d390efec80b5"
+    },
+    "developerReview": "source-preserving; limitations retained",
+    "humanReview": "pending"
+  },
+  {
+    "topic": "닫기",
+    "B": "B/views/item-8.json",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 166,
+      "endLine": 168,
+      "sha256": "ed77cc01b8465af5e25a6dee26d5671472159744de95d5fa531e87b5f0280ca1"
+    },
+    "developerReview": "source-preserving; limitations retained",
+    "humanReview": "pending"
+  },
+  {
+    "topic": "service 경계",
+    "B": "B/views/item-10.json",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 190,
+      "endLine": 192,
+      "sha256": "3755ba15aaa66304bd61c8de7c4689cc893b3c5d96f9dbf5a0240f918fd7323b"
+    },
+    "developerReview": "source-preserving; limitations retained",
+    "humanReview": "pending"
+  },
+  {
+    "topic": "UI 한계",
+    "B": "B/views/item-9.json",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 179,
+      "endLine": 181,
+      "sha256": "14dd055e41d6e31de7f616e55dc5575d2c38c00ee5adab4d17bfc3b8ffd83d78"
+    },
+    "developerReview": "source-preserving; limitations retained",
+    "humanReview": "pending"
+  }
+]

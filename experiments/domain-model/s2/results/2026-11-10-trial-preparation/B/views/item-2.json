@@ -1,0 +1,60 @@
+{
+  "item": {
+    "status": "Found",
+    "value": {
+      "id": "payment",
+      "kind": "concept-candidate",
+      "factRefs": [
+        "source-V03",
+        "source-refund-request"
+      ],
+      "candidateRefs": [],
+      "source": {
+        "id": "payment",
+        "kind": "concept-candidate",
+        "label": "결제",
+        "status": "pending-review",
+        "author": "agent",
+        "factRefs": [
+          "source-V03",
+          "source-refund-request"
+        ],
+        "candidateRefs": [],
+        "relatedItems": [
+          "order"
+        ],
+        "interpretation": "settled 결제 관찰과 환불 요청이 관련되지만 결제 정책 전체는 미확인이다.",
+        "unverified": [
+          "커스텀 결제 상태에서 분기 의도는 무엇인가?"
+        ],
+        "intendedPolicy": null
+      }
+    }
+  },
+  "neighbors": {
+    "status": "Found",
+    "value": [
+      {
+        "from": "payment",
+        "to": "order",
+        "kind": "related-item",
+        "provenance": "S1.items/2/relatedItems",
+        "direction": "outgoing"
+      },
+      {
+        "from": "refund-request",
+        "to": "payment",
+        "kind": "related-item",
+        "provenance": "S1.items/4/relatedItems",
+        "direction": "incoming"
+      },
+      {
+        "from": "branch",
+        "to": "payment",
+        "kind": "related-item",
+        "provenance": "S1.items/5/relatedItems",
+        "direction": "incoming"
+      }
+    ]
+  }
+}

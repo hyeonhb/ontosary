@@ -1,0 +1,439 @@
+[
+  {
+    "id": "fact-1#/value/source/kind",
+    "view": "B/views/fact-1.json",
+    "pointer": "/value/source/kind",
+    "value": "observed-in-source",
+    "kind": "statement",
+    "C": {
+      "file": "C/observations.md",
+      "startLine": 15,
+      "endLine": 17,
+      "sha256": "d0e621801bed6133fcddc7952499ae7b230a3146de4cf826131ae46e082fdfbe"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [
+      "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede"
+    ],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "fact-1#/value/source/author",
+    "view": "B/views/fact-1.json",
+    "pointer": "/value/source/author",
+    "value": "agent",
+    "kind": "statement",
+    "C": {
+      "file": "C/observations.md",
+      "startLine": 15,
+      "endLine": 17,
+      "sha256": "d0e621801bed6133fcddc7952499ae7b230a3146de4cf826131ae46e082fdfbe"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [
+      "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede"
+    ],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "fact-1#/value/source/method",
+    "view": "B/views/fact-1.json",
+    "pointer": "/value/source/method",
+    "value": "manual-source-reading",
+    "kind": "statement",
+    "C": {
+      "file": "C/observations.md",
+      "startLine": 15,
+      "endLine": 17,
+      "sha256": "d0e621801bed6133fcddc7952499ae7b230a3146de4cf826131ae46e082fdfbe"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [
+      "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede"
+    ],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "fact-1#/value/source/scope",
+    "view": "B/views/fact-1.json",
+    "pointer": "/value/source/scope",
+    "value": "Pinned Admin UI client static source; no runtime/server policy guarantee",
+    "kind": "statement",
+    "C": {
+      "file": "C/observations.md",
+      "startLine": 15,
+      "endLine": 17,
+      "sha256": "d0e621801bed6133fcddc7952499ae7b230a3146de4cf826131ae46e082fdfbe"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [
+      "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede"
+    ],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "fact-1#/value/source/support",
+    "view": "B/views/fact-1.json",
+    "pointer": "/value/source/support",
+    "value": "manual; not a whole-function logical proof",
+    "kind": "statement",
+    "C": {
+      "file": "C/observations.md",
+      "startLine": 15,
+      "endLine": 17,
+      "sha256": "d0e621801bed6133fcddc7952499ae7b230a3146de4cf826131ae46e082fdfbe"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [
+      "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede"
+    ],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "fact-1#/value/source/claim",
+    "view": "B/views/fact-1.json",
+    "pointer": "/value/source/claim",
+    "value": "PaymentAuthorized 또는 active 또는 settled payment 없음이면 취소, 그 외 refund 분기.",
+    "kind": "statement",
+    "C": {
+      "file": "C/observations.md",
+      "startLine": 15,
+      "endLine": 17,
+      "sha256": "d0e621801bed6133fcddc7952499ae7b230a3146de4cf826131ae46e082fdfbe"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [
+      "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede"
+    ],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "fact-1#/status",
+    "view": "B/views/fact-1.json",
+    "pointer": "/status",
+    "value": "Found",
+    "kind": "metadata",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 223,
+      "endLine": 223,
+      "sha256": "4580f7b2b0fe8b95d9652f45957b4cbfa7c8a3fcd78a44451fe1705130532343"
+    },
+    "transformation": "verbatim metadata",
+    "sourceEvidence": [
+      "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede"
+    ],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "fact-1#/value/id",
+    "view": "B/views/fact-1.json",
+    "pointer": "/value/id",
+    "value": "source-V02",
+    "kind": "metadata",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 224,
+      "endLine": 224,
+      "sha256": "9b461015054e65c07c8e9f4b5f486008f574d2749b9894972fca40e124e14533"
+    },
+    "transformation": "verbatim metadata",
+    "sourceEvidence": [
+      "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede"
+    ],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "fact-1#/value/evidence/0/id",
+    "view": "B/views/fact-1.json",
+    "pointer": "/value/evidence/0/id",
+    "value": "source-V02/e0",
+    "kind": "metadata",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 225,
+      "endLine": 225,
+      "sha256": "63bcc95fdd2def1c1f27518ccd3bcf1bfc44c97292878c60894a374f571c226a"
+    },
+    "transformation": "verbatim metadata",
+    "sourceEvidence": [
+      "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede"
+    ],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "fact-1#/value/evidence/0/file",
+    "view": "B/views/fact-1.json",
+    "pointer": "/value/evidence/0/file",
+    "value": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+    "kind": "metadata",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 226,
+      "endLine": 226,
+      "sha256": "eb44cb68561b6a661eeb854d1476189a3abecab0c604f09bb3a2d9c7a1536a8a"
+    },
+    "transformation": "verbatim metadata",
+    "sourceEvidence": [
+      "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede"
+    ],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "fact-1#/value/evidence/0/symbol",
+    "view": "B/views/fact-1.json",
+    "pointer": "/value/evidence/0/symbol",
+    "value": "cancelOrRefund(order: OrderDetailFragment) {",
+    "kind": "metadata",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 227,
+      "endLine": 227,
+      "sha256": "e193861a5e537a9f50619b9aa3617270e52a7e862307e459939d26241fa51432"
+    },
+    "transformation": "verbatim metadata",
+    "sourceEvidence": [
+      "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede"
+    ],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "fact-1#/value/evidence/0/offset",
+    "view": "B/views/fact-1.json",
+    "pointer": "/value/evidence/0/offset",
+    "value": 18542,
+    "kind": "metadata",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 228,
+      "endLine": 228,
+      "sha256": "f6e37390f19948601348af72145888e152c1720117f5a7942d2f02a9c16e4255"
+    },
+    "transformation": "verbatim metadata",
+    "sourceEvidence": [
+      "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede"
+    ],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "fact-1#/value/evidence/0/end",
+    "view": "B/views/fact-1.json",
+    "pointer": "/value/evidence/0/end",
+    "value": 18586,
+    "kind": "metadata",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 229,
+      "endLine": 229,
+      "sha256": "e38e3d729e68c7bc953c1331da64786233294277ad6b2eb6a7308c33817a9c32"
+    },
+    "transformation": "verbatim metadata",
+    "sourceEvidence": [
+      "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede"
+    ],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "fact-1#/value/evidence/0/line",
+    "view": "B/views/fact-1.json",
+    "pointer": "/value/evidence/0/line",
+    "value": 466,
+    "kind": "metadata",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 230,
+      "endLine": 230,
+      "sha256": "6b47c969f6efe10756d3151cf71acae9c852e1f073869e86a84a367ee1f63d2d"
+    },
+    "transformation": "verbatim metadata",
+    "sourceEvidence": [
+      "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede"
+    ],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "fact-1#/value/evidence/0/anchor",
+    "view": "B/views/fact-1.json",
+    "pointer": "/value/evidence/0/anchor",
+    "value": "cancelOrRefund(order: OrderDetailFragment) {",
+    "kind": "metadata",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 231,
+      "endLine": 231,
+      "sha256": "0e56b5a337be3b4efd457b9eb2d4bac5a1a5e07800e9917fa0ad05282dffe157"
+    },
+    "transformation": "verbatim metadata",
+    "sourceEvidence": [
+      "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede"
+    ],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "fact-1#/value/evidence/0/sha256",
+    "view": "B/views/fact-1.json",
+    "pointer": "/value/evidence/0/sha256",
+    "value": "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede",
+    "kind": "metadata",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 232,
+      "endLine": 232,
+      "sha256": "686c192162e0595778a76c0f86002c034350e59b60eb54c816792f46b5d1d490"
+    },
+    "transformation": "verbatim metadata",
+    "sourceEvidence": [
+      "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede"
+    ],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "fact-1#/value/source/id",
+    "view": "B/views/fact-1.json",
+    "pointer": "/value/source/id",
+    "value": "source-V02",
+    "kind": "metadata",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 233,
+      "endLine": 233,
+      "sha256": "75662cccb13a61373a400571e8996493ce3e8ac2086485d9bc6bafec93275480"
+    },
+    "transformation": "verbatim metadata",
+    "sourceEvidence": [
+      "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede"
+    ],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "fact-1#/value/source/evidence/file",
+    "view": "B/views/fact-1.json",
+    "pointer": "/value/source/evidence/file",
+    "value": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+    "kind": "metadata",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 234,
+      "endLine": 234,
+      "sha256": "f5870b51216e94a12c69a1b3465a190c7465591590d1644b4c642ceca18d11bd"
+    },
+    "transformation": "verbatim metadata",
+    "sourceEvidence": [
+      "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede"
+    ],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "fact-1#/value/source/evidence/symbol",
+    "view": "B/views/fact-1.json",
+    "pointer": "/value/source/evidence/symbol",
+    "value": "cancelOrRefund(order: OrderDetailFragment) {",
+    "kind": "metadata",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 235,
+      "endLine": 235,
+      "sha256": "71deaa33ed8c4a5c106ab5be089576a3e50dce039f27e008ee51176f7166b832"
+    },
+    "transformation": "verbatim metadata",
+    "sourceEvidence": [
+      "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede"
+    ],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "fact-1#/value/source/evidence/offset",
+    "view": "B/views/fact-1.json",
+    "pointer": "/value/source/evidence/offset",
+    "value": 18542,
+    "kind": "metadata",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 236,
+      "endLine": 236,
+      "sha256": "b333222806bb742319ded1e2c1ba518f92819f914d19d690cbf7c57aef7fdaa2"
+    },
+    "transformation": "verbatim metadata",
+    "sourceEvidence": [
+      "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede"
+    ],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "fact-1#/value/source/evidence/line",
+    "view": "B/views/fact-1.json",
+    "pointer": "/value/source/evidence/line",
+    "value": 466,
+    "kind": "metadata",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 237,
+      "endLine": 237,
+      "sha256": "7618cbad432260d7082c1a0e2cd2bc503c98979d5c8d1d88ea9849e5fe73abbf"
+    },
+    "transformation": "verbatim metadata",
+    "sourceEvidence": [
+      "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede"
+    ],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "fact-1#/value/source/evidence/anchor",
+    "view": "B/views/fact-1.json",
+    "pointer": "/value/source/evidence/anchor",
+    "value": "cancelOrRefund(order: OrderDetailFragment) {",
+    "kind": "metadata",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 238,
+      "endLine": 238,
+      "sha256": "23d634b0a92a75a9890dd098d9ebf895eb1a28e30681f2331743e4280fc6115b"
+    },
+    "transformation": "verbatim metadata",
+    "sourceEvidence": [
+      "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede"
+    ],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "fact-1#/value/source/evidence/sha256",
+    "view": "B/views/fact-1.json",
+    "pointer": "/value/source/evidence/sha256",
+    "value": "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede",
+    "kind": "metadata",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 239,
+      "endLine": 239,
+      "sha256": "364cefd3c6118f5206fa8c68957590896b3b3b96c4079e8e694b4e6f06100386"
+    },
+    "transformation": "verbatim metadata",
+    "sourceEvidence": [
+      "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede"
+    ],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  }
+]

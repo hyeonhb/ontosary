@@ -1,0 +1,410 @@
+[
+  {
+    "id": "index#/0/id",
+    "view": "B/views/index.json",
+    "pointer": "/0/id",
+    "value": "order",
+    "kind": "navigation",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 13,
+      "endLine": 13,
+      "sha256": "7507501d583676ef91a4346e970c07f89061482b9f30cb469d6d0bbc28dba941"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "index#/0/label",
+    "view": "B/views/index.json",
+    "pointer": "/0/label",
+    "value": "주문",
+    "kind": "navigation",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 13,
+      "endLine": 13,
+      "sha256": "7507501d583676ef91a4346e970c07f89061482b9f30cb469d6d0bbc28dba941"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "index#/1/id",
+    "view": "B/views/index.json",
+    "pointer": "/1/id",
+    "value": "line",
+    "kind": "navigation",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 15,
+      "endLine": 15,
+      "sha256": "24ccbae3e1550a48cae133e122af694c046b2ebfce3710dea046f6e953b156f2"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "index#/1/label",
+    "view": "B/views/index.json",
+    "pointer": "/1/label",
+    "value": "주문 항목",
+    "kind": "navigation",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 15,
+      "endLine": 15,
+      "sha256": "24ccbae3e1550a48cae133e122af694c046b2ebfce3710dea046f6e953b156f2"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "index#/2/id",
+    "view": "B/views/index.json",
+    "pointer": "/2/id",
+    "value": "payment",
+    "kind": "navigation",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 17,
+      "endLine": 17,
+      "sha256": "47e7991f58f6e19cb2adbf1e4ff0840c6251f06c519359bc89d2efb34f59f026"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "index#/2/label",
+    "view": "B/views/index.json",
+    "pointer": "/2/label",
+    "value": "결제",
+    "kind": "navigation",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 17,
+      "endLine": 17,
+      "sha256": "47e7991f58f6e19cb2adbf1e4ff0840c6251f06c519359bc89d2efb34f59f026"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "index#/3/id",
+    "view": "B/views/index.json",
+    "pointer": "/3/id",
+    "value": "cancel-request",
+    "kind": "navigation",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 19,
+      "endLine": 19,
+      "sha256": "bc36d1ca23f5ffb2653caef4bbbd24518380d27472bf273fb3d5699d5e98f09a"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "index#/3/label",
+    "view": "B/views/index.json",
+    "pointer": "/3/label",
+    "value": "취소 요청",
+    "kind": "navigation",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 19,
+      "endLine": 19,
+      "sha256": "bc36d1ca23f5ffb2653caef4bbbd24518380d27472bf273fb3d5699d5e98f09a"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "index#/4/id",
+    "view": "B/views/index.json",
+    "pointer": "/4/id",
+    "value": "refund-request",
+    "kind": "navigation",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 21,
+      "endLine": 21,
+      "sha256": "092d25a5bd3250ecfbc5aae1621ccd25903fca2ef2a2c59f07d7f46625989957"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "index#/4/label",
+    "view": "B/views/index.json",
+    "pointer": "/4/label",
+    "value": "환불 요청",
+    "kind": "navigation",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 21,
+      "endLine": 21,
+      "sha256": "092d25a5bd3250ecfbc5aae1621ccd25903fca2ef2a2c59f07d7f46625989957"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "index#/5/id",
+    "view": "B/views/index.json",
+    "pointer": "/5/id",
+    "value": "branch",
+    "kind": "navigation",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 23,
+      "endLine": 23,
+      "sha256": "1f2c22f266fc73f7670f05074740a630beefb09a1a448fe0b481c631e72d02a2"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "index#/5/label",
+    "view": "B/views/index.json",
+    "pointer": "/5/label",
+    "value": "클라이언트 취소/환불 분기",
+    "kind": "navigation",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 23,
+      "endLine": 23,
+      "sha256": "1f2c22f266fc73f7670f05074740a630beefb09a1a448fe0b481c631e72d02a2"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "index#/6/id",
+    "view": "B/views/index.json",
+    "pointer": "/6/id",
+    "value": "dialog-submit",
+    "kind": "navigation",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 25,
+      "endLine": 25,
+      "sha256": "d1133af9bcc739eae84e924590bede4d83e4a503481da79481827054a7489b5b"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "index#/6/label",
+    "view": "B/views/index.json",
+    "pointer": "/6/label",
+    "value": "대화상자 결과 → 취소 요청",
+    "kind": "navigation",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 25,
+      "endLine": 25,
+      "sha256": "d1133af9bcc739eae84e924590bede4d83e4a503481da79481827054a7489b5b"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "index#/7/id",
+    "view": "B/views/index.json",
+    "pointer": "/7/id",
+    "value": "refund-also-cancels",
+    "kind": "navigation",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 27,
+      "endLine": 27,
+      "sha256": "53298d116ad14d0cf3fbc412966e7deea144e8ef5f11a3cfe830e3f76be0a02d"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "index#/7/label",
+    "view": "B/views/index.json",
+    "pointer": "/7/label",
+    "value": "환불 경로의 조건부 취소 요청",
+    "kind": "navigation",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 27,
+      "endLine": 27,
+      "sha256": "53298d116ad14d0cf3fbc412966e7deea144e8ef5f11a3cfe830e3f76be0a02d"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "index#/8/id",
+    "view": "B/views/index.json",
+    "pointer": "/8/id",
+    "value": "dismiss",
+    "kind": "navigation",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 29,
+      "endLine": 29,
+      "sha256": "7f7ce0901212be0eb2e9d51e7167b5c234a5c83c018bff69629edeefaf2f0b65"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "index#/8/label",
+    "view": "B/views/index.json",
+    "pointer": "/8/label",
+    "value": "대화상자 닫기 ≠ 주문 취소",
+    "kind": "navigation",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 29,
+      "endLine": 29,
+      "sha256": "7f7ce0901212be0eb2e9d51e7167b5c234a5c83c018bff69629edeefaf2f0b65"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "index#/9/id",
+    "view": "B/views/index.json",
+    "pointer": "/9/id",
+    "value": "ui-gates",
+    "kind": "navigation",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 31,
+      "endLine": 31,
+      "sha256": "55b0cff1ff79f9c1244ae550541989e79b25bc2b6919a975970e540317ea6e08"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "index#/9/label",
+    "view": "B/views/index.json",
+    "pointer": "/9/label",
+    "value": "메뉴 노출과 제출 비활성",
+    "kind": "navigation",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 31,
+      "endLine": 31,
+      "sha256": "55b0cff1ff79f9c1244ae550541989e79b25bc2b6919a975970e540317ea6e08"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "index#/10/id",
+    "view": "B/views/index.json",
+    "pointer": "/10/id",
+    "value": "cancel-transport",
+    "kind": "navigation",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 33,
+      "endLine": 33,
+      "sha256": "bed59d7e0d01561ad04e746ffc5c2b02c866869e6031541be8ed460a5f0c9ed1"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "index#/10/label",
+    "view": "B/views/index.json",
+    "pointer": "/10/label",
+    "value": "취소 service → GraphQL operation",
+    "kind": "navigation",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 33,
+      "endLine": 33,
+      "sha256": "bed59d7e0d01561ad04e746ffc5c2b02c866869e6031541be8ed460a5f0c9ed1"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "index#/11/id",
+    "view": "B/views/index.json",
+    "pointer": "/11/id",
+    "value": "refund-transport",
+    "kind": "navigation",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 35,
+      "endLine": 35,
+      "sha256": "28d1f459896c026d57953acec96e5f23157cd406e960b51fce23ff81228e3ef2"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "index#/11/label",
+    "view": "B/views/index.json",
+    "pointer": "/11/label",
+    "value": "환불 service → GraphQL operation",
+    "kind": "navigation",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 35,
+      "endLine": 35,
+      "sha256": "28d1f459896c026d57953acec96e5f23157cd406e960b51fce23ff81228e3ef2"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  }
+]
