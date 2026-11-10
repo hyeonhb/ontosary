@@ -245,3 +245,11 @@ usage는 순차 turn 상태와 이벤트 identity, EOF/종료/절단을 결합�
 ADR-031의 후보1개/환경 수정·재시도1회 상한을 적용했다. Lima 2.3.0/VZ와 준비 image build는 성공했지만, repo@manifest 실행 실패 후 Docker 호환 config ID로 바꾼 한 번의 시도도 실패했다. [인계](reviews/2026-11-10-s2-container-feasibility.md)의 판정은 inconclusive이며 런타임 자체의 부적합이나 R11 해결을 뜻하지 않는다. 남은 시간이 있어도 두 번째 수정을 자동 시도하지 않고 소유 VM/image/cache를 정리했다.
 
 다음 결정 대상은 동일 후보의 native image identity 연결을 확인할 별도 작은 예산이다. 사용자에게 새 플랫폼/권한 확대를 이미 승인받았다고 가정하지 않는다. worker 종료·불변 수집·별도 평가 단위 및 Linux 의미 동등성의 모든 미실행 항목을 남기고, 기존 macOS production/live 차단·R12 계약·정적 자료를 보존한다. 초기 CLI stderr와 수정 실패 원문·재귀 manifest/cleanup을 보존하며 실제 모델/provider/본 비교는0회다.
+
+## ADR-033 · 동일 후보 이미지 연결과 최소 실행의30분 재검증 — 2026-11-10
+
+**사용자 결정:** inconclusive 결과 분석 후 동일 Lima/VZ + containerd/nerdctl 후보의 이미지 식별자 수정과 모델 없는 최소 실행을30분 한도로 재검증하기로 했다. [개발 지시](reviews/2026-11-10-s2-container-smoke-instructions.md)에 따라 image target과 실제 container의 대응, 비특권 셸·Node·공식 CLI version/help, 새 단위 반복과 정리를 확인한다. 결과를 리뷰한 뒤 후속 범위를 정하며 Vendure 준비·R11 adapter/평가·실제 모델/본 비교는 이번에 진행하지 않는다.
+
+**운영 선택:** 이전의 고정 수정·재시도1회 규칙은 이미지 호출 오류에도 전체 중단을 유발했다. 이번 회차에서는 같은 후보의 원인이 확인된 국소 수정은 시간 안에서 허용하고, 새 근거 없는 반복·후보/버전 교체·권한 확대는 중단한다. 읽기/재준비/대기를 포함해30분,20분부터 새 탐색을 멈추고 마지막10분은 검증·정리·최소 보고에 쓴다. 유료 비용0이며 이전/이번/누적 비용을 구분한다. 기존90분/4시간을 초기화하거나 잔여 예산을 자동 사용하는 승인이 아니다.
+
+**판정 경계:** smoke-passed는 최소 실행 확인에만 사용한다. 이전 manifest/config는 과거 증거이고 새 build의 실행 identity는 다시 관찰한다. R11 unresolved·R12 기존 검증 범위·trialAuthorized/readyForTrial=false·results=null을 유지한다. 실제 모델/provider/본 비교0회이며 CLI help를 실제 모델 도구/인증 경로의 검증으로 해석하지 않는다. ADR-031/032와 이전 원시 증거는 보존한다.

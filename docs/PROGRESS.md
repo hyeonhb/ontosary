@@ -1,5 +1,7 @@
 # 현재 작업 상태 — 새 세션은 이 문서부터 읽기
 
+2026-11-10 동일 후보 최소 실행 재검증 승인: 사용자는 Lima/VZ + containerd/nerdctl을 유지해 **이미지 식별자 수정과 모델 없는 최소 실행을30분 한도**로 확인하기로 했다(ADR-033). [개발 지시](reviews/2026-11-10-s2-container-smoke-instructions.md)는20분 탐색/10분 검증·정리·인계, 원인을 확인한 국소 재시도, image target과 실제 container 연결, 비특권 셸·Node·CLI version/help를 요구한다. 이번 회차의 누적 비용을 이전 실패와 분리 기록하며 기존90분/4시간을 재개하지 않는다. 성공해도 Vendure 준비·R11 adapter/평가·실제 모델/본 비교로 진행하지 않고 결과 리뷰를 기다린다. 이번 세션은 지시·맥락 문서 작성이며 실제 재검증은 미실행이다. pnpm check(303테스트·타입 검사·예제 빌드)와 문서 로컬 링크200개를 확인했다. R11 미해결·R12 기존 판정·trialAuthorized/readyForTrial=false·results=null을 유지한다.
+
 2026-11-10 컨테이너 타당성 조사: **inconclusive, R11 차단 유지**. [인계](reviews/2026-11-10-s2-container-feasibility.md). Lima/VZ VM과 Linux 준비 이미지 build는 성공했지만 로컬 image 식별자 호출 오류와 수정1회 실패로 중단했다. CLI/종료·접근·수집/평가 probe와 Linux Vendure 설치·평가는 미실행이다. VM/image/cache는 정리했고 후보1개·신규 비용0, 환경 준비 보수적20분51초/90분을 기록했다. 호스트303테스트(skip0)·비교4/4·18 usage fixture·84배포/4735원본 hash와 production 거부를 확인했다. R12 기존 판정과 모델/평가 계약은 유지한다. 다음은 같은 후보의 이미지 연결 수정에 새 한정 예산을 줄지 결과 리뷰에서 결정하는 단계다. 실제 모델/본 비교0회·trialAuthorized/readyForTrial=false·results=null이다.
 
 2026-11-10 컨테이너 경계 타당성 검증 승인: 사용자는 **일회성 컨테이너 우선·기존 CLI/셸 유지**로 진행하기로 했다(ADR-031). [개발 지시](reviews/2026-11-10-s2-container-feasibility-instructions.md)에 총4시간·환경 준비90분·마지막30분 마무리·후보1개·신규 유료 비용0과 중단/부분 인계 기준을 정했다. 모델 없는 실행/평가 단위 종료·권한·전체 수집·Linux 환경/기존 평가 재현을 확인한다. 이번 세션은 지시·맥락 문서 작성이며 컨테이너 설치/실험을 수행하지 않았다. pnpm check(303테스트·타입 검사·예제 빌드)와 문서 로컬 링크196개를 확인했다. R11은 미해결이고 R12 해결 판정을 유지한다. 본 비교는 결과 리뷰 이후이며 실제 모델/본 비교0회·trialAuthorized/readyForTrial=false다.
