@@ -2,8 +2,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import os from 'node:os';
 import net from 'node:net';
-import { configuration, runTool, Layout, tree, snapshot } from './runtime.js';
-import { collectUsage } from './telemetry.js';
+import { configuration, runTool, Layout, tree, collectDiagnostic } from './runtime.js';
+import { collectUsage, usageEnd } from './telemetry.js';
 export async function probe(codex:string,out:string) {
     if(fs.existsSync(out))throw Error('Output exists');
     const root=fs.realpathSync(fs.mkdtempSync(path.join(os.tmpdir(),'s2-probe-')));
@@ -33,7 +33,7 @@ Promise.all(tests.map(([name,target])=>new Promise(resolve=>{const s=net.connect
         fs.unlinkSync(path.join(l.source,'escape'));
         const usageLines=[JSON.stringify({type:'turn.started'}),JSON.stringify({id:'u1',type:'turn.completed',usage:{input_tokens:99999,output_tokens:5,cached_input_tokens:90000,reasoning_output_tokens:2}})];
         const stub=await runTool(codex,l,[node,'-e',`console.log(${JSON.stringify(usageLines.join('\n'))})`],5000);
-        const usage=collectUsage(stub.stdout.trim().split('\n')).summary();
+        const usage=collectUsage(stub.stdout.trim().split('\n'),usageEnd(stub)).summary();
         // A detached descendant tests a known gap of a process-group-only supervisor.
         const escape=path.join(l.scratch,'escaped.txt');
         const detachedCode=`require('node:child_process').spawn(process.execPath,['-e',${JSON.stringify(`setTimeout(()=>require('node:fs').writeFileSync(${JSON.stringify(escape)},'alive'),700)`)}],{detached:true,stdio:'ignore'}).unref();setInterval(()=>{},1000);`;
@@ -41,13 +41,13 @@ Promise.all(tests.map(([name,target])=>new Promise(resolve=>{const s=net.connect
         await new Promise(resolve=>setTimeout(resolve,900));
         const daemonContained=timed.reason==='timeout'&&!fs.existsSync(escape);
         fs.writeFileSync(path.join(l.source,'added.ts'),'export const value=1;');fs.writeFileSync(path.join(l.auxiliary,'notes.txt'),'fixture notes');
-        const frozen=snapshot(l.source,l.auxiliary,path.join(root,'final'),original);
+        const frozen=collectDiagnostic(timed,l,path.join(root,'final'),original);
         const finalLayout={...l,source:path.join(root,'final/source'),sourceReadOnly:true,readOnly:[...l.readOnly,path.join(root,'final')]};
         // Evaluate snapshots with read-only rights; do not reuse writable source permissions.
         const finalConfig=configuration(finalLayout).replace(JSON.stringify(finalLayout.source)+' = "write"',JSON.stringify(finalLayout.source)+' = "read"');
         fs.writeFileSync(path.join(control,'config.toml'),configuration(finalLayout));
         const sealed=await runTool(codex,finalLayout,[node,'-e',`try{require('node:fs').chmodSync(${JSON.stringify(path.join(root,'final/source/allowed.txt'))},0o644);require('node:fs').writeFileSync(${JSON.stringify(path.join(root,'final/source/allowed.txt'))},'bad');console.log('WRITE');}catch(e){console.log(e.code);}`],5000);
-        const record={snapshotWriteDenied:sealed.stdout.trim()==='EPERM'||sealed.stdout.trim()==='EACCES',version:1,platform:process.platform,arch:process.arch,node:process.version,uid:process.getuid?.(),sameToolBoundary:'codex sandbox with generated trial profile; no model call',accessVerified:access,observation,probeExit:result.code,probeError:result.stderr.split(root).join('<probe>'),usageFixture:usage,usageRaw:stub.stdout,usageCoverage:'Deterministic stub events only; no provider requests',timeout:{reason:timed.reason,limitMs:350,wallTimeMs:timed.wallTimeMs,detachedDescendantContained:daemonContained},snapshot:frozen,readOnlySnapshotProfile:finalConfig.split(root).join('<probe>'),readyForTrial:false,blockers:[...(!access?['filesystem/network probe failed']:[]),...(!daemonContained?['Detached descendants escape process-group shutdown; immutable final collection not guaranteed for hostile processes']:[]),'Live CLI tool inventory, credential separation and inherited instruction exclusion not exercised without a model session'],measurement:'Probe/script stub only; no provider usage, no agent task',results:null};
+        const record={snapshotWriteDenied:sealed.stdout.trim()==='EPERM'||sealed.stdout.trim()==='EACCES',version:1,platform:process.platform,arch:process.arch,node:process.version,uid:process.getuid?.(),sameToolBoundary:'codex sandbox with generated trial profile; no model call',accessVerified:access,observation,probeExit:result.code,probeError:result.stderr.split(root).join('<probe>'),usageFixture:usage,usageRaw:stub.stdout,usageCoverage:'Deterministic stub events only; no provider requests',timeout:{reason:timed.reason,limitMs:350,wallTimeMs:timed.wallTimeMs,detachedDescendantContained:daemonContained},diagnosticSnapshot:frozen,collectionAllowed:false,readOnlySnapshotProfile:finalConfig.split(root).join('<probe>'),readyForTrial:false,blockers:[...(!access?['filesystem/network probe failed']:[]),...(!daemonContained?['Detached descendants escape process-group shutdown; immutable final collection not guaranteed for hostile processes']:[]),'Live CLI tool inventory, credential separation and inherited instruction exclusion not exercised without a model session'],measurement:'Probe/script stub only; no provider usage, no agent task',results:null};
         fs.mkdirSync(path.dirname(out),{recursive:true});fs.writeFileSync(out,JSON.stringify(record,null,2).split(root).join('<probe>').split(fs.realpathSync(process.execPath)).join('<node>')+'\n');
         return record;
     } finally {server.close();fs.rmSync(root,{recursive:true,force:true});}

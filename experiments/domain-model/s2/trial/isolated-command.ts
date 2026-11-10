@@ -6,6 +6,8 @@ import { configuration, runTool, Layout } from './runtime.js';
 // Evaluator-only, known calibration inputs. No model dispatch or broad host-home read capability.
 const [codex,repoArg,cacheArg,outArg,...command]=process.argv.slice(2);
 if(!codex||!repoArg||!cacheArg||!outArg||!command.length)throw Error('Usage: isolated-command <codex> <repo> <cache> <new-dir> <node-script> [args]');
+const entries=['work/s2-build/evaluation/oracle-check.js','work/s2-build/trial/evaluate-calibration-snapshot.js','work/s2-build/trial/evaluate-snapshot.js'];
+if(!entries.includes(command[0]!.replaceAll('\\','/')))throw Error('Only explicit private calibration or refusal entries are allowed');
 const repo=fs.realpathSync(repoArg),cache=fs.realpathSync(cacheArg),out=path.resolve(outArg);
 if(fs.existsSync(out))throw Error('Output exists');fs.mkdirSync(out,{recursive:true});
 const control=fs.realpathSync(fs.mkdtempSync(path.join(os.tmpdir(),'s2-evaluator-'))),privateRepo=path.join(control,'repository'),results=path.join(control,'results'),node=path.join(control,'node');
@@ -39,6 +41,6 @@ try {
     const r=await runTool(codex,l,[node,...args],1800000);
     const clean=(s:string)=>s.split(repo).join('<repository>').split(cache).join('<cache>').split(control).join('<control>');
     fs.cpSync(results,out,{recursive:true});
-    fs.writeFileSync(path.join(out,'execution.json'),JSON.stringify({...r,stdout:clean(r.stdout),stderr:clean(r.stderr),profile:clean(configuration(l)),hostPackageReadDenied:true,copiedEvaluatorPaths:copied,scope:'Known calibration/complete-root in copied read-only evaluator, explicit host-home deny, network denied; detached process gate remains open'},null,2)+'\n');
+    fs.writeFileSync(path.join(out,'execution.json'),JSON.stringify({...r,stdout:clean(r.stdout),stderr:clean(r.stderr),profile:clean(configuration(l)),hostPackageReadDenied:true,copiedEvaluatorPaths:copied,validTrialSubmission:false,scope:'Known calibration/complete-root in copied read-only evaluator, explicit host-home deny, network denied; detached process gate remains open'},null,2)+'\n');
     console.log(JSON.stringify({code:r.code,reason:r.reason,output:out,stderr:clean(r.stderr).slice(0,1000)}));process.exitCode=r.code===0?0:1;
 }finally{fs.rmSync(control,{recursive:true,force:true});}

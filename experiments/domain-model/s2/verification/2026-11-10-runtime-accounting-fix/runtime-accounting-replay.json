@@ -1,0 +1,197 @@
+{
+  "schema": "s2-usage-v2-turn-state",
+  "accountingImplementationHash": "b1fc3b59461de90a6ed62d1a2380d46d33d8e520d8a8bc680d561cb9de424616",
+  "providerCalls": 0,
+  "rawScope": "Intermediate local tool captures replayed; final runtime-probe.json was also executed directly with final code. No provider traffic.",
+  "replay": [
+    {
+      "artifact": "runtime-probe-pre-final-accounting.json.gz",
+      "case": "normal",
+      "repeat": 1,
+      "rawHash": "23fe26abf4ae9068b424a47a3177d0d46d9883526ef56be8078ff5b250da7ec3",
+      "complete": false,
+      "subtotal": 12
+    },
+    {
+      "artifact": "runtime-probe-pre-final-accounting.json.gz",
+      "case": "timeout",
+      "repeat": 1,
+      "rawHash": "23fe26abf4ae9068b424a47a3177d0d46d9883526ef56be8078ff5b250da7ec3",
+      "complete": false,
+      "subtotal": 12
+    },
+    {
+      "artifact": "runtime-probe-pre-final-accounting.json.gz",
+      "case": "normal-child",
+      "repeat": 1,
+      "rawHash": "23fe26abf4ae9068b424a47a3177d0d46d9883526ef56be8078ff5b250da7ec3",
+      "complete": false,
+      "subtotal": 12
+    },
+    {
+      "artifact": "runtime-probe-pre-final-accounting.json.gz",
+      "case": "detached",
+      "repeat": 1,
+      "rawHash": "23fe26abf4ae9068b424a47a3177d0d46d9883526ef56be8078ff5b250da7ec3",
+      "complete": false,
+      "subtotal": 12
+    },
+    {
+      "artifact": "runtime-probe-pre-final-accounting.json.gz",
+      "case": "grandchild",
+      "repeat": 1,
+      "rawHash": "23fe26abf4ae9068b424a47a3177d0d46d9883526ef56be8078ff5b250da7ec3",
+      "complete": false,
+      "subtotal": 12
+    },
+    {
+      "artifact": "runtime-probe-pre-final-accounting.json.gz",
+      "case": "open-handle",
+      "repeat": 1,
+      "rawHash": "23fe26abf4ae9068b424a47a3177d0d46d9883526ef56be8078ff5b250da7ec3",
+      "complete": false,
+      "subtotal": 12
+    },
+    {
+      "artifact": "runtime-probe-pre-final-accounting.json.gz",
+      "case": "inherited-pipe",
+      "repeat": 1,
+      "rawHash": "23fe26abf4ae9068b424a47a3177d0d46d9883526ef56be8078ff5b250da7ec3",
+      "complete": false,
+      "subtotal": 12
+    },
+    {
+      "artifact": "runtime-probe-pre-final-accounting.json.gz",
+      "case": "spawn-error",
+      "repeat": 1,
+      "rawHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "complete": false,
+      "subtotal": null
+    },
+    {
+      "artifact": "runtime-probe-pre-final-accounting.json.gz",
+      "case": "interrupted",
+      "repeat": 1,
+      "rawHash": "23fe26abf4ae9068b424a47a3177d0d46d9883526ef56be8078ff5b250da7ec3",
+      "complete": false,
+      "subtotal": 12
+    },
+    {
+      "artifact": "runtime-probe-pre-final-accounting.json.gz",
+      "case": "kill-error",
+      "repeat": 1,
+      "rawHash": "23fe26abf4ae9068b424a47a3177d0d46d9883526ef56be8078ff5b250da7ec3",
+      "complete": false,
+      "subtotal": 12
+    },
+    {
+      "artifact": "runtime-probe-pre-final-accounting.json.gz",
+      "case": "normal",
+      "repeat": 2,
+      "rawHash": "23fe26abf4ae9068b424a47a3177d0d46d9883526ef56be8078ff5b250da7ec3",
+      "complete": false,
+      "subtotal": 12
+    },
+    {
+      "artifact": "runtime-probe-pre-final-accounting.json.gz",
+      "case": "timeout",
+      "repeat": 2,
+      "rawHash": "23fe26abf4ae9068b424a47a3177d0d46d9883526ef56be8078ff5b250da7ec3",
+      "complete": false,
+      "subtotal": 12
+    },
+    {
+      "artifact": "runtime-probe-pre-final-accounting.json.gz",
+      "case": "normal-child",
+      "repeat": 2,
+      "rawHash": "23fe26abf4ae9068b424a47a3177d0d46d9883526ef56be8078ff5b250da7ec3",
+      "complete": false,
+      "subtotal": 12
+    },
+    {
+      "artifact": "runtime-probe-pre-final-accounting.json.gz",
+      "case": "detached",
+      "repeat": 2,
+      "rawHash": "23fe26abf4ae9068b424a47a3177d0d46d9883526ef56be8078ff5b250da7ec3",
+      "complete": false,
+      "subtotal": 12
+    },
+    {
+      "artifact": "runtime-probe-pre-final-accounting.json.gz",
+      "case": "grandchild",
+      "repeat": 2,
+      "rawHash": "23fe26abf4ae9068b424a47a3177d0d46d9883526ef56be8078ff5b250da7ec3",
+      "complete": false,
+      "subtotal": 12
+    },
+    {
+      "artifact": "runtime-probe-pre-final-accounting.json.gz",
+      "case": "open-handle",
+      "repeat": 2,
+      "rawHash": "23fe26abf4ae9068b424a47a3177d0d46d9883526ef56be8078ff5b250da7ec3",
+      "complete": false,
+      "subtotal": 12
+    },
+    {
+      "artifact": "runtime-probe-pre-final-accounting.json.gz",
+      "case": "inherited-pipe",
+      "repeat": 2,
+      "rawHash": "23fe26abf4ae9068b424a47a3177d0d46d9883526ef56be8078ff5b250da7ec3",
+      "complete": false,
+      "subtotal": 12
+    },
+    {
+      "artifact": "runtime-probe-pre-final-accounting.json.gz",
+      "case": "spawn-error",
+      "repeat": 2,
+      "rawHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "complete": false,
+      "subtotal": null
+    },
+    {
+      "artifact": "runtime-probe-pre-final-accounting.json.gz",
+      "case": "interrupted",
+      "repeat": 2,
+      "rawHash": "23fe26abf4ae9068b424a47a3177d0d46d9883526ef56be8078ff5b250da7ec3",
+      "complete": false,
+      "subtotal": 12
+    },
+    {
+      "artifact": "runtime-probe-pre-final-accounting.json.gz",
+      "case": "kill-error",
+      "repeat": 2,
+      "rawHash": "23fe26abf4ae9068b424a47a3177d0d46d9883526ef56be8078ff5b250da7ec3",
+      "complete": false,
+      "subtotal": 12
+    },
+    {
+      "artifact": "extra-runtime/report.json",
+      "case": "nonzero",
+      "repeat": null,
+      "rawHash": "23fe26abf4ae9068b424a47a3177d0d46d9883526ef56be8078ff5b250da7ec3",
+      "complete": false,
+      "subtotal": 12
+    },
+    {
+      "artifact": "extra-runtime/report.json",
+      "case": "signal",
+      "repeat": null,
+      "rawHash": "23fe26abf4ae9068b424a47a3177d0d46d9883526ef56be8078ff5b250da7ec3",
+      "complete": false,
+      "subtotal": 12
+    },
+    {
+      "artifact": "extra-runtime/report.json",
+      "case": "truncated",
+      "repeat": null,
+      "rawHash": "850fd86b8c5e62f67134d450f245b047f1da3200951f7b94892c26e90c8fa8e0",
+      "complete": false,
+      "subtotal": 12
+    }
+  ],
+  "referenceExcess": {
+    "confirmedExcess": null,
+    "validatedSubtotalExcess": 4,
+    "wholeRunBelowReference": null
+  }
+}

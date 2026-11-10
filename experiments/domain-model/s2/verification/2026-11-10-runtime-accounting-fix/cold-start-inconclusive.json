@@ -1,0 +1,2464 @@
+{
+  "schema": "s2-runtime-v2-diagnostic",
+  "R11": "unresolved",
+  "productionCollection": "blocked",
+  "providerCalls": 0,
+  "failures": [
+    {
+      "repeat": 1,
+      "name": "normal-child",
+      "error": "Error: Original escape fixture did not reproduce; do not claim a fix"
+    },
+    {
+      "repeat": 1,
+      "name": "detached",
+      "error": "Error: Original escape fixture did not reproduce; do not claim a fix"
+    },
+    {
+      "repeat": 1,
+      "name": "grandchild",
+      "error": "Error: Original escape fixture did not reproduce; do not claim a fix"
+    },
+    {
+      "repeat": 1,
+      "name": "open-handle",
+      "error": "Error: Original escape fixture did not reproduce; do not claim a fix"
+    },
+    {
+      "repeat": 2,
+      "name": "normal-child",
+      "error": "Error: Original escape fixture did not reproduce; do not claim a fix"
+    },
+    {
+      "repeat": 2,
+      "name": "detached",
+      "error": "Error: Original escape fixture did not reproduce; do not claim a fix"
+    },
+    {
+      "repeat": 2,
+      "name": "grandchild",
+      "error": "Error: Original escape fixture did not reproduce; do not claim a fix"
+    },
+    {
+      "repeat": 2,
+      "name": "open-handle",
+      "error": "Error: Original escape fixture did not reproduce; do not claim a fix"
+    }
+  ],
+  "rows": [
+    {
+      "repeat": 1,
+      "name": "normal",
+      "run": {
+        "runId": "6b76df94-52d2-4333-9a5a-9bcec7888b8b",
+        "code": null,
+        "signal": "SIGKILL",
+        "reason": "timeout",
+        "wallTimeMs": 443.15645800000004,
+        "stderr": "",
+        "outputTruncated": false,
+        "normalEOF": true,
+        "readErrors": [],
+        "lifecycle": {
+          "state": "blocked",
+          "collectionAllowed": false,
+          "boundary": "unverified-process-group",
+          "deadlineMs": 350,
+          "stopRequestedMs": 378.376167,
+          "parentExitMs": 442.45066699999995,
+          "returnedMs": 443.15645800000004,
+          "cleanupMs": 64.78029100000003,
+          "cleanupLimitMs": 250,
+          "errors": []
+        },
+        "binding": {
+          "source": "ce7aa49719b306b7dc3c7d4750922987d1b6959657830e95a2d6028173eabeb3",
+          "auxiliary": "37c06406ae6e91d88a68eb1ab47e0917bff6bdcc6b4224240666040653beb794",
+          "configuration": "4bb4064489c4efe292a81fb464eb3b0cdf1a1355f7c43659b5e877c23a8de15e"
+        }
+      },
+      "rawUsage": "",
+      "usage": {
+        "schema": "s2-usage-v2-turn-state",
+        "complete": false,
+        "input": null,
+        "output": null,
+        "total": null,
+        "subtotal": {
+          "input": null,
+          "output": null,
+          "total": null,
+          "cachedInput": null,
+          "reasoningOutput": null,
+          "turns": [],
+          "meaning": "Validated non-contradictory completed turns only; not a claimed lower bound of provider consumption"
+        },
+        "consumptionLowerBound": null,
+        "referenceTokens": 100000,
+        "hardCap": false,
+        "reference": {
+          "confirmedExcess": null,
+          "validatedSubtotalExcess": null,
+          "wholeRunBelowReference": null
+        },
+        "issues": [
+          {
+            "line": 1,
+            "code": "malformed-json"
+          },
+          {
+            "line": null,
+            "code": "no-started-turn"
+          },
+          {
+            "line": null,
+            "code": "incomplete-log-or-execution"
+          }
+        ],
+        "turns": [],
+        "rows": [
+          {
+            "line": 1,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "type": null,
+            "turn": null,
+            "disposition": "excluded"
+          }
+        ],
+        "end": {
+          "reason": "timeout",
+          "code": null,
+          "normalEOF": true,
+          "outputTruncated": false,
+          "readErrors": []
+        },
+        "aggregationTruncated": false,
+        "limits": {
+          "lines": 10000,
+          "lineBytes": 65536,
+          "totalBytes": 4194304
+        },
+        "definition": "Sequential exec turns; input includes cache, output includes reasoning. Event IDs are optional stream-scoped replay identities, never turn IDs. No provider calls verified."
+      },
+      "lateText": null,
+      "crossResult": null,
+      "nextCanary": "NONSECRET",
+      "diagnosticKind": "diagnostic",
+      "productionRejected": true,
+      "evaluationRejected": true,
+      "receiptMismatch": true,
+      "readOnly": {
+        "source/original.txt": "EPERM",
+        "auxiliary": "EPERM",
+        "manifest.json": "EPERM",
+        "manifest.sha256": "EPERM"
+      },
+      "finiteFixtureCleanup": "waited beyond self-exit timers; not termination certification"
+    },
+    {
+      "repeat": 1,
+      "name": "timeout",
+      "run": {
+        "runId": "cacc81bf-518a-44c0-adfd-f2160ea1dc92",
+        "code": null,
+        "signal": "SIGKILL",
+        "reason": "timeout",
+        "wallTimeMs": 436.5977499999999,
+        "stderr": "",
+        "outputTruncated": false,
+        "normalEOF": true,
+        "readErrors": [],
+        "lifecycle": {
+          "state": "blocked",
+          "collectionAllowed": false,
+          "boundary": "unverified-process-group",
+          "deadlineMs": 350,
+          "stopRequestedMs": 435.2110419999999,
+          "parentExitMs": 436.5565419999998,
+          "returnedMs": 436.5977499999999,
+          "cleanupMs": 1.3867079999999987,
+          "cleanupLimitMs": 250,
+          "errors": []
+        },
+        "binding": {
+          "source": "13e58b43c3fa34f905cedf5c5af54ef23f8d4a91951eb8afe8b134eaf1fa13f5",
+          "auxiliary": "16b70821420e8f0e049f76ea0370c30a663b97500c3c52d45a55cc862528a2bd",
+          "configuration": "0c302d53696f3b24ced4713e52a83d195a80c3712278455499911ebd8c1e3219"
+        }
+      },
+      "rawUsage": "",
+      "usage": {
+        "schema": "s2-usage-v2-turn-state",
+        "complete": false,
+        "input": null,
+        "output": null,
+        "total": null,
+        "subtotal": {
+          "input": null,
+          "output": null,
+          "total": null,
+          "cachedInput": null,
+          "reasoningOutput": null,
+          "turns": [],
+          "meaning": "Validated non-contradictory completed turns only; not a claimed lower bound of provider consumption"
+        },
+        "consumptionLowerBound": null,
+        "referenceTokens": 100000,
+        "hardCap": false,
+        "reference": {
+          "confirmedExcess": null,
+          "validatedSubtotalExcess": null,
+          "wholeRunBelowReference": null
+        },
+        "issues": [
+          {
+            "line": 1,
+            "code": "malformed-json"
+          },
+          {
+            "line": null,
+            "code": "no-started-turn"
+          },
+          {
+            "line": null,
+            "code": "incomplete-log-or-execution"
+          }
+        ],
+        "turns": [],
+        "rows": [
+          {
+            "line": 1,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "type": null,
+            "turn": null,
+            "disposition": "excluded"
+          }
+        ],
+        "end": {
+          "reason": "timeout",
+          "code": null,
+          "normalEOF": true,
+          "outputTruncated": false,
+          "readErrors": []
+        },
+        "aggregationTruncated": false,
+        "limits": {
+          "lines": 10000,
+          "lineBytes": 65536,
+          "totalBytes": 4194304
+        },
+        "definition": "Sequential exec turns; input includes cache, output includes reasoning. Event IDs are optional stream-scoped replay identities, never turn IDs. No provider calls verified."
+      },
+      "lateText": null,
+      "crossResult": null,
+      "nextCanary": "NONSECRET",
+      "diagnosticKind": "diagnostic",
+      "productionRejected": true,
+      "evaluationRejected": true,
+      "receiptMismatch": true,
+      "readOnly": {
+        "source/original.txt": "EPERM",
+        "auxiliary": "EPERM",
+        "manifest.json": "EPERM",
+        "manifest.sha256": "EPERM"
+      },
+      "finiteFixtureCleanup": "waited beyond self-exit timers; not termination certification"
+    },
+    {
+      "repeat": 1,
+      "name": "normal-child",
+      "run": {
+        "runId": "3254e645-db31-4d9b-9eaa-41eb502227c6",
+        "code": null,
+        "signal": "SIGKILL",
+        "reason": "timeout",
+        "wallTimeMs": 355.0935419999996,
+        "stderr": "",
+        "outputTruncated": false,
+        "normalEOF": true,
+        "readErrors": [],
+        "lifecycle": {
+          "state": "blocked",
+          "collectionAllowed": false,
+          "boundary": "unverified-process-group",
+          "deadlineMs": 350,
+          "stopRequestedMs": 351.72850000000017,
+          "parentExitMs": 354.99320799999987,
+          "returnedMs": 355.0935419999996,
+          "cleanupMs": 3.3650419999994483,
+          "cleanupLimitMs": 250,
+          "errors": []
+        },
+        "binding": {
+          "source": "a2d25efcafadc08582f32d9fb3b844ef203b153b66946fd5b76c6602f3237ae8",
+          "auxiliary": "dec38f02ae897485c096d3b4a900d9630c58bd0c3d437a5df9317800d3a5e2eb",
+          "configuration": "5ffde0f250dde610f0f45a94e3482bff0fff998bbfada9a99960052277b92e7f"
+        }
+      },
+      "rawUsage": "",
+      "usage": {
+        "schema": "s2-usage-v2-turn-state",
+        "complete": false,
+        "input": null,
+        "output": null,
+        "total": null,
+        "subtotal": {
+          "input": null,
+          "output": null,
+          "total": null,
+          "cachedInput": null,
+          "reasoningOutput": null,
+          "turns": [],
+          "meaning": "Validated non-contradictory completed turns only; not a claimed lower bound of provider consumption"
+        },
+        "consumptionLowerBound": null,
+        "referenceTokens": 100000,
+        "hardCap": false,
+        "reference": {
+          "confirmedExcess": null,
+          "validatedSubtotalExcess": null,
+          "wholeRunBelowReference": null
+        },
+        "issues": [
+          {
+            "line": 1,
+            "code": "malformed-json"
+          },
+          {
+            "line": null,
+            "code": "no-started-turn"
+          },
+          {
+            "line": null,
+            "code": "incomplete-log-or-execution"
+          }
+        ],
+        "turns": [],
+        "rows": [
+          {
+            "line": 1,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "type": null,
+            "turn": null,
+            "disposition": "excluded"
+          }
+        ],
+        "end": {
+          "reason": "timeout",
+          "code": null,
+          "normalEOF": true,
+          "outputTruncated": false,
+          "readErrors": []
+        },
+        "aggregationTruncated": false,
+        "limits": {
+          "lines": 10000,
+          "lineBytes": 65536,
+          "totalBytes": 4194304
+        },
+        "definition": "Sequential exec turns; input includes cache, output includes reasoning. Event IDs are optional stream-scoped replay identities, never turn IDs. No provider calls verified."
+      },
+      "lateText": null,
+      "crossResult": null,
+      "nextCanary": "NONSECRET",
+      "diagnosticKind": "diagnostic",
+      "productionRejected": true,
+      "evaluationRejected": true,
+      "receiptMismatch": true,
+      "readOnly": {
+        "source/original.txt": "EPERM",
+        "auxiliary": "EPERM",
+        "manifest.json": "EPERM",
+        "manifest.sha256": "EPERM"
+      },
+      "finiteFixtureCleanup": "waited beyond self-exit timers; not termination certification"
+    },
+    {
+      "repeat": 1,
+      "name": "detached",
+      "run": {
+        "runId": "6df4fb38-bb85-423b-aa01-bc8fa6ed18fa",
+        "code": null,
+        "signal": "SIGKILL",
+        "reason": "timeout",
+        "wallTimeMs": 353.8784169999999,
+        "stderr": "",
+        "outputTruncated": false,
+        "normalEOF": true,
+        "readErrors": [],
+        "lifecycle": {
+          "state": "blocked",
+          "collectionAllowed": false,
+          "boundary": "unverified-process-group",
+          "deadlineMs": 350,
+          "stopRequestedMs": 351.8417500000014,
+          "parentExitMs": 353.8019170000007,
+          "returnedMs": 353.8784169999999,
+          "cleanupMs": 2.036666999998488,
+          "cleanupLimitMs": 250,
+          "errors": []
+        },
+        "binding": {
+          "source": "0ffbbfbb8c159aa8be717b9f9811493fac24455ec27f5747e071c663672127f4",
+          "auxiliary": "6f77f8c1f08de7ba0d740023219323b719bbdaaa4a12308d69c3608899247a7f",
+          "configuration": "d7fee9cdc04dca486f8e273a03c61b0321fb227f6a73323500cb31c0d73d9643"
+        }
+      },
+      "rawUsage": "",
+      "usage": {
+        "schema": "s2-usage-v2-turn-state",
+        "complete": false,
+        "input": null,
+        "output": null,
+        "total": null,
+        "subtotal": {
+          "input": null,
+          "output": null,
+          "total": null,
+          "cachedInput": null,
+          "reasoningOutput": null,
+          "turns": [],
+          "meaning": "Validated non-contradictory completed turns only; not a claimed lower bound of provider consumption"
+        },
+        "consumptionLowerBound": null,
+        "referenceTokens": 100000,
+        "hardCap": false,
+        "reference": {
+          "confirmedExcess": null,
+          "validatedSubtotalExcess": null,
+          "wholeRunBelowReference": null
+        },
+        "issues": [
+          {
+            "line": 1,
+            "code": "malformed-json"
+          },
+          {
+            "line": null,
+            "code": "no-started-turn"
+          },
+          {
+            "line": null,
+            "code": "incomplete-log-or-execution"
+          }
+        ],
+        "turns": [],
+        "rows": [
+          {
+            "line": 1,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "type": null,
+            "turn": null,
+            "disposition": "excluded"
+          }
+        ],
+        "end": {
+          "reason": "timeout",
+          "code": null,
+          "normalEOF": true,
+          "outputTruncated": false,
+          "readErrors": []
+        },
+        "aggregationTruncated": false,
+        "limits": {
+          "lines": 10000,
+          "lineBytes": 65536,
+          "totalBytes": 4194304
+        },
+        "definition": "Sequential exec turns; input includes cache, output includes reasoning. Event IDs are optional stream-scoped replay identities, never turn IDs. No provider calls verified."
+      },
+      "lateText": null,
+      "crossResult": null,
+      "nextCanary": "NONSECRET",
+      "diagnosticKind": "diagnostic",
+      "productionRejected": true,
+      "evaluationRejected": true,
+      "receiptMismatch": true,
+      "readOnly": {
+        "source/original.txt": "EPERM",
+        "auxiliary": "EPERM",
+        "manifest.json": "EPERM",
+        "manifest.sha256": "EPERM"
+      },
+      "finiteFixtureCleanup": "waited beyond self-exit timers; not termination certification"
+    },
+    {
+      "repeat": 1,
+      "name": "grandchild",
+      "run": {
+        "runId": "324a8bb4-08c1-4737-ac5d-5c5251273a57",
+        "code": null,
+        "signal": "SIGKILL",
+        "reason": "timeout",
+        "wallTimeMs": 353.89787499999875,
+        "stderr": "",
+        "outputTruncated": false,
+        "normalEOF": true,
+        "readErrors": [],
+        "lifecycle": {
+          "state": "blocked",
+          "collectionAllowed": false,
+          "boundary": "unverified-process-group",
+          "deadlineMs": 350,
+          "stopRequestedMs": 351.5076659999995,
+          "parentExitMs": 353.78008299999965,
+          "returnedMs": 353.89787499999875,
+          "cleanupMs": 2.3902089999992313,
+          "cleanupLimitMs": 250,
+          "errors": []
+        },
+        "binding": {
+          "source": "fd8b628e93858d74edf18747d014270b15170feaa272d8d02b0e2635674665ea",
+          "auxiliary": "26fbd98c62bb938914606e504a2fa3f8cc16fdaeed5648e4086f154f194a25d8",
+          "configuration": "71a7ed7e7d9d4088b2ec1071d02930108fd620f5deb4bb6be9698ed99a6df9bd"
+        }
+      },
+      "rawUsage": "",
+      "usage": {
+        "schema": "s2-usage-v2-turn-state",
+        "complete": false,
+        "input": null,
+        "output": null,
+        "total": null,
+        "subtotal": {
+          "input": null,
+          "output": null,
+          "total": null,
+          "cachedInput": null,
+          "reasoningOutput": null,
+          "turns": [],
+          "meaning": "Validated non-contradictory completed turns only; not a claimed lower bound of provider consumption"
+        },
+        "consumptionLowerBound": null,
+        "referenceTokens": 100000,
+        "hardCap": false,
+        "reference": {
+          "confirmedExcess": null,
+          "validatedSubtotalExcess": null,
+          "wholeRunBelowReference": null
+        },
+        "issues": [
+          {
+            "line": 1,
+            "code": "malformed-json"
+          },
+          {
+            "line": null,
+            "code": "no-started-turn"
+          },
+          {
+            "line": null,
+            "code": "incomplete-log-or-execution"
+          }
+        ],
+        "turns": [],
+        "rows": [
+          {
+            "line": 1,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "type": null,
+            "turn": null,
+            "disposition": "excluded"
+          }
+        ],
+        "end": {
+          "reason": "timeout",
+          "code": null,
+          "normalEOF": true,
+          "outputTruncated": false,
+          "readErrors": []
+        },
+        "aggregationTruncated": false,
+        "limits": {
+          "lines": 10000,
+          "lineBytes": 65536,
+          "totalBytes": 4194304
+        },
+        "definition": "Sequential exec turns; input includes cache, output includes reasoning. Event IDs are optional stream-scoped replay identities, never turn IDs. No provider calls verified."
+      },
+      "lateText": null,
+      "crossResult": null,
+      "nextCanary": "NONSECRET",
+      "diagnosticKind": "diagnostic",
+      "productionRejected": true,
+      "evaluationRejected": true,
+      "receiptMismatch": true,
+      "readOnly": {
+        "source/original.txt": "EPERM",
+        "auxiliary": "EPERM",
+        "manifest.json": "EPERM",
+        "manifest.sha256": "EPERM"
+      },
+      "finiteFixtureCleanup": "waited beyond self-exit timers; not termination certification"
+    },
+    {
+      "repeat": 1,
+      "name": "open-handle",
+      "run": {
+        "runId": "7584d375-ff94-4f83-a68d-48de09a7da54",
+        "code": null,
+        "signal": "SIGKILL",
+        "reason": "timeout",
+        "wallTimeMs": 353.9275829999988,
+        "stderr": "",
+        "outputTruncated": false,
+        "normalEOF": true,
+        "readErrors": [],
+        "lifecycle": {
+          "state": "blocked",
+          "collectionAllowed": false,
+          "boundary": "unverified-process-group",
+          "deadlineMs": 350,
+          "stopRequestedMs": 351.6179579999989,
+          "parentExitMs": 353.85099999999875,
+          "returnedMs": 353.9275829999988,
+          "cleanupMs": 2.309624999999869,
+          "cleanupLimitMs": 250,
+          "errors": []
+        },
+        "binding": {
+          "source": "399af52176b887dc81181cd1b11a5c834fc43e5dacc3ddd6c32dfc9afc2a265f",
+          "auxiliary": "6c6715d62ee26f3447905c76de651597c52d4518bff0cf73a16afcf5d9ef57e2",
+          "configuration": "c48855474fe150465988dda27a3cbb03ca0702e7897ae71b82cbe23a8f63a70f"
+        }
+      },
+      "rawUsage": "",
+      "usage": {
+        "schema": "s2-usage-v2-turn-state",
+        "complete": false,
+        "input": null,
+        "output": null,
+        "total": null,
+        "subtotal": {
+          "input": null,
+          "output": null,
+          "total": null,
+          "cachedInput": null,
+          "reasoningOutput": null,
+          "turns": [],
+          "meaning": "Validated non-contradictory completed turns only; not a claimed lower bound of provider consumption"
+        },
+        "consumptionLowerBound": null,
+        "referenceTokens": 100000,
+        "hardCap": false,
+        "reference": {
+          "confirmedExcess": null,
+          "validatedSubtotalExcess": null,
+          "wholeRunBelowReference": null
+        },
+        "issues": [
+          {
+            "line": 1,
+            "code": "malformed-json"
+          },
+          {
+            "line": null,
+            "code": "no-started-turn"
+          },
+          {
+            "line": null,
+            "code": "incomplete-log-or-execution"
+          }
+        ],
+        "turns": [],
+        "rows": [
+          {
+            "line": 1,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "type": null,
+            "turn": null,
+            "disposition": "excluded"
+          }
+        ],
+        "end": {
+          "reason": "timeout",
+          "code": null,
+          "normalEOF": true,
+          "outputTruncated": false,
+          "readErrors": []
+        },
+        "aggregationTruncated": false,
+        "limits": {
+          "lines": 10000,
+          "lineBytes": 65536,
+          "totalBytes": 4194304
+        },
+        "definition": "Sequential exec turns; input includes cache, output includes reasoning. Event IDs are optional stream-scoped replay identities, never turn IDs. No provider calls verified."
+      },
+      "lateText": null,
+      "crossResult": null,
+      "nextCanary": "NONSECRET",
+      "diagnosticKind": "diagnostic",
+      "productionRejected": true,
+      "evaluationRejected": true,
+      "receiptMismatch": true,
+      "readOnly": {
+        "source/original.txt": "EPERM",
+        "auxiliary": "EPERM",
+        "manifest.json": "EPERM",
+        "manifest.sha256": "EPERM"
+      },
+      "finiteFixtureCleanup": "waited beyond self-exit timers; not termination certification"
+    },
+    {
+      "repeat": 1,
+      "name": "inherited-pipe",
+      "run": {
+        "runId": "88ad8e67-6708-427e-97fa-b235b3e96f2a",
+        "code": null,
+        "signal": "SIGKILL",
+        "reason": "timeout",
+        "wallTimeMs": 353.6331250000003,
+        "stderr": "",
+        "outputTruncated": false,
+        "normalEOF": true,
+        "readErrors": [],
+        "lifecycle": {
+          "state": "blocked",
+          "collectionAllowed": false,
+          "boundary": "unverified-process-group",
+          "deadlineMs": 350,
+          "stopRequestedMs": 350.64716600000065,
+          "parentExitMs": 353.54929099999936,
+          "returnedMs": 353.6331250000003,
+          "cleanupMs": 2.9859589999996388,
+          "cleanupLimitMs": 250,
+          "errors": []
+        },
+        "binding": {
+          "source": "6b1fef73b027fa1076a91da9d60fbfdebd66febe433fba0b17395d01b5e21da4",
+          "auxiliary": "8dae5d9ab22e68cd816983362109af8b48b0dcc685225c85b34d1b932c8e58dc",
+          "configuration": "cc205ca71753b0963e9c6ae1865b491ebdb401e22849ab3f0cac7677e040bbb4"
+        }
+      },
+      "rawUsage": "",
+      "usage": {
+        "schema": "s2-usage-v2-turn-state",
+        "complete": false,
+        "input": null,
+        "output": null,
+        "total": null,
+        "subtotal": {
+          "input": null,
+          "output": null,
+          "total": null,
+          "cachedInput": null,
+          "reasoningOutput": null,
+          "turns": [],
+          "meaning": "Validated non-contradictory completed turns only; not a claimed lower bound of provider consumption"
+        },
+        "consumptionLowerBound": null,
+        "referenceTokens": 100000,
+        "hardCap": false,
+        "reference": {
+          "confirmedExcess": null,
+          "validatedSubtotalExcess": null,
+          "wholeRunBelowReference": null
+        },
+        "issues": [
+          {
+            "line": 1,
+            "code": "malformed-json"
+          },
+          {
+            "line": null,
+            "code": "no-started-turn"
+          },
+          {
+            "line": null,
+            "code": "incomplete-log-or-execution"
+          }
+        ],
+        "turns": [],
+        "rows": [
+          {
+            "line": 1,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "type": null,
+            "turn": null,
+            "disposition": "excluded"
+          }
+        ],
+        "end": {
+          "reason": "timeout",
+          "code": null,
+          "normalEOF": true,
+          "outputTruncated": false,
+          "readErrors": []
+        },
+        "aggregationTruncated": false,
+        "limits": {
+          "lines": 10000,
+          "lineBytes": 65536,
+          "totalBytes": 4194304
+        },
+        "definition": "Sequential exec turns; input includes cache, output includes reasoning. Event IDs are optional stream-scoped replay identities, never turn IDs. No provider calls verified."
+      },
+      "lateText": null,
+      "crossResult": null,
+      "nextCanary": "NONSECRET",
+      "diagnosticKind": "diagnostic",
+      "productionRejected": true,
+      "evaluationRejected": true,
+      "receiptMismatch": true,
+      "readOnly": {
+        "source/original.txt": "EPERM",
+        "auxiliary": "EPERM",
+        "manifest.json": "EPERM",
+        "manifest.sha256": "EPERM"
+      },
+      "finiteFixtureCleanup": "waited beyond self-exit timers; not termination certification"
+    },
+    {
+      "repeat": 1,
+      "name": "truncated",
+      "run": {
+        "runId": "f782318f-728a-4039-8f6f-35064409c779",
+        "code": null,
+        "signal": "SIGKILL",
+        "reason": "timeout",
+        "wallTimeMs": 355.03879099999904,
+        "stderr": "",
+        "outputTruncated": false,
+        "normalEOF": true,
+        "readErrors": [],
+        "lifecycle": {
+          "state": "blocked",
+          "collectionAllowed": false,
+          "boundary": "unverified-process-group",
+          "deadlineMs": 350,
+          "stopRequestedMs": 351.66812500000015,
+          "parentExitMs": 354.95287499999904,
+          "returnedMs": 355.03879099999904,
+          "cleanupMs": 3.3706659999988915,
+          "cleanupLimitMs": 250,
+          "errors": []
+        },
+        "binding": {
+          "source": "59d1f79c0397985204264b4a098eb5b21be878e26ef1e5e88c52ab1bc301508e",
+          "auxiliary": "6e06fa121f595d24b86a776f568e43433dab6fa9d5c885db056e099ddc19932f",
+          "configuration": "9a016caeb92787117555222ca873b05c486eddac2e15faffdc1b789df1a8fbcd"
+        }
+      },
+      "rawUsage": null,
+      "usage": {
+        "schema": "s2-usage-v2-turn-state",
+        "complete": false,
+        "input": null,
+        "output": null,
+        "total": null,
+        "subtotal": {
+          "input": null,
+          "output": null,
+          "total": null,
+          "cachedInput": null,
+          "reasoningOutput": null,
+          "turns": [],
+          "meaning": "Validated non-contradictory completed turns only; not a claimed lower bound of provider consumption"
+        },
+        "consumptionLowerBound": null,
+        "referenceTokens": 100000,
+        "hardCap": false,
+        "reference": {
+          "confirmedExcess": null,
+          "validatedSubtotalExcess": null,
+          "wholeRunBelowReference": null
+        },
+        "issues": [
+          {
+            "line": 1,
+            "code": "malformed-json"
+          },
+          {
+            "line": null,
+            "code": "no-started-turn"
+          },
+          {
+            "line": null,
+            "code": "incomplete-log-or-execution"
+          }
+        ],
+        "turns": [],
+        "rows": [
+          {
+            "line": 1,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "type": null,
+            "turn": null,
+            "disposition": "excluded"
+          }
+        ],
+        "end": {
+          "reason": "timeout",
+          "code": null,
+          "normalEOF": true,
+          "outputTruncated": false,
+          "readErrors": []
+        },
+        "aggregationTruncated": false,
+        "limits": {
+          "lines": 10000,
+          "lineBytes": 65536,
+          "totalBytes": 4194304
+        },
+        "definition": "Sequential exec turns; input includes cache, output includes reasoning. Event IDs are optional stream-scoped replay identities, never turn IDs. No provider calls verified."
+      },
+      "lateText": null,
+      "crossResult": null,
+      "nextCanary": "NONSECRET",
+      "diagnosticKind": "diagnostic",
+      "productionRejected": true,
+      "evaluationRejected": true,
+      "receiptMismatch": true,
+      "readOnly": {
+        "source/original.txt": "EPERM",
+        "auxiliary": "EPERM",
+        "manifest.json": "EPERM",
+        "manifest.sha256": "EPERM"
+      },
+      "finiteFixtureCleanup": "waited beyond self-exit timers; not termination certification"
+    },
+    {
+      "repeat": 1,
+      "name": "spawn-error",
+      "run": {
+        "runId": "b05e128f-eaf5-484e-97b3-f1ddd6bf4456",
+        "code": -2,
+        "signal": null,
+        "reason": "spawn-error",
+        "wallTimeMs": 0.6455000000023574,
+        "stderr": "",
+        "outputTruncated": false,
+        "normalEOF": true,
+        "readErrors": [],
+        "lifecycle": {
+          "state": "blocked",
+          "collectionAllowed": false,
+          "boundary": "unverified-process-group",
+          "deadlineMs": 350,
+          "stopRequestedMs": 0.4780830000017886,
+          "parentExitMs": null,
+          "returnedMs": 0.6455000000023574,
+          "cleanupMs": 0.1674170000005688,
+          "cleanupLimitMs": 250,
+          "errors": [
+            "ENOENT"
+          ]
+        },
+        "binding": {
+          "source": "8d9feba2d13ce7f50db8f8f905a4e7730ac764ba5ab712305708858f89dac157",
+          "auxiliary": "e5dcfa168384bf4e8ff2544db78fd0c7ac22b0b25e7021e75d83eb2b8926844b",
+          "configuration": "96ff1204f6055c097627c6dde89ceb1e5337d9f5e055ab4f36c40a76c01e4d8c"
+        }
+      },
+      "rawUsage": "",
+      "usage": {
+        "schema": "s2-usage-v2-turn-state",
+        "complete": false,
+        "input": null,
+        "output": null,
+        "total": null,
+        "subtotal": {
+          "input": null,
+          "output": null,
+          "total": null,
+          "cachedInput": null,
+          "reasoningOutput": null,
+          "turns": [],
+          "meaning": "Validated non-contradictory completed turns only; not a claimed lower bound of provider consumption"
+        },
+        "consumptionLowerBound": null,
+        "referenceTokens": 100000,
+        "hardCap": false,
+        "reference": {
+          "confirmedExcess": null,
+          "validatedSubtotalExcess": null,
+          "wholeRunBelowReference": null
+        },
+        "issues": [
+          {
+            "line": 1,
+            "code": "malformed-json"
+          },
+          {
+            "line": null,
+            "code": "no-started-turn"
+          },
+          {
+            "line": null,
+            "code": "incomplete-log-or-execution"
+          }
+        ],
+        "turns": [],
+        "rows": [
+          {
+            "line": 1,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "type": null,
+            "turn": null,
+            "disposition": "excluded"
+          }
+        ],
+        "end": {
+          "reason": "spawn-error",
+          "code": -2,
+          "normalEOF": true,
+          "outputTruncated": false,
+          "readErrors": []
+        },
+        "aggregationTruncated": false,
+        "limits": {
+          "lines": 10000,
+          "lineBytes": 65536,
+          "totalBytes": 4194304
+        },
+        "definition": "Sequential exec turns; input includes cache, output includes reasoning. Event IDs are optional stream-scoped replay identities, never turn IDs. No provider calls verified."
+      },
+      "lateText": null,
+      "crossResult": null,
+      "nextCanary": "NONSECRET",
+      "diagnosticKind": "diagnostic",
+      "productionRejected": true,
+      "evaluationRejected": true,
+      "receiptMismatch": true,
+      "readOnly": {
+        "source/original.txt": "EPERM",
+        "auxiliary": "EPERM",
+        "manifest.json": "EPERM",
+        "manifest.sha256": "EPERM"
+      },
+      "finiteFixtureCleanup": "waited beyond self-exit timers; not termination certification"
+    },
+    {
+      "repeat": 1,
+      "name": "interrupted",
+      "run": {
+        "runId": "7b1b7a05-f876-4a30-8fbc-15cf9db9eb4a",
+        "code": null,
+        "signal": "SIGKILL",
+        "reason": "interrupted",
+        "wallTimeMs": 103.34937499999796,
+        "stderr": "",
+        "outputTruncated": false,
+        "normalEOF": true,
+        "readErrors": [],
+        "lifecycle": {
+          "state": "blocked",
+          "collectionAllowed": false,
+          "boundary": "unverified-process-group",
+          "deadlineMs": 350,
+          "stopRequestedMs": 102.11537500000122,
+          "parentExitMs": 103.32316699999865,
+          "returnedMs": 103.34937499999796,
+          "cleanupMs": 1.2339999999967404,
+          "cleanupLimitMs": 250,
+          "errors": []
+        },
+        "binding": {
+          "source": "3c4c47d9a8f7e81457765104d84b8cf6de111f6789285fe9414390286c9e4d28",
+          "auxiliary": "c8aa7184c89b66175c2e7e75fbc18a17292f2e866a07c1d44195676e4b62aa61",
+          "configuration": "3eceb2b0469368e860bc8592de15dc112fb78d583da75e0cc948a2ab3fead7ca"
+        }
+      },
+      "rawUsage": "",
+      "usage": {
+        "schema": "s2-usage-v2-turn-state",
+        "complete": false,
+        "input": null,
+        "output": null,
+        "total": null,
+        "subtotal": {
+          "input": null,
+          "output": null,
+          "total": null,
+          "cachedInput": null,
+          "reasoningOutput": null,
+          "turns": [],
+          "meaning": "Validated non-contradictory completed turns only; not a claimed lower bound of provider consumption"
+        },
+        "consumptionLowerBound": null,
+        "referenceTokens": 100000,
+        "hardCap": false,
+        "reference": {
+          "confirmedExcess": null,
+          "validatedSubtotalExcess": null,
+          "wholeRunBelowReference": null
+        },
+        "issues": [
+          {
+            "line": 1,
+            "code": "malformed-json"
+          },
+          {
+            "line": null,
+            "code": "no-started-turn"
+          },
+          {
+            "line": null,
+            "code": "incomplete-log-or-execution"
+          }
+        ],
+        "turns": [],
+        "rows": [
+          {
+            "line": 1,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "type": null,
+            "turn": null,
+            "disposition": "excluded"
+          }
+        ],
+        "end": {
+          "reason": "interrupted",
+          "code": null,
+          "normalEOF": true,
+          "outputTruncated": false,
+          "readErrors": []
+        },
+        "aggregationTruncated": false,
+        "limits": {
+          "lines": 10000,
+          "lineBytes": 65536,
+          "totalBytes": 4194304
+        },
+        "definition": "Sequential exec turns; input includes cache, output includes reasoning. Event IDs are optional stream-scoped replay identities, never turn IDs. No provider calls verified."
+      },
+      "lateText": null,
+      "crossResult": null,
+      "nextCanary": "NONSECRET",
+      "diagnosticKind": "diagnostic",
+      "productionRejected": true,
+      "evaluationRejected": true,
+      "receiptMismatch": true,
+      "readOnly": {
+        "source/original.txt": "EPERM",
+        "auxiliary": "EPERM",
+        "manifest.json": "EPERM",
+        "manifest.sha256": "EPERM"
+      },
+      "finiteFixtureCleanup": "waited beyond self-exit timers; not termination certification"
+    },
+    {
+      "repeat": 1,
+      "name": "kill-error",
+      "run": {
+        "runId": "19f07550-4461-4dd3-8347-70496b9df3d7",
+        "code": null,
+        "signal": null,
+        "reason": "timeout",
+        "wallTimeMs": 606.4760839999981,
+        "stderr": "",
+        "outputTruncated": false,
+        "normalEOF": false,
+        "readErrors": [
+          "pipe-close-deadline"
+        ],
+        "lifecycle": {
+          "state": "blocked",
+          "collectionAllowed": false,
+          "boundary": "unverified-process-group",
+          "deadlineMs": 350,
+          "stopRequestedMs": 351.7926249999982,
+          "parentExitMs": null,
+          "returnedMs": 606.4760839999981,
+          "cleanupMs": 254.68345899999986,
+          "cleanupLimitMs": 250,
+          "errors": [
+            "EPERM"
+          ]
+        },
+        "binding": {
+          "source": "0e47886437cbb4e3e86ce1f3b2ee054fe58fe42bab1f1432490f1fd68fcf7632",
+          "auxiliary": "c3cf19127739de35e5893d68594d658769193e623cf72244e7f7fc71f0629d14",
+          "configuration": "d43b24ba7b342b59c59fd68c4ad962834c44e340090b657897de584f8d4a1f6d"
+        }
+      },
+      "rawUsage": "",
+      "usage": {
+        "schema": "s2-usage-v2-turn-state",
+        "complete": false,
+        "input": null,
+        "output": null,
+        "total": null,
+        "subtotal": {
+          "input": null,
+          "output": null,
+          "total": null,
+          "cachedInput": null,
+          "reasoningOutput": null,
+          "turns": [],
+          "meaning": "Validated non-contradictory completed turns only; not a claimed lower bound of provider consumption"
+        },
+        "consumptionLowerBound": null,
+        "referenceTokens": 100000,
+        "hardCap": false,
+        "reference": {
+          "confirmedExcess": null,
+          "validatedSubtotalExcess": null,
+          "wholeRunBelowReference": null
+        },
+        "issues": [
+          {
+            "line": 1,
+            "code": "malformed-json"
+          },
+          {
+            "line": null,
+            "code": "no-started-turn"
+          },
+          {
+            "line": null,
+            "code": "incomplete-log-or-execution"
+          }
+        ],
+        "turns": [],
+        "rows": [
+          {
+            "line": 1,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "type": null,
+            "turn": null,
+            "disposition": "excluded"
+          }
+        ],
+        "end": {
+          "reason": "timeout",
+          "code": null,
+          "normalEOF": false,
+          "outputTruncated": false,
+          "readErrors": [
+            "pipe-close-deadline"
+          ]
+        },
+        "aggregationTruncated": false,
+        "limits": {
+          "lines": 10000,
+          "lineBytes": 65536,
+          "totalBytes": 4194304
+        },
+        "definition": "Sequential exec turns; input includes cache, output includes reasoning. Event IDs are optional stream-scoped replay identities, never turn IDs. No provider calls verified."
+      },
+      "lateText": null,
+      "crossResult": null,
+      "nextCanary": "NONSECRET",
+      "diagnosticKind": "diagnostic",
+      "productionRejected": true,
+      "evaluationRejected": true,
+      "receiptMismatch": true,
+      "readOnly": {
+        "source/original.txt": "EPERM",
+        "auxiliary": "EPERM",
+        "manifest.json": "EPERM",
+        "manifest.sha256": "EPERM"
+      },
+      "finiteFixtureCleanup": "waited beyond self-exit timers; not termination certification"
+    },
+    {
+      "repeat": 2,
+      "name": "normal",
+      "run": {
+        "runId": "22e6ee24-e30f-4045-b4ca-86c28649c101",
+        "code": null,
+        "signal": "SIGKILL",
+        "reason": "timeout",
+        "wallTimeMs": 352.7489999999998,
+        "stderr": "",
+        "outputTruncated": false,
+        "normalEOF": true,
+        "readErrors": [],
+        "lifecycle": {
+          "state": "blocked",
+          "collectionAllowed": false,
+          "boundary": "unverified-process-group",
+          "deadlineMs": 350,
+          "stopRequestedMs": 351.6335419999996,
+          "parentExitMs": 352.68345899999986,
+          "returnedMs": 352.7489999999998,
+          "cleanupMs": 1.115458000000217,
+          "cleanupLimitMs": 250,
+          "errors": []
+        },
+        "binding": {
+          "source": "cb1f7f3d675bd407284d993623026a48661ad6e0f48a029bf419aa0c5db9bc6f",
+          "auxiliary": "9c11824c1a3ce723e6c6ce77c1d9b281c747c6a52481cd27113d1ab256f59a9e",
+          "configuration": "4f2891a637c67795412d2b450113941cc00f82eca4e8862f73ccd9f7ff056550"
+        }
+      },
+      "rawUsage": "",
+      "usage": {
+        "schema": "s2-usage-v2-turn-state",
+        "complete": false,
+        "input": null,
+        "output": null,
+        "total": null,
+        "subtotal": {
+          "input": null,
+          "output": null,
+          "total": null,
+          "cachedInput": null,
+          "reasoningOutput": null,
+          "turns": [],
+          "meaning": "Validated non-contradictory completed turns only; not a claimed lower bound of provider consumption"
+        },
+        "consumptionLowerBound": null,
+        "referenceTokens": 100000,
+        "hardCap": false,
+        "reference": {
+          "confirmedExcess": null,
+          "validatedSubtotalExcess": null,
+          "wholeRunBelowReference": null
+        },
+        "issues": [
+          {
+            "line": 1,
+            "code": "malformed-json"
+          },
+          {
+            "line": null,
+            "code": "no-started-turn"
+          },
+          {
+            "line": null,
+            "code": "incomplete-log-or-execution"
+          }
+        ],
+        "turns": [],
+        "rows": [
+          {
+            "line": 1,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "type": null,
+            "turn": null,
+            "disposition": "excluded"
+          }
+        ],
+        "end": {
+          "reason": "timeout",
+          "code": null,
+          "normalEOF": true,
+          "outputTruncated": false,
+          "readErrors": []
+        },
+        "aggregationTruncated": false,
+        "limits": {
+          "lines": 10000,
+          "lineBytes": 65536,
+          "totalBytes": 4194304
+        },
+        "definition": "Sequential exec turns; input includes cache, output includes reasoning. Event IDs are optional stream-scoped replay identities, never turn IDs. No provider calls verified."
+      },
+      "lateText": null,
+      "crossResult": null,
+      "nextCanary": "NONSECRET",
+      "diagnosticKind": "diagnostic",
+      "productionRejected": true,
+      "evaluationRejected": true,
+      "receiptMismatch": true,
+      "readOnly": {
+        "source/original.txt": "EPERM",
+        "auxiliary": "EPERM",
+        "manifest.json": "EPERM",
+        "manifest.sha256": "EPERM"
+      },
+      "finiteFixtureCleanup": "waited beyond self-exit timers; not termination certification"
+    },
+    {
+      "repeat": 2,
+      "name": "timeout",
+      "run": {
+        "runId": "ca779482-b270-4085-91a5-1d7908daac4f",
+        "code": null,
+        "signal": "SIGKILL",
+        "reason": "timeout",
+        "wallTimeMs": 353.8118330000034,
+        "stderr": "",
+        "outputTruncated": false,
+        "normalEOF": true,
+        "readErrors": [],
+        "lifecycle": {
+          "state": "blocked",
+          "collectionAllowed": false,
+          "boundary": "unverified-process-group",
+          "deadlineMs": 350,
+          "stopRequestedMs": 351.6125409999986,
+          "parentExitMs": 353.75266600000396,
+          "returnedMs": 353.8118330000034,
+          "cleanupMs": 2.199292000004789,
+          "cleanupLimitMs": 250,
+          "errors": []
+        },
+        "binding": {
+          "source": "b5120b612ce04a44b883cc339c1f0a372165c5e3baf54e5a44105ab3b4be4c8d",
+          "auxiliary": "14e5ecda4df20fa2b5303cd68c7cd0b6e30b45fa19f79316840ce357b4d39182",
+          "configuration": "b749e474556829f61d6dc68678c7bc3fb29ea445e751044431d2157d951f9cca"
+        }
+      },
+      "rawUsage": "",
+      "usage": {
+        "schema": "s2-usage-v2-turn-state",
+        "complete": false,
+        "input": null,
+        "output": null,
+        "total": null,
+        "subtotal": {
+          "input": null,
+          "output": null,
+          "total": null,
+          "cachedInput": null,
+          "reasoningOutput": null,
+          "turns": [],
+          "meaning": "Validated non-contradictory completed turns only; not a claimed lower bound of provider consumption"
+        },
+        "consumptionLowerBound": null,
+        "referenceTokens": 100000,
+        "hardCap": false,
+        "reference": {
+          "confirmedExcess": null,
+          "validatedSubtotalExcess": null,
+          "wholeRunBelowReference": null
+        },
+        "issues": [
+          {
+            "line": 1,
+            "code": "malformed-json"
+          },
+          {
+            "line": null,
+            "code": "no-started-turn"
+          },
+          {
+            "line": null,
+            "code": "incomplete-log-or-execution"
+          }
+        ],
+        "turns": [],
+        "rows": [
+          {
+            "line": 1,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "type": null,
+            "turn": null,
+            "disposition": "excluded"
+          }
+        ],
+        "end": {
+          "reason": "timeout",
+          "code": null,
+          "normalEOF": true,
+          "outputTruncated": false,
+          "readErrors": []
+        },
+        "aggregationTruncated": false,
+        "limits": {
+          "lines": 10000,
+          "lineBytes": 65536,
+          "totalBytes": 4194304
+        },
+        "definition": "Sequential exec turns; input includes cache, output includes reasoning. Event IDs are optional stream-scoped replay identities, never turn IDs. No provider calls verified."
+      },
+      "lateText": null,
+      "crossResult": null,
+      "nextCanary": "NONSECRET",
+      "diagnosticKind": "diagnostic",
+      "productionRejected": true,
+      "evaluationRejected": true,
+      "receiptMismatch": true,
+      "readOnly": {
+        "source/original.txt": "EPERM",
+        "auxiliary": "EPERM",
+        "manifest.json": "EPERM",
+        "manifest.sha256": "EPERM"
+      },
+      "finiteFixtureCleanup": "waited beyond self-exit timers; not termination certification"
+    },
+    {
+      "repeat": 2,
+      "name": "normal-child",
+      "run": {
+        "runId": "fc213669-e7e5-4c18-a7b8-0b04cc48a8bf",
+        "code": null,
+        "signal": "SIGKILL",
+        "reason": "timeout",
+        "wallTimeMs": 355.0142080000005,
+        "stderr": "",
+        "outputTruncated": false,
+        "normalEOF": true,
+        "readErrors": [],
+        "lifecycle": {
+          "state": "blocked",
+          "collectionAllowed": false,
+          "boundary": "unverified-process-group",
+          "deadlineMs": 350,
+          "stopRequestedMs": 351.64745799999946,
+          "parentExitMs": 354.9409579999992,
+          "returnedMs": 355.0142080000005,
+          "cleanupMs": 3.3667500000010477,
+          "cleanupLimitMs": 250,
+          "errors": []
+        },
+        "binding": {
+          "source": "d7c60091ae677d369745e8eb56c7b8dc661d9e248e03ef3d7c673cef3bdbe2db",
+          "auxiliary": "196882fa89dcbb26026e6d743d3e2e5cb7fabce433584548108ffbe9a19b3510",
+          "configuration": "6f63a4ef9e83726ca1f41d5e775cc384ced9bf766d2f14ebfc1d8470d66c0ee2"
+        }
+      },
+      "rawUsage": "",
+      "usage": {
+        "schema": "s2-usage-v2-turn-state",
+        "complete": false,
+        "input": null,
+        "output": null,
+        "total": null,
+        "subtotal": {
+          "input": null,
+          "output": null,
+          "total": null,
+          "cachedInput": null,
+          "reasoningOutput": null,
+          "turns": [],
+          "meaning": "Validated non-contradictory completed turns only; not a claimed lower bound of provider consumption"
+        },
+        "consumptionLowerBound": null,
+        "referenceTokens": 100000,
+        "hardCap": false,
+        "reference": {
+          "confirmedExcess": null,
+          "validatedSubtotalExcess": null,
+          "wholeRunBelowReference": null
+        },
+        "issues": [
+          {
+            "line": 1,
+            "code": "malformed-json"
+          },
+          {
+            "line": null,
+            "code": "no-started-turn"
+          },
+          {
+            "line": null,
+            "code": "incomplete-log-or-execution"
+          }
+        ],
+        "turns": [],
+        "rows": [
+          {
+            "line": 1,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "type": null,
+            "turn": null,
+            "disposition": "excluded"
+          }
+        ],
+        "end": {
+          "reason": "timeout",
+          "code": null,
+          "normalEOF": true,
+          "outputTruncated": false,
+          "readErrors": []
+        },
+        "aggregationTruncated": false,
+        "limits": {
+          "lines": 10000,
+          "lineBytes": 65536,
+          "totalBytes": 4194304
+        },
+        "definition": "Sequential exec turns; input includes cache, output includes reasoning. Event IDs are optional stream-scoped replay identities, never turn IDs. No provider calls verified."
+      },
+      "lateText": null,
+      "crossResult": null,
+      "nextCanary": "NONSECRET",
+      "diagnosticKind": "diagnostic",
+      "productionRejected": true,
+      "evaluationRejected": true,
+      "receiptMismatch": true,
+      "readOnly": {
+        "source/original.txt": "EPERM",
+        "auxiliary": "EPERM",
+        "manifest.json": "EPERM",
+        "manifest.sha256": "EPERM"
+      },
+      "finiteFixtureCleanup": "waited beyond self-exit timers; not termination certification"
+    },
+    {
+      "repeat": 2,
+      "name": "detached",
+      "run": {
+        "runId": "808efb2e-4b87-4704-a3f9-19b0525bac51",
+        "code": null,
+        "signal": "SIGKILL",
+        "reason": "timeout",
+        "wallTimeMs": 354.5181250000023,
+        "stderr": "",
+        "outputTruncated": false,
+        "normalEOF": true,
+        "readErrors": [],
+        "lifecycle": {
+          "state": "blocked",
+          "collectionAllowed": false,
+          "boundary": "unverified-process-group",
+          "deadlineMs": 350,
+          "stopRequestedMs": 351.6824160000033,
+          "parentExitMs": 354.44545800000196,
+          "returnedMs": 354.5181250000023,
+          "cleanupMs": 2.835708999999042,
+          "cleanupLimitMs": 250,
+          "errors": []
+        },
+        "binding": {
+          "source": "daed10a93e2681e5dca9cdf349c443215024be63ae9a9476b0fcd8615cd4aaf4",
+          "auxiliary": "941d2100502e021edb8a64f7d68ea20b4de1890641173d2374aa8279e45d94a9",
+          "configuration": "d0cd43a5a652839e1241581982d1829293406f6feefab979d220cb57059fa2be"
+        }
+      },
+      "rawUsage": "",
+      "usage": {
+        "schema": "s2-usage-v2-turn-state",
+        "complete": false,
+        "input": null,
+        "output": null,
+        "total": null,
+        "subtotal": {
+          "input": null,
+          "output": null,
+          "total": null,
+          "cachedInput": null,
+          "reasoningOutput": null,
+          "turns": [],
+          "meaning": "Validated non-contradictory completed turns only; not a claimed lower bound of provider consumption"
+        },
+        "consumptionLowerBound": null,
+        "referenceTokens": 100000,
+        "hardCap": false,
+        "reference": {
+          "confirmedExcess": null,
+          "validatedSubtotalExcess": null,
+          "wholeRunBelowReference": null
+        },
+        "issues": [
+          {
+            "line": 1,
+            "code": "malformed-json"
+          },
+          {
+            "line": null,
+            "code": "no-started-turn"
+          },
+          {
+            "line": null,
+            "code": "incomplete-log-or-execution"
+          }
+        ],
+        "turns": [],
+        "rows": [
+          {
+            "line": 1,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "type": null,
+            "turn": null,
+            "disposition": "excluded"
+          }
+        ],
+        "end": {
+          "reason": "timeout",
+          "code": null,
+          "normalEOF": true,
+          "outputTruncated": false,
+          "readErrors": []
+        },
+        "aggregationTruncated": false,
+        "limits": {
+          "lines": 10000,
+          "lineBytes": 65536,
+          "totalBytes": 4194304
+        },
+        "definition": "Sequential exec turns; input includes cache, output includes reasoning. Event IDs are optional stream-scoped replay identities, never turn IDs. No provider calls verified."
+      },
+      "lateText": null,
+      "crossResult": null,
+      "nextCanary": "NONSECRET",
+      "diagnosticKind": "diagnostic",
+      "productionRejected": true,
+      "evaluationRejected": true,
+      "receiptMismatch": true,
+      "readOnly": {
+        "source/original.txt": "EPERM",
+        "auxiliary": "EPERM",
+        "manifest.json": "EPERM",
+        "manifest.sha256": "EPERM"
+      },
+      "finiteFixtureCleanup": "waited beyond self-exit timers; not termination certification"
+    },
+    {
+      "repeat": 2,
+      "name": "grandchild",
+      "run": {
+        "runId": "10304add-ad0d-4147-b34d-994c6c0514d5",
+        "code": null,
+        "signal": "SIGKILL",
+        "reason": "timeout",
+        "wallTimeMs": 352.86387500000274,
+        "stderr": "",
+        "outputTruncated": false,
+        "normalEOF": true,
+        "readErrors": [],
+        "lifecycle": {
+          "state": "blocked",
+          "collectionAllowed": false,
+          "boundary": "unverified-process-group",
+          "deadlineMs": 350,
+          "stopRequestedMs": 351.7382080000025,
+          "parentExitMs": 352.83750000000146,
+          "returnedMs": 352.86387500000274,
+          "cleanupMs": 1.1256670000002487,
+          "cleanupLimitMs": 250,
+          "errors": []
+        },
+        "binding": {
+          "source": "6ba69182dc736178fbd38fd1448c7a31e5f129830a0425033d047154d4cddf66",
+          "auxiliary": "41e9bd7a9a7065f754edbccdcd6dd2902425ceb648aa5d20096187c52b4b8b3b",
+          "configuration": "e9390d48b9a0312c90625589e0b9004dd5e4fc6c05660c93f1ead2b3febf8413"
+        }
+      },
+      "rawUsage": "",
+      "usage": {
+        "schema": "s2-usage-v2-turn-state",
+        "complete": false,
+        "input": null,
+        "output": null,
+        "total": null,
+        "subtotal": {
+          "input": null,
+          "output": null,
+          "total": null,
+          "cachedInput": null,
+          "reasoningOutput": null,
+          "turns": [],
+          "meaning": "Validated non-contradictory completed turns only; not a claimed lower bound of provider consumption"
+        },
+        "consumptionLowerBound": null,
+        "referenceTokens": 100000,
+        "hardCap": false,
+        "reference": {
+          "confirmedExcess": null,
+          "validatedSubtotalExcess": null,
+          "wholeRunBelowReference": null
+        },
+        "issues": [
+          {
+            "line": 1,
+            "code": "malformed-json"
+          },
+          {
+            "line": null,
+            "code": "no-started-turn"
+          },
+          {
+            "line": null,
+            "code": "incomplete-log-or-execution"
+          }
+        ],
+        "turns": [],
+        "rows": [
+          {
+            "line": 1,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "type": null,
+            "turn": null,
+            "disposition": "excluded"
+          }
+        ],
+        "end": {
+          "reason": "timeout",
+          "code": null,
+          "normalEOF": true,
+          "outputTruncated": false,
+          "readErrors": []
+        },
+        "aggregationTruncated": false,
+        "limits": {
+          "lines": 10000,
+          "lineBytes": 65536,
+          "totalBytes": 4194304
+        },
+        "definition": "Sequential exec turns; input includes cache, output includes reasoning. Event IDs are optional stream-scoped replay identities, never turn IDs. No provider calls verified."
+      },
+      "lateText": null,
+      "crossResult": null,
+      "nextCanary": "NONSECRET",
+      "diagnosticKind": "diagnostic",
+      "productionRejected": true,
+      "evaluationRejected": true,
+      "receiptMismatch": true,
+      "readOnly": {
+        "source/original.txt": "EPERM",
+        "auxiliary": "EPERM",
+        "manifest.json": "EPERM",
+        "manifest.sha256": "EPERM"
+      },
+      "finiteFixtureCleanup": "waited beyond self-exit timers; not termination certification"
+    },
+    {
+      "repeat": 2,
+      "name": "open-handle",
+      "run": {
+        "runId": "5facdbd4-b2b9-4cb0-a21d-3361479f138b",
+        "code": null,
+        "signal": "SIGKILL",
+        "reason": "timeout",
+        "wallTimeMs": 355.14770800000406,
+        "stderr": "",
+        "outputTruncated": false,
+        "normalEOF": true,
+        "readErrors": [],
+        "lifecycle": {
+          "state": "blocked",
+          "collectionAllowed": false,
+          "boundary": "unverified-process-group",
+          "deadlineMs": 350,
+          "stopRequestedMs": 351.65925000000425,
+          "parentExitMs": 355.0604170000006,
+          "returnedMs": 355.14770800000406,
+          "cleanupMs": 3.4884579999998095,
+          "cleanupLimitMs": 250,
+          "errors": []
+        },
+        "binding": {
+          "source": "b75db9228c7cff95fad654fe7119394212e3c7dde7ec97edb999cd9b1517963a",
+          "auxiliary": "0610385489cb1678b7f11b7d13ed2e81d7cefb30416cef41c4092aed191ea1e1",
+          "configuration": "6bd78e6d5943baf8bcb8c54db34ae9f9d3dc2490ff6178d7760bbef043fbb497"
+        }
+      },
+      "rawUsage": "",
+      "usage": {
+        "schema": "s2-usage-v2-turn-state",
+        "complete": false,
+        "input": null,
+        "output": null,
+        "total": null,
+        "subtotal": {
+          "input": null,
+          "output": null,
+          "total": null,
+          "cachedInput": null,
+          "reasoningOutput": null,
+          "turns": [],
+          "meaning": "Validated non-contradictory completed turns only; not a claimed lower bound of provider consumption"
+        },
+        "consumptionLowerBound": null,
+        "referenceTokens": 100000,
+        "hardCap": false,
+        "reference": {
+          "confirmedExcess": null,
+          "validatedSubtotalExcess": null,
+          "wholeRunBelowReference": null
+        },
+        "issues": [
+          {
+            "line": 1,
+            "code": "malformed-json"
+          },
+          {
+            "line": null,
+            "code": "no-started-turn"
+          },
+          {
+            "line": null,
+            "code": "incomplete-log-or-execution"
+          }
+        ],
+        "turns": [],
+        "rows": [
+          {
+            "line": 1,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "type": null,
+            "turn": null,
+            "disposition": "excluded"
+          }
+        ],
+        "end": {
+          "reason": "timeout",
+          "code": null,
+          "normalEOF": true,
+          "outputTruncated": false,
+          "readErrors": []
+        },
+        "aggregationTruncated": false,
+        "limits": {
+          "lines": 10000,
+          "lineBytes": 65536,
+          "totalBytes": 4194304
+        },
+        "definition": "Sequential exec turns; input includes cache, output includes reasoning. Event IDs are optional stream-scoped replay identities, never turn IDs. No provider calls verified."
+      },
+      "lateText": null,
+      "crossResult": null,
+      "nextCanary": "NONSECRET",
+      "diagnosticKind": "diagnostic",
+      "productionRejected": true,
+      "evaluationRejected": true,
+      "receiptMismatch": true,
+      "readOnly": {
+        "source/original.txt": "EPERM",
+        "auxiliary": "EPERM",
+        "manifest.json": "EPERM",
+        "manifest.sha256": "EPERM"
+      },
+      "finiteFixtureCleanup": "waited beyond self-exit timers; not termination certification"
+    },
+    {
+      "repeat": 2,
+      "name": "inherited-pipe",
+      "run": {
+        "runId": "6fb613a3-ea53-494c-a463-990ccf79119e",
+        "code": null,
+        "signal": "SIGKILL",
+        "reason": "timeout",
+        "wallTimeMs": 354.8230829999957,
+        "stderr": "",
+        "outputTruncated": false,
+        "normalEOF": true,
+        "readErrors": [],
+        "lifecycle": {
+          "state": "blocked",
+          "collectionAllowed": false,
+          "boundary": "unverified-process-group",
+          "deadlineMs": 350,
+          "stopRequestedMs": 351.67095799999515,
+          "parentExitMs": 354.7532910000009,
+          "returnedMs": 354.8230829999957,
+          "cleanupMs": 3.152125000000524,
+          "cleanupLimitMs": 250,
+          "errors": []
+        },
+        "binding": {
+          "source": "e8941a5a7cf0d52053065d0d0a6277d598bbeee59ffbc2f5437b326fccdc8769",
+          "auxiliary": "9448faad7ef74bde16c8f2e08a60777cb604c7b5082268beb951a2dba2af2b43",
+          "configuration": "b0202600bf87acbcba9870d2bcf8d28b783ecf44874a8f0ce0bd579b9766c048"
+        }
+      },
+      "rawUsage": "",
+      "usage": {
+        "schema": "s2-usage-v2-turn-state",
+        "complete": false,
+        "input": null,
+        "output": null,
+        "total": null,
+        "subtotal": {
+          "input": null,
+          "output": null,
+          "total": null,
+          "cachedInput": null,
+          "reasoningOutput": null,
+          "turns": [],
+          "meaning": "Validated non-contradictory completed turns only; not a claimed lower bound of provider consumption"
+        },
+        "consumptionLowerBound": null,
+        "referenceTokens": 100000,
+        "hardCap": false,
+        "reference": {
+          "confirmedExcess": null,
+          "validatedSubtotalExcess": null,
+          "wholeRunBelowReference": null
+        },
+        "issues": [
+          {
+            "line": 1,
+            "code": "malformed-json"
+          },
+          {
+            "line": null,
+            "code": "no-started-turn"
+          },
+          {
+            "line": null,
+            "code": "incomplete-log-or-execution"
+          }
+        ],
+        "turns": [],
+        "rows": [
+          {
+            "line": 1,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "type": null,
+            "turn": null,
+            "disposition": "excluded"
+          }
+        ],
+        "end": {
+          "reason": "timeout",
+          "code": null,
+          "normalEOF": true,
+          "outputTruncated": false,
+          "readErrors": []
+        },
+        "aggregationTruncated": false,
+        "limits": {
+          "lines": 10000,
+          "lineBytes": 65536,
+          "totalBytes": 4194304
+        },
+        "definition": "Sequential exec turns; input includes cache, output includes reasoning. Event IDs are optional stream-scoped replay identities, never turn IDs. No provider calls verified."
+      },
+      "lateText": null,
+      "crossResult": null,
+      "nextCanary": "NONSECRET",
+      "diagnosticKind": "diagnostic",
+      "productionRejected": true,
+      "evaluationRejected": true,
+      "receiptMismatch": true,
+      "readOnly": {
+        "source/original.txt": "EPERM",
+        "auxiliary": "EPERM",
+        "manifest.json": "EPERM",
+        "manifest.sha256": "EPERM"
+      },
+      "finiteFixtureCleanup": "waited beyond self-exit timers; not termination certification"
+    },
+    {
+      "repeat": 2,
+      "name": "truncated",
+      "run": {
+        "runId": "b1ab449a-f1df-43f7-8163-bf64b2b3e7d2",
+        "code": null,
+        "signal": "SIGKILL",
+        "reason": "timeout",
+        "wallTimeMs": 358.9412499999962,
+        "stderr": "",
+        "outputTruncated": false,
+        "normalEOF": true,
+        "readErrors": [],
+        "lifecycle": {
+          "state": "blocked",
+          "collectionAllowed": false,
+          "boundary": "unverified-process-group",
+          "deadlineMs": 350,
+          "stopRequestedMs": 356.9290419999961,
+          "parentExitMs": 358.88345899999695,
+          "returnedMs": 358.9412499999962,
+          "cleanupMs": 2.0122080000001006,
+          "cleanupLimitMs": 250,
+          "errors": []
+        },
+        "binding": {
+          "source": "0631ea8ae4b681514d5e2a33d72702059eaa35b2d5d14cd786b07bd605deb576",
+          "auxiliary": "2728fcbaa2e67d2529fef5171dce2656c7fa30536f191a35501f012631583d56",
+          "configuration": "d6cf59ebb9a89fc582a926ae036e35d37ee35b302d90ad9976aba2598001a333"
+        }
+      },
+      "rawUsage": null,
+      "usage": {
+        "schema": "s2-usage-v2-turn-state",
+        "complete": false,
+        "input": null,
+        "output": null,
+        "total": null,
+        "subtotal": {
+          "input": null,
+          "output": null,
+          "total": null,
+          "cachedInput": null,
+          "reasoningOutput": null,
+          "turns": [],
+          "meaning": "Validated non-contradictory completed turns only; not a claimed lower bound of provider consumption"
+        },
+        "consumptionLowerBound": null,
+        "referenceTokens": 100000,
+        "hardCap": false,
+        "reference": {
+          "confirmedExcess": null,
+          "validatedSubtotalExcess": null,
+          "wholeRunBelowReference": null
+        },
+        "issues": [
+          {
+            "line": 1,
+            "code": "malformed-json"
+          },
+          {
+            "line": null,
+            "code": "no-started-turn"
+          },
+          {
+            "line": null,
+            "code": "incomplete-log-or-execution"
+          }
+        ],
+        "turns": [],
+        "rows": [
+          {
+            "line": 1,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "type": null,
+            "turn": null,
+            "disposition": "excluded"
+          }
+        ],
+        "end": {
+          "reason": "timeout",
+          "code": null,
+          "normalEOF": true,
+          "outputTruncated": false,
+          "readErrors": []
+        },
+        "aggregationTruncated": false,
+        "limits": {
+          "lines": 10000,
+          "lineBytes": 65536,
+          "totalBytes": 4194304
+        },
+        "definition": "Sequential exec turns; input includes cache, output includes reasoning. Event IDs are optional stream-scoped replay identities, never turn IDs. No provider calls verified."
+      },
+      "lateText": null,
+      "crossResult": null,
+      "nextCanary": "NONSECRET",
+      "diagnosticKind": "diagnostic",
+      "productionRejected": true,
+      "evaluationRejected": true,
+      "receiptMismatch": true,
+      "readOnly": {
+        "source/original.txt": "EPERM",
+        "auxiliary": "EPERM",
+        "manifest.json": "EPERM",
+        "manifest.sha256": "EPERM"
+      },
+      "finiteFixtureCleanup": "waited beyond self-exit timers; not termination certification"
+    },
+    {
+      "repeat": 2,
+      "name": "spawn-error",
+      "run": {
+        "runId": "c3ce3560-df88-45e1-b902-b77994bf35d4",
+        "code": -2,
+        "signal": null,
+        "reason": "spawn-error",
+        "wallTimeMs": 0.4524170000004233,
+        "stderr": "",
+        "outputTruncated": false,
+        "normalEOF": true,
+        "readErrors": [],
+        "lifecycle": {
+          "state": "blocked",
+          "collectionAllowed": false,
+          "boundary": "unverified-process-group",
+          "deadlineMs": 350,
+          "stopRequestedMs": 0.3522079999966081,
+          "parentExitMs": null,
+          "returnedMs": 0.4524170000004233,
+          "cleanupMs": 0.10020900000381516,
+          "cleanupLimitMs": 250,
+          "errors": [
+            "ENOENT"
+          ]
+        },
+        "binding": {
+          "source": "4abb924fbbcc858ce66c7ce2bd4c48acd5afcb6d28a40cfbe6ce6ee512704372",
+          "auxiliary": "83b2805854fbb5eda22f6f26f812ad4bdf3eda38e4050320aa55c9fc1fec7ea7",
+          "configuration": "f8ebfd3406bfba5f7758dae6b81ebd6a7a97a3ea2e98a0c337b77f831e8ac537"
+        }
+      },
+      "rawUsage": "",
+      "usage": {
+        "schema": "s2-usage-v2-turn-state",
+        "complete": false,
+        "input": null,
+        "output": null,
+        "total": null,
+        "subtotal": {
+          "input": null,
+          "output": null,
+          "total": null,
+          "cachedInput": null,
+          "reasoningOutput": null,
+          "turns": [],
+          "meaning": "Validated non-contradictory completed turns only; not a claimed lower bound of provider consumption"
+        },
+        "consumptionLowerBound": null,
+        "referenceTokens": 100000,
+        "hardCap": false,
+        "reference": {
+          "confirmedExcess": null,
+          "validatedSubtotalExcess": null,
+          "wholeRunBelowReference": null
+        },
+        "issues": [
+          {
+            "line": 1,
+            "code": "malformed-json"
+          },
+          {
+            "line": null,
+            "code": "no-started-turn"
+          },
+          {
+            "line": null,
+            "code": "incomplete-log-or-execution"
+          }
+        ],
+        "turns": [],
+        "rows": [
+          {
+            "line": 1,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "type": null,
+            "turn": null,
+            "disposition": "excluded"
+          }
+        ],
+        "end": {
+          "reason": "spawn-error",
+          "code": -2,
+          "normalEOF": true,
+          "outputTruncated": false,
+          "readErrors": []
+        },
+        "aggregationTruncated": false,
+        "limits": {
+          "lines": 10000,
+          "lineBytes": 65536,
+          "totalBytes": 4194304
+        },
+        "definition": "Sequential exec turns; input includes cache, output includes reasoning. Event IDs are optional stream-scoped replay identities, never turn IDs. No provider calls verified."
+      },
+      "lateText": null,
+      "crossResult": null,
+      "nextCanary": "NONSECRET",
+      "diagnosticKind": "diagnostic",
+      "productionRejected": true,
+      "evaluationRejected": true,
+      "receiptMismatch": true,
+      "readOnly": {
+        "source/original.txt": "EPERM",
+        "auxiliary": "EPERM",
+        "manifest.json": "EPERM",
+        "manifest.sha256": "EPERM"
+      },
+      "finiteFixtureCleanup": "waited beyond self-exit timers; not termination certification"
+    },
+    {
+      "repeat": 2,
+      "name": "interrupted",
+      "run": {
+        "runId": "118a2df9-cc6f-4080-8e41-25ac800da1cc",
+        "code": null,
+        "signal": "SIGKILL",
+        "reason": "interrupted",
+        "wallTimeMs": 102.20333299999766,
+        "stderr": "",
+        "outputTruncated": false,
+        "normalEOF": true,
+        "readErrors": [],
+        "lifecycle": {
+          "state": "blocked",
+          "collectionAllowed": false,
+          "boundary": "unverified-process-group",
+          "deadlineMs": 350,
+          "stopRequestedMs": 100.89441700000316,
+          "parentExitMs": 102.17512500000157,
+          "returnedMs": 102.20333299999766,
+          "cleanupMs": 1.3089159999944968,
+          "cleanupLimitMs": 250,
+          "errors": []
+        },
+        "binding": {
+          "source": "1107d5a78763802f3e25aecb66d481043d7a2bb716076489fb6e567d3172530a",
+          "auxiliary": "0ac70b8c93e24a5410771ce396959d1be63fff81d97f78c5bd625b6a5b3b3898",
+          "configuration": "f2320863ffd8d529d46ad19b12bf1d2bbcc1409a2b183407cdf69fd21d50b09e"
+        }
+      },
+      "rawUsage": "",
+      "usage": {
+        "schema": "s2-usage-v2-turn-state",
+        "complete": false,
+        "input": null,
+        "output": null,
+        "total": null,
+        "subtotal": {
+          "input": null,
+          "output": null,
+          "total": null,
+          "cachedInput": null,
+          "reasoningOutput": null,
+          "turns": [],
+          "meaning": "Validated non-contradictory completed turns only; not a claimed lower bound of provider consumption"
+        },
+        "consumptionLowerBound": null,
+        "referenceTokens": 100000,
+        "hardCap": false,
+        "reference": {
+          "confirmedExcess": null,
+          "validatedSubtotalExcess": null,
+          "wholeRunBelowReference": null
+        },
+        "issues": [
+          {
+            "line": 1,
+            "code": "malformed-json"
+          },
+          {
+            "line": null,
+            "code": "no-started-turn"
+          },
+          {
+            "line": null,
+            "code": "incomplete-log-or-execution"
+          }
+        ],
+        "turns": [],
+        "rows": [
+          {
+            "line": 1,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "type": null,
+            "turn": null,
+            "disposition": "excluded"
+          }
+        ],
+        "end": {
+          "reason": "interrupted",
+          "code": null,
+          "normalEOF": true,
+          "outputTruncated": false,
+          "readErrors": []
+        },
+        "aggregationTruncated": false,
+        "limits": {
+          "lines": 10000,
+          "lineBytes": 65536,
+          "totalBytes": 4194304
+        },
+        "definition": "Sequential exec turns; input includes cache, output includes reasoning. Event IDs are optional stream-scoped replay identities, never turn IDs. No provider calls verified."
+      },
+      "lateText": null,
+      "crossResult": null,
+      "nextCanary": "NONSECRET",
+      "diagnosticKind": "diagnostic",
+      "productionRejected": true,
+      "evaluationRejected": true,
+      "receiptMismatch": true,
+      "readOnly": {
+        "source/original.txt": "EPERM",
+        "auxiliary": "EPERM",
+        "manifest.json": "EPERM",
+        "manifest.sha256": "EPERM"
+      },
+      "finiteFixtureCleanup": "waited beyond self-exit timers; not termination certification"
+    },
+    {
+      "repeat": 2,
+      "name": "kill-error",
+      "run": {
+        "runId": "8c5f1c4a-fc9a-4f60-b4b0-bb1fe3d649d8",
+        "code": null,
+        "signal": null,
+        "reason": "timeout",
+        "wallTimeMs": 602.7158750000017,
+        "stderr": "",
+        "outputTruncated": false,
+        "normalEOF": false,
+        "readErrors": [
+          "pipe-close-deadline"
+        ],
+        "lifecycle": {
+          "state": "blocked",
+          "collectionAllowed": false,
+          "boundary": "unverified-process-group",
+          "deadlineMs": 350,
+          "stopRequestedMs": 351.6967910000021,
+          "parentExitMs": null,
+          "returnedMs": 602.7158750000017,
+          "cleanupMs": 251.01908399999957,
+          "cleanupLimitMs": 250,
+          "errors": [
+            "EPERM"
+          ]
+        },
+        "binding": {
+          "source": "4c45d091a603ec17a3a033f8c5deb263be6262b2e38385642002b47859ec4df3",
+          "auxiliary": "303b75eca0fd5f2ba9f11c5db478170ed0dc37a3d59a848a620fd8e0543b1fea",
+          "configuration": "6aeb7043774d5ccb3d04d11ba1da3fd02806b817e326126cc5360ac4d735fed7"
+        }
+      },
+      "rawUsage": "",
+      "usage": {
+        "schema": "s2-usage-v2-turn-state",
+        "complete": false,
+        "input": null,
+        "output": null,
+        "total": null,
+        "subtotal": {
+          "input": null,
+          "output": null,
+          "total": null,
+          "cachedInput": null,
+          "reasoningOutput": null,
+          "turns": [],
+          "meaning": "Validated non-contradictory completed turns only; not a claimed lower bound of provider consumption"
+        },
+        "consumptionLowerBound": null,
+        "referenceTokens": 100000,
+        "hardCap": false,
+        "reference": {
+          "confirmedExcess": null,
+          "validatedSubtotalExcess": null,
+          "wholeRunBelowReference": null
+        },
+        "issues": [
+          {
+            "line": 1,
+            "code": "malformed-json"
+          },
+          {
+            "line": null,
+            "code": "no-started-turn"
+          },
+          {
+            "line": null,
+            "code": "incomplete-log-or-execution"
+          }
+        ],
+        "turns": [],
+        "rows": [
+          {
+            "line": 1,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "type": null,
+            "turn": null,
+            "disposition": "excluded"
+          }
+        ],
+        "end": {
+          "reason": "timeout",
+          "code": null,
+          "normalEOF": false,
+          "outputTruncated": false,
+          "readErrors": [
+            "pipe-close-deadline"
+          ]
+        },
+        "aggregationTruncated": false,
+        "limits": {
+          "lines": 10000,
+          "lineBytes": 65536,
+          "totalBytes": 4194304
+        },
+        "definition": "Sequential exec turns; input includes cache, output includes reasoning. Event IDs are optional stream-scoped replay identities, never turn IDs. No provider calls verified."
+      },
+      "lateText": null,
+      "crossResult": null,
+      "nextCanary": "NONSECRET",
+      "diagnosticKind": "diagnostic",
+      "productionRejected": true,
+      "evaluationRejected": true,
+      "receiptMismatch": true,
+      "readOnly": {
+        "source/original.txt": "EPERM",
+        "auxiliary": "EPERM",
+        "manifest.json": "EPERM",
+        "manifest.sha256": "EPERM"
+      },
+      "finiteFixtureCleanup": "waited beyond self-exit timers; not termination certification"
+    }
+  ]
+}

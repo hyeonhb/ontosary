@@ -1,0 +1,11 @@
+{
+  "baseCommit": "ef60bc98d408114b1368ed46e58b26ed726054be",
+  "cliVersion": "codex-cli 0.167.0-alpha.3.2",
+  "cliBinarySha256": "a636331ed87605efc4cf84028ac2884a75363f9d10ead63cffb57ea0016d486e",
+  "nodeVersion": "v22.19.0",
+  "nodeBinarySha256": "19a69fca73f47b939fd1eeca5b42855c53c10b47d0b6dfa653a878a893028c35",
+  "macOS": "ProductName:\t\tmacOS\nProductVersion:\t\t26.6.2\nBuildVersion:\t\t25G83\n",
+  "arch": "arm64",
+  "sdkEventHeaderSha256": "b09a4fdd9e88a5c1c9a29bded36a6f8b96b39a3054f0075a07c19da587f0e062",
+  "providerCalls": 0
+}

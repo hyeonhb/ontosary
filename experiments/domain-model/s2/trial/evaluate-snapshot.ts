@@ -1,12 +1,5 @@
-import fs from 'node:fs';
-import path from 'node:path';
 import { checkedSnapshot } from './snapshot-gate.js';
-import { openEnvironment, evaluateSubmission } from '../evaluation/evaluate.js';
-const [snapshot,cache,out,repo=process.cwd()]=process.argv.slice(2);
-if(!snapshot||!cache||!out)throw Error('Usage: evaluate-snapshot <immutable-snapshot> <cache> <new-output> [repo]');
-if(fs.existsSync(out))throw Error('Output exists');
-const sources=checkedSnapshot(snapshot),env=openEnvironment(path.resolve(cache),path.resolve(repo));
-const result=await evaluateSubmission(env,sources,'complete-root');
+const [snapshot]=process.argv.slice(2);
+if(!snapshot)throw Error('Usage: evaluate-snapshot <snapshot>; production evaluation remains blocked by R11');
+// Check authority before opening source, cache or evaluator; no failure result is promoted to a trial result.
 checkedSnapshot(snapshot);
-fs.writeFileSync(out,JSON.stringify(result,null,2)+'\n');
-console.log(JSON.stringify({overall:result.overall,sourceBinding:result.sourceBinding,submissionId:result.typecheck.submissionId}));

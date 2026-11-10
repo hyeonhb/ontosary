@@ -1,0 +1,216 @@
+{
+  "version": 2,
+  "R11": "unresolved",
+  "R12": "implemented/self-verified; independent review pending",
+  "accountingSchema": "s2-usage-v2-turn-state",
+  "accountingPolicy": "Runtime all-writer termination is unverified, so whole-run total is null even after parent exit0; fixtures explicitly mark synthetic termination. Validated subtotal is not claimed as a provider lower bound.",
+  "providerCalls": 0,
+  "trialRuns": 0,
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "ed16f658467ee27a1e36ec602b73526a4c78c504c3c2c821c7039c27329b6cc4",
+      "scope": "Current verification evidence"
+    },
+    {
+      "path": "SELECTION.md",
+      "sha256": "1a74072acc03e10a56df1370b6c2081238e74239651f68229cd596d3553f1e12",
+      "scope": "Current verification evidence"
+    },
+    {
+      "path": "access-probe-pre-final-accounting.json.gz",
+      "sha256": "2d96b7fbc78fecd08e756d5fc282597eb9c6b48590923c1b3b161421784b10b3",
+      "scope": "Historical/intermediate failure evidence; not a current pass"
+    },
+    {
+      "path": "access-probe.json",
+      "sha256": "e2830c2d1423a6255a84db03bc0028eef7b3e25e8065fff4d33d73c5f2676e6a",
+      "scope": "Current verification evidence"
+    },
+    {
+      "path": "accounting-fixtures.json",
+      "sha256": "9d5b1c7b4c55551512c9f1493f72c57d90fa782322afef451e373c541cc5bfd9",
+      "scope": "Current verification evidence"
+    },
+    {
+      "path": "accounting-probe.mjs",
+      "sha256": "be996d2176c73a90e5e89477d5650c0fc222e6a03052c69303a52834f5c72cd4",
+      "scope": "Current verification evidence"
+    },
+    {
+      "path": "before/codex-sandbox-help.txt.gz",
+      "sha256": "b81d38893b99a5301243ddc2a9778f6d2bc2ca6fbdffa26a168e638702ebbf22",
+      "scope": "Historical/intermediate failure evidence; not a current pass"
+    },
+    {
+      "path": "before/environment.json",
+      "sha256": "d1cedd72e181a4b850ca7deb4100760081bfc6c7730ebcd5cde558add60c9ca3",
+      "scope": "Historical/intermediate failure evidence; not a current pass"
+    },
+    {
+      "path": "before/independent.json",
+      "sha256": "ed6d564ac93f13297e35f25264c7ccd23f2b53899e549a956122adb85c416169",
+      "scope": "Historical/intermediate failure evidence; not a current pass"
+    },
+    {
+      "path": "before/native-track.c",
+      "sha256": "84b3177fc75276f41ae86380ab8f9c258f62986bc6a424746ef47d1bab9f288f",
+      "scope": "Historical/intermediate failure evidence; not a current pass"
+    },
+    {
+      "path": "before/native-track.json",
+      "sha256": "c5cc86e5225967cec4329bdf5342a73e679e5817ec64b7e2350a38050369b671",
+      "scope": "Historical/intermediate failure evidence; not a current pass"
+    },
+    {
+      "path": "before/probe-a.json",
+      "sha256": "beae60cdacc2b5a288e49f941b8b10cedba7afd81dc10d7d38d83a05d5d9b764",
+      "scope": "Historical/intermediate failure evidence; not a current pass"
+    },
+    {
+      "path": "before/probe-b.json",
+      "sha256": "1f30e328c21eee7da7f71fc67dfc3ecc31972c076cc4c0fc15ef0f423bb94c08",
+      "scope": "Historical/intermediate failure evidence; not a current pass"
+    },
+    {
+      "path": "calibration-execution.json",
+      "sha256": "b624402dc267bbea94911e343699cfdbc4faa3ae0bd79980981e4c4aeb84ef5a",
+      "scope": "Current verification evidence"
+    },
+    {
+      "path": "calibration-summary.json",
+      "sha256": "5d40cd1fd0899e87eaf8c27566646f9517fb8667fca07333f38e085516d26d3d",
+      "scope": "Current verification evidence"
+    },
+    {
+      "path": "check.log",
+      "sha256": "f6aee76003f21709c15650989d1e88cb698cfbb8e49601b1c917a7e72badac3a",
+      "scope": "Current verification evidence"
+    },
+    {
+      "path": "cold-start-inconclusive.json",
+      "sha256": "1f8aa0ecef4b15c2cf0af00b77b93f23e90d26c7c8b541ffc557c79f1c2ee827",
+      "scope": "Historical/intermediate failure evidence; not a current pass"
+    },
+    {
+      "path": "evaluation-reproduction.json",
+      "sha256": "c1385093b16c517f14e4705ed6e0cfdb6d171f86f5f3f26321cd82c5528a504f",
+      "scope": "Current verification evidence"
+    },
+    {
+      "path": "experiment.log",
+      "sha256": "bc51db1e419b3d3a6d3ff614a1d85705e6e023c8377521135c518a356a03cf8a",
+      "scope": "Current verification evidence"
+    },
+    {
+      "path": "extra-runtime/nonzero.stdout.jsonl.gz",
+      "sha256": "eac02d6711d89434cca8b3a27e97a836a4db9ba27460379b675ec09fa8b6b315",
+      "scope": "Current verification evidence"
+    },
+    {
+      "path": "extra-runtime/report-pre-final-accounting.json.gz",
+      "sha256": "d81b3c2730d9bb558a036de03055cd7d2d845ef4ceb9edff8fef8230e67c5beb",
+      "scope": "Historical/intermediate failure evidence; not a current pass"
+    },
+    {
+      "path": "extra-runtime/report.json",
+      "sha256": "07842abd64fe4728ebc7a11743ca05f3273a9434034a4c1ef490ae4060dac2fa",
+      "scope": "Current verification evidence"
+    },
+    {
+      "path": "extra-runtime/signal.stdout.jsonl.gz",
+      "sha256": "eac02d6711d89434cca8b3a27e97a836a4db9ba27460379b675ec09fa8b6b315",
+      "scope": "Current verification evidence"
+    },
+    {
+      "path": "extra-runtime/truncated.stdout.jsonl.gz",
+      "sha256": "f9cfb4a1c39664a91d684a148e964f6f8ae910462046bc0867c56ab39a52362e",
+      "scope": "Current verification evidence"
+    },
+    {
+      "path": "extra-runtime-probe.mjs",
+      "sha256": "2181f9bed52a1c6794ec2d0c64cf6a33540f9f9624df4ec1ff08a94607af5c40",
+      "scope": "Current verification evidence"
+    },
+    {
+      "path": "implementation.json",
+      "sha256": "b30903e1d7dc904d90fc7e416c5a5c46fb81b8d20cf5aed9a4a57f3837a9af75",
+      "scope": "Current verification evidence"
+    },
+    {
+      "path": "live-refusal.json",
+      "sha256": "7bc148edb651477589c7c9eb55bba699fc9ff8b0bb67e9f311b0c6345aa63427",
+      "scope": "Current verification evidence"
+    },
+    {
+      "path": "preservation-and-reuse.json",
+      "sha256": "0ca9fd175d826bb450150f163ac69c9a87e4924cea47a82c1a0d9d58f980b0b6",
+      "scope": "Current verification evidence"
+    },
+    {
+      "path": "production-evaluation-refusal.json",
+      "sha256": "bde764ce702f5b78364c9a232d7a2cd96773c707974ac47997eaedb9878f2933",
+      "scope": "Current verification evidence"
+    },
+    {
+      "path": "reference-calibration.json.gz",
+      "sha256": "1fd9ddb7b9512a602987fea5734884b624f7a6074f86af668bfbead6bbab232e",
+      "scope": "Current verification evidence"
+    },
+    {
+      "path": "reference-equivalence.json",
+      "sha256": "fb7c65586814766cf24a9ebe665e45a0b203c3b55282fdcf3614b8a06cabd23b",
+      "scope": "Current verification evidence"
+    },
+    {
+      "path": "reference-execution.json",
+      "sha256": "cf3a9d6119dd20dfd672ec67f28f617187929e6e450237cf3e980f930cf0c3ad",
+      "scope": "Current verification evidence"
+    },
+    {
+      "path": "runtime-accounting-replay.json",
+      "sha256": "44dfc812b2814f2850c351346d999d4663032437f25dad754a5e7191446f9082",
+      "scope": "Current verification evidence"
+    },
+    {
+      "path": "runtime-probe-pre-final-accounting.json.gz",
+      "sha256": "ea89a024615c17ffc2be2471731197298c97204aae82d2d02b6c6f80f312c429",
+      "scope": "Historical/intermediate failure evidence; not a current pass"
+    },
+    {
+      "path": "runtime-probe.json",
+      "sha256": "a76abeb01a80946f013086bc0493ae4c32bb502d92cec17616b611558868a16e",
+      "scope": "Current verification evidence"
+    },
+    {
+      "path": "../2026-11-10-trial-preparation/public-environment.json.gz",
+      "sha256": "16f38479c1bf6b262a42f4d2807cb66bcec7cc269842f874ec147d1c9cb929c0",
+      "scope": "Unchanged public checker/environment/permission/material-supply only; not new runtime or accounting verification"
+    },
+    {
+      "path": "../2026-11-10-trial-preparation/dependencies.json.gz",
+      "sha256": "51503914e6d23e96b143583524e377056e3d45f66a346431c4fbe84bff6dda32",
+      "scope": "Unchanged public checker/environment/permission/material-supply only; not new runtime or accounting verification"
+    },
+    {
+      "path": "../2026-11-10-trial-preparation/public-private-type-equivalence.json",
+      "sha256": "801bb3c298949c9a2a1a8cc743250a0e5efa8a15197e95be2d073db98f1c37f1",
+      "scope": "Unchanged public checker/environment/permission/material-supply only; not new runtime or accounting verification"
+    },
+    {
+      "path": "../2026-11-10-trial-preparation/public-typechecks.json.gz",
+      "sha256": "19e62381a3ff72d23373f55beab21a82b27baaeb48ca6a3466da1859adb3891c",
+      "scope": "Unchanged public checker/environment/permission/material-supply only; not new runtime or accounting verification"
+    },
+    {
+      "path": "../2026-11-10-trial-preparation/workspaces.json",
+      "sha256": "72aa66fd10a6a0f0e8b40aceb60ca79cd0eb3b61fba16688897aa169c7f96f0e",
+      "scope": "Unchanged public checker/environment/permission/material-supply only; not new runtime or accounting verification"
+    },
+    {
+      "path": "../2026-11-10-trial-preparation/deployment-audit.json",
+      "sha256": "00024faecb24642a1e07e3f71bc710e3beb0058c04b263e6892cf28c1c14247d",
+      "scope": "Unchanged public checker/environment/permission/material-supply only; not new runtime or accounting verification"
+    }
+  ]
+}
