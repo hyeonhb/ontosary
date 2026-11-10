@@ -1,0 +1,673 @@
+{
+  "reviewedCommit": "5bd30c73e1e604b5aea0f52fb900f704ebe6222f",
+  "scope": "Actual submitted methods with actual modal component/locals forwarding; no Angular rendering, network or agent trial",
+  "summaries": [
+    {
+      "variant": "reference",
+      "typecheck": "passed",
+      "diagnosticCount": 0,
+      "behavior": "passed",
+      "sourceBinding": true,
+      "overall": "passed",
+      "preservation": {
+        "passed": 16,
+        "total": 16
+      },
+      "draft": {
+        "passed": 36,
+        "total": 36
+      },
+      "submissionId": "dde3b75c151fb9847929ce9d3dd7e76081f791fc7a779f7124245644419bed54",
+      "modalCalls": [
+        {
+          "className": "CancelOrderDialogComponent",
+          "locals": {
+            "order": {
+              "id": "o-one",
+              "active": false,
+              "payments": [],
+              "state": "PaymentSettled",
+              "lines": [
+                {
+                  "id": "l-one",
+                  "quantity": 2,
+                  "orderPlacedQuantity": 2
+                },
+                {
+                  "id": "l-extra",
+                  "quantity": 2,
+                  "orderPlacedQuantity": 2
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "connected": {
+        "pass": true,
+        "expected": [
+          {
+            "input": {
+              "cancelShipping": true,
+              "lines": [
+                {
+                  "orderLineId": "l-extra",
+                  "quantity": 2
+                },
+                {
+                  "orderLineId": "l-one",
+                  "quantity": 1
+                }
+              ],
+              "orderId": "o-one",
+              "reason": "normal"
+            },
+            "kind": "cancel"
+          }
+        ],
+        "actual": [
+          {
+            "input": {
+              "cancelShipping": true,
+              "lines": [
+                {
+                  "orderLineId": "l-extra",
+                  "quantity": 2
+                },
+                {
+                  "orderLineId": "l-one",
+                  "quantity": 1
+                }
+              ],
+              "orderId": "o-one",
+              "reason": "normal"
+            },
+            "kind": "cancel"
+          }
+        ]
+      },
+      "connectedExecutedFiles": {
+        "packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts": "2c76bda883e2dd48cf08c669eec438cd599fd03ab0435b762b65bf2c8ccc8ebd",
+        "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts": "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede",
+        "packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts": "fefc2b0634f3a38e4eaa9894457d77462403b445f24c01a8920bb1842a5f796c"
+      },
+      "sourceHashesMatch": true,
+      "originalOracleDirect": {
+        "name": "o-one/direct-reason-0",
+        "category": "draft-requirement",
+        "status": "passed",
+        "assertion": {
+          "pass": true,
+          "expected": [
+            {
+              "input": {
+                "cancelShipping": true,
+                "lines": [
+                  {
+                    "orderLineId": "l-extra",
+                    "quantity": 2
+                  },
+                  {
+                    "orderLineId": "l-one",
+                    "quantity": 1
+                  }
+                ],
+                "orderId": "o-one",
+                "reason": "normal"
+              },
+              "kind": "cancel"
+            }
+          ],
+          "actual": [
+            {
+              "input": {
+                "cancelShipping": true,
+                "lines": [
+                  {
+                    "orderLineId": "l-extra",
+                    "quantity": 2
+                  },
+                  {
+                    "orderLineId": "l-one",
+                    "quantity": 1
+                  }
+                ],
+                "orderId": "o-one",
+                "reason": "normal"
+              },
+              "kind": "cancel"
+            }
+          ]
+        },
+        "details": {
+          "error": null,
+          "modalTraces": [
+            {
+              "call": 0,
+              "identity": {
+                "className": "CancelOrderDialogComponent",
+                "file": "packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts",
+                "basis": "Strict reference equality with executor-loaded submitted constructor"
+              },
+              "options": {
+                "size": "xl",
+                "locals": {
+                  "order": {
+                    "id": "o-one",
+                    "active": false,
+                    "payments": [],
+                    "state": "PaymentSettled",
+                    "lines": [
+                      {
+                        "id": "l-one",
+                        "quantity": 2,
+                        "orderPlacedQuantity": 2
+                      },
+                      {
+                        "id": "l-extra",
+                        "quantity": 2,
+                        "orderPlacedQuantity": 2
+                      }
+                    ]
+                  }
+                }
+              },
+              "action": "select",
+              "subscriptions": 1,
+              "resolveCount": 1,
+              "resolved": true,
+              "resolutions": [
+                {
+                  "orderId": "o-one",
+                  "lines": [
+                    {
+                      "orderLineId": "l-one",
+                      "quantity": 1
+                    },
+                    {
+                      "orderLineId": "l-extra",
+                      "quantity": 2
+                    }
+                  ],
+                  "reason": "normal",
+                  "cancelShipping": true
+                }
+              ],
+              "delivered": [
+                {
+                  "orderId": "o-one",
+                  "lines": [
+                    {
+                      "orderLineId": "l-one",
+                      "quantity": 1
+                    },
+                    {
+                      "orderLineId": "l-extra",
+                      "quantity": 2
+                    }
+                  ],
+                  "reason": "normal",
+                  "cancelShipping": true
+                }
+              ],
+              "events": [
+                "fromComponent",
+                "subscribe",
+                "select",
+                "resolve",
+                "next",
+                "complete",
+                "action-returned"
+              ],
+              "failure": null
+            }
+          ],
+          "inputReason": "normal",
+          "reasonInput": "string",
+          "uiCoverage": "truthy reason; other template constraints not evaluated"
+        }
+      },
+      "mutation": null
+    },
+    {
+      "variant": "wrong-modal-order",
+      "typecheck": "passed",
+      "diagnosticCount": 0,
+      "behavior": "failed",
+      "sourceBinding": true,
+      "overall": "failed",
+      "preservation": {
+        "passed": 12,
+        "total": 16
+      },
+      "draft": {
+        "passed": 32,
+        "total": 36
+      },
+      "submissionId": "6e0e88747c30bfa2418ea13267aea4c0e266fa4d2b3528725d8671c01fd27d6e",
+      "modalCalls": [
+        {
+          "className": "CancelOrderDialogComponent",
+          "locals": {
+            "order": {
+              "id": "wrong-modal-order",
+              "active": false,
+              "payments": [],
+              "state": "PaymentSettled",
+              "lines": [
+                {
+                  "id": "l-one",
+                  "quantity": 2,
+                  "orderPlacedQuantity": 2
+                },
+                {
+                  "id": "l-extra",
+                  "quantity": 2,
+                  "orderPlacedQuantity": 2
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "connected": {
+        "pass": false,
+        "expected": [
+          {
+            "input": {
+              "cancelShipping": true,
+              "lines": [
+                {
+                  "orderLineId": "l-extra",
+                  "quantity": 2
+                },
+                {
+                  "orderLineId": "l-one",
+                  "quantity": 1
+                }
+              ],
+              "orderId": "o-one",
+              "reason": "normal"
+            },
+            "kind": "cancel"
+          }
+        ],
+        "actual": [
+          {
+            "input": {
+              "cancelShipping": true,
+              "lines": [
+                {
+                  "orderLineId": "l-extra",
+                  "quantity": 2
+                },
+                {
+                  "orderLineId": "l-one",
+                  "quantity": 1
+                }
+              ],
+              "orderId": "wrong-modal-order",
+              "reason": "normal"
+            },
+            "kind": "cancel"
+          }
+        ]
+      },
+      "connectedExecutedFiles": {
+        "packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts": "2c76bda883e2dd48cf08c669eec438cd599fd03ab0435b762b65bf2c8ccc8ebd",
+        "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts": "bbc1031de44d06e9d33ee5a7ae12be016acf22f81b50d160909692607f3d1197",
+        "packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts": "fefc2b0634f3a38e4eaa9894457d77462403b445f24c01a8920bb1842a5f796c"
+      },
+      "sourceHashesMatch": true,
+      "originalOracleDirect": {
+        "name": "o-one/direct-reason-0",
+        "category": "draft-requirement",
+        "status": "failed",
+        "assertion": {
+          "pass": false,
+          "expected": [
+            {
+              "input": {
+                "cancelShipping": true,
+                "lines": [
+                  {
+                    "orderLineId": "l-extra",
+                    "quantity": 2
+                  },
+                  {
+                    "orderLineId": "l-one",
+                    "quantity": 1
+                  }
+                ],
+                "orderId": "o-one",
+                "reason": "normal"
+              },
+              "kind": "cancel"
+            }
+          ],
+          "actual": [
+            {
+              "input": {
+                "cancelShipping": true,
+                "lines": [
+                  {
+                    "orderLineId": "l-extra",
+                    "quantity": 2
+                  },
+                  {
+                    "orderLineId": "l-one",
+                    "quantity": 1
+                  }
+                ],
+                "orderId": "wrong-modal-order",
+                "reason": "normal"
+              },
+              "kind": "cancel"
+            }
+          ]
+        },
+        "details": {
+          "error": null,
+          "modalTraces": [
+            {
+              "call": 0,
+              "identity": {
+                "className": "CancelOrderDialogComponent",
+                "file": "packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts",
+                "basis": "Strict reference equality with executor-loaded submitted constructor"
+              },
+              "options": {
+                "size": "xl",
+                "locals": {
+                  "order": {
+                    "id": "wrong-modal-order",
+                    "active": false,
+                    "payments": [],
+                    "state": "PaymentSettled",
+                    "lines": [
+                      {
+                        "id": "l-one",
+                        "quantity": 2,
+                        "orderPlacedQuantity": 2
+                      },
+                      {
+                        "id": "l-extra",
+                        "quantity": 2,
+                        "orderPlacedQuantity": 2
+                      }
+                    ]
+                  }
+                }
+              },
+              "action": "select",
+              "subscriptions": 1,
+              "resolveCount": 1,
+              "resolved": true,
+              "resolutions": [
+                {
+                  "orderId": "wrong-modal-order",
+                  "lines": [
+                    {
+                      "orderLineId": "l-one",
+                      "quantity": 1
+                    },
+                    {
+                      "orderLineId": "l-extra",
+                      "quantity": 2
+                    }
+                  ],
+                  "reason": "normal",
+                  "cancelShipping": true
+                }
+              ],
+              "delivered": [
+                {
+                  "orderId": "wrong-modal-order",
+                  "lines": [
+                    {
+                      "orderLineId": "l-one",
+                      "quantity": 1
+                    },
+                    {
+                      "orderLineId": "l-extra",
+                      "quantity": 2
+                    }
+                  ],
+                  "reason": "normal",
+                  "cancelShipping": true
+                }
+              ],
+              "events": [
+                "fromComponent",
+                "subscribe",
+                "select",
+                "resolve",
+                "next",
+                "complete",
+                "action-returned"
+              ],
+              "failure": null
+            }
+          ],
+          "inputReason": "normal",
+          "reasonInput": "string",
+          "uiCoverage": "truthy reason; other template constraints not evaluated"
+        }
+      },
+      "mutation": {
+        "file": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+        "before": "locals: { order }",
+        "after": "locals: { order: { ...order, id: 'wrong-modal-order' } }",
+        "baselineHash": "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede",
+        "submittedHash": "bbc1031de44d06e9d33ee5a7ae12be016acf22f81b50d160909692607f3d1197"
+      }
+    },
+    {
+      "variant": "wrong-modal-active",
+      "typecheck": "passed",
+      "diagnosticCount": 0,
+      "behavior": "failed",
+      "sourceBinding": true,
+      "overall": "failed",
+      "preservation": {
+        "passed": 14,
+        "total": 16
+      },
+      "draft": {
+        "passed": 32,
+        "total": 36
+      },
+      "submissionId": "aba7249148084bb690ca877a1c68c5bd44718784fda9706c1839c39bce6c9cfa",
+      "modalCalls": [
+        {
+          "className": "CancelOrderDialogComponent",
+          "locals": {
+            "order": {
+              "id": "o-one",
+              "active": true,
+              "payments": [],
+              "state": "PaymentSettled",
+              "lines": [
+                {
+                  "id": "l-one",
+                  "quantity": 2,
+                  "orderPlacedQuantity": 2
+                },
+                {
+                  "id": "l-extra",
+                  "quantity": 2,
+                  "orderPlacedQuantity": 2
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "connected": {
+        "pass": false,
+        "expected": [
+          {
+            "input": {
+              "cancelShipping": true,
+              "lines": [
+                {
+                  "orderLineId": "l-extra",
+                  "quantity": 2
+                },
+                {
+                  "orderLineId": "l-one",
+                  "quantity": 1
+                }
+              ],
+              "orderId": "o-one",
+              "reason": "normal"
+            },
+            "kind": "cancel"
+          }
+        ],
+        "actual": [
+          {
+            "input": {
+              "cancelShipping": true,
+              "orderId": "o-one",
+              "reason": "normal"
+            },
+            "kind": "cancel"
+          }
+        ]
+      },
+      "connectedExecutedFiles": {
+        "packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts": "2c76bda883e2dd48cf08c669eec438cd599fd03ab0435b762b65bf2c8ccc8ebd",
+        "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts": "f1190ddee3031b122ecf28fa7bbb3f1268eb280d06530bf9ed56432bc996528b",
+        "packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts": "fefc2b0634f3a38e4eaa9894457d77462403b445f24c01a8920bb1842a5f796c"
+      },
+      "sourceHashesMatch": true,
+      "originalOracleDirect": {
+        "name": "o-one/direct-reason-0",
+        "category": "draft-requirement",
+        "status": "failed",
+        "assertion": {
+          "pass": false,
+          "expected": [
+            {
+              "input": {
+                "cancelShipping": true,
+                "lines": [
+                  {
+                    "orderLineId": "l-extra",
+                    "quantity": 2
+                  },
+                  {
+                    "orderLineId": "l-one",
+                    "quantity": 1
+                  }
+                ],
+                "orderId": "o-one",
+                "reason": "normal"
+              },
+              "kind": "cancel"
+            }
+          ],
+          "actual": [
+            {
+              "input": {
+                "cancelShipping": true,
+                "orderId": "o-one",
+                "reason": "normal"
+              },
+              "kind": "cancel"
+            }
+          ]
+        },
+        "details": {
+          "error": null,
+          "modalTraces": [
+            {
+              "call": 0,
+              "identity": {
+                "className": "CancelOrderDialogComponent",
+                "file": "packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts",
+                "basis": "Strict reference equality with executor-loaded submitted constructor"
+              },
+              "options": {
+                "size": "xl",
+                "locals": {
+                  "order": {
+                    "id": "o-one",
+                    "active": true,
+                    "payments": [],
+                    "state": "PaymentSettled",
+                    "lines": [
+                      {
+                        "id": "l-one",
+                        "quantity": 2,
+                        "orderPlacedQuantity": 2
+                      },
+                      {
+                        "id": "l-extra",
+                        "quantity": 2,
+                        "orderPlacedQuantity": 2
+                      }
+                    ]
+                  }
+                }
+              },
+              "action": "select",
+              "subscriptions": 1,
+              "resolveCount": 1,
+              "resolved": true,
+              "resolutions": [
+                {
+                  "orderId": "o-one",
+                  "lines": {
+                    "$type": "undefined"
+                  },
+                  "reason": "normal",
+                  "cancelShipping": true
+                }
+              ],
+              "delivered": [
+                {
+                  "orderId": "o-one",
+                  "lines": {
+                    "$type": "undefined"
+                  },
+                  "reason": "normal",
+                  "cancelShipping": true
+                }
+              ],
+              "events": [
+                "fromComponent",
+                "subscribe",
+                "select",
+                "resolve",
+                "next",
+                "complete",
+                "action-returned"
+              ],
+              "failure": null
+            }
+          ],
+          "inputReason": "normal",
+          "reasonInput": "string",
+          "uiCoverage": "truthy reason; other template constraints not evaluated"
+        }
+      },
+      "mutation": {
+        "file": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+        "before": "locals: { order }",
+        "after": "locals: { order: { ...order, active: true } }",
+        "baselineHash": "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede",
+        "submittedHash": "f1190ddee3031b122ecf28fa7bbb3f1268eb280d06530bf9ed56432bc996528b"
+      }
+    }
+  ],
+  "completeCLI": {
+    "overall": "passed",
+    "typecheck": "passed",
+    "behavior": "passed",
+    "sourceBinding": true,
+    "sameSubmissionAsDelta": true
+  },
+  "environmentRecheck": "passed"
+}
