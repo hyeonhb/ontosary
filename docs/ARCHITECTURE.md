@@ -78,4 +78,4 @@ S1 후속 [V2](../experiments/domain-model/v2/README.md)는 모델 참조의 inc
 
 [독립 재검토](reviews/2026-11-09-s2-contract-independent-review.md)의 R9 잔여에 따라 `modal` 대역을 보완했다. 부모가 실제 전달한 component는 executor가 로드한 constructor 참조로 식별하고 options.locals를 dialog에 전달한다. 별도 사용자 선택 상태는 locals/resolveWith를 덮어쓸 수 없다. 구독 시 실제 select/cancel을 실행하고 resolve를 해당 Observable의 next/complete로 연결한다. 비API 사례의1호출·1구독·1동기 resolve 경계를 벗어나면 unsupported다. 호출별 component/locals/행동/resolve/전달 trace와 기존 payload assertion을 함께 남긴다. sourceBinding만으로 흐름의 충실성을 주장하지 않는다.
 
-[modal 보완 인계](reviews/2026-11-09-s2-modal-fix.md)는 자체 검증이며 독립 재검토 대기다. constructor/field/ngOnInit/HTML/전체 UI 계산·비동기 overlay/네트워크는 여전히 대역/제외 범위다. 과업 정책·B/C 의미 동등성·실제 격리/agent 실행 조건은 미동결, readyForTrial=false다. 본 비교·S3는 실행하지 않았다.
+[modal 보완 인계](reviews/2026-11-09-s2-modal-fix.md)는 [2026-11-10 독립 재검토](reviews/2026-11-10-s2-modal-independent-review.md)에서 R9 잔여 해결·R8/R10 유지로 판정했다. 제한된 지원 범위의 준비 구현 보완을 완료했다. constructor/field/ngOnInit/HTML/전체 UI 계산·비동기 overlay/네트워크는 여전히 대역/제외 범위다. 과업 정책·B/C 의미 동등성·실제 격리/agent 실행 조건은 미동결, readyForTrial=false다. 본 비교·S3는 실행하지 않았다.

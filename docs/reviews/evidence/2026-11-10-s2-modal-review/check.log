@@ -1,0 +1,26 @@
+Already up to date
+Done in 211ms using pnpm v11.19.0
+$ pnpm typecheck && pnpm test && pnpm example:build
+$ tsc --noEmit -p tsconfig.json && tsc --noEmit -p examples/react-vite/tsconfig.json && tsc --noEmit -p experiments/domain-model/s2/tsconfig.json
+$ pnpm build && vitest run
+$ tsc -p tsconfig.json && node -e "require('node:fs').chmodSync('dist/cli/index.js', 0o755)"
+
+ RUN  v5.1.0 /Users/hyeon/.codex/worktrees/ontosary-human-docs/ontosary
+
+
+ Test Files  13 passed (13)
+      Tests  230 passed (230)
+   Start at  15:18:49
+   Duration  13.96s (tests 91%, import 8%, transform 1%)
+
+$ vite build examples/react-vite
+vite v8.3.5 building client environment for production...
+transforming...
+✓ 17 modules transformed.
+rendering chunks...
+computing gzip size...
+examples/react-vite/dist/index.html                   0.37 kB │ gzip:  0.28 kB
+examples/react-vite/dist/assets/index-DKVqXzap.css    0.89 kB │ gzip:  0.48 kB
+examples/react-vite/dist/assets/index-DR5c6bmT.js   221.96 kB │ gzip: 69.73 kB
+
+✓ built in 108ms

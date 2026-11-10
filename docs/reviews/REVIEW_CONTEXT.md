@@ -1,5 +1,7 @@
 # 독립 리뷰 맥락
 
+2026-11-10 최신 독립 판정: **R9 잔여 해결, R8/R10 해결 유지**. [독립 보고](2026-11-10-s2-modal-independent-review.md), [검증 근거](evidence/2026-11-10-s2-modal-review/). PR #29/main `5bd30c7`에서230테스트·비교4/4·교정24제출50파일/준비147파일 재현, 두 과거 반례의 타입 통과 후 요청 실패, complete-root/delta와 실제 RxJS 경계를 확인했다. 준비 구현 보완은 완료로 인정하되 본 비교 준비 전체 완료는 아니다. 다음은 사용자와 과업/의미 동등성·평가 범위/실제 격리/agent 조건을 확정한다. readyForTrial=false, 의미 승인0·H-O/H-F 미검증·S3 미착수를 유지한다. 과거 인계/판정은 아래에 보존한다.
+
 2026-11-09 최신 개발 인계: **R9 modal 연결 보완 구현·자체 검증 완료, 독립 재검토 대기**. [완료 보고](2026-11-09-s2-modal-fix.md), [새 근거](../../experiments/domain-model/s2/verification/2026-11-09-modal-fix/)를 검토한다. 실제 constructor identity/locals→dialog select/cancel→resolve→부모 요청과 상태/trace를 연결했다. 두 modal 반례는 진단0 후 assertion failed, 기존 R8/R10·13결함은 유지됐다. 전체230테스트·비교4/4·24제출50파일 재현 및 complete-root/delta의 판정/요청/trace 일치를 확인했다. 독립 해결 판정은 아직 아니며 constructor/field/ngOnInit/HTML/전체 UI·비동기 overlay/네트워크는 평가 밖이다. readyForTrial=false·미정 정책/사람 검토/격리/agent 조건을 유지한다. 과거 리뷰/probe와2026-11-08/2026-11-09 결과는 보존한다.
 
 2026-11-09 최신 개발 지시: 사용자의 요청으로 [R9 modal 데이터 전달 보완 지시](2026-11-09-s2-modal-fix-instructions.md)를 작성했다. 실제 component/locals·사용자 행동·resolve·부모 후속 요청의 연결과 필드 소유권을 명시했다. 두 반례는 진단0 후 동작 assertion 실패여야 하며 정상 fixture fallback이나 일반 미지원 처리로 해결을 주장할 수 없다. 자체 연결 fixture, 기존22제출+두 반례, 완전한 제출 CLI·반복/배포 보존이 재검토 기준이다. 이번 세션은 구현을 고치거나 본 비교/미정 정책을 승인하지 않았다.
@@ -53,7 +55,7 @@
 | R6 | V2 검증 범위에서 해결 | incoming/outgoing 한 단계 조회와 원래 선언 방향·근거를 제공 |
 | R7 | V2 검증 범위에서 해결 | standalone도 공통 입력 검사를 수행. anchor-only/입력 변경은 전체 성공으로 처리하지 않음 |
 | R8 | v2 검증 범위에서 해결 | 실제 제출/추가 helper 타입 검사, 역사적 참조 진단5 거부, 새 참조/helper 진단0 |
-| R9 | 부분 해결 · High | payload 검사는 보완됐지만 실제 modal locals를 무시해 잘못된 주문 ID/active 전달도52/52 통과 |
+| R9 | v3 검증 범위에서 해결 | 실제 component/locals→resolve→부모 요청 연결. 두 modal 반례 진단0 후 payload 실패, 기존13동작 결함 검출 유지 |
 | R10 | v2 검증 범위에서 해결 | 취소 payload만 정규화하고 환불만/혼합 경로의 환불 사유를 보존 |
 
 [평가기 재현](evidence/2026-11-07-corpus-evaluator-check.mjs), [관찰 JSON](evidence/2026-11-07-corpus-evaluator-results.json), [산출물 재현 대조](evidence/2026-11-07-corpus-review-reproduction.json). R4는 실제 원본 타입이 틀린 발견이 아니며, R5가 현재 22개 중 특정 판정을 틀리게 했다는 결론도 아니다. 측정기가 오류를 탐지하는 계약을 보완해야 한다. 원래 코어 references는 선언 이름도 포함하며 호출 그래프가 아니다.

@@ -1,5 +1,7 @@
 # 현재 작업 상태 — 새 세션은 이 문서부터 읽기
 
+2026-11-10 S2 modal 독립 재검토: **R9 잔여 해결, R8/R10 해결 유지, S2 준비 구현 보완 완료**. [독립 보고](reviews/2026-11-10-s2-modal-independent-review.md). 230테스트(skip0)·비교4/4·24제출50파일/새 준비147비시간 파일 재현, 기존 독립 modal 두 반례의 진단0 후 payload 실패, complete-root/delta의 요청·trace 일치와 실제 RxJS 경계를 확인했다. agent142파일·세 ID·모델/근거는 유지됐다. 검토 범위 내 추가 결함은 확인하지 않았다. 다음은 사용자와 과업 정책·B/C 의미 동등성·제한된 평가 범위·실제 격리/agent 실행 조건을 확정하는 단계다. readyForTrial=false·본 비교/H-O/H-F/S3 미실행을 유지한다. 아래는 당시 기록이다.
+
 2026-11-09 R9 modal 연결 보완: **구현·자체 검증 완료, 독립 재검토 대기**. [인계](reviews/2026-11-09-s2-modal-fix.md), [평가 v3](../experiments/domain-model/s2/evaluation/TASK-REVIEW.md). 제출 부모의 실제 constructor identity/locals로 dialog를 구독 시 실행하고 resolve→부모→요청을 연결했다. 주문 ID/active 반례는 진단0 후 payload 실패이며 기존 R8/R10·13결함도 유지한다. 전체230테스트(skip0)·비교4/4,24제출50파일/modal trace 재현, 완전한 제출 CLI와 delta의 판정/요청/trace 일치, 기존 agent142파일·세 ID/모델 보존을 확인했다. 다음은 잔여 R9의 독립 재검토다. readyForTrial=false·미정 정책/사람 검토/격리/agent 조건을 유지하고 본 비교·H-O/H-F·S3를 수행하지 않았다. 아래 기록은 각 시점의 상태다.
 
 2026-11-09 R9 modal 보완 지시: 사용자가 잔여 데이터 전달 문제의 개발 지시 작성을 요청했다. 다음 개발 세션은 [modal 연결 보완 지시](reviews/2026-11-09-s2-modal-fix-instructions.md)를 따른다. 실제 component/locals로 dialog를 실행하고 resolve 결과를 부모 흐름에 연결하며, 주문 ID/active 변형을 타입 통과 후 payload assertion에서 거부한다. 기존 R8/R10·13동작 결함·모델/배포 경계를 유지한다. 이번 세션은 지시·맥락 문서만 작성했으며 구현·본 비교·미정 정책 동결은 하지 않았다. 문서 링크와 pnpm check(214테스트·타입 검사·예제 빌드)를 확인했으며 이는 잔여 결함 수정의 검증이 아니다. readyForTrial=false다.
@@ -157,8 +159,8 @@ main `a58a88b`을 독립 검토해 `pnpm check` 89개·기존 실험 4/4 및 새
 ## 다음 작업
 
 1. R6/R7 보완은 독립 검증 범위에서 완료됐다. 최신 소비 경로는 V2이며 V1/과거 실패 증거는 보존한다.
-2. S2 범위·큰 구조는 ADR-023/024로 합의했다. [R9 modal 연결 인계](reviews/2026-11-09-s2-modal-fix.md)의 실제 입력/resolve/요청 trace와 기존 회귀 유지 증거를 독립 재검토한다. reason 과업은 검토용 후보이며 본 비교의 과업/조건 동결을 대체하지 않는다.
-3. 준비 구현을 독립 리뷰한 뒤 과업·oracle·정보 동등성·격리·agent 버전/예산을 동결해 본 비교를 진행한다. H-O/H-F와 코드 사실/후보/사람 승인을 분리하며 큰 기술·방향 선택은 사용자와 결정한다.
+2. S2 범위·큰 구조는 ADR-023/024로 합의했고 [R9 독립 재검토](reviews/2026-11-10-s2-modal-independent-review.md)로 준비 구현 보완을 완료했다. reason 과업은 검토용 후보이며 다음은 사용자와 본 비교의 과업/조건을 확정한다.
+3. 과업·oracle·정보 동등성·격리·agent 버전/예산의 검토와 동결을 마친 뒤 본 비교를 진행한다. H-O/H-F와 코드 사실/후보/사람 승인을 분리하며 큰 기술·방향 선택은 사용자와 결정한다.
 
 핵심 코드: `src/core/{analyzer,logic,fca,model}.ts`, `src/cli/index.ts`. 최신 평가기: [V3 README](../experiments/corpus/v3/README.md), [수정 인계](reviews/2026-11-08-type-context-fix.md). 지원 경계는 [ARCHITECTURE](ARCHITECTURE.md), 결정은 [DECISIONS](DECISIONS.md), 실험 해석은 [RESEARCH](RESEARCH.md), 순서는 [ROADMAP](ROADMAP.md)를 따른다.
 

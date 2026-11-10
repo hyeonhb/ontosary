@@ -1,0 +1,262 @@
+{
+  "actualPinnedRxJSChecks": [
+    {
+      "action": "select",
+      "status": "supported",
+      "traces": [
+        {
+          "call": 0,
+          "identity": {
+            "file": "review-owned-dialog.ts",
+            "className": "ActualDialog",
+            "basis": "Strict reference equality with executor-loaded submitted constructor"
+          },
+          "options": {
+            "locals": {
+              "order": {
+                "id": "actual-parent-order",
+                "active": false,
+                "lines": []
+              }
+            }
+          },
+          "action": "select",
+          "subscriptions": 1,
+          "resolveCount": 1,
+          "resolved": true,
+          "resolutions": [
+            {
+              "id": "actual-parent-order",
+              "active": false
+            }
+          ],
+          "delivered": [
+            {
+              "id": "actual-parent-order",
+              "active": false
+            }
+          ],
+          "events": [
+            "fromComponent",
+            "subscribe",
+            "select",
+            "resolve",
+            "next",
+            "complete",
+            "action-returned"
+          ],
+          "failure": null
+        }
+      ]
+    },
+    {
+      "action": "cancel",
+      "status": "supported",
+      "traces": [
+        {
+          "call": 0,
+          "identity": {
+            "file": "review-owned-dialog.ts",
+            "className": "ActualDialog",
+            "basis": "Strict reference equality with executor-loaded submitted constructor"
+          },
+          "options": {
+            "locals": {
+              "order": {
+                "id": "actual-parent-order",
+                "active": false,
+                "lines": []
+              }
+            }
+          },
+          "action": "cancel",
+          "subscriptions": 1,
+          "resolveCount": 1,
+          "resolved": true,
+          "resolutions": [
+            {
+              "$type": "undefined"
+            }
+          ],
+          "delivered": [
+            {
+              "$type": "undefined"
+            }
+          ],
+          "events": [
+            "fromComponent",
+            "subscribe",
+            "cancel",
+            "resolve",
+            "next",
+            "complete",
+            "action-returned"
+          ],
+          "failure": null
+        }
+      ]
+    },
+    {
+      "action": "unresolved",
+      "status": "unsupported",
+      "traces": [
+        {
+          "call": 0,
+          "identity": {
+            "file": "review-owned-dialog.ts",
+            "className": "ActualDialog",
+            "basis": "Strict reference equality with executor-loaded submitted constructor"
+          },
+          "options": {
+            "locals": {
+              "order": {
+                "id": "actual-parent-order",
+                "active": false,
+                "lines": []
+              }
+            }
+          },
+          "action": "select",
+          "subscriptions": 1,
+          "resolveCount": 0,
+          "resolved": false,
+          "resolutions": [],
+          "delivered": [],
+          "events": [
+            "fromComponent",
+            "subscribe",
+            "select",
+            "action-returned",
+            "unsupported"
+          ],
+          "failure": "Dialog did not resolve synchronously"
+        }
+      ]
+    },
+    {
+      "action": "twice",
+      "status": "unsupported",
+      "traces": [
+        {
+          "call": 0,
+          "identity": {
+            "file": "review-owned-dialog.ts",
+            "className": "ActualDialog",
+            "basis": "Strict reference equality with executor-loaded submitted constructor"
+          },
+          "options": {
+            "locals": {
+              "order": {
+                "id": "actual-parent-order",
+                "active": false,
+                "lines": []
+              }
+            }
+          },
+          "action": "select",
+          "subscriptions": 1,
+          "resolveCount": 2,
+          "resolved": true,
+          "resolutions": [
+            {
+              "id": "actual-parent-order",
+              "active": false
+            },
+            "second"
+          ],
+          "delivered": [
+            {
+              "id": "actual-parent-order",
+              "active": false
+            }
+          ],
+          "events": [
+            "fromComponent",
+            "subscribe",
+            "select",
+            "resolve",
+            "next",
+            "complete",
+            "resolve",
+            "unsupported"
+          ],
+          "failure": "Multiple resolves unsupported"
+        }
+      ]
+    },
+    {
+      "action": "repeat-subscribe",
+      "status": "unsupported",
+      "traces": [
+        {
+          "call": 0,
+          "identity": {
+            "file": "review-owned-dialog.ts",
+            "className": "ActualDialog",
+            "basis": "Strict reference equality with executor-loaded submitted constructor"
+          },
+          "options": {
+            "locals": {
+              "order": {
+                "id": "actual-parent-order",
+                "active": false,
+                "lines": []
+              }
+            }
+          },
+          "action": "select",
+          "subscriptions": 2,
+          "resolveCount": 1,
+          "resolved": true,
+          "resolutions": [
+            {
+              "id": "actual-parent-order",
+              "active": false
+            }
+          ],
+          "delivered": [
+            {
+              "id": "actual-parent-order",
+              "active": false
+            }
+          ],
+          "events": [
+            "fromComponent",
+            "subscribe",
+            "select",
+            "resolve",
+            "next",
+            "complete",
+            "action-returned",
+            "subscribe",
+            "unsupported"
+          ],
+          "failure": "Repeated subscription unsupported"
+        }
+      ]
+    }
+  ],
+  "completeRootMatchesDelta": {
+    "submissionId": "dde3b75c151fb9847929ce9d3dd7e76081f791fc7a779f7124245644419bed54",
+    "allCasesRequestsAndModalTraces": true,
+    "sourceBinding": true
+  },
+  "distribution": {
+    "agentFiles": 142,
+    "manifestAndHashesUnchanged": true,
+    "baselineId": "7707db72b46a21570152b2b8920e6526996952abaac1574642d6638c477ba0d8",
+    "modelId": "2ba6c772263da8814256efaa5491c69f723d79157a7f8aad7f22d898e297e5cf",
+    "bundleId": "f8ed34c46cbcd6d09443260199bb031f2ecc545b993b88529c44625183d5ef8a"
+  },
+  "upstreamSourceHashesAndExcerptsMatch": [
+    {
+      "file": "packages/admin-ui/src/lib/core/src/providers/modal/modal.service.ts",
+      "sha256": "d4096905f43f3134d12aa2567a2a0a6d1deb25b985222de877d7057fc336f365"
+    },
+    {
+      "file": "packages/admin-ui/src/lib/core/src/shared/components/modal-dialog/modal-dialog.component.ts",
+      "sha256": "7b05ca9a5b3e1d43b60bc238cd69bb7207a5ae94e1dc0128c8e6bc90d5501898"
+    }
+  ],
+  "scope": "Synchronous modal seam and data propagation only; no Angular lifecycle, OS isolation or agent trial"
+}
