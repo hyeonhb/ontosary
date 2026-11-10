@@ -1,0 +1,8 @@
+{
+  "mode": "hardlink",
+  "runId": "4fd1776373ec",
+  "state": "blocked",
+  "reason": "supervisor-failed",
+  "blockReason": "hardlink:source/bad",
+  "seconds": 1.4810739159875084
+}

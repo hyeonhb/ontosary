@@ -1,0 +1,19 @@
+{
+  "startedUtc": "2026-11-10T14:04:42.398901+00:00",
+  "finishedUtc": "2026-11-10T15:05:00.824186+00:00",
+  "startedHostMonotonic": 137627.307170416,
+  "finishedHostMonotonic": 141247.742278,
+  "measuredRoundSeconds": 3620.435107583995,
+  "initialEnvironmentSeconds": 598.3218767500075,
+  "sameCandidateReprepareSeconds": 249.55469983399962,
+  "environmentSeconds": 847.8765765840071,
+  "previousEnvironmentSeconds": 1728.267,
+  "cumulativeEnvironmentSeconds": 2576.143576584007,
+  "previousRoundSecondsIncludingEstimates": 2588.951,
+  "cumulativeRoundSecondsIncludingPriorEstimates": 6209.386107583995,
+  "candidateCount": 1,
+  "vmPreparations": 2,
+  "paidCost": 0,
+  "gitDelivery": "Excluded; starts at this checkpoint and is measured in the PR delivery comment. No experiments resume.",
+  "measurementBoundary": "After completed checks, resource cleanup, report and evidence verification, immediately before writing this final cost/index. Prior-round review waits excluded."
+}

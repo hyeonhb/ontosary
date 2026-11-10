@@ -1,0 +1,26 @@
+{"event": "prepared", "mode": "simple", "runId": "f4181d234823"}
+{"mode": "simple", "runId": "f4181d234823", "state": "finalized", "reason": "exit", "blockReason": null, "seconds": 1.1448842500103638}
+{"event": "prepared", "mode": "nonzero", "runId": "a60d1b493450"}
+{"mode": "nonzero", "runId": "a60d1b493450", "state": "finalized", "reason": "exit", "blockReason": null, "seconds": 1.1145957080007065}
+{"event": "prepared", "mode": "normal", "runId": "54bd9c4161fa"}
+{"mode": "normal", "runId": "54bd9c4161fa", "state": "finalized", "reason": "exit", "blockReason": null, "seconds": 8.881561834015884}
+{"event": "prepared", "mode": "normal", "runId": "bd3451d260c0"}
+{"mode": "normal", "runId": "bd3451d260c0", "state": "finalized", "reason": "exit", "blockReason": null, "seconds": 8.866269791993545}
+{"event": "prepared", "mode": "timeout", "runId": "7c4f45361ee5"}
+{"mode": "timeout", "runId": "7c4f45361ee5", "state": "finalized", "reason": "timeout", "blockReason": null, "seconds": 8.893799624987878}
+{"event": "prepared", "mode": "timeout", "runId": "3a1b62ce1b21"}
+{"mode": "timeout", "runId": "3a1b62ce1b21", "state": "finalized", "reason": "timeout", "blockReason": null, "seconds": 8.885587833006866}
+{"event": "prepared", "mode": "wrapper", "runId": "e212fb9e76e7"}
+{"mode": "wrapper", "runId": "e212fb9e76e7", "state": "finalized", "reason": "wrapper-lost", "blockReason": null, "seconds": 8.892353750008624}
+{"event": "prepared", "mode": "wrapper", "runId": "a1e6341fdf9f"}
+{"mode": "wrapper", "runId": "a1e6341fdf9f", "state": "finalized", "reason": "wrapper-lost", "blockReason": null, "seconds": 8.906206417013891}
+{"event": "prepared", "mode": "supervisor", "runId": "6de8d12de0b2"}
+{"mode": "supervisor", "runId": "6de8d12de0b2", "state": "blocked", "reason": "supervisor-failed", "blockReason": "supervisor-failed", "seconds": 9.699122833990259}
+{"event": "prepared", "mode": "kill-error", "runId": "77b985b2a7db"}
+{"mode": "kill-error", "runId": "77b985b2a7db", "state": "blocked", "reason": "management-failure", "blockReason": "injected-kill-command-failure", "seconds": 9.95419370799209}
+{"event": "prepared", "mode": "query-error", "runId": "0184576b00fc"}
+{"mode": "query-error", "runId": "0184576b00fc", "state": "blocked", "reason": "management-failure", "blockReason": "injected-state-query-failure", "seconds": 9.121773624996422}
+{"event": "prepared", "mode": "control", "runId": "f8bf47749f2f"}
+{"mode": "control", "runId": "f8bf47749f2f", "state": "finalized", "reason": "exit", "blockReason": null, "seconds": 9.14854891601135}
+{"event": "prepared", "mode": "race", "runId": "0448ecfb3421"}
+{"mode": "race", "runId": "0448ecfb3421", "state": "finalized", "reason": "exit", "blockReason": null, "seconds": 8.898534250009106}

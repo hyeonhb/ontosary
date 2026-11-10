@@ -1,0 +1,48 @@
+{
+  "admissionClosed": true,
+  "blockReason": "injected-kill-command-failure",
+  "cgroup": "/sys/fs/cgroup/ontosary.slice/ontosary-dda23ad422f0.slice",
+  "cgroupInode": 42910,
+  "cleanupDone": true,
+  "containerId": "17d6aef36ff22f7bc3eea273915c9558882ff13730b38b619310261924da7c26",
+  "createPending": false,
+  "deadlineMono": 1535.576633457,
+  "execPending": false,
+  "exitCode": null,
+  "image": {
+    "chain": "sha256:583c527747de6961a51ab03890133296d58eaaa0bb813b0bddabb335f6a12fb1",
+    "config": "sha256:0bfba8c93e0cc814e74c26de1701e48e293a5ec6602949153d2767ff54adff05",
+    "name": "docker.io/library/ontosary-s2-lifecycle:20261110",
+    "platform": "linux/arm64",
+    "target": "sha256:1a06fe32cc6768b5e7819b6a352d6cbd64269327c746f279524030d5550db917"
+  },
+  "mode": "kill-error",
+  "prepared": {
+    "mono": 1525.197215648,
+    "utc": "2026-11-10T14:36:21.629960+00:00"
+  },
+  "reason": "management-failure",
+  "recoveryRequired": true,
+  "runId": "dda23ad422f0",
+  "service": "ontosary-fixture-dda23ad422f0.service",
+  "slice": "ontosary-dda23ad422f0.slice",
+  "snapshot": null,
+  "startPending": false,
+  "state": "blocked",
+  "stopRequested": {
+    "mono": 1525.895842167,
+    "utc": "2026-11-10T14:36:22.328586+00:00"
+  },
+  "stopTrigger": {
+    "mono": 1525.787706842,
+    "utc": "2026-11-10T14:36:22.220442+00:00"
+  },
+  "taskSeconds": 10,
+  "terminationConfirmed": true,
+  "workStarted": {
+    "mono": 1525.576633457,
+    "utc": "2026-11-10T14:36:22.009375+00:00"
+  },
+  "workerReady": true,
+  "workloadLogBytesObserved": 0
+}

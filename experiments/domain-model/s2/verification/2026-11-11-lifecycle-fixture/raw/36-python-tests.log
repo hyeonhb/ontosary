@@ -1,0 +1,18 @@
+test_byte_limit (__main__.CollectorTests.test_byte_limit) ... ok
+test_complete_bytes_delta_and_diagnostic (__main__.CollectorTests.test_complete_bytes_delta_and_diagnostic) ... ok
+test_copy_failure_never_publishes (__main__.CollectorTests.test_copy_failure_never_publishes) ... ok
+test_depth_limit (__main__.CollectorTests.test_depth_limit) ... ok
+test_expired_collection_deadline (__main__.CollectorTests.test_expired_collection_deadline) ... ok
+test_fifo_rejected_without_open (__main__.CollectorTests.test_fifo_rejected_without_open) ... ok
+test_file_limit (__main__.CollectorTests.test_file_limit) ... ok
+test_hardlink (__main__.CollectorTests.test_hardlink) ... ok
+test_mismatched_run_or_paths (__main__.CollectorTests.test_mismatched_run_or_paths) ... ok
+test_pending_runtime_request (__main__.CollectorTests.test_pending_runtime_request) ... ok
+test_socket (__main__.CollectorTests.test_socket) ... ok
+test_symlink_does_not_copy_external_secret (__main__.CollectorTests.test_symlink_does_not_copy_external_secret) ... ok
+test_unconfirmed (__main__.CollectorTests.test_unconfirmed) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.062s
+
+OK

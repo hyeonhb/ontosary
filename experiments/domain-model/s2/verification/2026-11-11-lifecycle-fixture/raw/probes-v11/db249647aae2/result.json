@@ -1,0 +1,134 @@
+{
+  "baselineHash": "5060e46e04973fd8c1b5ea902c48e0028e4350edc5b55b7c9e15cf2dcaa79d5c",
+  "classification": "normal-fixture",
+  "collection": {
+    "limitSeconds": 10,
+    "started": {
+      "mono": 1552.285691782,
+      "utc": "2026-11-10T14:36:48.718436+00:00"
+    },
+    "verified": {
+      "mono": 1552.286369356,
+      "utc": "2026-11-10T14:36:48.719113+00:00"
+    }
+  },
+  "delta": {
+    "added": [
+      "auxiliary/note.txt",
+      "source/access.json",
+      "source/added.bin",
+      "source/late-33.txt",
+      "source/ready.json",
+      "source/started.json",
+      "source/writer-33.json",
+      "source/writer.log"
+    ],
+    "deleted": [
+      "source/delete.txt"
+    ],
+    "modified": [
+      "source/original.txt"
+    ]
+  },
+  "fixtureOnly": true,
+  "schema": "s2-lifecycle-fixture-v1",
+  "snapshot": {
+    "bytes": 6100,
+    "directories": [],
+    "fileCount": 9,
+    "files": {
+      "auxiliary/note.txt": {
+        "bytes": 9,
+        "sha256": "49143cc866b6be9d4312eb70144ad34f6fac9a30eebf5e327ab694509967c2c7"
+      },
+      "source/access.json": {
+        "bytes": 5507,
+        "sha256": "a63f44ed1e6aa8a42ea9c1ffe832249dfe7d0274c58a494351ebdea232f20b92"
+      },
+      "source/added.bin": {
+        "bytes": 4,
+        "sha256": "3d1f57c984978ef98a18378c8166c1cb8ede02c03eeb6aee7e2f121dfeee3e56"
+      },
+      "source/late-33.txt": {
+        "bytes": 4,
+        "sha256": "089001a35679a33ef3db0ca350db9b9a2f0136e0e327577b04b3b98127470961"
+      },
+      "source/original.txt": {
+        "bytes": 14,
+        "sha256": "40c0d41e0f7a3858035cb7b8c951bab65308f015b45cbf8f4c32e010e8b0b51b"
+      },
+      "source/ready.json": {
+        "bytes": 52,
+        "sha256": "c2692064bcfe5bb5942d875e2230c3474a8232deaa65b4e508a7a4017c8b8dd4"
+      },
+      "source/started.json": {
+        "bytes": 48,
+        "sha256": "5f44a459f2d2548017fbdda0766a0bfc149ee32968c07045980937598e1fb1bb"
+      },
+      "source/writer-33.json": {
+        "bytes": 56,
+        "sha256": "6bd51792a212a3ce55e42111b91817900174d4f856af1efb3525dda88ad258dd"
+      },
+      "source/writer.log": {
+        "bytes": 406,
+        "sha256": "c6db8fdc959b15276a71c6e2046f1681a8bcea9674aacdc7c30f9fe352a924d0"
+      }
+    }
+  },
+  "termination": {
+    "admissionClosed": true,
+    "auxiliary": "/opt/ontosary-fixture/runs/db249647aae2/auxiliary",
+    "cgroup": "/sys/fs/cgroup/ontosary.slice/ontosary-db249647aae2.slice",
+    "cgroupInode": 44715,
+    "confirmed": true,
+    "confirmedAt": {
+      "mono": 1552.282310494,
+      "utc": "2026-11-10T14:36:48.715056+00:00"
+    },
+    "containerId": "1fde7e0c6b0b423d7be2a083bfc3da4da15f0e9d3ac2403bf76cb8f24217b4ae",
+    "deadlineMono": 1553.997380678,
+    "exitCode": 0,
+    "image": {
+      "chain": "sha256:583c527747de6961a51ab03890133296d58eaaa0bb813b0bddabb335f6a12fb1",
+      "config": "sha256:0bfba8c93e0cc814e74c26de1701e48e293a5ec6602949153d2767ff54adff05",
+      "name": "docker.io/library/ontosary-s2-lifecycle:20261110",
+      "platform": "linux/arm64",
+      "target": "sha256:1a06fe32cc6768b5e7819b6a352d6cbd64269327c746f279524030d5550db917"
+    },
+    "kernel": {
+      "events": {
+        "frozen": "0",
+        "populated": "0"
+      },
+      "inode": 44715,
+      "members": [],
+      "mono": 1552.282294328,
+      "path": "/sys/fs/cgroup/ontosary.slice/ontosary-db249647aae2.slice",
+      "utc": "2026-11-10T14:36:48.715038+00:00"
+    },
+    "reason": "exit",
+    "runId": "db249647aae2",
+    "runtimeState": {
+      "Error": "",
+      "ExitCode": 137,
+      "FinishedAt": "2026-11-10T14:36:48.627363435Z",
+      "Paused": false,
+      "Pid": 0,
+      "Restarting": false,
+      "Running": false,
+      "StartedAt": "2026-11-10T14:36:40.492207545Z",
+      "Status": "exited"
+    },
+    "source": "/opt/ontosary-fixture/runs/db249647aae2/source",
+    "start": {
+      "mono": 1543.997380678,
+      "utc": "2026-11-10T14:36:40.430122+00:00"
+    },
+    "state": "stopped-confirmed",
+    "stopRequested": {
+      "mono": 1552.187630362,
+      "utc": "2026-11-10T14:36:48.620375+00:00"
+    }
+  },
+  "validSubmission": false
+}

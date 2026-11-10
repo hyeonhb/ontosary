@@ -1,0 +1,8 @@
+{
+  "mode": "socket",
+  "runId": "0cfeed2aae91",
+  "state": "blocked",
+  "reason": "supervisor-failed",
+  "blockReason": "nonregular:source/bad:49152",
+  "seconds": 1.459839833987644
+}

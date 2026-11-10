@@ -1,0 +1,8 @@
+{
+  "mode": "device",
+  "runId": "e01f82179fab",
+  "state": "blocked",
+  "reason": "exit",
+  "blockReason": "nonregular:source/bad:8192",
+  "seconds": 1.6796475409937557
+}

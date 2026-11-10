@@ -1,0 +1,16 @@
+{
+  "taskRoot": "/tmp/ontosary-s2-lifecycle-20261110",
+  "vm": "s2-lifecycle",
+  "cache": [
+    {
+      "url": "https://cloud-images.ubuntu.com/releases/resolute/release-20261016/ubuntu-26.04-server-cloudimg-arm64.img",
+      "path": "<host-cache>/lima/download/by-url-sha256/274d59968f7fc4016d852a0fa9a95e78a7253670ae8095bcb06076eec1f922f8",
+      "existedBefore": false
+    },
+    {
+      "url": "https://github.com/containerd/nerdctl/releases/download/v2.4.2/nerdctl-full-2.4.2-linux-arm64.tar.gz",
+      "path": "<host-cache>/lima/download/by-url-sha256/975f12320da58d431eba0c59caf918381721d37c81297f52a261383a54420186",
+      "existedBefore": false
+    }
+  ]
+}

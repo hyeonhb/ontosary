@@ -1,0 +1,22 @@
+{"event": "prepared", "mode": "symlink", "runId": "82fb235ce603"}
+{"mode": "symlink", "runId": "82fb235ce603", "state": "blocked", "reason": "supervisor-failed", "blockReason": "nonregular:source/bad:40960", "seconds": 1.5242799580155406}
+{"event": "prepared", "mode": "hardlink", "runId": "4fd1776373ec"}
+{"mode": "hardlink", "runId": "4fd1776373ec", "state": "blocked", "reason": "supervisor-failed", "blockReason": "hardlink:source/bad", "seconds": 1.4810739159875084}
+{"event": "prepared", "mode": "fifo", "runId": "4b322569f0db"}
+{"mode": "fifo", "runId": "4b322569f0db", "state": "blocked", "reason": "supervisor-failed", "blockReason": "nonregular:source/bad:4096", "seconds": 1.459627250005724}
+{"event": "prepared", "mode": "socket", "runId": "0cfeed2aae91"}
+{"mode": "socket", "runId": "0cfeed2aae91", "state": "blocked", "reason": "supervisor-failed", "blockReason": "nonregular:source/bad:49152", "seconds": 1.459839833987644}
+{"event": "prepared", "mode": "device", "runId": "631320254501"}
+{"mode": "device", "runId": "631320254501", "state": "blocked", "reason": "supervisor-failed", "blockReason": "nonregular:source/bad:8192", "seconds": 1.478157834004378}
+{"event": "prepared", "mode": "files", "runId": "24ed337f3f76"}
+{"mode": "files", "runId": "24ed337f3f76", "state": "blocked", "reason": "supervisor-failed", "blockReason": "file-count-limit", "seconds": 1.5128095840045717}
+{"event": "prepared", "mode": "bytes", "runId": "d8c581290578"}
+{"mode": "bytes", "runId": "d8c581290578", "state": "blocked", "reason": "supervisor-failed", "blockReason": "byte-limit", "seconds": 1.6572409169748425}
+{"event": "prepared", "mode": "depth", "runId": "532e55c6388e"}
+{"mode": "depth", "runId": "532e55c6388e", "state": "blocked", "reason": "supervisor-failed", "blockReason": "path-depth-limit:source/nested/nested/nested/nested/nested/nested/nested/nested/nested/nested/nested/nested/nested/nested/nested/nested/nested", "seconds": 1.4968105829902925}
+{"event": "prepared", "mode": "copy-failure", "runId": "b6c8c4e62b9a"}
+{"mode": "copy-failure", "runId": "b6c8c4e62b9a", "state": "blocked", "reason": "supervisor-failed", "blockReason": "injected-copy-failure", "seconds": 1.491494457994122}
+{"event": "prepared", "mode": "logs", "runId": "3f6a11b3da58"}
+{"mode": "logs", "runId": "3f6a11b3da58", "state": "blocked", "reason": "supervisor-failed", "blockReason": "workload-log-limit", "seconds": 1.4887862089963164}
+{"event": "prepared", "mode": "consume", "runId": "c0ad3c07c44e"}
+{"mode": "consume", "runId": "c0ad3c07c44e", "state": "finalized", "reason": "exit", "blockReason": null, "seconds": 1.1181657499982975}

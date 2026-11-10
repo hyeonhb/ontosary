@@ -1,0 +1,30 @@
+{"event": "prepared", "mode": "simple", "runId": "07f0f3690fe3"}
+{"mode": "simple", "runId": "07f0f3690fe3", "state": "finalized", "reason": "exit", "blockReason": null, "seconds": 1.1803330830007326}
+{"event": "prepared", "mode": "nonzero", "runId": "5ec76efb4af1"}
+{"mode": "nonzero", "runId": "5ec76efb4af1", "state": "finalized", "reason": "exit", "blockReason": null, "seconds": 1.1101917079940904}
+{"event": "prepared", "mode": "normal", "runId": "4a8679ba1717"}
+{"mode": "normal", "runId": "4a8679ba1717", "state": "finalized", "reason": "exit", "blockReason": null, "seconds": 8.841067624976858}
+{"event": "prepared", "mode": "normal", "runId": "671d33c3c068"}
+{"mode": "normal", "runId": "671d33c3c068", "state": "finalized", "reason": "exit", "blockReason": null, "seconds": 8.85394983299193}
+{"event": "prepared", "mode": "timeout", "runId": "0eeca1a4a4ba"}
+{"mode": "timeout", "runId": "0eeca1a4a4ba", "state": "finalized", "reason": "timeout", "blockReason": null, "seconds": 8.845947167021222}
+{"event": "prepared", "mode": "timeout", "runId": "e398e792fe1d"}
+{"mode": "timeout", "runId": "e398e792fe1d", "state": "finalized", "reason": "timeout", "blockReason": null, "seconds": 8.853066417010268}
+{"event": "prepared", "mode": "wrapper", "runId": "85608cb33041"}
+{"mode": "wrapper", "runId": "85608cb33041", "state": "finalized", "reason": "wrapper-lost", "blockReason": null, "seconds": 8.876624958997127}
+{"event": "prepared", "mode": "wrapper", "runId": "20c93f0a74c0"}
+{"mode": "wrapper", "runId": "20c93f0a74c0", "state": "finalized", "reason": "wrapper-lost", "blockReason": null, "seconds": 8.866209792002337}
+{"event": "prepared", "mode": "supervisor", "runId": "4c1786c52b69"}
+Traceback (most recent call last):
+  File "<repo>/experiments/domain-model/s2/trial/container/lifecycle/probe.py", line 44, in <module>
+    observed=json.loads(shell(['python3','-c',check_code],timeout=12));(case/'late-observation.json').write_text(json.dumps(observed,indent=2)+'\n')
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<repo>/experiments/domain-model/s2/trial/container/lifecycle/probe.py", line 9, in shell
+    if r.returncode:raise RuntimeError(r.stderr.decode()+r.stdout.decode())
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import pathlib,time,json,hashlib; p=pathlib.Path('/opt/ontosary-fixture/runs/4c1786c52b69'); paths=[p/'source',p/'result']; snap=lambda:{str(f.relative_to(p)):hashlib.sha256(f.read_bytes()).hexdigest() for r in paths if r.exists() for f in r.rglob('*') if f.is_file()}; before=snap(); ready=json.loads((p/'worker-ready.json').read_text()); time.sleep(max(0,ready['mono']+8-time.monotonic())); after=snap(); print(json.dumps({'same':before==after,'lateFiles':[str(f) for f in (p/'source').glob('late-*')],'observedMono':time.monotonic(),'readyMono':ready['mono'],'hashes':after})); assert before==after; assert not list((p/'source').glob('late-*'))
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+{"same": true, "lateFiles": ["/opt/ontosary-fixture/runs/4c1786c52b69/source/late-33.txt"], "observedMono": 1032.90905738, "readyMono": 1020.39575744, "hashes": {"source/late-33.txt": "089001a35679a33ef3db0ca350db9b9a2f0136e0e327577b04b3b98127470961", "source/original.txt": "40c0d41e0f7a3858035cb7b8c951bab65308f015b45cbf8f4c32e010e8b0b51b", "source/writer-33.json": "7f26007b42ff69327b17d023b039a62fd018c8dc60c31b2542eeb47f1aec6b31", "source/started.json": "c09b1ad4e0d3463fcd1eca81cc5c0f8aad5bf4fce05410f61e46e8a415cf8cb2", "source/added.bin": "3d1f57c984978ef98a18378c8166c1cb8ede02c03eeb6aee7e2f121dfeee3e56", "source/ready.json": "92ec89caa62fa62b7aa7af98288cf531e10a7ee96dec215d319252aa8953f395", "source/writer.log": "ab0b834469173ed215433e0b914fda5f08aa0fb6e0fb2430c2813f0c85b0f6d1", "source/access.json": "cbf7491996f9dd2adc2e2b3d6f15e85834fa17c83aa07056cdcb62ffbc2a5270"}}

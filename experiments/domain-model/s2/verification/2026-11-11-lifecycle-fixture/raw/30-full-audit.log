@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/opt/ontosary-fixture/code/audit.py", line 93, in <module>
+    rows=[audit(rid) for rid in sys.argv[1:]];write(ROOT/'audit.json',{'fixtureOnly':True,'rows':rows});print(json.dumps(rows,indent=2))
+          ~~~~~^^^^^
+  File "/opt/ontosary-fixture/code/audit.py", line 82, in audit
+    assert 'ro' in next(m for m in mounts if m['destination']=='/snapshot')['options']
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

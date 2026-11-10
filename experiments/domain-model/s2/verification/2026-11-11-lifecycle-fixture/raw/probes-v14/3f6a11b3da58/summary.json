@@ -1,0 +1,8 @@
+{
+  "mode": "logs",
+  "runId": "3f6a11b3da58",
+  "state": "blocked",
+  "reason": "supervisor-failed",
+  "blockReason": "workload-log-limit",
+  "seconds": 1.4887862089963164
+}

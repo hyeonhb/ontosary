@@ -1,0 +1,8 @@
+{
+  "mode": "depth",
+  "runId": "532e55c6388e",
+  "state": "blocked",
+  "reason": "supervisor-failed",
+  "blockReason": "path-depth-limit:source/nested/nested/nested/nested/nested/nested/nested/nested/nested/nested/nested/nested/nested/nested/nested/nested/nested",
+  "seconds": 1.4968105829902925
+}

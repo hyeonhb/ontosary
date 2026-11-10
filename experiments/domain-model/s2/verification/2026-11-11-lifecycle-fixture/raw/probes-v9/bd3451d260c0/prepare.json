@@ -1,0 +1,27 @@
+{
+  "admissionClosed": false,
+  "cgroup": "/sys/fs/cgroup/ontosary.slice/ontosary-bd3451d260c0.slice",
+  "cgroupInode": 20559,
+  "cleanupDone": false,
+  "containerId": null,
+  "createPending": false,
+  "image": {
+    "chain": "sha256:583c527747de6961a51ab03890133296d58eaaa0bb813b0bddabb335f6a12fb1",
+    "config": "sha256:0bfba8c93e0cc814e74c26de1701e48e293a5ec6602949153d2767ff54adff05",
+    "name": "docker.io/library/ontosary-s2-lifecycle:20261110",
+    "platform": "linux/arm64",
+    "target": "sha256:1a06fe32cc6768b5e7819b6a352d6cbd64269327c746f279524030d5550db917"
+  },
+  "mode": "normal",
+  "prepared": {
+    "mono": 1220.338243271,
+    "utc": "2026-11-10T14:31:16.770988+00:00"
+  },
+  "runId": "bd3451d260c0",
+  "service": "ontosary-fixture-bd3451d260c0.service",
+  "slice": "ontosary-bd3451d260c0.slice",
+  "snapshot": null,
+  "startPending": false,
+  "state": "prepared",
+  "taskSeconds": 10
+}

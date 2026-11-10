@@ -1,0 +1,8 @@
+{
+  "mode": "publish-supervisor",
+  "runId": "7a08d9dbe1a4",
+  "state": "blocked",
+  "reason": "supervisor-failed",
+  "blockReason": "supervisor-failed-after-publication",
+  "seconds": 1.5944440419843886
+}

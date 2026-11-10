@@ -1,0 +1,8 @@
+{
+  "mode": "copy-failure",
+  "runId": "b079fae95df1",
+  "state": "blocked",
+  "reason": "exit",
+  "blockReason": "injected-copy-failure",
+  "seconds": 1.493075541977305
+}

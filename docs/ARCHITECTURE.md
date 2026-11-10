@@ -1,5 +1,7 @@
 # 현재 아키텍처
 
+2026-11-11 [lifecycle fixture 구현·검증](reviews/2026-11-11-s2-lifecycle-fixture.md): `trial/container/lifecycle/`의 host heartbeat와 독립 systemd supervisor/ExecStopPost, manager 소유 persistent slice를 분리했다. admission 닫기→cgroup.kill→populated=0/runtime pending 확인→no-follow 전체 수집/manifest·delta 검증→원자 공개를 사용한다. service 실패 뒤 결과는 격리하고 next를 차단하며, 수동 cleanup은 성공 service 종료를 대신하지 못한다. fixture 전용25개를 확인했지만 production adapter나 R11 전체 해결은 아니다. 기존 코어·모델·평가 의미와 snapshot/live 거부를 유지한다. 아래 미구현 설명은 당시 기록이다.
+
 2026-11-10 다음 fixture 구조 승인(ADR-035): [지시](reviews/2026-11-10-s2-lifecycle-fixture-instructions.md)에 따라 호스트 래퍼와 독립된 VM 내부 systemd 감독자가 실행별 cgroup·시한·생존 신호를 소유한다. worker의 전체 종료와 새 실행 차단을 확인한 뒤 관리자 전용 staging을 수집·검증하고 원자적으로 결과를 공개한다. supervisor와 cleanup은 worker의 종료 대상 밖에 두고 실패 시 정상 결과/다음 실행을 차단한다. 이는 **다음 실험 설계이며 아직 구현되지 않았다**. fixture 결과는 production 제출 권한이 아니며 기존 snapshot/live 거부·R12/모델 계약을 유지한다.
 
 2026-11-10 [최소 실행 smoke 통과](reviews/2026-11-10-s2-container-smoke.md): `trial/container/smoke.py`는 명시적 containerd endpoint/namespace에서 native target을 조회하고 OCI config/rootfs chain과 실제 container snapshot을 대조한다. `--pull=never`·UID1000·network none·자원 상한의4개 유한 실행만 확인했다. smoke는 live dispatcher/종료·수집 adapter가 아니며 준비용 process-group timeout이나 VM 삭제를 R11 보장으로 쓰지 않는다. 기존 production/live 차단을 유지하고 후속 구조는 결과 리뷰 뒤 결정한다.

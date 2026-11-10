@@ -1,5 +1,7 @@
 # 독립 리뷰 맥락
 
+2026-11-11 최신 인계: **lifecycle fixture-boundary-passed, 독립 리뷰 대기**. [보고](2026-11-11-s2-lifecycle-fixture.md), [증거](../../experiments/domain-model/s2/verification/2026-11-11-lifecycle-fixture/). v14/새 VM의25개(필수24+공개 직후 SIGKILL1)와 정상/timeout/wrapper 각2회를 확인했다. 최초58개 개발/실패 실행도 별도 보존했다. supervisor 사망 시 ExecStopPost 지연으로 발생한 늦은 쓰기, 결과 공개 직후 실패 및 수동 cleanup의 조기 next 허용을 보완했다. 코드/원시 cgroup·FD·pipe·state·delta·quarantine·정리 증거를 대조해야 한다. 호스트304테스트·Python16회귀 통과, 두 VM과 소유 cache 정리. R11 unresolved·R12 기존 범위·production/live 거부·trialAuthorized/readyForTrial=false·results=null을 유지한다. 실제 모델/provider/Vendure 평가/본 비교는0회이며 다음은 결과 리뷰다.
+
 2026-11-10 현재 개발 지시: 사용자는 **R11 fixture 종료·수집 경계와 새3시간 상한**을 승인했다(ADR-035). [지시](2026-11-10-s2-lifecycle-fixture-instructions.md)는 호스트 래퍼와 독립된 systemd 감독자, 전용 cgroup, 전체 종료 확인 후 수집과 실패 시 차단을 다룬다. 정상/timeout/래퍼 사망 핵심 사례를 새 단위로 각2회 확인하고 supervisor/관리 실패·수집/다음 실행 경계를 검증한다. environment20분·핵심90분·탐색150분·총180분이며 지시 작성 세션에서는 구현/실험하지 않았다. 다음 인계는 fixture-boundary-passed/inconclusive/blocked와 원시 증거이고, R11 전체 해결/production 경로 활성화나 후속 Vendure·실제 CLI·평가·본 비교의 승인이 아니다.
 
 2026-11-10 smoke 독립 검토: PR #40/main `45fdcd6`의 보고·구현·원시 증거를 대조해 최소 smoke 통과에 동의했다. 구현10/증거155파일 hash와154 exports, OCI chain→4개 container·자원/종료 코드·명령 시한을 확인했고 pnpm check303테스트·타입/예제 build가 통과했다. VM을 재생성하지 않은 증거 대조이며 R11 해결 판정은 아니다. 최초 읽기 전 시계 기록 누락(60초 보정)과 임시 CODEX_HOME의 helper 생성 경고를 후속 관리 항목으로 남겼다. 경고 보완은 실제 CLI 환경 준비 시 검토하며 이번 fixture 범위를 넓히지 않는다.

@@ -1,0 +1,21 @@
+{"event": "prepared", "mode": "simple", "runId": "874abab61dd8"}
+{"mode": "simple", "runId": "874abab61dd8", "state": "finalized", "reason": "exit", "blockReason": null, "seconds": 1.1399475829966832}
+{"event": "prepared", "mode": "normal", "runId": "484eff06b94a"}
+Traceback (most recent call last):
+  File "<repo>/experiments/domain-model/s2/trial/container/lifecycle/probe.py", line 39, in <module>
+    observed=json.loads(shell(['python3','-c',check_code],timeout=12));(case/'late-observation.json').write_text(json.dumps(observed,indent=2)+'\n')
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<repo>/experiments/domain-model/s2/trial/container/lifecycle/probe.py", line 9, in shell
+    if r.returncode:raise RuntimeError(r.stderr.decode()+r.stdout.decode())
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import pathlib,time,json,hashlib; p=pathlib.Path('/opt/ontosary-fixture/runs/484eff06b94a'); paths=[p/'source',p/'result']; snap=lambda:{str(f.relative_to(p)):hashlib.sha256(f.read_bytes()).hexdigest() for r in paths if r.exists() for f in r.rglob('*') if f.is_file()}; before=snap(); ready=json.loads((p/'worker-ready.json').read_text()); time.sleep(max(0,ready['mono']+8-time.monotonic())); after=snap(); print(json.dumps({'same':before==after,'lateFiles':[str(f) for f in (p/'source').glob('late-*')],'observedMono':time.monotonic(),'readyMono':ready['mono'],'hashes':after})); assert before==after; assert not list((p/'source').glob('late-*'))
+                                                                                                                                                                                                                                                                                                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.14/pathlib/__init__.py", line 788, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/pathlib/__init__.py", line 772, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/opt/ontosary-fixture/runs/484eff06b94a/worker-ready.json'

@@ -1,0 +1,8 @@
+{
+  "mode": "socket",
+  "runId": "ee1e3c37d7f0",
+  "state": "blocked",
+  "reason": "exit",
+  "blockReason": "nonregular:source/bad:49152",
+  "seconds": 1.6927217089978512
+}

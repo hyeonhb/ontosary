@@ -1,0 +1,8 @@
+{
+  "mode": "files",
+  "runId": "9f6045073b2d",
+  "state": "blocked",
+  "reason": "exit",
+  "blockReason": "file-count-limit",
+  "seconds": 1.6915807079931255
+}

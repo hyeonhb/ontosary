@@ -1,0 +1,174 @@
+[
+  {
+    "mode": "bytes",
+    "runId": "d8c581290578",
+    "state": "blocked",
+    "stopConfirmationSeconds": 0.099525089999986
+  },
+  {
+    "mode": "consume",
+    "runId": "c0ad3c07c44e",
+    "state": "finalized",
+    "stopConfirmationSeconds": 0.08744575399998666,
+    "collectionSeconds": 0.002687520999984372
+  },
+  {
+    "mode": "control",
+    "runId": "62b0a070550b",
+    "state": "finalized",
+    "stopConfirmationSeconds": 0.10237776499999995,
+    "collectionSeconds": 0.0025246069999980136
+  },
+  {
+    "mode": "copy-failure",
+    "runId": "b6c8c4e62b9a",
+    "state": "blocked",
+    "stopConfirmationSeconds": 0.08743107799998029
+  },
+  {
+    "mode": "depth",
+    "runId": "532e55c6388e",
+    "state": "blocked",
+    "stopConfirmationSeconds": 0.09464822399999662
+  },
+  {
+    "mode": "device",
+    "runId": "631320254501",
+    "state": "blocked",
+    "stopConfirmationSeconds": 0.09077822099999366
+  },
+  {
+    "mode": "fifo",
+    "runId": "4b322569f0db",
+    "state": "blocked",
+    "stopConfirmationSeconds": 0.08433423200000334
+  },
+  {
+    "mode": "files",
+    "runId": "24ed337f3f76",
+    "state": "blocked",
+    "stopConfirmationSeconds": 0.09185158600001841
+  },
+  {
+    "mode": "hardlink",
+    "runId": "4fd1776373ec",
+    "state": "blocked",
+    "stopConfirmationSeconds": 0.08882691600001635
+  },
+  {
+    "mode": "kill-error",
+    "runId": "ff318a3d294b",
+    "state": "blocked",
+    "stopConfirmationSeconds": 0.08449088999998366
+  },
+  {
+    "mode": "logs",
+    "runId": "3f6a11b3da58",
+    "state": "blocked",
+    "stopConfirmationSeconds": 0.09282346500000926
+  },
+  {
+    "mode": "nonzero",
+    "runId": "d1a4c0ec79c2",
+    "state": "finalized",
+    "stopConfirmationSeconds": 0.07774301199999911,
+    "collectionSeconds": 0.0032102849999944283
+  },
+  {
+    "mode": "normal",
+    "runId": "260b550ac19c",
+    "state": "finalized",
+    "stopConfirmationSeconds": 0.08551351399999874,
+    "collectionSeconds": 0.0028694759999865482
+  },
+  {
+    "mode": "normal",
+    "runId": "96bac60d5396",
+    "state": "finalized",
+    "stopConfirmationSeconds": 0.08784604499999205,
+    "collectionSeconds": 0.001544316000007484
+  },
+  {
+    "mode": "publish-supervisor",
+    "runId": "7a08d9dbe1a4",
+    "state": "blocked",
+    "stopConfirmationSeconds": 0.09602867099999912,
+    "collectionSeconds": 0.0015866049999999632,
+    "revoked": true
+  },
+  {
+    "mode": "query-error",
+    "runId": "a79f61cab1af",
+    "state": "blocked",
+    "stopConfirmationSeconds": 0.06626360199999226
+  },
+  {
+    "mode": "race",
+    "runId": "ec48bd05e913",
+    "state": "finalized",
+    "stopConfirmationSeconds": 0.09667701200001488,
+    "collectionSeconds": 0.003165061999993668,
+    "writersObserved": 6,
+    "cleanupCalls": 3,
+    "cleanupDeferred": 0
+  },
+  {
+    "mode": "simple",
+    "runId": "6155c8efd66e",
+    "state": "finalized",
+    "stopConfirmationSeconds": 0.09342347599999812,
+    "collectionSeconds": 0.0019041009999938296
+  },
+  {
+    "mode": "socket",
+    "runId": "0cfeed2aae91",
+    "state": "blocked",
+    "stopConfirmationSeconds": 0.08660580000000095
+  },
+  {
+    "mode": "supervisor",
+    "runId": "6e909280ba32",
+    "state": "blocked",
+    "stopConfirmationSeconds": 0.08842396500000405,
+    "cleanupGuestUTC": "2026-11-10T14:54:41.597422+00:00",
+    "hostInjectionUTC": "2026-11-10T14:54:41.448173+00:00"
+  },
+  {
+    "mode": "symlink",
+    "runId": "82fb235ce603",
+    "state": "blocked",
+    "stopConfirmationSeconds": 0.09559562799998389
+  },
+  {
+    "mode": "timeout",
+    "runId": "018ba9534b32",
+    "state": "finalized",
+    "stopConfirmationSeconds": 0.07512075999999013,
+    "deadlineLagSeconds": 0.005180301999999415,
+    "collectionSeconds": 0.0025653670000025386
+  },
+  {
+    "mode": "timeout",
+    "runId": "f0369aede3fd",
+    "state": "finalized",
+    "stopConfirmationSeconds": 0.07848526900001218,
+    "deadlineLagSeconds": 0.006909702000001516,
+    "collectionSeconds": 0.001446811000008097
+  },
+  {
+    "mode": "wrapper",
+    "runId": "8cfb9dc4eaca",
+    "state": "finalized",
+    "stopConfirmationSeconds": 0.07798263699999097,
+    "leaseAgeSeconds": 5.008633760999999,
+    "collectionSeconds": 0.00321407100000215
+  },
+  {
+    "mode": "wrapper",
+    "runId": "cf2032e22d16",
+    "state": "finalized",
+    "stopConfirmationSeconds": 0.08033369399998946,
+    "leaseAgeSeconds": 5.007811143999987,
+    "collectionSeconds": 0.0015350590000196007
+  }
+]

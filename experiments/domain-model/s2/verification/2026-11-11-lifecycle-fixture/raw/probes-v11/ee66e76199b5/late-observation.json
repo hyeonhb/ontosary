@@ -1,0 +1,15 @@
+{
+  "same": true,
+  "lateFiles": [],
+  "observedMono": 1543.027634172,
+  "readyMono": 1535.021711028,
+  "hashes": {
+    "source/original.txt": "40c0d41e0f7a3858035cb7b8c951bab65308f015b45cbf8f4c32e010e8b0b51b",
+    "source/writer-33.json": "d8196d760beb4173e260615d58007925f88b0c239a3401d769d7dda97df89f13",
+    "source/started.json": "94dc1dd2680fccb71bf2f994e0d0d8545c4e495a6b8bd4113dfbafad3a298914",
+    "source/added.bin": "3d1f57c984978ef98a18378c8166c1cb8ede02c03eeb6aee7e2f121dfeee3e56",
+    "source/ready.json": "60112d093cb6719f4a6ef75cfc6ec7baf22ca5900794bba74f539860cdf9f318",
+    "source/writer.log": "b640e840b19d378660b32fb51ae18d67dccb4a8596a29e7bd72c1b2ae5928f41",
+    "source/access.json": "b462ad57ef01a23ccd361ad3d0706a0b287fd30400d8a96973d7d66d457faba6"
+  }
+}

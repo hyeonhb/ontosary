@@ -1,0 +1,8 @@
+{
+  "mode": "bytes",
+  "runId": "d8c581290578",
+  "state": "blocked",
+  "reason": "supervisor-failed",
+  "blockReason": "byte-limit",
+  "seconds": 1.6572409169748425
+}

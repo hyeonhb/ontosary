@@ -1,0 +1,8 @@
+{
+  "mode": "files",
+  "runId": "24ed337f3f76",
+  "state": "blocked",
+  "reason": "supervisor-failed",
+  "blockReason": "file-count-limit",
+  "seconds": 1.5128095840045717
+}

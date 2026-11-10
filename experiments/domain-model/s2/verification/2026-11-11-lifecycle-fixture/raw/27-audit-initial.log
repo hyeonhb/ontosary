@@ -1,0 +1,47 @@
+[
+  {
+    "runId": "f4181d234823",
+    "mode": "simple",
+    "state": "finalized",
+    "reason": "exit",
+    "exitCode": 0,
+    "classification": "normal-fixture",
+    "stopConfirmationSeconds": 0.09188874000005853,
+    "limits": {
+      "cpu.max": "200000 100000\n",
+      "memory.max": "4294967296\n",
+      "pids.max": "256\n"
+    },
+    "independentChecks": "passed"
+  },
+  {
+    "runId": "54bd9c4161fa",
+    "mode": "normal",
+    "state": "finalized",
+    "reason": "exit",
+    "exitCode": 0,
+    "classification": "normal-fixture",
+    "stopConfirmationSeconds": 0.0811199760000818,
+    "limits": {
+      "cpu.max": "200000 100000\n",
+      "memory.max": "4294967296\n",
+      "pids.max": "256\n"
+    },
+    "independentChecks": "passed"
+  },
+  {
+    "runId": "6de8d12de0b2",
+    "mode": "supervisor",
+    "state": "blocked",
+    "reason": "supervisor-failed",
+    "exitCode": null,
+    "classification": null,
+    "stopConfirmationSeconds": 0.09909686300011344,
+    "limits": {
+      "cpu.max": "200000 100000\n",
+      "memory.max": "4294967296\n",
+      "pids.max": "256\n"
+    },
+    "independentChecks": "passed"
+  }
+]

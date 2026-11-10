@@ -1,0 +1,218 @@
+[
+  {
+    "mode": "bytes",
+    "runId": "552fdc2c1b75",
+    "state": "blocked",
+    "reason": "exit",
+    "blockReason": "byte-limit",
+    "seconds": 1.515876625024248,
+    "version": "v9"
+  },
+  {
+    "mode": "consume",
+    "runId": "de1c837fcabc",
+    "state": "finalized",
+    "reason": "exit",
+    "blockReason": null,
+    "seconds": 1.1286462499992922,
+    "version": "v10"
+  },
+  {
+    "mode": "control",
+    "runId": "db249647aae2",
+    "state": "finalized",
+    "reason": "exit",
+    "blockReason": null,
+    "seconds": 9.143023999989964,
+    "version": "v11"
+  },
+  {
+    "mode": "copy-failure",
+    "runId": "b079fae95df1",
+    "state": "blocked",
+    "reason": "exit",
+    "blockReason": "injected-copy-failure",
+    "seconds": 1.493075541977305,
+    "version": "v9"
+  },
+  {
+    "mode": "depth",
+    "runId": "93675b4da980",
+    "state": "blocked",
+    "reason": "exit",
+    "blockReason": "path-depth-limit:source/nested/nested/nested/nested/nested/nested/nested/nested/nested/nested/nested/nested/nested/nested/nested/nested/nested",
+    "seconds": 1.485489915998187,
+    "version": "v9"
+  },
+  {
+    "mode": "device",
+    "runId": "e01f82179fab",
+    "state": "blocked",
+    "reason": "exit",
+    "blockReason": "nonregular:source/bad:8192",
+    "seconds": 1.6796475409937557,
+    "version": "v9"
+  },
+  {
+    "mode": "fifo",
+    "runId": "d74fd5d1ef26",
+    "state": "blocked",
+    "reason": "exit",
+    "blockReason": "nonregular:source/bad:4096",
+    "seconds": 1.4953470409964211,
+    "version": "v9"
+  },
+  {
+    "mode": "files",
+    "runId": "9f6045073b2d",
+    "state": "blocked",
+    "reason": "exit",
+    "blockReason": "file-count-limit",
+    "seconds": 1.6915807079931255,
+    "version": "v9"
+  },
+  {
+    "mode": "hardlink",
+    "runId": "ff339485262d",
+    "state": "blocked",
+    "reason": "exit",
+    "blockReason": "hardlink:source/bad",
+    "seconds": 1.6710498750035185,
+    "version": "v9"
+  },
+  {
+    "mode": "kill-error",
+    "runId": "dda23ad422f0",
+    "state": "blocked",
+    "reason": "management-failure",
+    "blockReason": "injected-kill-command-failure",
+    "seconds": 9.213146916998085,
+    "version": "v11"
+  },
+  {
+    "mode": "logs",
+    "runId": "74a3a54de6f4",
+    "state": "blocked",
+    "reason": "log-limit",
+    "blockReason": "workload-log-limit",
+    "seconds": 1.5106921250117011,
+    "version": "v10"
+  },
+  {
+    "mode": "nonzero",
+    "runId": "e78862857fab",
+    "state": "finalized",
+    "reason": "exit",
+    "blockReason": null,
+    "seconds": 1.1422959580086172,
+    "version": "v11"
+  },
+  {
+    "mode": "normal",
+    "runId": "9cfefc92d21d",
+    "state": "finalized",
+    "reason": "exit",
+    "blockReason": null,
+    "seconds": 8.937630166998133,
+    "version": "v11"
+  },
+  {
+    "mode": "normal",
+    "runId": "cf98ec4c04e6",
+    "state": "finalized",
+    "reason": "exit",
+    "blockReason": null,
+    "seconds": 8.973413625004468,
+    "version": "v11"
+  },
+  {
+    "mode": "query-error",
+    "runId": "ee66e76199b5",
+    "state": "blocked",
+    "reason": "management-failure",
+    "blockReason": "injected-state-query-failure",
+    "seconds": 9.240748916985467,
+    "version": "v11"
+  },
+  {
+    "mode": "race",
+    "runId": "b02e9b4093bc",
+    "state": "finalized",
+    "reason": "exit",
+    "blockReason": null,
+    "seconds": 8.935492207994685,
+    "version": "v11"
+  },
+  {
+    "mode": "simple",
+    "runId": "17897dbdbddb",
+    "state": "finalized",
+    "reason": "exit",
+    "blockReason": null,
+    "seconds": 1.419484541984275,
+    "version": "v11"
+  },
+  {
+    "mode": "socket",
+    "runId": "ee1e3c37d7f0",
+    "state": "blocked",
+    "reason": "exit",
+    "blockReason": "nonregular:source/bad:49152",
+    "seconds": 1.6927217089978512,
+    "version": "v9"
+  },
+  {
+    "mode": "supervisor",
+    "runId": "03f90a19291f",
+    "state": "blocked",
+    "reason": "supervisor-failed",
+    "blockReason": "supervisor-failed",
+    "seconds": 9.173957082995912,
+    "version": "v11"
+  },
+  {
+    "mode": "symlink",
+    "runId": "82dd977e854e",
+    "state": "blocked",
+    "reason": "exit",
+    "blockReason": "nonregular:source/bad:40960",
+    "seconds": 1.6855237080017105,
+    "version": "v9"
+  },
+  {
+    "mode": "timeout",
+    "runId": "9029b843afd0",
+    "state": "finalized",
+    "reason": "timeout",
+    "blockReason": null,
+    "seconds": 8.91247370900237,
+    "version": "v11"
+  },
+  {
+    "mode": "timeout",
+    "runId": "c7a1b351a30d",
+    "state": "finalized",
+    "reason": "timeout",
+    "blockReason": null,
+    "seconds": 8.918342709017452,
+    "version": "v11"
+  },
+  {
+    "mode": "wrapper",
+    "runId": "009f9d7499dd",
+    "state": "finalized",
+    "reason": "wrapper-lost",
+    "blockReason": null,
+    "seconds": 8.93311316598556,
+    "version": "v11"
+  },
+  {
+    "mode": "wrapper",
+    "runId": "f5d26969ac66",
+    "state": "finalized",
+    "reason": "wrapper-lost",
+    "blockReason": null,
+    "seconds": 8.933720291010104,
+    "version": "v11"
+  }
+]

@@ -1,0 +1,16 @@
+{"event": "prepared", "mode": "supervisor", "runId": "48447675e3f3"}
+{"mode": "supervisor", "runId": "48447675e3f3", "state": "blocked", "reason": "supervisor-failed", "blockReason": "supervisor-failed", "seconds": 9.114630916999886}
+{"event": "prepared", "mode": "kill-error", "runId": "e0dc2c3eaf53"}
+Traceback (most recent call last):
+  File "<repo>/experiments/domain-model/s2/trial/container/lifecycle/probe.py", line 44, in <module>
+    observed=json.loads(shell(['python3','-c',check_code],timeout=12));(case/'late-observation.json').write_text(json.dumps(observed,indent=2)+'\n')
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<repo>/experiments/domain-model/s2/trial/container/lifecycle/probe.py", line 9, in shell
+    if r.returncode:raise RuntimeError(r.stderr.decode()+r.stdout.decode())
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import pathlib,time,json,hashlib; p=pathlib.Path('/opt/ontosary-fixture/runs/e0dc2c3eaf53'); paths=[p/'source',p/'result']; snap=lambda:{str(f.relative_to(p)):hashlib.sha256(f.read_bytes()).hexdigest() for r in paths if r.exists() for f in r.rglob('*') if f.is_file()}; before=snap(); ready=json.loads((p/'worker-ready.json').read_text()); time.sleep(max(0,ready['mono']+8-time.monotonic())); after=snap(); print(json.dumps({'same':before==after,'lateFiles':[str(f) for f in (p/'source').glob('late-*')],'observedMono':time.monotonic(),'readyMono':ready['mono'],'hashes':after})); assert before==after; assert not list((p/'source').glob('late-*'))
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+{"same": true, "lateFiles": ["/opt/ontosary-fixture/runs/e0dc2c3eaf53/source/late-33.txt"], "observedMono": 1114.001022112, "readyMono": 1103.477490666, "hashes": {"source/late-33.txt": "089001a35679a33ef3db0ca350db9b9a2f0136e0e327577b04b3b98127470961", "source/original.txt": "40c0d41e0f7a3858035cb7b8c951bab65308f015b45cbf8f4c32e010e8b0b51b", "source/writer-33.json": "8eeb185781b2a9771a8cc2182410a66541168a89107795ef57caae9fbeead5f0", "source/started.json": "09db7c00e3d481e0772a67a10017e242d8301ecb501038bd08894e1493f897c3", "source/added.bin": "3d1f57c984978ef98a18378c8166c1cb8ede02c03eeb6aee7e2f121dfeee3e56", "source/ready.json": "6f2f0225c1e74347ecde3a98f3f36994e84eb5c5f5d0360726f8f6b02a79ea85", "source/writer.log": "415eb4e35bac6bc55dfdf7e75bd70cf6fee18e56f925b762f62831ed2b302ebc", "source/access.json": "fb5fa13f294fdc6be18d504bd603e7fca147fadaab08bc6205c54b63220c52b3"}}

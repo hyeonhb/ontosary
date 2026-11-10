@@ -1,0 +1,8 @@
+{
+  "mode": "device",
+  "runId": "631320254501",
+  "state": "blocked",
+  "reason": "supervisor-failed",
+  "blockReason": "nonregular:source/bad:8192",
+  "seconds": 1.478157834004378
+}

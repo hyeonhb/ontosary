@@ -1,0 +1,52 @@
+{
+  "kind": "wrapper",
+  "hostMono": 139004.141267666,
+  "ready": {
+    "kernel": {
+      "events": {
+        "frozen": "0",
+        "populated": "1"
+      },
+      "inode": 16305,
+      "members": [
+        {
+          "group": "/sys/fs/cgroup/ontosary.slice/ontosary-85608cb33041.slice/nerdctl-a44b0b613d8cbf775f1695acb1fe6e88cc4638aed6f871a74ed1122966c154b7.scope",
+          "pid": 25657,
+          "procCgroup": "0::/ontosary.slice/ontosary-85608cb33041.slice/nerdctl-a44b0b613d8cbf775f1695acb1fe6e88cc4638aed6f871a74ed1122966c154b7.scope\n",
+          "status": "Name:\tnode\nUmask:\t0022\nState:\tS (sleeping)\nTgid:\t25657\nNgid:\t0\nPid:\t25657\nPPid:\t25615\nTracerPid:\t0\nUid:\t1000\t1000\t1000\t1000\nGid:\t1000\t1000\t1000\t1000\nFDSize:\t64\nGroups:\t1000 \nNStgid:\t25657\t1\nNSpid:\t25657\t1\nNSpgid:\t25657\t1\nNSsid:\t25657\t1\nKthread:\t0\nVmPeak:\t  481800 kB\nVmSize:\t  481548 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t   41812 kB\nVmRSS:\t   41812 kB\nRssAnon:\t    6288 kB\nRssFile:\t   35524 kB\nRssShmem:\t       0 kB\nVmData:\t   48896 kB\nVmStk:\t     132 kB\nVmExe:\t   98928 kB\nVmLib:\t    4380 kB\nVmPTE:\t     452 kB\nVmSwap:\t       0 kB\nHugetlbPages:\t       0 kB\nCoreDumping:\t0\nTHP_enabled:\t1\nuntag_mask:\t0xffffffffffffff\nThreads:\t7\nSigQ:\t0/21089\nSigPnd:\t0000000000000000\nShdPnd:\t0000000000000000\nSigBlk:\t0000000000000000\nSigIgn:\t0000000001001000\nSigCgt:\t0000000100004602\nCapInh:\t0000000000000000\nCapPrm:\t0000000000000000\nCapEff:\t0000000000000000\nCapBnd:\t0000000000000000\nCapAmb:\t0000000000000000\nNoNewPrivs:\t1\nSeccomp:\t2\nSeccomp_filters:\t1\nSpeculation_Store_Bypass:\tvulnerable\nSpeculationIndirectBranch:\tunknown\nCpus_allowed:\tf\nCpus_allowed_list:\t0-3\nMems_allowed:\t00000000,00000001\nMems_allowed_list:\t0\nvoluntary_ctxt_switches:\t21\nnonvoluntary_ctxt_switches:\t102\n"
+        },
+        {
+          "group": "/sys/fs/cgroup/ontosary.slice/ontosary-85608cb33041.slice/nerdctl-a44b0b613d8cbf775f1695acb1fe6e88cc4638aed6f871a74ed1122966c154b7.scope",
+          "pid": 25711,
+          "procCgroup": "0::/ontosary.slice/ontosary-85608cb33041.slice/nerdctl-a44b0b613d8cbf775f1695acb1fe6e88cc4638aed6f871a74ed1122966c154b7.scope\n",
+          "status": "Name:\tnode\nUmask:\t0022\nState:\tS (sleeping)\nTgid:\t25711\nNgid:\t0\nPid:\t25711\nPPid:\t25615\nTracerPid:\t0\nUid:\t1000\t1000\t1000\t1000\nGid:\t1000\t1000\t1000\t1000\nFDSize:\t64\nGroups:\t1000 \nNStgid:\t25711\t14\nNSpid:\t25711\t14\nNSpgid:\t25711\t14\nNSsid:\t25711\t14\nKthread:\t0\nVmPeak:\t  482344 kB\nVmSize:\t  482092 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t   44956 kB\nVmRSS:\t   44956 kB\nRssAnon:\t    7196 kB\nRssFile:\t   37760 kB\nRssShmem:\t       0 kB\nVmData:\t   49432 kB\nVmStk:\t     140 kB\nVmExe:\t   98928 kB\nVmLib:\t    4380 kB\nVmPTE:\t     480 kB\nVmSwap:\t       0 kB\nHugetlbPages:\t       0 kB\nCoreDumping:\t0\nTHP_enabled:\t1\nuntag_mask:\t0xffffffffffffff\nThreads:\t7\nSigQ:\t0/21089\nSigPnd:\t0000000000000000\nShdPnd:\t0000000000000000\nSigBlk:\t0000000000000000\nSigIgn:\t0000000001001000\nSigCgt:\t0000000100004602\nCapInh:\t0000000000000000\nCapPrm:\t0000000000000000\nCapEff:\t0000000000000000\nCapBnd:\t0000000000000000\nCapAmb:\t0000000000000000\nNoNewPrivs:\t1\nSeccomp:\t2\nSeccomp_filters:\t1\nSpeculation_Store_Bypass:\tvulnerable\nSpeculationIndirectBranch:\tunknown\nCpus_allowed:\tf\nCpus_allowed_list:\t0-3\nMems_allowed:\t00000000,00000001\nMems_allowed_list:\t0\nvoluntary_ctxt_switches:\t19\nnonvoluntary_ctxt_switches:\t45\n"
+        },
+        {
+          "group": "/sys/fs/cgroup/ontosary.slice/ontosary-85608cb33041.slice/nerdctl-a44b0b613d8cbf775f1695acb1fe6e88cc4638aed6f871a74ed1122966c154b7.scope",
+          "pid": 25742,
+          "procCgroup": "0::/ontosary.slice/ontosary-85608cb33041.slice/nerdctl-a44b0b613d8cbf775f1695acb1fe6e88cc4638aed6f871a74ed1122966c154b7.scope\n",
+          "status": "Name:\tnode\nUmask:\t0022\nState:\tS (sleeping)\nTgid:\t25742\nNgid:\t0\nPid:\t25742\nPPid:\t25657\nTracerPid:\t0\nUid:\t1000\t1000\t1000\t1000\nGid:\t1000\t1000\t1000\t1000\nFDSize:\t64\nGroups:\t1000 \nNStgid:\t25742\t33\nNSpid:\t25742\t33\nNSpgid:\t25742\t33\nNSsid:\t25742\t33\nKthread:\t0\nVmPeak:\t  482088 kB\nVmSize:\t  481836 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t   44364 kB\nVmRSS:\t   44364 kB\nRssAnon:\t    6984 kB\nRssFile:\t   37380 kB\nRssShmem:\t       0 kB\nVmData:\t   49176 kB\nVmStk:\t     140 kB\nVmExe:\t   98928 kB\nVmLib:\t    4380 kB\nVmPTE:\t     468 kB\nVmSwap:\t       0 kB\nHugetlbPages:\t       0 kB\nCoreDumping:\t0\nTHP_enabled:\t1\nuntag_mask:\t0xffffffffffffff\nThreads:\t7\nSigQ:\t0/21089\nSigPnd:\t0000000000000000\nShdPnd:\t0000000000000000\nSigBlk:\t0000000000000000\nSigIgn:\t0000000001001000\nSigCgt:\t0000000100004602\nCapInh:\t0000000000000000\nCapPrm:\t0000000000000000\nCapEff:\t0000000000000000\nCapBnd:\t0000000000000000\nCapAmb:\t0000000000000000\nNoNewPrivs:\t1\nSeccomp:\t2\nSeccomp_filters:\t1\nSpeculation_Store_Bypass:\tvulnerable\nSpeculationIndirectBranch:\tunknown\nCpus_allowed:\tf\nCpus_allowed_list:\t0-3\nMems_allowed:\t00000000,00000001\nMems_allowed_list:\t0\nvoluntary_ctxt_switches:\t4\nnonvoluntary_ctxt_switches:\t5\n"
+        }
+      ],
+      "mono": 1002.664276995,
+      "path": "/sys/fs/cgroup/ontosary.slice/ontosary-85608cb33041.slice",
+      "utc": "2026-11-10T14:27:39.097020+00:00"
+    },
+    "mono": 1002.664280286,
+    "ready": {
+      "pid": 14,
+      "time": 1794320859088,
+      "writerStarted": true
+    },
+    "utc": "2026-11-10T14:27:39.097026+00:00",
+    "writerBytes": 6,
+    "writers": {
+      "writer-33.json": {
+        "pid": 33,
+        "ppid": 1,
+        "role": "writer",
+        "time": 1794320859083
+      }
+    }
+  }
+}

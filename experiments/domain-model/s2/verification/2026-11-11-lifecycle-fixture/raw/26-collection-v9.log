@@ -1,0 +1,24 @@
+{"event": "prepared", "mode": "symlink", "runId": "82dd977e854e"}
+{"mode": "symlink", "runId": "82dd977e854e", "state": "blocked", "reason": "exit", "blockReason": "nonregular:source/bad:40960", "seconds": 1.6855237080017105}
+{"event": "prepared", "mode": "hardlink", "runId": "ff339485262d"}
+{"mode": "hardlink", "runId": "ff339485262d", "state": "blocked", "reason": "exit", "blockReason": "hardlink:source/bad", "seconds": 1.6710498750035185}
+{"event": "prepared", "mode": "fifo", "runId": "d74fd5d1ef26"}
+{"mode": "fifo", "runId": "d74fd5d1ef26", "state": "blocked", "reason": "exit", "blockReason": "nonregular:source/bad:4096", "seconds": 1.4953470409964211}
+{"event": "prepared", "mode": "socket", "runId": "ee1e3c37d7f0"}
+{"mode": "socket", "runId": "ee1e3c37d7f0", "state": "blocked", "reason": "exit", "blockReason": "nonregular:source/bad:49152", "seconds": 1.6927217089978512}
+{"event": "prepared", "mode": "device", "runId": "e01f82179fab"}
+{"mode": "device", "runId": "e01f82179fab", "state": "blocked", "reason": "exit", "blockReason": "nonregular:source/bad:8192", "seconds": 1.6796475409937557}
+{"event": "prepared", "mode": "files", "runId": "9f6045073b2d"}
+{"mode": "files", "runId": "9f6045073b2d", "state": "blocked", "reason": "exit", "blockReason": "file-count-limit", "seconds": 1.6915807079931255}
+{"event": "prepared", "mode": "bytes", "runId": "552fdc2c1b75"}
+{"mode": "bytes", "runId": "552fdc2c1b75", "state": "blocked", "reason": "exit", "blockReason": "byte-limit", "seconds": 1.515876625024248}
+{"event": "prepared", "mode": "depth", "runId": "93675b4da980"}
+{"mode": "depth", "runId": "93675b4da980", "state": "blocked", "reason": "exit", "blockReason": "path-depth-limit:source/nested/nested/nested/nested/nested/nested/nested/nested/nested/nested/nested/nested/nested/nested/nested/nested/nested", "seconds": 1.485489915998187}
+{"event": "prepared", "mode": "copy-failure", "runId": "b079fae95df1"}
+{"mode": "copy-failure", "runId": "b079fae95df1", "state": "blocked", "reason": "exit", "blockReason": "injected-copy-failure", "seconds": 1.493075541977305}
+{"event": "prepared", "mode": "logs", "runId": "16b20c6d7118"}
+Traceback (most recent call last):
+  File "<repo>/experiments/domain-model/s2/trial/container/lifecycle/probe.py", line 50, in <module>
+    assert (s['state']=='blocked')==expected_block,(mode,s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('logs', {'admissionClosed': True, 'cgroup': '/sys/fs/cgroup/ontosary.slice/ontosary-16b20c6d7118.slice', 'cgroupInode': 33004, 'classification': 'normal-fixture', 'cleanupDone': True, 'collectionFinished': {'mono': 1337.231939635, 'utc': '2026-11-10T14:33:13.664684+00:00'}, 'collectionStarted': {'mono': 1337.230770771, 'utc': '2026-11-10T14:33:13.663516+00:00'}, 'containerId': '7af2d13c2e047668992439c2ada0d3eb08af82c52dc63c1e86f4b8ae97f172ce', 'createPending': False, 'deadlineMono': 1346.988994745, 'execClientExit': 0, 'execPending': False, 'exitCode': 0, 'image': {'chain': 'sha256:583c527747de6961a51ab03890133296d58eaaa0bb813b0bddabb335f6a12fb1', 'config': 'sha256:0bfba8c93e0cc814e74c26de1701e48e293a5ec6602949153d2767ff54adff05', 'name': 'docker.io/library/ontosary-s2-lifecycle:20261110', 'platform': 'linux/arm64', 'target': 'sha256:1a06fe32cc6768b5e7819b6a352d6cbd64269327c746f279524030d5550db917'}, 'mode': 'logs', 'prepared': {'mono': 1336.686426165, 'utc': '2026-11-10T14:33:13.119170+00:00'}, 'reason': 'exit', 'runId': '16b20c6d7118', 'service': 'ontosary-fixture-16b20c6d7118.service', 'slice': 'ontosary-16b20c6d7118.slice', 'snapshot': None, 'startPending': False, 'state': 'finalized', 'stopRequested': {'mono': 1337.140279077, 'utc': '2026-11-10T14:33:13.573024+00:00'}, 'stopTrigger': {'mono': 1337.139692374, 'utc': '2026-11-10T14:33:13.572437+00:00'}, 'taskSeconds': 10, 'terminationConfirmed': True, 'workStarted': {'mono': 1336.988994745, 'utc': '2026-11-10T14:33:13.421736+00:00'}, 'workerReady': True, 'workloadLogBytesObserved': 65536})

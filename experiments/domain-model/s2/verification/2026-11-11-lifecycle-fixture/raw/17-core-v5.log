@@ -1,0 +1,6 @@
+{"event": "prepared", "mode": "simple", "runId": "7094711ed5f8"}
+{"mode": "simple", "runId": "7094711ed5f8", "state": "finalized", "reason": "exit", "blockReason": null, "seconds": 1.1455577079905197}
+{"event": "prepared", "mode": "normal", "runId": "7e2468a3198a"}
+{"mode": "normal", "runId": "7e2468a3198a", "state": "finalized", "reason": "exit", "blockReason": null, "seconds": 8.839926375017967}
+{"event": "prepared", "mode": "timeout", "runId": "60e76ec8f835"}
+{"mode": "timeout", "runId": "60e76ec8f835", "state": "finalized", "reason": "timeout", "blockReason": null, "seconds": 8.844484167027986}

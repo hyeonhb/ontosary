@@ -1,0 +1,166 @@
+[
+  {
+    "mode": "bytes",
+    "runId": "552fdc2c1b75",
+    "state": "blocked",
+    "stopSec": 0.10122884299994439
+  },
+  {
+    "mode": "consume",
+    "runId": "de1c837fcabc",
+    "state": "finalized",
+    "stopSec": 0.08997213599991483,
+    "collectionSec": 0.0025993179999659333
+  },
+  {
+    "mode": "control",
+    "runId": "db249647aae2",
+    "state": "finalized",
+    "stopSec": 0.09468013200012138,
+    "collectionSec": 0.001486688999875696
+  },
+  {
+    "mode": "copy-failure",
+    "runId": "b079fae95df1",
+    "state": "blocked",
+    "stopSec": 0.0931824179999694
+  },
+  {
+    "mode": "depth",
+    "runId": "93675b4da980",
+    "state": "blocked",
+    "stopSec": 0.09343562399999428
+  },
+  {
+    "mode": "device",
+    "runId": "e01f82179fab",
+    "state": "blocked",
+    "stopSec": 0.08555444800003897
+  },
+  {
+    "mode": "fifo",
+    "runId": "d74fd5d1ef26",
+    "state": "blocked",
+    "stopSec": 0.08891425000001618
+  },
+  {
+    "mode": "files",
+    "runId": "9f6045073b2d",
+    "state": "blocked",
+    "stopSec": 0.08446924999998373
+  },
+  {
+    "mode": "hardlink",
+    "runId": "ff339485262d",
+    "state": "blocked",
+    "stopSec": 0.08584386200004701
+  },
+  {
+    "mode": "kill-error",
+    "runId": "dda23ad422f0",
+    "state": "blocked",
+    "stopSec": 0.09953581500008113
+  },
+  {
+    "mode": "logs",
+    "runId": "74a3a54de6f4",
+    "state": "blocked",
+    "stopSec": 0.09448227600000791
+  },
+  {
+    "mode": "nonzero",
+    "runId": "e78862857fab",
+    "state": "finalized",
+    "stopSec": 0.08452200100009577,
+    "collectionSec": 0.0026394009998966794
+  },
+  {
+    "mode": "normal",
+    "runId": "9cfefc92d21d",
+    "state": "finalized",
+    "stopSec": 0.08583957699988787,
+    "collectionSec": 0.001377491000084774
+  },
+  {
+    "mode": "normal",
+    "runId": "cf98ec4c04e6",
+    "state": "finalized",
+    "stopSec": 0.09101275500006523,
+    "collectionSec": 0.0015716579998752422
+  },
+  {
+    "mode": "query-error",
+    "runId": "ee66e76199b5",
+    "state": "blocked",
+    "stopSec": 0.07745990700004768
+  },
+  {
+    "mode": "race",
+    "runId": "b02e9b4093bc",
+    "state": "finalized",
+    "stopSec": 0.11630271300009554,
+    "collectionSec": 0.0043617750000066735,
+    "writersObserved": 8,
+    "cleanupCalls": 3
+  },
+  {
+    "mode": "simple",
+    "runId": "17897dbdbddb",
+    "state": "finalized",
+    "stopSec": 0.096974136000199,
+    "collectionSec": 0.0023890690001735493
+  },
+  {
+    "mode": "socket",
+    "runId": "ee1e3c37d7f0",
+    "state": "blocked",
+    "stopSec": 0.08742697200000293
+  },
+  {
+    "mode": "supervisor",
+    "runId": "03f90a19291f",
+    "state": "blocked",
+    "stopSec": 0.09873078600003282,
+    "cleanupGuestUTC": "2026-11-10T14:36:13.261550+00:00",
+    "stopRequestUTC": "2026-11-10T14:36:13.262610+00:00",
+    "injection": "2026-11-10T14:36:13.157440+00:00"
+  },
+  {
+    "mode": "symlink",
+    "runId": "82dd977e854e",
+    "state": "blocked",
+    "stopSec": 0.09444607299997188
+  },
+  {
+    "mode": "timeout",
+    "runId": "9029b843afd0",
+    "state": "finalized",
+    "stopSec": 0.08314105199997357,
+    "deadlineLag": 0.002779907999865827,
+    "collectionSec": 0.0014504499999929976
+  },
+  {
+    "mode": "timeout",
+    "runId": "c7a1b351a30d",
+    "state": "finalized",
+    "stopSec": 0.09810529600008522,
+    "deadlineLag": 0.008829788999946686,
+    "collectionSec": 0.0022244040001169196
+  },
+  {
+    "mode": "wrapper",
+    "runId": "009f9d7499dd",
+    "state": "finalized",
+    "stopSec": 0.0908900580000136,
+    "leaseLag": 5.007963476999976,
+    "collectionSec": 0.0015974789998836059
+  },
+  {
+    "mode": "wrapper",
+    "runId": "f5d26969ac66",
+    "state": "finalized",
+    "stopSec": 0.08880504500007191,
+    "leaseLag": 5.005883439999934,
+    "collectionSec": 0.001289440999926228
+  }
+]

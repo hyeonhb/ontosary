@@ -1,0 +1,8 @@
+{
+  "mode": "hardlink",
+  "runId": "ff339485262d",
+  "state": "blocked",
+  "reason": "exit",
+  "blockReason": "hardlink:source/bad",
+  "seconds": 1.6710498750035185
+}
