@@ -1,5 +1,7 @@
 # 현재 작업 상태 — 새 세션은 이 문서부터 읽기
 
+2026-11-10 컨테이너 경계 타당성 검증 승인: 사용자는 **일회성 컨테이너 우선·기존 CLI/셸 유지**로 진행하기로 했다(ADR-031). [개발 지시](reviews/2026-11-10-s2-container-feasibility-instructions.md)에 총4시간·환경 준비90분·마지막30분 마무리·후보1개·신규 유료 비용0과 중단/부분 인계 기준을 정했다. 모델 없는 실행/평가 단위 종료·권한·전체 수집·Linux 환경/기존 평가 재현을 확인한다. 이번 세션은 지시·맥락 문서 작성이며 컨테이너 설치/실험을 수행하지 않았다. pnpm check(303테스트·타입 검사·예제 빌드)와 문서 로컬 링크196개를 확인했다. R11은 미해결이고 R12 해결 판정을 유지한다. 본 비교는 결과 리뷰 이후이며 실제 모델/본 비교0회·trialAuthorized/readyForTrial=false다.
+
 2026-11-10 R11/R12 독립 재검토: **R12 검증 범위에서 해결, R11 미해결·실제 비교 차단 유지**. [독립 보고](reviews/2026-11-10-s2-runtime-accounting-independent-review.md).303테스트(skip0)·비교4/4·29제출60파일·참조52사례/trace를 재현했다. usage 순차 조합3,279개·추가20사례·기록18fixture가 일치했고 macOS22실행의 늦은 쓰기8건과 production 차단을 재확인했다. agent84파일·세 ID와 execution manifest 재생성도 일치했다. 추가 차단 결함은 발견하지 않았으며 지시의 ‘R12 완료 + R11 차단 인계’는 충족했다. 다음은 사용자와 R11 실행 경계/허용 도구 정책을 결정한다. 새 플랫폼·API를 채택하지 않았고 실제 모델/본 비교0회·trialAuthorized/readyForTrial=false·사람 검토 pending을 유지한다. 아래는 당시 자체 검증 기록이다.
 
 2026-11-10 R11/R12 보완: **R12 구현·자체 검증 완료, R11 종료 경계 unresolved**. [인계](reviews/2026-11-10-s2-runtime-accounting-fix.md). turn 상태·중복 철회·unknown 입력/overflow·종료/EOF/절단을 결합했고303테스트(skip0)·비교4/4·29제출60파일 일치를 확인했다. 현재 runtime은 정상 부모 종료에도 모든 writer의 정지를 증명하지 못하므로 production 수집/평가와 전체 usage 확정을 차단한다. 진단과 알려진 참조 교정을 분리했으며 실제 macOS 반복에서 detached/손자/열린 핸들의 늦은 쓰기를 재현했다. TASK/B/C84파일·모델·세 ID는 그대로다. 다음은 독립 리뷰와 R11의 별도 경계/도구 정책 선택이다. 새 플랫폼·API·권한을 도입하지 않았고 실제 모델/본 비교0회, trialAuthorized/readyForTrial=false·results=null·사람 검토 pending을 유지한다. 아래는 각 시점 기록이다.

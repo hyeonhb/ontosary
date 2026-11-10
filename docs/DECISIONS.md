@@ -229,3 +229,13 @@ R6은 모델 의미를 변경하지 않고 incoming/outgoing 한 단계 조회�
 기존 CLI/macOS의 process-group 정리로 모든 writer 종료를 증명할 수 없고 kqueue NOTE_TRACK 최소 재현도 ENOTSUP였다. [선택 기록](../experiments/domain-model/s2/verification/2026-11-10-runtime-accounting-fix/SELECTION.md)에 근거·대안·비용을 남겼다. 추가 권한/플랫폼이나 셸 계약 변경을 자동 채택하지 않는다. R11은 unresolved이며 bounded 진단 실행 결과로 정상 제출 권한을 발급하지 않는다. production 수집/평가를 거부하고 진단/known reference 교정을 명시적으로 분리한다.
 
 usage는 순차 turn 상태와 이벤트 identity, EOF/종료/절단을 결합한다. 모순된 turn은 합계에서 철회하고 전체가 불완전하면 total=null이다. 정상 subtotal도 공급자 소비 하한이라고 부르지 않는다. 현재 runtime의 종료 미확인 역시 전체 확정을 차단한다. 합성 fixture만 확정 경로를 검증한다. ADR-029의 token hard cap 제외와 실제 호출 금지를 유지하며, 이 보완은 독립 리뷰나 사람 승인·본 비교 승인이 아니다.
+
+## ADR-031 · S2 일회성 컨테이너 경계 타당성 검증 승인 — 2026-11-10
+
+**사용자 결정:** R12 독립 검증과 R11 미해결 확인 후, 일회성 컨테이너 경계를 우선 검토하면서 기존 Codex CLI·셸 사용 방식을 유지하기로 했다. 개발 세션은 [타당성 검증 지시](reviews/2026-11-10-s2-container-feasibility-instructions.md)에 따라 최소 실행/평가 경계·환경 재현·비용을 확인한다. ADR-029/030의 macOS 한정·컨테이너 미채택 범위를 이번 로컬 Linux 컨테이너 검토에 한해 확장한다. 특정 런타임의 채택이나 R11 해결을 미리 확정하지 않는다.
+
+**운영 상한:** 지시에서 총4시간, 환경 준비 합산90분, 마지막30분 검증/정리/인계, 후보1개·원인 확인 후 환경 재시도1회, 신규 유료 비용0으로 정했다. 설치·이미지/의존성 준비와 대기도 포함한다. 원본 cache는 보존하고 Linux 복사본의 필요한 고정 의존성 준비만 허용한다. 추가 권한/유료 약관·CLI 포크/API 실행기·큰 프로젝트 재구축이 필요하면 중단하고 인계한다. 준비 실패도 유효한 조사 결과이며 검증 생략을 성공으로 기록하지 않는다.
+
+**유지할 계약:** agent 실행과 제출 코드 평가에 각각 일회성 경계를 두는 타당성을 검증하며 제품 코어·과업·모델/B/C 지식·평가기 지원 범위는 유지한다. 전체 단위 종료 확인 전에 정상 제출을 수집하지 않는다. timeout 뒤 수집 코드는 진단용이며 정상 성공으로 계산하지 않고 실제 정지 시각을 기록한다. token hard cap 제외·100,000 참고선과30분 과업 제한은 유지한다. 준비의4시간 상한과 과업의30분 제한은 별개다.
+
+**완료/보류:** feasible-for-next-preparation·conditional·blocked/inconclusive와 근거/비용을 인계하고 결과를 독립 리뷰한다. 기존 macOS 차단 경로와 live 거부는 유지하며 fixture 검증으로 실제 모델/인증을 검증했다고 표현하지 않는다. 실제 모델 호출·연결 시험·본 비교는 이번 범위 밖이다. trialAuthorized/readyForTrial=false·results=null·사람 검토 pending을 유지한다. 새 구조의 도입·본 비교 실행은 결과 리뷰 이후에 정한다.
