@@ -1,5 +1,7 @@
 # 현재 아키텍처
 
+2026-11-11 다음 평가 구조 승인(ADR-037): [Linux 재현 지시](reviews/2026-11-11-s2-linux-evaluation-instructions.md)에 따라 Linux 의존성/common build를 고정한 불변 환경과 관리자 조립의 완전한 제출 입력을 RO로 제공한다. 새 container의 고정 Node 평가 entrypoint를 PID1로 실행하고 기존 독립 감독자/전체 종료 경계 뒤 보고서만 수집한다. 실제 runtime identity·pending·종료/성공 cleanup을 확인하며 worker 표식을 종료 권한으로 쓰지 않는다. 전체 Vendure source는 작은 fixture collector를 통과시키지 않고 output의128파일/16MiB 상한을 유지한다. 이는 **승인된 다음 실험 설계이며 아직 Linux 구현/재현 결과가 아니다**. 기존6개 evaluator 의미·Program 입력 검증·production/live 거부를 유지하며 실제 CLI 연결은 별도다.
+
 2026-11-11 [lifecycle fixture 구현·검증](reviews/2026-11-11-s2-lifecycle-fixture.md): `trial/container/lifecycle/`의 host heartbeat와 독립 systemd supervisor/ExecStopPost, manager 소유 persistent slice를 분리했다. admission 닫기→cgroup.kill→populated=0/runtime pending 확인→no-follow 전체 수집/manifest·delta 검증→원자 공개를 사용한다. service 실패 뒤 결과는 격리하고 next를 차단하며, 수동 cleanup은 성공 service 종료를 대신하지 못한다. fixture 전용25개를 확인했지만 production adapter나 R11 전체 해결은 아니다. 기존 코어·모델·평가 의미와 snapshot/live 거부를 유지한다. 아래 미구현 설명은 당시 기록이다.
 
 2026-11-10 다음 fixture 구조 승인(ADR-035): [지시](reviews/2026-11-10-s2-lifecycle-fixture-instructions.md)에 따라 호스트 래퍼와 독립된 VM 내부 systemd 감독자가 실행별 cgroup·시한·생존 신호를 소유한다. worker의 전체 종료와 새 실행 차단을 확인한 뒤 관리자 전용 staging을 수집·검증하고 원자적으로 결과를 공개한다. supervisor와 cleanup은 worker의 종료 대상 밖에 두고 실패 시 정상 결과/다음 실행을 차단한다. 이는 **다음 실험 설계이며 아직 구현되지 않았다**. fixture 결과는 production 제출 권한이 아니며 기존 snapshot/live 거부·R12/모델 계약을 유지한다.

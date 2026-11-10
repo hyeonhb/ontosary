@@ -1,5 +1,7 @@
 # 단계별 계획
 
+2026-11-11 현재 우선순위: fixture 경계의 독립 검토를 마쳤고, 사용자가 승인한 [Linux Vendure baseline/reference 평가 재현](reviews/2026-11-11-s2-linux-evaluation-instructions.md)을 새3시간 안에서 진행한다(ADR-037). 환경45분/핵심90분/탐색150분/총180분, 알려진7평가 단위·공개 타입 검사·timeout 통합과 기존 의미 대조가 범위다. 먼저 환경/평가기 재현을 확인하고 **결과 리뷰 뒤** 실제 CLI·인증/provider 준비를 별도 결정한다. 본 비교는 그 이후 남은 실행 조건·C 사람 검토와 별도 승인을 거친다. 현재 R11 unresolved·production/live 차단·본 비교 미실행을 유지하며 아래 우선순위들은 당시 기록이다.
+
 2026-11-11 현재 우선순위: [lifecycle fixture 결과](reviews/2026-11-11-s2-lifecycle-fixture.md)의 **독립 리뷰**다. 수정 후25개 확인과 두 VM 정리를 마쳤다. 최초 supervisor 지연 cleanup 실패, 공개 직후 사망 시 결과 철회, 실제 cgroup/FD/수집 증거와 비용을 함께 검토한다. R11 unresolved·production/live 차단을 유지한다. 성공한 fixture 결과를 Vendure·실제 CLI/provider·평가·본 비교 승인으로 확대하지 않고 후속 범위/예산을 리뷰 뒤 정한다.
 
 2026-11-10 현재 우선순위: [R11 fixture 종료·수집 경계](reviews/2026-11-10-s2-lifecycle-fixture-instructions.md)를 새3시간 안에서 구현·검증한다(ADR-035). 환경20분·정상/timeout 핵심 경로90분·탐색150분을 중간 한도로 두고 마지막30분은 검증·정리·인계다. 독립 감독자와 cgroup 전체 종료, 제한된 전체 수집 및 실패 시 차단을 확인한 뒤 리뷰한다. Vendure 준비·실제 CLI 연결·평가·본 비교는 후속 결정이며 기존 회차 잔여 예산을 자동 재개하지 않는다.

@@ -278,3 +278,13 @@ ADR-035의 한 후보/원래3시간 범위에서 [실제 fixture 결과](reviews
 실제 supervisor SIGKILL에서 남은 exec client가 cleanup을 지연시켜 늦은 쓰기를 허용했으므로 service KillSignal=SIGKILL을 채택했다. systemd 성공 결과 전 수동 cleanup은 admission을 열지 않는다. 공개 직후 supervisor 사망은 결과를 격리하고 blocked/next 거부로 남긴다. 최종 self-review에서 발견한 이 경로는 같은 후보를 재준비하여 실제 SIGKILL과25개 전체 fixture로 확인했고 추가 준비249.555초도 원래 회차에 합산했다. 불명확한 runtime 요청·cleanup 실패를 빈 cgroup이나 안정된 hash만으로 복구하지 않는다.
 
 결과는 fixtureOnly=true, validSubmission=false이며 정상 exit0/확인된 종료만 정상 fixture다. timeout/wrapper loss/nonzero는 진단, 감독/관리/수집 실패는 차단이다. 최종25개 통과는 독립 리뷰 대상이고 R11 unresolved·R12 기존 판정·production/live 거부를 유지한다. 실제 CLI/provider, Linux Vendure 평가와 본 비교의 범위/비용은 이후 리뷰에서 별도로 정한다.
+
+## ADR-037 · Linux Vendure의 알려진 제출 평가 재현과 출력 수집 — 2026-11-11
+
+**사용자 결정:** lifecycle fixture 독립 검토 이후 같은 경계에서 Linux Vendure baseline/reference 평가를 재현하는 구조와 새3시간 상한을 승인했다. [개발 지시](reviews/2026-11-11-s2-linux-evaluation-instructions.md)에 따라 알려진 제출/평가의 환경 재현을 먼저 확인한다. 실제 CLI·인증/provider 연결과 본 비교는 결과 리뷰 뒤 별도로 진행한다.
+
+**구조 선택:** Linux에서 고정 lockfile/scope로 의존성/common을 준비하고 기존 Program 입력 검증을 먼저 통과시킨다. 환경·완전 소스·도구는 관리자 소유 RO 입력이고, 실행마다 새 container의 고정 Node entrypoint를 PID1로 사용한다. 기존 독립 감독자·persistent cgroup·pending/runtime 종료·service 성공 확인을 재사용한 뒤 출력만 수집한다. Vendure 전체 source는 약76.7MB여서 작은 fixture 수집 한도를 확대하는 대신 이미 알려진 입력으로 다룬다. collector128파일/16MiB와 비생산 결과 경계를 유지하며 임의 agent 제출 수집기나 범용 runner를 구현하지 않는다.
+
+**검증/비용:** baseline/reference complete-root 각2회, 기존 타입/동작 부정2종, reference explicit delta1회의7단위와 공개 타입 검사·짧은 timeout 통합·영향 범위 회귀를 확인한다. macOS/새 Linux 반복/입력 방식의 의미·소스 identity 차이를 각각 대조한다. 시간/run ID/명시적 root 외의 차이를 숨기거나 Program hash를 자동 재고정하지 않는다. 환경45분·핵심90분·탐색150분·총180분, 새 유료 비용0이며 이전 예산은 재개하지 않는다. 평가 단위180초·종료10초·수집10초·외부240초를 상한으로 둔다.
+
+**판정 한계:** linux-evaluation-reproduced/inconclusive/blocked로 인계한다. baseline의 예상 overall failed와 인프라 실패를 구분한다. 성공도 R11 전체 해결/실제 agent 독립성 전체·H-O/H-F·본 비교 준비 완료를 뜻하지 않는다. R12 기존 검증 범위·production/live 거부·trialAuthorized/readyForTrial=false·results=null·실제 모델/provider/본 비교0회를 유지한다. 이 결정은 다음 작업 승인이고 Linux 재현이 이미 구현됐다는 기록이 아니다.
