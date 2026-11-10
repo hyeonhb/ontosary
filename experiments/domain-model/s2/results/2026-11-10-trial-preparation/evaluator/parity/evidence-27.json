@@ -1,0 +1,230 @@
+[
+  {
+    "id": "evidence-27#/value/file",
+    "view": "B/views/evidence-27.json",
+    "pointer": "/value/file",
+    "value": "packages/admin-ui/src/lib/core/src/providers/modal/modal.service.ts",
+    "kind": "source-quote",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 1507,
+      "endLine": 1531,
+      "sha256": "b50f89e2ab5c4c15d0c9dde3c50c7c4cdd0ea3959cc07e8b021f49582eec5219"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [
+      "d4096905f43f3134d12aa2567a2a0a6d1deb25b985222de877d7057fc336f365"
+    ],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "evidence-27#/value/offset",
+    "view": "B/views/evidence-27.json",
+    "pointer": "/value/offset",
+    "value": 1985,
+    "kind": "source-quote",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 1507,
+      "endLine": 1531,
+      "sha256": "b50f89e2ab5c4c15d0c9dde3c50c7c4cdd0ea3959cc07e8b021f49582eec5219"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [
+      "d4096905f43f3134d12aa2567a2a0a6d1deb25b985222de877d7057fc336f365"
+    ],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "evidence-27#/value/end",
+    "view": "B/views/evidence-27.json",
+    "pointer": "/value/end",
+    "value": 2882,
+    "kind": "source-quote",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 1507,
+      "endLine": 1531,
+      "sha256": "b50f89e2ab5c4c15d0c9dde3c50c7c4cdd0ea3959cc07e8b021f49582eec5219"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [
+      "d4096905f43f3134d12aa2567a2a0a6d1deb25b985222de877d7057fc336f365"
+    ],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "evidence-27#/value/line",
+    "view": "B/views/evidence-27.json",
+    "pointer": "/value/line",
+    "value": 68,
+    "kind": "source-quote",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 1507,
+      "endLine": 1531,
+      "sha256": "b50f89e2ab5c4c15d0c9dde3c50c7c4cdd0ea3959cc07e8b021f49582eec5219"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [
+      "d4096905f43f3134d12aa2567a2a0a6d1deb25b985222de877d7057fc336f365"
+    ],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "evidence-27#/value/text",
+    "view": "B/views/evidence-27.json",
+    "pointer": "/value/text",
+    "value": "fromComponent<T extends Dialog<any>, R>(\n        component: Type<T> & Type<Dialog<R>>,\n        options?: ModalOptions<T>,\n    ): Observable<R | undefined> {\n        return from(this.overlayHostService.getHostView()).pipe(\n            mergeMap(hostView => {\n                const modalComponentRef = hostView.createComponent(ModalDialogComponent);\n                const modalInstance: ModalDialogComponent<any> = modalComponentRef.instance;\n                modalInstance.childComponentType = component;\n                modalInstance.options = options;\n\n                return new Observable<R>(subscriber => {\n                    modalInstance.closeModal = (result: R) => {\n                        modalComponentRef.destroy();\n                        subscriber.next(result);\n                        subscriber.complete();\n                    };\n                });\n            }),\n        );\n    }",
+    "kind": "source-quote",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 1507,
+      "endLine": 1531,
+      "sha256": "b50f89e2ab5c4c15d0c9dde3c50c7c4cdd0ea3959cc07e8b021f49582eec5219"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [
+      "d4096905f43f3134d12aa2567a2a0a6d1deb25b985222de877d7057fc336f365"
+    ],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "evidence-27#/value/column",
+    "view": "B/views/evidence-27.json",
+    "pointer": "/value/column",
+    "value": 5,
+    "kind": "source-quote",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 1507,
+      "endLine": 1531,
+      "sha256": "b50f89e2ab5c4c15d0c9dde3c50c7c4cdd0ea3959cc07e8b021f49582eec5219"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [
+      "d4096905f43f3134d12aa2567a2a0a6d1deb25b985222de877d7057fc336f365"
+    ],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "evidence-27#/value/sourceVersion",
+    "view": "B/views/evidence-27.json",
+    "pointer": "/value/sourceVersion",
+    "value": "baseline",
+    "kind": "source-quote",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 1507,
+      "endLine": 1531,
+      "sha256": "b50f89e2ab5c4c15d0c9dde3c50c7c4cdd0ea3959cc07e8b021f49582eec5219"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [
+      "d4096905f43f3134d12aa2567a2a0a6d1deb25b985222de877d7057fc336f365"
+    ],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "evidence-27#/status",
+    "view": "B/views/evidence-27.json",
+    "pointer": "/status",
+    "value": "Found",
+    "kind": "metadata",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 1538,
+      "endLine": 1538,
+      "sha256": "4580f7b2b0fe8b95d9652f45957b4cbfa7c8a3fcd78a44451fe1705130532343"
+    },
+    "transformation": "verbatim metadata",
+    "sourceEvidence": [
+      "d4096905f43f3134d12aa2567a2a0a6d1deb25b985222de877d7057fc336f365"
+    ],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "evidence-27#/value/id",
+    "view": "B/views/evidence-27.json",
+    "pointer": "/value/id",
+    "value": "attribute:opens-modal:0",
+    "kind": "metadata",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 1539,
+      "endLine": 1539,
+      "sha256": "369fe19fe0c205232bc34d8802e6a8196cdcf48172e913f264ef1fdd5d2b55f4"
+    },
+    "transformation": "verbatim metadata",
+    "sourceEvidence": [
+      "d4096905f43f3134d12aa2567a2a0a6d1deb25b985222de877d7057fc336f365"
+    ],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "evidence-27#/value/symbol",
+    "view": "B/views/evidence-27.json",
+    "pointer": "/value/symbol",
+    "value": "fromComponent",
+    "kind": "metadata",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 1540,
+      "endLine": 1540,
+      "sha256": "6001153467f300cdd6a4b8014951a05edb7cb1ea66eb51ac7f87a466ab7c8a4a"
+    },
+    "transformation": "verbatim metadata",
+    "sourceEvidence": [
+      "d4096905f43f3134d12aa2567a2a0a6d1deb25b985222de877d7057fc336f365"
+    ],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "evidence-27#/value/anchor",
+    "view": "B/views/evidence-27.json",
+    "pointer": "/value/anchor",
+    "value": "fromComponent<T extends Dialog<any>, R>(\n        component: Type<T> & Type<Dialog<R>>,\n        options?: ModalOptions<T>,\n    ): Observable<R | undefined> {\n        return from(this.overlayHostService.getHostView()).pipe(\n            mergeMap(hostView => {\n                const modalComponentRef = hostView.createComponent(ModalDialogComponent);\n                const modalInstance: ModalDialogComponent<any> = modalComponentRef.instance;\n                modalInstance.childComponentType = component;\n                modalInstance.options = options;\n\n                return new Observable<R>(subscriber => {\n                    modalInstance.closeModal = (result: R) => {\n                        modalComponentRef.destroy();\n                        subscriber.next(result);\n                        subscriber.complete();\n                    };\n                });\n            }),\n        );\n    }",
+    "kind": "metadata",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 1541,
+      "endLine": 1541,
+      "sha256": "bdcf66317b0962fc69dd6b9a7ed65263732c8a695871bc48ee84aaeb3cc21750"
+    },
+    "transformation": "verbatim metadata",
+    "sourceEvidence": [
+      "d4096905f43f3134d12aa2567a2a0a6d1deb25b985222de877d7057fc336f365"
+    ],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "evidence-27#/value/sha256",
+    "view": "B/views/evidence-27.json",
+    "pointer": "/value/sha256",
+    "value": "d4096905f43f3134d12aa2567a2a0a6d1deb25b985222de877d7057fc336f365",
+    "kind": "metadata",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 1542,
+      "endLine": 1542,
+      "sha256": "3d6a5024f817491a413c6baf0405a4104a8cc8ff3f6105644a0c450e11dbead8"
+    },
+    "transformation": "verbatim metadata",
+    "sourceEvidence": [
+      "d4096905f43f3134d12aa2567a2a0a6d1deb25b985222de877d7057fc336f365"
+    ],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  }
+]

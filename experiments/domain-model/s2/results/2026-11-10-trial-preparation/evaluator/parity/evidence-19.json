@@ -1,0 +1,230 @@
+[
+  {
+    "id": "evidence-19#/value/file",
+    "view": "B/views/evidence-19.json",
+    "pointer": "/value/file",
+    "value": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+    "kind": "source-quote",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 1235,
+      "endLine": 1245,
+      "sha256": "ed494ed01a7142a1d72501ebde55c5903695cc8f793e4287f1f78e02537844de"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [
+      "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede"
+    ],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "evidence-19#/value/offset",
+    "view": "B/views/evidence-19.json",
+    "pointer": "/value/offset",
+    "value": 23243,
+    "kind": "source-quote",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 1235,
+      "endLine": 1245,
+      "sha256": "ed494ed01a7142a1d72501ebde55c5903695cc8f793e4287f1f78e02537844de"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [
+      "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede"
+    ],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "evidence-19#/value/end",
+    "view": "B/views/evidence-19.json",
+    "pointer": "/value/end",
+    "value": 23432,
+    "kind": "source-quote",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 1235,
+      "endLine": 1245,
+      "sha256": "ed494ed01a7142a1d72501ebde55c5903695cc8f793e4287f1f78e02537844de"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [
+      "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede"
+    ],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "evidence-19#/value/line",
+    "view": "B/views/evidence-19.json",
+    "pointer": "/value/line",
+    "value": 602,
+    "kind": "source-quote",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 1235,
+      "endLine": 1245,
+      "sha256": "ed494ed01a7142a1d72501ebde55c5903695cc8f793e4287f1f78e02537844de"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [
+      "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede"
+    ],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "evidence-19#/value/text",
+    "view": "B/views/evidence-19.json",
+    "pointer": "/value/text",
+    "value": "this.modalService\n            .fromComponent(RefundOrderDialogComponent, {\n                size: 'xl',\n                locals: {\n                    order,\n                },\n            })",
+    "kind": "source-quote",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 1235,
+      "endLine": 1245,
+      "sha256": "ed494ed01a7142a1d72501ebde55c5903695cc8f793e4287f1f78e02537844de"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [
+      "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede"
+    ],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "evidence-19#/value/column",
+    "view": "B/views/evidence-19.json",
+    "pointer": "/value/column",
+    "value": 9,
+    "kind": "source-quote",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 1235,
+      "endLine": 1245,
+      "sha256": "ed494ed01a7142a1d72501ebde55c5903695cc8f793e4287f1f78e02537844de"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [
+      "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede"
+    ],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "evidence-19#/value/sourceVersion",
+    "view": "B/views/evidence-19.json",
+    "pointer": "/value/sourceVersion",
+    "value": "baseline",
+    "kind": "source-quote",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 1235,
+      "endLine": 1245,
+      "sha256": "ed494ed01a7142a1d72501ebde55c5903695cc8f793e4287f1f78e02537844de"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [
+      "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede"
+    ],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "evidence-19#/status",
+    "view": "B/views/evidence-19.json",
+    "pointer": "/status",
+    "value": "Found",
+    "kind": "metadata",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 1252,
+      "endLine": 1252,
+      "sha256": "4580f7b2b0fe8b95d9652f45957b4cbfa7c8a3fcd78a44451fe1705130532343"
+    },
+    "transformation": "verbatim metadata",
+    "sourceEvidence": [
+      "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede"
+    ],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "evidence-19#/value/id",
+    "view": "B/views/evidence-19.json",
+    "pointer": "/value/id",
+    "value": "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:23185:opens-modal/e0",
+    "kind": "metadata",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 1253,
+      "endLine": 1253,
+      "sha256": "abb1e8c1caf138649c1b5b379fa1c97291b69eb47365130e1461e5d7ecbb7555"
+    },
+    "transformation": "verbatim metadata",
+    "sourceEvidence": [
+      "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede"
+    ],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "evidence-19#/value/symbol",
+    "view": "B/views/evidence-19.json",
+    "pointer": "/value/symbol",
+    "value": "CallExpression",
+    "kind": "metadata",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 1254,
+      "endLine": 1254,
+      "sha256": "749376c7e33a8a8db141b0e36cf6a7c20adc8d891431f1f5bfa95d9895079bea"
+    },
+    "transformation": "verbatim metadata",
+    "sourceEvidence": [
+      "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede"
+    ],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "evidence-19#/value/anchor",
+    "view": "B/views/evidence-19.json",
+    "pointer": "/value/anchor",
+    "value": "this.modalService\n            .fromComponent(RefundOrderDialogComponent, {\n                size: 'xl',\n                locals: {\n                    order,\n                },\n            })",
+    "kind": "metadata",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 1255,
+      "endLine": 1255,
+      "sha256": "95b93be580039584a7f16dc3e7fa5ecc45b3357a38b85b0297fe1b3d10e4fb12"
+    },
+    "transformation": "verbatim metadata",
+    "sourceEvidence": [
+      "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede"
+    ],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "evidence-19#/value/sha256",
+    "view": "B/views/evidence-19.json",
+    "pointer": "/value/sha256",
+    "value": "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede",
+    "kind": "metadata",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 1256,
+      "endLine": 1256,
+      "sha256": "e218bc5c7b03b0446fabf8073015965c34c6dc61958d2dbf810d46867db212f9"
+    },
+    "transformation": "verbatim metadata",
+    "sourceEvidence": [
+      "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede"
+    ],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  }
+]

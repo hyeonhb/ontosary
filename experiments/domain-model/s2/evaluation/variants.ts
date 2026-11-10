@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import { gunzipSync } from 'node:zlib';
 import { Sources, Delta } from './submission.js';
 import { mappings } from './behavior.js';
-export const variants=['baseline','reference','historical-reference','helper','helper-type-error','helper-syntax-error','missing-helper','deleted-module','out-of-scope','direct-only','no-trim','force-cancel','dismiss-request','continue-after-failure','omit-followup-refund','wrong-order-id','wrong-payment-id','wrong-refund-amount','wrong-cancel-line-id','wrong-cancel-quantity','guard-refund-only','trim-refund-reason','wrong-modal-order','wrong-modal-active'];
+export const variants=['baseline','reference','historical-reference','helper','helper-type-error','helper-syntax-error','missing-helper','deleted-module','out-of-scope','direct-only','no-trim','force-cancel','dismiss-request','continue-after-failure','omit-followup-refund','wrong-order-id','wrong-payment-id','wrong-refund-amount','wrong-cancel-line-id','wrong-cancel-quantity','guard-refund-only','trim-refund-reason','wrong-modal-order','wrong-modal-active','invalid-service-value','invalid-service-never','invalid-service-error','invalid-service-throw','invalid-dialog-null'];
 export function patch(source:string,from:string,to:string) {
     if(source.split(from).length!==2) throw Error('Nonunique patch anchor: '+from);
     return source.replace(from,to);
@@ -48,5 +48,16 @@ export function variantDelta(name:string,baseline:Sources,repo:string):Delta {
         const order=name==='wrong-modal-order'?"order: { ...order, id: 'wrong-modal-order' },":'order: { ...order, active: true },';
         delta[detail]=source.slice(0,start)+patch(source.slice(start,end),'                    order,','                    '+order)+source.slice(end);
     }
+    const invalidReturns: Record<string,string> = {
+        'invalid-service-value': 'return of(undefined as any);',
+        'invalid-service-never': 'return new Observable<Codegen.CancelOrderMutation>(() => {});',
+        'invalid-service-error': 'return new Observable<Codegen.CancelOrderMutation>(subscriber => subscriber.error(new Error("invalid")));',
+        'invalid-service-throw': 'throw new Error("invalid");',
+    };
+    if(invalidReturns[name]) {
+        delta[service]=patch(delta[service], 'return EMPTY;', invalidReturns[name]!);
+        if(name==='invalid-service-value') delta[service]="import { of } from 'rxjs';\n"+delta[service];
+    }
+    if(name==='invalid-dialog-null') delta[cancel]=patch(delta[cancel], 'this.resolveWith(); return;', 'this.resolveWith(null as any); return;');
     return delta;
 }

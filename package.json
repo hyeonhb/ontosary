@@ -34,7 +34,13 @@
     "s2:oracle-check": "pnpm s2:build && node work/s2-build/evaluation/oracle-check.js",
     "s2:workspace": "pnpm s2:build && node work/s2-build/workspace.js",
     "s2:verify": "pnpm s2:build && node work/s2-build/verify.js",
-    "s2:verify-evaluation": "pnpm s2:build && node work/s2-build/evaluation/verify.js"
+    "s2:verify-evaluation": "pnpm s2:build && node work/s2-build/evaluation/verify.js",
+    "s2:trial:probe": "pnpm s2:build && node work/s2-build/trial/probe.js",
+    "s2:trial:environment": "pnpm s2:build && node work/s2-build/trial/environment.js",
+    "s2:trial:validate-public": "pnpm s2:build && node work/s2-build/trial/validate-environment.js",
+    "s2:trial:validate-workspaces": "pnpm s2:build && node work/s2-build/trial/validate-workspaces.js",
+    "s2:trial:freeze": "pnpm s2:build && node work/s2-build/trial/freeze.js freeze",
+    "s2:trial:run": "pnpm s2:build && node work/s2-build/trial/freeze.js run"
   },
   "dependencies": {
     "typescript": "5.9.3"

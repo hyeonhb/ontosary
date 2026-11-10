@@ -1,0 +1,410 @@
+[
+  {
+    "id": "item-10#/item/value/source/kind",
+    "view": "B/views/item-10.json",
+    "pointer": "/item/value/source/kind",
+    "value": "relationship-candidate",
+    "kind": "statement",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 190,
+      "endLine": 192,
+      "sha256": "3755ba15aaa66304bd61c8de7c4689cc893b3c5d96f9dbf5a0240f918fd7323b"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-10#/item/value/source/label",
+    "view": "B/views/item-10.json",
+    "pointer": "/item/value/source/label",
+    "value": "취소 service → GraphQL operation",
+    "kind": "statement",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 190,
+      "endLine": 192,
+      "sha256": "3755ba15aaa66304bd61c8de7c4689cc893b3c5d96f9dbf5a0240f918fd7323b"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-10#/item/value/source/status",
+    "view": "B/views/item-10.json",
+    "pointer": "/item/value/source/status",
+    "value": "pending-review",
+    "kind": "statement",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 190,
+      "endLine": 192,
+      "sha256": "3755ba15aaa66304bd61c8de7c4689cc893b3c5d96f9dbf5a0240f918fd7323b"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-10#/item/value/source/author",
+    "view": "B/views/item-10.json",
+    "pointer": "/item/value/source/author",
+    "value": "agent",
+    "kind": "statement",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 190,
+      "endLine": 192,
+      "sha256": "3755ba15aaa66304bd61c8de7c4689cc893b3c5d96f9dbf5a0240f918fd7323b"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-10#/item/value/source/interpretation",
+    "view": "B/views/item-10.json",
+    "pointer": "/item/value/source/interpretation",
+    "value": "CANCEL_ORDER 문서와 input 전달을 관찰한다.",
+    "kind": "statement",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 190,
+      "endLine": 192,
+      "sha256": "3755ba15aaa66304bd61c8de7c4689cc893b3c5d96f9dbf5a0240f918fd7323b"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-10#/item/value/source/unverified/0",
+    "view": "B/views/item-10.json",
+    "pointer": "/item/value/source/unverified/0",
+    "value": "GraphQL/서버 실행 결과는 확인하지 않았다.",
+    "kind": "statement",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 190,
+      "endLine": 192,
+      "sha256": "3755ba15aaa66304bd61c8de7c4689cc893b3c5d96f9dbf5a0240f918fd7323b"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-10#/item/value/source/intendedPolicy",
+    "view": "B/views/item-10.json",
+    "pointer": "/item/value/source/intendedPolicy",
+    "value": null,
+    "kind": "statement",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 190,
+      "endLine": 192,
+      "sha256": "3755ba15aaa66304bd61c8de7c4689cc893b3c5d96f9dbf5a0240f918fd7323b"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-10#/item/value/factRefs/0",
+    "view": "B/views/item-10.json",
+    "pointer": "/item/value/factRefs/0",
+    "value": "source-V08",
+    "kind": "reference",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 194,
+      "endLine": 194,
+      "sha256": "fedb778c9655aea5bdc38d30e0068ddd363a0589cfb7915c199a9a37f4951255"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-10#/item/value/factRefs/1",
+    "view": "B/views/item-10.json",
+    "pointer": "/item/value/factRefs/1",
+    "value": "source-V09",
+    "kind": "reference",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 194,
+      "endLine": 194,
+      "sha256": "fedb778c9655aea5bdc38d30e0068ddd363a0589cfb7915c199a9a37f4951255"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-10#/item/value/candidateRefs",
+    "view": "B/views/item-10.json",
+    "pointer": "/item/value/candidateRefs",
+    "value": [],
+    "kind": "reference",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 194,
+      "endLine": 194,
+      "sha256": "fedb778c9655aea5bdc38d30e0068ddd363a0589cfb7915c199a9a37f4951255"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-10#/neighbors/value/0/from",
+    "view": "B/views/item-10.json",
+    "pointer": "/neighbors/value/0/from",
+    "value": "cancel-transport",
+    "kind": "relation",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 196,
+      "endLine": 196,
+      "sha256": "e6bbbdad43991c4aeb33088e58808f998b81b90ef788730834c5c9ddcc305303"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-10#/neighbors/value/0/to",
+    "view": "B/views/item-10.json",
+    "pointer": "/neighbors/value/0/to",
+    "value": "cancel-request",
+    "kind": "relation",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 196,
+      "endLine": 196,
+      "sha256": "e6bbbdad43991c4aeb33088e58808f998b81b90ef788730834c5c9ddcc305303"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-10#/neighbors/value/0/kind",
+    "view": "B/views/item-10.json",
+    "pointer": "/neighbors/value/0/kind",
+    "value": "related-item",
+    "kind": "relation",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 196,
+      "endLine": 196,
+      "sha256": "e6bbbdad43991c4aeb33088e58808f998b81b90ef788730834c5c9ddcc305303"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-10#/neighbors/value/0/provenance",
+    "view": "B/views/item-10.json",
+    "pointer": "/neighbors/value/0/provenance",
+    "value": "S1.items/10/relatedItems",
+    "kind": "relation",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 196,
+      "endLine": 196,
+      "sha256": "e6bbbdad43991c4aeb33088e58808f998b81b90ef788730834c5c9ddcc305303"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-10#/neighbors/value/0/direction",
+    "view": "B/views/item-10.json",
+    "pointer": "/neighbors/value/0/direction",
+    "value": "outgoing",
+    "kind": "relation",
+    "C": {
+      "file": "C/guide.md",
+      "startLine": 196,
+      "endLine": 196,
+      "sha256": "e6bbbdad43991c4aeb33088e58808f998b81b90ef788730834c5c9ddcc305303"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-10#/item/status",
+    "view": "B/views/item-10.json",
+    "pointer": "/item/status",
+    "value": "Found",
+    "kind": "metadata",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 173,
+      "endLine": 173,
+      "sha256": "b4b84a0a368190fcc8d4c6952204cc7a30ee8901decf1fa95e73b9af67337a92"
+    },
+    "transformation": "verbatim metadata",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-10#/item/value/id",
+    "view": "B/views/item-10.json",
+    "pointer": "/item/value/id",
+    "value": "cancel-transport",
+    "kind": "metadata",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 174,
+      "endLine": 174,
+      "sha256": "ae33d5ccb2558eff7a1453e7432704b47ba0f4759f9da72add0cc5acb910380c"
+    },
+    "transformation": "verbatim metadata",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-10#/item/value/kind",
+    "view": "B/views/item-10.json",
+    "pointer": "/item/value/kind",
+    "value": "relationship-candidate",
+    "kind": "metadata",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 175,
+      "endLine": 175,
+      "sha256": "967d433dde3e033e04e4b486ba9728d3c1daa4df11427904f49b2d0ea8a47b40"
+    },
+    "transformation": "verbatim metadata",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-10#/item/value/source/id",
+    "view": "B/views/item-10.json",
+    "pointer": "/item/value/source/id",
+    "value": "cancel-transport",
+    "kind": "metadata",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 176,
+      "endLine": 176,
+      "sha256": "fe1f9547b60981e4b9266f2d2f60a18ec7c6d478afe7f3dc1b1c1a0071ad9f4b"
+    },
+    "transformation": "verbatim metadata",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-10#/item/value/source/factRefs/0",
+    "view": "B/views/item-10.json",
+    "pointer": "/item/value/source/factRefs/0",
+    "value": "source-V08",
+    "kind": "metadata",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 177,
+      "endLine": 177,
+      "sha256": "2cde9b2c2bf8a11c31a51329d8bdcfc7018e1d000d8bd546a35bc51aaf307ca7"
+    },
+    "transformation": "verbatim metadata",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-10#/item/value/source/factRefs/1",
+    "view": "B/views/item-10.json",
+    "pointer": "/item/value/source/factRefs/1",
+    "value": "source-V09",
+    "kind": "metadata",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 178,
+      "endLine": 178,
+      "sha256": "2f15207d4285462bf7fea5ee79acb79af1483012c39a1b9524cb64da1cea3454"
+    },
+    "transformation": "verbatim metadata",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-10#/item/value/source/candidateRefs",
+    "view": "B/views/item-10.json",
+    "pointer": "/item/value/source/candidateRefs",
+    "value": [],
+    "kind": "metadata",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 179,
+      "endLine": 179,
+      "sha256": "628e9889030a6bc624c125c57af3f624a381b2b7bf93f37173aaa087c108fe66"
+    },
+    "transformation": "verbatim metadata",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-10#/item/value/source/relatedItems/0",
+    "view": "B/views/item-10.json",
+    "pointer": "/item/value/source/relatedItems/0",
+    "value": "cancel-request",
+    "kind": "metadata",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 180,
+      "endLine": 180,
+      "sha256": "10c709ed3a76de918186c09a98ada32754d1b00db484596533a326d8785f4f5c"
+    },
+    "transformation": "verbatim metadata",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "item-10#/neighbors/status",
+    "view": "B/views/item-10.json",
+    "pointer": "/neighbors/status",
+    "value": "Found",
+    "kind": "metadata",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 181,
+      "endLine": 181,
+      "sha256": "ff0b8781bcebe848de7b336ad95f2628203a18156bc648a3a7cf556f57d499b1"
+    },
+    "transformation": "verbatim metadata",
+    "sourceEvidence": [],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  }
+]

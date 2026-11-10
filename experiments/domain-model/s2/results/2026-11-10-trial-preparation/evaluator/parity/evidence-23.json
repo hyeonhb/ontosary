@@ -1,0 +1,230 @@
+[
+  {
+    "id": "evidence-23#/value/file",
+    "view": "B/views/evidence-23.json",
+    "pointer": "/value/file",
+    "value": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+    "kind": "source-quote",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 1340,
+      "endLine": 1424,
+      "sha256": "b3f910eb327e05324f44e0921d93c51e9b3af1a4687334bf80bf385b2f282e36"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [
+      "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede"
+    ],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "evidence-23#/value/offset",
+    "view": "B/views/evidence-23.json",
+    "pointer": "/value/offset",
+    "value": 23185,
+    "kind": "source-quote",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 1340,
+      "endLine": 1424,
+      "sha256": "b3f910eb327e05324f44e0921d93c51e9b3af1a4687334bf80bf385b2f282e36"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [
+      "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede"
+    ],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "evidence-23#/value/end",
+    "view": "B/views/evidence-23.json",
+    "pointer": "/value/end",
+    "value": 26909,
+    "kind": "source-quote",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 1340,
+      "endLine": 1424,
+      "sha256": "b3f910eb327e05324f44e0921d93c51e9b3af1a4687334bf80bf385b2f282e36"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [
+      "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede"
+    ],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "evidence-23#/value/line",
+    "view": "B/views/evidence-23.json",
+    "pointer": "/value/line",
+    "value": 601,
+    "kind": "source-quote",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 1340,
+      "endLine": 1424,
+      "sha256": "b3f910eb327e05324f44e0921d93c51e9b3af1a4687334bf80bf385b2f282e36"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [
+      "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede"
+    ],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "evidence-23#/value/text",
+    "view": "B/views/evidence-23.json",
+    "pointer": "/value/text",
+    "value": "private refundOrder(order: OrderDetailFragment) {\n        this.modalService\n            .fromComponent(RefundOrderDialogComponent, {\n                size: 'xl',\n                locals: {\n                    order,\n                },\n            })\n            .pipe(\n                switchMap(input => {\n                    if (!input) {\n                        return of(undefined);\n                    }\n\n                    if (input.cancel.lines?.length) {\n                        return this.dataService.order.cancelOrder(input.cancel).pipe(\n                            map(res => {\n                                const result = res.cancelOrder;\n                                switch (result.__typename) {\n                                    case 'Order':\n                                        this.refetchOrder(result).subscribe();\n                                        this.notificationService.success(\n                                            _('order.cancelled-order-items-success'),\n                                            {\n                                                count: summate(input.cancel.lines, 'quantity'),\n                                            },\n                                        );\n                                        return input;\n                                    case 'CancelActiveOrderError':\n                                    case 'QuantityTooGreatError':\n                                    case 'MultipleOrderError':\n                                    case 'OrderStateTransitionError':\n                                    case 'EmptyOrderLineSelectionError':\n                                        this.notificationService.error(result.message);\n                                        return undefined;\n                                }\n                            }),\n                        );\n                    } else {\n                        return [input];\n                    }\n                }),\n                switchMap(input => {\n                    if (!input) {\n                        return of(undefined);\n                    }\n                    if (input.refunds.length) {\n                        return forkJoin(\n                            input.refunds.map(refund =>\n                                this.dataService.order.refundOrder(refund).pipe(map(res => res.refundOrder)),\n                            ),\n                        );\n                    } else {\n                        return [undefined];\n                    }\n                }),\n            )\n            .subscribe(results => {\n                for (const result of results ?? []) {\n                    if (result) {\n                        switch (result.__typename) {\n                            case 'Refund':\n                                if (result.state === 'Failed') {\n                                    this.notificationService.error(_('order.refund-order-failed'));\n                                } else {\n                                    this.notificationService.success(_('order.refund-order-success'));\n                                }\n                                break;\n                            case 'AlreadyRefundedError':\n                            case 'NothingToRefundError':\n                            case 'PaymentOrderMismatchError':\n                            case 'RefundOrderStateError':\n                            case 'RefundStateTransitionError':\n                                this.notificationService.error(result.message);\n                                break;\n                        }\n                    }\n                }\n                this.refetchOrder(results?.[0]).subscribe();\n            });\n    }",
+    "kind": "source-quote",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 1340,
+      "endLine": 1424,
+      "sha256": "b3f910eb327e05324f44e0921d93c51e9b3af1a4687334bf80bf385b2f282e36"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [
+      "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede"
+    ],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "evidence-23#/value/column",
+    "view": "B/views/evidence-23.json",
+    "pointer": "/value/column",
+    "value": 5,
+    "kind": "source-quote",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 1340,
+      "endLine": 1424,
+      "sha256": "b3f910eb327e05324f44e0921d93c51e9b3af1a4687334bf80bf385b2f282e36"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [
+      "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede"
+    ],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "evidence-23#/value/sourceVersion",
+    "view": "B/views/evidence-23.json",
+    "pointer": "/value/sourceVersion",
+    "value": "baseline",
+    "kind": "source-quote",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 1340,
+      "endLine": 1424,
+      "sha256": "b3f910eb327e05324f44e0921d93c51e9b3af1a4687334bf80bf385b2f282e36"
+    },
+    "transformation": "template with verbatim source values",
+    "sourceEvidence": [
+      "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede"
+    ],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "evidence-23#/status",
+    "view": "B/views/evidence-23.json",
+    "pointer": "/status",
+    "value": "Found",
+    "kind": "metadata",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 1431,
+      "endLine": 1431,
+      "sha256": "4580f7b2b0fe8b95d9652f45957b4cbfa7c8a3fcd78a44451fe1705130532343"
+    },
+    "transformation": "verbatim metadata",
+    "sourceEvidence": [
+      "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede"
+    ],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "evidence-23#/value/id",
+    "view": "B/views/evidence-23.json",
+    "pointer": "/value/id",
+    "value": "object:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:23185",
+    "kind": "metadata",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 1432,
+      "endLine": 1432,
+      "sha256": "2b0116cc1a31b264ddd2c194575560bce741d4c49dcdcb3bee804322ac72c553"
+    },
+    "transformation": "verbatim metadata",
+    "sourceEvidence": [
+      "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede"
+    ],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "evidence-23#/value/symbol",
+    "view": "B/views/evidence-23.json",
+    "pointer": "/value/symbol",
+    "value": "refundOrder",
+    "kind": "metadata",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 1433,
+      "endLine": 1433,
+      "sha256": "101db591c01f084db028b222b301d52bbde394914886978967cac625c9c7a072"
+    },
+    "transformation": "verbatim metadata",
+    "sourceEvidence": [
+      "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede"
+    ],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "evidence-23#/value/anchor",
+    "view": "B/views/evidence-23.json",
+    "pointer": "/value/anchor",
+    "value": "private refundOrder(order: OrderDetailFragment) {",
+    "kind": "metadata",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 1434,
+      "endLine": 1434,
+      "sha256": "474b8268813e39ae4f8a7dfacaf36ee54aae50ca314f77ef1e74a7aa3fa775fd"
+    },
+    "transformation": "verbatim metadata",
+    "sourceEvidence": [
+      "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede"
+    ],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  },
+  {
+    "id": "evidence-23#/value/sha256",
+    "view": "B/views/evidence-23.json",
+    "pointer": "/value/sha256",
+    "value": "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede",
+    "kind": "metadata",
+    "C": {
+      "file": "C/evidence.md",
+      "startLine": 1435,
+      "endLine": 1435,
+      "sha256": "e218bc5c7b03b0446fabf8073015965c34c6dc61958d2dbf810d46867db212f9"
+    },
+    "transformation": "verbatim metadata",
+    "sourceEvidence": [
+      "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede"
+    ],
+    "automatic": "coverage-and-text-integrity-only",
+    "developerReview": "pending"
+  }
+]

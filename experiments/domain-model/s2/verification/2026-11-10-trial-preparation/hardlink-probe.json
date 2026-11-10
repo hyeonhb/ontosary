@@ -1,0 +1,6 @@
+{
+  "operation": "hardlink alias of read-only material",
+  "exit": 0,
+  "observation": "EPERM",
+  "materialUnchanged": true
+}

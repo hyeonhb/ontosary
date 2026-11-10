@@ -1,0 +1,181 @@
+{
+  "executionId": "be32af64bdeb2bac895a62cb36891e775e18ca15fa4a730c36c66ba0ed626cae",
+  "environmentBinding": {
+    "cli-metadata.json": "d1077dd41b69b291dca877d7119a1b0e71b329b5746d7129bc2726e2fadc4375",
+    "public-environment.json.gz": "16f38479c1bf6b262a42f4d2807cb66bcec7cc269842f874ec147d1c9cb929c0",
+    "isolation-and-usage-probe.json": "e7a4011d6b28c270058d21e4624596cdf79239bee799129d7728241b518ff8bd",
+    "workspaces.json": "72aa66fd10a6a0f0e8b40aceb60ca79cd0eb3b61fba16688897aa169c7f96f0e",
+    "public-private-type-equivalence.json": "801bb3c298949c9a2a1a8cc743250a0e5efa8a15197e95be2d073db98f1c37f1"
+  },
+  "evaluatorId": "b7b6407b46b40d25e760f4e44e9a1839fddf8629c2c20c9d2c1430e760ec3aae",
+  "version": 1,
+  "bundleId": "ab522d70da78c0e71b6ddc01f32056980b85de245e150bdde55f39c16a17c509",
+  "baselineId": "7707db72b46a21570152b2b8920e6526996952abaac1574642d6638c477ba0d8",
+  "modelId": "2ba6c772263da8814256efaa5491c69f723d79157a7f8aad7f22d898e297e5cf",
+  "bundleManifestHash": "5e3da92ff4a3ea1d0bed60040e849a92ec104044f474de712c026fdaea1ffa25",
+  "runPlanHash": "110204e35e7a39397285739b476b3175b6d79e684fa1aea31d8629dacebd089e",
+  "implementationHashes": {
+    "prepare.ts": "aaf7d098516c371a783bcfb0447466155903f0bf7b4c57333b6093aa38cb2cf7",
+    "vendure-baseline.ts": "c99fdc32a2d145973024def2e28e3f347892729f3a84f9f17aec2d366489134b",
+    "verify.ts": "fa81fb75179cdd71fe438919148e07a281240fbd284384164b025aabfa254ca6",
+    "workspace.ts": "a4a0e8868201524983a59be6308517862135487403e77964de3f93ec00db4554",
+    "trial/environment.ts": "921dadf813924a3b8ea03f3e6aafc598d2d25c290b33d0c9c9c41502f331bbab",
+    "trial/evaluate-snapshot.ts": "4dc8360c9b506f2e4685a650e05fd7c61d0901e10711a12418779f36ecfe67d0",
+    "trial/freeze.ts": "21b3d447a3d6c195fb0938e8c547f095bedd9b1db354c132eeb9c0acb6c8640a",
+    "trial/isolated-command.ts": "96056f3b79c16f9ea58083b2f5c077e16c5744948e891d66d0349f5062bf8c21",
+    "trial/probe.ts": "a13b0ad7974dbc3ff2bea2c98f168e076675febcc5b0ea1295e3986e7bebd4ac",
+    "trial/public-check.ts": "75a133f0023d606e46891423626119dedd65d8d8816e02070c2f9ea22e7cf3e7",
+    "trial/runtime.ts": "92bbad680ad4050aa249c8811f0835286e25a56a9669cba13d7745dd4045bf04",
+    "trial/snapshot-gate.ts": "5c7da9c707a017e79fbd3bef9a020d63262717a51422639e2c7fb646689d0de4",
+    "trial/task.ts": "ad558e7365442e0637e9ee1f6f9f486136b8809403e772accac30e23649f216e",
+    "trial/telemetry.ts": "c57507639f6808d3e2fe2c0d377b5db064149d8bc8c185306376fff57956e58d",
+    "trial/validate-environment.ts": "a5fee9ad8748ff43533a0273194da06dcff431b34598fc64edc93f8a40ff48ae",
+    "trial/validate-workspaces.ts": "23d26ac3462ac2df52a3b8e4a1b9262db5aa869d5ca7fcb8a26168a178b89752",
+    "lib/analysis-session.ts": "7656b8ec54e1059259536c8f25cd739adc7e6d6d3305080b65f3d405c26150ba",
+    "lib/bundle.ts": "c37c10765f91eb06fb386c07e4b0f85c8d152e62d09f9be628dfd9fa809d95d3",
+    "lib/model.ts": "9de8eac98c91a65ccf623ae35b757cdd93524e9985b06c88f88cb05f54097ed7",
+    "lib/prose.ts": "8abe6658dc98f2c5419d0ea42d6f42dc412ac3183b137c5b0249ddbe47fe433b",
+    "lib/query.ts": "23ef9557b429bee8e4581354782c6121ead5e9fa0ac7d924d8002ce81d23e523",
+    "lib/validate.ts": "bc8e51188e4a3c24ee87179de37cbb6689b7308e370e4c436c147785d6e03aae",
+    "evaluation/behavior.ts": "ec87b7d5feeca137b81372c60dc8f71df98267c1d317a2cc15a24a6da0c4197e",
+    "evaluation/evaluate.ts": "e30de0ff25d59db8220e9270a8af803faeaee8dfb35865b6e71f0b196b96daa7",
+    "evaluation/execute.ts": "38216e00c223c10f546103f1cf5062e649318f68a661608abed93fc4c33d7852",
+    "evaluation/modal.ts": "f94b1c13d18b911c1bd50d6666800f55b46d4e631d2c591b9e70fad6271e2617",
+    "evaluation/oracle-check.ts": "1429f2220af90b72ecc9da4ce0f19e1f1f126626445c864300118b5162dbed36",
+    "evaluation/run.ts": "0a1d13b139814d5c6dbd4ac736df8077d9b320552fbdc6ea19a67b977b535f9d",
+    "evaluation/stream.ts": "34b926efcc7e2906babfd12aa8720ee0168ecd510d6f91e5ca8b2ec0d1461ddf",
+    "evaluation/submission.ts": "62bf36de697a08275d79b2c1225974ea55d4570aab40c6f86365698b8f16e83d",
+    "evaluation/variants.ts": "235a653febef5fd1b6b446d399f22e454828e6eb241d662d5c461351aee2cac1",
+    "evaluation/verify.ts": "ff4b9b24fd0b91e9f9b22b80bac59e111c90fef60b4fdabff8c024dc29cd8190"
+  },
+  "agentModel": {
+    "id": "gpt-6-astra",
+    "reasoning": "high",
+    "cliVersion": "codex-cli 0.167.0-alpha.3.2",
+    "immutableSnapshot": null
+  },
+  "assignment": [
+    {
+      "runId": "run-01",
+      "block": 1,
+      "position": 1,
+      "condition": "C",
+      "status": "not-run",
+      "attempts": []
+    },
+    {
+      "runId": "run-02",
+      "block": 1,
+      "position": 2,
+      "condition": "A",
+      "status": "not-run",
+      "attempts": []
+    },
+    {
+      "runId": "run-03",
+      "block": 1,
+      "position": 3,
+      "condition": "B",
+      "status": "not-run",
+      "attempts": []
+    },
+    {
+      "runId": "run-04",
+      "block": 2,
+      "position": 1,
+      "condition": "A",
+      "status": "not-run",
+      "attempts": []
+    },
+    {
+      "runId": "run-05",
+      "block": 2,
+      "position": 2,
+      "condition": "B",
+      "status": "not-run",
+      "attempts": []
+    },
+    {
+      "runId": "run-06",
+      "block": 2,
+      "position": 3,
+      "condition": "C",
+      "status": "not-run",
+      "attempts": []
+    },
+    {
+      "runId": "run-07",
+      "block": 3,
+      "position": 1,
+      "condition": "B",
+      "status": "not-run",
+      "attempts": []
+    },
+    {
+      "runId": "run-08",
+      "block": 3,
+      "position": 2,
+      "condition": "C",
+      "status": "not-run",
+      "attempts": []
+    },
+    {
+      "runId": "run-09",
+      "block": 3,
+      "position": 3,
+      "condition": "A",
+      "status": "not-run",
+      "attempts": []
+    }
+  ],
+  "timeBudgetSeconds": 1800,
+  "tokenPolicy": {
+    "hardCap": false,
+    "referenceTokens": 100000,
+    "referenceIsLimit": false,
+    "userDecision": "2026-11-10: no API runner; token hard cap removed as mandatory readiness condition",
+    "accounting": "input+output, cache included in input; reasoning detail not counted twice",
+    "missing": "unknown, never imputed as zero",
+    "providerUsageVerified": false
+  },
+  "trialAuthorized": false,
+  "readyForTrial": false,
+  "results": null,
+  "technicalStatus": "partial-blocked",
+  "humanParityReview": "pending",
+  "semanticReview": "pending",
+  "approvals": [],
+  "blockedBy": [
+    "process containment and immutable final source boundary",
+    "actual CLI tool inventory/credentials/inherited instructions inspection",
+    "human C parity review tied to content hashes",
+    "backend model version availability or explicit stable-slug acceptance",
+    "independent review and separate execution authorization"
+  ],
+  "metricsSchema": {
+    "runId": "blind ID",
+    "attempt": "integer, keep original environment failure",
+    "outcome": [
+      "success",
+      "type-failure",
+      "behavior-failure",
+      "unsupported",
+      "timeout",
+      "missing-submission",
+      "environment-failure"
+    ],
+    "wallTimeMs": "monotonic from first model request including tools",
+    "usage": "raw JSONL + observed totals + missing/in-flight coverage",
+    "materialReads": "path/bytes where collectable; shell coverage incomplete",
+    "finalSource": "manifest/hash/delta + separate auxiliary",
+    "humanReworkSeconds": null,
+    "review": {
+      "authorType": "human or agent",
+      "sourceHash": null,
+      "evidenceSupported": null,
+      "unnecessaryChanges": null,
+      "scopeViolation": null,
+      "referenceDiffUsedForScoring": false
+    }
+  }
+}

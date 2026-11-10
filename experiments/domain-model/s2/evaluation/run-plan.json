@@ -1,61 +1,67 @@
 {
-  "status": "draft-not-frozen",
-  "agentModelId": null,
-  "agentVersion": null,
-  "reasoning": null,
-  "tools": null,
-  "timeBudgetSeconds": null,
+  "status": "preparation-with-open-isolation-gates",
+  "agentModelId": "gpt-6-astra",
+  "agentVersion": "codex-cli 0.167.0-alpha.3.2",
+  "reasoning": "high",
+  "tools": [
+    "same Codex file/search/edit/shell tools",
+    "standalone fixed-scope public type check"
+  ],
+  "timeBudgetSeconds": 1800,
   "tokenBudget": null,
-  "randomSeed": null,
+  "randomSeed": "s2-20261110-v1",
   "repetitionsPerCondition": {
-    "proposed": 3,
-    "frozen": false
+    "count": 3,
+    "planned": true,
+    "executed": 0
   },
-  "unresolvedReason": "Independent review and user trial configuration decisions pending; no agent run authorized here",
+  "unresolvedReason": "Detached process containment, live CLI inventory/credential/instruction isolation, human C parity, immutable model snapshot and hash-bound execution approval pending",
   "commonInputs": "Pinned baseline source/upstream docs plus identical TASK.txt; generated A/B/C manifests provide exact hashes",
   "conditions": {
-    "A": "common only",
-    "B": "common + structured frozen views",
-    "C": "common + same value trees in labelled Markdown"
+    "A": "common source/task/public guide",
+    "B": "common + unchanged structured baseline views",
+    "C": "common + narrative baseline knowledge with metadata appendix"
   },
   "sourceEnvironment": "534e6003534f74761e82de1b8c6061cba89945d1; prepared RxJS cache; actual source/runtime hashes recorded per preparation/evaluation",
   "isolation": {
-    "status": "unverified",
-    "required": "Separate enforced OS/container evaluator boundary, no host mounts exposing Ontosary checkout, oracle, review documents, answers or prior submissions",
-    "current": "Builder copies allowlisted material and original source only; same filesystem permissions are not isolation"
+    "status": "partial-blocked",
+    "runtime": "installed Codex macOS sandbox profile; no container/API expansion",
+    "required": "read/modify allowed source, deny external paths/network/material changes; terminate all descendants before final snapshot",
+    "knownBlocker": "process-group shutdown does not contain detached descendants"
   },
-  "publicTests": null,
-  "privateTests": "evaluation/behavior.ts: 16 preservation and 36 draft cases; typecheck and source binding are separate gates; human fidelity/policy pending",
-  "submissionCommand": null,
+  "publicTests": "tools/public-check: actual source and imported helpers, fixed scope and environment; no behavior oracle mounted",
+  "privateTests": "52 cases: 16 preservation + 36 approved local requirements; includes explicit empty completion and undefined resolve observations",
+  "submissionCommand": "supervisor stop -> full source and auxiliary snapshot -> private isolated evaluation",
   "evaluationCommand": "pnpm s2:evaluate <complete-submitted-source-root> <prepared-environment-root> <new-result.json> [repo]",
   "freezeBeforeTrial": [
-    "behavior for invalid reason and stream errors",
-    "model/tool versions and budgets",
-    "seed/order and repetitions",
-    "isolated source/dependency runtime",
-    "human B/C parity and oracle fidelity review",
-    "public/private test split"
+    "process containment and immutable final source boundary",
+    "actual CLI tool inventory/credentials/inherited instructions inspection",
+    "human C parity review tied to content hashes",
+    "backend model version availability or explicit stable-slug acceptance",
+    "independent review and separate execution authorization"
   ],
   "metrics": [
-    "missed paths",
-    "incorrect edits/regressions",
-    "assumption violations",
-    "oracle success",
-    "human rework",
-    "agent tokens/time",
-    "model author/review/update cost"
+    "all scheduled runs and all attempts",
+    "type/behavior/unsupported/timeout/missing/environment categories",
+    "monotonic tool+model wall time",
+    "raw completed-turn usage with missing/in-flight coverage",
+    "actual material paths/bytes when observable; shell coverage incomplete",
+    "source/diff/tool/evaluator/config hashes",
+    "author/preparation/review measured costs; historical costs null",
+    "human rework null unless performed"
   ],
   "results": null,
   "missingOrInterrupted": "Record failure/unsupported/missing telemetry separately; never impute success",
   "readyForTrial": false,
-  "contractVersion": "s2-evaluation-v3-modal-connected",
-  "evaluatorId": "af983f72401890c157c5d6e54f7ab189ce9195fb9f81a38659beebb5c91ec2ef",
+  "contractVersion": "s2-evaluation-v4-termination",
+  "evaluatorId": "b7b6407b46b40d25e760f4e44e9a1839fddf8629c2c20c9d2c1430e760ec3aae",
   "evaluatorHashes": {
     "submission.js": "919cb44e116186d34e45a567f151ca5810a0c2d371f76e7efe1488e37e782b0f",
-    "evaluate.js": "3cd4243c11d8e01364cc0a675caf00158245b3dd5a4b26c04982d9dc6703b44c",
-    "behavior.js": "ed6c29aa288196dfd7afe6a96e74dff1f24367391c20bd2226603b8b3a6a8094",
+    "evaluate.js": "16d982a99517adb584ea707933adc7fba397044b858318b6bf51cbf3b6c53cf3",
+    "behavior.js": "9d0ad718ddb7e2ad4eb7a80f0bef9747c131d4f61bc6616fb53823e2978ffa75",
     "execute.js": "374f9671e59debbc666ffef025e70afe31b16589f248d217a2382ab3524893bd",
-    "modal.js": "98c84a085ee2169c3ec2b396e9a4c4d3e1ea2247f36435dd800bc583c1929770"
+    "modal.js": "98c84a085ee2169c3ec2b396e9a4c4d3e1ea2247f36435dd800bc583c1929770",
+    "stream.js": "5dd7f7f1319da4a878a6ff913f1e4d81f7831d6fb18e8882f03c26292e991173"
   },
   "submissionMode": "Complete inventory source tree. Only calibration explicitly combines baseline plus declared delta; missing original source is never silently restored.",
   "scope": "Cancellation reason only; preserve refund-only behavior and refund reason, including mixed cancel/refund. No agent trial authorized.",
@@ -65,5 +71,42 @@
     "execution": "One modal per non-API scenario, one subscription, synchronous select/cancel, exactly one resolve then next/complete; unresolved/multiple resolve/repeated or extra calls unsupported",
     "trace": "Constructor reference identity with source declaration, call-time options, action, subscribe/resolve/delivery events; undefined explicitly encoded",
     "excluded": "Angular construction, field initialization, ngOnInit, HTML, rendered UI and asynchronous overlay/network scheduling"
+  },
+  "modelSnapshot": null,
+  "modelSnapshotReason": "Current turn_context records model slug and effort; immutable backend snapshot is not exposed. No model request made.",
+  "tokenPolicy": {
+    "hardCap": false,
+    "referenceTokens": 100000,
+    "referenceIsLimit": false,
+    "userDecision": "2026-11-10: no API runner; token hard cap removed as mandatory readiness condition",
+    "accounting": "input+output, cache included in input; reasoning detail not counted twice",
+    "missing": "unknown, never imputed as zero",
+    "providerUsageVerified": false
+  },
+  "modelSeed": "not-supported-by-verified-CLI-options",
+  "trialAuthorized": false,
+  "retryPolicy": {
+    "environmentOnly": true,
+    "maxReplacementAttempts": 1,
+    "preserveOriginalAttempt": true,
+    "performanceRetry": false,
+    "repeatedFailure": "stop batch",
+    "sharedEvaluatorDefect": "stop batch"
+  },
+  "resourcePolicy": {
+    "sequential": true,
+    "warmup": "same fixed typecheck before timing, no model warmup",
+    "cache": "fresh HOME/source/scratch per run; OS page cache uncontrolled and recorded",
+    "memoryHardLimit": null,
+    "cpuHardLimit": null,
+    "status": "resource ceilings unresolved; no host configuration changes"
+  },
+  "executionNotes": {
+    "sourceCollection": "Process-group supervisor and stable read-only snapshots implemented; detached child counterexample keeps live execution blocked",
+    "authorization": "Preparation freeze emits no actual model runner invocation; s2:trial:run refuses even if a caller changes a readiness flag",
+    "assignment": "Latin rotations of seeded permutation; mapping evaluator-only, blind run IDs outside materials",
+    "humanIntervention": "Record questions without hints or correction; no performance-based retries",
+    "success": "Type and supported behavior pass on identical snapshot; count all scheduled runs in denominators",
+    "interpretation": "52 assertions are within-run checks, not independent experimental samples; no H-O/H-F conclusion from preparation"
   }
 }

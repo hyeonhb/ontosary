@@ -6,6 +6,7 @@ import { performance } from 'node:perf_hooks';
 import { executor, invoke, Runtime, Mapping } from './execute.js';
 import { sourceView, Sources } from './submission.js';
 import { createModal, orderLocals, Observer, ModalTrace } from './modal.js';
+import { observeStream, emptyCompletion, StreamObservation } from './stream.js';
 
 export const base = 'packages/admin-ui/src/lib/';
 export const mappings: Mapping[] = [
@@ -54,7 +55,7 @@ export async function evaluateBehavior(root: string, sources: Sources) {
         else if (mode === 'refund-only') expected=[{kind:'refund',input:refundInput}];
         else if (mode === 'api') expected=[{kind:'cancel',input:{orderId:f.order,reason:valid ? reason.trim() : reason,lines:[line],cancelShipping:f.shipping}}];
         else expected=[{kind:'cancel',input:cancelInput}, ...(mode === 'refund' && !failCancel ? [{kind:'refund',input:refundInput}] : [])];
-        let modalTraces: ModalTrace[] = [], error: string | null = null;
+        let modalTraces: ModalTrace[] = [], error: string | null = null, streamObservation: StreamObservation | null = null;
         try {
             const service = engine.instance('OrderDataService');
             service.baseDataService={mutate:(kind:string,args:Runtime) => {
@@ -63,9 +64,7 @@ export async function evaluateBehavior(root: string, sources: Sources) {
             }};
             service.getOrder=()=>({single$:rx.of(undefined)});
             if (mode === 'api') {
-                const stream=invoke(service,'cancelOrder',{orderId:f.order,reason,lines:[line],cancelShipping:f.shipping}) as Stream;
-                if (!stream || typeof stream.subscribe!=='function') throw Error('Unsupported non-observable API result');
-                stream.subscribe(()=>undefined);
+                streamObservation=observeStream(()=>invoke(service,'cancelOrder',{orderId:f.order,reason,lines:[line],cancelShipping:f.shipping}),!valid);
             } else {
                 const isRefund=mode.includes('refund');
                 const userState = (refundDialog: boolean): Runtime => ({
@@ -99,8 +98,13 @@ export async function evaluateBehavior(root: string, sources: Sources) {
                 modal.assertComplete();
             }
         } catch(e) { error=String(e); }
-        const assertion=compareCalls(calls,expected);
-        cases.push({name:f.order+'/'+name,category,status:error?'unsupported':assertion.pass?'passed':'failed',assertion,details:{error,modalTraces,inputReason:reason??null,reasonInput:reason===undefined?'undefined':typeof reason,uiCoverage:typeof reason==='string'&&!!reason?'truthy reason; other template constraints not evaluated':'forced method input; original truthiness UI condition would reject'}});
+        const payload=compareCalls(calls,expected);
+        const invalid=category==='draft-requirement'&&!valid;
+        const termination = !invalid ? {pass:true,required:false} : mode==='api' ?
+            {pass:streamObservation!==null&&emptyCompletion(streamObservation),required:true,contract:'no value, synchronous completion, no throw/error'} :
+            {pass:modalTraces.length===1&&modalTraces[0]!.resolveCount===1&&JSON.stringify(modalTraces[0]!.resolutions)==='[{"$type":"undefined"}]',required:true,contract:'exactly one undefined resolution'};
+        const assertion={...payload,pass:payload.pass&&termination.pass};
+        cases.push({name:f.order+'/'+name,category,status:error?'unsupported':assertion.pass?'passed':'failed',assertion,details:{error,modalTraces,streamObservation,termination,payload,inputReason:reason??null,reasonInput:reason===undefined?'undefined':typeof reason,uiCoverage:typeof reason==='string'&&!!reason?'truthy reason; other template constraints not evaluated':'forced method input; original truthiness UI condition would reject'}});
     }
     try {
         for(const f of fixtures) {
