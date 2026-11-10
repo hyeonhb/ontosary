@@ -1,5 +1,7 @@
 # S2 준비 구현 — 보완 독립 검증 완료, 본 비교 미실행
 
+2026-11-10 실행 전 준비 승인: [개발 지시](../../../docs/reviews/2026-11-10-s2-trial-preparation-instructions.md)에 따라 공통 과업/실행 계약·일반 설명 문서 C와 의미 대응·격리/계측·새 배포 동결을 준비한다. 무요청 종료 정책과 동일 설정 조건별3회 조합은 승인됐으나 구현·검증과 본 비교 실행은 아직이다. 새 자료는 별도 버전으로 만들고 이전 결과를 보존한다. 준비 결과의 독립 리뷰까지 trialAuthorized/readyForTrial=false를 유지한다.
+
 2026-11-10 [독립 재검토](../../../docs/reviews/2026-11-10-s2-modal-independent-review.md): **R9 잔여 해결, R8/R10 유지**. 230테스트·비교4/4, 교정24제출50파일/준비147파일 재현과 실제 RxJS·complete-root/delta 연결을 확인했다. 준비 구현 보완은 완료됐으며 다음은 사용자와 본 비교의 과업/의미 동등성·평가 범위/격리/agent 조건을 확정한다. readyForTrial=false·H-O/H-F 미검증을 유지한다. 아래는 개발 당시 인계다.
 
 2026-11-09 **R9 modal 연결 보완 구현·검증 완료, 독립 재검토 대기**. [최신 보고](../../../docs/reviews/2026-11-09-s2-modal-fix.md), [평가 v3 계약](evaluation/TASK-REVIEW.md). 제출 부모의 실제 component/locals로 dialog를 구독 시 실행하고, resolve 결과를 부모 Observable로 전달한다. constructor identity·locals/사용자 상태 소유권·호출별 trace·미해결/중복 실행 경계를 검사한다. 잘못된 modal 주문 ID/active는 진단0 후 실제 잘못된 요청으로 검출된다.
