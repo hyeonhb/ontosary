@@ -1,5 +1,7 @@
 # S2 준비 구현 — 보완 독립 검증 완료, 본 비교 미실행
 
+2026-11-10 [실행 전 준비 독립 리뷰](../../../docs/reviews/2026-11-10-s2-trial-preparation-independent-review.md): 자료/평가 방향과252테스트·비교4/4·29제출60파일/준비157파일을 확인했다. R11 detached 자손 종료 차단은 재현됐고, R12 usage 완료 판정의 새 반례가 있어 보완이 필요하다. token hard cap 제외·API 확대 없음과 실제 실행 차단을 유지한다. C 사람 대응 검토·실제 CLI 미검증 조건은 별도다. 아래는 당시 인계다.
+
 
 2026-11-10 실행 전 준비는 **부분 완료·격리 차단 유지**다. [운영 계약/명령/한계](trial/README.md), [인계](../../../docs/reviews/2026-11-10-s2-trial-preparation.md), [새 배포](results/2026-11-10-trial-preparation/), [검증](verification/2026-11-10-trial-preparation/)를 먼저 본다. token hard cap은 사용자 결정으로 필수 조건에서 제외했고30분·raw usage 관측을 준비했다. 같은 과업/안내와 C 설명 문서,68view/1511단위 대응·사람 검토 자료, 공개 checker·대역 계측을 추가했다. 현재29제출·52사례·252테스트이며 B68view/모델/근거는 그대로다. 실행기는 실제 모델을 호출하지 않았고 detached 자손 종료 결함으로 readyForTrial=false다. 아래 v3/v2 기록은 각 시점의 계약이다.
 

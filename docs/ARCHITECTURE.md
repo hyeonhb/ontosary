@@ -83,3 +83,5 @@ S1 후속 [V2](../experiments/domain-model/v2/README.md)는 모델 참조의 inc
 [modal 보완 인계](reviews/2026-11-09-s2-modal-fix.md)는 [2026-11-10 독립 재검토](reviews/2026-11-10-s2-modal-independent-review.md)에서 R9 잔여 해결·R8/R10 유지로 판정했다. 제한된 지원 범위의 준비 구현 보완을 완료했다. constructor/field/ngOnInit/HTML/전체 UI 계산·비동기 overlay/네트워크는 여전히 대역/제외 범위다. 과업 정책·B/C 의미 동등성·실제 격리/agent 실행 조건은 미동결, readyForTrial=false다. 본 비교·S3는 실행하지 않았다.
 
 2026-11-10 ADR-028로 [비교 실행 전 준비](reviews/2026-11-10-s2-trial-preparation-instructions.md)를 승인했다. C를 동등 지식의 설명 문서로 바꾸고 공통 과업/공개 검사·실행기 격리/계측·불변 제출/배포 동결을 실험 내부에서 준비한다. 위 구현은 현재 상태이며 이 준비는 아직 구현 전이다. 공개 과업의 무요청 종료 정책은 확정됐고, 정확한 실행 설정·새 C 대응 검토·실제 환경 검증은 후속 개발/리뷰 대상이다. 본 비교는 그 리뷰 뒤 별도로 진행한다.
+
+2026-11-10 실행 전 준비는 `trial/`의 공통 과업·public type check·macOS profile·계측/수집·동결 명세와 `lib/prose.ts`의 C 문서/단위 대응으로 구현됐다. [독립 리뷰](reviews/2026-11-10-s2-trial-preparation-independent-review.md)에서 자료/평가 회귀를 확인했으나 process-group의 detached 자손 종료(R11)와 usage turn 완료 판정(R12)은 보완 대상이다. token hard cap 부재는 차단 사유가 아니며 관측 합계/누락을 정확히 구분해야 한다. 실제 CLI 세션 전체 격리·사람 대응 승인은 미완료이고 실행 진입점은 계속 거부한다. 앞의 구현 전 기록은 당시 합의다.

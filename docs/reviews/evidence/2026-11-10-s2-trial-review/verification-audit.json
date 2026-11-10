@@ -1,0 +1,178 @@
+{
+  "publicPrivateTypeEquivalence": [
+    {
+      "variant": "baseline",
+      "status": "passed",
+      "diagnostics": [],
+      "programFiles": 1638
+    },
+    {
+      "variant": "reference",
+      "status": "passed",
+      "diagnostics": [],
+      "programFiles": 1638
+    },
+    {
+      "variant": "helper",
+      "status": "passed",
+      "diagnostics": [],
+      "programFiles": 1639
+    },
+    {
+      "variant": "helper-type-error",
+      "status": "failed",
+      "diagnostics": [
+        {
+          "code": 2322,
+          "file": "packages/admin-ui/src/s2-reason.ts",
+          "line": 1,
+          "message": "Type 'number' is not assignable to type 'string'."
+        }
+      ],
+      "programFiles": 1639
+    },
+    {
+      "variant": "helper-syntax-error",
+      "status": "failed",
+      "diagnostics": [
+        {
+          "code": 1005,
+          "file": "packages/admin-ui/src/s2-reason.ts",
+          "line": 1,
+          "message": "')' expected."
+        }
+      ],
+      "programFiles": 1639
+    },
+    {
+      "variant": "missing-helper",
+      "status": "failed",
+      "diagnostics": [
+        {
+          "code": 2307,
+          "file": "packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts",
+          "line": 1,
+          "message": "Cannot find module '../../../../../s2-reason' or its corresponding type declarations."
+        },
+        {
+          "code": 2307,
+          "file": "packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts",
+          "line": 1,
+          "message": "Cannot find module '../../../../../s2-reason' or its corresponding type declarations."
+        },
+        {
+          "code": 2307,
+          "file": "packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts",
+          "line": 1,
+          "message": "Cannot find module '../../../../../s2-reason' or its corresponding type declarations."
+        }
+      ],
+      "programFiles": 1638
+    },
+    {
+      "variant": "deleted-module",
+      "status": "failed",
+      "diagnostics": [
+        {
+          "code": 6053,
+          "file": null,
+          "line": null,
+          "message": "File '<environment>/packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts' not found.\n  The file is in the program because:\n    Root file specified for compilation"
+        },
+        {
+          "code": 2307,
+          "file": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+          "line": 29,
+          "message": "Cannot find module '../cancel-order-dialog/cancel-order-dialog.component' or its corresponding type declarations."
+        },
+        {
+          "code": 2353,
+          "file": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+          "line": 581,
+          "message": "Object literal may only specify known properties, and 'order' does not exist in type 'Partial<Dialog<any>>'."
+        },
+        {
+          "code": 2345,
+          "file": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+          "line": 587,
+          "message": "Argument of type '{}' is not assignable to parameter of type 'CancelOrderInput'.\n  Property 'orderId' is missing in type '{}' but required in type 'CancelOrderInput'."
+        }
+      ],
+      "programFiles": 1637
+    }
+  ],
+  "snapshot": {
+    "sameSubmissionId": true,
+    "submissionId": "dde3b75c151fb9847929ce9d3dd7e76081f791fc7a779f7124245644419bed54",
+    "sameEvaluatorId": true,
+    "evaluatorId": "b7b6407b46b40d25e760f4e44e9a1839fddf8629c2c20c9d2c1430e760ec3aae",
+    "all52CasesAndTracesIdentical": true,
+    "overall": "passed",
+    "sourceBinding": true
+  },
+  "distribution": {
+    "agentFiles": 84,
+    "conditions": [
+      {
+        "condition": "A",
+        "sourceId": "af6da1684ff27b39228a4c755465734529782228a3f517e13b08f7d7f8d365a0",
+        "materialFiles": 4,
+        "publicCheck": {
+          "status": "passed",
+          "diagnostics": [],
+          "typescript": "5.9.3",
+          "programFiles": 1638,
+          "scope": "Type diagnostics only. Private change/syntax/behavior gates remain separate."
+        },
+        "denied": {
+          "other": "EPERM",
+          "repository": "EPERM",
+          "cache": "EPERM"
+        }
+      },
+      {
+        "condition": "B",
+        "sourceId": "af6da1684ff27b39228a4c755465734529782228a3f517e13b08f7d7f8d365a0",
+        "materialFiles": 72,
+        "publicCheck": {
+          "status": "passed",
+          "diagnostics": [],
+          "typescript": "5.9.3",
+          "programFiles": 1638,
+          "scope": "Type diagnostics only. Private change/syntax/behavior gates remain separate."
+        },
+        "denied": {
+          "other": "EPERM",
+          "repository": "EPERM",
+          "cache": "EPERM"
+        }
+      },
+      {
+        "condition": "C",
+        "sourceId": "af6da1684ff27b39228a4c755465734529782228a3f517e13b08f7d7f8d365a0",
+        "materialFiles": 8,
+        "publicCheck": {
+          "status": "passed",
+          "diagnostics": [],
+          "typescript": "5.9.3",
+          "programFiles": 1638,
+          "scope": "Type diagnostics only. Private change/syntax/behavior gates remain separate."
+        },
+        "denied": {
+          "other": "EPERM",
+          "repository": "EPERM",
+          "cache": "EPERM"
+        }
+      }
+    ],
+    "baselineId": "7707db72b46a21570152b2b8920e6526996952abaac1574642d6638c477ba0d8",
+    "modelId": "2ba6c772263da8814256efaa5491c69f723d79157a7f8aad7f22d898e297e5cf",
+    "bundleId": "ab522d70da78c0e71b6ddc01f32056980b85de245e150bdde55f39c16a17c509"
+  },
+  "publicEnvironment": {
+    "dependencyFiles": 85416,
+    "dependencyManifestMatches": true,
+    "sourceManifestMatches": true,
+    "preparationMs": 39479.047125
+  }
+}
