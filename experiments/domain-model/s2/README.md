@@ -1,5 +1,7 @@
 # S2 준비 구현 — R12 독립 검증, R11 차단 유지
 
+2026-11-10 [컨테이너 타당성 조사](../../../docs/reviews/2026-11-10-s2-container-feasibility.md)는 **inconclusive**다. Lima/VZ와 준비 image는 만들었지만 로컬 image 실행 식별자 오류·수정1회 실패로 worker/평가를 시작하지 못했다. 임시 자원을 정리했고 정적84파일·모델/평가 의미와 기존 production/live 차단을 유지한다. [준비 도구](trial/container/)는 실행 adapter가 아니다. Linux 타입/동작/종료 검증은 미실행이며 다음 단계는 결과 리뷰와 새 한정 시도 여부 결정이다.
+
 2026-11-10 [독립 재검토](../../../docs/reviews/2026-11-10-s2-runtime-accounting-independent-review.md)에서 R12 해결과 R11의 차단 동작을 확인했다. 기존 과업·모델·자료·평가를 보존했으며 부분 인계 조건을 충족했다. R11의 종료 보장과 전체 비교 준비는 미완료다. 다음 구조/도구 정책은 사용자와 결정하며 실제 모델/본 비교0회를 유지한다.
 
 2026-11-10 후속: **R12 usage 보완 자체 검증, R11 종료 경계 unresolved**. [인계](../../../docs/reviews/2026-11-10-s2-runtime-accounting-fix.md).303테스트·비교4/4·29제출60파일을 확인했고 TASK/B/C84파일과 세 ID는 유지했다. production 수집/평가와 미확인 runtime usage 확정을 차단하며 실제 모델/본 비교는0회다.

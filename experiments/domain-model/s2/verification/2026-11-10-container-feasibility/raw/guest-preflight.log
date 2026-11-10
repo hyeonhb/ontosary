@@ -1,0 +1,47 @@
+Linux lima-s2-feasibility 7.0.0-38-generic #38-Ubuntu SMP PREEMPT_DYNAMIC Fri Sep  4 09:28:02 UTC 2026 aarch64 GNU/Linux
+PRETTY_NAME="Ubuntu 26.04.1 LTS"
+NAME="Ubuntu"
+VERSION_ID="26.04"
+VERSION="26.04.1 LTS (Resolute Raccoon)"
+VERSION_CODENAME=resolute
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=resolute
+LOGO=ubuntu-logo
+/usr/local/bin/nerdctl
+35 49 0:30 / /run rw,nosuid,nodev shared:13 - tmpfs tmpfs rw,size=1208584k,nr_inodes=819200,mode=755,inode64
+49 1 253:1 / / rw,relatime shared:1 - ext4 /dev/vda1 rw,discard,errors=remount-ro,commit=30
+42 49 0:7 / /dev rw,nosuid shared:2 - devtmpfs devtmpfs rw,size=2618112k,nr_inodes=654528,mode=755,inode64
+43 42 0:28 / /dev/shm rw,nosuid,nodev shared:3 - tmpfs tmpfs rw,inode64,usrquota
+44 42 0:29 / /dev/pts rw,nosuid,noexec,relatime shared:4 - devpts devpts rw,gid=5,mode=600,ptmxmode=000
+45 49 0:27 / /sys rw,nosuid,nodev,noexec,relatime shared:5 - sysfs sysfs rw
+47 45 0:8 / /sys/kernel/security rw,nosuid,nodev,noexec,relatime shared:6 - securityfs securityfs rw
+48 45 0:31 / /sys/fs/cgroup rw,nosuid,nodev,noexec,relatime shared:7 - cgroup2 cgroup2 rw,nsdelegate,memory_recursiveprot,memory_hugetlb_accounting
+50 45 0:32 / /sys/fs/pstore rw,nosuid,nodev,noexec,relatime shared:8 - pstore none rw
+51 45 0:33 / /sys/firmware/efi/efivars rw,nosuid,nodev,noexec,relatime shared:9 - efivarfs efivarfs rw
+52 45 0:34 / /sys/fs/bpf rw,nosuid,nodev,noexec,relatime shared:10 - bpf bpf rw,mode=700
+53 45 0:23 / /sys/kernel/config rw,nosuid,nodev,noexec,relatime shared:11 - configfs configfs rw
+54 49 0:26 / /proc rw,nosuid,nodev,noexec,relatime shared:12 - proc proc rw
+30 54 0:35 / /proc/sys/fs/binfmt_misc rw,relatime shared:14 - autofs systemd-1 rw,fd=35,pgrp=1,timeout=0,minproto=5,maxproto=5,direct,pipe_ino=6106
+31 35 0:36 / /run/credentials/systemd-journald.service rw,nosuid,nodev,noexec,relatime,nosymfollow shared:20 - tmpfs none ro,size=1024k,nr_inodes=1024,mode=700,inode64,noswap
+32 45 0:9 / /sys/kernel/debug rw,nosuid,nodev,noexec,relatime shared:15 - debugfs debugfs rw
+33 42 0:25 / /dev/mqueue rw,nosuid,nodev,noexec,relatime shared:16 - mqueue mqueue rw
+34 49 0:37 / /tmp rw,nosuid,nodev shared:17 - tmpfs tmpfs rw,size=3021456k,nr_inodes=1048576,inode64,usrquota
+36 45 0:14 / /sys/kernel/tracing rw,nosuid,nodev,noexec,relatime shared:18 - tracefs tracefs rw
+37 42 0:38 / /dev/hugepages rw,nosuid,nodev,relatime shared:19 - hugetlbfs hugetlbfs rw,pagesize=2M
+38 45 0:39 / /sys/fs/fuse/connections rw,nosuid,nodev,noexec,relatime shared:21 - fusectl fusectl rw
+46 49 253:13 / /boot rw,relatime shared:88 - ext4 /dev/vda13 rw
+57 46 253:15 / /boot/efi rw,relatime shared:91 - vfat /dev/vda15 rw,fmask=0077,dmask=0077,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro
+63 30 0:46 / /proc/sys/fs/binfmt_misc rw,nosuid,nodev,noexec,relatime shared:97 - binfmt_misc binfmt_misc rw
+29 35 0:45 / /run/credentials/systemd-networkd.service rw,nosuid,nodev,noexec,relatime,nosymfollow shared:45 - tmpfs none ro,size=1024k,nr_inodes=1024,mode=700,inode64,noswap
+124 35 0:55 / /run/credentials/sshd@1-2-3:22-2:176483637.service rw,nosuid,nodev,noexec,relatime,nosymfollow shared:330 - tmpfs none ro,size=1024k,nr_inodes=1024,mode=700,inode64,noswap
+188 35 0:56 / /run/credentials/getty@tty1.service rw,nosuid,nodev,noexec,relatime,nosymfollow shared:339 - tmpfs none ro,size=1024k,nr_inodes=1024,mode=700,inode64,noswap
+393 49 253:16 / /mnt/lima-cidata ro,relatime shared:357 - iso9660 /dev/vdb ro,nojoliet,overriderockperm,check=s,map=n,blocksize=2048,uid=0,dmode=700,fmode=700,iocharset=utf8
+402 35 0:58 / /run/credentials/serial-getty@hvc0.service rw,nosuid,nodev,noexec,relatime,nosymfollow shared:366 - tmpfs none ro,size=1024k,nr_inodes=1024,mode=700,inode64,noswap
+39 35 0:40 / /run/credentials/systemd-resolved.service rw,nosuid,nodev,noexec,relatime,nosymfollow shared:23 - tmpfs none ro,size=1024k,nr_inodes=1024,mode=700,inode64,noswap
+78 35 0:57 / /run/user/501 rw,nosuid,nodev,relatime shared:348 - tmpfs tmpfs rw,size=604288k,nr_inodes=151072,mode=700,uid=501,gid=1000,inode64
+87 35 0:59 / /run/credentials/sshd@6-4-3:22-2:2399107730.service rw,nosuid,nodev,noexec,relatime,nosymfollow shared:376 - tmpfs none ro,size=1024k,nr_inodes=1024,mode=700,inode64,noswap

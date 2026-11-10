@@ -1,0 +1,68 @@
+{
+  "taskRoot": "<task-root>",
+  "taskAllocatedKiB": 6464688,
+  "ownedCacheEntries": [
+    {
+      "path": "<host-cache>/lima/download/by-url-sha256/274d59968f7fc4016d852a0fa9a95e78a7253670ae8095bcb06076eec1f922f8",
+      "url": "https://cloud-images.ubuntu.com/releases/resolute/release-20261016/ubuntu-26.04-server-cloudimg-arm64.img",
+      "allocatedKiB": 3519540,
+      "files": [
+        {
+          "path": "sha256.digest",
+          "bytes": 71
+        },
+        {
+          "path": "url",
+          "bytes": 105
+        },
+        {
+          "path": "time",
+          "bytes": 29
+        },
+        {
+          "path": "type",
+          "bytes": 24
+        },
+        {
+          "path": "data",
+          "bytes": 940373504
+        },
+        {
+          "path": "imgconv/raw.digest",
+          "bytes": 71
+        },
+        {
+          "path": "imgconv/raw",
+          "bytes": 3758096384
+        }
+      ]
+    },
+    {
+      "path": "<host-cache>/lima/download/by-url-sha256/975f12320da58d431eba0c59caf918381721d37c81297f52a261383a54420186",
+      "url": "https://github.com/containerd/nerdctl/releases/download/v2.4.2/nerdctl-full-2.4.2-linux-arm64.tar.gz",
+      "allocatedKiB": 278608,
+      "files": [
+        {
+          "path": "sha256.digest",
+          "bytes": 71
+        },
+        {
+          "path": "url",
+          "bytes": 100
+        },
+        {
+          "path": "time",
+          "bytes": 29
+        },
+        {
+          "path": "type",
+          "bytes": 24
+        },
+        {
+          "path": "data",
+          "bytes": 270513423
+        }
+      ]
+    }
+  ]
+}

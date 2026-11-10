@@ -1,0 +1,13 @@
+# Disposable Linux container feasibility — incomplete
+
+The 2026-11-10 attempt is **inconclusive**. Lima/VZ boot and image build succeeded; both the initial local image reference and its one corrected invocation failed before a task container started. This directory is preparation evidence, **not an execution adapter**. No termination/collection receipt or live dispatcher is implemented. Existing macOS production/live refusal remains intact.
+
+- `lima.yaml`: executed with Lima 2.3.0, a dedicated `LIMA_HOME`, no host mounts or SSH-agent forwarding; guest system containerd. The macOS downloader ignored `XDG_CACHE_HOME` and used `~/Library/Caches/lima`; the two owned URL-keyed entries were inventoried and removed.
+- `Dockerfile`: built for Linux arm64 from the recorded Node 22.19.0 image index digest; installs the official Codex 0.167.0-alpha.3.2 package, npm 10.9.3 and TypeScript 5.9.3. Image build success does not establish CLI runtime compatibility. No credentials, private home, conversations or plugins were copied.
+- `prepare-vendure.sh`: prepared but **not executed**. The original 4,735 source files and scope config were copied into the VM, but Linux `npm ci`/common build never started. Original cache/lockfile remained unchanged.
+- `bounded-command.py`: logs preparation commands and deadlines. Its host process-group timeout is best effort and **not** a worker termination boundary; a detached VM requires explicit stop/delete. The first two commands used the archived initial version; later commands used the current version. Never use this helper to issue a trusted submission receipt.
+- `freeze-evidence.py`: exports an explicit whitelist of logs with path/identity normalization and hashes the recursive implementation tree, historical initial helper and evidence. It neither starts nor installs a runtime.
+
+The attempted calls, status, costs, cleanup and missing probes are in [the evidence directory](../../verification/2026-11-10-container-feasibility/) and [handoff](../../../../../docs/reviews/2026-11-10-s2-container-feasibility.md). No rerun is authorized by this README: the one-candidate/one-correction attempt is closed. A subsequent review must decide whether to allocate another bounded attempt to fix local image resolution.
+
+A future adapter still needs manager-owned immutable container/image identity, whole-cgroup stop plus empty-state verification, a watcher surviving wrapper death, no credential/control/evaluator mounts in workers, read-only frozen collection, a separate evaluator unit and every required finite probe. The planned worker limits (UID 1000, 2 CPUs, 4 GiB, 256 PIDs, network none) were not exercised. The guest VM was 4 CPUs/6 GiB/24 GiB. Neither setting is a finalized comparison configuration.

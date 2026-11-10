@@ -1,5 +1,7 @@
 # 단계별 계획
 
+2026-11-10 다음 우선순위: [컨테이너 타당성 인계](reviews/2026-11-10-s2-container-feasibility.md)의 **inconclusive 결과 리뷰**다. Lima/VZ/준비 image build는 성공했으나 image 식별자 오류의 허용 수정1회도 실패했다. 같은 후보에 대한 작은 새 시도 예산/올바른 identity 연결부터 결정한다. 실행 경계나 Linux 평가 통과로 진도를 올리지 않으며 R11 차단·R12 기존 판정·실제 모델/본 비교 미실행을 유지한다.
+
 2026-11-10 R11/R12 보완: **R12 구현·자체 검증 완료, R11 종료 경계 unresolved**. [인계](reviews/2026-11-10-s2-runtime-accounting-fix.md). turn 상태·중복 철회·unknown 입력/overflow·종료/EOF/절단을 결합했고303테스트(skip0)·비교4/4·29제출60파일 일치를 확인했다. 현재 runtime은 정상 부모 종료에도 모든 writer의 정지를 증명하지 못하므로 production 수집/평가와 전체 usage 확정을 차단한다. 진단과 알려진 참조 교정을 분리했으며 실제 macOS 반복에서 detached/손자/열린 핸들의 늦은 쓰기를 재현했다. TASK/B/C84파일·모델·세 ID는 그대로다. 다음은 독립 리뷰와 R11의 별도 경계/도구 정책 선택이다. 새 플랫폼·API·권한을 도입하지 않았고 실제 모델/본 비교0회, trialAuthorized/readyForTrial=false·results=null·사람 검토 pending을 유지한다. 아래는 각 시점 기록이다.
 
 2026-11-10 S2 실행 전 준비: **자료·평가·계측 준비 구현, 전체 실행 환경은 차단 상태**. [인계](reviews/2026-11-10-s2-trial-preparation.md). 사용자 후속 결정에 따라 token hard cap을 필수 조건에서 제외하고30분 제한·raw usage/누락/참고선 초과 기록을 채택했다. 동일 TASK/공개 안내, 일반 문서 C와68view·1511단위 대응/사람 검토 묶음, 공개 타입 검사, 실행/수집 대역을 구현했다.252테스트(skip0)·비교4/4,29제출60파일·새 준비157비시간 파일 재현, A/B/C 실제 배포를 확인했다. 모델12항목/16링크·승인0과 B68view는 유지했고 agent 자료는84파일·새 bundleId다. macOS 파일/네트워크 거부와 package.json 예외의 명시적 차단을 검증했지만 **분리된 자식 프로세스의 종료 탈출**이 남아 실제 실행과 불변 제출 보장을 차단한다. 실제 모델 호출0·본 비교0, trialAuthorized/readyForTrial=false·results=null·사람 동등성/의미 검토 pending이다. 다음은 종료 경계 보완과 독립/사람 리뷰이며 API·새 플랫폼 투자는 하지 않았다. 아래는 각 시점 기록이다.

@@ -1,0 +1,84 @@
+{
+  "note": "Supplementary command results captured by the task tool, not the bounded-command logger. Times omitted where no timestamp was recorded. CLI stdout is empty because image resolution failed before its shell ran.",
+  "cliPreflight": {
+    "command": [
+      "env",
+      "LIMA_HOME=<task-root>/lima",
+      "<task-root>/prefix/bin/limactl",
+      "shell",
+      "--workdir=/tmp",
+      "s2-feasibility",
+      "sudo",
+      "nerdctl",
+      "run",
+      "--name",
+      "s2-cli-preflight",
+      "--net",
+      "none",
+      "--cpus",
+      "2",
+      "--memory",
+      "4g",
+      "--pids-limit",
+      "256",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--read-only",
+      "--tmpfs",
+      "/tmp:rw,nosuid,nodev,size=64m",
+      "--user",
+      "1000:1000",
+      "ontosary-s2-feasibility@sha256:fbea81dbc73da64f8798dd025d17d7bfb559a953671b520a235220ae9dc3e47b",
+      "sh",
+      "-c",
+      "node --version; npm --version; codex --version; codex --help; codex sandbox --help; codex sandbox linux --help; command -v codex; find /usr/local/lib/node_modules/@openai/codex -name codex -type f -exec sha256sum {} \\;"
+    ],
+    "exitCode": 1,
+    "stderr": "time=\"2026-11-10T20:09:44+09:00\" level=fatal msg=\"failed to resolve image: pull access denied, repository does not exist or may require authorization: server message: insufficient_scope: authorization failed\"\n",
+    "linuxBinaryExecuted": false
+  },
+  "otherCommands": [
+    {
+      "command": "limactl --version; official archive SHA-256 verification and local tar extraction",
+      "exitCode": 0,
+      "result": "limactl version 2.3.0; release digest matched"
+    },
+    {
+      "command": "limactl copy source.tar.gz /tmp/source.tar.gz; limactl copy repo.tar.gz /tmp/repo.tar.gz; guest tar extraction in /opt/s2",
+      "exitCode": 0
+    },
+    {
+      "command": "limactl shell --workdir=/tmp s2-feasibility sudo nerdctl info",
+      "exitCode": 0,
+      "log": "nerdctl-info.log"
+    },
+    {
+      "command": "limactl shell --workdir=/tmp s2-feasibility sudo nerdctl image inspect ontosary-s2-feasibility:20261110",
+      "exitCode": 0,
+      "log": "worker-image.json"
+    },
+    {
+      "command": "limactl stop s2-feasibility",
+      "exitCode": 0,
+      "log": "cleanup-stop.log"
+    },
+    {
+      "command": "limactl delete --yes s2-feasibility",
+      "exitCode": 0,
+      "log": "cleanup-delete.log"
+    },
+    {
+      "command": "limactl list --json",
+      "exitCode": 0,
+      "log": "deleted-vm-list.jsonl",
+      "stderr": "No instance found. Run `limactl create` to create an instance."
+    },
+    {
+      "command": "Remove only task root and the two URL-keyed cache entries after identity checks; ps -p 6311",
+      "exitCode": 0,
+      "log": "cleanup.json"
+    }
+  ]
+}

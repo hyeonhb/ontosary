@@ -1,5 +1,7 @@
 # 독립 리뷰 맥락
 
+2026-11-10 최신 개발 인계: **컨테이너 타당성 inconclusive**. [보고](2026-11-10-s2-container-feasibility.md), [증거](../../experiments/domain-model/s2/verification/2026-11-10-container-feasibility/). VM/준비 image build 성공 뒤 repo@digest 해석 실패와 config/native image ID 혼동의 수정1회 실패로 종료했다. 이는 호출 구현 문제이며 런타임 불가능/격리 성공 판정이 아니다. worker/CLI/Linux 평가 probe는0회이며 Linux Vendure 설치도 미실행이다. 임시 VM/image/cache를 정리했고 호스트303테스트·4/4·18 usage fixture·84배포/4735원본 hash를 확인했다. 다음 리뷰는 같은 후보의 이미지 연결을 위한 별도 제한 예산 여부를 결정한다. R11 unresolved·R12 기존 판정·trialAuthorized/readyForTrial=false·results=null·실제 모델/본 비교0회를 유지한다.
+
 2026-11-10 현재 개발 지시: 사용자가 **일회성 컨테이너 경계 우선·기존 CLI/셸 유지**를 승인했다(ADR-031). [타당성 검증 지시](2026-11-10-s2-container-feasibility-instructions.md)는 총4시간·환경 준비90분·마지막30분 마무리·후보1개·신규 유료 비용0으로 범위를 제한한다. 새 경계의 fixture 종료/수집/평가와 Linux 환경 동등성을 확인하고 feasible/conditional/blocked를 구분해 인계한다. 이번에는 문서만 작성했으며 R11 해결 판정을 바꾸지 않는다. 실제 모델 호출/본 비교는 결과 리뷰 이후이고 trialAuthorized/readyForTrial=false를 유지한다.
 
 2026-11-10 최신 독립 판정: **R12 검증 범위에서 해결, R11 미해결 차단 유지**. [독립 보고](2026-11-10-s2-runtime-accounting-independent-review.md)와 [새 증거](evidence/2026-11-10-s2-runtime-review/)를 참조한다.303테스트·비교4/4·29제출60파일/참조52사례, usage3,279조합·추가20사례·18fixture, macOS22실행·동결 지문/재생성을 확인했다. 늦은 쓰기8건은 여전히 발생하며 정상 제출로 승격되지 않는다. 추가 차단 결함 없이 부분 인계 조건을 충족했다. 다음은 사용자와 실행 경계/허용 도구 정책을 정하는 단계다. 본 비교/실제 모델0회·사람 승인 pending·trialAuthorized/readyForTrial=false다.

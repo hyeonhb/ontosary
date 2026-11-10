@@ -1,0 +1,56 @@
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 462B done
+#1 WARN: InvalidDefaultArgInFrom: Default value for ARG ${BASE_IMAGE} results in empty or invalid base image name (line 3)
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/node@sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+#2 DONE 1.4s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/4] FROM docker.io/library/node@sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+#4 resolve docker.io/library/node@sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90 0.0s done
+#4 extracting sha256:0878ecc8b0afd0d835641c015541aacd4780ec19e5565a3e1a5af3f77d208d42
+#4 extracting sha256:0878ecc8b0afd0d835641c015541aacd4780ec19e5565a3e1a5af3f77d208d42 0.5s done
+#4 DONE 0.5s
+
+#4 [1/4] FROM docker.io/library/node@sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+#4 extracting sha256:8474919cf0553dec4ec2c59bf1b8b095811587318f086a74aa06d67198ec08d8 done
+#4 extracting sha256:050cc65304670b77c0cbdad5cc622b762fd3e4c69b0c45fad068df13c895e5db
+#4 extracting sha256:050cc65304670b77c0cbdad5cc622b762fd3e4c69b0c45fad068df13c895e5db 0.7s done
+#4 DONE 1.2s
+
+#4 [1/4] FROM docker.io/library/node@sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90
+#4 extracting sha256:50ac3c1bc6412649b494dd6cfd5e177debc6ac2a0498b934200e2e847ecd607d 0.0s done
+#4 extracting sha256:b56ec4d7bd508eaadc07555ca6b5b1817577da79bb8ae406239e0d27f94d9b93 done
+#4 DONE 1.2s
+
+#5 [2/4] RUN npm install --global npm@10.9.3 @openai/codex@0.167.0-alpha.3.2 typescript@5.9.3 --ignore-scripts --no-audit --no-fund
+#5 20.79
+#5 20.79 added 3 packages, and changed 16 packages in 21s
+#5 DONE 21.2s
+
+#6 [3/4] RUN npm install --prefix /opt/s2-tools typescript@5.9.3 @types/node@22.20.5 --ignore-scripts --no-audit --no-fund
+#6 1.096
+#6 1.096 added 3 packages in 995ms
+#6 1.096 npm notice
+#6 1.096 npm notice New major version of npm available! 10.9.3 -> 12.2.2
+#6 1.096 npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+#6 1.096 npm notice To update run: npm install -g npm@12.2.2
+#6 1.096 npm notice
+#6 DONE 1.2s
+
+#7 [4/4] WORKDIR /source
+#7 DONE 0.0s
+
+#8 exporting to image
+#8 exporting layers
+#8 exporting layers 12.8s done
+#8 exporting manifest sha256:fbea81dbc73da64f8798dd025d17d7bfb559a953671b520a235220ae9dc3e47b done
+#8 exporting config sha256:c7fb3d12a1f8d73febec26ad54fbf1987cd55af0d573947b95a91d95a1e9a6d2 done
+#8 naming to docker.io/library/ontosary-s2-feasibility:20261110 done
+#8 unpacking to docker.io/library/ontosary-s2-feasibility:20261110
+#8 unpacking to docker.io/library/ontosary-s2-feasibility:20261110 2.9s done
+#8 DONE 15.7s
