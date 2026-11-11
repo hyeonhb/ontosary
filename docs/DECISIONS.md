@@ -296,3 +296,13 @@ ADR-037의 같은 후보/새3시간 안에서 [Linux 알려진 제출 재현](re
 첫 원문 대조에서 common 선언9개의 경로 표기가 달랐다. macOS의 `/tmp`→`/private/tmp` 해석을 거친 외부 경로는 기존 evaluator에서 `<typescript>/<basename>`으로 표기되고 Linux는 `packages/common/lib/…`를 기록한다. 역사적 Program 감사 자료, 원본 cache의 canonical path, 양쪽 실제9개 hash가 일대일로 일치했다. 의미·입력 hash 변경이 아니므로 원래 evaluator를 수정하지 않고 **정확한9개 경로/해시와 두 필드 위치의 대응**을 새 검증 전에 고정했다. 중복·충돌·해시 차이는 거부하고 파일 집합의 정렬만 대응 후 다시 한다. 광범위한 문자열 치환이나 해시 제외는 하지 않는다. 최초2개와 환경 전용 지문을 쓰던 중간1개를 최종7개 분모와 분리하고 원문 실패를 보존한다.
 
 필수7단위·공개 타입4회·같은 entrypoint의 timeout/유한 대조2개·공유 lifecycle5회귀가 통과했고17개 등록 단위/소유 VM/cache를 정리했다. 이 교정은 R11 전체 해결, 실제 agent 실행 독립성 전체, H-O/H-F 또는 본 비교 준비 완료의 근거가 아니다. 기존 R12 범위와 readyForTrial/trialAuthorized=false·results=null을 유지하며 다음 CLI/인증/provider/usage·C 사람 의미 검토는 결과 리뷰 뒤 정한다.
+
+## ADR-039 · CLI 비모델 연결 타당성과 가짜 인증 경계 — 2026-11-11
+
+**사용자 결정:** Linux 평가 독립 검토 후 같은 container 안에서 CLI 본체와 도구 실행의 권한을 분리하는 구조·가짜 인증/내부 서버 검증과 새90분 상한을 승인했다. [개발 지시](reviews/2026-11-11-s2-cli-feasibility-instructions.md)에 따라 최소 구현·비모델 probe·증거/보고까지만 진행한다. 실제 자격 증명 전달과 모델 호출은 결과 리뷰 뒤 결정한다.
+
+**구조 선택:** 외부는 기존 일회성 container/cgroup, 내부는 고정 CLI의 native 명령 sandbox를 사용한다. 실행별 CODEX_HOME/설정/상태와 셸 HOME/source/scratch를 분리하고, parent에서 읽을 수 있는 가짜 인증 표식의 직접/환경/FD 접근을 셸에서 거부한다. 실제 credential/호스트 home/키체인을 제공하지 않는다. 외부 egress 없이 내부 서버에 parent 문맥의 양성 대조와 CLI sandbox의 네트워크 거부를 확인한다. 실제 provider transport·turn의 tool inventory는 이 대조로 증명되지 않는다. 기존 감독/전체 종료/수집/cleanup을 재사용하며 production/live 권한은 열지 않는다.
+
+**검증과 비용:** 동일 후보·CLI0.167.0-alpha.3.2를 유지하고 정상 새2단위·설정/파일/가짜 인증/내부 네트워크·timeout/유한 대조와 영향 범위 회귀를 확인한다. 최초 시계부터 환경20분/핵심45분/탐색70분/총90분, 신규 유료 비용0이다. privileged/광범위한 권한 확대·후보 교체·큰 proxy/broker/API runner가 필요하거나 경계가 성립하지 않으면 중단하고 인계한다. 작은 fixture만 사용하며 Vendure 설치/평가 전체 반복과 임의 수정 소스 수집기를 확대하지 않는다.
+
+**판정 한계:** ready-for-live-connection-review/inconclusive/blocked로 인계한다. 첫 판정도 다음 연결 시험 설계의 근거일 뿐 실제 credential·로그인/갱신/provider/model 호출·본 비교 승인이 아니다. R11 unresolved·R12 기존 범위·trialAuthorized/readyForTrial=false·results=null을 유지한다. 이 결정은 다음 구현 승인이고 이미 CLI 내부 경계가 확인됐다는 기록이 아니다.
