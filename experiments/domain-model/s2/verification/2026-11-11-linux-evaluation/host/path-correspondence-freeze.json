@@ -1,0 +1,78 @@
+{
+  "utc": "2026-11-11T11:19:12.592114+00:00",
+  "rootArgument": "/tmp/ontosary-vendure-preparation-20261108/vendure",
+  "canonicalRoot": "/private/tmp/ontosary-vendure-preparation-20261108/vendure",
+  "commonSymlink": "../../packages/common",
+  "canonicalCommon": "/private/tmp/ontosary-vendure-preparation-20261108/vendure/packages/common",
+  "historicalProgramEntries": [
+    {
+      "path": "packages/common/lib/shared-utils.d.ts",
+      "sha256": "6da54d4fffde707c54f3706a97a0b7303542b0c847c955646ab700e24e923ff3",
+      "declaration": true,
+      "externalLibrary": true,
+      "observedPath": "<external>/shared-utils.d.ts"
+    },
+    {
+      "path": "packages/common/lib/simple-deep-clone.d.ts",
+      "sha256": "ddad1beee905bd1443fe4bd0d60dcd03523447ecdc86df078a647414f2fe2569",
+      "declaration": true,
+      "externalLibrary": true,
+      "observedPath": "<external>/simple-deep-clone.d.ts"
+    },
+    {
+      "path": "packages/common/lib/pick.d.ts",
+      "sha256": "b36592ed88a952878c2caa472045820370bf3888fe3e5a4c607b8f8eb161baa1",
+      "declaration": true,
+      "externalLibrary": true,
+      "observedPath": "<external>/pick.d.ts"
+    },
+    {
+      "path": "packages/common/lib/generated-types.d.ts",
+      "sha256": "af0d4f358f38bf893d67123ddc741cec000d69add93532b23398840b20a6b75c",
+      "declaration": true,
+      "externalLibrary": true,
+      "observedPath": "<external>/generated-types.d.ts"
+    },
+    {
+      "path": "packages/common/lib/shared-types.d.ts",
+      "sha256": "219c85026f0790308af595a34f56564fbdec947dbeda6df68340823969963cc8",
+      "declaration": true,
+      "externalLibrary": true,
+      "observedPath": "<external>/shared-types.d.ts"
+    },
+    {
+      "path": "packages/common/lib/shared-constants.d.ts",
+      "sha256": "ed111a733d2bb38f48c7988ab4ab5d2ff2f885b0410758519556ad934fe0ef8a",
+      "declaration": true,
+      "externalLibrary": true,
+      "observedPath": "<external>/shared-constants.d.ts"
+    },
+    {
+      "path": "packages/common/lib/omit.d.ts",
+      "sha256": "c472d04adfa2833b7cc02f6cf29feb170a63449cef2add766b7d36ee988fca0d",
+      "declaration": true,
+      "externalLibrary": true,
+      "observedPath": "<external>/omit.d.ts"
+    },
+    {
+      "path": "packages/common/lib/unique.d.ts",
+      "sha256": "5e692ba42a74f4c823f2e027339d3c8cf4d3695ae2ba85509f3e3b3f4584f808",
+      "declaration": true,
+      "externalLibrary": true,
+      "observedPath": "<external>/unique.d.ts"
+    },
+    {
+      "path": "packages/common/lib/extension-host-types.d.ts",
+      "sha256": "d7a187f0430a276ab7ba2eac90cc23f6d7485187c1875284b8fb287c67e09c96",
+      "declaration": true,
+      "externalLibrary": true,
+      "observedPath": "<external>/extension-host-types.d.ts"
+    }
+  ],
+  "policySha256": "1a02e0d250a88a7e8d5139dac4845515bfe0d059e1ef966d8b3c1763011f0976",
+  "firstRunIds": [
+    "8e1cbfa9a6ce",
+    "be4086d0a3ba"
+  ],
+  "validationRunIds": []
+}

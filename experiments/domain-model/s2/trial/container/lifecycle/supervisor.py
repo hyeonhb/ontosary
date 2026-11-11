@@ -11,6 +11,9 @@ def capture_ready(run):
         write(run/'worker-ready.json',{'ready':ready,'writers':writers,'writerBytes':(run/'source'/'writer.log').stat().st_size if (run/'source'/'writer.log').exists() else 0,'kernel':cgroup_snapshot(run),**stamp()})
 
 def supervise(run):
+    if read(run/'state.json')['mode']=='linux-evaluation':
+        from linux_job import supervise_job
+        return supervise_job(run)
     with lock(run/'operation.lock'):
         s=read(run/'state.json');mode=s['mode'];start=stamp()
         write(run/'supervisor-ready.json',{'pid':os.getpid(),'cgroup':pathlib.Path('/proc/self/cgroup').read_text(),'cgroupNamespace':os.readlink('/proc/self/ns/cgroup'),**start})

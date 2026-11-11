@@ -1,0 +1,65 @@
+{
+  "admissionClosed": true,
+  "cgroup": "/sys/fs/cgroup/ontosary.slice/ontosary-bdf544e23a77.slice",
+  "cgroupInode": 14490,
+  "classification": "normal-fixture",
+  "cleanupDone": true,
+  "collectionFinished": {
+    "mono": 898.300014957,
+    "utc": "2026-11-11T11:24:21.732662+00:00"
+  },
+  "collectionStarted": {
+    "mono": 898.29503033,
+    "utc": "2026-11-11T11:24:21.727690+00:00"
+  },
+  "containerId": "de2e5670b984922d513ea86ed0cd9256052d0d6110e23f80e192e1f7c28a92c5",
+  "createPending": false,
+  "deadlineMono": 1067.937529918,
+  "exitCode": 0,
+  "image": {
+    "chain": "sha256:f143d79aad0e57b70ccf548d24b70ab5573423b4bd9dae064aaaad202fc7376d",
+    "config": "sha256:23fc228dfc45fcad50bf0538460826698fba92e68ca34cec2b27d269549560ae",
+    "name": "docker.io/library/ontosary-s2-linux-evaluation:20261111",
+    "platform": "linux/arm64",
+    "target": "sha256:a23653100c38a3568df64b5377c33e410c6a7c92e76fb36aab43a1e0eba15f04"
+  },
+  "job": {
+    "fixtureOnly": true,
+    "input": "/opt/ontosary-linux-evaluation/assembled/helper-type-error.json",
+    "inputMode": "complete-root",
+    "kind": "known-submission-calibration",
+    "name": "helper-type-error",
+    "public": "private",
+    "source": "/opt/ontosary-linux-evaluation/assembled/helper-type-error",
+    "validSubmission": false,
+    "variant": "helper-type-error"
+  },
+  "mode": "linux-evaluation",
+  "prepared": {
+    "mono": 887.816985878,
+    "utc": "2026-11-11T11:24:11.249647+00:00"
+  },
+  "reason": "exit",
+  "runId": "bdf544e23a77",
+  "service": "ontosary-fixture-bdf544e23a77.service",
+  "slice": "ontosary-bdf544e23a77.slice",
+  "snapshot": null,
+  "startPending": false,
+  "state": "finalized",
+  "stopRequested": {
+    "mono": 898.2063643,
+    "utc": "2026-11-11T11:24:21.639025+00:00"
+  },
+  "stopTrigger": {
+    "mono": 898.2047508,
+    "utc": "2026-11-11T11:24:21.637405+00:00"
+  },
+  "taskSeconds": 180,
+  "terminationConfirmed": true,
+  "workStarted": {
+    "mono": 887.937529918,
+    "utc": "2026-11-11T11:24:11.370188+00:00"
+  },
+  "workerReady": false,
+  "workloadLogBytesObserved": 0
+}

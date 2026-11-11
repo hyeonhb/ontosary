@@ -1,0 +1,586 @@
+{
+  "utc": "2026-11-11T11:01:10.452079+00:00",
+  "monotonic": 147476.560882041,
+  "deadlines": {
+    "environment": "2026-11-11T11:46:10.452079+00:00",
+    "core": "2026-11-11T12:31:10.452079+00:00",
+    "exploration": "2026-11-11T13:31:10.452079+00:00",
+    "finish": "2026-11-11T14:01:10.452079+00:00"
+  },
+  "events": [
+    {
+      "utc": "2026-11-11T11:08:40.784557+00:00",
+      "monotonic": 147926.896798208,
+      "seconds": 0.1997862919815816,
+      "timeoutSeconds": 120,
+      "phase": "environment",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "experiments/domain-model/s2/trial/container/lifecycle",
+        "-p",
+        "test_*.py"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-linux-evaluation/host-regression.log"
+    },
+    {
+      "utc": "2026-11-11T11:05:54.856706+00:00",
+      "monotonic": 147760.967944208,
+      "seconds": 261.4927582919772,
+      "timeoutSeconds": 760,
+      "phase": "environment",
+      "command": [
+        "python3",
+        "work/s2-linux-evaluation/prepare-host.py"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-linux-evaluation/host-preparation.log"
+    },
+    {
+      "utc": "2026-11-11T11:10:31.347600+00:00",
+      "monotonic": 148037.460795875,
+      "seconds": 81.44342016600422,
+      "timeoutSeconds": 1500,
+      "phase": "environment",
+      "command": [
+        "python3",
+        "work/s2-linux-evaluation/run-preparation.py"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-linux-evaluation/linux-preparation.log"
+    },
+    {
+      "utc": "2026-11-11T11:14:44.299138+00:00",
+      "monotonic": 148290.4144045,
+      "seconds": 14.865837624995038,
+      "timeoutSeconds": 240,
+      "phase": "core",
+      "command": [
+        "python3",
+        "work/s2-linux-evaluation/install-job.py"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-linux-evaluation/job-setup.log"
+    },
+    {
+      "utc": "2026-11-11T11:15:52.053613+00:00",
+      "monotonic": 148358.169289333,
+      "seconds": 27.147791916999267,
+      "timeoutSeconds": 240,
+      "phase": "core",
+      "command": [
+        "python3",
+        "experiments/domain-model/s2/trial/container/linux-evaluation/run.py",
+        "--root",
+        "/tmp/ontosary-s2-linux-evaluation-20261111",
+        "--output",
+        "work/s2-linux-evaluation/units",
+        "--job",
+        "baseline",
+        "--budget",
+        "work/s2-linux-evaluation/budget.json",
+        "--phase",
+        "core"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-linux-evaluation/baseline-1.log"
+    },
+    {
+      "utc": "2026-11-11T11:16:44.993779+00:00",
+      "monotonic": 148411.109634125,
+      "seconds": 26.78805891601951,
+      "timeoutSeconds": 240,
+      "phase": "core",
+      "command": [
+        "python3",
+        "experiments/domain-model/s2/trial/container/linux-evaluation/run.py",
+        "--root",
+        "/tmp/ontosary-s2-linux-evaluation-20261111",
+        "--output",
+        "work/s2-linux-evaluation/units",
+        "--job",
+        "reference",
+        "--budget",
+        "work/s2-linux-evaluation/budget.json",
+        "--phase",
+        "core"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-linux-evaluation/reference-1.log"
+    },
+    {
+      "utc": "2026-11-11T11:19:12.739074+00:00",
+      "monotonic": 148558.856052666,
+      "seconds": 27.205005083989818,
+      "timeoutSeconds": 240,
+      "phase": "core",
+      "command": [
+        "python3",
+        "experiments/domain-model/s2/trial/container/linux-evaluation/run.py",
+        "--root",
+        "/tmp/ontosary-s2-linux-evaluation-20261111",
+        "--output",
+        "work/s2-linux-evaluation/validation-units",
+        "--job",
+        "baseline",
+        "--budget",
+        "work/s2-linux-evaluation/budget.json",
+        "--phase",
+        "core"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-linux-evaluation/baseline-2.log"
+    },
+    {
+      "utc": "2026-11-11T11:20:35.028586+00:00",
+      "monotonic": 148641.146178833,
+      "seconds": 29.492735916981474,
+      "timeoutSeconds": 240,
+      "phase": "core",
+      "command": [
+        "python3",
+        "experiments/domain-model/s2/trial/container/linux-evaluation/run.py",
+        "--root",
+        "/tmp/ontosary-s2-linux-evaluation-20261111",
+        "--output",
+        "work/s2-linux-evaluation/validation-units",
+        "--job",
+        "baseline",
+        "--budget",
+        "work/s2-linux-evaluation/budget.json",
+        "--phase",
+        "core"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-linux-evaluation/validation-baseline-1.log"
+    },
+    {
+      "utc": "2026-11-11T11:21:22.152523+00:00",
+      "monotonic": 148688.270467708,
+      "seconds": 0.1479373750044033,
+      "timeoutSeconds": 60,
+      "phase": "core",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "experiments/domain-model/s2/trial/container/linux-evaluation",
+        "-p",
+        "test_*.py"
+      ],
+      "exitCode": 1,
+      "log": "work/s2-linux-evaluation/job-tests.log"
+    },
+    {
+      "utc": "2026-11-11T11:21:43.887522+00:00",
+      "monotonic": 148710.007130416,
+      "seconds": 0.13680750000639819,
+      "timeoutSeconds": 60,
+      "phase": "core",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "experiments/domain-model/s2/trial/container/linux-evaluation",
+        "-p",
+        "test_*.py"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-linux-evaluation/job-tests-v2.log"
+    },
+    {
+      "utc": "2026-11-11T11:21:29.935540+00:00",
+      "monotonic": 148696.053521458,
+      "seconds": 29.013404625002295,
+      "timeoutSeconds": 240,
+      "phase": "core",
+      "command": [
+        "python3",
+        "experiments/domain-model/s2/trial/container/linux-evaluation/run.py",
+        "--root",
+        "/tmp/ontosary-s2-linux-evaluation-20261111",
+        "--output",
+        "work/s2-linux-evaluation/validation-units",
+        "--job",
+        "reference",
+        "--budget",
+        "work/s2-linux-evaluation/budget.json",
+        "--phase",
+        "core"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-linux-evaluation/validation-reference-1.log"
+    },
+    {
+      "utc": "2026-11-11T11:22:43.907079+00:00",
+      "monotonic": 148770.025653291,
+      "seconds": 0.20864554200670682,
+      "timeoutSeconds": 60,
+      "phase": "core",
+      "command": [
+        "python3",
+        "experiments/domain-model/s2/trial/container/linux-evaluation/compare.py",
+        "work/s2-linux-evaluation/validation-units",
+        "work/s2-linux-evaluation/core-comparison-v2.json",
+        "--core"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-linux-evaluation/core-comparison-v2.log"
+    },
+    {
+      "utc": "2026-11-11T11:23:19.061526+00:00",
+      "monotonic": 148805.180411333,
+      "seconds": 0.2960636249918025,
+      "timeoutSeconds": 60,
+      "phase": "exploration",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "experiments/domain-model/s2/trial/container/lifecycle",
+        "-p",
+        "test_*.py"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-linux-evaluation/host-regression-final.log"
+    },
+    {
+      "utc": "2026-11-11T11:22:59.857078+00:00",
+      "monotonic": 148785.97574575,
+      "seconds": 38.0716898329847,
+      "timeoutSeconds": 240,
+      "phase": "exploration",
+      "command": [
+        "python3",
+        "experiments/domain-model/s2/trial/container/linux-evaluation/run.py",
+        "--root",
+        "/tmp/ontosary-s2-linux-evaluation-20261111",
+        "--output",
+        "work/s2-linux-evaluation/validation-units",
+        "--job",
+        "baseline",
+        "--budget",
+        "work/s2-linux-evaluation/budget.json",
+        "--phase",
+        "exploration"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-linux-evaluation/validation-3-baseline.log"
+    },
+    {
+      "utc": "2026-11-11T11:23:17.846996+00:00",
+      "monotonic": 148803.965875583,
+      "seconds": 21.7085657499847,
+      "timeoutSeconds": 300,
+      "phase": "exploration",
+      "command": [
+        "pnpm",
+        "check"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-linux-evaluation/pnpm-check.log"
+    },
+    {
+      "utc": "2026-11-11T11:23:37.979160+00:00",
+      "monotonic": 148824.098175291,
+      "seconds": 26.690125916997204,
+      "timeoutSeconds": 240,
+      "phase": "exploration",
+      "command": [
+        "python3",
+        "experiments/domain-model/s2/trial/container/linux-evaluation/run.py",
+        "--root",
+        "/tmp/ontosary-s2-linux-evaluation-20261111",
+        "--output",
+        "work/s2-linux-evaluation/validation-units",
+        "--job",
+        "reference",
+        "--budget",
+        "work/s2-linux-evaluation/budget.json",
+        "--phase",
+        "exploration"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-linux-evaluation/validation-4-reference.log"
+    },
+    {
+      "utc": "2026-11-11T11:24:04.773480+00:00",
+      "monotonic": 148850.892671791,
+      "seconds": 23.558500792016275,
+      "timeoutSeconds": 240,
+      "phase": "exploration",
+      "command": [
+        "python3",
+        "experiments/domain-model/s2/trial/container/linux-evaluation/run.py",
+        "--root",
+        "/tmp/ontosary-s2-linux-evaluation-20261111",
+        "--output",
+        "work/s2-linux-evaluation/validation-units",
+        "--job",
+        "helper-type-error",
+        "--budget",
+        "work/s2-linux-evaluation/budget.json",
+        "--phase",
+        "exploration"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-linux-evaluation/validation-5-helper-type-error.log"
+    },
+    {
+      "utc": "2026-11-11T11:24:28.404566+00:00",
+      "monotonic": 148874.523913083,
+      "seconds": 22.43952008301858,
+      "timeoutSeconds": 240,
+      "phase": "exploration",
+      "command": [
+        "python3",
+        "experiments/domain-model/s2/trial/container/linux-evaluation/run.py",
+        "--root",
+        "/tmp/ontosary-s2-linux-evaluation-20261111",
+        "--output",
+        "work/s2-linux-evaluation/validation-units",
+        "--job",
+        "wrong-modal-order",
+        "--budget",
+        "work/s2-linux-evaluation/budget.json",
+        "--phase",
+        "exploration"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-linux-evaluation/validation-6-wrong-modal-order.log"
+    },
+    {
+      "utc": "2026-11-11T11:24:50.900185+00:00",
+      "monotonic": 148897.019681166,
+      "seconds": 22.813760999997612,
+      "timeoutSeconds": 240,
+      "phase": "exploration",
+      "command": [
+        "python3",
+        "experiments/domain-model/s2/trial/container/linux-evaluation/run.py",
+        "--root",
+        "/tmp/ontosary-s2-linux-evaluation-20261111",
+        "--output",
+        "work/s2-linux-evaluation/validation-units",
+        "--job",
+        "reference-delta",
+        "--budget",
+        "work/s2-linux-evaluation/budget.json",
+        "--phase",
+        "exploration"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-linux-evaluation/validation-7-reference-delta.log"
+    },
+    {
+      "utc": "2026-11-11T11:25:54.462175+00:00",
+      "monotonic": 148960.582185125,
+      "seconds": 0.5731257500010543,
+      "timeoutSeconds": 60,
+      "phase": "exploration",
+      "command": [
+        "python3",
+        "experiments/domain-model/s2/trial/container/linux-evaluation/compare.py",
+        "work/s2-linux-evaluation/validation-units",
+        "work/s2-linux-evaluation/seven-comparison.json"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-linux-evaluation/seven-comparison.log"
+    },
+    {
+      "utc": "2026-11-11T11:26:02.438782+00:00",
+      "monotonic": 148968.558844041,
+      "seconds": 0.8251253750058822,
+      "timeoutSeconds": 30,
+      "phase": "exploration",
+      "command": [
+        "node",
+        "experiments/domain-model/s2/trial/container/lifecycle/refusal.mjs",
+        "work/s2-linux-evaluation/validation-units/c61ec1982e8a/raw/result"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-linux-evaluation/production-refusal.log"
+    },
+    {
+      "utc": "2026-11-11T11:26:01.326189+00:00",
+      "monotonic": 148967.446282625,
+      "seconds": 15.044618415995501,
+      "timeoutSeconds": 240,
+      "phase": "exploration",
+      "command": [
+        "/Users/hyeon/.pyenv/versions/3.12.10/bin/python3",
+        "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/linux-evaluation/run.py",
+        "--root",
+        "/tmp/ontosary-s2-linux-evaluation-20261111",
+        "--output",
+        "work/s2-linux-evaluation/job-probes",
+        "--job",
+        "timeout",
+        "--budget",
+        "work/s2-linux-evaluation/budget.json",
+        "--phase",
+        "exploration"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-linux-evaluation/job-timeout.log"
+    },
+    {
+      "utc": "2026-11-11T11:26:16.537697+00:00",
+      "monotonic": 148982.657844166,
+      "seconds": 19.34849866697914,
+      "timeoutSeconds": 240,
+      "phase": "exploration",
+      "command": [
+        "/Users/hyeon/.pyenv/versions/3.12.10/bin/python3",
+        "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/linux-evaluation/run.py",
+        "--root",
+        "/tmp/ontosary-s2-linux-evaluation-20261111",
+        "--output",
+        "work/s2-linux-evaluation/job-probes",
+        "--job",
+        "control",
+        "--budget",
+        "work/s2-linux-evaluation/budget.json",
+        "--phase",
+        "exploration"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-linux-evaluation/job-control.log"
+    },
+    {
+      "utc": "2026-11-11T11:27:23.390360+00:00",
+      "monotonic": 149049.511014791,
+      "seconds": 37.37041141701047,
+      "timeoutSeconds": 360,
+      "phase": "exploration",
+      "command": [
+        "python3",
+        "experiments/domain-model/s2/trial/container/lifecycle/probe.py",
+        "--root",
+        "/tmp/ontosary-s2-linux-evaluation-20261111",
+        "--output",
+        "work/s2-linux-evaluation/lifecycle-regressions",
+        "--modes",
+        "normal",
+        "timeout",
+        "wrapper",
+        "supervisor",
+        "publish-supervisor",
+        "--budget",
+        "work/s2-linux-evaluation/fixture-budget.json"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-linux-evaluation/lifecycle-regressions.log"
+    },
+    {
+      "utc": "2026-11-11T11:29:56.797528+00:00",
+      "monotonic": 149202.919449291,
+      "seconds": 7.069069000019226,
+      "timeoutSeconds": 180,
+      "phase": "finish",
+      "command": [
+        "env",
+        "LIMA_HOME=/tmp/ontosary-s2-linux-evaluation-20261111/lima",
+        "/tmp/ontosary-s2-linux-evaluation-20261111/prefix/bin/limactl",
+        "shell",
+        "--workdir=/tmp",
+        "s2-lifecycle",
+        "sudo",
+        "python3",
+        "/tmp/s2-linux-finish.py"
+      ],
+      "exitCode": 1,
+      "log": "work/s2-linux-evaluation/guest-finish.log"
+    },
+    {
+      "utc": "2026-11-11T11:31:01.564030+00:00",
+      "monotonic": 149267.686345958,
+      "seconds": 7.279635041981237,
+      "timeoutSeconds": 180,
+      "phase": "finish",
+      "command": [
+        "env",
+        "LIMA_HOME=/tmp/ontosary-s2-linux-evaluation-20261111/lima",
+        "/tmp/ontosary-s2-linux-evaluation-20261111/prefix/bin/limactl",
+        "shell",
+        "--workdir=/tmp",
+        "s2-lifecycle",
+        "sudo",
+        "python3",
+        "/tmp/s2-linux-finish.py"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-linux-evaluation/guest-finish-v2.log"
+    },
+    {
+      "utc": "2026-11-11T11:31:56.972169+00:00",
+      "monotonic": 149323.094888916,
+      "seconds": 1.2421971669828054,
+      "timeoutSeconds": 120,
+      "phase": "finish",
+      "command": [
+        "python3",
+        "experiments/domain-model/s2/trial/container/linux-evaluation/host-cleanup.py"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-linux-evaluation/host-cleanup.log"
+    },
+    {
+      "utc": "2026-11-11T11:42:10.690568+00:00",
+      "monotonic": 149936.875747875,
+      "seconds": 2.87044183301623,
+      "timeoutSeconds": 120,
+      "phase": "finish",
+      "command": [
+        "pnpm",
+        "s2:build"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-linux-evaluation/final-s2-build.log"
+    },
+    {
+      "utc": "2026-11-11T11:43:40.747989+00:00",
+      "monotonic": 150026.9356915,
+      "seconds": 0.13259033299982548,
+      "timeoutSeconds": 60,
+      "phase": "finish",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "experiments/domain-model/s2/trial/container/linux-evaluation",
+        "-p",
+        "test_*.py"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-linux-evaluation/final-job-tests.log"
+    }
+  ],
+  "milestones": {
+    "environment": {
+      "completedUtc": "2026-11-11T11:11:52.791020+00:00",
+      "evidence": "preparation-evidence/preparation/gate.json",
+      "passed": true
+    },
+    "core": {
+      "completedUtc": "2026-11-11T11:23:00.937472+00:00",
+      "elapsedSeconds": 1310.4953144589963,
+      "evidence": "core-comparison-v2.json",
+      "passed": true,
+      "preliminaryUnits": 3,
+      "validationUnits": 2
+    }
+  }
+}

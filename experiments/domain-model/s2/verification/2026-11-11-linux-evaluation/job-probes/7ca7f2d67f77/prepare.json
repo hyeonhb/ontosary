@@ -1,0 +1,38 @@
+{
+  "admissionClosed": false,
+  "cgroup": "/sys/fs/cgroup/ontosary.slice/ontosary-7ca7f2d67f77.slice",
+  "cgroupInode": 15764,
+  "cleanupDone": false,
+  "containerId": null,
+  "createPending": false,
+  "image": {
+    "chain": "sha256:f143d79aad0e57b70ccf548d24b70ab5573423b4bd9dae064aaaad202fc7376d",
+    "config": "sha256:23fc228dfc45fcad50bf0538460826698fba92e68ca34cec2b27d269549560ae",
+    "name": "docker.io/library/ontosary-s2-linux-evaluation:20261111",
+    "platform": "linux/arm64",
+    "target": "sha256:a23653100c38a3568df64b5377c33e410c6a7c92e76fb36aab43a1e0eba15f04"
+  },
+  "job": {
+    "fixtureOnly": true,
+    "input": "/opt/ontosary-linux-evaluation/assembled/baseline.json",
+    "inputMode": "complete-root",
+    "kind": "known-submission-calibration",
+    "name": "timeout",
+    "public": "private",
+    "source": "/opt/ontosary-linux-evaluation/assembled/baseline",
+    "validSubmission": false,
+    "variant": "timeout"
+  },
+  "mode": "linux-evaluation",
+  "prepared": {
+    "mono": 1004.523954384,
+    "utc": "2026-11-11T11:26:07.956616+00:00"
+  },
+  "runId": "7ca7f2d67f77",
+  "service": "ontosary-fixture-7ca7f2d67f77.service",
+  "slice": "ontosary-7ca7f2d67f77.slice",
+  "snapshot": null,
+  "startPending": false,
+  "state": "prepared",
+  "taskSeconds": 2
+}

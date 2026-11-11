@@ -1,0 +1,307 @@
+{
+  "status": "passed",
+  "scope": "seven-units",
+  "policy": {
+    "version": 2,
+    "frozenBeforeLinuxEvaluation": true,
+    "ignoredFieldPaths": [
+      "/environment/cost/wallTimeMs",
+      "/environmentRecheck/wallTimeMs",
+      "/typecheck/cost/wallTimeMs",
+      "/behavior/cost/wallTimeMs"
+    ],
+    "intentionalDifferences": {
+      "/inputMode": {
+        "macOS": "explicit-baseline-delta",
+        "linuxCompleteRoot": "complete-root",
+        "linuxDelta": "explicit-baseline-delta"
+      }
+    },
+    "rootCorrespondence": [
+      {
+        "macOS": "<typescript>/shared-utils.d.ts",
+        "linux": "packages/common/lib/shared-utils.d.ts",
+        "sha256": "6da54d4fffde707c54f3706a97a0b7303542b0c847c955646ab700e24e923ff3",
+        "fieldPaths": [
+          "/typecheck/checkedFiles/*/file",
+          "/typecheck/inputHashes/<key>"
+        ]
+      },
+      {
+        "macOS": "<typescript>/simple-deep-clone.d.ts",
+        "linux": "packages/common/lib/simple-deep-clone.d.ts",
+        "sha256": "ddad1beee905bd1443fe4bd0d60dcd03523447ecdc86df078a647414f2fe2569",
+        "fieldPaths": [
+          "/typecheck/checkedFiles/*/file",
+          "/typecheck/inputHashes/<key>"
+        ]
+      },
+      {
+        "macOS": "<typescript>/pick.d.ts",
+        "linux": "packages/common/lib/pick.d.ts",
+        "sha256": "b36592ed88a952878c2caa472045820370bf3888fe3e5a4c607b8f8eb161baa1",
+        "fieldPaths": [
+          "/typecheck/checkedFiles/*/file",
+          "/typecheck/inputHashes/<key>"
+        ]
+      },
+      {
+        "macOS": "<typescript>/generated-types.d.ts",
+        "linux": "packages/common/lib/generated-types.d.ts",
+        "sha256": "af0d4f358f38bf893d67123ddc741cec000d69add93532b23398840b20a6b75c",
+        "fieldPaths": [
+          "/typecheck/checkedFiles/*/file",
+          "/typecheck/inputHashes/<key>"
+        ]
+      },
+      {
+        "macOS": "<typescript>/shared-types.d.ts",
+        "linux": "packages/common/lib/shared-types.d.ts",
+        "sha256": "219c85026f0790308af595a34f56564fbdec947dbeda6df68340823969963cc8",
+        "fieldPaths": [
+          "/typecheck/checkedFiles/*/file",
+          "/typecheck/inputHashes/<key>"
+        ]
+      },
+      {
+        "macOS": "<typescript>/shared-constants.d.ts",
+        "linux": "packages/common/lib/shared-constants.d.ts",
+        "sha256": "ed111a733d2bb38f48c7988ab4ab5d2ff2f885b0410758519556ad934fe0ef8a",
+        "fieldPaths": [
+          "/typecheck/checkedFiles/*/file",
+          "/typecheck/inputHashes/<key>"
+        ]
+      },
+      {
+        "macOS": "<typescript>/omit.d.ts",
+        "linux": "packages/common/lib/omit.d.ts",
+        "sha256": "c472d04adfa2833b7cc02f6cf29feb170a63449cef2add766b7d36ee988fca0d",
+        "fieldPaths": [
+          "/typecheck/checkedFiles/*/file",
+          "/typecheck/inputHashes/<key>"
+        ]
+      },
+      {
+        "macOS": "<typescript>/unique.d.ts",
+        "linux": "packages/common/lib/unique.d.ts",
+        "sha256": "5e692ba42a74f4c823f2e027339d3c8cf4d3695ae2ba85509f3e3b3f4584f808",
+        "fieldPaths": [
+          "/typecheck/checkedFiles/*/file",
+          "/typecheck/inputHashes/<key>"
+        ]
+      },
+      {
+        "macOS": "<typescript>/extension-host-types.d.ts",
+        "linux": "packages/common/lib/extension-host-types.d.ts",
+        "sha256": "d7a187f0430a276ab7ba2eac90cc23f6d7485187c1875284b8fb287c67e09c96",
+        "fieldPaths": [
+          "/typecheck/checkedFiles/*/file",
+          "/typecheck/inputHashes/<key>"
+        ]
+      }
+    ],
+    "notes": "Version 1 found only nine common declaration path labels. Freeze exact version 2 before fresh validation units. No source/dependency bytes, hashes, diagnostics, or behavior are excluded. Historical Program audit already binds these nine common paths/hashes; macOS /tmp is /private/tmp and the unchanged evaluator labels every out-of-root input as <typescript>/<basename>.",
+    "checkedFilesComparison": "Unique file/hash set; sort only after exact aliases are resolved; reject collisions and hash differences."
+  },
+  "counts": {
+    "reference-delta": 1,
+    "reference": 2,
+    "baseline": 2,
+    "helper-type-error": 1,
+    "wrong-modal-order": 1
+  },
+  "expected": {
+    "baseline": 2,
+    "reference": 2,
+    "helper-type-error": 1,
+    "wrong-modal-order": 1,
+    "reference-delta": 1
+  },
+  "rows": [
+    {
+      "kind": "known-submission-calibration",
+      "fixtureOnly": true,
+      "validSubmission": false,
+      "trialAuthorized": false,
+      "readyForTrial": false,
+      "job": "reference-delta",
+      "runId": "0f9de71a1032",
+      "state": "finalized",
+      "cleanupDone": true,
+      "reason": "exit",
+      "runtimeExitCode": 0,
+      "collectionBytes": 2371062,
+      "unitSeconds": 22.76369954200345,
+      "environmentUnchanged": true,
+      "archiveSha256": "f4d10a874fce2164e3c718db8b547b10aba3e104a15f44376143c1d021cfc1dc",
+      "evaluatorOverall": "passed",
+      "typecheck": "passed",
+      "behavior": "passed",
+      "sourceBinding": true,
+      "terminationAndCleanup": "passed",
+      "readOnlyAndResources": "passed",
+      "fullCollectedHashes": "passed",
+      "macOSDifferenceCount": 0,
+      "intentionalInputModeDifference": false
+    },
+    {
+      "kind": "known-submission-calibration",
+      "fixtureOnly": true,
+      "validSubmission": false,
+      "trialAuthorized": false,
+      "readyForTrial": false,
+      "job": "reference",
+      "runId": "3d00fe8ad333",
+      "state": "finalized",
+      "cleanupDone": true,
+      "reason": "exit",
+      "runtimeExitCode": 0,
+      "collectionBytes": 2371228,
+      "unitSeconds": 28.937123707990395,
+      "environmentUnchanged": true,
+      "archiveSha256": "535119edfee468f9c38b772cc997d1fcb258223ac9266ce0d7d15aadc728747e",
+      "evaluatorOverall": "passed",
+      "typecheck": "passed",
+      "behavior": "passed",
+      "sourceBinding": true,
+      "terminationAndCleanup": "passed",
+      "readOnlyAndResources": "passed",
+      "fullCollectedHashes": "passed",
+      "macOSDifferenceCount": 0,
+      "intentionalInputModeDifference": true
+    },
+    {
+      "kind": "known-submission-calibration",
+      "fixtureOnly": true,
+      "validSubmission": false,
+      "trialAuthorized": false,
+      "readyForTrial": false,
+      "job": "reference",
+      "runId": "b77835e79d66",
+      "state": "finalized",
+      "cleanupDone": true,
+      "reason": "exit",
+      "runtimeExitCode": 0,
+      "collectionBytes": 2371227,
+      "unitSeconds": 26.599745791987516,
+      "environmentUnchanged": true,
+      "archiveSha256": "abc1efbe07287edac1f82f6ccca28030c76ce5d85570e151deef230c13b017ae",
+      "evaluatorOverall": "passed",
+      "typecheck": "passed",
+      "behavior": "passed",
+      "sourceBinding": true,
+      "terminationAndCleanup": "passed",
+      "readOnlyAndResources": "passed",
+      "fullCollectedHashes": "passed",
+      "macOSDifferenceCount": 0,
+      "intentionalInputModeDifference": true
+    },
+    {
+      "kind": "known-submission-calibration",
+      "fixtureOnly": true,
+      "validSubmission": false,
+      "trialAuthorized": false,
+      "readyForTrial": false,
+      "job": "baseline",
+      "runId": "b8aed72d4cc7",
+      "state": "finalized",
+      "cleanupDone": true,
+      "reason": "exit",
+      "runtimeExitCode": 0,
+      "collectionBytes": 2423960,
+      "unitSeconds": 37.95813220899436,
+      "environmentUnchanged": true,
+      "archiveSha256": "bed9f7c1fe8e1b0f8fec6e1687cae3df69a4e79e466861c09949ea0c0554b390",
+      "evaluatorOverall": "failed",
+      "typecheck": "passed",
+      "behavior": "failed",
+      "sourceBinding": true,
+      "terminationAndCleanup": "passed",
+      "readOnlyAndResources": "passed",
+      "fullCollectedHashes": "passed",
+      "macOSDifferenceCount": 0,
+      "intentionalInputModeDifference": true
+    },
+    {
+      "kind": "known-submission-calibration",
+      "fixtureOnly": true,
+      "validSubmission": false,
+      "trialAuthorized": false,
+      "readyForTrial": false,
+      "job": "helper-type-error",
+      "runId": "bdf544e23a77",
+      "state": "finalized",
+      "cleanupDone": true,
+      "reason": "exit",
+      "runtimeExitCode": 0,
+      "collectionBytes": 2144549,
+      "unitSeconds": 23.493203958001686,
+      "environmentUnchanged": true,
+      "archiveSha256": "1c92d5be90146b540adedbddf1b292d32458c453d1e47c74b0b6deb4612fbefb",
+      "evaluatorOverall": "failed",
+      "typecheck": "failed",
+      "behavior": "not-run",
+      "sourceBinding": null,
+      "terminationAndCleanup": "passed",
+      "readOnlyAndResources": "passed",
+      "fullCollectedHashes": "passed",
+      "macOSDifferenceCount": 0,
+      "intentionalInputModeDifference": true
+    },
+    {
+      "kind": "known-submission-calibration",
+      "fixtureOnly": true,
+      "validSubmission": false,
+      "trialAuthorized": false,
+      "readyForTrial": false,
+      "job": "baseline",
+      "runId": "c61ec1982e8a",
+      "state": "finalized",
+      "cleanupDone": true,
+      "reason": "exit",
+      "runtimeExitCode": 0,
+      "collectionBytes": 2423973,
+      "unitSeconds": 29.39090545801446,
+      "environmentUnchanged": true,
+      "archiveSha256": "ae8f0283303aab6ba35867e2cc7b67e1cd60d37caef93da943bed192fc6afa58",
+      "evaluatorOverall": "failed",
+      "typecheck": "passed",
+      "behavior": "failed",
+      "sourceBinding": true,
+      "terminationAndCleanup": "passed",
+      "readOnlyAndResources": "passed",
+      "fullCollectedHashes": "passed",
+      "macOSDifferenceCount": 0,
+      "intentionalInputModeDifference": true
+    },
+    {
+      "kind": "known-submission-calibration",
+      "fixtureOnly": true,
+      "validSubmission": false,
+      "trialAuthorized": false,
+      "readyForTrial": false,
+      "job": "wrong-modal-order",
+      "runId": "db0897c598ec",
+      "state": "finalized",
+      "cleanupDone": true,
+      "reason": "exit",
+      "runtimeExitCode": 0,
+      "collectionBytes": 2371916,
+      "unitSeconds": 22.34699554098188,
+      "environmentUnchanged": true,
+      "archiveSha256": "9f913cf2ca06e564565b810b829eca9ff70b3def3894acfce56046cfa19a35f7",
+      "evaluatorOverall": "failed",
+      "typecheck": "passed",
+      "behavior": "failed",
+      "sourceBinding": true,
+      "terminationAndCleanup": "passed",
+      "readOnlyAndResources": "passed",
+      "fullCollectedHashes": "passed",
+      "macOSDifferenceCount": 0,
+      "intentionalInputModeDifference": true
+    }
+  ],
+  "differences": [],
+  "allFieldsCompared": true,
+  "originalVerifyUnchanged": true
+}

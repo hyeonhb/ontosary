@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "localLinks": 268,
+  "files": [
+    "docs/ARCHITECTURE.md",
+    "docs/DECISIONS.md",
+    "docs/PROGRESS.md",
+    "docs/ROADMAP.md",
+    "docs/reviews/REVIEW_CONTEXT.md",
+    "experiments/domain-model/s2/README.md",
+    "experiments/domain-model/s2/trial/container/README.md",
+    "experiments/domain-model/s2/trial/container/lifecycle/README.md",
+    "experiments/domain-model/s2/trial/container/lifecycle/host_driver.py",
+    "experiments/domain-model/s2/trial/container/lifecycle/manager.py",
+    "experiments/domain-model/s2/trial/container/lifecycle/supervisor.py",
+    "docs/reviews/2026-11-11-s2-linux-evaluation.md",
+    "experiments/domain-model/s2/trial/container/linux-evaluation/README.md"
+  ]
+}

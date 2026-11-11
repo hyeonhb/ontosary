@@ -1,0 +1,2 @@
+{"event": "prepared", "job": "control", "runId": "5cc2eee10641"}
+{"kind": "finite-job-lifecycle-probe", "fixtureOnly": true, "validSubmission": false, "trialAuthorized": false, "readyForTrial": false, "job": "control", "runId": "5cc2eee10641", "state": "finalized", "cleanupDone": true, "reason": "exit", "runtimeExitCode": 0, "collectionBytes": 5956, "unitSeconds": 19.267688666994218, "environmentUnchanged": true, "archiveSha256": "c4504bce09cec5e53d6254e19cf361d0e0b1f1502a1332b5ad0602726772482a"}

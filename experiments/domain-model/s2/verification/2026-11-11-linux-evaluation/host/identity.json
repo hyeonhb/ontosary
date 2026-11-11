@@ -1,0 +1,26 @@
+{
+  "baseCommit": "0760477a4f408797fb75cd62249c208322f8d1c4",
+  "sourceRevision": "534e6003534f74761e82de1b8c6061cba89945d1",
+  "ids": {
+    "executionId": "c316bba34a4b57c65465491f12d319fb0c95030830b576f89ff132d26322fa60",
+    "evaluatorId": "b7b6407b46b40d25e760f4e44e9a1839fddf8629c2c20c9d2c1430e760ec3aae",
+    "bundleId": "ab522d70da78c0e71b6ddc01f32056980b85de245e150bdde55f39c16a17c509",
+    "baselineId": "7707db72b46a21570152b2b8920e6526996952abaac1574642d6638c477ba0d8",
+    "modelId": "2ba6c772263da8814256efaa5491c69f723d79157a7f8aad7f22d898e297e5cf"
+  },
+  "inventoryFiles": 4735,
+  "inventoryBytes": 76727631,
+  "archiveSha256": "169df033dcb773f3de4be9941b8589cae23fc27d6ef8a7f9eb64d15795295c20",
+  "repositoryFiles": [
+    "experiments/domain-model/s2/provenance.json",
+    "experiments/domain-model/v1/manifest.json",
+    "experiments/public-app/results/2026-11-08/vendure/inventory.json.gz",
+    "experiments/public-app/results/2026-11-08-prepared/program-path-audit.json.gz",
+    "experiments/domain-model/results/2026-11-08-v2/model-after.json",
+    "experiments/domain-model/results/2026-11-08-v2/facts.json.gz",
+    "experiments/domain-model/results/2026-11-08-v2/fca.json",
+    "experiments/domain-model/results/2026-11-08-v2/observation.json.gz",
+    "experiments/public-app/results/2026-11-08-prepared/scoped/scan.json.gz",
+    "experiments/public-app/v1/vendure-task.json"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "mode": "supervisor",
+  "runId": "9663965c4f93",
+  "state": "blocked",
+  "reason": "supervisor-failed",
+  "blockReason": "supervisor-failed",
+  "seconds": 9.082101707987022
+}

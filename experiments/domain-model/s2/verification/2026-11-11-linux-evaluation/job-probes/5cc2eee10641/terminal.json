@@ -1,0 +1,65 @@
+{
+  "admissionClosed": true,
+  "cgroup": "/sys/fs/cgroup/ontosary.slice/ontosary-5cc2eee10641.slice",
+  "cgroupInode": 16177,
+  "classification": "normal-fixture",
+  "cleanupDone": true,
+  "collectionFinished": {
+    "mono": 1026.394784182,
+    "utc": "2026-11-11T11:26:29.827445+00:00"
+  },
+  "collectionStarted": {
+    "mono": 1026.393166002,
+    "utc": "2026-11-11T11:26:29.825828+00:00"
+  },
+  "containerId": "5bf7ef4e5289910066a46454dcf85367dc5f34173b8b13b429b4724eb9e36a1d",
+  "createPending": false,
+  "deadlineMono": 1199.0884527560002,
+  "exitCode": 0,
+  "image": {
+    "chain": "sha256:f143d79aad0e57b70ccf548d24b70ab5573423b4bd9dae064aaaad202fc7376d",
+    "config": "sha256:23fc228dfc45fcad50bf0538460826698fba92e68ca34cec2b27d269549560ae",
+    "name": "docker.io/library/ontosary-s2-linux-evaluation:20261111",
+    "platform": "linux/arm64",
+    "target": "sha256:a23653100c38a3568df64b5377c33e410c6a7c92e76fb36aab43a1e0eba15f04"
+  },
+  "job": {
+    "fixtureOnly": true,
+    "input": "/opt/ontosary-linux-evaluation/assembled/baseline.json",
+    "inputMode": "complete-root",
+    "kind": "known-submission-calibration",
+    "name": "control",
+    "public": "private",
+    "source": "/opt/ontosary-linux-evaluation/assembled/baseline",
+    "validSubmission": false,
+    "variant": "control"
+  },
+  "mode": "linux-evaluation",
+  "prepared": {
+    "mono": 1018.967435387,
+    "utc": "2026-11-11T11:26:22.400097+00:00"
+  },
+  "reason": "exit",
+  "runId": "5cc2eee10641",
+  "service": "ontosary-fixture-5cc2eee10641.service",
+  "slice": "ontosary-5cc2eee10641.slice",
+  "snapshot": null,
+  "startPending": false,
+  "state": "finalized",
+  "stopRequested": {
+    "mono": 1026.311787792,
+    "utc": "2026-11-11T11:26:29.744449+00:00"
+  },
+  "stopTrigger": {
+    "mono": 1026.310702324,
+    "utc": "2026-11-11T11:26:29.743361+00:00"
+  },
+  "taskSeconds": 180,
+  "terminationConfirmed": true,
+  "workStarted": {
+    "mono": 1019.088452756,
+    "utc": "2026-11-11T11:26:22.521108+00:00"
+  },
+  "workerReady": false,
+  "workloadLogBytesObserved": 0
+}

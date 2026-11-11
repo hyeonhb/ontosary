@@ -288,3 +288,11 @@ ADR-035의 한 후보/원래3시간 범위에서 [실제 fixture 결과](reviews
 **검증/비용:** baseline/reference complete-root 각2회, 기존 타입/동작 부정2종, reference explicit delta1회의7단위와 공개 타입 검사·짧은 timeout 통합·영향 범위 회귀를 확인한다. macOS/새 Linux 반복/입력 방식의 의미·소스 identity 차이를 각각 대조한다. 시간/run ID/명시적 root 외의 차이를 숨기거나 Program hash를 자동 재고정하지 않는다. 환경45분·핵심90분·탐색150분·총180분, 새 유료 비용0이며 이전 예산은 재개하지 않는다. 평가 단위180초·종료10초·수집10초·외부240초를 상한으로 둔다.
 
 **판정 한계:** linux-evaluation-reproduced/inconclusive/blocked로 인계한다. baseline의 예상 overall failed와 인프라 실패를 구분한다. 성공도 R11 전체 해결/실제 agent 독립성 전체·H-O/H-F·본 비교 준비 완료를 뜻하지 않는다. R12 기존 검증 범위·production/live 거부·trialAuthorized/readyForTrial=false·results=null·실제 모델/provider/본 비교0회를 유지한다. 이 결정은 다음 작업 승인이고 Linux 재현이 이미 구현됐다는 기록이 아니다.
+
+## ADR-038 · Linux 교정 job과 정확한 경로 대응 — 2026-11-11
+
+ADR-037의 같은 후보/새3시간 안에서 [Linux 알려진 제출 재현](reviews/2026-11-11-s2-linux-evaluation.md)을 확인했다. 관리자 불변 환경·완전 소스·도구의 RO bind와 실행별 새 Node PID1/출력만 수집하는 작은 job 분기를 채택했다. 최초 create 직전180초·lease5초·service210초·외부240초를 기존 작은 fixture 설정과 구분한다. 기존 종료/수집/성공 cleanup 권한을 재사용하고 runtime exit·평가기 판정·기대 교정값을 각각 기록한다. Production/live 경로는 열지 않는다.
+
+첫 원문 대조에서 common 선언9개의 경로 표기가 달랐다. macOS의 `/tmp`→`/private/tmp` 해석을 거친 외부 경로는 기존 evaluator에서 `<typescript>/<basename>`으로 표기되고 Linux는 `packages/common/lib/…`를 기록한다. 역사적 Program 감사 자료, 원본 cache의 canonical path, 양쪽 실제9개 hash가 일대일로 일치했다. 의미·입력 hash 변경이 아니므로 원래 evaluator를 수정하지 않고 **정확한9개 경로/해시와 두 필드 위치의 대응**을 새 검증 전에 고정했다. 중복·충돌·해시 차이는 거부하고 파일 집합의 정렬만 대응 후 다시 한다. 광범위한 문자열 치환이나 해시 제외는 하지 않는다. 최초2개와 환경 전용 지문을 쓰던 중간1개를 최종7개 분모와 분리하고 원문 실패를 보존한다.
+
+필수7단위·공개 타입4회·같은 entrypoint의 timeout/유한 대조2개·공유 lifecycle5회귀가 통과했고17개 등록 단위/소유 VM/cache를 정리했다. 이 교정은 R11 전체 해결, 실제 agent 실행 독립성 전체, H-O/H-F 또는 본 비교 준비 완료의 근거가 아니다. 기존 R12 범위와 readyForTrial/trialAuthorized=false·results=null을 유지하며 다음 CLI/인증/provider/usage·C 사람 의미 검토는 결과 리뷰 뒤 정한다.

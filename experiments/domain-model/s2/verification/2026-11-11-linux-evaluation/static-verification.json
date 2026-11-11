@@ -1,0 +1,51 @@
+{
+  "status": "passed",
+  "trackedOriginalInputs": 1976,
+  "allowedImplementationOrReadmeChanges": {
+    "experiments/domain-model/s2/README.md": {
+      "before": "86719b8a62b89eabdeb642e04c226d626e731db24d79bbe087f358fb6da2dd23",
+      "after": "cf644686332ff1aa229227061ad7b65ee9ae50da5feccfd6566f4eff7c31f9c0"
+    },
+    "experiments/domain-model/s2/trial/container/README.md": {
+      "before": "2d83616b61e992f0e29fad6b11bf582c8f0d4cf8019f961b0e599946ea4a8149",
+      "after": "0f1b1a161e4e178f4dba85448ad8cb022fd411761fd8b4096a54e39208e5970f"
+    },
+    "experiments/domain-model/s2/trial/container/lifecycle/README.md": {
+      "before": "94ae14835ca55c5ae0e8890c3215850e190588cc503fcf5b65741d9162abeed5",
+      "after": "56a94e5d863013d1d25313106bf96a625ecd5c12ab3941f020c40cb5981042e9"
+    },
+    "experiments/domain-model/s2/trial/container/lifecycle/host_driver.py": {
+      "before": "4c7cfce99633dc4e5d49b30d91bd1ba1d818db6cbcf3db1bf7ba78aa9a548d39",
+      "after": "e41bc2971e27676c392f56224c61e36173a0f9ccbb62bdf321a5a873f1fa2bb3"
+    },
+    "experiments/domain-model/s2/trial/container/lifecycle/manager.py": {
+      "before": "bbbe3b68eb9a08240e7f71788b4b1c0db176766612cb99b7b53d707effe36883",
+      "after": "ef270319077708b04413e1f44aa52bfb7b2142b3bdb82603ace088b84bc982bb"
+    },
+    "experiments/domain-model/s2/trial/container/lifecycle/supervisor.py": {
+      "before": "9356a0efff1e9e5616bc19bfd21851cae88b8881a40364defa3b92c358aab583",
+      "after": "c9e85431bf6b9c45ef19268dcf2c791d7c30d1046cd549466358b35e598793b2"
+    }
+  },
+  "originalInventoryFiles": 4735,
+  "originalCacheUnchanged": true,
+  "deploymentFiles": 84,
+  "modelItems": 12,
+  "modelLinks": 16,
+  "approvedKnowledge": 0,
+  "baselineId": "7707db72b46a21570152b2b8920e6526996952abaac1574642d6638c477ba0d8",
+  "modelId": "2ba6c772263da8814256efaa5491c69f723d79157a7f8aad7f22d898e297e5cf",
+  "bundleId": "ab522d70da78c0e71b6ddc01f32056980b85de245e150bdde55f39c16a17c509",
+  "evaluatorId": "b7b6407b46b40d25e760f4e44e9a1839fddf8629c2c20c9d2c1430e760ec3aae",
+  "evaluatorHashes": {
+    "submission.js": "919cb44e116186d34e45a567f151ca5810a0c2d371f76e7efe1488e37e782b0f",
+    "evaluate.js": "16d982a99517adb584ea707933adc7fba397044b858318b6bf51cbf3b6c53cf3",
+    "behavior.js": "9d0ad718ddb7e2ad4eb7a80f0bef9747c131d4f61bc6616fb53823e2978ffa75",
+    "execute.js": "374f9671e59debbc666ffef025e70afe31b16589f248d217a2382ab3524893bd",
+    "modal.js": "98c84a085ee2169c3ec2b396e9a4c4d3e1ea2247f36435dd800bc583c1929770",
+    "stream.js": "5dd7f7f1319da4a878a6ff913f1e4d81f7831d6fb18e8882f03c26292e991173"
+  },
+  "trialAuthorized": false,
+  "readyForTrial": false,
+  "results": null
+}

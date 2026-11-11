@@ -1,0 +1,47 @@
+...E.....E
+======================================================================
+ERROR: test_create_timeout_stays_pending (test_job.JobTests.test_create_timeout_stays_pending)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/linux-evaluation/test_job.py", line 37, in test_create_timeout_stays_pending
+    def test_create_timeout_stays_pending(self):self.uncertain('create')
+                                                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/linux-evaluation/test_job.py", line 34, in uncertain
+    with self.assertRaisesRegex(RuntimeError,'job-create-unsettled|start-timeout'):job.supervise_job(run)
+                                                                                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/linux-evaluation/linux_job.py", line 32, in supervise_job
+    write(run/'supervisor-ready.json',{'pid':os.getpid(),'cgroup':pathlib.Path('/proc/self/cgroup').read_text(),'cgroupNamespace':os.readlink('/proc/self/ns/cgroup'),**started_supervisor})
+                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/hyeon/.pyenv/versions/3.12.10/lib/python3.12/pathlib.py", line 1027, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/hyeon/.pyenv/versions/3.12.10/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/proc/self/cgroup'
+
+======================================================================
+ERROR: test_start_timeout_stays_pending (test_job.JobTests.test_start_timeout_stays_pending)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/linux-evaluation/test_job.py", line 38, in test_start_timeout_stays_pending
+    def test_start_timeout_stays_pending(self):self.uncertain('start')
+                                               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/linux-evaluation/test_job.py", line 34, in uncertain
+    with self.assertRaisesRegex(RuntimeError,'job-create-unsettled|start-timeout'):job.supervise_job(run)
+                                                                                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/linux-evaluation/linux_job.py", line 32, in supervise_job
+    write(run/'supervisor-ready.json',{'pid':os.getpid(),'cgroup':pathlib.Path('/proc/self/cgroup').read_text(),'cgroupNamespace':os.readlink('/proc/self/ns/cgroup'),**started_supervisor})
+                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/hyeon/.pyenv/versions/3.12.10/lib/python3.12/pathlib.py", line 1027, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/hyeon/.pyenv/versions/3.12.10/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/proc/self/cgroup'
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.009s
+
+FAILED (errors=2)

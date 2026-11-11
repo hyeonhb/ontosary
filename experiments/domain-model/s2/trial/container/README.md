@@ -1,4 +1,6 @@
-# Disposable Linux container feasibility — incomplete
+# Disposable Linux experiments — live dispatch blocked
+
+2026-11-11 follow-up: **[Linux known-submission evaluation reproduced](../../../../../docs/reviews/2026-11-11-s2-linux-evaluation.md)**, awaiting independent review. [linux-evaluation/](linux-evaluation/) installs pinned Linux dependencies/common, assembles immutable complete inputs, runs a Node PID1 job under the existing termination/collection boundary, and compares seven new units with macOS evidence. Four public checks, two timeout/control probes and five shared-lifecycle regressions passed. All 17 registered units and owned VM/cache resources were removed. No actual CLI/model/provider/trial calls were made; production/live dispatch and R11 remain blocked. The feasibility and preparation-only descriptions below are historical.
 
 2026-11-11 follow-up: **[lifecycle fixture boundary passed](../../../../../docs/reviews/2026-11-11-s2-lifecycle-fixture.md)**, awaiting independent review. [lifecycle/](lifecycle/) implements the independent guest supervisor, persistent per-run cgroup, fail-closed service cleanup and bounded manager-only full collection. The final version passed 24 required fixtures plus death immediately after result publication; both temporary VMs and owned resources were removed. These are fixture-only records, not production receipts, and R11/live dispatch remains blocked. The preparation-only descriptions below are historical.
 

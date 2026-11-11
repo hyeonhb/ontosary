@@ -1,0 +1,102 @@
+{
+  "version": 2,
+  "frozenBeforeLinuxEvaluation": true,
+  "ignoredFieldPaths": [
+    "/environment/cost/wallTimeMs",
+    "/environmentRecheck/wallTimeMs",
+    "/typecheck/cost/wallTimeMs",
+    "/behavior/cost/wallTimeMs"
+  ],
+  "intentionalDifferences": {
+    "/inputMode": {
+      "macOS": "explicit-baseline-delta",
+      "linuxCompleteRoot": "complete-root",
+      "linuxDelta": "explicit-baseline-delta"
+    }
+  },
+  "rootCorrespondence": [
+    {
+      "macOS": "<typescript>/shared-utils.d.ts",
+      "linux": "packages/common/lib/shared-utils.d.ts",
+      "sha256": "6da54d4fffde707c54f3706a97a0b7303542b0c847c955646ab700e24e923ff3",
+      "fieldPaths": [
+        "/typecheck/checkedFiles/*/file",
+        "/typecheck/inputHashes/<key>"
+      ]
+    },
+    {
+      "macOS": "<typescript>/simple-deep-clone.d.ts",
+      "linux": "packages/common/lib/simple-deep-clone.d.ts",
+      "sha256": "ddad1beee905bd1443fe4bd0d60dcd03523447ecdc86df078a647414f2fe2569",
+      "fieldPaths": [
+        "/typecheck/checkedFiles/*/file",
+        "/typecheck/inputHashes/<key>"
+      ]
+    },
+    {
+      "macOS": "<typescript>/pick.d.ts",
+      "linux": "packages/common/lib/pick.d.ts",
+      "sha256": "b36592ed88a952878c2caa472045820370bf3888fe3e5a4c607b8f8eb161baa1",
+      "fieldPaths": [
+        "/typecheck/checkedFiles/*/file",
+        "/typecheck/inputHashes/<key>"
+      ]
+    },
+    {
+      "macOS": "<typescript>/generated-types.d.ts",
+      "linux": "packages/common/lib/generated-types.d.ts",
+      "sha256": "af0d4f358f38bf893d67123ddc741cec000d69add93532b23398840b20a6b75c",
+      "fieldPaths": [
+        "/typecheck/checkedFiles/*/file",
+        "/typecheck/inputHashes/<key>"
+      ]
+    },
+    {
+      "macOS": "<typescript>/shared-types.d.ts",
+      "linux": "packages/common/lib/shared-types.d.ts",
+      "sha256": "219c85026f0790308af595a34f56564fbdec947dbeda6df68340823969963cc8",
+      "fieldPaths": [
+        "/typecheck/checkedFiles/*/file",
+        "/typecheck/inputHashes/<key>"
+      ]
+    },
+    {
+      "macOS": "<typescript>/shared-constants.d.ts",
+      "linux": "packages/common/lib/shared-constants.d.ts",
+      "sha256": "ed111a733d2bb38f48c7988ab4ab5d2ff2f885b0410758519556ad934fe0ef8a",
+      "fieldPaths": [
+        "/typecheck/checkedFiles/*/file",
+        "/typecheck/inputHashes/<key>"
+      ]
+    },
+    {
+      "macOS": "<typescript>/omit.d.ts",
+      "linux": "packages/common/lib/omit.d.ts",
+      "sha256": "c472d04adfa2833b7cc02f6cf29feb170a63449cef2add766b7d36ee988fca0d",
+      "fieldPaths": [
+        "/typecheck/checkedFiles/*/file",
+        "/typecheck/inputHashes/<key>"
+      ]
+    },
+    {
+      "macOS": "<typescript>/unique.d.ts",
+      "linux": "packages/common/lib/unique.d.ts",
+      "sha256": "5e692ba42a74f4c823f2e027339d3c8cf4d3695ae2ba85509f3e3b3f4584f808",
+      "fieldPaths": [
+        "/typecheck/checkedFiles/*/file",
+        "/typecheck/inputHashes/<key>"
+      ]
+    },
+    {
+      "macOS": "<typescript>/extension-host-types.d.ts",
+      "linux": "packages/common/lib/extension-host-types.d.ts",
+      "sha256": "d7a187f0430a276ab7ba2eac90cc23f6d7485187c1875284b8fb287c67e09c96",
+      "fieldPaths": [
+        "/typecheck/checkedFiles/*/file",
+        "/typecheck/inputHashes/<key>"
+      ]
+    }
+  ],
+  "notes": "Version 1 found only nine common declaration path labels. Freeze exact version 2 before fresh validation units. No source/dependency bytes, hashes, diagnostics, or behavior are excluded. Historical Program audit already binds these nine common paths/hashes; macOS /tmp is /private/tmp and the unchanged evaluator labels every out-of-root input as <typescript>/<basename>.",
+  "checkedFilesComparison": "Unique file/hash set; sort only after exact aliases are resolved; reject collisions and hash differences."
+}

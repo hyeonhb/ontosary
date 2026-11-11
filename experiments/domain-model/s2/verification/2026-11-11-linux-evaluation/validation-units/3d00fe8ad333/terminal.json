@@ -1,0 +1,65 @@
+{
+  "admissionClosed": true,
+  "cgroup": "/sys/fs/cgroup/ontosary.slice/ontosary-3d00fe8ad333.slice",
+  "cgroupInode": 13416,
+  "classification": "normal-fixture",
+  "cleanupDone": true,
+  "collectionFinished": {
+    "mono": 748.11373177,
+    "utc": "2026-11-11T11:21:51.546393+00:00"
+  },
+  "collectionStarted": {
+    "mono": 748.107009413,
+    "utc": "2026-11-11T11:21:51.539660+00:00"
+  },
+  "containerId": "22420e0d8114e4bc4dd8f7df571bd97a8a363ff67d20020d17ba53f2c3006336",
+  "createPending": false,
+  "deadlineMono": 913.004486868,
+  "exitCode": 0,
+  "image": {
+    "chain": "sha256:f143d79aad0e57b70ccf548d24b70ab5573423b4bd9dae064aaaad202fc7376d",
+    "config": "sha256:23fc228dfc45fcad50bf0538460826698fba92e68ca34cec2b27d269549560ae",
+    "name": "docker.io/library/ontosary-s2-linux-evaluation:20261111",
+    "platform": "linux/arm64",
+    "target": "sha256:a23653100c38a3568df64b5377c33e410c6a7c92e76fb36aab43a1e0eba15f04"
+  },
+  "job": {
+    "fixtureOnly": true,
+    "input": "/opt/ontosary-linux-evaluation/assembled/reference.json",
+    "inputMode": "complete-root",
+    "kind": "known-submission-calibration",
+    "name": "reference",
+    "public": "public",
+    "source": "/opt/ontosary-linux-evaluation/assembled/reference",
+    "validSubmission": false,
+    "variant": "reference"
+  },
+  "mode": "linux-evaluation",
+  "prepared": {
+    "mono": 732.877832037,
+    "utc": "2026-11-11T11:21:36.310494+00:00"
+  },
+  "reason": "exit",
+  "runId": "3d00fe8ad333",
+  "service": "ontosary-fixture-3d00fe8ad333.service",
+  "slice": "ontosary-3d00fe8ad333.slice",
+  "snapshot": null,
+  "startPending": false,
+  "state": "finalized",
+  "stopRequested": {
+    "mono": 748.017450317,
+    "utc": "2026-11-11T11:21:51.450112+00:00"
+  },
+  "stopTrigger": {
+    "mono": 748.012650413,
+    "utc": "2026-11-11T11:21:51.445309+00:00"
+  },
+  "taskSeconds": 180,
+  "terminationConfirmed": true,
+  "workStarted": {
+    "mono": 733.004486868,
+    "utc": "2026-11-11T11:21:36.437141+00:00"
+  },
+  "workerReady": false,
+  "workloadLogBytesObserved": 0
+}

@@ -1,0 +1,1 @@
+{"status": "passed", "counts": {"reference-delta": 1, "reference": 2, "baseline": 2, "helper-type-error": 1, "wrong-modal-order": 1}, "differences": 0}
