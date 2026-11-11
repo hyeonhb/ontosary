@@ -1,0 +1,41 @@
+{
+  "startedUtc": "2026-11-11T11:01:10.452079+00:00",
+  "finishedUtc": "2026-11-11T11:46:21.152162+00:00",
+  "startedHostMonotonic": 147476.560882041,
+  "finishedHostMonotonic": 150187.344061541,
+  "measuredRoundSeconds": 2710.7831794999947,
+  "environmentSeconds": 1164.5852967920073,
+  "environmentChargingBasis": "Conservative first-clock to first final-validation unit invocation. Includes reading/design, source packaging, installation, assembly, path diagnosis and all three preliminary units; not pure install runtime. Later repeated fingerprints are included in whole-round cost.",
+  "measuredPreparationCommandsSeconds": 357.8020160829765,
+  "previousEnvironmentSeconds": 2576.143576584007,
+  "cumulativeEnvironmentSeconds": 3740.7288733760142,
+  "previousRoundSecondsIncludingEstimates": 6209.386107583995,
+  "cumulativeRoundSecondsIncludingPriorEstimates": 8920.16928708399,
+  "milestones": {
+    "environmentOpenSeconds": 642.3433340000047,
+    "coreComparisonSeconds": 1293.6734167920076,
+    "requiredRunsAndRegressionsSeconds": 1610.3205441670143,
+    "finalSeconds": 2710.7831794999947
+  },
+  "limitsSeconds": {
+    "environment": 2700,
+    "core": 5400,
+    "exploration": 9000,
+    "finish": 10800
+  },
+  "candidateCount": 1,
+  "vmPreparations": 1,
+  "registeredUnits": 17,
+  "finalCalibrationUnits": 7,
+  "preliminaryUnits": 3,
+  "jobProbes": 2,
+  "sharedLifecycleRegressions": 5,
+  "preparationContainers": 4,
+  "paidCost": 0,
+  "actualCLIInvocations": 0,
+  "modelCalls": 0,
+  "providerCalls": 0,
+  "trialRuns": 0,
+  "gitDelivery": "Excluded; begins at this checkpoint. No experiments resume.",
+  "measurementBoundary": "Completed checks, resource cleanup, report/evidence review, immediately before final cost table/index refresh. Original start clock is never reset."
+}

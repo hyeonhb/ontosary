@@ -1,5 +1,7 @@
 # Finite container lifecycle fixtures
 
+2026-11-11 follow-up: the finite `linux-evaluation` mode delegates to [the known-submission job helper](../linux-evaluation/). It reuses this manager, independent service, persistent slice, termination checks, collector and cleanup. Its 180-second job/210-second service/240-second outer limits are separate from the original fixture timings. The original normal/timeout/wrapper-loss/supervisor-death/post-publication-failure paths were rerun once each; collector13 and cleanup3 host regressions passed. [New evidence](../../../verification/2026-11-11-linux-evaluation/) preserves all 17 registrations in this round. Production/live dispatch remains refused; the old25-case report below is historical.
+
 The [2026-11-10 result](../../../../../../docs/reviews/2026-11-11-s2-lifecycle-fixture.md) is **fixture-boundary-passed**, awaiting independent review. R11 remains unresolved; these tools do not implement or authorize production collection, Vendure evaluation, model calls, or live trials.
 
 This single Lima/VZ + containerd/nerdctl candidate uses Python/Node standard libraries. The existing parent Dockerfile and pinned base remain unchanged. No installed product dependency or core API was added.

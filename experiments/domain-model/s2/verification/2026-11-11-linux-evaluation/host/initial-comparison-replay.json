@@ -1,0 +1,8 @@
+{
+  "status": "exact-output-reproduced",
+  "source": "reconstructed-compare-v1.py",
+  "sourceSnapshot": "Reconstructed from recorded edits; no pre-run source hash claimed",
+  "sourceSha256": "d920aff1ab50a21dc3604a78bf8c69fb92ef322aabd29830456b908bfacf8b1e",
+  "originalAndReplayedOutputSha256": "9ecb10ecda0c560708b6e96c0d065298c50d7a91fd04a78c281a7bba1b8ca175",
+  "differences": 6588
+}

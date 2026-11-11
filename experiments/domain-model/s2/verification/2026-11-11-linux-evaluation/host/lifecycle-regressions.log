@@ -1,0 +1,10 @@
+{"event": "prepared", "mode": "normal", "runId": "5e60f7315a2d"}
+{"mode": "normal", "runId": "5e60f7315a2d", "state": "finalized", "reason": "exit", "blockReason": null, "seconds": 8.94651204100228}
+{"event": "prepared", "mode": "timeout", "runId": "18337cad4718"}
+{"mode": "timeout", "runId": "18337cad4718", "state": "finalized", "reason": "timeout", "blockReason": null, "seconds": 8.868154708994552}
+{"event": "prepared", "mode": "wrapper", "runId": "65f07b2af18a"}
+{"mode": "wrapper", "runId": "65f07b2af18a", "state": "finalized", "reason": "wrapper-lost", "blockReason": null, "seconds": 8.876508166984422}
+{"event": "prepared", "mode": "supervisor", "runId": "9663965c4f93"}
+{"mode": "supervisor", "runId": "9663965c4f93", "state": "blocked", "reason": "supervisor-failed", "blockReason": "supervisor-failed", "seconds": 9.082101707987022}
+{"event": "prepared", "mode": "publish-supervisor", "runId": "b24131f5093a"}
+{"mode": "publish-supervisor", "runId": "b24131f5093a", "state": "blocked", "reason": "supervisor-failed", "blockReason": "supervisor-failed-after-publication", "seconds": 1.505005125014577}

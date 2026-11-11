@@ -1,0 +1,48 @@
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0 47.9M    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0 16 47.9M   16 8031k    0     0  4470k      0  0:00:10  0:00:01  0:00:09 10.9M 36 47.9M   36 17.5M    0     0  6415k      0  0:00:07  0:00:02  0:00:05 10.2M 56 47.9M   56 26.9M    0     0  7272k      0  0:00:06  0:00:03  0:00:03  9.9M 75 47.9M   75 36.3M    0     0  7768k      0  0:00:06  0:00:04  0:00:02  9.7M 95 47.9M   95 46.0M    0     0  8131k      0  0:00:06  0:00:05  0:00:01 9996k100 47.9M  100 47.9M    0     0  8207k      0  0:00:05  0:00:05 --:--:-- 9810k
+time="2026-11-11T20:06:02+09:00" level=info msg="Terminal is not available, proceeding without opening an editor"
+time="2026-11-11T20:06:02+09:00" level=info msg="Starting the instance `s2-lifecycle` with internal VM driver `vz`"
+time="2026-11-11T20:06:02+09:00" level=info msg="Attempting to download the image" arch=aarch64 digest="sha256:8eb876c2ccc4b6ff89e4a65d511815923b285e04503ba465809bf587f763da24" location="https://cloud-images.ubuntu.com/releases/resolute/release-20261016/ubuntu-26.04-server-cloudimg-arm64.img"
+Downloading the image (ubuntu-26.04-server-cloudimg-arm64.img)
+time="2026-11-11T20:08:45+09:00" level=info msg="Converting qcow2 image to raw sparse format in cache: \"/Users/hyeon/Library/Caches/lima/download/by-url-sha256/274d59968f7fc4016d852a0fa9a95e78a7253670ae8095bcb06076eec1f922f8/imgconv/raw\""
+time="2026-11-11T20:08:45+09:00" level=info msg="Converting `/Users/hyeon/Library/Caches/lima/download/by-url-sha256/274d59968f7fc4016d852a0fa9a95e78a7253670ae8095bcb06076eec1f922f8/data` (qcow2) to a raw disk `/Users/hyeon/Library/Caches/lima/download/by-url-sha256/274d59968f7fc4016d852a0fa9a95e78a7253670ae8095bcb06076eec1f922f8/imgconv/raw.tmp`"
+time="2026-11-11T20:08:54+09:00" level=info msg="Downloaded the image from `https://cloud-images.ubuntu.com/releases/resolute/release-20261016/ubuntu-26.04-server-cloudimg-arm64.img`"
+time="2026-11-11T20:08:54+09:00" level=info msg="Resize instance s2-lifecycle's disk from 3.5GiB to 24GiB"
+time="2026-11-11T20:08:54+09:00" level=info msg="Attempting to download the nerdctl archive" arch=aarch64 digest="sha256:fe0ef0e9840ee8932640e6058f84b7fa98050f9726e44af44883a5b804ae830e" location="https://github.com/containerd/nerdctl/releases/download/v2.4.2/nerdctl-full-2.4.2-linux-arm64.tar.gz"
+Downloading the nerdctl archive (nerdctl-full-2.4.2-linux-arm64.tar.gz)
+time="2026-11-11T20:09:21+09:00" level=info msg="Downloaded the nerdctl archive from `https://github.com/containerd/nerdctl/releases/download/v2.4.2/nerdctl-full-2.4.2-linux-arm64.tar.gz`"
+time="2026-11-11T20:09:22+09:00" level=info msg="[hostagent] TCP (except for SSH) and UDP port forwarding is disabled"
+time="2026-11-11T20:09:22+09:00" level=info msg="[hostagent] hostagent socket created at /private/tmp/ontosary-s2-linux-evaluation-20261111/lima/s2-lifecycle/ha.sock"
+time="2026-11-11T20:09:22+09:00" level=info msg="[hostagent] Starting VZ (hint: to watch the boot progress, see `/private/tmp/ontosary-s2-linux-evaluation-20261111/lima/s2-lifecycle/serial*.log`)"
+time="2026-11-11T20:09:22+09:00" level=info msg="[hostagent] [VZ] - vm state change: running"
+time="2026-11-11T20:09:22+09:00" level=info msg="[hostagent] gvproxy API request" component=services-api endpoint=/services/dhcp/leases method=GET outcome=success source=
+time="2026-11-11T20:09:27+09:00" level=info msg="[hostagent] Started vsock forwarder: 127.0.0.1:55182 -> vsock:22 on VM"
+time="2026-11-11T20:09:27+09:00" level=info msg="[hostagent] Detected SSH server is listening on the vsock port; changed 127.0.0.1:55182 to proxy for the vsock port"
+time="2026-11-11T20:09:28+09:00" level=info msg="[hostagent] gvproxy API request" component=services-api endpoint=/services/dhcp/leases method=GET outcome=success source=
+time="2026-11-11T20:09:28+09:00" level=info msg="[hostagent] gvproxy API request" component=services-api endpoint=/services/dns/add method=POST outcome=success source= zone=internal.
+time="2026-11-11T20:09:28+09:00" level=info msg="SSH Local Port: 55182"
+time="2026-11-11T20:09:28+09:00" level=info msg="( 1/7) 🕐 SSH connection (essential)"
+time="2026-11-11T20:09:28+09:00" level=info msg="[hostagent] Pinning the SSH host key of the guest (SHA256:uIxHFYzfyE+lVsqmJqt+nCwL4csoaZjDwW4r87xgVac) in `ssh.known_hosts`"
+time="2026-11-11T20:09:28+09:00" level=info msg="( 1/7) ✅ SSH connection"
+time="2026-11-11T20:09:28+09:00" level=info msg="( 2/7) 🕐 User session to be ready for SSH (essential)"
+time="2026-11-11T20:10:10+09:00" level=info msg="( 2/7) ✅ User session to be ready for SSH"
+time="2026-11-11T20:10:10+09:00" level=info msg="( 3/7) 🕐 Persistent SSH ControlMaster (essential)"
+time="2026-11-11T20:10:10+09:00" level=info msg="( 3/7) ✅ Persistent SSH ControlMaster"
+time="2026-11-11T20:10:10+09:00" level=info msg="( 4/7) 🕐 Systemd to be available"
+time="2026-11-11T20:10:10+09:00" level=info msg="[hostagent] Guest agent is running"
+time="2026-11-11T20:10:10+09:00" level=info msg="[hostagent] Time sync: guest agent is alive, starting time synchronization"
+time="2026-11-11T20:10:10+09:00" level=info msg="[hostagent] Forwarding UDP from 127.0.0.1:323 to 127.0.0.1:323"
+time="2026-11-11T20:10:10+09:00" level=info msg="[hostagent] Forwarding UDP from [::1]:323 to 127.0.0.1:323"
+time="2026-11-11T20:10:10+09:00" level=info msg="[hostagent] Not forwarding UDP 0.0.0.0:323"
+time="2026-11-11T20:10:10+09:00" level=info msg="[hostagent] Not forwarding UDP 127.0.0.1:323"
+time="2026-11-11T20:10:10+09:00" level=info msg="( 4/7) ✅ Systemd to be available"
+time="2026-11-11T20:10:10+09:00" level=info msg="( 5/7) 🕐 Containerd binaries to be installed"
+time="2026-11-11T20:10:15+09:00" level=info msg="[hostagent] Forwarding TCP from 127.0.0.1:40537 to 127.0.0.1:40537"
+time="2026-11-11T20:10:16+09:00" level=info msg="( 5/7) ✅ Containerd binaries to be installed"
+time="2026-11-11T20:10:16+09:00" level=info msg="( 6/7) 🕐 Guest agent to be running"
+time="2026-11-11T20:10:16+09:00" level=info msg="( 6/7) ✅ Guest agent to be running"
+time="2026-11-11T20:10:16+09:00" level=info msg="( 7/7) 🕐 Boot scripts to be finished"
+time="2026-11-11T20:10:16+09:00" level=info msg="( 7/7) ✅ Boot scripts to be finished"
+time="2026-11-11T20:10:16+09:00" level=info msg="READY. Run `limactl shell s2-lifecycle` to open the shell."

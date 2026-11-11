@@ -1,0 +1,21 @@
+{
+  "kind": "known-submission-calibration",
+  "fixtureOnly": true,
+  "validSubmission": false,
+  "trialAuthorized": false,
+  "readyForTrial": false,
+  "job": "reference",
+  "runId": "3d00fe8ad333",
+  "state": "finalized",
+  "cleanupDone": true,
+  "reason": "exit",
+  "runtimeExitCode": 0,
+  "collectionBytes": 2371228,
+  "unitSeconds": 28.937123707990395,
+  "environmentUnchanged": true,
+  "archiveSha256": "535119edfee468f9c38b772cc997d1fcb258223ac9266ce0d7d15aadc728747e",
+  "evaluatorOverall": "passed",
+  "typecheck": "passed",
+  "behavior": "passed",
+  "sourceBinding": true
+}

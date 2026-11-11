@@ -1,0 +1,24 @@
+{
+  "same": true,
+  "lateFiles": [],
+  "observedMono": 1088.820596744,
+  "readyMono": 1080.811579558,
+  "hashes": {
+    "source/original.txt": "40c0d41e0f7a3858035cb7b8c951bab65308f015b45cbf8f4c32e010e8b0b51b",
+    "source/writer-33.json": "c2ece1f8a0ee9aee9d102f728dcb7ba75d6797b22922333965ad4c597b28af8f",
+    "source/started.json": "cc0f9e66966743a06aad9e572f847e775c21a8517981b9d6beefb0f275cf9b6d",
+    "source/added.bin": "3d1f57c984978ef98a18378c8166c1cb8ede02c03eeb6aee7e2f121dfeee3e56",
+    "source/ready.json": "a4121b1c61104cf7d309245fe0315ca63515bfe310cf8ca053d0710daac8273b",
+    "source/writer.log": "b640e840b19d378660b32fb51ae18d67dccb4a8596a29e7bd72c1b2ae5928f41",
+    "source/access.json": "0e1da44f65eee0e8280ef83c47c53c31c0e41f8e374833ec6a9fb490611c4414",
+    "result/fixture.json": "f36ce63762880edd2e4de8703ef4397dc3779204af5d0a91b243437a3c8c97dd",
+    "result/source/original.txt": "40c0d41e0f7a3858035cb7b8c951bab65308f015b45cbf8f4c32e010e8b0b51b",
+    "result/source/writer-33.json": "c2ece1f8a0ee9aee9d102f728dcb7ba75d6797b22922333965ad4c597b28af8f",
+    "result/source/started.json": "cc0f9e66966743a06aad9e572f847e775c21a8517981b9d6beefb0f275cf9b6d",
+    "result/source/added.bin": "3d1f57c984978ef98a18378c8166c1cb8ede02c03eeb6aee7e2f121dfeee3e56",
+    "result/source/ready.json": "a4121b1c61104cf7d309245fe0315ca63515bfe310cf8ca053d0710daac8273b",
+    "result/source/writer.log": "b640e840b19d378660b32fb51ae18d67dccb4a8596a29e7bd72c1b2ae5928f41",
+    "result/source/access.json": "0e1da44f65eee0e8280ef83c47c53c31c0e41f8e374833ec6a9fb490611c4414",
+    "result/auxiliary/note.txt": "49143cc866b6be9d4312eb70144ad34f6fac9a30eebf5e327ab694509967c2c7"
+  }
+}

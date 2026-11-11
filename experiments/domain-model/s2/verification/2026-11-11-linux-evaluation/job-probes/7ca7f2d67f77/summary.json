@@ -1,0 +1,17 @@
+{
+  "kind": "finite-job-lifecycle-probe",
+  "fixtureOnly": true,
+  "validSubmission": false,
+  "trialAuthorized": false,
+  "readyForTrial": false,
+  "job": "timeout",
+  "runId": "7ca7f2d67f77",
+  "state": "finalized",
+  "cleanupDone": true,
+  "reason": "timeout",
+  "runtimeExitCode": null,
+  "collectionBytes": 5913,
+  "unitSeconds": 14.987996166979428,
+  "environmentUnchanged": true,
+  "archiveSha256": "79af5095531cf9646bc208f8b756a577f1b364620c1d03957de9d3a021009d38"
+}

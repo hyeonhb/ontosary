@@ -1,5 +1,7 @@
 # S2 준비 구현 — R12 독립 검증, R11 차단 유지
 
+2026-11-11 [Linux 평가 재현](../../../docs/reviews/2026-11-11-s2-linux-evaluation.md): **linux-evaluation-reproduced, 독립 리뷰 대기**. 고정 Linux 환경에서 알려진 제출7단위·공개 타입4회·timeout/대조2개·공유 lifecycle5회귀를 확인했다. [구현/재현 안내](trial/container/linux-evaluation/)와 [원시 증거](verification/2026-11-11-linux-evaluation/)를 따른다. 이는 known-submission calibration이며 production/live 경로·R11 전체·실제 CLI/model/본 비교를 열지 않는다. 아래 미실행 설명은 각 시점의 기록이다.
+
 2026-11-10 [컨테이너 타당성 조사](../../../docs/reviews/2026-11-10-s2-container-feasibility.md)는 **inconclusive**다. Lima/VZ와 준비 image는 만들었지만 로컬 image 실행 식별자 오류·수정1회 실패로 worker/평가를 시작하지 못했다. 임시 자원을 정리했고 정적84파일·모델/평가 의미와 기존 production/live 차단을 유지한다. [준비 도구](trial/container/)는 실행 adapter가 아니다. Linux 타입/동작/종료 검증은 미실행이며 다음 단계는 결과 리뷰와 새 한정 시도 여부 결정이다.
 
 2026-11-10 [독립 재검토](../../../docs/reviews/2026-11-10-s2-runtime-accounting-independent-review.md)에서 R12 해결과 R11의 차단 동작을 확인했다. 기존 과업·모델·자료·평가를 보존했으며 부분 인계 조건을 충족했다. R11의 종료 보장과 전체 비교 준비는 미완료다. 다음 구조/도구 정책은 사용자와 결정하며 실제 모델/본 비교0회를 유지한다.

@@ -1,0 +1,65 @@
+{
+  "admissionClosed": true,
+  "cgroup": "/sys/fs/cgroup/ontosary.slice/ontosary-b77835e79d66.slice",
+  "cgroupInode": 14121,
+  "classification": "normal-fixture",
+  "cleanupDone": true,
+  "collectionFinished": {
+    "mono": 874.961077466,
+    "utc": "2026-11-11T11:23:58.393739+00:00"
+  },
+  "collectionStarted": {
+    "mono": 874.955988298,
+    "utc": "2026-11-11T11:23:58.388649+00:00"
+  },
+  "containerId": "2aeb25af02ba8c7021080d3fd5df081539a524f9b1b3d2dc57f311fd78924327",
+  "createPending": false,
+  "deadlineMono": 1040.8035433710002,
+  "exitCode": 0,
+  "image": {
+    "chain": "sha256:f143d79aad0e57b70ccf548d24b70ab5573423b4bd9dae064aaaad202fc7376d",
+    "config": "sha256:23fc228dfc45fcad50bf0538460826698fba92e68ca34cec2b27d269549560ae",
+    "name": "docker.io/library/ontosary-s2-linux-evaluation:20261111",
+    "platform": "linux/arm64",
+    "target": "sha256:a23653100c38a3568df64b5377c33e410c6a7c92e76fb36aab43a1e0eba15f04"
+  },
+  "job": {
+    "fixtureOnly": true,
+    "input": "/opt/ontosary-linux-evaluation/assembled/reference.json",
+    "inputMode": "complete-root",
+    "kind": "known-submission-calibration",
+    "name": "reference",
+    "public": "public",
+    "source": "/opt/ontosary-linux-evaluation/assembled/reference",
+    "validSubmission": false,
+    "variant": "reference"
+  },
+  "mode": "linux-evaluation",
+  "prepared": {
+    "mono": 860.677954579,
+    "utc": "2026-11-11T11:23:44.110616+00:00"
+  },
+  "reason": "exit",
+  "runId": "b77835e79d66",
+  "service": "ontosary-fixture-b77835e79d66.service",
+  "slice": "ontosary-b77835e79d66.slice",
+  "snapshot": null,
+  "startPending": false,
+  "state": "finalized",
+  "stopRequested": {
+    "mono": 874.883991899,
+    "utc": "2026-11-11T11:23:58.316646+00:00"
+  },
+  "stopTrigger": {
+    "mono": 874.882894107,
+    "utc": "2026-11-11T11:23:58.315551+00:00"
+  },
+  "taskSeconds": 180,
+  "terminationConfirmed": true,
+  "workStarted": {
+    "mono": 860.803543371,
+    "utc": "2026-11-11T11:23:44.236197+00:00"
+  },
+  "workerReady": false,
+  "workloadLogBytesObserved": 0
+}

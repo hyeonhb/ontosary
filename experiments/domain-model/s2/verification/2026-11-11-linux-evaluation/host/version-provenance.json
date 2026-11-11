@@ -1,0 +1,20 @@
+{
+  "capturedExecutedGuestVersions": [
+    "job-code.tar.gz",
+    "guest-records.tar.gz/code",
+    "guest-records.tar.gz/executed-preparation"
+  ],
+  "capturedHostScripts": [
+    "prepare-host.py",
+    "run-preparation.py",
+    "install-job.py",
+    "remaining-units.py",
+    "finish-v1.py"
+  ],
+  "reconstructedFromRecordedEdits": {
+    "reconstructed-run-v1.py": "Inverse of the two recorded fingerprint path substitutions; initial three intermediate host drivers only.",
+    "reconstructed-test-job-v1.py": "Inverse of the recorded /proc mocks; first failed host test invocation.",
+    "reconstructed-compare-v1.py": "Inverse of the recorded normalization, main wrapper and audit additions. Replay with frozen v1 policy exactly reproduces the original full output bytes."
+  },
+  "limitation": "Three initial host helper sources were reconstructed from recorded edits and labeled; no pre-execution source hash is claimed. The original comparison output is reproduced byte-for-byte. Actual guest executable versions and final seven-unit code/input hashes are captured."
+}

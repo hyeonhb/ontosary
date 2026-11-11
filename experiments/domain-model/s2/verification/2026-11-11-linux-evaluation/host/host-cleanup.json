@@ -1,0 +1,31 @@
+{
+  "status": "host-cleanup-passed",
+  "vmList": "",
+  "ownedProcessesRemaining": [],
+  "root": "/tmp/ontosary-s2-linux-evaluation-20261111",
+  "rootAbsent": true,
+  "cache": [
+    {
+      "path": "/Users/hyeon/Library/Caches/lima/download/by-url-sha256/274d59968f7fc4016d852a0fa9a95e78a7253670ae8095bcb06076eec1f922f8",
+      "expectedDataSha256": "8eb876c2ccc4b6ff89e4a65d511815923b285e04503ba465809bf587f763da24",
+      "existedBefore": false,
+      "url": "https://cloud-images.ubuntu.com/releases/resolute/release-20261016/ubuntu-26.04-server-cloudimg-arm64.img",
+      "dataSha256": "8eb876c2ccc4b6ff89e4a65d511815923b285e04503ba465809bf587f763da24",
+      "bytes": 940373504,
+      "removed": true,
+      "existsAfter": false
+    },
+    {
+      "path": "/Users/hyeon/Library/Caches/lima/download/by-url-sha256/975f12320da58d431eba0c59caf918381721d37c81297f52a261383a54420186",
+      "expectedDataSha256": "fe0ef0e9840ee8932640e6058f84b7fa98050f9726e44af44883a5b804ae830e",
+      "existedBefore": false,
+      "url": "https://github.com/containerd/nerdctl/releases/download/v2.4.2/nerdctl-full-2.4.2-linux-arm64.tar.gz",
+      "dataSha256": "fe0ef0e9840ee8932640e6058f84b7fa98050f9726e44af44883a5b804ae830e",
+      "bytes": 270513423,
+      "removed": true,
+      "existsAfter": false
+    }
+  ],
+  "sharedPruneUsed": false,
+  "originalSourceCachePreserved": true
+}

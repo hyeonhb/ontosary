@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "frozenBeforeLinuxEvaluation": true,
+  "ignoredFieldPaths": [
+    "/environment/cost/wallTimeMs",
+    "/environmentRecheck/wallTimeMs",
+    "/typecheck/cost/wallTimeMs",
+    "/behavior/cost/wallTimeMs"
+  ],
+  "intentionalDifferences": {
+    "/inputMode": {"macOS": "explicit-baseline-delta", "linuxCompleteRoot": "complete-root", "linuxDelta": "explicit-baseline-delta"}
+  },
+  "rootCorrespondence": [],
+  "notes": "Existing reports already normalize root paths. No semantic field, diagnostic, dependency hash, environment ID, evaluator ID, or source identity is excluded. Runtime run IDs belong to separate lifecycle metadata, not evaluator reports. Unexpected differences block reproduction."
+}

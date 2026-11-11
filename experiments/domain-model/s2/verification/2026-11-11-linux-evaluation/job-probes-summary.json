@@ -1,0 +1,46 @@
+{
+  "status": "passed",
+  "samePID1EntryPoint": true,
+  "timeoutSeconds": 2,
+  "writerDelaySeconds": 5,
+  "observedAfterWorkStartSecondsAtLeast": 8,
+  "timeoutAcceptedAsCalibration": false,
+  "finiteNoKillControlWrote": true,
+  "nextUnitEmptyOutputBaseline": true,
+  "rows": [
+    {
+      "kind": "finite-job-lifecycle-probe",
+      "fixtureOnly": true,
+      "validSubmission": false,
+      "trialAuthorized": false,
+      "readyForTrial": false,
+      "job": "control",
+      "runId": "5cc2eee10641",
+      "state": "finalized",
+      "cleanupDone": true,
+      "reason": "exit",
+      "runtimeExitCode": 0,
+      "collectionBytes": 5956,
+      "unitSeconds": 19.267688666994218,
+      "environmentUnchanged": true,
+      "archiveSha256": "c4504bce09cec5e53d6254e19cf361d0e0b1f1502a1332b5ad0602726772482a"
+    },
+    {
+      "kind": "finite-job-lifecycle-probe",
+      "fixtureOnly": true,
+      "validSubmission": false,
+      "trialAuthorized": false,
+      "readyForTrial": false,
+      "job": "timeout",
+      "runId": "7ca7f2d67f77",
+      "state": "finalized",
+      "cleanupDone": true,
+      "reason": "timeout",
+      "runtimeExitCode": null,
+      "collectionBytes": 5913,
+      "unitSeconds": 14.987996166979428,
+      "environmentUnchanged": true,
+      "archiveSha256": "79af5095531cf9646bc208f8b756a577f1b364620c1d03957de9d3a021009d38"
+    }
+  ]
+}

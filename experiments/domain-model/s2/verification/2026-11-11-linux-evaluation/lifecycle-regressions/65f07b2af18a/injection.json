@@ -1,0 +1,289 @@
+{
+  "kind": "wrapper",
+  "hostMono": 149068.280950041,
+  "hostUtc": "2026-11-11T11:27:42.160295+00:00",
+  "ready": {
+    "kernel": {
+      "events": {
+        "frozen": "0",
+        "populated": "1"
+      },
+      "inode": 17482,
+      "members": [
+        {
+          "fds": {
+            "0": {
+              "mode": 8630,
+              "target": "/dev/null"
+            },
+            "1": {
+              "mode": 4480,
+              "target": "pipe:[120052]"
+            },
+            "10": {
+              "mode": 4480,
+              "target": "pipe:[120067]"
+            },
+            "11": {
+              "mode": 4480,
+              "target": "pipe:[120067]"
+            },
+            "12": {
+              "mode": 384,
+              "target": "anon_inode:[eventfd]"
+            },
+            "13": {
+              "mode": 384,
+              "target": "anon_inode:[eventpoll]"
+            },
+            "14": {
+              "mode": 4480,
+              "target": "pipe:[119053]"
+            },
+            "15": {
+              "mode": 4480,
+              "target": "pipe:[119053]"
+            },
+            "16": {
+              "mode": 384,
+              "target": "anon_inode:[eventfd]"
+            },
+            "2": {
+              "mode": 4480,
+              "target": "pipe:[120053]"
+            },
+            "3": {
+              "mode": 384,
+              "target": "anon_inode:[eventpoll]"
+            },
+            "4": {
+              "mode": 4480,
+              "target": "pipe:[119051]"
+            },
+            "5": {
+              "mode": 4480,
+              "target": "pipe:[119051]"
+            },
+            "6": {
+              "mode": 4480,
+              "target": "pipe:[119052]"
+            },
+            "7": {
+              "mode": 4480,
+              "target": "pipe:[119052]"
+            },
+            "8": {
+              "mode": 384,
+              "target": "anon_inode:[eventfd]"
+            },
+            "9": {
+              "mode": 384,
+              "target": "anon_inode:[eventpoll]"
+            }
+          },
+          "group": "/sys/fs/cgroup/ontosary.slice/ontosary-65f07b2af18a.slice/nerdctl-a6be03d64a8239b3c2bda9c5c6ae887a643a912ca96544f6cb4f300090689385.scope",
+          "namespaces": {
+            "cgroup": "cgroup:[4026532334]",
+            "mnt": "mnt:[4026532302]",
+            "net": "net:[4026532335]",
+            "pid": "pid:[4026532333]"
+          },
+          "pid": 28111,
+          "procCgroup": "0::/ontosary.slice/ontosary-65f07b2af18a.slice/nerdctl-a6be03d64a8239b3c2bda9c5c6ae887a643a912ca96544f6cb4f300090689385.scope\n",
+          "status": "Name:\tnode\nUmask:\t0022\nState:\tS (sleeping)\nTgid:\t28111\nNgid:\t0\nPid:\t28111\nPPid:\t28075\nTracerPid:\t0\nUid:\t1000\t1000\t1000\t1000\nGid:\t1000\t1000\t1000\t1000\nFDSize:\t64\nGroups:\t1000 \nNStgid:\t28111\t1\nNSpid:\t28111\t1\nNSpgid:\t28111\t1\nNSsid:\t28111\t1\nKthread:\t0\nVmPeak:\t  481800 kB\nVmSize:\t  481548 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t   41804 kB\nVmRSS:\t   41804 kB\nRssAnon:\t    6292 kB\nRssFile:\t   35512 kB\nRssShmem:\t       0 kB\nVmData:\t   48896 kB\nVmStk:\t     132 kB\nVmExe:\t   98928 kB\nVmLib:\t    4380 kB\nVmPTE:\t     456 kB\nVmSwap:\t       0 kB\nHugetlbPages:\t       0 kB\nCoreDumping:\t0\nTHP_enabled:\t1\nuntag_mask:\t0xffffffffffffff\nThreads:\t7\nSigQ:\t0/21089\nSigPnd:\t0000000000000000\nShdPnd:\t0000000000000000\nSigBlk:\t0000000000000000\nSigIgn:\t0000000001001000\nSigCgt:\t0000000100004602\nCapInh:\t0000000000000000\nCapPrm:\t0000000000000000\nCapEff:\t0000000000000000\nCapBnd:\t0000000000000000\nCapAmb:\t0000000000000000\nNoNewPrivs:\t1\nSeccomp:\t2\nSeccomp_filters:\t1\nSpeculation_Store_Bypass:\tvulnerable\nSpeculationIndirectBranch:\tunknown\nCpus_allowed:\tf\nCpus_allowed_list:\t0-3\nMems_allowed:\t00000000,00000001\nMems_allowed_list:\t0\nvoluntary_ctxt_switches:\t22\nnonvoluntary_ctxt_switches:\t74\n"
+        },
+        {
+          "fds": {
+            "0": {
+              "mode": 4480,
+              "target": "pipe:[121058]"
+            },
+            "1": {
+              "mode": 4480,
+              "target": "pipe:[121059]"
+            },
+            "10": {
+              "mode": 4480,
+              "target": "pipe:[118256]"
+            },
+            "11": {
+              "mode": 4480,
+              "target": "pipe:[118256]"
+            },
+            "12": {
+              "mode": 384,
+              "target": "anon_inode:[eventfd]"
+            },
+            "13": {
+              "mode": 384,
+              "target": "anon_inode:[eventpoll]"
+            },
+            "14": {
+              "mode": 4480,
+              "target": "pipe:[121079]"
+            },
+            "15": {
+              "mode": 4480,
+              "target": "pipe:[121079]"
+            },
+            "16": {
+              "mode": 384,
+              "target": "anon_inode:[eventfd]"
+            },
+            "17": {
+              "mode": 8630,
+              "target": "/dev/null"
+            },
+            "2": {
+              "mode": 4480,
+              "target": "pipe:[121060]"
+            },
+            "3": {
+              "mode": 384,
+              "target": "anon_inode:[eventpoll]"
+            },
+            "4": {
+              "mode": 4480,
+              "target": "pipe:[119071]"
+            },
+            "5": {
+              "mode": 4480,
+              "target": "pipe:[119071]"
+            },
+            "6": {
+              "mode": 4480,
+              "target": "pipe:[119072]"
+            },
+            "7": {
+              "mode": 4480,
+              "target": "pipe:[119072]"
+            },
+            "8": {
+              "mode": 384,
+              "target": "anon_inode:[eventfd]"
+            },
+            "9": {
+              "mode": 384,
+              "target": "anon_inode:[eventpoll]"
+            }
+          },
+          "group": "/sys/fs/cgroup/ontosary.slice/ontosary-65f07b2af18a.slice/nerdctl-a6be03d64a8239b3c2bda9c5c6ae887a643a912ca96544f6cb4f300090689385.scope",
+          "namespaces": {
+            "cgroup": "cgroup:[4026532334]",
+            "mnt": "mnt:[4026532302]",
+            "net": "net:[4026532335]",
+            "pid": "pid:[4026532333]"
+          },
+          "pid": 28165,
+          "procCgroup": "0::/ontosary.slice/ontosary-65f07b2af18a.slice/nerdctl-a6be03d64a8239b3c2bda9c5c6ae887a643a912ca96544f6cb4f300090689385.scope\n",
+          "status": "Name:\tnode\nUmask:\t0022\nState:\tS (sleeping)\nTgid:\t28165\nNgid:\t0\nPid:\t28165\nPPid:\t28075\nTracerPid:\t0\nUid:\t1000\t1000\t1000\t1000\nGid:\t1000\t1000\t1000\t1000\nFDSize:\t64\nGroups:\t1000 \nNStgid:\t28165\t14\nNSpid:\t28165\t14\nNSpgid:\t28165\t14\nNSsid:\t28165\t14\nKthread:\t0\nVmPeak:\t  482344 kB\nVmSize:\t  482092 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t   44948 kB\nVmRSS:\t   44948 kB\nRssAnon:\t    7196 kB\nRssFile:\t   37752 kB\nRssShmem:\t       0 kB\nVmData:\t   49432 kB\nVmStk:\t     140 kB\nVmExe:\t   98928 kB\nVmLib:\t    4380 kB\nVmPTE:\t     480 kB\nVmSwap:\t       0 kB\nHugetlbPages:\t       0 kB\nCoreDumping:\t0\nTHP_enabled:\t1\nuntag_mask:\t0xffffffffffffff\nThreads:\t7\nSigQ:\t0/21089\nSigPnd:\t0000000000000000\nShdPnd:\t0000000000000000\nSigBlk:\t0000000000000000\nSigIgn:\t0000000001001000\nSigCgt:\t0000000100004602\nCapInh:\t0000000000000000\nCapPrm:\t0000000000000000\nCapEff:\t0000000000000000\nCapBnd:\t0000000000000000\nCapAmb:\t0000000000000000\nNoNewPrivs:\t1\nSeccomp:\t2\nSeccomp_filters:\t1\nSpeculation_Store_Bypass:\tvulnerable\nSpeculationIndirectBranch:\tunknown\nCpus_allowed:\tf\nCpus_allowed_list:\t0-3\nMems_allowed:\t00000000,00000001\nMems_allowed_list:\t0\nvoluntary_ctxt_switches:\t19\nnonvoluntary_ctxt_switches:\t17\n"
+        },
+        {
+          "fds": {
+            "0": {
+              "mode": 8630,
+              "target": "/dev/null"
+            },
+            "1": {
+              "mode": 8630,
+              "target": "/dev/null"
+            },
+            "10": {
+              "mode": 4480,
+              "target": "pipe:[119086]"
+            },
+            "11": {
+              "mode": 4480,
+              "target": "pipe:[119086]"
+            },
+            "12": {
+              "mode": 384,
+              "target": "anon_inode:[eventfd]"
+            },
+            "13": {
+              "mode": 384,
+              "target": "anon_inode:[eventpoll]"
+            },
+            "14": {
+              "mode": 4480,
+              "target": "pipe:[120146]"
+            },
+            "15": {
+              "mode": 4480,
+              "target": "pipe:[120146]"
+            },
+            "16": {
+              "mode": 384,
+              "target": "anon_inode:[eventfd]"
+            },
+            "17": {
+              "mode": 33188,
+              "target": "/source/writer.log"
+            },
+            "2": {
+              "mode": 8630,
+              "target": "/dev/null"
+            },
+            "3": {
+              "mode": 384,
+              "target": "anon_inode:[eventpoll]"
+            },
+            "4": {
+              "mode": 4480,
+              "target": "pipe:[120144]"
+            },
+            "5": {
+              "mode": 4480,
+              "target": "pipe:[120144]"
+            },
+            "6": {
+              "mode": 4480,
+              "target": "pipe:[120145]"
+            },
+            "7": {
+              "mode": 4480,
+              "target": "pipe:[120145]"
+            },
+            "8": {
+              "mode": 384,
+              "target": "anon_inode:[eventfd]"
+            },
+            "9": {
+              "mode": 384,
+              "target": "anon_inode:[eventpoll]"
+            }
+          },
+          "group": "/sys/fs/cgroup/ontosary.slice/ontosary-65f07b2af18a.slice/nerdctl-a6be03d64a8239b3c2bda9c5c6ae887a643a912ca96544f6cb4f300090689385.scope",
+          "namespaces": {
+            "cgroup": "cgroup:[4026532334]",
+            "mnt": "mnt:[4026532302]",
+            "net": "net:[4026532335]",
+            "pid": "pid:[4026532333]"
+          },
+          "pid": 28199,
+          "procCgroup": "0::/ontosary.slice/ontosary-65f07b2af18a.slice/nerdctl-a6be03d64a8239b3c2bda9c5c6ae887a643a912ca96544f6cb4f300090689385.scope\n",
+          "status": "Name:\tnode\nUmask:\t0022\nState:\tS (sleeping)\nTgid:\t28199\nNgid:\t0\nPid:\t28199\nPPid:\t28111\nTracerPid:\t0\nUid:\t1000\t1000\t1000\t1000\nGid:\t1000\t1000\t1000\t1000\nFDSize:\t64\nGroups:\t1000 \nNStgid:\t28199\t33\nNSpid:\t28199\t33\nNSpgid:\t28199\t33\nNSsid:\t28199\t33\nKthread:\t0\nVmPeak:\t  482088 kB\nVmSize:\t  481836 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t   44364 kB\nVmRSS:\t   44364 kB\nRssAnon:\t    6984 kB\nRssFile:\t   37380 kB\nRssShmem:\t       0 kB\nVmData:\t   49176 kB\nVmStk:\t     140 kB\nVmExe:\t   98928 kB\nVmLib:\t    4380 kB\nVmPTE:\t     472 kB\nVmSwap:\t       0 kB\nHugetlbPages:\t       0 kB\nCoreDumping:\t0\nTHP_enabled:\t1\nuntag_mask:\t0xffffffffffffff\nThreads:\t7\nSigQ:\t0/21089\nSigPnd:\t0000000000000000\nShdPnd:\t0000000000000000\nSigBlk:\t0000000000000000\nSigIgn:\t0000000001001000\nSigCgt:\t0000000100004602\nCapInh:\t0000000000000000\nCapPrm:\t0000000000000000\nCapEff:\t0000000000000000\nCapBnd:\t0000000000000000\nCapAmb:\t0000000000000000\nNoNewPrivs:\t1\nSeccomp:\t2\nSeccomp_filters:\t1\nSpeculation_Store_Bypass:\tvulnerable\nSpeculationIndirectBranch:\tunknown\nCpus_allowed:\tf\nCpus_allowed_list:\t0-3\nMems_allowed:\t00000000,00000001\nMems_allowed_list:\t0\nvoluntary_ctxt_switches:\t4\nnonvoluntary_ctxt_switches:\t3\n"
+        }
+      ],
+      "mono": 1098.558638141,
+      "path": "/sys/fs/cgroup/ontosary.slice/ontosary-65f07b2af18a.slice",
+      "utc": "2026-11-11T11:27:41.991298+00:00"
+    },
+    "mono": 1098.558641891,
+    "ready": {
+      "pid": 14,
+      "time": 1794396461984,
+      "writerStarted": true
+    },
+    "utc": "2026-11-11T11:27:41.991305+00:00",
+    "writerBytes": 6,
+    "writers": {
+      "writer-33.json": {
+        "pid": 33,
+        "ppid": 1,
+        "role": "writer",
+        "time": 1794396461981
+      }
+    }
+  }
+}

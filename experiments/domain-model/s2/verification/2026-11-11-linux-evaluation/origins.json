@@ -1,0 +1,1032 @@
+{
+  "host/ownership.json": {
+    "source": "work/s2-linux-evaluation/ownership.json",
+    "originalSha256": "ddf45d0f9ed11f8948bd90ef015b256416da8be0d4bcfc3f2c0d52d636938284",
+    "originalBytes": 664
+  },
+  "host/archive-members.json.gz": {
+    "source": "work/s2-linux-evaluation/archive-members.json",
+    "originalSha256": "f8db9617153bb4cb679c0db2e8f2d34a5f79db2fc20faa247dcc62dc5d32356f",
+    "originalBytes": 924948
+  },
+  "host/validation-4-reference.log": {
+    "source": "work/s2-linux-evaluation/validation-4-reference.log",
+    "originalSha256": "f07cc736e7000892a20f32b1bf37758b8c0df4d93fa6d6f91b103363b61b04bb",
+    "originalBytes": 609
+  },
+  "host/baseline-1.log": {
+    "source": "work/s2-linux-evaluation/baseline-1.log",
+    "originalSha256": "9bdb63bbf539e29bf04feeb3d25fc9611f23ace8d2c156a9200c8d67c24096c7",
+    "originalBytes": 607
+  },
+  "host/core-comparison-v1.json.gz": {
+    "source": "work/s2-linux-evaluation/core-comparison-v1.json",
+    "originalSha256": "9ecb10ecda0c560708b6e96c0d065298c50d7a91fd04a78c281a7bba1b8ca175",
+    "originalBytes": 1899399
+  },
+  "host/validation-5-helper-type-error.log": {
+    "source": "work/s2-linux-evaluation/validation-5-helper-type-error.log",
+    "originalSha256": "31e1c18657102ca51ace1271286099b1ccaa0458e1bbe3e32512ac7209d5e767",
+    "originalBytes": 626
+  },
+  "host/baseline-2.log": {
+    "source": "work/s2-linux-evaluation/baseline-2.log",
+    "originalSha256": "8f594a10f371e337b406534238e3d390b010c35579c9f08ee24ddec419c09e33",
+    "originalBytes": 607
+  },
+  "host/seven-comparison.log": {
+    "source": "work/s2-linux-evaluation/seven-comparison.log",
+    "originalSha256": "b70eb6a7f93ea800b7e0c01ba4b340c7f0ab94d252b56770a310d7614d409bda",
+    "originalBytes": 152
+  },
+  "host/comparison-policy-v1.json": {
+    "source": "work/s2-linux-evaluation/comparison-policy-v1.json",
+    "originalSha256": "bd399fffcd39a4c06698b0f640fa6b5a833519a39dcb97966eb4b45c5225db67",
+    "originalBytes": 717
+  },
+  "host/core-comparison-v2.log": {
+    "source": "work/s2-linux-evaluation/core-comparison-v2.log",
+    "originalSha256": "c08e549d61d7735099eee6a4711f218e67dedc38c9dd7f5d6d7a6cdbb51eb0e7",
+    "originalBytes": 82
+  },
+  "host/job-tests.log": {
+    "source": "work/s2-linux-evaluation/job-tests.log",
+    "originalSha256": "387d1b6920348a39dcc469dbfc1f355bcfb0360a2fbd2f81f30465dc433ed29d",
+    "originalBytes": 3901
+  },
+  "host/cost.json": {
+    "source": "work/s2-linux-evaluation/cost.json",
+    "originalSha256": "55bb907215b3edd1c9191c50c30c49e0046eedbee9af11665d1ac7d8897ea422",
+    "originalBytes": 1792
+  },
+  "host/initial-comparison-replay.json": {
+    "source": "work/s2-linux-evaluation/initial-comparison-replay.json",
+    "originalSha256": "7c0dc41bc29d0716e8d19f38233e19f8a7203dbedcf95a649647b398c8cd7c87",
+    "originalBytes": 388
+  },
+  "host/document-links.json": {
+    "source": "work/s2-linux-evaluation/document-links.json",
+    "originalSha256": "05a7f3394444ab40ff2cee77719fbc9d428f094a28ea8f88ff8790683e5aa447",
+    "originalBytes": 733
+  },
+  "host/fixture-budget.json": {
+    "source": "work/s2-linux-evaluation/fixture-budget.json",
+    "originalSha256": "b6fd8ec231d438a57a3f17a61f12983432cf981217661c889cd4276483323be9",
+    "originalBytes": 185
+  },
+  "host/job-probes-summary.json": {
+    "source": "work/s2-linux-evaluation/job-probes-summary.json",
+    "originalSha256": "cda14e360a76173b8ac9f8166d9b783ebc9fd764fb87f04450e4445d5b3c86cf",
+    "originalBytes": 1364
+  },
+  "host/core-comparison.json.gz": {
+    "source": "work/s2-linux-evaluation/core-comparison.json",
+    "originalSha256": "9ecb10ecda0c560708b6e96c0d065298c50d7a91fd04a78c281a7bba1b8ca175",
+    "originalBytes": 1899399
+  },
+  "host/first-clock-1794394870452214000.json": {
+    "source": "work/s2-linux-evaluation/first-clock-1794394870452214000.json",
+    "originalSha256": "3ec698adf53544999c87e2fd5e82c5d3a92c6fba1092c1d308a0936068ad1ee2",
+    "originalBytes": 81
+  },
+  "host/host-cleanup.jsonl": {
+    "source": "work/s2-linux-evaluation/host-cleanup.jsonl",
+    "originalSha256": "58dd2cbcf5812701f928064ac421860c34c8665154fe9550c53a607cbc54b75c",
+    "originalBytes": 3805
+  },
+  "host/reference-1.log": {
+    "source": "work/s2-linux-evaluation/reference-1.log",
+    "originalSha256": "4ffcb2b82dbc476367ec7f30d54e0c174e290e4f6b755d5b652bc170b781e1be",
+    "originalBytes": 609
+  },
+  "host/final-job-tests.log": {
+    "source": "work/s2-linux-evaluation/final-job-tests.log",
+    "originalSha256": "006ac55040db8bd82eeb2e5abab682d80dc719e313b23af3bbac2921bafb69a1",
+    "originalBytes": 109
+  },
+  "host/identity.json": {
+    "source": "work/s2-linux-evaluation/identity.json",
+    "originalSha256": "f15f67a49b7dd7532d671fd51008387613f42c0a6697b3ef8dd01bdf48a74f20",
+    "originalBytes": 1404
+  },
+  "host/host-regression-final.log": {
+    "source": "work/s2-linux-evaluation/host-regression-final.log",
+    "originalSha256": "10a071e8b2cc9e0b6ee0736d33aea8d14db064abbf6d3c6bb948ee528179b31e",
+    "originalBytes": 115
+  },
+  "host/job-setup.log": {
+    "source": "work/s2-linux-evaluation/job-setup.log",
+    "originalSha256": "1ba38b4e0107eec0222ad95d17d357e984a5c2bfcac4113c9213817176ea82a9",
+    "originalBytes": 113
+  },
+  "host/start-input-hashes.json.gz": {
+    "source": "work/s2-linux-evaluation/start-input-hashes.json",
+    "originalSha256": "b21538173e319754f0b942ae6f57d86798f5243b5f11ddedba8bea10518b2eec",
+    "originalBytes": 329943
+  },
+  "host/validation-3-baseline.log": {
+    "source": "work/s2-linux-evaluation/validation-3-baseline.log",
+    "originalSha256": "0352f8948f5aadc3ad12adacd3a41d71be384062f1fdaa461c086fa9615b249d",
+    "originalBytes": 606
+  },
+  "host/validation-reference-1.log": {
+    "source": "work/s2-linux-evaluation/validation-reference-1.log",
+    "originalSha256": "1ded17229a28591c788791c6af965c47a81de5fe18eecb47fb73e00df627c943",
+    "originalBytes": 609
+  },
+  "host/validation-7-reference-delta.log": {
+    "source": "work/s2-linux-evaluation/validation-7-reference-delta.log",
+    "originalSha256": "959f84a2c22179350a5e43ef4d5c8f0ac4afb160cc35bc2e6229bec57cd8ff67",
+    "originalBytes": 620
+  },
+  "host/budget.json": {
+    "source": "work/s2-linux-evaluation/budget.json",
+    "originalSha256": "d9e69da2df22ac6a783d707806ee1525caa568919a663627143c01da22cf676f",
+    "originalBytes": 17256
+  },
+  "host/guest-finish-v2.log": {
+    "source": "work/s2-linux-evaluation/guest-finish-v2.log",
+    "originalSha256": "4b43c008ba2bd52d9debe6c7fb2050072f8fd3e40a6e682cf35e5b54b0249d4f",
+    "originalBytes": 121
+  },
+  "host/host-preparation.log": {
+    "source": "work/s2-linux-evaluation/host-preparation.log",
+    "originalSha256": "9ec78b010e61c3f260db6d86220b4f6c785b20f5aeb2ba68ea3d53bfae0a616d",
+    "originalBytes": 6660
+  },
+  "host/validation-6-wrong-modal-order.log": {
+    "source": "work/s2-linux-evaluation/validation-6-wrong-modal-order.log",
+    "originalSha256": "a61a7d4c3cfa751b1938d19f9d27516a57f29fb63ec18113a69ff7b247369a1f",
+    "originalBytes": 624
+  },
+  "host/path-correspondence-freeze.json": {
+    "source": "work/s2-linux-evaluation/path-correspondence-freeze.json",
+    "originalSha256": "639698ded1305ff8624cc776f89cd790c0cca4a0aab47647e0eeac05f5764822",
+    "originalBytes": 2918
+  },
+  "host/job-timeout.log": {
+    "source": "work/s2-linux-evaluation/job-timeout.log",
+    "originalSha256": "69de63de2f5b238a8fa7a74178e7c1cd07dc563d4d04fb287574042d0e2fee5d",
+    "originalBytes": 508
+  },
+  "host/host-cleanup.log": {
+    "source": "work/s2-linux-evaluation/host-cleanup.log",
+    "originalSha256": "92b4b4290a24248a542dcdec2f8b0ac1f3ecdf5dc80e47556c5d01cc712fabe8",
+    "originalBytes": 1233
+  },
+  "host/job-tests-v2.log": {
+    "source": "work/s2-linux-evaluation/job-tests-v2.log",
+    "originalSha256": "1a902fd4c537c33c9c15041b84a9ad5661cfe31a3f4d21f81c9f7ae7a631eec6",
+    "originalBytes": 109
+  },
+  "host/validation-baseline-1.log": {
+    "source": "work/s2-linux-evaluation/validation-baseline-1.log",
+    "originalSha256": "9d0f401d03a271f3ef1dcee8f5ea30a225967ea99900ed27861d697cfa55d746",
+    "originalBytes": 606
+  },
+  "host/host-regression.log": {
+    "source": "work/s2-linux-evaluation/host-regression.log",
+    "originalSha256": "377b13b85d01cb134d8800b316bb7635fab980cc957da5ea15771d701c8df2a4",
+    "originalBytes": 115
+  },
+  "host/lifecycle-regressions.log": {
+    "source": "work/s2-linux-evaluation/lifecycle-regressions.log",
+    "originalSha256": "a543f1b313025fcf15288f81234174d5d0372187bee5c96b245ca97890f97505",
+    "originalBytes": 1116
+  },
+  "host/host-cleanup.json": {
+    "source": "work/s2-linux-evaluation/host-cleanup.json",
+    "originalSha256": "f203a57bb86a80838256f1d0d4894ae108b8dfe233bccb30843a0f7f1e5652b6",
+    "originalBytes": 1371
+  },
+  "host/pnpm-check.log": {
+    "source": "work/s2-linux-evaluation/pnpm-check.log",
+    "originalSha256": "375a11316d21163fa8941aa83684eeb75ecd6780e6eef0290b118e4df682bdf8",
+    "originalBytes": 994
+  },
+  "host/inputs-summary.json": {
+    "source": "work/s2-linux-evaluation/inputs-summary.json",
+    "originalSha256": "2c9f025e398da63a44a99ebec23a94ca66f433be0d2ee20468a6cbbd529053be",
+    "originalBytes": 130
+  },
+  "host/comparison-policy-freeze.json": {
+    "source": "work/s2-linux-evaluation/comparison-policy-freeze.json",
+    "originalSha256": "a6f329b9627a14d530a324734461fcf7191061bbd3ddf435a82096d2b2761598",
+    "originalBytes": 225
+  },
+  "host/static-verification.json": {
+    "source": "work/s2-linux-evaluation/static-verification.json",
+    "originalSha256": "be3eda809097a621e58c300b7cdb8a6eec5386754bbc0d79846f3d5475c9bdc6",
+    "originalBytes": 2665
+  },
+  "host/production-refusal.log": {
+    "source": "work/s2-linux-evaluation/production-refusal.log",
+    "originalSha256": "2e4233fd6309f385559d3593cb783119c3ed774cfe522cbf8d9ebab8972ab489",
+    "originalBytes": 1878
+  },
+  "host/job-control.log": {
+    "source": "work/s2-linux-evaluation/job-control.log",
+    "originalSha256": "9a46453205f892bbbed83fbb8c9764bbdd9543695225843498666965e501f8ee",
+    "originalBytes": 502
+  },
+  "host/core-comparison-v2.json": {
+    "source": "work/s2-linux-evaluation/core-comparison-v2.json",
+    "originalSha256": "9afc3a0a156d6172d18b768b391cb3a742a5157c31688a0f4931bf349d96197e",
+    "originalBytes": 5993
+  },
+  "host/version-provenance.json": {
+    "source": "work/s2-linux-evaluation/version-provenance.json",
+    "originalSha256": "4f75914375fa80bda55a11dc6e974a40aeb7e5c0f6abebbfd352d0320e91e379",
+    "originalBytes": 1073
+  },
+  "host/linux-preparation.log": {
+    "source": "work/s2-linux-evaluation/linux-preparation.log",
+    "originalSha256": "ec574155339a89aca19863b5842292963943fa2997cdd6bcf7ead56836f0b572",
+    "originalBytes": 40
+  },
+  "host/guest-finish.log": {
+    "source": "work/s2-linux-evaluation/guest-finish.log",
+    "originalSha256": "729e1422509f341a0e37a8ba8027b35d96d44d1472e13511121ade45053ef346",
+    "originalBytes": 3326
+  },
+  "host/final-s2-build.log": {
+    "source": "work/s2-linux-evaluation/final-s2-build.log",
+    "originalSha256": "74fff0ba61c93107f50489596d55af3bd1a552f73e6de5969c88043a83a00250",
+    "originalBytes": 104
+  },
+  "host/seven-comparison.json": {
+    "source": "work/s2-linux-evaluation/seven-comparison.json",
+    "originalSha256": "05fb5da3d4d35d218fce12398f36a785db9bd4310904c6d1a437715c31a5e646",
+    "originalBytes": 10514
+  },
+  "guest-records.tar.gz": {
+    "source": "work/s2-linux-evaluation/guest-records.tar.gz",
+    "originalSha256": "c25f58f5ae2bc55e48afc62ac409a016fee80741ceb24bf670e4c6246e68bdb4",
+    "originalBytes": 28014466
+  },
+  "preparation-evidence.tar.gz": {
+    "source": "work/s2-linux-evaluation/preparation-evidence.tar.gz",
+    "originalSha256": "4ad40c854204467cc88755b9e7a4c901ffd89a6fc40d81886243e4fd00a84b53",
+    "originalBytes": 1412918
+  },
+  "job-code.tar.gz": {
+    "source": "work/s2-linux-evaluation/job-code.tar.gz",
+    "originalSha256": "f46e115051e2d550e7b4d69313960fa2af17fdff8a634b2ff117c9d7bc8f46be",
+    "originalBytes": 27358
+  },
+  "units/8e1cbfa9a6ce/summary.json": {
+    "source": "work/s2-linux-evaluation/units/8e1cbfa9a6ce/summary.json",
+    "originalSha256": "ab4e55bfb6e9ec016aaa5641163ee7eee5954076b466092554edcef2bb7271ce",
+    "originalBytes": 581
+  },
+  "units/8e1cbfa9a6ce/service.txt": {
+    "source": "work/s2-linux-evaluation/units/8e1cbfa9a6ce/service.txt",
+    "originalSha256": "c6f687c561ec9e9dcbc1133151cb9ab4e9aa5c934b2edb8f20e6f0e846ae3ea1",
+    "originalBytes": 82
+  },
+  "units/8e1cbfa9a6ce/environment-before.json": {
+    "source": "work/s2-linux-evaluation/units/8e1cbfa9a6ce/environment-before.json",
+    "originalSha256": "92cbe4ea56cd2fe8f718f9decd901e7f3e4898af6e4f08d1814f2286ae736d07",
+    "originalBytes": 137
+  },
+  "units/8e1cbfa9a6ce/raw.tar.gz": {
+    "source": "work/s2-linux-evaluation/units/8e1cbfa9a6ce/raw.tar.gz",
+    "originalSha256": "a9eeb6b6f13733c50286e4bfc3bdbadb1e11823703d59eb6daeb1ad9dfd40817",
+    "originalBytes": 750812
+  },
+  "units/8e1cbfa9a6ce/driver.jsonl": {
+    "source": "work/s2-linux-evaluation/units/8e1cbfa9a6ce/driver.jsonl",
+    "originalSha256": "8d6016dcf3628ffe5c896a5bc7277392879948784342fb1d29c103a720fea529",
+    "originalBytes": 8903
+  },
+  "units/8e1cbfa9a6ce/prepare.json": {
+    "source": "work/s2-linux-evaluation/units/8e1cbfa9a6ce/prepare.json",
+    "originalSha256": "8bac025a670b6c63cfdcdc6fc31eb961030e3ac71957d6cbf84ca6953835d497",
+    "originalBytes": 1284
+  },
+  "units/8e1cbfa9a6ce/environment-after.json": {
+    "source": "work/s2-linux-evaluation/units/8e1cbfa9a6ce/environment-after.json",
+    "originalSha256": "fe1e06742808ea18dba673cdf822f5d5824df42cd3d6a1cc10beda7b8315e4a9",
+    "originalBytes": 136
+  },
+  "units/8e1cbfa9a6ce/terminal.json": {
+    "source": "work/s2-linux-evaluation/units/8e1cbfa9a6ce/terminal.json",
+    "originalSha256": "5f9d558c530a61bce52f51515fa44a842382785188bdcd61687c11e1ee22a073",
+    "originalBytes": 2041
+  },
+  "units/be4086d0a3ba/summary.json": {
+    "source": "work/s2-linux-evaluation/units/be4086d0a3ba/summary.json",
+    "originalSha256": "3970853775e559ac2b417354fd7382e2204d794aaacac79746ee5da4b85ba5ef",
+    "originalBytes": 582
+  },
+  "units/be4086d0a3ba/service.txt": {
+    "source": "work/s2-linux-evaluation/units/be4086d0a3ba/service.txt",
+    "originalSha256": "c6f687c561ec9e9dcbc1133151cb9ab4e9aa5c934b2edb8f20e6f0e846ae3ea1",
+    "originalBytes": 82
+  },
+  "units/be4086d0a3ba/environment-before.json": {
+    "source": "work/s2-linux-evaluation/units/be4086d0a3ba/environment-before.json",
+    "originalSha256": "4e14a9076dffc1fc243d18a6f40fd907f9e40b1987c4d4665c94456d0d553081",
+    "originalBytes": 137
+  },
+  "units/be4086d0a3ba/raw.tar.gz": {
+    "source": "work/s2-linux-evaluation/units/be4086d0a3ba/raw.tar.gz",
+    "originalSha256": "c2e0dd9a1a0ffdbac5680d2a27f197b59b578db3b741d8d15cc0f283ab6ade5f",
+    "originalBytes": 750647
+  },
+  "units/be4086d0a3ba/driver.jsonl": {
+    "source": "work/s2-linux-evaluation/units/be4086d0a3ba/driver.jsonl",
+    "originalSha256": "b512c497fda7cab598906dfee74a793f63f572488fc93e892b8503db2350e9bb",
+    "originalBytes": 10824
+  },
+  "units/be4086d0a3ba/prepare.json": {
+    "source": "work/s2-linux-evaluation/units/be4086d0a3ba/prepare.json",
+    "originalSha256": "33d6e3f2de24b004ad1318b0f392c28f535cd8da4285a746bb45b0fc3b0e82f0",
+    "originalBytes": 1288
+  },
+  "units/be4086d0a3ba/environment-after.json": {
+    "source": "work/s2-linux-evaluation/units/be4086d0a3ba/environment-after.json",
+    "originalSha256": "10daf4a11b1b4458979ad433e727bf8be2f0dbf43b551eb8336b68cc2e4ef20f",
+    "originalBytes": 138
+  },
+  "units/be4086d0a3ba/terminal.json": {
+    "source": "work/s2-linux-evaluation/units/be4086d0a3ba/terminal.json",
+    "originalSha256": "5e99bbea6365121491c3976ddd94a46e600edc024a5df6c52a7b5d580c089f33",
+    "originalBytes": 2046
+  },
+  "prevalidation-units/829ddb7e5d9c/summary.json": {
+    "source": "work/s2-linux-evaluation/prevalidation-units/829ddb7e5d9c/summary.json",
+    "originalSha256": "c2ce40aade3923d3c873a476db00c4f8c25d22dd0207336aecc1fdcf645a72b8",
+    "originalBytes": 581
+  },
+  "prevalidation-units/829ddb7e5d9c/service.txt": {
+    "source": "work/s2-linux-evaluation/prevalidation-units/829ddb7e5d9c/service.txt",
+    "originalSha256": "c6f687c561ec9e9dcbc1133151cb9ab4e9aa5c934b2edb8f20e6f0e846ae3ea1",
+    "originalBytes": 82
+  },
+  "prevalidation-units/829ddb7e5d9c/environment-before.json": {
+    "source": "work/s2-linux-evaluation/prevalidation-units/829ddb7e5d9c/environment-before.json",
+    "originalSha256": "12b0c97982986a7f44c313fbdd9a75865c4f0c2167bfe1d3ab70a86ae00de2ec",
+    "originalBytes": 137
+  },
+  "prevalidation-units/829ddb7e5d9c/raw.tar.gz": {
+    "source": "work/s2-linux-evaluation/prevalidation-units/829ddb7e5d9c/raw.tar.gz",
+    "originalSha256": "61a463f6116c5a72693d38ffca49c8de98ac611d72455cccb85c1ba2d3751e6b",
+    "originalBytes": 751068
+  },
+  "prevalidation-units/829ddb7e5d9c/driver.jsonl": {
+    "source": "work/s2-linux-evaluation/prevalidation-units/829ddb7e5d9c/driver.jsonl",
+    "originalSha256": "e44e3f0e31a624dbb12aa79b2d6fa2bd0ac0a5453f5832390bcf7b66f54fbcfb",
+    "originalBytes": 7242
+  },
+  "prevalidation-units/829ddb7e5d9c/prepare.json": {
+    "source": "work/s2-linux-evaluation/prevalidation-units/829ddb7e5d9c/prepare.json",
+    "originalSha256": "e2df23c1da4af1378c5266db19c93625141ad8009f4ea86e359488255daa1fd4",
+    "originalBytes": 1284
+  },
+  "prevalidation-units/829ddb7e5d9c/environment-after.json": {
+    "source": "work/s2-linux-evaluation/prevalidation-units/829ddb7e5d9c/environment-after.json",
+    "originalSha256": "c9a5d3ebfe2094dc1c21c499a7f28cf9939aa9c72716a99db92dcea12f7fe73b",
+    "originalBytes": 136
+  },
+  "prevalidation-units/829ddb7e5d9c/terminal.json": {
+    "source": "work/s2-linux-evaluation/prevalidation-units/829ddb7e5d9c/terminal.json",
+    "originalSha256": "da35d9665b603ad77fe6610ac31df042fa77f6139d54b298bb31d833ae75ffd0",
+    "originalBytes": 2041
+  },
+  "validation-units/0f9de71a1032/summary.json": {
+    "source": "work/s2-linux-evaluation/validation-units/0f9de71a1032/summary.json",
+    "originalSha256": "4b7ca7f7ec89ac1bc6f23bc634dd9eb9f044280f471ae1edfa68d002c4d807d2",
+    "originalBytes": 587
+  },
+  "validation-units/0f9de71a1032/service.txt": {
+    "source": "work/s2-linux-evaluation/validation-units/0f9de71a1032/service.txt",
+    "originalSha256": "c6f687c561ec9e9dcbc1133151cb9ab4e9aa5c934b2edb8f20e6f0e846ae3ea1",
+    "originalBytes": 82
+  },
+  "validation-units/0f9de71a1032/environment-before.json": {
+    "source": "work/s2-linux-evaluation/validation-units/0f9de71a1032/environment-before.json",
+    "originalSha256": "3f775b809b3b05436bf5bcf3bfb845e90a289f9b4e72db8a07079ede70e722aa",
+    "originalBytes": 139
+  },
+  "validation-units/0f9de71a1032/raw.tar.gz": {
+    "source": "work/s2-linux-evaluation/validation-units/0f9de71a1032/raw.tar.gz",
+    "originalSha256": "f4d10a874fce2164e3c718db8b547b10aba3e104a15f44376143c1d021cfc1dc",
+    "originalBytes": 747299
+  },
+  "validation-units/0f9de71a1032/driver.jsonl": {
+    "source": "work/s2-linux-evaluation/validation-units/0f9de71a1032/driver.jsonl",
+    "originalSha256": "7aa1116ba8e2b5b83b43933df3b8833a23f2eb527ff87248e60afe60368d18ae",
+    "originalBytes": 8405
+  },
+  "validation-units/0f9de71a1032/prepare.json": {
+    "source": "work/s2-linux-evaluation/validation-units/0f9de71a1032/prepare.json",
+    "originalSha256": "751bd1a67493401deb4538b81ace598ed5eb9a8d4bc99a655d57ee9d9c8047c3",
+    "originalBytes": 1304
+  },
+  "validation-units/0f9de71a1032/environment-after.json": {
+    "source": "work/s2-linux-evaluation/validation-units/0f9de71a1032/environment-after.json",
+    "originalSha256": "19ae190fe21d305d90577e264a110a4b24c7dd1ac161b6a98de6dda9c5ca0925",
+    "originalBytes": 139
+  },
+  "validation-units/0f9de71a1032/terminal.json": {
+    "source": "work/s2-linux-evaluation/validation-units/0f9de71a1032/terminal.json",
+    "originalSha256": "f946bf876e50efd85a5dda0a4bf2bf0a58410f9c90eefa82530793a288d17b0d",
+    "originalBytes": 2063
+  },
+  "validation-units/3d00fe8ad333/summary.json": {
+    "source": "work/s2-linux-evaluation/validation-units/3d00fe8ad333/summary.json",
+    "originalSha256": "baaaa1d0f5fae1d32815459c0ecc362ffaa07be7d497be964abeb3899aa87e09",
+    "originalBytes": 582
+  },
+  "validation-units/3d00fe8ad333/service.txt": {
+    "source": "work/s2-linux-evaluation/validation-units/3d00fe8ad333/service.txt",
+    "originalSha256": "c6f687c561ec9e9dcbc1133151cb9ab4e9aa5c934b2edb8f20e6f0e846ae3ea1",
+    "originalBytes": 82
+  },
+  "validation-units/3d00fe8ad333/environment-before.json": {
+    "source": "work/s2-linux-evaluation/validation-units/3d00fe8ad333/environment-before.json",
+    "originalSha256": "2d268de94f2eb88962bbf86bab8ed598294b6900c986759a4e198a0b474b675f",
+    "originalBytes": 138
+  },
+  "validation-units/3d00fe8ad333/raw.tar.gz": {
+    "source": "work/s2-linux-evaluation/validation-units/3d00fe8ad333/raw.tar.gz",
+    "originalSha256": "535119edfee468f9c38b772cc997d1fcb258223ac9266ce0d7d15aadc728747e",
+    "originalBytes": 750874
+  },
+  "validation-units/3d00fe8ad333/driver.jsonl": {
+    "source": "work/s2-linux-evaluation/validation-units/3d00fe8ad333/driver.jsonl",
+    "originalSha256": "98cf3ce57877a0db06fd8830a6ff3284557f5af8af717837e2d91a22d9675a33",
+    "originalBytes": 9336
+  },
+  "validation-units/3d00fe8ad333/prepare.json": {
+    "source": "work/s2-linux-evaluation/validation-units/3d00fe8ad333/prepare.json",
+    "originalSha256": "4e45f58b63d3aa6447a3b776ba38fa5cc918e69feffcbddfe505ed8a1ec33e08",
+    "originalBytes": 1288
+  },
+  "validation-units/3d00fe8ad333/environment-after.json": {
+    "source": "work/s2-linux-evaluation/validation-units/3d00fe8ad333/environment-after.json",
+    "originalSha256": "b667d276add24ce344d08cc333f7230459e67032c2b23a2a7341f511ca84e179",
+    "originalBytes": 139
+  },
+  "validation-units/3d00fe8ad333/terminal.json": {
+    "source": "work/s2-linux-evaluation/validation-units/3d00fe8ad333/terminal.json",
+    "originalSha256": "1994adb500b67cec4c94ee198ff205cbfe6d5d7df8958e5ffb04f3cc686b29ba",
+    "originalBytes": 2045
+  },
+  "validation-units/b77835e79d66/summary.json": {
+    "source": "work/s2-linux-evaluation/validation-units/b77835e79d66/summary.json",
+    "originalSha256": "f5fa2bf4ab767f8714c12949bf719b6faeea8b1466921685f5ee68077e8d629c",
+    "originalBytes": 582
+  },
+  "validation-units/b77835e79d66/service.txt": {
+    "source": "work/s2-linux-evaluation/validation-units/b77835e79d66/service.txt",
+    "originalSha256": "c6f687c561ec9e9dcbc1133151cb9ab4e9aa5c934b2edb8f20e6f0e846ae3ea1",
+    "originalBytes": 82
+  },
+  "validation-units/b77835e79d66/environment-before.json": {
+    "source": "work/s2-linux-evaluation/validation-units/b77835e79d66/environment-before.json",
+    "originalSha256": "0b9a329d09908a82dbc524a860fa5521bc36cc35599d3dd8bf1acc27f06295a7",
+    "originalBytes": 139
+  },
+  "validation-units/b77835e79d66/raw.tar.gz": {
+    "source": "work/s2-linux-evaluation/validation-units/b77835e79d66/raw.tar.gz",
+    "originalSha256": "abc1efbe07287edac1f82f6ccca28030c76ce5d85570e151deef230c13b017ae",
+    "originalBytes": 750222
+  },
+  "validation-units/b77835e79d66/driver.jsonl": {
+    "source": "work/s2-linux-evaluation/validation-units/b77835e79d66/driver.jsonl",
+    "originalSha256": "a1d16f6686e55af06fcad0616026c111e422b24f6efe3c4f3be8c2719cb07ac6",
+    "originalBytes": 8950
+  },
+  "validation-units/b77835e79d66/prepare.json": {
+    "source": "work/s2-linux-evaluation/validation-units/b77835e79d66/prepare.json",
+    "originalSha256": "67e4f353c064c494fb32ebf8ba3e36cecb96e38601f9f3217cbd1fbad9855a3b",
+    "originalBytes": 1288
+  },
+  "validation-units/b77835e79d66/environment-after.json": {
+    "source": "work/s2-linux-evaluation/validation-units/b77835e79d66/environment-after.json",
+    "originalSha256": "8757b8c01a1a7b2ecb630c3d5fef0f27148c3976889b1079d1f32641385e61d9",
+    "originalBytes": 138
+  },
+  "validation-units/b77835e79d66/terminal.json": {
+    "source": "work/s2-linux-evaluation/validation-units/b77835e79d66/terminal.json",
+    "originalSha256": "e16f0dc05d3128a2f5554dcc98abd4b836199f6cc2de4c10d30c0804bdae6ea7",
+    "originalBytes": 2051
+  },
+  "validation-units/b8aed72d4cc7/summary.json": {
+    "source": "work/s2-linux-evaluation/validation-units/b8aed72d4cc7/summary.json",
+    "originalSha256": "fe483a7a1d78d32fa138c87a7e758a40204b70e11fc659b3130a2e1126134a73",
+    "originalBytes": 580
+  },
+  "validation-units/b8aed72d4cc7/service.txt": {
+    "source": "work/s2-linux-evaluation/validation-units/b8aed72d4cc7/service.txt",
+    "originalSha256": "c6f687c561ec9e9dcbc1133151cb9ab4e9aa5c934b2edb8f20e6f0e846ae3ea1",
+    "originalBytes": 82
+  },
+  "validation-units/b8aed72d4cc7/environment-before.json": {
+    "source": "work/s2-linux-evaluation/validation-units/b8aed72d4cc7/environment-before.json",
+    "originalSha256": "b4d6bf1b6c8a1e23a01cdccbab5d6ed51cae97c85d779de862455fb79136c742",
+    "originalBytes": 138
+  },
+  "validation-units/b8aed72d4cc7/raw.tar.gz": {
+    "source": "work/s2-linux-evaluation/validation-units/b8aed72d4cc7/raw.tar.gz",
+    "originalSha256": "bed9f7c1fe8e1b0f8fec6e1687cae3df69a4e79e466861c09949ea0c0554b390",
+    "originalBytes": 751711
+  },
+  "validation-units/b8aed72d4cc7/driver.jsonl": {
+    "source": "work/s2-linux-evaluation/validation-units/b8aed72d4cc7/driver.jsonl",
+    "originalSha256": "4d8523aaac336c214838a6a51e2466800c3283e4fb26367ba8ca1bb9bc3c84bc",
+    "originalBytes": 9063
+  },
+  "validation-units/b8aed72d4cc7/prepare.json": {
+    "source": "work/s2-linux-evaluation/validation-units/b8aed72d4cc7/prepare.json",
+    "originalSha256": "49b7a108ab89eaf5bb7191a25d139194d5219fe518a280a028c6a952efab72aa",
+    "originalBytes": 1284
+  },
+  "validation-units/b8aed72d4cc7/environment-after.json": {
+    "source": "work/s2-linux-evaluation/validation-units/b8aed72d4cc7/environment-after.json",
+    "originalSha256": "2c346db77d39164c1eedfc4774e73e4a308532114c3b24eabee2a7478eabd35e",
+    "originalBytes": 139
+  },
+  "validation-units/b8aed72d4cc7/terminal.json": {
+    "source": "work/s2-linux-evaluation/validation-units/b8aed72d4cc7/terminal.json",
+    "originalSha256": "4eaa25ba295c60164da08931e71b523f80ef96090de2a26bd9dfbf002db1bc86",
+    "originalBytes": 2043
+  },
+  "validation-units/bdf544e23a77/summary.json": {
+    "source": "work/s2-linux-evaluation/validation-units/bdf544e23a77/summary.json",
+    "originalSha256": "08afc1ec5bfbd4047de853103489acb1764f0876fabf1283599b0b82f0b3318f",
+    "originalBytes": 591
+  },
+  "validation-units/bdf544e23a77/service.txt": {
+    "source": "work/s2-linux-evaluation/validation-units/bdf544e23a77/service.txt",
+    "originalSha256": "c6f687c561ec9e9dcbc1133151cb9ab4e9aa5c934b2edb8f20e6f0e846ae3ea1",
+    "originalBytes": 82
+  },
+  "validation-units/bdf544e23a77/environment-before.json": {
+    "source": "work/s2-linux-evaluation/validation-units/bdf544e23a77/environment-before.json",
+    "originalSha256": "249293076ec2974a9f89c7248d9711062b900550769ff8d47955d04d7dd5c903",
+    "originalBytes": 138
+  },
+  "validation-units/bdf544e23a77/raw.tar.gz": {
+    "source": "work/s2-linux-evaluation/validation-units/bdf544e23a77/raw.tar.gz",
+    "originalSha256": "1c92d5be90146b540adedbddf1b292d32458c453d1e47c74b0b6deb4612fbefb",
+    "originalBytes": 732205
+  },
+  "validation-units/bdf544e23a77/driver.jsonl": {
+    "source": "work/s2-linux-evaluation/validation-units/bdf544e23a77/driver.jsonl",
+    "originalSha256": "32414fdabfc2404e2aa599eb5110f33b071cc194a79db49b22da892fc33017f6",
+    "originalBytes": 8399
+  },
+  "validation-units/bdf544e23a77/prepare.json": {
+    "source": "work/s2-linux-evaluation/validation-units/bdf544e23a77/prepare.json",
+    "originalSha256": "a4a4f176b911c9e36dbc26da5bd28d6d25fd84bc8d4dc4d34c2acdb84b7ee6c2",
+    "originalBytes": 1321
+  },
+  "validation-units/bdf544e23a77/environment-after.json": {
+    "source": "work/s2-linux-evaluation/validation-units/bdf544e23a77/environment-after.json",
+    "originalSha256": "a1034cd10a9cc98d9c0b9a4f6fd93378cd0fcbfafe9340adeba1209ab0b02765",
+    "originalBytes": 138
+  },
+  "validation-units/bdf544e23a77/terminal.json": {
+    "source": "work/s2-linux-evaluation/validation-units/bdf544e23a77/terminal.json",
+    "originalSha256": "37fecebbd33393e3f077984fe93c7be586a7239f820cc11f887ecb8bfc5993ae",
+    "originalBytes": 2075
+  },
+  "validation-units/c61ec1982e8a/summary.json": {
+    "source": "work/s2-linux-evaluation/validation-units/c61ec1982e8a/summary.json",
+    "originalSha256": "484e5779de8cd8da8ee955fc2fd4d57bd5d63e93f07beff9a4e87e9b3253e998",
+    "originalBytes": 580
+  },
+  "validation-units/c61ec1982e8a/service.txt": {
+    "source": "work/s2-linux-evaluation/validation-units/c61ec1982e8a/service.txt",
+    "originalSha256": "c6f687c561ec9e9dcbc1133151cb9ab4e9aa5c934b2edb8f20e6f0e846ae3ea1",
+    "originalBytes": 82
+  },
+  "validation-units/c61ec1982e8a/environment-before.json": {
+    "source": "work/s2-linux-evaluation/validation-units/c61ec1982e8a/environment-before.json",
+    "originalSha256": "9c06891ec7a894de4ff06197fa9bc10c58da43e67d424d4a0690c022355949b1",
+    "originalBytes": 138
+  },
+  "validation-units/c61ec1982e8a/raw.tar.gz": {
+    "source": "work/s2-linux-evaluation/validation-units/c61ec1982e8a/raw.tar.gz",
+    "originalSha256": "ae8f0283303aab6ba35867e2cc7b67e1cd60d37caef93da943bed192fc6afa58",
+    "originalBytes": 750883
+  },
+  "validation-units/c61ec1982e8a/driver.jsonl": {
+    "source": "work/s2-linux-evaluation/validation-units/c61ec1982e8a/driver.jsonl",
+    "originalSha256": "fb46fa2b3d2d0f49ccc6f96c2eff10d371c8f6315d735016baaca49e115bfaa7",
+    "originalBytes": 8910
+  },
+  "validation-units/c61ec1982e8a/prepare.json": {
+    "source": "work/s2-linux-evaluation/validation-units/c61ec1982e8a/prepare.json",
+    "originalSha256": "47b699bf468a743fa88214dbdf1d25ccf6041d94ecb94cf79408b523d52b1601",
+    "originalBytes": 1284
+  },
+  "validation-units/c61ec1982e8a/environment-after.json": {
+    "source": "work/s2-linux-evaluation/validation-units/c61ec1982e8a/environment-after.json",
+    "originalSha256": "7b49bb16658914aec36d5ceb8ee55336baf8cecded9768d2474e2ed3a6f2682b",
+    "originalBytes": 139
+  },
+  "validation-units/c61ec1982e8a/terminal.json": {
+    "source": "work/s2-linux-evaluation/validation-units/c61ec1982e8a/terminal.json",
+    "originalSha256": "db851276c1081bf37a91bc573af1451069acb395f6298b0071b4fddd152e1e25",
+    "originalBytes": 2042
+  },
+  "validation-units/db0897c598ec/summary.json": {
+    "source": "work/s2-linux-evaluation/validation-units/db0897c598ec/summary.json",
+    "originalSha256": "2fbf32454b8054611d5e592f858e31daa657fa14bed9719131bf4d1975f6a4a1",
+    "originalBytes": 589
+  },
+  "validation-units/db0897c598ec/service.txt": {
+    "source": "work/s2-linux-evaluation/validation-units/db0897c598ec/service.txt",
+    "originalSha256": "c6f687c561ec9e9dcbc1133151cb9ab4e9aa5c934b2edb8f20e6f0e846ae3ea1",
+    "originalBytes": 82
+  },
+  "validation-units/db0897c598ec/environment-before.json": {
+    "source": "work/s2-linux-evaluation/validation-units/db0897c598ec/environment-before.json",
+    "originalSha256": "1d43dbd0efe4a0c717da6255f2593786201013109ed60f6fc94d65fea79a4706",
+    "originalBytes": 138
+  },
+  "validation-units/db0897c598ec/raw.tar.gz": {
+    "source": "work/s2-linux-evaluation/validation-units/db0897c598ec/raw.tar.gz",
+    "originalSha256": "9f913cf2ca06e564565b810b829eca9ff70b3def3894acfce56046cfa19a35f7",
+    "originalBytes": 747575
+  },
+  "validation-units/db0897c598ec/driver.jsonl": {
+    "source": "work/s2-linux-evaluation/validation-units/db0897c598ec/driver.jsonl",
+    "originalSha256": "4982b56f763d10b245a52af508e6de5cd02eeaf2b5fe939284e64cf766c296f6",
+    "originalBytes": 8673
+  },
+  "validation-units/db0897c598ec/prepare.json": {
+    "source": "work/s2-linux-evaluation/validation-units/db0897c598ec/prepare.json",
+    "originalSha256": "8e41272a522463d5b520b31f0d49938075da86fe9ac7fe102ff699b11f3aca54",
+    "originalBytes": 1321
+  },
+  "validation-units/db0897c598ec/environment-after.json": {
+    "source": "work/s2-linux-evaluation/validation-units/db0897c598ec/environment-after.json",
+    "originalSha256": "b387734ce67fd4a75c72fd64f82f8aea3b665600efab26276eb71e296a721e47",
+    "originalBytes": 138
+  },
+  "validation-units/db0897c598ec/terminal.json": {
+    "source": "work/s2-linux-evaluation/validation-units/db0897c598ec/terminal.json",
+    "originalSha256": "5853741004415abd666dde217a2362a7a2340112a4e581f188dc9576adfa2f9c",
+    "originalBytes": 2084
+  },
+  "job-probes/5cc2eee10641/summary.json": {
+    "source": "work/s2-linux-evaluation/job-probes/5cc2eee10641/summary.json",
+    "originalSha256": "61f361e471d581f0cf8763c9c12c31d535dfcc60d2fcb3a287e26754173545c9",
+    "originalBytes": 469
+  },
+  "job-probes/5cc2eee10641/service.txt": {
+    "source": "work/s2-linux-evaluation/job-probes/5cc2eee10641/service.txt",
+    "originalSha256": "c6f687c561ec9e9dcbc1133151cb9ab4e9aa5c934b2edb8f20e6f0e846ae3ea1",
+    "originalBytes": 82
+  },
+  "job-probes/5cc2eee10641/environment-before.json": {
+    "source": "work/s2-linux-evaluation/job-probes/5cc2eee10641/environment-before.json",
+    "originalSha256": "ddbd77684db5b8fb6e16572a2e14b903dee58d3b3632b8860feee1e13649d6e9",
+    "originalBytes": 138
+  },
+  "job-probes/5cc2eee10641/raw.tar.gz": {
+    "source": "work/s2-linux-evaluation/job-probes/5cc2eee10641/raw.tar.gz",
+    "originalSha256": "c4504bce09cec5e53d6254e19cf361d0e0b1f1502a1332b5ad0602726772482a",
+    "originalBytes": 39928
+  },
+  "job-probes/5cc2eee10641/driver.jsonl": {
+    "source": "work/s2-linux-evaluation/job-probes/5cc2eee10641/driver.jsonl",
+    "originalSha256": "30f345b31167fd541af2842b8b4b6293dd5266f3b37b87b6a1715d0869a473aa",
+    "originalBytes": 8050
+  },
+  "job-probes/5cc2eee10641/prepare.json": {
+    "source": "work/s2-linux-evaluation/job-probes/5cc2eee10641/prepare.json",
+    "originalSha256": "cb23b49c94f2206f33a093df1154f78c99ec667b4b680c33f90878bfdb89408c",
+    "originalBytes": 1284
+  },
+  "job-probes/5cc2eee10641/environment-after.json": {
+    "source": "work/s2-linux-evaluation/job-probes/5cc2eee10641/environment-after.json",
+    "originalSha256": "4d3f1d2baa5eb33332d031be91ebf063b99ef0c1f30164b665c59b6b28cc30ac",
+    "originalBytes": 138
+  },
+  "job-probes/5cc2eee10641/terminal.json": {
+    "source": "work/s2-linux-evaluation/job-probes/5cc2eee10641/terminal.json",
+    "originalSha256": "7d5ac39269131121ff6e8663f77493a9cf917256f8d5da894cb6acedd96116c6",
+    "originalBytes": 2052
+  },
+  "job-probes/7ca7f2d67f77/summary.json": {
+    "source": "work/s2-linux-evaluation/job-probes/7ca7f2d67f77/summary.json",
+    "originalSha256": "b437856f194058db4accd8211c3202478958749e6ec4bd251a969c4b852c92b8",
+    "originalBytes": 475
+  },
+  "job-probes/7ca7f2d67f77/service.txt": {
+    "source": "work/s2-linux-evaluation/job-probes/7ca7f2d67f77/service.txt",
+    "originalSha256": "c6f687c561ec9e9dcbc1133151cb9ab4e9aa5c934b2edb8f20e6f0e846ae3ea1",
+    "originalBytes": 82
+  },
+  "job-probes/7ca7f2d67f77/environment-before.json": {
+    "source": "work/s2-linux-evaluation/job-probes/7ca7f2d67f77/environment-before.json",
+    "originalSha256": "03d96f3c5099f5ed225c8476d634cca9c6466ac8cad0ac9c37acda288ed4eb15",
+    "originalBytes": 138
+  },
+  "job-probes/7ca7f2d67f77/late-observation.json": {
+    "source": "work/s2-linux-evaluation/job-probes/7ca7f2d67f77/late-observation.json",
+    "originalSha256": "4984f2e7bc410010b687060705f88877510910478dc8c76634f83a5ad34dd409",
+    "originalBytes": 405
+  },
+  "job-probes/7ca7f2d67f77/raw.tar.gz": {
+    "source": "work/s2-linux-evaluation/job-probes/7ca7f2d67f77/raw.tar.gz",
+    "originalSha256": "79af5095531cf9646bc208f8b756a577f1b364620c1d03957de9d3a021009d38",
+    "originalBytes": 35740
+  },
+  "job-probes/7ca7f2d67f77/driver.jsonl": {
+    "source": "work/s2-linux-evaluation/job-probes/7ca7f2d67f77/driver.jsonl",
+    "originalSha256": "db5445152701b699172da190e55415cee084ec4fbf67c68d2a6dc0c58e592130",
+    "originalBytes": 6784
+  },
+  "job-probes/7ca7f2d67f77/prepare.json": {
+    "source": "work/s2-linux-evaluation/job-probes/7ca7f2d67f77/prepare.json",
+    "originalSha256": "14e51118be596d763870469b099dbbc7ff38aabb51de7ca263065dd488ca11ec",
+    "originalBytes": 1282
+  },
+  "job-probes/7ca7f2d67f77/environment-after.json": {
+    "source": "work/s2-linux-evaluation/job-probes/7ca7f2d67f77/environment-after.json",
+    "originalSha256": "f054f3b3b75a8f794bc4db18495af75d9882fd5217853d54e429fbe33ba9e480",
+    "originalBytes": 139
+  },
+  "job-probes/7ca7f2d67f77/terminal.json": {
+    "source": "work/s2-linux-evaluation/job-probes/7ca7f2d67f77/terminal.json",
+    "originalSha256": "fb1eec04ae17de278d7cb8b30d80071fcd58be0e65a463b05fcdcf5cd2ae862b",
+    "originalBytes": 2048
+  },
+  "lifecycle-regressions/18337cad4718/summary.json": {
+    "source": "work/s2-linux-evaluation/lifecycle-regressions/18337cad4718/summary.json",
+    "originalSha256": "56cfed4b90084248f23e6b284e2c177efe59bcd29dfcea7d0dd877e76d4345db",
+    "originalBytes": 153
+  },
+  "lifecycle-regressions/18337cad4718/result.json": {
+    "source": "work/s2-linux-evaluation/lifecycle-regressions/18337cad4718/result.json",
+    "originalSha256": "8bc3de92516625c7e23cce4c67e4092429bb01d5190472b3c93c26cc4e98bc7d",
+    "originalBytes": 3909
+  },
+  "lifecycle-regressions/18337cad4718/driver.stdout": {
+    "source": "work/s2-linux-evaluation/lifecycle-regressions/18337cad4718/driver.stdout",
+    "originalSha256": "a3808546410c55e18126e7d63ce42a9da9fb31cbe60567882dec2498e5f44183",
+    "originalBytes": 1569
+  },
+  "lifecycle-regressions/18337cad4718/driver.stderr": {
+    "source": "work/s2-linux-evaluation/lifecycle-regressions/18337cad4718/driver.stderr",
+    "originalSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "originalBytes": 0
+  },
+  "lifecycle-regressions/18337cad4718/late-observation.json": {
+    "source": "work/s2-linux-evaluation/lifecycle-regressions/18337cad4718/late-observation.json",
+    "originalSha256": "8ffb91b68b332cb08537e8fb2fc3990d183270fcccf2bc2f934f941b02394b74",
+    "originalBytes": 1683
+  },
+  "lifecycle-regressions/18337cad4718/driver.jsonl": {
+    "source": "work/s2-linux-evaluation/lifecycle-regressions/18337cad4718/driver.jsonl",
+    "originalSha256": "e6ab8c3b9019a7a647dccc47b1cfbdee572949269f43c4be5d212832f44e5b19",
+    "originalBytes": 6122
+  },
+  "lifecycle-regressions/18337cad4718/prepare.json": {
+    "source": "work/s2-linux-evaluation/lifecycle-regressions/18337cad4718/prepare.json",
+    "originalSha256": "b30cfa072bbd8fc7535f2ee18e109c1ac55ae246f25cc2253e6c99cae1cb6cac",
+    "originalBytes": 913
+  },
+  "lifecycle-regressions/18337cad4718/terminal.json": {
+    "source": "work/s2-linux-evaluation/lifecycle-regressions/18337cad4718/terminal.json",
+    "originalSha256": "2a818236621a83d962d11687cb639221386b3b984b0c653a1a247eb65955e0bc",
+    "originalBytes": 1727
+  },
+  "lifecycle-regressions/18337cad4718/driver-exit.json": {
+    "source": "work/s2-linux-evaluation/lifecycle-regressions/18337cad4718/driver-exit.json",
+    "originalSha256": "fdab36f37c1ac3d9d60974a93bd211c795b5d1d7d9b9ca1372a46a7d4d67cf3d",
+    "originalBytes": 41
+  },
+  "lifecycle-regressions/5e60f7315a2d/summary.json": {
+    "source": "work/s2-linux-evaluation/lifecycle-regressions/5e60f7315a2d/summary.json",
+    "originalSha256": "b597cdeb3d5ffd92923dbfcdf139a6212d31b31257f93899821032280986c7d6",
+    "originalBytes": 148
+  },
+  "lifecycle-regressions/5e60f7315a2d/result.json": {
+    "source": "work/s2-linux-evaluation/lifecycle-regressions/5e60f7315a2d/result.json",
+    "originalSha256": "f36ce63762880edd2e4de8703ef4397dc3779204af5d0a91b243437a3c8c97dd",
+    "originalBytes": 3903
+  },
+  "lifecycle-regressions/5e60f7315a2d/driver.stdout": {
+    "source": "work/s2-linux-evaluation/lifecycle-regressions/5e60f7315a2d/driver.stdout",
+    "originalSha256": "f1ffc87dc8b8f5bb9a0404963da45670d1d096a842aadfa1d20d0415ac36b52e",
+    "originalBytes": 1564
+  },
+  "lifecycle-regressions/5e60f7315a2d/driver.stderr": {
+    "source": "work/s2-linux-evaluation/lifecycle-regressions/5e60f7315a2d/driver.stderr",
+    "originalSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "originalBytes": 0
+  },
+  "lifecycle-regressions/5e60f7315a2d/late-observation.json": {
+    "source": "work/s2-linux-evaluation/lifecycle-regressions/5e60f7315a2d/late-observation.json",
+    "originalSha256": "6160af9fea9263e3fadcd789eb419bb2769ca8b89046cd340b7ff36692ed350e",
+    "originalBytes": 1684
+  },
+  "lifecycle-regressions/5e60f7315a2d/driver.jsonl": {
+    "source": "work/s2-linux-evaluation/lifecycle-regressions/5e60f7315a2d/driver.jsonl",
+    "originalSha256": "16449011d999bc288afa5c7179b088bbf0d6fcd34fd0f49973e7bb736c29e23b",
+    "originalBytes": 3919
+  },
+  "lifecycle-regressions/5e60f7315a2d/prepare.json": {
+    "source": "work/s2-linux-evaluation/lifecycle-regressions/5e60f7315a2d/prepare.json",
+    "originalSha256": "04b11325c1b5bd79c1a0f010280ac20fc8898a6495eb737e57156a5f0913d1e1",
+    "originalBytes": 913
+  },
+  "lifecycle-regressions/5e60f7315a2d/terminal.json": {
+    "source": "work/s2-linux-evaluation/lifecycle-regressions/5e60f7315a2d/terminal.json",
+    "originalSha256": "5e1f081537ac28856cec923e69a3442f091da5c8abd319435b1257488a250cee",
+    "originalBytes": 1722
+  },
+  "lifecycle-regressions/5e60f7315a2d/driver-exit.json": {
+    "source": "work/s2-linux-evaluation/lifecycle-regressions/5e60f7315a2d/driver-exit.json",
+    "originalSha256": "fdab36f37c1ac3d9d60974a93bd211c795b5d1d7d9b9ca1372a46a7d4d67cf3d",
+    "originalBytes": 41
+  },
+  "lifecycle-regressions/65f07b2af18a/summary.json": {
+    "source": "work/s2-linux-evaluation/lifecycle-regressions/65f07b2af18a/summary.json",
+    "originalSha256": "248238d397f6fe3e47c497db07bcbcc1f27fdde659afa8235a5158d6e64b3c6c",
+    "originalBytes": 158
+  },
+  "lifecycle-regressions/65f07b2af18a/result.json": {
+    "source": "work/s2-linux-evaluation/lifecycle-regressions/65f07b2af18a/result.json",
+    "originalSha256": "974c3eb6ece1cc89fd82fa7ab56312e2b79dc1dd9a86a7768ad00bad6870bcc1",
+    "originalBytes": 3911
+  },
+  "lifecycle-regressions/65f07b2af18a/driver.stdout": {
+    "source": "work/s2-linux-evaluation/lifecycle-regressions/65f07b2af18a/driver.stdout",
+    "originalSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "originalBytes": 0
+  },
+  "lifecycle-regressions/65f07b2af18a/driver.stderr": {
+    "source": "work/s2-linux-evaluation/lifecycle-regressions/65f07b2af18a/driver.stderr",
+    "originalSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "originalBytes": 0
+  },
+  "lifecycle-regressions/65f07b2af18a/injection.json": {
+    "source": "work/s2-linux-evaluation/lifecycle-regressions/65f07b2af18a/injection.json",
+    "originalSha256": "bcd97df4628409efe901aa09c662cdf198db2ab0be1831205f3fefeba4538903",
+    "originalBytes": 12047
+  },
+  "lifecycle-regressions/65f07b2af18a/late-observation.json": {
+    "source": "work/s2-linux-evaluation/lifecycle-regressions/65f07b2af18a/late-observation.json",
+    "originalSha256": "0fb7ec4d4d407bbd14006b6c43d7a721f70d15639dd5dfc639898cd2a6e9df8b",
+    "originalBytes": 1684
+  },
+  "lifecycle-regressions/65f07b2af18a/driver.jsonl": {
+    "source": "work/s2-linux-evaluation/lifecycle-regressions/65f07b2af18a/driver.jsonl",
+    "originalSha256": "169870b723fab9ca3ca2089ec0df5278ac86910ead187492deb8e23814d81f10",
+    "originalBytes": 2292
+  },
+  "lifecycle-regressions/65f07b2af18a/prepare.json": {
+    "source": "work/s2-linux-evaluation/lifecycle-regressions/65f07b2af18a/prepare.json",
+    "originalSha256": "8208fa331831844dbcfcb202558a941029d53da5c142da2b41314efe508bd85f",
+    "originalBytes": 913
+  },
+  "lifecycle-regressions/65f07b2af18a/terminal.json": {
+    "source": "work/s2-linux-evaluation/lifecycle-regressions/65f07b2af18a/terminal.json",
+    "originalSha256": "638ee5a38347932f620a82d433d0e7fda69e0a362161cf11e5bded5af5f6ce57",
+    "originalBytes": 1731
+  },
+  "lifecycle-regressions/65f07b2af18a/driver-exit.json": {
+    "source": "work/s2-linux-evaluation/lifecycle-regressions/65f07b2af18a/driver-exit.json",
+    "originalSha256": "fadecc529cbdb7609bbe4add2e64ca8b9d0dbc4c8d75386cfc1e5b63a11f06d3",
+    "originalBytes": 41
+  },
+  "lifecycle-regressions/9663965c4f93/summary.json": {
+    "source": "work/s2-linux-evaluation/lifecycle-regressions/9663965c4f93/summary.json",
+    "originalSha256": "decfaa2a0a9bbae4b21cc993b992d0d67e3f8d7e7bff1d93b396a21afcd3c09c",
+    "originalBytes": 179
+  },
+  "lifecycle-regressions/9663965c4f93/driver.stdout": {
+    "source": "work/s2-linux-evaluation/lifecycle-regressions/9663965c4f93/driver.stdout",
+    "originalSha256": "5acb676e1190ef12f59f00d8b6fad5cd7a50649b343386cf31f8497f4a06b4e2",
+    "originalBytes": 1288
+  },
+  "lifecycle-regressions/9663965c4f93/driver.stderr": {
+    "source": "work/s2-linux-evaluation/lifecycle-regressions/9663965c4f93/driver.stderr",
+    "originalSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "originalBytes": 0
+  },
+  "lifecycle-regressions/9663965c4f93/injection.json": {
+    "source": "work/s2-linux-evaluation/lifecycle-regressions/9663965c4f93/injection.json",
+    "originalSha256": "1a95f4e1a888c0b4301853923d229efbbccde0791b42aa257fcb3d4c53c9994b",
+    "originalBytes": 12050
+  },
+  "lifecycle-regressions/9663965c4f93/late-observation.json": {
+    "source": "work/s2-linux-evaluation/lifecycle-regressions/9663965c4f93/late-observation.json",
+    "originalSha256": "fbe000318ace8c2132c3f128feffb472f01c0bc45fc95d9d6ec38074f8c50bef",
+    "originalBytes": 780
+  },
+  "lifecycle-regressions/9663965c4f93/denied-next.txt": {
+    "source": "work/s2-linux-evaluation/lifecycle-regressions/9663965c4f93/denied-next.txt",
+    "originalSha256": "82b83076b44b4dcb9c60e5368a75382123731b984963201dc7f60f242af93a5e",
+    "originalBytes": 624
+  },
+  "lifecycle-regressions/9663965c4f93/driver.jsonl": {
+    "source": "work/s2-linux-evaluation/lifecycle-regressions/9663965c4f93/driver.jsonl",
+    "originalSha256": "d821706e2b2dfd3552cac15ff2ba2d759aad4b42e838fabee90cd47b9ed15fb3",
+    "originalBytes": 3649
+  },
+  "lifecycle-regressions/9663965c4f93/prepare.json": {
+    "source": "work/s2-linux-evaluation/lifecycle-regressions/9663965c4f93/prepare.json",
+    "originalSha256": "6515e32beae80f6dcd0dab3210978523c25df22cd9061827eddbf5ec57193232",
+    "originalBytes": 917
+  },
+  "lifecycle-regressions/9663965c4f93/terminal.json": {
+    "source": "work/s2-linux-evaluation/lifecycle-regressions/9663965c4f93/terminal.json",
+    "originalSha256": "4a3c01a39d01f06dd5eef717dfd048a6c1a326a9e10cff291f1bb6de748d0900",
+    "originalBytes": 1402
+  },
+  "lifecycle-regressions/9663965c4f93/driver-exit.json": {
+    "source": "work/s2-linux-evaluation/lifecycle-regressions/9663965c4f93/driver-exit.json",
+    "originalSha256": "fdab36f37c1ac3d9d60974a93bd211c795b5d1d7d9b9ca1372a46a7d4d67cf3d",
+    "originalBytes": 41
+  },
+  "lifecycle-regressions/b24131f5093a/summary.json": {
+    "source": "work/s2-linux-evaluation/lifecycle-regressions/b24131f5093a/summary.json",
+    "originalSha256": "a6ce0e87455bb1e8bfb3cc3b29bea651f6c126a377fefffe558fbce5928dc390",
+    "originalBytes": 205
+  },
+  "lifecycle-regressions/b24131f5093a/driver.stdout": {
+    "source": "work/s2-linux-evaluation/lifecycle-regressions/b24131f5093a/driver.stdout",
+    "originalSha256": "0eb3c6e344df6a18a569ab216acf69342ca18e736d30b730b989be46f323d440",
+    "originalBytes": 1656
+  },
+  "lifecycle-regressions/b24131f5093a/driver.stderr": {
+    "source": "work/s2-linux-evaluation/lifecycle-regressions/b24131f5093a/driver.stderr",
+    "originalSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "originalBytes": 0
+  },
+  "lifecycle-regressions/b24131f5093a/denied-next.txt": {
+    "source": "work/s2-linux-evaluation/lifecycle-regressions/b24131f5093a/denied-next.txt",
+    "originalSha256": "82b83076b44b4dcb9c60e5368a75382123731b984963201dc7f60f242af93a5e",
+    "originalBytes": 624
+  },
+  "lifecycle-regressions/b24131f5093a/driver.jsonl": {
+    "source": "work/s2-linux-evaluation/lifecycle-regressions/b24131f5093a/driver.jsonl",
+    "originalSha256": "6496b15737e8c7048c3b90ecfa9783b507aa38251bfd49d3928c8c714fc9c018",
+    "originalBytes": 4271
+  },
+  "lifecycle-regressions/b24131f5093a/prepare.json": {
+    "source": "work/s2-linux-evaluation/lifecycle-regressions/b24131f5093a/prepare.json",
+    "originalSha256": "d8a63edde4e1348bca5885191190997a19e5aaba714e18a7967599fe28f94ac4",
+    "originalBytes": 925
+  },
+  "lifecycle-regressions/b24131f5093a/terminal.json": {
+    "source": "work/s2-linux-evaluation/lifecycle-regressions/b24131f5093a/terminal.json",
+    "originalSha256": "c6195afcb8f9cc54ac3a23f004b7f913994c9c05def057e47e409e8c1043d168",
+    "originalBytes": 1818
+  },
+  "lifecycle-regressions/b24131f5093a/driver-exit.json": {
+    "source": "work/s2-linux-evaluation/lifecycle-regressions/b24131f5093a/driver-exit.json",
+    "originalSha256": "fdab36f37c1ac3d9d60974a93bd211c795b5d1d7d9b9ca1372a46a7d4d67cf3d",
+    "originalBytes": 41
+  },
+  "seven-comparison.json": {
+    "source": "work/s2-linux-evaluation/seven-comparison.json",
+    "originalSha256": "05fb5da3d4d35d218fce12398f36a785db9bd4310904c6d1a437715c31a5e646",
+    "originalBytes": 10514
+  },
+  "core-comparison-v2.json": {
+    "source": "work/s2-linux-evaluation/core-comparison-v2.json",
+    "originalSha256": "9afc3a0a156d6172d18b768b391cb3a742a5157c31688a0f4931bf349d96197e",
+    "originalBytes": 5993
+  },
+  "job-probes-summary.json": {
+    "source": "work/s2-linux-evaluation/job-probes-summary.json",
+    "originalSha256": "cda14e360a76173b8ac9f8166d9b783ebc9fd764fb87f04450e4445d5b3c86cf",
+    "originalBytes": 1364
+  },
+  "static-verification.json": {
+    "source": "work/s2-linux-evaluation/static-verification.json",
+    "originalSha256": "be3eda809097a621e58c300b7cdb8a6eec5386754bbc0d79846f3d5475c9bdc6",
+    "originalBytes": 2665
+  },
+  "host-cleanup.json": {
+    "source": "work/s2-linux-evaluation/host-cleanup.json",
+    "originalSha256": "f203a57bb86a80838256f1d0d4894ae108b8dfe233bccb30843a0f7f1e5652b6",
+    "originalBytes": 1371
+  },
+  "version-provenance.json": {
+    "source": "work/s2-linux-evaluation/version-provenance.json",
+    "originalSha256": "4f75914375fa80bda55a11dc6e974a40aeb7e5c0f6abebbfd352d0320e91e379",
+    "originalBytes": 1073
+  },
+  "comparison-policy.json": {
+    "source": "experiments/domain-model/s2/trial/container/linux-evaluation/comparison-policy.json",
+    "originalSha256": "1a02e0d250a88a7e8d5139dac4845515bfe0d059e1ef966d8b3c1763011f0976",
+    "originalBytes": 3787
+  },
+  "cost.json": {
+    "source": "work/s2-linux-evaluation/cost.json",
+    "originalSha256": "55bb907215b3edd1c9191c50c30c49e0046eedbee9af11665d1ac7d8897ea422",
+    "originalBytes": 1792
+  }
+}

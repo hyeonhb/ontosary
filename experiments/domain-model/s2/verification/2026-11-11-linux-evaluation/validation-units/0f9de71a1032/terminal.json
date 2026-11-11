@@ -1,0 +1,65 @@
+{
+  "admissionClosed": true,
+  "cgroup": "/sys/fs/cgroup/ontosary.slice/ontosary-0f9de71a1032.slice",
+  "cgroupInode": 15362,
+  "classification": "normal-fixture",
+  "cleanupDone": true,
+  "collectionFinished": {
+    "mono": 943.428253194,
+    "utc": "2026-11-11T11:25:06.860914+00:00"
+  },
+  "collectionStarted": {
+    "mono": 943.421392361,
+    "utc": "2026-11-11T11:25:06.854053+00:00"
+  },
+  "containerId": "fa68101f1efef50a663e4861ecb6a6bbc1f6e3bbe17b1c98710a09220b3cf3f4",
+  "createPending": false,
+  "deadlineMono": 1113.413322809,
+  "exitCode": 0,
+  "image": {
+    "chain": "sha256:f143d79aad0e57b70ccf548d24b70ab5573423b4bd9dae064aaaad202fc7376d",
+    "config": "sha256:23fc228dfc45fcad50bf0538460826698fba92e68ca34cec2b27d269549560ae",
+    "name": "docker.io/library/ontosary-s2-linux-evaluation:20261111",
+    "platform": "linux/arm64",
+    "target": "sha256:a23653100c38a3568df64b5377c33e410c6a7c92e76fb36aab43a1e0eba15f04"
+  },
+  "job": {
+    "fixtureOnly": true,
+    "input": "/opt/ontosary-linux-evaluation/assembled/reference.json",
+    "inputMode": "explicit-baseline-delta",
+    "kind": "known-submission-calibration",
+    "name": "reference-delta",
+    "public": "private",
+    "source": "/opt/ontosary-linux-evaluation/assembled/reference",
+    "validSubmission": false,
+    "variant": "reference"
+  },
+  "mode": "linux-evaluation",
+  "prepared": {
+    "mono": 933.29320894,
+    "utc": "2026-11-11T11:24:56.725870+00:00"
+  },
+  "reason": "exit",
+  "runId": "0f9de71a1032",
+  "service": "ontosary-fixture-0f9de71a1032.service",
+  "slice": "ontosary-0f9de71a1032.slice",
+  "snapshot": null,
+  "startPending": false,
+  "state": "finalized",
+  "stopRequested": {
+    "mono": 943.326580115,
+    "utc": "2026-11-11T11:25:06.759241+00:00"
+  },
+  "stopTrigger": {
+    "mono": 943.325639907,
+    "utc": "2026-11-11T11:25:06.758299+00:00"
+  },
+  "taskSeconds": 180,
+  "terminationConfirmed": true,
+  "workStarted": {
+    "mono": 933.413322809,
+    "utc": "2026-11-11T11:24:56.845980+00:00"
+  },
+  "workerReady": false,
+  "workloadLogBytesObserved": 0
+}
