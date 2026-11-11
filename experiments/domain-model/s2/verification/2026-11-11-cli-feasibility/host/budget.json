@@ -1,0 +1,208 @@
+{
+  "utc": "2026-11-11T12:25:08.368877+00:00",
+  "monotonic": 152464.702334833,
+  "deadlines": {
+    "environment": "2026-11-11T12:45:08.368877+00:00",
+    "core": "2026-11-11T13:10:08.368877+00:00",
+    "exploration": "2026-11-11T13:35:08.368877+00:00",
+    "finish": "2026-11-11T13:55:08.368877+00:00"
+  },
+  "events": [
+    {
+      "snapshot": "1794400042924053000",
+      "utc": "2026-11-11T12:27:22.923847+00:00",
+      "monotonic": 152599.257719666,
+      "seconds": 0.04711954199592583,
+      "timeoutSeconds": 15,
+      "phase": "environment",
+      "command": [
+        "python3",
+        "experiments/domain-model/s2/trial/container/cli-feasibility/auth-metadata.py"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-cli-feasibility/auth-metadata.json"
+    },
+    {
+      "snapshot": "1794400007404208000",
+      "utc": "2026-11-11T12:26:47.403867+00:00",
+      "monotonic": 152563.737269666,
+      "seconds": 245.13347908400465,
+      "timeoutSeconds": 600,
+      "phase": "environment",
+      "command": [
+        "python3",
+        "experiments/domain-model/s2/trial/container/cli-feasibility/host-prepare.py"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-cli-feasibility/host-preparation.log"
+    },
+    {
+      "snapshot": "1794400372819745000",
+      "utc": "2026-11-11T12:32:52.819418+00:00",
+      "monotonic": 152929.158060875,
+      "seconds": 52.45213983301073,
+      "timeoutSeconds": 480,
+      "phase": "environment",
+      "command": [
+        "python3",
+        "experiments/domain-model/s2/trial/container/cli-feasibility/host-install.py"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-cli-feasibility/installation.log"
+    },
+    {
+      "snapshot": "1794400556632705000",
+      "utc": "2026-11-11T12:35:56.632394+00:00",
+      "monotonic": 153112.973614375,
+      "seconds": 1.1466627080226317,
+      "timeoutSeconds": 120,
+      "phase": "environment",
+      "command": [
+        "python3",
+        "experiments/domain-model/s2/trial/container/cli-feasibility/host-diagnose.py"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-cli-feasibility/diagnosis.log"
+    },
+    {
+      "snapshot": "1794400624584197000",
+      "utc": "2026-11-11T12:37:04.584004+00:00",
+      "monotonic": 153180.926064,
+      "seconds": 1.087916958000278,
+      "timeoutSeconds": 100,
+      "phase": "finish",
+      "command": [
+        "python3",
+        "experiments/domain-model/s2/trial/container/cli-feasibility/host-finish.py"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-cli-feasibility/guest-removal.log"
+    },
+    {
+      "snapshot": "1794400635686263000",
+      "utc": "2026-11-11T12:37:15.685991+00:00",
+      "monotonic": 153192.028265708,
+      "seconds": 19.068207582982723,
+      "timeoutSeconds": 180,
+      "phase": "finish",
+      "command": [
+        "pnpm",
+        "check"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-cli-feasibility/pnpm-check.log"
+    },
+    {
+      "snapshot": "1794400678428761000",
+      "utc": "2026-11-11T12:37:58.428520+00:00",
+      "monotonic": 153234.771378416,
+      "seconds": 1.0980329170124605,
+      "timeoutSeconds": 90,
+      "phase": "finish",
+      "command": [
+        "python3",
+        "experiments/domain-model/s2/trial/container/cli-feasibility/host-cleanup.py"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-cli-feasibility/host-removal.log"
+    },
+    {
+      "snapshot": "1794400679571021000",
+      "utc": "2026-11-11T12:37:59.570820+00:00",
+      "monotonic": 153235.913666333,
+      "seconds": 2.848367957980372,
+      "timeoutSeconds": 180,
+      "phase": "finish",
+      "command": [
+        "python3",
+        "experiments/domain-model/s2/trial/container/cli-feasibility/validate.py"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-cli-feasibility/validation.log"
+    },
+    {
+      "snapshot": "1794400814828091000",
+      "utc": "2026-11-11T12:40:14.827886+00:00",
+      "monotonic": 153371.17264175,
+      "seconds": 0.34011587500572205,
+      "timeoutSeconds": 30,
+      "phase": "finish",
+      "command": [
+        "python3",
+        "experiments/domain-model/s2/trial/container/cli-feasibility/audit.py"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-cli-feasibility/audit-initial.log"
+    },
+    {
+      "snapshot": "1794400912417269000",
+      "utc": "2026-11-11T12:41:52.417035+00:00",
+      "monotonic": 153468.763197666,
+      "seconds": 0.2212495419953484,
+      "timeoutSeconds": 30,
+      "phase": "finish",
+      "command": [
+        "python3",
+        "experiments/domain-model/s2/trial/container/cli-feasibility/audit.py"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-cli-feasibility/audit-final.log"
+    },
+    {
+      "snapshot": "1794400942851105000",
+      "utc": "2026-11-11T12:42:22.850868+00:00",
+      "monotonic": 153499.197439916,
+      "seconds": 0.2724382500164211,
+      "timeoutSeconds": 30,
+      "phase": "finish",
+      "command": [
+        "python3",
+        "experiments/domain-model/s2/trial/container/cli-feasibility/freeze.py"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-cli-feasibility/freeze-initial.log"
+    },
+    {
+      "snapshot": "1794400941663242000",
+      "utc": "2026-11-11T12:42:21.663016+00:00",
+      "monotonic": 153498.009576708,
+      "seconds": 3.015822957997443,
+      "timeoutSeconds": 180,
+      "phase": "finish",
+      "command": [
+        "python3",
+        "experiments/domain-model/s2/trial/container/cli-feasibility/validate.py"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-cli-feasibility/validation-reproducible.log"
+    },
+    {
+      "snapshot": "1794401010499481000",
+      "utc": "2026-11-11T12:43:30.499086+00:00",
+      "monotonic": 153566.846785833,
+      "seconds": 0.2556304999743588,
+      "timeoutSeconds": 30,
+      "phase": "finish",
+      "command": [
+        "python3",
+        "experiments/domain-model/s2/trial/container/cli-feasibility/audit.py"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-cli-feasibility/audit-pre-close.log"
+    },
+    {
+      "snapshot": "1794401028356233000",
+      "utc": "2026-11-11T12:43:48.355940+00:00",
+      "monotonic": 153584.703763375,
+      "seconds": 0.04925133299548179,
+      "timeoutSeconds": 15,
+      "phase": "finish",
+      "command": [
+        "python3",
+        "experiments/domain-model/s2/trial/container/cli-feasibility/close.py"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-cli-feasibility/close.log"
+    }
+  ]
+}

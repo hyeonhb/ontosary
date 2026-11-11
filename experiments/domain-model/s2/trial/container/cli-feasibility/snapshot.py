@@ -1,0 +1,14 @@
+"""Capture each experimental helper version BEFORE execution; never inspect user auth/config."""
+import datetime,hashlib,io,json,pathlib,tarfile,time
+ROOT=pathlib.Path('experiments/domain-model/s2/trial/container')
+def snapshot(work,command):
+ folder=pathlib.Path(work)/'snapshots';folder.mkdir(exist_ok=True);identity=str(time.time_ns());archive=folder/(identity+'.tar.gz');files={}
+ paths=[*ROOT.glob('*.yaml'),ROOT/'Dockerfile']
+ for directory in ['cli-feasibility','lifecycle','linux-evaluation']:
+  paths += [p for p in (ROOT/directory).iterdir() if p.is_file() and p.suffix in ['.py','.mjs','.js','.json','.toml']]
+ paths += [p for p in pathlib.Path(work).glob('*.py')]
+ with tarfile.open(archive,'w:gz') as t:
+  for p in sorted(paths):
+   b=p.read_bytes();name=p.as_posix();files[name]={'sha256':hashlib.sha256(b).hexdigest(),'bytes':len(b)};info=tarfile.TarInfo(name);info.size=len(b);info.mode=0o644;t.addfile(info,io.BytesIO(b))
+ metadata={'id':identity,'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'hostMonotonic':time.monotonic(),'command':command,'archiveSha256':hashlib.sha256(archive.read_bytes()).hexdigest(),'files':files}
+ (folder/(identity+'.json')).write_text(json.dumps(metadata,indent=2)+'\n');return identity

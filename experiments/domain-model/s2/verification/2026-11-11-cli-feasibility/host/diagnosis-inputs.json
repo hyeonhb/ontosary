@@ -1,0 +1,8 @@
+{
+  "archiveSha256": "1398696377662945cdcaee733817a6c677b20203c55c5c01db252cf1a97b9fb9",
+  "members": {
+    "probe/diagnose.mjs": "29c6428fe55de54cfd428610a0b9684275043456a89889c1e7ba8598a9e05a30",
+    "diagnose.py": "f1d5982214188a53dbf7fc45600356e111aa80f7cb2cce369173cfbde5d47132",
+    "policy.toml": "a8ad466d3c6f1d971358ec8d5079305099f8daa58a33b33aac6e39bc8a75e90d"
+  }
+}

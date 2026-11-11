@@ -1,0 +1,6 @@
+{
+  "baseCommit": "8cf5ad027b37cbe498dc8fd6c7f55c41f483f65d",
+  "instructionBase": "bcab22e1be839355e65b017938562b0368a88234",
+  "changesSinceInstructionBase": "PR45: six instruction/context documents only",
+  "source": "read-only existing fixed artifacts; no Vendure reinstall"
+}

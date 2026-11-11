@@ -1,5 +1,7 @@
 # S2 실행 전 준비 도구
 
+2026-11-11 [CLI 비모델 인계](../../../../docs/reviews/2026-11-11-s2-cli-feasibility.md): **blocked, 독립 리뷰 대기**. [준비 진단](container/cli-feasibility/)에서 고정 CLI 기동은 확인했지만 native sandbox namespace 생성이 거부됐다. 준비2컨테이너·로컬 CLI10회이며 정상 경계/timeout/네트워크·lifecycle 등록은0회다. 공유 runtime/collector를 수정하지 않았고 자원을 정리했다. 실제 credential/provider/model/trial0, R11/production/live 차단은 유지한다.
+
 2026-11-11 [lifecycle fixture 인계](../../../../docs/reviews/2026-11-11-s2-lifecycle-fixture.md): **fixture-boundary-passed, 독립 리뷰 대기**. [구현](container/lifecycle/)은 독립 guest 감독자·cgroup 전체 종료·manager 전용 전체 수집을 알려진 fixture25개로 확인했다. 공개 직후 supervisor 사망 결과도 격리/차단한다. 실제 CLI/Vendure evaluator/live adapter로 연결하지 않았고 R11 unresolved와 아래 production/live 거부는 유지한다. 이전 타당성 실패 기록은 당시 결과다.
 
 2026-11-10 [컨테이너 타당성 인계](../../../../docs/reviews/2026-11-10-s2-container-feasibility.md): **inconclusive**. [container/](container/)의 Lima/Dockerfile 준비는 VM/image build까지 성공했으나 실행 image 식별자 오류와 수정1회 실패로 중단했다. worker·CLI·Linux 평가/수집/종료 probe는 미실행이다. 자원은 삭제했고 verified receipt/live adapter를 추가하지 않았다. 아래 macOS runtime과 production/live 거부, R11 미해결/R12 기존 판정을 유지한다.

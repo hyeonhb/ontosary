@@ -1,5 +1,7 @@
 # 현재 아키텍처
 
+2026-11-11 [CLI 비모델 결과](reviews/2026-11-11-s2-cli-feasibility.md)(ADR-040): `trial/container/cli-feasibility/`의 준비 진단에서 **native sandbox namespace 생성이 차단**됐다. 기존 보안 설정과 공유 lifecycle는 변경하지 않았다. 두 준비 container의 자연 종료/삭제를 확인했지만 CLI job·독립 감독/수집 연결은 구현하지 않았다. 따라서 아래 승인 구조의 내부 권한 경계는 검증되지 않았고 production/live는 계속 거부한다.
+
 2026-11-11 다음 CLI 구조 승인(ADR-039): [비모델 타당성 지시](reviews/2026-11-11-s2-cli-feasibility-instructions.md)는 새 container/cgroup으로 외부 실행을 격리하고 내부 native CLI sandbox로 CLI 전용 설정/상태/가짜 인증과 셸 권한을 나눈다. source/scratch/셸 HOME은 제한 RW, 자료/도구는 RO, control/외부 경로와 명령 네트워크는 deny다. 외부 egress 없이 parent 문맥의 내부 서버 양성 대조와 실제 CLI sandbox 명령을 비교하고, 기존 독립 감독·종료·진단 수집/성공 cleanup을 재사용한다. **승인된 다음 실험 설계이며 아직 이 CLI 경계를 검증한 상태는 아니다.** 실제 credential 전달·provider/model·전체 agent 도구 경로는 결과 리뷰 이후이며 범용 runner/proxy나 임의 제출 권한은 만들지 않는다.
 
 2026-11-11 [Linux 평가 구현·재현](reviews/2026-11-11-s2-linux-evaluation.md)(ADR-038): `trial/container/linux-evaluation/`은 고정 Linux 환경·관리자 조립 완전 소스·도구를 RO로 제공하고 새 Node PID1 job의 보고서만 기존 종료/수집 경계로 수집한다. manager의 최초 create 직전부터180초, guest lease5초, service210초, 외부240초를 사용하며 기존 fixture의10/5/40/60초 경로와 구분한다. runtime exit와 evaluator 판정·교정 기대값을 분리하고 finalized+성공 cleanup만 교정 소비한다. 원래 평가6모듈/Program hash 계약은 그대로다. 필수7단위와 timeout/회귀를 통과했지만 임의 agent 제출 수집기·production adapter·R11 전체 해결은 아니다. 아래 설계/미구현 문장은 당시 기록이다.

@@ -1,0 +1,42 @@
+{
+  "verdict": "blocked",
+  "nonModelCLICalls": 10,
+  "successfulLocalCLICommands": 6,
+  "failedLocalCLICommands": 4,
+  "nativeSandboxEntryAttempts": 2,
+  "nativeSandboxPayloadsStarted": 0,
+  "parentPositiveBatches": 1,
+  "normalBoundaryRuns": 0,
+  "timeoutControls": 0,
+  "networkProbePairs": 0,
+  "registeredLifecycleUnits": 0,
+  "preparationContainers": [
+    {
+      "id": "21bf5ab85a1aa7f822067813591015215a4313e24333d860de89dfd01a008896",
+      "imageTarget": "sha256:149e5718f948acf911060130c9c35c989a44d54cbde0130eb985d2b84b13dbfd",
+      "seccompDefault": "SCMP_ACT_ERRNO",
+      "unshareAllowed": false,
+      "apparmorProfile": "nerdctl-default",
+      "stoppedAndRemoved": true
+    },
+    {
+      "id": "d1fd21f4887e3e1da670ea12ec8eb8207f1f7219c826bef2f4f7ef4a1098e10b",
+      "imageTarget": "sha256:149e5718f948acf911060130c9c35c989a44d54cbde0130eb985d2b84b13dbfd",
+      "seccompDefault": "SCMP_ACT_ERRNO",
+      "unshareAllowed": false,
+      "apparmorProfile": "nerdctl-default",
+      "stoppedAndRemoved": true
+    }
+  ],
+  "snapshotsVerified": 13,
+  "snapshotMembersVerified": 638,
+  "originalInputsUnchanged": 2204,
+  "documentationOnlyChanges": [
+    "experiments/domain-model/s2/trial/README.md",
+    "experiments/domain-model/s2/trial/container/README.md"
+  ],
+  "trialAuthorized": false,
+  "readyForTrial": false,
+  "results": null,
+  "R11": "unresolved"
+}
