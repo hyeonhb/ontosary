@@ -1,0 +1,8 @@
+{
+  "localLinks": 258,
+  "costLinkDeferredToClose": true,
+  "archiveMembersFilenameChecked": 556,
+  "pythonSourcesCompile": true,
+  "proposalRuntimeReferences": 0,
+  "note": "Explicit packaging and reviewed source, supplemented by excluded credential filenames; not a general secret detector."
+}

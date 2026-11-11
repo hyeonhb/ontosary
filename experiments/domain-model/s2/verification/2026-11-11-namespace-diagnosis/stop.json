@@ -1,0 +1,15 @@
+{
+  "stoppedUtc": "2026-11-11T13:50:17.781727+00:00",
+  "hostMonotonic": 157574.077259166,
+  "reason": "Two planned units completed; first namespace clone flags and current denial predicate identified. No policy application or additional runtime exploration.",
+  "runtimeUnits": 2,
+  "runtimeRetries": 0,
+  "mechanicalCorrections": 1,
+  "policyChangesApplied": 0,
+  "credentialTransfers": 0,
+  "logins": 0,
+  "refreshes": 0,
+  "providerRequests": 0,
+  "modelCalls": 0,
+  "trialRuns": 0
+}

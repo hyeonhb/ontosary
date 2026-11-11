@@ -1,0 +1,108 @@
+{
+  "kind": "preparation-blocker-diagnosis",
+  "fixtureOnly": true,
+  "validSubmission": false,
+  "parent": {
+    "sourceRead": true,
+    "sourceWrite": true,
+    "materialRead": true,
+    "syntheticAuthReadable": true
+  },
+  "calls": [
+    {
+      "executable": "codex",
+      "args": [
+        "--strict-config",
+        "features",
+        "list"
+      ],
+      "exitCode": 1,
+      "signal": null,
+      "error": null,
+      "stdout": "",
+      "stderr": "Error: `--strict-config` is not supported for `codex features`\n"
+    },
+    {
+      "executable": "codex",
+      "args": [
+        "sandbox",
+        "-P",
+        "missing-fixture-profile",
+        "-C",
+        "/source",
+        "--",
+        "/usr/local/bin/node",
+        "-e",
+        "process.exit(99)"
+      ],
+      "exitCode": 1,
+      "signal": null,
+      "error": null,
+      "stdout": "",
+      "stderr": "Error: default_permissions refers to undefined profile `missing-fixture-profile`\n"
+    },
+    {
+      "executable": "codex",
+      "args": [
+        "sandbox",
+        "-P",
+        "fixture",
+        "-C",
+        "/source",
+        "--",
+        "/usr/local/bin/node",
+        "-e",
+        "const fs=require('fs');if(fs.readFileSync('/source/input.txt','utf8')!=='source input\\n'||fs.readFileSync('/materials/input.txt','utf8')!=='material input\\n')process.exit(3);fs.writeFileSync('/source/native-write.txt','native allowed operation\\n');console.log(JSON.stringify({nativeAllowed:true}));"
+      ],
+      "exitCode": 1,
+      "signal": null,
+      "error": null,
+      "stdout": "",
+      "stderr": "bwrap: No permissions to create a new namespace, likely because the kernel does not allow non-privileged user namespaces. On e.g. debian this can be enabled with 'sysctl kernel.unprivileged_userns_clone=1'.\n"
+    },
+    {
+      "executable": "/usr/bin/unshare",
+      "args": [
+        "--user",
+        "--map-root-user",
+        "--",
+        "/bin/true"
+      ],
+      "exitCode": 1,
+      "signal": null,
+      "error": null,
+      "stdout": "",
+      "stderr": "unshare: unshare failed: Operation not permitted\n"
+    }
+  ],
+  "nonModelCLICalls": 3,
+  "nativeAllowedWriteExists": false,
+  "status": "Name:\tnode\nUmask:\t0022\nState:\tR (running)\nTgid:\t1\nNgid:\t0\nPid:\t1\nPPid:\t0\nTracerPid:\t0\nUid:\t1000\t1000\t1000\t1000\nGid:\t1000\t1000\t1000\t1000\nFDSize:\t64\nGroups:\t1000 \nNStgid:\t1\nNSpid:\t1\nNSpgid:\t1\nNSsid:\t1\nKthread:\t0\nVmPeak:\t  482312 kB\nVmSize:\t  482060 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t   45536 kB\nVmRSS:\t   45536 kB\nRssAnon:\t    7324 kB\nRssFile:\t   38212 kB\nRssShmem:\t       0 kB\nVmData:\t   49408 kB\nVmStk:\t     132 kB\nVmExe:\t   98928 kB\nVmLib:\t    4380 kB\nVmPTE:\t     488 kB\nVmSwap:\t       0 kB\nHugetlbPages:\t       0 kB\nCoreDumping:\t0\nTHP_enabled:\t1\nuntag_mask:\t0xffffffffffffff\nThreads:\t7\nSigQ:\t0/21089\nSigPnd:\t0000000000000000\nShdPnd:\t0000000000000000\nSigBlk:\t0000000000000000\nSigIgn:\t0000000001001000\nSigCgt:\t0000000100004602\nCapInh:\t0000000000000000\nCapPrm:\t0000000000000000\nCapEff:\t0000000000000000\nCapBnd:\t0000000000000000\nCapAmb:\t0000000000000000\nNoNewPrivs:\t1\nSeccomp:\t2\nSeccomp_filters:\t1\nSpeculation_Store_Bypass:\tvulnerable\nSpeculationIndirectBranch:\tunknown\nCpus_allowed:\tf\nCpus_allowed_list:\t0-3\nMems_allowed:\t00000000,00000001\nMems_allowed_list:\t0\nvoluntary_ctxt_switches:\t32\nnonvoluntary_ctxt_switches:\t23\n",
+  "mountinfo": "406 110 0:54 / / ro,relatime - overlay overlay rw,lowerdir=/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/22/fs:/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/21/fs:/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/20/fs:/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/19/fs:/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/18/fs:/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/17/fs:/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/16/fs:/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/15/fs,upperdir=/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/26/fs,workdir=/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/26/work,uuid=on,nouserxattr\n408 406 253:1 /opt/ontosary-cli-feasibility/diagnostic-input/scratch /scratch rw,relatime - ext4 /dev/vda1 rw,discard,errors=remount-ro,commit=30\n409 406 0:67 / /tmp rw,nosuid,nodev,noexec,relatime - tmpfs tmpfs rw,size=65536k,inode64\n411 406 253:1 /opt/ontosary-cli-feasibility/diagnostic-input/materials /materials ro,relatime - ext4 /dev/vda1 rw,discard,errors=remount-ro,commit=30\n412 406 253:1 /opt/ontosary-cli-feasibility/probe /probe ro,relatime - ext4 /dev/vda1 rw,discard,errors=remount-ro,commit=30\n413 406 0:68 / /proc rw,nosuid,nodev,noexec,relatime - proc proc rw\n414 406 0:69 / /sys ro,nosuid,nodev,noexec,relatime - sysfs sysfs ro\n415 406 0:70 / /dev rw,nosuid - tmpfs tmpfs rw,size=65536k,mode=755,inode64\n416 406 253:1 /opt/ontosary-cli-feasibility/diagnostic-input/auxiliary /output rw,relatime - ext4 /dev/vda1 rw,discard,errors=remount-ro,commit=30\n417 406 253:1 /opt/ontosary-cli-feasibility/diagnostic-input/source /source rw,relatime - ext4 /dev/vda1 rw,discard,errors=remount-ro,commit=30\n418 415 0:65 / /dev/mqueue rw,nosuid,nodev,noexec,relatime - mqueue mqueue rw\n419 406 253:1 /opt/ontosary-cli-feasibility/diagnostic-input/shell-home /home/worker rw,relatime - ext4 /dev/vda1 rw,discard,errors=remount-ro,commit=30\n420 415 0:71 / /dev/shm rw,nosuid,nodev,noexec,relatime - tmpfs shm rw,size=65536k,inode64\n421 415 0:72 / /dev/pts rw,nosuid,noexec,relatime - devpts devpts rw,gid=5,mode=620,ptmxmode=666\n422 406 253:1 /opt/ontosary-cli-feasibility/diagnostic-input/cli-state /home/runner/cli-state rw,relatime - ext4 /dev/vda1 rw,discard,errors=remount-ro,commit=30\n423 414 0:31 / /sys/fs/cgroup ro,nosuid,nodev,noexec,relatime - cgroup2 cgroup rw,nsdelegate,memory_recursiveprot,memory_hugetlb_accounting\n424 422 253:1 /opt/ontosary-cli-feasibility/policy.toml /home/runner/cli-state/config.toml ro,relatime - ext4 /dev/vda1 rw,discard,errors=remount-ro,commit=30\n425 406 253:1 /var/lib/nerdctl/1935db59/containers/default/d1fd21f4887e3e1da670ea12ec8eb8207f1f7219c826bef2f4f7ef4a1098e10b/resolv.conf /etc/resolv.conf rw,relatime - ext4 /dev/vda1 rw,discard,errors=remount-ro,commit=30\n426 406 253:1 /var/lib/nerdctl/1935db59/etchosts/default/d1fd21f4887e3e1da670ea12ec8eb8207f1f7219c826bef2f4f7ef4a1098e10b/hosts /etc/hosts rw,relatime - ext4 /dev/vda1 rw,discard,errors=remount-ro,commit=30\n427 406 253:1 /var/lib/nerdctl/1935db59/containers/default/d1fd21f4887e3e1da670ea12ec8eb8207f1f7219c826bef2f4f7ef4a1098e10b/hostname /etc/hostname rw,relatime - ext4 /dev/vda1 rw,discard,errors=remount-ro,commit=30\n111 413 0:68 /bus /proc/bus ro,nosuid,nodev,noexec,relatime - proc proc rw\n138 413 0:68 /fs /proc/fs ro,nosuid,nodev,noexec,relatime - proc proc rw\n145 413 0:68 /irq /proc/irq ro,nosuid,nodev,noexec,relatime - proc proc rw\n152 413 0:68 /sys /proc/sys ro,nosuid,nodev,noexec,relatime - proc proc rw\n154 413 0:68 /sysrq-trigger /proc/sysrq-trigger ro,nosuid,nodev,noexec,relatime - proc proc rw\n155 413 0:73 / /proc/acpi ro,relatime - tmpfs tmpfs ro,size=4k,nr_inodes=1,inode64\n188 413 0:70 /null /proc/interrupts rw,nosuid - tmpfs tmpfs rw,size=65536k,mode=755,inode64\n219 413 0:70 /null /proc/kcore rw,nosuid - tmpfs tmpfs rw,size=65536k,mode=755,inode64\n251 413 0:70 /null /proc/keys rw,nosuid - tmpfs tmpfs rw,size=65536k,mode=755,inode64\n297 413 0:70 /null /proc/latency_stats rw,nosuid - tmpfs tmpfs rw,size=65536k,mode=755,inode64\n337 413 0:70 /null /proc/timer_list rw,nosuid - tmpfs tmpfs rw,size=65536k,mode=755,inode64\n341 414 0:73 / /sys/firmware ro,relatime - tmpfs tmpfs ro,size=4k,nr_inodes=1,inode64\n364 413 0:73 / /proc/scsi ro,relatime - tmpfs tmpfs ro,size=4k,nr_inodes=1,inode64\n",
+  "cgroup": "0::/\n",
+  "routes": "Iface\tDestination\tGateway \tFlags\tRefCnt\tUse\tMetric\tMask\t\tMTU\tWindow\tIRTT                                                       \n",
+  "namespaces": {
+    "user": "user:[4026531837]",
+    "mnt": "mnt:[4026532302]",
+    "net": "net:[4026532336]",
+    "pid": "pid:[4026532334]",
+    "cgroup": "cgroup:[4026532335]"
+  },
+  "sysctls": {
+    "/proc/sys/kernel/unprivileged_userns_clone": "1\n",
+    "/proc/sys/user/max_user_namespaces": "21089\n",
+    "/proc/sys/kernel/apparmor_restrict_unprivileged_userns": "1\n"
+  },
+  "cliStateEntries": [
+    "auth.json",
+    "config.toml",
+    "tmp"
+  ],
+  "credentialTransfers": 0,
+  "logins": 0,
+  "refreshes": 0,
+  "providerRequests": 0,
+  "modelCalls": 0,
+  "trialRuns": 0,
+  "actualTurnTools": "unverified"
+}

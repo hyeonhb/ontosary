@@ -1,0 +1,12 @@
+{
+  "nerdctl": {
+    "sha": "94bc03df5247ece1781c4b115a44ef3d4b1e0e65",
+    "type": "commit",
+    "url": "https://api.github.com/repos/containerd/nerdctl/git/commits/94bc03df5247ece1781c4b115a44ef3d4b1e0e65"
+  },
+  "codex": {
+    "sha": "c40729ea5cf8e947481b130c59807273eda2f8e9",
+    "type": "commit",
+    "url": "https://api.github.com/repos/openai/codex/git/commits/c40729ea5cf8e947481b130c59807273eda2f8e9"
+  }
+}

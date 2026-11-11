@@ -1,0 +1,154 @@
+{
+  "sources": [
+    {
+      "name": "containerd-seccomp",
+      "url": "https://raw.githubusercontent.com/containerd/containerd/b7a25261e029d68978bbf290df0a62fc819b3c51/contrib/seccomp/seccomp_default.go",
+      "sha256": "ccc163297bf240ab31a3fa3014067f7ab8dda68a87b8cbb4d6ce5f6752f0d5d4",
+      "bytes": 20217,
+      "httpStatus": 200,
+      "revision": "b7a25261e029d68978bbf290df0a62fc819b3c51",
+      "interpretation": "DefaultProfile: no CAP_SYS_ADMIN permits clone only when namespace mask is zero; clone3 ENOSYS; other syscalls default ERRNO.",
+      "usedForConclusion": true
+    },
+    {
+      "name": "nerdctl-tag",
+      "url": "https://api.github.com/repos/containerd/nerdctl/git/ref/tags/v2.4.2",
+      "sha256": "3ff276147d48b6744d864d476cfd246dadfe4c7a7a02aa965b32147fb6b4c889",
+      "bytes": 339,
+      "httpStatus": 200,
+      "usedForConclusion": false
+    },
+    {
+      "name": "codex-tag",
+      "url": "https://api.github.com/repos/openai/codex/git/ref/tags/rust-v0.167.0-alpha.3.2",
+      "sha256": "d0b7a389d56dc8a3be65187fc35302f055d078a823264e875ed08fea42d30d92",
+      "bytes": 379,
+      "httpStatus": 200,
+      "usedForConclusion": false
+    },
+    {
+      "name": "bubblewrap-v0110",
+      "url": "https://raw.githubusercontent.com/containers/bubblewrap/v0.11.0/bubblewrap.c",
+      "sha256": "7e972f6193fe48ff046033be85c5d8988102978ac6176ba19ff9e02e0594f741",
+      "bytes": 116178,
+      "httpStatus": 200,
+      "usedForConclusion": false
+    },
+    {
+      "name": "nerdctl-tree",
+      "url": "https://api.github.com/repos/containerd/nerdctl/git/trees/v2.4.2?recursive=1",
+      "sha256": "c7de490b67b3ac4a480639c35889daa669cf641c328b304e29bdbcaa62aea5f5",
+      "bytes": 277574,
+      "httpStatus": 200,
+      "usedForConclusion": false
+    },
+    {
+      "name": "nerdctl-annotated-tag",
+      "url": "https://api.github.com/repos/containerd/nerdctl/git/tags/22669474c05fbfa1f34299ab9ab479606d629447",
+      "sha256": "cc8a12e720d0b973400a90f34437bc307cd6e13ed13689f1cb9a151502a0d04e",
+      "bytes": 2178,
+      "httpStatus": 200,
+      "usedForConclusion": false
+    },
+    {
+      "name": "codex-annotated-tag",
+      "url": "https://api.github.com/repos/openai/codex/git/tags/b4b58be951a4fcbbda5cf50d48dcd7d4d8a41533",
+      "sha256": "b7cc26b48e715a37834e865435547cd99994e0de42d3b51a9fc0cf20352711d8",
+      "bytes": 679,
+      "httpStatus": 200,
+      "usedForConclusion": false
+    },
+    {
+      "name": "codex-vendored-bwrap",
+      "url": "https://raw.githubusercontent.com/openai/codex/c40729ea5cf8e947481b130c59807273eda2f8e9/codex-rs/vendor/bubblewrap/bubblewrap.c",
+      "sha256": "9bc38fb46080b6854e0c414ccb5fbd369d9d7c0230fdfa877283d31aef0c5720",
+      "bytes": 117032,
+      "httpStatus": 200,
+      "revision": "c40729ea5cf8e947481b130c59807273eda2f8e9",
+      "interpretation": "clone_flags construction and raw_clone failure branch; compare exact tagged source with traced call, without claiming reproducible binary build.",
+      "usedForConclusion": true
+    },
+    {
+      "name": "codex-bwrap-meson",
+      "url": "https://raw.githubusercontent.com/openai/codex/c40729ea5cf8e947481b130c59807273eda2f8e9/codex-rs/vendor/bubblewrap/meson.build",
+      "sha256": "3132e188bdfe4f9c133da1b98410d499a5659e94893b9c9cc9dd04b7548fe0bd",
+      "bytes": 4613,
+      "httpStatus": 200,
+      "revision": "c40729ea5cf8e947481b130c59807273eda2f8e9",
+      "interpretation": "Vendored source declares 0.11.2; packaged binary only reports built for Codex.",
+      "usedForConclusion": true
+    },
+    {
+      "name": "codex-bwrap-utils",
+      "url": "https://raw.githubusercontent.com/openai/codex/c40729ea5cf8e947481b130c59807273eda2f8e9/codex-rs/vendor/bubblewrap/utils.c",
+      "sha256": "c99f12bf7f74bb299e102852fb30ff76a6dfee0a2f6bfed5c840beb3249d4ddb",
+      "bytes": 21879,
+      "httpStatus": 200,
+      "revision": "c40729ea5cf8e947481b130c59807273eda2f8e9",
+      "interpretation": "raw_clone uses __NR_clone with flags as first argument on non-s390/CRIS (including arm64).",
+      "usedForConclusion": true
+    },
+    {
+      "name": "nerdctl-apparmor",
+      "url": "https://raw.githubusercontent.com/containerd/nerdctl/94bc03df5247ece1781c4b115a44ef3d4b1e0e65/pkg/apparmorutil/apparmorutil_linux.go",
+      "sha256": "b3f8a20654455bef3acfba7033a1bc2986ba6b9886af45df88b762911c080ee0",
+      "bytes": 5406,
+      "httpStatus": 200,
+      "usedForConclusion": false
+    },
+    {
+      "name": "nerdctl-create",
+      "url": "https://raw.githubusercontent.com/containerd/nerdctl/94bc03df5247ece1781c4b115a44ef3d4b1e0e65/pkg/cmd/container/create.go",
+      "sha256": "e8c4efd491456d73072c7c1dd83ba88cb0b64f085c3222672902494094b1522f",
+      "bytes": 42824,
+      "httpStatus": 200,
+      "usedForConclusion": false
+    },
+    {
+      "name": "nerdctl-security",
+      "url": "https://raw.githubusercontent.com/containerd/nerdctl/94bc03df5247ece1781c4b115a44ef3d4b1e0e65/pkg/cmd/container/run_security_linux.go",
+      "sha256": "7efc2c52cdcfd5b4e3692423fd17b9714d891765d52f32e82b864d8e92e8e49f",
+      "bytes": 6639,
+      "httpStatus": 200,
+      "revision": "94bc03df5247ece1781c4b115a44ef3d4b1e0e65",
+      "interpretation": "No explicit seccomp option selects containerd default; default AppArmor is loaded/applied when supported.",
+      "usedForConclusion": true
+    },
+    {
+      "name": "containerd-apparmor-template",
+      "url": "https://raw.githubusercontent.com/containerd/containerd/b7a25261e029d68978bbf290df0a62fc819b3c51/contrib/apparmor/template.go",
+      "sha256": "6ad2c6d7dec5c4b8ef2b992265982181441942927d9d93c5d31bb670f1a24207",
+      "bytes": 5646,
+      "httpStatus": 200,
+      "revision": "b7a25261e029d68978bbf290df0a62fc819b3c51",
+      "interpretation": "Template denies mount and permits same-profile ptrace subject to other controls; this is not a loaded compiled-policy dump.",
+      "usedForConclusion": true
+    },
+    {
+      "name": "nerdctl-apparmor-inspect",
+      "url": "https://raw.githubusercontent.com/containerd/nerdctl/94bc03df5247ece1781c4b115a44ef3d4b1e0e65/pkg/cmd/apparmor/inspect_linux.go",
+      "sha256": "04009ab8114a4a00b6d2f66d887447944d52b0a5483bfb722f5097a7bf4aa586",
+      "bytes": 1005,
+      "httpStatus": 200,
+      "revision": "94bc03df5247ece1781c4b115a44ef3d4b1e0e65",
+      "interpretation": "Inspect renders DumpDefaultProfile; it does not extract the loaded kernel policy.",
+      "usedForConclusion": true
+    }
+  ],
+  "documentation": [
+    {
+      "url": "https://docs.kernel.org/userspace-api/seccomp_filter.html",
+      "scope": "ERRNO does not execute syscall; current documentation, not exact Ubuntu kernel revision"
+    },
+    {
+      "url": "https://documentation.ubuntu.com/security/security-features/privilege-restriction/apparmor/",
+      "scope": "userns restrictions background; cannot establish per-profile outcome"
+    },
+    {
+      "url": "https://learn.chatgpt.com/docs/permissions",
+      "scope": "current product description; pinned behavior determined from actual CLI/trace/tag"
+    }
+  ],
+  "binaryToSourceLimit": "Version-matching public release tag and same observed CLI/resource hashes, no independent rebuild or runtime FD3 content hash; exact packaged-vs-executed bwrap byte identity not independently proven.",
+  "manifestRecordedUtc": "2026-11-11T13:50:17.781208+00:00"
+}

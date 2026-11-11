@@ -1,0 +1,4 @@
+"""Transfer snapshotted read-only metadata query; no worker/container creation."""
+import os,pathlib,subprocess
+root=pathlib.Path('/tmp/ontosary-s2-namespace-diagnosis-20261111');work=pathlib.Path('work/s2-namespace-diagnosis');os.environ['LIMA_HOME']=str(root/'lima');lima=str(root/'prefix/bin/limactl')
+for args in [['copy','experiments/domain-model/s2/trial/container/namespace-diagnosis/metadata.py','s2-lifecycle:/tmp/s2-namespace-metadata.py'],['shell','--workdir=/tmp','s2-lifecycle','sudo','python3','/tmp/s2-namespace-metadata.py'],['shell','--workdir=/tmp','s2-lifecycle','sudo','cp','/opt/ontosary-namespace-diagnosis/metadata/metadata.json','/tmp/s2-namespace-metadata.json'],['copy','s2-lifecycle:/tmp/s2-namespace-metadata.json',str(work/'guest-metadata.json')]]:subprocess.run([lima,*args],check=True,timeout=20)

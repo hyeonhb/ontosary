@@ -1,0 +1,10 @@
+test_actual_inputs (__main__.EvidenceTests.test_actual_inputs) ... ok
+test_added_namespace_allow_is_rejected (__main__.EvidenceTests.test_added_namespace_allow_is_rejected) ... ok
+test_disabled_nnp_is_rejected (__main__.EvidenceTests.test_disabled_nnp_is_rejected) ... ok
+test_wrong_archive_hash (__main__.EvidenceTests.test_wrong_archive_hash) ... ok
+test_wrong_policy_member_hash (__main__.EvidenceTests.test_wrong_policy_member_hash) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.005s
+
+OK

@@ -1,0 +1,36 @@
+{
+  "commands": [
+    {
+      "command": [
+        "nerdctl",
+        "apparmor",
+        "inspect"
+      ],
+      "exitCode": 0,
+      "stdout": "\nabi <abi/3.0>,\n\n\n#include <tunables/global>\n\n\nprofile nerdctl-default flags=(attach_disconnected,mediate_deleted) {\n\n  #include <abstractions/base>\n\n\n  network,\n  capability,\n  file,\n  umount,\n  # Host (privileged) processes may send signals to container processes.\n  signal (receive) peer=unconfined,\n  # runc may send signals to container processes.\n  signal (receive) peer=runc,\n  # crun may send signals to container processes.\n  signal (receive) peer=crun,\n  # Manager may send signals to container processes.\n  signal (receive) peer=unconfined\n,\n  # Container processes may send signals amongst themselves.\n  signal (send,receive) peer=nerdctl-default,\n\n  # https://github.com/containerd/nerdctl/issues/2730\n  signal (receive) peer=/usr/local/bin/rootlesskit,\n\n\n  deny @{PROC}/* w,   # deny write for all files directly in /proc (not in a subdir)\n  # deny write to files not in /proc/<number>/** or /proc/sys/**\n  deny @{PROC}/{[^1-9/],[^1-9/][^0-9/],[^1-9s/][^0-9y/][^0-9s/],[^1-9/][^0-9/][^0-9/][^0-9/]*}/** w,\n  deny @{PROC}/sys/[^k]** w,  # deny /proc/sys except /proc/sys/k* (effectively /proc/sys/kernel)\n  deny @{PROC}/sys/kernel/{?,??,[^s][^h][^m]**} w,  # deny everything except shm* in /proc/sys/kernel/\n  deny @{PROC}/sysrq-trigger rwklx,\n  deny @{PROC}/kcore rwklx,\n\n  deny mount,\n\n  deny /sys/[^f]*/** wklx,\n  deny /sys/f[^s]*/** wklx,\n  deny /sys/fs/[^c]*/** wklx,\n  deny /sys/fs/c[^g]*/** wklx,\n  deny /sys/fs/cg[^r]*/** wklx,\n  deny /sys/firmware/** rwklx,\n  deny /sys/devices/virtual/powercap/** rwklx,\n  deny /sys/kernel/security/** rwklx,\n\n  # allow processes within the container to trace each other,\n  # provided all other LSM and yama setting allow it.\n  ptrace (trace,tracedby,read,readby) peer=nerdctl-default,\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "apparmor_parser",
+        "--version"
+      ],
+      "exitCode": 0,
+      "stdout": "AppArmor parser version 5.0.2\nCopyright (C) 1999-2008 Novell Inc.\nCopyright 2009-2018 Canonical Ltd.\n",
+      "stderr": ""
+    }
+  ],
+  "kernel": "7.0.0-38-generic",
+  "kernelConfiguration": [
+    "CONFIG_NAMESPACES=y",
+    "CONFIG_USER_NS=y",
+    "CONFIG_SECCOMP=y",
+    "CONFIG_SECCOMP_FILTER=y",
+    "CONFIG_SECURITY_APPARMOR=y"
+  ],
+  "namedLoadedProfile": [
+    "nerdctl-default (enforce)"
+  ],
+  "profileDumpMeaning": "Generated default template, not a dump of loaded compiled kernel policy. Named loaded profile and worker proc attachment are separate evidence.",
+  "policyChangesApplied": false
+}
