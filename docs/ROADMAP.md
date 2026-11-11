@@ -1,5 +1,7 @@
 # 단계별 계획
 
+2026-11-11 현재 우선순위: Linux 평가의 독립 검토를 마쳤고 **[CLI 연결의 비모델 타당성](reviews/2026-11-11-s2-cli-feasibility-instructions.md)을 새90분 안에서 검증**한다(ADR-039). 환경20분/설정·가짜 인증 핵심45분/네트워크·반복·종료70분/정리·보고90분이다. 실제 credential 전달·인증/provider 연결·모델 호출과 본 비교는 결과 리뷰 뒤 별도로 결정한다. 전체 수정 소스 수집/평가 연결과 C 사람 동등성 검토도 남아 있다. 이번에 Vendure 재설치·범용 proxy·기술 부채 전면 정리를 확대하지 않으며 R11 unresolved·production/live 차단을 유지한다. 아래는 각 시점 기록이다.
+
 2026-11-11 현재 우선순위: **Linux 알려진 제출 평가 재현 결과의 독립 리뷰**. [인계](reviews/2026-11-11-s2-linux-evaluation.md)의7단위, 정확한 common9경로 대응, 원시 종료/수집/성공 cleanup, timeout 대조·실제5회귀와17개 단위 정리를 대조한다. 실제 CLI helper/도구·세션/전역 지시·인증/provider·usage 실측 및 C 사람 의미 검토는 여전히 별도이며 이번에 착수하지 않는다. R11 unresolved·R12 기존 범위·본 비교 차단을 유지한다. 아래는 각 시점 기록이다.
 
 2026-11-11 현재 우선순위: fixture 경계의 독립 검토를 마쳤고, 사용자가 승인한 [Linux Vendure baseline/reference 평가 재현](reviews/2026-11-11-s2-linux-evaluation-instructions.md)을 새3시간 안에서 진행한다(ADR-037). 환경45분/핵심90분/탐색150분/총180분, 알려진7평가 단위·공개 타입 검사·timeout 통합과 기존 의미 대조가 범위다. 먼저 환경/평가기 재현을 확인하고 **결과 리뷰 뒤** 실제 CLI·인증/provider 준비를 별도 결정한다. 본 비교는 그 이후 남은 실행 조건·C 사람 검토와 별도 승인을 거친다. 현재 R11 unresolved·production/live 차단·본 비교 미실행을 유지하며 아래 우선순위들은 당시 기록이다.

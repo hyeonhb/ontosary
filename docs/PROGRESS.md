@@ -1,5 +1,9 @@
 # 현재 작업 상태 — 새 세션은 이 문서부터 읽기
 
+2026-11-11 CLI 비모델 타당성 검증 승인: 사용자는 **기존 container 안의 CLI 본체/명령 sandbox 분리, 가짜 인증·내부 서버 검증과 새90분 상한**을 승인했다(ADR-039). [개발 지시](reviews/2026-11-11-s2-cli-feasibility-instructions.md)는 실행별 상태/설정·셸 HOME 분리, 가짜 인증의 직접/환경/FD 접근 거부, parent 양성 서버 대조와 sandbox 네트워크 차단, 새 정상2단위·timeout/정리를 요구한다. 환경20분/핵심45분/탐색70분/총90분이며 실제 자격 증명 전달·로그인/갱신/provider·모델 호출·본 비교는 결과 리뷰 뒤 별도 결정한다. 이번 세션은 지시·맥락 문서만 작성했고 CLI/VM 검증을 실행하지 않았다. pnpm check(304테스트·타입 검사·예제 빌드), pnpm s2:build, 문서 로컬 링크233개를 확인했다. R11 unresolved·R12 기존 범위·production/live 거부·trialAuthorized/readyForTrial=false·results=null을 유지한다.
+
+2026-11-11 Linux 평가 독립 검토: main `bcab22e`의 보고·구현·원시 증거를 대조해 **linux-evaluation-reproduced**에 동의했다. 증거210파일/16archive 내부993파일 hash, 실제7단위 재대조 차이0, common9경로와 역사적 Program hash 대응, 입력109,157항목 불변성과 실행본·전체 종료 이후 수집·17등록 단위 정리를 확인했다. pnpm check304테스트·타입/예제 build, S2 build, Python26회귀와 production/live 승격 거부도 통과했다. 새 VM 설치/평가 재실행은 하지 않았으며 검토 범위의 추가 차단 결함은 없었다. 기존 외부 파일의 `<typescript>/<basename>` 축약은 후속 기술 부채로 남긴다. 아래는 리뷰 전 인계 기록이다.
+
 2026-11-11 S2 Linux 평가: **linux-evaluation-reproduced, 독립 리뷰 대기**. [인계](reviews/2026-11-11-s2-linux-evaluation.md). 고정 Linux 설치/common build와 기존 `openEnvironment()`를 통과했고 새 경계의 필수7단위·공개 타입4회·timeout/유한 writer 대조·공유 lifecycle 실제5회귀를 확인했다. macOS common 선언9개의 경로 표기 차이를 원문/동일 hash로 분류하고 정확한 대응표를 새 검증 전에 고정했다. 최초/중간3단위와 최종7단위의 분모를 분리했다. 전체17개 등록 단위·VM·새 cache를 정리했고 pnpm check304테스트, Python26회귀를 통과했다. R11 unresolved·R12 기존 범위·production/live 거부·trialAuthorized/readyForTrial=false·results=null·실제 CLI/model/provider/본 비교0회를 유지한다. 다음은 결과 리뷰이며 아래는 각 시점의 기록이다.
 
 2026-11-11 Linux 평가 재현 검증 승인: lifecycle fixture의 독립 검토 후 사용자는 **같은 경계의 Linux Vendure baseline/reference 재현과 새3시간 상한**을 승인했다(ADR-037). [개발 지시](reviews/2026-11-11-s2-linux-evaluation-instructions.md)는 Linux 불변 환경1회 준비·읽기 전용 완전 소스·실행별 새 평가 container·출력만 수집하는 구조다. baseline/reference 각2회·부정2종·reference delta1회, 공개 타입 검사·timeout 통합·macOS/반복/입력 방식 대조를 확인한다. 환경45분/핵심90분/탐색150분/총180분이며 기존 Program hash 검사·평가 의미를 유지한다. 이번 세션은 지시·맥락 문서 작성이고 Linux 설치/평가는 미실행이다. pnpm check(304테스트·타입 검사·예제 빌드), pnpm s2:build, 문서 로컬 링크224개를 확인했다. 실제 CLI·인증/provider·본 비교는 결과 리뷰 뒤 별도 진행하며 R11 unresolved·R12 기존 범위·trialAuthorized/readyForTrial=false·results=null을 유지한다.
@@ -188,7 +192,7 @@ main `a58a88b`을 독립 검토해 `pnpm check` 89개·기존 실험 4/4 및 새
 
 ## 다음 작업
 
-최신 순서: [Linux Vendure 평가 재현 지시](reviews/2026-11-11-s2-linux-evaluation-instructions.md)의3시간 검증 → 결과 독립 리뷰 → 실제 CLI·인증/provider와 남은 실행 조건의 별도 준비 결정 → C 사람 검토·전체 준비 재검토와 본 비교 별도 승인. R12는 기존 검증 범위에서 해결됐으며 R11 전체 해결은 아직 아니다. 아래 합의 순서는 이 후속 경계를 포함해 해석한다.
+최신 순서: [CLI 비모델 타당성 지시](reviews/2026-11-11-s2-cli-feasibility-instructions.md)의90분 검증 → 결과 독립 리뷰 → 실제 자격 증명/모델 연결과 전체 수정 소스 수집·평가의 후속 구조 결정 → C 사람 검토·전체 준비 재검토와 본 비교 별도 승인. Linux 알려진 제출 재현은 독립 검토 범위에서 통과했고 R12도 기존 검증 범위에서 해결됐으며 R11 전체 해결은 아직 아니다. 아래 합의 순서는 이 후속 경계를 포함해 해석한다.
 
 1. R6/R7 보완은 독립 검증 범위에서 완료됐다. 최신 소비 경로는 V2이며 V1/과거 실패 증거는 보존한다.
 2. S2 범위·큰 구조는 ADR-023/024, 과업 정책·비교 조합은 ADR-028로 합의했다. [실행 전 준비 지시](reviews/2026-11-10-s2-trial-preparation-instructions.md)에 따라 계약·C 의미 대응 검토 자료·격리/계측·새 배포 동결을 구현한다.
