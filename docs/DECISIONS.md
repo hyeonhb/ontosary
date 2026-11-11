@@ -306,3 +306,11 @@ ADR-037의 같은 후보/새3시간 안에서 [Linux 알려진 제출 재현](re
 **검증과 비용:** 동일 후보·CLI0.167.0-alpha.3.2를 유지하고 정상 새2단위·설정/파일/가짜 인증/내부 네트워크·timeout/유한 대조와 영향 범위 회귀를 확인한다. 최초 시계부터 환경20분/핵심45분/탐색70분/총90분, 신규 유료 비용0이다. privileged/광범위한 권한 확대·후보 교체·큰 proxy/broker/API runner가 필요하거나 경계가 성립하지 않으면 중단하고 인계한다. 작은 fixture만 사용하며 Vendure 설치/평가 전체 반복과 임의 수정 소스 수집기를 확대하지 않는다.
 
 **판정 한계:** ready-for-live-connection-review/inconclusive/blocked로 인계한다. 첫 판정도 다음 연결 시험 설계의 근거일 뿐 실제 credential·로그인/갱신/provider/model 호출·본 비교 승인이 아니다. R11 unresolved·R12 기존 범위·trialAuthorized/readyForTrial=false·results=null을 유지한다. 이 결정은 다음 구현 승인이고 이미 CLI 내부 경계가 확인됐다는 기록이 아니다.
+
+## ADR-040 · CLI native namespace 차단에서 탐색 중단 — 2026-11-11
+
+ADR-039의 [비모델 검증](reviews/2026-11-11-s2-cli-feasibility.md)은 **blocked**다. 같은 pinned CLI/후보·비특권 보안 설정에서 parent source 작업은 성공하지만 명시적 권한 profile의 native sandbox는 namespace 생성 전에 실패했다. 실제 OCI seccomp의 unshare/clone 제한과 보조 unshare EPERM을 확인했으며 AppArmor의 독립 기여는 분리하지 않았다. 현재 문서와 고정 CLI 명령 형식 차이를 수정한 국소 확인도 같은 실패다.
+
+환경 단계에서 후속 경계 구현/실행을 중단했다. sandbox를 끄거나 권한/정책을 완화하지 않았고 API·proxy·새 후보를 추가하지 않았다. 준비2컨테이너/CLI10회를 정상2단위나 lifecycle 종료·수집 검증으로 계산하지 않는다. 초기 helper까지 실행 전 snapshot을 남기고 실제 실패·unsupported 옵션·미검증 항목과 비용/정리를 보존했다. 공유 lifecycle/evaluator/제품 계약은 그대로다.
+
+다음은 독립 리뷰와 재개 조건 선택이다. namespace 정책의 최소 변경조차 별도 위협 검토·승인·예산을 정해야 하며 이 ADR이 변경을 승인하지 않는다. 후속 정책에서는 파일/가짜 인증/proc/FD/네트워크와 lifecycle 영향 회귀를 다시 확인해야 한다. 실제 credential 전달·로그인/갱신/provider/model·본 비교는 각각0이며 결과 리뷰 전 시작하지 않는다. R11 unresolved·R12 기존 범위·production/live 거부·trialAuthorized/readyForTrial=false·results=null을 유지한다.

@@ -1,0 +1,19 @@
+{
+  "verdict": "blocked",
+  "stoppedUtc": "2026-11-11T12:36:31.456555+00:00",
+  "stoppedHostMonotonic": 153147.798125125,
+  "lastRuntimeCompletedHostMonotonic": 153114.120277083,
+  "reason": "Native CLI bubblewrap namespace creation fails under unchanged default container security; explicit-profile allowed-operation fails and unshare returns EPERM. No permission relaxation or phase B/C expansion.",
+  "phase": "environment",
+  "registeredLifecycleUnits": 0,
+  "preparationContainers": 2,
+  "normalBoundaryRuns": 0,
+  "timeoutControls": 0,
+  "nonModelCLICalls": 10,
+  "credentialTransfers": 0,
+  "logins": 0,
+  "refreshes": 0,
+  "providerRequests": 0,
+  "modelCalls": 0,
+  "trialRuns": 0
+}

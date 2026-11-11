@@ -1,0 +1,6 @@
+{
+  "localLinks": 259,
+  "costLinkDeferredUntilRoundClose": true,
+  "archiveMembersCheckedForExcludedCredentialFilenames": 641,
+  "method": "Filename exclusion check supplements explicit allowlisted packaging; not a general secret scanner."
+}

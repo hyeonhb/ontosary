@@ -1,0 +1,16 @@
+{
+  "scope": "host metadata only; not copied into guest",
+  "codeHomeOverridePresent": false,
+  "configPresent": true,
+  "authenticationContentsRead": false,
+  "keychainQueried": false,
+  "accountIdentifiersRead": false,
+  "cli_auth_credentials_store": "unset-or-unknown",
+  "authFile": {
+    "exists": true,
+    "mode": "0o600",
+    "regular": true,
+    "symlink": false
+  },
+  "effectiveStorage": "unknown; key presence/file metadata cannot prove the current active credential backend"
+}

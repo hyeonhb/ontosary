@@ -1,0 +1,8 @@
+{
+  "archive": "experiments/domain-model/s2/verification/2026-11-11-linux-evaluation/job-probes/7ca7f2d67f77/raw.tar.gz",
+  "archiveSha256": "79af5095531cf9646bc208f8b756a577f1b364620c1d03957de9d3a021009d38",
+  "member": "result/fixture.json",
+  "receiptSha256": "4363274a692ac8c84ff29f4aa106bc93bc9458c7d9cce8aa2a35b5dfddc25d2f",
+  "historicalReceipt": true,
+  "newCLIReceipt": false
+}
