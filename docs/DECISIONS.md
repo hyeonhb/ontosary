@@ -314,3 +314,14 @@ ADR-039의 [비모델 검증](reviews/2026-11-11-s2-cli-feasibility.md)은 **blo
 환경 단계에서 후속 경계 구현/실행을 중단했다. sandbox를 끄거나 권한/정책을 완화하지 않았고 API·proxy·새 후보를 추가하지 않았다. 준비2컨테이너/CLI10회를 정상2단위나 lifecycle 종료·수집 검증으로 계산하지 않는다. 초기 helper까지 실행 전 snapshot을 남기고 실제 실패·unsupported 옵션·미검증 항목과 비용/정리를 보존했다. 공유 lifecycle/evaluator/제품 계약은 그대로다.
 
 다음은 독립 리뷰와 재개 조건 선택이다. namespace 정책의 최소 변경조차 별도 위협 검토·승인·예산을 정해야 하며 이 ADR이 변경을 승인하지 않는다. 후속 정책에서는 파일/가짜 인증/proc/FD/네트워크와 lifecycle 영향 회귀를 다시 확인해야 한다. 실제 credential 전달·로그인/갱신/provider/model·본 비교는 각각0이며 결과 리뷰 전 시작하지 않는다. R11 unresolved·R12 기존 범위·production/live 거부·trialAuthorized/readyForTrial=false·results=null을 유지한다.
+
+
+## ADR-041 · 정책을 적용하지 않는 namespace 원인 진단 — 2026-11-11
+
+**사용자 결정:** CLI blocked 결과 독립 검토 후 동일 후보에서 최소 정책 변경의 타당성을 새60분 한도로 진단한다. [개발 지시](reviews/2026-11-11-s2-namespace-diagnosis-instructions.md)에 따라 원인 확인·변경안 제시까지만 진행하고 실제 정책 변경·credential 전달·provider/model·본 비교는 결과 리뷰 뒤 결정한다.
+
+**범위:** 기존 OCI/원시 증거와 고정 버전 구현을 먼저 대조하고 필요할 때만 같은 제한 아래 유한 비모델 관찰을 추가한다. 추적을 위한 권한 확대도 하지 않는다. 특정 syscall의 정책상 거부와 bwrap 최초 실패의 직접 관찰을 구분하고 seccomp·AppArmor 등 독립 계층의 미확인을 남긴다. 정책 후보는 문서/실행 경로 밖의 비활성 diff이며 적용 단위·권한 영향·남는 차단·후속 검증/복구·예상 비용을 포함한다. 제안의 최소성/충분성이 입증되지 않았다면 명시한다.
+
+**상한:** 최초 시계부터 읽기/준비/대기/진단/검사/정리/보고60분, 계획10분·동적 환경25분·원인/후보40분·새 탐색 종료50분·총60분이다. 필요할 때만 소유 VM1개/준비 container 최대2개, 근거 있는 기계적 국소 수정 총2회, 신규 유료 비용0이다. 각 동적 payload15초/외부120초다. 후보/CLI 교체·정책 완화·새 실행 플랫폼은 제외하며 필요 시 미확인/차단으로 인계한다.
+
+**판정 한계:** proposal-ready는 후속 정책 시험을 검토할 자료가 준비됐다는 뜻이다. inconclusive/blocked도 근거·정리·인계가 충족되면 유효한 회차 결과다. 성공 실행을 강제하지 않는다. R11 unresolved·R12 기존 범위·production/live 거부·trialAuthorized/readyForTrial=false·results=null을 유지한다. 이번 결정은 진단 승인이고 실행 완료나 정책 적용 승인이 아니다.

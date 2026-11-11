@@ -1,5 +1,7 @@
 # 현재 아키텍처
 
+2026-11-11 다음 진단 범위(ADR-041): [namespace 정책 진단 지시](reviews/2026-11-11-s2-namespace-diagnosis-instructions.md)는 기존 container 제한과 고정 CLI를 그대로 둔 채 정책/버전별 구현/가능한 syscall 관찰을 대조한다. 변경안은 실행 경로와 분리한 문서/비활성 diff로만 제시한다. 관찰용 권한 완화도 하지 않으며 첫 실패 syscall·독립 LSM 기여가 미확인이면 그 상태로 인계한다. 외부 container와 내부 native sandbox의 호환성은 여전히 미검증이고 기존 lifecycle/Linux 평가 결과는 유지한다. 실제 정책 적용과 전체 경계 회귀는 이번 범위가 아니다.
+
 2026-11-11 [CLI 비모델 결과](reviews/2026-11-11-s2-cli-feasibility.md)(ADR-040): `trial/container/cli-feasibility/`의 준비 진단에서 **native sandbox namespace 생성이 차단**됐다. 기존 보안 설정과 공유 lifecycle는 변경하지 않았다. 두 준비 container의 자연 종료/삭제를 확인했지만 CLI job·독립 감독/수집 연결은 구현하지 않았다. 따라서 아래 승인 구조의 내부 권한 경계는 검증되지 않았고 production/live는 계속 거부한다.
 
 2026-11-11 다음 CLI 구조 승인(ADR-039): [비모델 타당성 지시](reviews/2026-11-11-s2-cli-feasibility-instructions.md)는 새 container/cgroup으로 외부 실행을 격리하고 내부 native CLI sandbox로 CLI 전용 설정/상태/가짜 인증과 셸 권한을 나눈다. source/scratch/셸 HOME은 제한 RW, 자료/도구는 RO, control/외부 경로와 명령 네트워크는 deny다. 외부 egress 없이 parent 문맥의 내부 서버 양성 대조와 실제 CLI sandbox 명령을 비교하고, 기존 독립 감독·종료·진단 수집/성공 cleanup을 재사용한다. **승인된 다음 실험 설계이며 아직 이 CLI 경계를 검증한 상태는 아니다.** 실제 credential 전달·provider/model·전체 agent 도구 경로는 결과 리뷰 이후이며 범용 runner/proxy나 임의 제출 권한은 만들지 않는다.

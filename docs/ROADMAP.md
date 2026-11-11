@@ -1,5 +1,7 @@
 # 단계별 계획
 
+2026-11-11 다음 우선순위: CLI blocked 독립 리뷰 후 사용자는 **동일 후보의 최소 정책 변경 타당성을60분 안에 진단**하기로 했다(ADR-041). [현재 지시](reviews/2026-11-11-s2-namespace-diagnosis-instructions.md)의 산출물은 원인별 근거·적용하지 않은 변경안·경계 영향/후속 비용·정리 기록이다. 실제 정책 변경, 인증/provider/model과 본 비교는 결과 리뷰 후 결정한다. 범용 실행 플랫폼으로 확대하지 않으며 R11 unresolved·readyForTrial=false·H-O/H-F 미검증을 유지한다. 아래 순서는 당시 기록이다.
+
 2026-11-11 현재 우선순위: **[CLI 비모델 차단 결과](reviews/2026-11-11-s2-cli-feasibility.md)의 독립 리뷰**(ADR-040). 현재 비특권 정책에서 namespace 생성이 거부되어 후속 인증/네트워크/정상2회/timeout 검증을 중단했다. 재개에는 namespace 정책 변경의 별도 검토·승인·새 예산 또는 현 조합 중단 결정이 필요하다. 실제 credential/provider/model/본 비교는 승인되지 않았으며 R11 unresolved와 production/live 차단을 유지한다. 아래는 각 시점 기록이다.
 
 2026-11-11 현재 우선순위: Linux 평가의 독립 검토를 마쳤고 **[CLI 연결의 비모델 타당성](reviews/2026-11-11-s2-cli-feasibility-instructions.md)을 새90분 안에서 검증**한다(ADR-039). 환경20분/설정·가짜 인증 핵심45분/네트워크·반복·종료70분/정리·보고90분이다. 실제 credential 전달·인증/provider 연결·모델 호출과 본 비교는 결과 리뷰 뒤 별도로 결정한다. 전체 수정 소스 수집/평가 연결과 C 사람 동등성 검토도 남아 있다. 이번에 Vendure 재설치·범용 proxy·기술 부채 전면 정리를 확대하지 않으며 R11 unresolved·production/live 차단을 유지한다. 아래는 각 시점 기록이다.
