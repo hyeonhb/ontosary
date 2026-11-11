@@ -1,5 +1,7 @@
 # 단계별 계획
 
+2026-11-11 현재 우선순위: **[namespace 진단 및 비활성 후보](reviews/2026-11-11-s2-namespace-diagnosis.md)의 독립 리뷰**(ADR-042). 첫 차단점은 trace와 실제 seccomp로 좁혔고 제한된 정책 시험을 검토할 근거를 마련했다. [후보](reviews/2026-11-11-s2-namespace-policy-proposal.md)는 충분성 미검증이며 실제 적용/전체 경계 회귀는 별도 결정이다. mount/LSM 등 남은 제약 때문에 전체 runner 구현으로 바로 확대하지 않는다. 실제 credential/provider/model/본 비교와 R11/production/live 차단은 유지한다.
+
 2026-11-11 다음 우선순위: CLI blocked 독립 리뷰 후 사용자는 **동일 후보의 최소 정책 변경 타당성을60분 안에 진단**하기로 했다(ADR-041). [현재 지시](reviews/2026-11-11-s2-namespace-diagnosis-instructions.md)의 산출물은 원인별 근거·적용하지 않은 변경안·경계 영향/후속 비용·정리 기록이다. 실제 정책 변경, 인증/provider/model과 본 비교는 결과 리뷰 후 결정한다. 범용 실행 플랫폼으로 확대하지 않으며 R11 unresolved·readyForTrial=false·H-O/H-F 미검증을 유지한다. 아래 순서는 당시 기록이다.
 
 2026-11-11 현재 우선순위: **[CLI 비모델 차단 결과](reviews/2026-11-11-s2-cli-feasibility.md)의 독립 리뷰**(ADR-040). 현재 비특권 정책에서 namespace 생성이 거부되어 후속 인증/네트워크/정상2회/timeout 검증을 중단했다. 재개에는 namespace 정책 변경의 별도 검토·승인·새 예산 또는 현 조합 중단 결정이 필요하다. 실제 credential/provider/model/본 비교는 승인되지 않았으며 R11 unresolved와 production/live 차단을 유지한다. 아래는 각 시점 기록이다.

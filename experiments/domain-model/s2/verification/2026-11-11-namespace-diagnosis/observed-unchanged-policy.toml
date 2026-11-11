@@ -1,0 +1,30 @@
+default_permissions = "fixture"
+cli_auth_credentials_store = "file"
+web_search = "disabled"
+
+[features]
+apps = false
+hooks = false
+multi_agent = false
+daemon_auto_start = false
+skill_mcp_dependency_install = false
+system_proxy_fallback = false
+use_legacy_landlock = false
+
+[shell_environment_policy]
+inherit = "none"
+[shell_environment_policy.set]
+PATH = "/usr/local/bin:/usr/bin:/bin"
+HOME = "/home/worker"
+TMPDIR = "/scratch"
+
+[permissions.fixture.filesystem]
+":root" = "deny"
+":minimal" = "read"
+"/source" = "write"
+"/scratch" = "write"
+"/home/worker" = "write"
+"/materials" = "read"
+"/home/runner/cli-state" = "deny"
+[permissions.fixture.network]
+enabled = false

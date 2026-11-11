@@ -1,0 +1,181 @@
+{
+  "utc": "2026-11-11T13:36:08.802554+00:00",
+  "monotonic": 156727.152075458,
+  "deadlines": {
+    "plan": "2026-11-11T13:46:08.802554+00:00",
+    "environment": "2026-11-11T14:01:08.802554+00:00",
+    "diagnosis": "2026-11-11T14:16:08.802554+00:00",
+    "exploration": "2026-11-11T14:26:08.802554+00:00",
+    "finish": "2026-11-11T14:36:08.802554+00:00"
+  },
+  "events": [
+    {
+      "snapshot": "1794404311115971000",
+      "utc": "2026-11-11T13:38:31.115707+00:00",
+      "monotonic": 156867.401435083,
+      "seconds": 254.31465612500324,
+      "timeoutSeconds": 600,
+      "phase": "environment",
+      "command": [
+        "python3",
+        "experiments/domain-model/s2/trial/container/namespace-diagnosis/host-prepare.py"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-namespace-diagnosis/host-preparation.log"
+    },
+    {
+      "snapshot": "1794404602411824000",
+      "utc": "2026-11-11T13:43:22.411555+00:00",
+      "monotonic": 157158.701390458,
+      "seconds": 59.552381082990905,
+      "timeoutSeconds": 720,
+      "phase": "environment",
+      "command": [
+        "python3",
+        "experiments/domain-model/s2/trial/container/namespace-diagnosis/host-install.py"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-namespace-diagnosis/installation.log"
+    },
+    {
+      "snapshot": "1794404684467656000",
+      "utc": "2026-11-11T13:44:44.467447+00:00",
+      "monotonic": 157240.758415375,
+      "seconds": 0.6325577080133371,
+      "timeoutSeconds": 60,
+      "phase": "diagnosis",
+      "command": [
+        "python3",
+        "experiments/domain-model/s2/trial/container/namespace-diagnosis/host-metadata.py"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-namespace-diagnosis/metadata.log"
+    },
+    {
+      "snapshot": "1794404743651937000",
+      "utc": "2026-11-11T13:45:43.651713+00:00",
+      "monotonic": 157299.943550041,
+      "seconds": 0.5512652089819312,
+      "timeoutSeconds": 60,
+      "phase": "diagnosis",
+      "command": [
+        "python3",
+        "experiments/domain-model/s2/trial/container/namespace-diagnosis/host-log-correction.py"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-namespace-diagnosis/kernel-log-correction.log"
+    },
+    {
+      "snapshot": "1794404851936905000",
+      "utc": "2026-11-11T13:47:31.936705+00:00",
+      "monotonic": 157408.230040583,
+      "seconds": 0.9724089579831343,
+      "timeoutSeconds": 100,
+      "phase": "finish",
+      "command": [
+        "python3",
+        "experiments/domain-model/s2/trial/container/namespace-diagnosis/host-finish.py"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-namespace-diagnosis/guest-removal.log"
+    },
+    {
+      "snapshot": "1794404921347940000",
+      "utc": "2026-11-11T13:48:41.347701+00:00",
+      "monotonic": 157477.642057125,
+      "seconds": 1.1572480410104617,
+      "timeoutSeconds": 90,
+      "phase": "finish",
+      "command": [
+        "python3",
+        "experiments/domain-model/s2/trial/container/namespace-diagnosis/host-cleanup.py"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-namespace-diagnosis/host-removal.log"
+    },
+    {
+      "snapshot": "1794404959590019000",
+      "utc": "2026-11-11T13:49:19.589796+00:00",
+      "monotonic": 157515.88467325,
+      "seconds": 0.47049512501689605,
+      "timeoutSeconds": 30,
+      "phase": "finish",
+      "command": [
+        "python3",
+        "experiments/domain-model/s2/trial/container/namespace-diagnosis/audit.py"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-namespace-diagnosis/audit.log"
+    },
+    {
+      "snapshot": "1794404960185112000",
+      "utc": "2026-11-11T13:49:20.184829+00:00",
+      "monotonic": 157516.479758375,
+      "seconds": 0.08669091598130763,
+      "timeoutSeconds": 30,
+      "phase": "finish",
+      "command": [
+        "python3",
+        "experiments/domain-model/s2/trial/container/namespace-diagnosis/test_audit.py"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-namespace-diagnosis/audit-tests.log"
+    },
+    {
+      "snapshot": "1794404958433673000",
+      "utc": "2026-11-11T13:49:18.433410+00:00",
+      "monotonic": 157514.728278208,
+      "seconds": 19.078278708009748,
+      "timeoutSeconds": 180,
+      "phase": "finish",
+      "command": [
+        "pnpm",
+        "check"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-namespace-diagnosis/pnpm-check.log"
+    },
+    {
+      "snapshot": "1794405359964176000",
+      "utc": "2026-11-11T13:55:59.963957+00:00",
+      "monotonic": 157916.268721208,
+      "seconds": 0.15893266699276865,
+      "timeoutSeconds": 30,
+      "phase": "finish",
+      "command": [
+        "python3",
+        "experiments/domain-model/s2/trial/container/namespace-diagnosis/freeze.py"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-namespace-diagnosis/freeze-initial.log"
+    },
+    {
+      "snapshot": "1794405474572937000",
+      "utc": "2026-11-11T13:57:54.572760+00:00",
+      "monotonic": 158030.879537041,
+      "seconds": 0.2520131249912083,
+      "timeoutSeconds": 30,
+      "phase": "finish",
+      "command": [
+        "python3",
+        "experiments/domain-model/s2/trial/container/namespace-diagnosis/audit.py"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-namespace-diagnosis/audit-final.log"
+    },
+    {
+      "snapshot": "1794405538783847000",
+      "utc": "2026-11-11T13:58:58.783657+00:00",
+      "monotonic": 158095.091597041,
+      "seconds": 0.0510588749893941,
+      "timeoutSeconds": 15,
+      "phase": "finish",
+      "command": [
+        "python3",
+        "experiments/domain-model/s2/trial/container/namespace-diagnosis/close.py"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-namespace-diagnosis/close.log"
+    }
+  ]
+}

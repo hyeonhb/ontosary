@@ -1,0 +1,95 @@
+{
+  "fixedUtc": "2026-11-11T13:38:30.997269+00:00",
+  "purpose": "Resolve first actual namespace syscall/flags versus existing policy denial; measure tracing availability without changing restrictions.",
+  "dynamicNeeded": true,
+  "reason": "Existing OCI proves denial predicates but cannot establish bwrap call order/flags or independent LSM involvement. Narrow trace may reduce the candidate to the actually attempted syscall.",
+  "maxVMs": 1,
+  "maxPreparationContainers": 2,
+  "payloadSeconds": 15,
+  "createToOuterDeadlineSeconds": 120,
+  "localMechanicalCorrectionsLimit": 2,
+  "units": [
+    {
+      "name": "baseline",
+      "image": "same pinned original Dockerfile",
+      "commands": [
+        "codex --version",
+        "bundled bwrap --version",
+        "codex sandbox -P fixture -C /source -- node allowed-operation"
+      ],
+      "expected": "native namespace failure, parent allowed source/material operation succeeds"
+    },
+    {
+      "name": "traced",
+      "image": "original plus strace package only; package/version/license/layers recorded",
+      "commands": [
+        "strace --version",
+        "strace -f -e trace=clone,clone3,unshare,setns,execve,wait4,exit_group -- codex sandbox -P fixture -C /source -- node allowed-operation"
+      ],
+      "expected": "same native failure with syscall trace OR current ptrace denial; both are observations, not boundary success"
+    }
+  ],
+  "newInputs": [
+    {
+      "path": "/probe",
+      "mode": "read-only",
+      "purpose": "fixed Node diagnostic helper"
+    },
+    {
+      "path": "/materials",
+      "mode": "read-only",
+      "purpose": "synthetic input"
+    },
+    {
+      "path": "/home/runner/cli-state/config.toml",
+      "mode": "read-only",
+      "purpose": "unchanged previous diagnostic profile"
+    }
+  ],
+  "policyChangesApplied": false,
+  "hostAuthenticationInvestigation": false,
+  "stopOnUnexpectedBaselineSuccess": true,
+  "forbidden": [
+    "attach other processes",
+    "new audit settings",
+    "seccomp/AppArmor/sysctl/capability/NNP change",
+    "credential/provider/model calls"
+  ],
+  "hypotheses": [
+    {
+      "cause": "seccomp",
+      "known": "actual default ERRNO; unshare absent",
+      "counterEvidence": "none for policy denial; actual first bwrap syscall unobserved",
+      "needed": "first namespace call and flags",
+      "confidence": "high policy fact, unknown execution order"
+    },
+    {
+      "cause": "clone/clone3 flags/fallback",
+      "known": "clone flags mask 2114060288=0; clone3 ENOSYS",
+      "counterEvidence": "ordinary processes/threads succeed",
+      "needed": "actual clone flags and fallback order",
+      "confidence": "high rule, unknown path"
+    },
+    {
+      "cause": "AppArmor userns",
+      "known": "nerdctl-default; userns restriction1",
+      "counterEvidence": "no related LSM denial collected yet",
+      "needed": "narrow existing kernel log or trace; no absence-based allow claim",
+      "confidence": "possible independent blocker"
+    },
+    {
+      "cause": "kernel userns",
+      "known": "userns_clone1 and max21089",
+      "counterEvidence": "not globally disabled by those observed knobs",
+      "needed": "same guest kernel version/config and actual failure",
+      "confidence": "global off disfavored, other limits unresolved"
+    },
+    {
+      "cause": "CLI/bwrap requirement",
+      "known": "exact binary hashes, error before payload",
+      "counterEvidence": "current documentation is not pinned source",
+      "needed": "bundled bwrap version and narrow implementation reference",
+      "confidence": "needs namespace; exact source revision unresolved"
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+import os,pathlib,subprocess
+root=pathlib.Path('/tmp/ontosary-s2-namespace-diagnosis-20261111');work=pathlib.Path('work/s2-namespace-diagnosis');os.environ['LIMA_HOME']=str(root/'lima');lima=str(root/'prefix/bin/limactl')
+for args in [['copy','experiments/domain-model/s2/trial/container/namespace-diagnosis/log-correction.py','s2-lifecycle:/tmp/s2-namespace-log-correction.py'],['shell','--workdir=/tmp','s2-lifecycle','sudo','python3','/tmp/s2-namespace-log-correction.py'],['shell','--workdir=/tmp','s2-lifecycle','sudo','cp','/opt/ontosary-namespace-diagnosis/kernel-log-correction.json','/tmp/s2-namespace-kernel-log.json'],['copy','s2-lifecycle:/tmp/s2-namespace-kernel-log.json',str(work/'kernel-log-correction.json')]]:subprocess.run([lima,*args],check=True,timeout=20)

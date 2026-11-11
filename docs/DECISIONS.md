@@ -325,3 +325,11 @@ ADR-039의 [비모델 검증](reviews/2026-11-11-s2-cli-feasibility.md)은 **blo
 **상한:** 최초 시계부터 읽기/준비/대기/진단/검사/정리/보고60분, 계획10분·동적 환경25분·원인/후보40분·새 탐색 종료50분·총60분이다. 필요할 때만 소유 VM1개/준비 container 최대2개, 근거 있는 기계적 국소 수정 총2회, 신규 유료 비용0이다. 각 동적 payload15초/외부120초다. 후보/CLI 교체·정책 완화·새 실행 플랫폼은 제외하며 필요 시 미확인/차단으로 인계한다.
 
 **판정 한계:** proposal-ready는 후속 정책 시험을 검토할 자료가 준비됐다는 뜻이다. inconclusive/blocked도 근거·정리·인계가 충족되면 유효한 회차 결과다. 성공 실행을 강제하지 않는다. R11 unresolved·R12 기존 범위·production/live 거부·trialAuthorized/readyForTrial=false·results=null을 유지한다. 이번 결정은 진단 승인이고 실행 완료나 정책 적용 승인이 아니다.
+
+## ADR-042 · 관찰된 첫 namespace clone에 한정한 비활성 후보 — 2026-11-11
+
+ADR-041의 [진단](reviews/2026-11-11-s2-namespace-diagnosis.md)은 proposal-ready로 인계한다. 같은 보안 정책의 untraced 기준/strace 진단2단위를 비교했고 첫 namespace clone flags `0x78020011`이 실제 seccomp의 namespace mask0 허용 조건에 맞지 않음을 확인했다. tagged bwrap raw_clone 구현과 관찰을 연결했으나 AppArmor의 독립 기여와 후속 mount/syscall 경계는 미확인이다. 원래 이미지에 추적 도구 레이어만 추가했고 정책·공유 lifecycle·제품/평가 입력은 변경하지 않았다.
+
+[후보](reviews/2026-11-11-s2-namespace-policy-proposal.md)는 그 정확한 clone 조합만 추가 허용하는 **비활성 문서**다. 모든 자식과 ARM compat에도 미치는 영향, 남은 seccomp/mount/LSM 제약, 승인 후 시험·음성 대조·전체 경계 회귀·복구·추정 비용을 명시했다. 충분성이나 전체 최소 집합을 입증하지 않았고 실제 적용 승인도 아니다. 먼저 제한된 첫 차단점 시험의 가치를 독립 리뷰에서 결정하며 전체 runner 구현으로 바로 확대하지 않는다.
+
+준비2단위·비모델 CLI4회, 로그 조회 옵션 국소 수정1회/runtime 재시도0이다. 전체 config 미열람이라는 직전 문구는 새 보고서에서 전체 TOML 파싱/허용값만 기록으로 정정했다. 과거 보고/증거는 보존하고 이번 호스트 인증 조사는0회다. 소유 자원 정리·pnpm check304·증거5테스트를 확인했다. 새 정책·credential 전달·로그인/갱신/provider/model/본 비교 각각0, R11 unresolved·R12 기존 범위·production/live 거부·trialAuthorized/readyForTrial=false·results=null을 유지한다.

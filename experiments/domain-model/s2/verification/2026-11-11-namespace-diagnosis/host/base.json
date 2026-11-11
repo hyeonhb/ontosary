@@ -1,0 +1,13 @@
+{
+  "instructionBase": "bbb43c929f2a90fa1f22088e232077f7a4e129dc",
+  "actualBase": "14202cca3aabd8d119c34a3ee2a67b9e69a98402",
+  "changesSinceInstructionBase": [
+    "docs/ARCHITECTURE.md",
+    "docs/DECISIONS.md",
+    "docs/PROGRESS.md",
+    "docs/ROADMAP.md",
+    "docs/reviews/2026-11-11-s2-namespace-diagnosis-instructions.md",
+    "docs/reviews/REVIEW_CONTEXT.md"
+  ],
+  "dirtyAtStart": false
+}
