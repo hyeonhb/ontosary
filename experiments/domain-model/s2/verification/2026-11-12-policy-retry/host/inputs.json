@@ -1,0 +1,30 @@
+{
+  "archiveSha256": "dbeacd94132077a818dd18609372e57681cc5862e8dbcdced5d196d5b65b73e6",
+  "members": {
+    "build/Dockerfile": "4a70e2341e549a929aa008e50bcdec3a45aa5daebcfdafc1ca2f01dddb5f0a59",
+    "policy.toml": "a8ad466d3c6f1d971358ec8d5079305099f8daa58a33b33aac6e39bc8a75e90d",
+    "probe/probe.mjs": "952b773dbecd3a93c660c3ab3af153a115c82121724f7ef1d49d16890260fc85",
+    "prior-native.json": "75eb9486eebf66105256df971c496aeb6d0017e7a7ce742559a8dda93edab949",
+    "budget.json": "78efe94a69e526c104b2509973c266a620f2d63f713470892baf27215b02943f",
+    "retry-job.py": "3d9bfc02418c3a61d7cc49de0db89f0b7e56bf22d12e0cd80a30566d5b780943",
+    "retry-guest.py": "8fcffc05b7365b0bae5b4517ba6a33ee1086b8e02b6d1fea10d08628c370ee0c",
+    "retry-export.py": "f9fc13c510b7ae13c2fb2dc0949764c080fd4283ac60ec1a90fccca9810758bd",
+    "runtime_policy.py": "38e3e7d35c24a662d9e700ba2b666492f84b351a796dd2ee4bb2687b62c037a2",
+    "policy.py": "f8be859a4f32217e16169f7eb33c2c59aea65c91c932e4d8d5ed396612640f66",
+    "retry-metadata.py": "3fbbdb8162de6ab0daa3ed881f01a3c4e6cf846fb2b9a69dc472ab8155e28d0b",
+    "lifecycle/command.py": "c2dda5cd89212ee25d90a7d461951b9517a719f524c2bcf7f1bb36a67002c692",
+    "lifecycle/audit.py": "fe2d51407b50fba515ff2b027fc55cac0e2f404b0b5c17b6e2b1852e3f302b52",
+    "lifecycle/supervisor.py": "c9e85431bf6b9c45ef19268dcf2c791d7c30d1046cd549466358b35e598793b2",
+    "lifecycle/remove.py": "d554c76330b2887815e32d4f95e70d86a5b3886a756b9f51a71377347ed66ff2",
+    "lifecycle/test_cleanup.py": "91bb598623a3cd49d6f35b4bbc8859e4a99fa3f74280f0a320f178372865f08e",
+    "lifecycle/collector.py": "c22559ce581c75981fe15fda63450d04a0ef9b4d9568b254628b8d626a934270",
+    "lifecycle/export.py": "14671e9499b9e881550adcedceb15f352bd0adb34e60d5b5daba8fc319076d5a",
+    "lifecycle/common.py": "0768e2f83d82bb9f15acde7fc36a0b926664b9dd6adf3513ad99f3dc2b82769a",
+    "lifecycle/probe.py": "33820d0c5342634c8a98543ff7407c4adbb3ed8ef93ab78094fe0b3209176e80",
+    "lifecycle/freeze.py": "7cc66b05163b245783553eb19dcae6da5b3d6d8fe6ed188b5756e45fee2c5dc1",
+    "lifecycle/test_collector.py": "952a57526c307c589bc24c9ac8e676ffa61e8b41dccee2e0be68eabb91725454",
+    "lifecycle/image.py": "829818620aaad3e90935de85c66739e8426a3bc01e1acef58dbc69f8d78d5dc8",
+    "lifecycle/host_driver.py": "e41bc2971e27676c392f56224c61e36173a0f9ccbb62bdf321a5a873f1fa2bb3",
+    "lifecycle/manager.py": "ef270319077708b04413e1f44aa52bfb7b2142b3bdb82603ace088b84bc982bb"
+  }
+}

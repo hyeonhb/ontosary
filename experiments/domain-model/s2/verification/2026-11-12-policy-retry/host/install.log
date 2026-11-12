@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/opt/ontosary-policy-retry/retry-guest.py", line 73, in <module>
+    unit('candidate')
+    ~~~~^^^^^^^^^^^^^
+  File "/opt/ontosary-policy-retry/retry-guest.py", line 34, in unit
+    if status in ['inactive','failed']:raise RuntimeError('candidate-precheck-failed')
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: candidate-precheck-failed
+{"kernel": "7.0.0-38-generic", "namedLoadedProfile": ["nerdctl-default (enforce)"], "runtimeDefaultPolicyChanged": false}
+Traceback (most recent call last):
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/single-policy-test/retry-install.py", line 18, in <module>
+    execute(shell+['python3',guest+'/retry-guest.py','prepare'])
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/single-policy-test/retry-install.py", line 13, in execute
+    if check and r['exitCode']:raise RuntimeError('host-stage:'+str(r['exitCode']))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: host-stage:1

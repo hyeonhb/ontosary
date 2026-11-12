@@ -364,3 +364,12 @@ ADR-041의 [진단](reviews/2026-11-11-s2-namespace-diagnosis.md)은 proposal-re
 **비용/중단:** 최초부터45분(국소 보완/계획10·환경/대조20·후보 관찰30·새 탐색 종료35·최종45), VM1개/container 최대2개·후보 시작1회·유료0을 유지한다. 실패 후보 재시작과 두 번째 정책 변경은 하지 않는다. 보완 테스트/준비/종료 계약을 마련하지 못하면 근거 있는 부분 인계로 종료한다. 같은 후보의 추가 미세 조정은 자동 반복하지 않고 다음 결과에서 구조/운영 투자 여부를 사용자와 결정한다.
 
 **한계:** 이번 결정은 보완·시험 재개 승인이고 성공 결과가 아니다. 영구 cache/VM·새 실행 경계·API/proxy 구축은 별도 논의다. R11 unresolved·R12 기존 범위·production/live 거부·trialAuthorized/readyForTrial=false·results=null을 유지한다.
+
+
+## ADR-046 · 보완 검증과 후보 시작 전 차단·삭제 지연 인계 — 2026-11-12
+
+[재시도](reviews/2026-11-12-s2-policy-retry.md)의 두 보완은 검증했다. closing은 허용 command/args/phase의 생성 시 등록만 인정하고 실제 package가 미분류/위조/중복/누락/변조를 거부한다. 검증 후 staging/한 번 공개로 실패 출력이 남지 않는다. 준비는 동일 UTC/host monotonic20분 절대 마감에서 잔여를 전달해 과거450초를 넘어538.536초에 끝났다.
+
+원래 정책1회에서 parent 양성 동작과 namespace clone EPERM을 재현했다. 후보 created Spec의 seccomp는 승인된 한 행만 다르지만, 감독자 hook의 MEMORY_PRESSURE_WATCH 경로가 미리 허용한 identity 치환에 없어서 시작 전 거부했다. 그 항목을 사후 허용하거나 재시도하지 않았다. 후보 Spec 할당1/시작·커널 적용0이며 효과는 inconclusive다. 독립 cleanup의 종료 확인0.275초와 container 삭제181.412초를 구분한다. 삭제는120초 외부 계약 위반이므로 시험 상태를 blocked로 유지한다.
+
+소유 자원은 모두 제거했다. pnpm check304·새31+기존13 Python회귀, 실제 과거11+1/6+6와 새 고정 분석/closing 감사, 기존 S2 입력2,385파일 불변을 확인했다. 실제 모델/provider/본 비교0, 공유 lifecycle·제품·평가기·모델/B/C 불변이다. 다음은 부분 결과/추가 투자 가치 리뷰이며 같은 후보의 미세 조정은 자동 반복하지 않는다. 새로운 실행 경계·영구 cache/VM·추가 권한·실자격 증명/모델 연결로 확대하지 않는다. R11 unresolved·R12 기존 범위·production/live 거부·trialAuthorized/readyForTrial=false·results=null을 유지한다.

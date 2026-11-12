@@ -40,4 +40,17 @@ def inventory(root):
 def verify_index(root):
  assert inventory(root)==json.loads((root/'index.json').read_text()),'whole-index-mismatch'
  s=json.loads((root/'snapshot-scope.json').read_text());classify(root/'snapshots',s['analysis'],s['closing'])
+ if 'closingAllowed' in s:
+  for row in s['closing']:
+   assert {'phase':row['phase'],'command':row['command']} in s['closingAllowed'],'closing-command-not-allowed'
+   meta=json.loads((root/'snapshots'/(row['id']+'.json')).read_text());assert meta.get('category')=='closing' and meta.get('phase')==row['phase'] and meta['command']==row['command'],'closing-registration-mismatch'
  return {'files':len(inventory(root)['files']),'analysis':len(s['analysis']),'closing':len(s['closing'])}
+
+def registered_scope(work):
+ work=pathlib.Path(work);analysis=json.loads((work/'analysis-scope.json').read_text());closing=json.loads((work/'closing-registry.json').read_text());plan=json.loads((work/'plan.json').read_text())
+ for row in closing:
+  assert {'phase':row['phase'],'command':row['command']} in plan['closingAllowed'],'closing-command-not-allowed'
+  meta=json.loads((work/'snapshots'/(row['id']+'.json')).read_text())
+  assert meta.get('category')=='closing' and meta.get('phase')==row['phase'] and meta['command']==row['command'],'closing-registration-mismatch'
+ classify(work/'snapshots',analysis,closing)
+ return {'analysis':analysis,'closing':closing,'closingAllowed':plan['closingAllowed']}

@@ -1,5 +1,7 @@
 # 독립 리뷰 맥락
 
+2026-11-12 최신 인계는 [감사·시간 제한 보완/정책 재시도](2026-11-12-s2-policy-retry.md)다. **보완 완료·관찰 blocked/inconclusive·정리 완료**: 실제 포장 거부/같은 절대 deadline을 검증했고 원래 clone EPERM을 재현했다. 후보 created Spec의 seccomp 추가는 정확한 한 행이나, 미등록 MEMORY_PRESSURE_WATCH hook 경로 차이로 시작0회다. 실패 후보 종료 확인0.275초와 삭제181.412초를 구분하며 후자는120초 계약 위반이다. 전체 자원 정리, pnpm check304·Python44·기존 S2 입력2,385파일 불변, 분석8개와 명시적 closing 등록/전체 index를 확인했다. 독립 리뷰는 아직 없고 같은 후보를 자동 재시도하지 않는다. R11/production/live 차단을 유지한다.
+
 2026-11-12 최신 독립 리뷰: `5d723b4`는 중단/정리와 감사 개수 재현의 부분 완료다.58파일·13archive·내부657파일, 분석6/closing6 감사 일치·기존1682파일 불변·최종14도구 일치, pnpm check304·Python13을 확인했다. package.py가 미등록 runtime 명령 snapshot을 closing으로 자동 등록하는 결함을 실제 포장 진입점의 임시 복제 실행으로 재현했다. 환경 준비450초 종료는 최초708.649초, 환경 마감까지491.351초가 남았다. 새 VM/정책 시험은 하지 않았다. 사용자는 [두 보완 후 동일 정책 재개](2026-11-12-s2-policy-retry-instructions.md)(ADR-045)를 승인했다. 새45분에 수정/검증/준비/대조/정리/보고를 포함한다. 추가 권한·실자격 증명/provider/model·본 비교는 리뷰 뒤 결정하며 영구 환경/경계 구조 개편은 미합의다. R11 unresolved·trialAuthorized/readyForTrial=false·results=null을 유지한다.
 
 2026-11-12 최신 인계는 [단일 정책 시험](2026-11-12-s2-single-policy-test.md)이다. **bounded-stop-completed / inconclusive**: 유일한 VM 준비가 다운로드450초 상한으로 중단됐고 부팅·container·후보 적용·CLI/model은0회다. 환경20분 전체를 사용한 결과가 아니므로 정책/후보 불가능성으로 해석하지 않는다. 과거11개 분석+close1의 명시적 범위, 이번 분석6개와 별도 closing, 전체 index/변조 거부13회귀·pnpm check304·소유 자원 정리를 확인했다. 독립 리뷰는 아직 없으며 R11/production/live 차단을 유지한다.

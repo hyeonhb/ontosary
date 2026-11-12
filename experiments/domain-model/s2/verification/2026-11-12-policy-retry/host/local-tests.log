@@ -1,0 +1,97 @@
+.......FF.F..F.....
+======================================================================
+FAIL: test_index_closing_missing (test_retry_contract.PackageTests.test_index_closing_missing)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/single-policy-test/test_retry_contract.py", line 45, in test_index_closing_missing
+    self.invoke(True);(self.out/'snapshots'/(self.row['id']+'.json')).unlink()
+    ^^^^^^^^^^^^^^^^^
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/single-policy-test/test_retry_contract.py", line 21, in invoke
+    if success:self.assertEqual(p.returncode,0,p.stderr);return
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : Traceback (most recent call last):
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/single-policy-test/package.py", line 25, in <module>
+    p=argparse.ArgumentParser();p.add_argument('--work',required=True);p.add_argument('--out',required=True);a=p.parse_args();print(json.dumps(package(a.work,a.out)))
+                                                                                                                                               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/single-policy-test/package.py", line 21, in package
+    (stage/'index.json').write_text(json.dumps(inventory(stage),indent=2)+'\n');result=verify_index(stage)
+                                               ^^^^^^^^^^^^^^^^
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/single-policy-test/scope.py", line 34, in inventory
+    assert not pathlib.PurePosixPath(m.name).is_absolute() and '..' not in pathlib.PurePosixPath(m.name).parts and (m.isfile() or m.isdir())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+
+
+======================================================================
+FAIL: test_index_closing_tamper (test_retry_contract.PackageTests.test_index_closing_tamper)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/single-policy-test/test_retry_contract.py", line 42, in test_index_closing_tamper
+    self.invoke(True);(self.out/'snapshots'/(self.row['id']+'.json')).write_text('{}')
+    ^^^^^^^^^^^^^^^^^
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/single-policy-test/test_retry_contract.py", line 21, in invoke
+    if success:self.assertEqual(p.returncode,0,p.stderr);return
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : Traceback (most recent call last):
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/single-policy-test/package.py", line 25, in <module>
+    p=argparse.ArgumentParser();p.add_argument('--work',required=True);p.add_argument('--out',required=True);a=p.parse_args();print(json.dumps(package(a.work,a.out)))
+                                                                                                                                               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/single-policy-test/package.py", line 21, in package
+    (stage/'index.json').write_text(json.dumps(inventory(stage),indent=2)+'\n');result=verify_index(stage)
+                                               ^^^^^^^^^^^^^^^^
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/single-policy-test/scope.py", line 34, in inventory
+    assert not pathlib.PurePosixPath(m.name).is_absolute() and '..' not in pathlib.PurePosixPath(m.name).parts and (m.isfile() or m.isdir())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+
+
+======================================================================
+FAIL: test_output_not_overwritten (test_retry_contract.PackageTests.test_output_not_overwritten)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/single-policy-test/test_retry_contract.py", line 48, in test_output_not_overwritten
+    self.invoke(True);before=(self.out/'index.json').read_bytes();p=subprocess.run([sys.executable,str(BASE/'package.py'),'--work',str(self.w),'--out',str(self.out)],capture_output=True);self.assertNotEqual(p.returncode,0);self.assertEqual(before,(self.out/'index.json').read_bytes())
+    ^^^^^^^^^^^^^^^^^
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/single-policy-test/test_retry_contract.py", line 21, in invoke
+    if success:self.assertEqual(p.returncode,0,p.stderr);return
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : Traceback (most recent call last):
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/single-policy-test/package.py", line 25, in <module>
+    p=argparse.ArgumentParser();p.add_argument('--work',required=True);p.add_argument('--out',required=True);a=p.parse_args();print(json.dumps(package(a.work,a.out)))
+                                                                                                                                               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/single-policy-test/package.py", line 21, in package
+    (stage/'index.json').write_text(json.dumps(inventory(stage),indent=2)+'\n');result=verify_index(stage)
+                                               ^^^^^^^^^^^^^^^^
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/single-policy-test/scope.py", line 34, in inventory
+    assert not pathlib.PurePosixPath(m.name).is_absolute() and '..' not in pathlib.PurePosixPath(m.name).parts and (m.isfile() or m.isdir())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+
+
+======================================================================
+FAIL: test_registered_stable (test_retry_contract.PackageTests.test_registered_stable)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/single-policy-test/test_retry_contract.py", line 24, in test_registered_stable
+    before=verify(self.s,self.analysis);self.invoke(True);self.assertEqual(before,verify(self.out/'snapshots',self.analysis));verify_index(self.out)
+                                        ^^^^^^^^^^^^^^^^^
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/single-policy-test/test_retry_contract.py", line 21, in invoke
+    if success:self.assertEqual(p.returncode,0,p.stderr);return
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : Traceback (most recent call last):
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/single-policy-test/package.py", line 25, in <module>
+    p=argparse.ArgumentParser();p.add_argument('--work',required=True);p.add_argument('--out',required=True);a=p.parse_args();print(json.dumps(package(a.work,a.out)))
+                                                                                                                                               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/single-policy-test/package.py", line 21, in package
+    (stage/'index.json').write_text(json.dumps(inventory(stage),indent=2)+'\n');result=verify_index(stage)
+                                               ^^^^^^^^^^^^^^^^
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/single-policy-test/scope.py", line 34, in inventory
+    assert not pathlib.PurePosixPath(m.name).is_absolute() and '..' not in pathlib.PurePosixPath(m.name).parts and (m.isfile() or m.isdir())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+
+
+----------------------------------------------------------------------
+Ran 19 tests in 0.749s
+
+FAILED (failures=4)
