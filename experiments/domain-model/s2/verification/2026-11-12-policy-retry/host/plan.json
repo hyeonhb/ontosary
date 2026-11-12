@@ -1,0 +1,82 @@
+{
+  "round": "2026-11-12-policy-retry",
+  "work": "work/s2-policy-retry",
+  "output": "experiments/domain-model/s2/verification/2026-11-12-policy-retry",
+  "source": "experiments/domain-model/s2/trial/container/single-policy-test/",
+  "base": "5d723b4",
+  "startHead": "d411944fdaf2e982f1ecac512b0e3dc1060fd697",
+  "diffPaths": [
+    "docs/ARCHITECTURE.md",
+    "docs/DECISIONS.md",
+    "docs/PROGRESS.md",
+    "docs/ROADMAP.md",
+    "docs/reviews/2026-11-12-s2-policy-retry-instructions.md",
+    "docs/reviews/REVIEW_CONTEXT.md"
+  ],
+  "closingAllowed": [
+    {
+      "phase": "finish",
+      "command": [
+        "python3",
+        "experiments/domain-model/s2/trial/container/single-policy-test/retry-finish.py",
+        "--work",
+        "work/s2-policy-retry"
+      ]
+    },
+    {
+      "phase": "finish",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "experiments/domain-model/s2/trial/container/single-policy-test/",
+        "-p",
+        "test_retry*.py"
+      ]
+    },
+    {
+      "phase": "finish",
+      "command": [
+        "pnpm",
+        "check"
+      ]
+    },
+    {
+      "phase": "finish",
+      "command": [
+        "python3",
+        "experiments/domain-model/s2/trial/container/single-policy-test/retry-close.py",
+        "--work",
+        "work/s2-policy-retry"
+      ]
+    }
+  ],
+  "frozenUtc": "2026-11-12T07:13:49.037578+00:00",
+  "maxVM": 1,
+  "maxContainers": 2,
+  "candidateStartsMax": 1,
+  "payloadSeconds": 15,
+  "unitOuterSeconds": 120,
+  "environmentDeadline": "same absolute host UTC/monotonic 20m from first clock; nested commands use smaller remaining; Lima guest-wait timeout cannot cover earlier image download so outer process group deadline governs all preparation",
+  "shortLimits": {
+    "localTests": 30,
+    "unitCreateInspect": 3,
+    "unitWait": 25,
+    "unitService": 95,
+    "unitOuter": 120,
+    "cleanupCommand": 30
+  },
+  "trace": "clone,clone3,unshare,setns,execve,wait4,exit,exit_group,mount,umount2,pivot_root,chroot,prctl,setuid,setgid,setresuid,setresgid,setgroups,capset",
+  "dynamicSpecDifferences": [
+    "container ID/hostname/state dir/nerdctl name",
+    "cgroupsPath named owned slice",
+    "per-unit bind source paths with fixed destination/options and verified expected roles",
+    "systemd hook env INVOCATION_ID JOURNAL_STREAM SYSTEMD_EXEC_PID only; never worker env",
+    "worker HOSTNAME only; validate exact container hostname then normalize; bind sources validated against full fixed owned role mapping; peer mounts compared by destination while parent/config order checked"
+  ],
+  "stop": "baseline mismatch, extra policy delta, unknown termination, phase deadline or first candidate result; no retry after start",
+  "newPaidCost": 0,
+  "candidateGate": "candidate create and actual OCI diff in guest; separate host absolute UTC/monotonic check before authorization; guest UTC guard plus local 90s deadline, never comparing guest monotonic to host monotonic"
+}

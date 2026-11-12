@@ -1,0 +1,23 @@
+{
+  "status": "closed",
+  "startedUtc": "2026-11-12T07:12:41.321458+00:00",
+  "measuredUntilUtc": "2026-11-12T07:40:39.500142+00:00",
+  "startedMonotonic": 163729.284997333,
+  "measuredUntilMonotonic": 165407.553243875,
+  "roundMeasuredSeconds": 1678.268246542022,
+  "previousMeasuredSeconds": 12602.02857974998,
+  "cumulativeMeasuredSeconds": 14280.296826292002,
+  "previousSerializationUpperBoundSeconds": 5,
+  "currentSerializationUpperBoundSeconds": 5,
+  "cumulativeUpperBoundSeconds": 14290.296826292002,
+  "roundUpperBoundSeconds": 1683.268246542022,
+  "newPaidCost": 0,
+  "gitDeliveryIncluded": false,
+  "completion": {
+    "fixes": "verified",
+    "observation": "blocked-inconclusive",
+    "resources": "removed"
+  },
+  "runtimeRetries": 0,
+  "preStartMechanicalRetries": 0
+}

@@ -1,5 +1,7 @@
 # 현재 아키텍처
 
+2026-11-12 [재시도 결과](reviews/2026-11-12-s2-policy-retry.md)(ADR-046): closing은 정확한 command/args/phase와 생성 시 ID/hash 등록을 요구하며 package는 분석+등록 집합 밖 파일을 거부하고 검증된 staging만 공개한다. 준비 제한은 최초20분의 UTC/host monotonic 잔여를 공유한다. 실제 원래 단위는 기존 종료 도구로1.722초 내 삭제·수집했고, 후보는 strict OCI gate에서 미등록 hook 환경 경로로 시작 전 차단됐다. 후보 전체 종료 확인은0.275초였지만 삭제181.412초로120초 외부 계약에 미달한다. 따라서 새 도구는 진단 fixture이며 검증된 runtime adapter/R11 해결이 아니다. 공유 lifecycle/제품/평가 계약은 유지한다.
+
 2026-11-12 승인된 국소 보완(ADR-045): [재개 지시](reviews/2026-11-12-s2-policy-retry-instructions.md)는 분석 밖 snapshot의 자동 closing 편입을 명시적 명령/단계/ID/hash 등록으로 바꾸고, 실제 package가 미등록 항목을 거부하도록 요구한다. 환경 준비의 중첩 제한은 같은 호스트 절대 마감에서 실행 직전 잔여를 전달한다. 이후 동일 이미지/trace의 원래 정책과 정확한 clone allow 한 행 후보를 대조한다. 이는 다음 구현 계약이며 아직 보완 결과가 아니다. 영구 cache/VM·실행 경계 개편은 별도 논의 대상으로, 이번에 도입하지 않는다.
 
 2026-11-12 [단일 정책 회차](reviews/2026-11-12-s2-single-policy-test.md)(ADR-044)는 부팅 전 다운로드 시간 초과로 중단됐다. `single-policy-test/`에는 고정 snapshot 범위/전체 index와 오프라인 정책 검사 도구만 추가했고 실제 후보 profile/OCI 적용은0회다. 초기 snapshot의 실행 helper 초안은 미실행이며 최종 트리에서 제외했다. 공유 lifecycle·실제 CLI 종료/수집 경계의 새 검증이나 R11 해결은 없다. 분석 scope와 이후 closing scope를 분리하고 전체 index에서 둘 다 검증한다.

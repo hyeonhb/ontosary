@@ -1,0 +1,62 @@
+[
+  {
+    "id": "1794468770906977000",
+    "manifestSha256": "e0fde711a44c70675d2600ad5863bce112832966937bc37391d9ca63f4631d73",
+    "archiveSha256": "43f6012fe203787e3bf3a699121b9ad92ae0bbfe1cb9d3debd7a4f1035892059",
+    "phase": "finish",
+    "command": [
+      "python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "experiments/domain-model/s2/trial/container/single-policy-test/",
+      "-p",
+      "test_retry*.py"
+    ]
+  },
+  {
+    "id": "1794468810026793000",
+    "manifestSha256": "a948fad7e993f47ae11c7caddd50c5bc09a3f4662ce6fa13c64976f28ccae2e3",
+    "archiveSha256": "5a0abff5e23b8d9b596dc13694d8f43aae62e283fa46b30b4326154da81ed345",
+    "phase": "finish",
+    "command": [
+      "python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "experiments/domain-model/s2/trial/container/single-policy-test/",
+      "-p",
+      "test_retry*.py"
+    ]
+  },
+  {
+    "id": "1794468907840482000",
+    "manifestSha256": "ec1cb076b78be0a4b87607a6dba9a80782a44323fe8c4d967ac15bdb0f78a4b4",
+    "archiveSha256": "b97e8a6ef689436f8c30d5811d2790fceafaea93eadef1028dec0f549d58c494",
+    "phase": "finish",
+    "command": [
+      "python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "experiments/domain-model/s2/trial/container/single-policy-test/",
+      "-p",
+      "test_retry*.py"
+    ]
+  },
+  {
+    "id": "1794469238510470000",
+    "manifestSha256": "c78180480dfdd1c637933b6cb8af47bd5ca1d8db266f5c9c90d05a064ab4656f",
+    "archiveSha256": "05a7e5974333cdc0400c451a1fcd58735a792c6e1716433ed54f87e5e154aa8f",
+    "phase": "finish",
+    "command": [
+      "python3",
+      "experiments/domain-model/s2/trial/container/single-policy-test/retry-close.py",
+      "--work",
+      "work/s2-policy-retry"
+    ]
+  }
+]

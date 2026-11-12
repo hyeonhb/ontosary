@@ -1,0 +1,33 @@
+..............................F.............
+======================================================================
+FAIL: test_registration_at_creation (test_retry_contract.SnapshotRegistrationTests.test_registration_at_creation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/single-policy-test/test_retry_contract.py", line 86, in test_registration_at_creation
+    before=verify(self.s,self.analysis);identity=command.snapshot(self.w,self.command,self.phase,'closing');registered=json.loads((self.w/'closing-registry.json').read_text());self.assertEqual(registered[-1]['id'],identity);self.invoke(True);self.assertEqual(before,verify(self.out/'snapshots',self.analysis))
+                                                                                                                                                                                                                                ^^^^^^^^^^^^^^^^^
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/single-policy-test/test_retry_contract.py", line 25, in invoke
+    if success:self.assertEqual(p.returncode,0,p.stderr);return
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : Traceback (most recent call last):
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/single-policy-test/package.py", line 25, in <module>
+    p=argparse.ArgumentParser();p.add_argument('--work',required=True);p.add_argument('--out',required=True);a=p.parse_args();print(json.dumps(package(a.work,a.out)))
+                                                                                                                                               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/single-policy-test/package.py", line 8, in package
+    scope=registered_scope(work)  # No mkdir or public output before validation.
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/single-policy-test/scope.py", line 55, in registered_scope
+    classify(work/'snapshots',analysis,closing)
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/single-policy-test/scope.py", line 24, in classify
+    verify(root,analysis);verify(root,closing)
+                          ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/single-policy-test/scope.py", line 15, in verify
+    assert x.isfile() and not pathlib.PurePosixPath(x.name).is_absolute() and '..' not in pathlib.PurePosixPath(x.name).parts
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+
+
+----------------------------------------------------------------------
+Ran 44 tests in 2.504s
+
+FAILED (failures=1)

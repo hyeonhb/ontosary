@@ -1,0 +1,12 @@
+[
+  {
+    "url": "https://raw.githubusercontent.com/lima-vm/lima/v2.3.0/cmd/limactl/start.go",
+    "file": "lima-cli-start.go",
+    "sha256": "4c5039a2437b3cb1691064cfebcde3b7d0e47cc4167a4805fd1728583d6da007"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/lima-vm/lima/v2.3.0/pkg/instance/start.go",
+    "file": "lima-instance-start.go",
+    "sha256": "8bb91c6a3571ad173e54324e9d1e2807e05fed1e565456d893d4147c6abe7736"
+  }
+]

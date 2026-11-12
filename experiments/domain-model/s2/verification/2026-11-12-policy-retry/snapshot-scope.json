@@ -1,0 +1,146 @@
+{
+  "analysis": [
+    {
+      "id": "1794467734043830000",
+      "manifestSha256": "9a11f9fc3d40237ca83638cd3f6ff79aa2ac088a8d40f0adf56759020ab09833",
+      "archiveSha256": "383ffbca244846f5bb008d2914dcdf7bcbacb2d31ef2ff9dbb832a007f5d71a7"
+    },
+    {
+      "id": "1794467753427441000",
+      "manifestSha256": "cf1ef7bd9cf6c35f357c6e44e7b596aa66751c5a8ef6bf3d5857b73209cce02b",
+      "archiveSha256": "d32d49f8d89579f45917c5e049e926ff3f97950adf27c3eb049529784ca56eee"
+    },
+    {
+      "id": "1794467754783675000",
+      "manifestSha256": "77c0df77ea18e4fbd4e167f2e8999dfcd731f3c8b1f18d2a51fb9a15e4840556",
+      "archiveSha256": "212b4079c27eb436677ffaf3bbd82d95f54c35cbd6f23500f198040e9d56ff1a"
+    },
+    {
+      "id": "1794468008625553000",
+      "manifestSha256": "8666c8fc84f54410f770cbf0061a19ebebfdd56b04c7a32324a0e74860774b73",
+      "archiveSha256": "505384ef02288ea0e88a8e25a6d0cd321f9c3bd69a2600cfeec44d7c1e16a5a6"
+    },
+    {
+      "id": "1794468200843916000",
+      "manifestSha256": "795cef283fe87bec080fbd6f4dbc6be0481893be0b9530c623fdf49f45c32b40",
+      "archiveSha256": "6b53b98c870349140336a3e65abf4659f4d00becd1c041901e72ba28f5fb97df"
+    },
+    {
+      "id": "1794468342606033000",
+      "manifestSha256": "edf26dbf0efa44bb5997a34e5c99b42348f80b5a9939a5cb393c6e341d8e13d8",
+      "archiveSha256": "879fef3124defd5cb9bd2df16327f716d14905f8f663634cb4a17cfec278c16a"
+    },
+    {
+      "id": "1794468562736271000",
+      "manifestSha256": "1b20dfb21b040ac4f0f9941636039286e9e64a5ae6e37ceca2c8c712f672181a",
+      "archiveSha256": "6b64484eb8ee6f3b7bd6bccada38117f41118cdfc458f336c0e7eb94613ff698"
+    },
+    {
+      "id": "1794468723416210000",
+      "manifestSha256": "0f0c9c435b4476d8acf7c43c757f70ec6c4a8ae32f314dae62a18524ec06fd54",
+      "archiveSha256": "aeedb76b0756515aead5f848dcb7cc03bb226544c42ce68973e168810d35bc22"
+    }
+  ],
+  "closing": [
+    {
+      "id": "1794468770906977000",
+      "manifestSha256": "e0fde711a44c70675d2600ad5863bce112832966937bc37391d9ca63f4631d73",
+      "archiveSha256": "43f6012fe203787e3bf3a699121b9ad92ae0bbfe1cb9d3debd7a4f1035892059",
+      "phase": "finish",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "experiments/domain-model/s2/trial/container/single-policy-test/",
+        "-p",
+        "test_retry*.py"
+      ]
+    },
+    {
+      "id": "1794468810026793000",
+      "manifestSha256": "a948fad7e993f47ae11c7caddd50c5bc09a3f4662ce6fa13c64976f28ccae2e3",
+      "archiveSha256": "5a0abff5e23b8d9b596dc13694d8f43aae62e283fa46b30b4326154da81ed345",
+      "phase": "finish",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "experiments/domain-model/s2/trial/container/single-policy-test/",
+        "-p",
+        "test_retry*.py"
+      ]
+    },
+    {
+      "id": "1794468907840482000",
+      "manifestSha256": "ec1cb076b78be0a4b87607a6dba9a80782a44323fe8c4d967ac15bdb0f78a4b4",
+      "archiveSha256": "b97e8a6ef689436f8c30d5811d2790fceafaea93eadef1028dec0f549d58c494",
+      "phase": "finish",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "experiments/domain-model/s2/trial/container/single-policy-test/",
+        "-p",
+        "test_retry*.py"
+      ]
+    },
+    {
+      "id": "1794469238510470000",
+      "manifestSha256": "c78180480dfdd1c637933b6cb8af47bd5ca1d8db266f5c9c90d05a064ab4656f",
+      "archiveSha256": "05a7e5974333cdc0400c451a1fcd58735a792c6e1716433ed54f87e5e154aa8f",
+      "phase": "finish",
+      "command": [
+        "python3",
+        "experiments/domain-model/s2/trial/container/single-policy-test/retry-close.py",
+        "--work",
+        "work/s2-policy-retry"
+      ]
+    }
+  ],
+  "closingAllowed": [
+    {
+      "phase": "finish",
+      "command": [
+        "python3",
+        "experiments/domain-model/s2/trial/container/single-policy-test/retry-finish.py",
+        "--work",
+        "work/s2-policy-retry"
+      ]
+    },
+    {
+      "phase": "finish",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "experiments/domain-model/s2/trial/container/single-policy-test/",
+        "-p",
+        "test_retry*.py"
+      ]
+    },
+    {
+      "phase": "finish",
+      "command": [
+        "pnpm",
+        "check"
+      ]
+    },
+    {
+      "phase": "finish",
+      "command": [
+        "python3",
+        "experiments/domain-model/s2/trial/container/single-policy-test/retry-close.py",
+        "--work",
+        "work/s2-policy-retry"
+      ]
+    }
+  ]
+}

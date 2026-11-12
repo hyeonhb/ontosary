@@ -1,0 +1,337 @@
+{
+  "outcome": "inconclusive",
+  "blockedReasons": [
+    "candidate:no-collected-result:supervisor-failed",
+    "candidate-prestart-unlisted-hook-environment-path",
+    "pair-not-completed",
+    "candidate-container-removal-after-120-second-outer-bound"
+  ],
+  "units": [
+    {
+      "mode": "baseline",
+      "containerId": "1c59314c9f42f17538360fb2ce8c9c82fc6091614559b37cff7a4f735b22e6e7",
+      "started": true,
+      "state": "finalized",
+      "cleanupDone": true,
+      "terminationConfirmed": true,
+      "image": {
+        "chain": "sha256:20c27db2afc26e466dc51f9215df4ad7b74ba378615c6ef5d4df02703fdb24cc",
+        "config": "sha256:e7298f32b244211e6d3c59a09234f50c874400af8cf00bb8bf3a259cff92a1a2",
+        "name": "docker.io/library/ontosary-s2-policy-retry:trace",
+        "platform": "linux/arm64",
+        "target": "sha256:f7b57733f88d06c56188105e4858e37dd99e18694c70f91b39cf3c240de97534"
+      },
+      "inputs": {
+        "/opt/ontosary-fixture/runs/be829cb27e79/materials/input.txt": "5bb730344f92867c4d76fa34f128c578ff29a3dd8ad7de507870eec67a770246",
+        "/opt/ontosary-fixture/runs/be829cb27e79/source/input.txt": "ecd00a76586a894842c2ba7ae9f50b077fcf9495840e150d25e9a84eab0e1eeb",
+        "/opt/ontosary-policy-retry/policy.toml": "a8ad466d3c6f1d971358ec8d5079305099f8daa58a33b33aac6e39bc8a75e90d",
+        "/opt/ontosary-policy-retry/probe/probe.mjs": "952b773dbecd3a93c660c3ab3af153a115c82121724f7ef1d49d16890260fc85"
+      },
+      "parent": {
+        "materialRead": true,
+        "read": true,
+        "write": true
+      },
+      "seconds": 1.721845834000007,
+      "payloadStarted": false,
+      "cliExit": 1,
+      "clones": [
+        {
+          "parent": "41",
+          "line": "[pid    41] clone(child_stack=NULL, flags=CLONE_NEWNS|CLONE_NEWIPC|CLONE_NEWUSER|CLONE_NEWPID|CLONE_NEWNET|SIGCHLD) = -1 EPERM (Operation not permitted)",
+          "child": null
+        },
+        {
+          "parent": "42",
+          "line": "[pid    42] clone(child_stack=NULL, flags=CLONE_NEWNS|CLONE_NEWIPC|CLONE_NEWUSER|CLONE_NEWPID|CLONE_NEWNET|SIGCHLD) = -1 EPERM (Operation not permitted)",
+          "child": null
+        }
+      ],
+      "bwrapExecLines": [
+        "[pid    41] execve(\"/proc/self/fd/3\", [\"bwrap\", \"--as-pid-1\", \"--new-session\", \"--die-with-parent\", \"--tmpfs\", \"/\", \"--dev\", \"/dev\", \"--ro-bind\", \"/bin\", \"/bin\", \"--ro-bind\", \"/etc\", \"/etc\", \"--ro-bind\", \"/lib\", \"/lib\", \"--ro-bind\", \"/sbin\", \"/sbin\", \"--ro-bind\", \"/usr\", \"/usr\", \"--unshare-user\", \"--unshare-pid\", \"--unshare-ipc\", \"--unshare-net\", \"--proc\", \"/proc\", \"--cap-drop\", \"ALL\", \"--\", \"/usr/bin/true\"], 0xffffc68d5fd8 /* 4 vars */) = 0",
+        "[pid    42] execve(\"/proc/self/fd/3\", [\"bwrap\", \"--as-pid-1\", \"--new-session\", \"--die-with-parent\", \"--tmpfs\", \"/\", \"--dev\", \"/dev\", \"--ro-bind\", \"/bin\", \"/bin\", \"--ro-bind\", \"/etc\", \"/etc\", \"--ro-bind\", \"/home/runner/cli-state/tmp/arg0-linux/codex-arg0U0149Y\", \"/home/runner/cli-state/tmp/arg0-linux/codex-arg0U0149Y\", \"--ro-bind\", \"/home/worker\", \"/home/worker\", \"--ro-bind\", \"/lib\", \"/lib\", \"--ro-bind\", \"/materials\", \"/materials\", \"--ro-bind\", \"/sbin\", \"/sbin\", \"--ro-bind\", \"/scratch\", \"/scratch\", \"--ro-bind\", \"/source\", \"/source\", \"--ro-bind\", \"/usr\", \"/usr\", \"--bind\", \"/scratch\", \"/scratch\", \"--perms\", \"555\", \"--tmpfs\", \"/scratch/.git\", \"--remount-ro\", \"/scratch/.git\", \"--perms\", \"555\", \"--tmpfs\", \"/scratch/.agents\", \"--remount-ro\", \"/scratch/.agents\", \"--perms\", \"555\", \"--tmpfs\", \"/scratch/.codex\", \"--remount-ro\", \"/scratch/.codex\", \"--perms\", \"555\", \"--tmpfs\", \"/scratch/.aws\", \"--remount-ro\", \"/scratch/.aws\", \"--ro-bind\", \"/scratch/codex-bwrap-synthetic-mount-targets-1000\", \"/scratch/codex-bwrap-synthetic-mount-targets-1000\", \"--bind\", \"/source\", \"/source\", \"--perms\", \"555\", \"--tmpfs\", \"/source/.codex\", \"--remount-ro\", \"/source/.codex\", \"--perms\", \"555\", \"--tmpfs\", \"/source/.git\", \"--remount-ro\", \"/source/.git\", \"--perms\", \"555\", \"--tmpfs\", \"/source/.agents\", \"--remount-ro\", \"/source/.agents\", \"--perms\", \"555\", \"--tmpfs\", \"/source/.aws\", \"--remount-ro\", \"/source/.aws\", \"--bind\", \"/home/worker\", \"/home/worker\", \"--perms\", \"555\", \"--tmpfs\", \"/home/worker/.git\", \"--remount-ro\", \"/home/worker/.git\", \"--perms\", \"555\", \"--tmpfs\", \"/home/worker/.agents\", \"--remount-ro\", \"/home/worker/.agents\", \"--perms\", \"555\", \"--tmpfs\", \"/home/worker/.codex\", \"--remount-ro\", \"/home/worker/.codex\", \"--perms\", \"555\", \"--tmpfs\", \"/home/worker/.aws\", \"--remount-ro\", \"/home/worker/.aws\", \"--perms\", \"000\", \"--tmpfs\", \"/home/runner/cli-state\", \"--remount-ro\", \"/home/runner/cli-state\", ...], 0xffffc68d5fd8 /* 4 vars */) = 0"
+      ],
+      "traceArgs": [
+        "-f",
+        "-s",
+        "128",
+        "-e",
+        "trace=clone,clone3,unshare,setns,execve,wait4,exit,exit_group,mount,umount2,pivot_root,chroot,prctl,setuid,setgid,setresuid,setresgid,setgroups,capset",
+        "--",
+        "/usr/local/bin/codex",
+        "sandbox",
+        "-P",
+        "fixture",
+        "-C",
+        "/source",
+        "--",
+        "/usr/local/bin/node",
+        "-e",
+        "const fs=require('fs');fs.readFileSync('/source/input.txt');fs.readFileSync('/materials/input.txt');fs.writeFileSync('/source/native.txt','started');console.log('NATIVE_PAYLOAD_STARTED');"
+      ]
+    },
+    {
+      "mode": "candidate",
+      "containerId": "2508287933b2f08e6bf85277d3dab03fe4cd730888df26bdcb716970c9b49974",
+      "started": false,
+      "state": "blocked",
+      "cleanupDone": true,
+      "terminationConfirmed": true,
+      "image": {
+        "chain": "sha256:20c27db2afc26e466dc51f9215df4ad7b74ba378615c6ef5d4df02703fdb24cc",
+        "config": "sha256:e7298f32b244211e6d3c59a09234f50c874400af8cf00bb8bf3a259cff92a1a2",
+        "name": "docker.io/library/ontosary-s2-policy-retry:trace",
+        "platform": "linux/arm64",
+        "target": "sha256:f7b57733f88d06c56188105e4858e37dd99e18694c70f91b39cf3c240de97534"
+      },
+      "inputs": {
+        "/opt/ontosary-fixture/runs/d79873f048ae/materials/input.txt": "5bb730344f92867c4d76fa34f128c578ff29a3dd8ad7de507870eec67a770246",
+        "/opt/ontosary-fixture/runs/d79873f048ae/source/input.txt": "ecd00a76586a894842c2ba7ae9f50b077fcf9495840e150d25e9a84eab0e1eeb",
+        "/opt/ontosary-policy-retry/policy.toml": "a8ad466d3c6f1d971358ec8d5079305099f8daa58a33b33aac6e39bc8a75e90d",
+        "/opt/ontosary-policy-retry/probe/probe.mjs": "952b773dbecd3a93c660c3ab3af153a115c82121724f7ef1d49d16890260fc85"
+      }
+    }
+  ],
+  "actualPolicyDiff": {
+    "exactSeccompAddedRule": {
+      "names": [
+        "clone"
+      ],
+      "action": "SCMP_ACT_ALLOW",
+      "args": [
+        {
+          "index": 0,
+          "op": "SCMP_CMP_EQ",
+          "value": 2013397009
+        }
+      ]
+    },
+    "remainingSpecDifferences": [
+      {
+        "path": "/hooks/createRuntime/0/env/6",
+        "baseline": "MEMORY_PRESSURE_WATCH=/sys/fs/cgroup/system.slice/ontosary-fixture-be829cb27e79.service/memory.pressure",
+        "candidate": "MEMORY_PRESSURE_WATCH=/sys/fs/cgroup/system.slice/ontosary-fixture-d79873f048ae.service/memory.pressure"
+      },
+      {
+        "path": "/hooks/poststop/0/env/6",
+        "baseline": "MEMORY_PRESSURE_WATCH=/sys/fs/cgroup/system.slice/ontosary-fixture-be829cb27e79.service/memory.pressure",
+        "candidate": "MEMORY_PRESSURE_WATCH=/sys/fs/cgroup/system.slice/ontosary-fixture-d79873f048ae.service/memory.pressure"
+      }
+    ],
+    "candidateIdentity": {
+      "run": "/opt/ontosary-fixture/runs/d79873f048ae",
+      "shared": "/opt/ontosary-policy-retry",
+      "slice_name": "ontosary-d79873f048ae.slice"
+    },
+    "baselineIdentity": {
+      "run": "/opt/ontosary-fixture/runs/be829cb27e79",
+      "shared": "/opt/ontosary-policy-retry",
+      "slice_name": "ontosary-be829cb27e79.slice"
+    },
+    "preStartGatePassed": false
+  },
+  "candidateApplications": 0,
+  "candidateSpecAssignments": 1,
+  "postRunCleanup": {
+    "R11": "unresolved",
+    "containers": "",
+    "fixtureOnly": true,
+    "images": "",
+    "profileAbsent": true,
+    "rows": [
+      {
+        "cgroupAbsent": true,
+        "containerAbsent": true,
+        "containerId": "1c59314c9f42f17538360fb2ce8c9c82fc6091614559b37cff7a4f735b22e6e7",
+        "mode": "baseline",
+        "removedAt": {
+          "mono": 286.044420139,
+          "utc": "2026-11-12T07:29:23.132705+00:00"
+        },
+        "runtimeWasStarted": true,
+        "secondsSinceCreate": 183.20760422799998,
+        "terminationConfirmed": true
+      },
+      {
+        "cgroupAbsent": true,
+        "containerAbsent": true,
+        "containerId": "2508287933b2f08e6bf85277d3dab03fe4cd730888df26bdcb716970c9b49974",
+        "mode": "candidate",
+        "removedAt": {
+          "mono": 286.102976921,
+          "utc": "2026-11-12T07:29:23.191262+00:00"
+        },
+        "runtimeWasStarted": false,
+        "secondsSinceCreate": 181.41241738399998,
+        "terminationConfirmed": true
+      }
+    ],
+    "status": "guest-cleanup-passed",
+    "tasks": "TASK    PID    STATUS    \n",
+    "units": "",
+    "validSubmission": false,
+    "volumes": ""
+  },
+  "candidateStarts": 0,
+  "containers": 2,
+  "newVMs": 1,
+  "historical": [
+    {
+      "root": "experiments/domain-model/s2/verification/2026-11-11-namespace-diagnosis",
+      "analysis": {
+        "snapshotsVerified": 11,
+        "scope": [
+          {
+            "id": "1794404311115971000",
+            "manifestSha256": "aba326ee25170bc4dbac2545402a0a2480d27f3d859d0ce87d410333d51fdfa9",
+            "archiveSha256": "7e213f62bd1b8e73eef9dabf729244e333ba4734bb23db971d39e12f82cb249d"
+          },
+          {
+            "id": "1794404602411824000",
+            "manifestSha256": "f18588117b2ef4cda4880d28164b5b83149649def87f720c714d2759a2cbb95e",
+            "archiveSha256": "0b8a33eafd7cd877f3282c23a11c76f24ea5725f9e193e003c0288a956f75bcb"
+          },
+          {
+            "id": "1794404684467656000",
+            "manifestSha256": "60e07fd2e20129aee189a84857b75e56f1d8e8c2351d3c508ca13b34360355d9",
+            "archiveSha256": "01551f66f515f441b5dd17de4252b31df0075ebf535f4f177f4623ee9afed5b3"
+          },
+          {
+            "id": "1794404743651937000",
+            "manifestSha256": "353993eec7aa1abfa6a0fd4d3a0620d93d96625fa222bee8c18c6e0294781d6f",
+            "archiveSha256": "68cbdda9cd0e4f6c1e8d670636a617345106dd1cf29f0676825550f5bd2ee953"
+          },
+          {
+            "id": "1794404851936905000",
+            "manifestSha256": "223a888be196094e0d5147d57a15d6809c6ae7b497241ab6fe22db6b49eebd5c",
+            "archiveSha256": "3814903a99ca9b419f364565410dcaca50b2bce01bffbe1a89a0c090170b95df"
+          },
+          {
+            "id": "1794404921347940000",
+            "manifestSha256": "9cdba44b07a651e352ce0150bec9636e4d5ae9e1e442fb16c4c64274c9eb9ff1",
+            "archiveSha256": "d334296902efed9cd2cdcc677cbd94cd9c37ec7526d34f1e10ab93862a224b5e"
+          },
+          {
+            "id": "1794404958433673000",
+            "manifestSha256": "f721890646a36341d6448bee1fc9c6d8bb7328c9537ae1756b5bed683e9ccfd6",
+            "archiveSha256": "4dd786218889d7d1db91149ca48f60b5e65d2ef87e3811fff4fa5cceaf4c6932"
+          },
+          {
+            "id": "1794404959590019000",
+            "manifestSha256": "8153c34404807199852f11f202a0556e21ee4c6d26af4aec47ed7971a4ac9427",
+            "archiveSha256": "0b8c96bb95350bc559b81f7f605a3b4ab8b1318138e129e781b18ee48aa31aec"
+          },
+          {
+            "id": "1794404960185112000",
+            "manifestSha256": "ad55baa9dd3c34c8e8daf45c1fabff7c2a467abed3fadb0618233597647e382d",
+            "archiveSha256": "43b4ab39ad1ca8a7bc568551ad3a21145ddbfcfc28783114da7ef06999eb0dcb"
+          },
+          {
+            "id": "1794405359964176000",
+            "manifestSha256": "afb830fdcc9aa7dbeb161c92017de7279a6b9cdb19a1befcd8faf968f81403d5",
+            "archiveSha256": "f04673df310e26d67fb3d300948da3d9e46618e6958d7b7610fe4c7bb3ee0de0"
+          },
+          {
+            "id": "1794405474572937000",
+            "manifestSha256": "bddefa1bef5e7dd2088cc5d18f36012e7f4eba5e27481346d78492735cedcdcd",
+            "archiveSha256": "5c2346e6e58a291f28febb611c5bec4ca4d2cc350634193b1b02f017b1428a47"
+          }
+        ]
+      },
+      "closing": 1
+    },
+    {
+      "root": "experiments/domain-model/s2/verification/2026-11-12-single-policy-test",
+      "analysis": {
+        "snapshotsVerified": 6,
+        "scope": [
+          {
+            "id": "1794465627329367000",
+            "manifestSha256": "2e3a9d509a18577090a75b50ed50daac13f4838a56df25495516d9729e7b2a08",
+            "archiveSha256": "0691ea47a1783309f1e4506ffba77fa3b89709bc53dd106b0a38caa5362b23fe"
+          },
+          {
+            "id": "1794465770033397000",
+            "manifestSha256": "99930d54a483ff6cbe735b14fcad3102c33a4f119a49e8101c335db813598283",
+            "archiveSha256": "50106b742edf35241c67b3266fbdfed0c8daeb966075205e096bd52a32fd3f68"
+          },
+          {
+            "id": "1794465922744639000",
+            "manifestSha256": "208f045f47308c426c5955e9674a75eed095e1e764ad58ac865e9281248d3bc7",
+            "archiveSha256": "42e2e015cd765ebb9f98607f77614caf8ab85ebddfd6380daf5fad44b3232a8c"
+          },
+          {
+            "id": "1794465923895629000",
+            "manifestSha256": "35ab5aedb52ed797f5cb7d7678e319ddd00f828c8862c9d5485e2fc45aa42a59",
+            "archiveSha256": "1d9d8d6380f630779cfd9faf8ab822e567e2cd836a53c3ee92b07207b1ca56cf"
+          },
+          {
+            "id": "1794466140999181000",
+            "manifestSha256": "d1307b0d7a3111452490d1deeca0d9ef15e5648acd74f8e76f40c44211413c62",
+            "archiveSha256": "ef6d98bd03301d65c59e383eb2392cc2e65731cec77c9b2be793c53cab9fa0ad"
+          },
+          {
+            "id": "1794466211061580000",
+            "manifestSha256": "893dd2497ca975cf77385f3f97360d2c2c732de14c0c3601c712fe7676044d85",
+            "archiveSha256": "bb8440ddd93957831404acc0913c2e9283a73543c37510876d6b0c5daa31ef87"
+          }
+        ]
+      },
+      "closing": 6
+    }
+  ],
+  "snapshots": {
+    "snapshotsVerified": 8,
+    "scope": [
+      {
+        "id": "1794467734043830000",
+        "manifestSha256": "9a11f9fc3d40237ca83638cd3f6ff79aa2ac088a8d40f0adf56759020ab09833",
+        "archiveSha256": "383ffbca244846f5bb008d2914dcdf7bcbacb2d31ef2ff9dbb832a007f5d71a7"
+      },
+      {
+        "id": "1794467753427441000",
+        "manifestSha256": "cf1ef7bd9cf6c35f357c6e44e7b596aa66751c5a8ef6bf3d5857b73209cce02b",
+        "archiveSha256": "d32d49f8d89579f45917c5e049e926ff3f97950adf27c3eb049529784ca56eee"
+      },
+      {
+        "id": "1794467754783675000",
+        "manifestSha256": "77c0df77ea18e4fbd4e167f2e8999dfcd731f3c8b1f18d2a51fb9a15e4840556",
+        "archiveSha256": "212b4079c27eb436677ffaf3bbd82d95f54c35cbd6f23500f198040e9d56ff1a"
+      },
+      {
+        "id": "1794468008625553000",
+        "manifestSha256": "8666c8fc84f54410f770cbf0061a19ebebfdd56b04c7a32324a0e74860774b73",
+        "archiveSha256": "505384ef02288ea0e88a8e25a6d0cd321f9c3bd69a2600cfeec44d7c1e16a5a6"
+      },
+      {
+        "id": "1794468200843916000",
+        "manifestSha256": "795cef283fe87bec080fbd6f4dbc6be0481893be0b9530c623fdf49f45c32b40",
+        "archiveSha256": "6b53b98c870349140336a3e65abf4659f4d00becd1c041901e72ba28f5fb97df"
+      },
+      {
+        "id": "1794468342606033000",
+        "manifestSha256": "edf26dbf0efa44bb5997a34e5c99b42348f80b5a9939a5cb393c6e341d8e13d8",
+        "archiveSha256": "879fef3124defd5cb9bd2df16327f716d14905f8f663634cb4a17cfec278c16a"
+      },
+      {
+        "id": "1794468562736271000",
+        "manifestSha256": "1b20dfb21b040ac4f0f9941636039286e9e64a5ae6e37ceca2c8c712f672181a",
+        "archiveSha256": "6b64484eb8ee6f3b7bd6bccada38117f41118cdfc458f336c0e7eb94613ff698"
+      },
+      {
+        "id": "1794468723416210000",
+        "manifestSha256": "0f0c9c435b4476d8acf7c43c757f70ec6c4a8ae32f314dae62a18524ec06fd54",
+        "archiveSha256": "aeedb76b0756515aead5f848dcb7cc03bb226544c42ce68973e168810d35bc22"
+      }
+    ]
+  },
+  "originalInputsUnchanged": 2385,
+  "fixtureOnly": true,
+  "validSubmission": false,
+  "trialAuthorized": false,
+  "readyForTrial": false,
+  "results": null,
+  "R11": "unresolved",
+  "R12": "prior scope unchanged",
+  "credentialProviderModelTrial": 0
+}
