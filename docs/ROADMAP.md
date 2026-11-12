@@ -1,5 +1,7 @@
 # 단계별 계획
 
+2026-11-12 현재 우선순위: [감사·시간 제한 보완 및 정책 시험 재개](reviews/2026-11-12-s2-policy-retry-instructions.md)(ADR-045). 새45분 회차에서 두 결함의 실제 진입점/국소 테스트를 먼저 통과시키고 승인된 정책 한 행만 시험한다. 이번에도 환경에서 멈추거나 다음 권한 차단이 나타나면 같은 후보의 미세 조정을 자동 반복하지 않고 비용·판별한 사실을 바탕으로 실행 경계/환경 운영 방식을 사용자와 재판단한다. 새로운 구조 채택은 아직 승인되지 않았다. 추가 권한·credential/provider/model·본 비교와 R11/production 차단은 유지한다. 아래는 당시 우선순위다.
+
 2026-11-12 현재 우선순위는 **[단일 정책 시험의 inconclusive 중단 결과](reviews/2026-11-12-s2-single-policy-test.md) 리뷰**다(ADR-044). 이전 준비 helper의450초 제한이 환경20분보다 먼저 다운로드를 중단시켰다. 정책 효과를 관찰하지 못했으므로 재개 전에 실제 환경 상한과 다운로드 명령 상한·새 예산을 정한다. 후보 적용/추가 정책 확대·credential/provider/model·본 비교는 진행하지 않는다. R11 unresolved·H-O/H-F 미검증을 유지한다.
 
 2026-11-12 현재 우선순위: namespace 진단 독립 리뷰 후 **정책 한 행만 적용하는45분 대조 시험**을 승인했다(ADR-043). [지시](reviews/2026-11-12-s2-single-policy-test-instructions.md)에 따라 감사 범위 보완→원래 정책 대조→실제 OCI 한 행 차이 검사→후보1회→정리/인계를 수행한다. 첫 clone 통과 여부와 다음 차단점이 목표이며 전체 sandbox/runner 완성은 아니다. 다음 syscall/LSM에서 멈추고 추가 권한 확대·credential/provider/model·본 비교는 결과 리뷰 후 정한다. R11 unresolved·H-O/H-F 미검증을 유지한다. 아래는 당시 우선순위다.

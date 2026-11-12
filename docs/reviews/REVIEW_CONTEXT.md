@@ -1,5 +1,7 @@
 # 독립 리뷰 맥락
 
+2026-11-12 최신 독립 리뷰: `5d723b4`는 중단/정리와 감사 개수 재현의 부분 완료다.58파일·13archive·내부657파일, 분석6/closing6 감사 일치·기존1682파일 불변·최종14도구 일치, pnpm check304·Python13을 확인했다. package.py가 미등록 runtime 명령 snapshot을 closing으로 자동 등록하는 결함을 실제 포장 진입점의 임시 복제 실행으로 재현했다. 환경 준비450초 종료는 최초708.649초, 환경 마감까지491.351초가 남았다. 새 VM/정책 시험은 하지 않았다. 사용자는 [두 보완 후 동일 정책 재개](2026-11-12-s2-policy-retry-instructions.md)(ADR-045)를 승인했다. 새45분에 수정/검증/준비/대조/정리/보고를 포함한다. 추가 권한·실자격 증명/provider/model·본 비교는 리뷰 뒤 결정하며 영구 환경/경계 구조 개편은 미합의다. R11 unresolved·trialAuthorized/readyForTrial=false·results=null을 유지한다.
+
 2026-11-12 최신 인계는 [단일 정책 시험](2026-11-12-s2-single-policy-test.md)이다. **bounded-stop-completed / inconclusive**: 유일한 VM 준비가 다운로드450초 상한으로 중단됐고 부팅·container·후보 적용·CLI/model은0회다. 환경20분 전체를 사용한 결과가 아니므로 정책/후보 불가능성으로 해석하지 않는다. 과거11개 분석+close1의 명시적 범위, 이번 분석6개와 별도 closing, 전체 index/변조 거부13회귀·pnpm check304·소유 자원 정리를 확인했다. 독립 리뷰는 아직 없으며 R11/production/live 차단을 유지한다.
 
 2026-11-12 최신 결정: `1aefc85` namespace 구현의 proposal-ready에 독립 리뷰가 동의했다. 원시 trace/정책/실행 입력,66파일·16archive·내부665파일과2521기존 입력 불변, pnpm check304·감사5테스트를 확인했다. 새 VM 실행은 하지 않았다. 저장 감사11개/최종 snapshot12개의 개수 차이만 재현돼 다음 회차에서 범위 목록을 명시한다. 사용자는 [정책 한 행45분 시험](2026-11-12-s2-single-policy-test-instructions.md)(ADR-043)을 승인했다. clone arg0=2013397009 allow 추가만 허용하며 원래/후보는 동일 이미지/trace, 실제 OCI 차이 확인 후 후보1회다. 첫 clone 통과/다음 차단과 전체 sandbox 성공을 구분한다. 추가 권한 확대·실자격 증명/provider/model·본 비교는 리뷰 뒤 결정하며 R11 unresolved·trialAuthorized/readyForTrial=false·results=null을 유지한다. 이번 세션은 지시 문서 작성이고 정책 적용은 하지 않았다.

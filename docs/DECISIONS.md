@@ -353,3 +353,14 @@ ADR-041의 [진단](reviews/2026-11-11-s2-namespace-diagnosis.md)은 proposal-re
 분석 snapshot ID·manifest/archive hash를 실행 전에 고정하고 뒤의 close/포장 증거는 별도 분류한다. 과거11+1을 원본 변경 없이 재현했고 최종 index는 전체 파일/archive 내부를 검사한다. 새 회귀13개와 pnpm check304, 기존 trial/verification1,682파일 불변을 확인했다. 정확한 정책 한 행 검증은 과거 OCI fixture의 오프라인 검사이며 적용 성공이 아니다. 미실행 실행기 초안은 최종 도구에서 제외하고 snapshot에만 보존했다.
 
 소유 stopped 등록·전용 root·불완전 다운로드 cache를 제거했다. 새 준비의 명령/환경 시간 상한과 예산은 결과 리뷰 뒤 정하며 자동 재개하지 않는다. 추가 권한·credential/provider/model·본 비교는 확대하지 않는다. R11 unresolved·R12 기존 범위·production/live 거부·trialAuthorized/readyForTrial=false·results=null이다.
+
+
+## ADR-045 · 감사 분류·환경 deadline 보완 뒤 단일 정책 재개 — 2026-11-12
+
+**사용자 결정:** 독립 리뷰에서 확인한 미분류 snapshot 자동 편입과 준비 시간 제한을 보완한 뒤 동일한 clone allow 한 행 시험을 재개한다. [개발 지시](reviews/2026-11-12-s2-policy-retry-instructions.md)는 기존45분 상한을 새 회차 전체에 유지한다. 추가 권한 확대·자격 증명 전달·provider/model·본 비교는 결과 리뷰 뒤 결정한다.
+
+**수정 계약:** closing은 실행 시 정확한 허용 명령/단계와 snapshot ID/hash를 등록하고 package가 분석+closing 집합 밖 항목을 거부한다. 과거 audit/index는 보존하고 실제 package 부정 테스트를 추가한다. wrapper·다운로드·Lima의 제한은 최초 환경20분 절대 마감에서 잔여를 전달하며, 각 단계가 새 예산을 시작하거나 과거450초를 숨은 제한으로 유지하지 않는다. 두 보완을 검증한 뒤 동일 이미지/trace의 원래1회·후보1회를 수행하고 실제 OCI 한 행 차이 및 전체 소유 자원 종료/정리를 확인한다.
+
+**비용/중단:** 최초부터45분(국소 보완/계획10·환경/대조20·후보 관찰30·새 탐색 종료35·최종45), VM1개/container 최대2개·후보 시작1회·유료0을 유지한다. 실패 후보 재시작과 두 번째 정책 변경은 하지 않는다. 보완 테스트/준비/종료 계약을 마련하지 못하면 근거 있는 부분 인계로 종료한다. 같은 후보의 추가 미세 조정은 자동 반복하지 않고 다음 결과에서 구조/운영 투자 여부를 사용자와 결정한다.
+
+**한계:** 이번 결정은 보완·시험 재개 승인이고 성공 결과가 아니다. 영구 cache/VM·새 실행 경계·API/proxy 구축은 별도 논의다. R11 unresolved·R12 기존 범위·production/live 거부·trialAuthorized/readyForTrial=false·results=null을 유지한다.
