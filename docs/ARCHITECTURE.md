@@ -1,5 +1,7 @@
 # 현재 아키텍처
 
+2026-11-12 승인된 국소 보완(ADR-045): [재개 지시](reviews/2026-11-12-s2-policy-retry-instructions.md)는 분석 밖 snapshot의 자동 closing 편입을 명시적 명령/단계/ID/hash 등록으로 바꾸고, 실제 package가 미등록 항목을 거부하도록 요구한다. 환경 준비의 중첩 제한은 같은 호스트 절대 마감에서 실행 직전 잔여를 전달한다. 이후 동일 이미지/trace의 원래 정책과 정확한 clone allow 한 행 후보를 대조한다. 이는 다음 구현 계약이며 아직 보완 결과가 아니다. 영구 cache/VM·실행 경계 개편은 별도 논의 대상으로, 이번에 도입하지 않는다.
+
 2026-11-12 [단일 정책 회차](reviews/2026-11-12-s2-single-policy-test.md)(ADR-044)는 부팅 전 다운로드 시간 초과로 중단됐다. `single-policy-test/`에는 고정 snapshot 범위/전체 index와 오프라인 정책 검사 도구만 추가했고 실제 후보 profile/OCI 적용은0회다. 초기 snapshot의 실행 helper 초안은 미실행이며 최종 트리에서 제외했다. 공유 lifecycle·실제 CLI 종료/수집 경계의 새 검증이나 R11 해결은 없다. 분석 scope와 이후 closing scope를 분리하고 전체 index에서 둘 다 검증한다.
 
 2026-11-12 승인된 다음 시험(ADR-043): [단일 정책 지시](reviews/2026-11-12-s2-single-policy-test-instructions.md)는 기존 기본 seccomp를 복제한 일회성 container 전용 profile에 clone arg0=2013397009의 allow 한 행만 추가한다. start 전 실제 OCI의 나머지 정책/보안 설정 보존을 검사하고 동일 이미지/trace의 원래 정책과 대조한다. 감사는 대상 snapshot ID/hash 목록을 고정하고 이후 종료·포장 증거는 전체 index에서 별도 검증한다. 이번은 적용 계획이며 구현/성공 증거가 아니다. 공유 lifecycle와 제품/평가 계약은 유지하고 새로운 자손도 소유 cgroup/runtime 종료 확인 뒤 진단 수집한다. 다음 차단의 추가 권한 변경과 전체 CLI 경계 회귀는 별도 결정이다.
