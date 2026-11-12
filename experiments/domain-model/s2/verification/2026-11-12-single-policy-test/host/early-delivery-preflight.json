@@ -1,0 +1,7 @@
+{
+  "startedUtc": "2026-11-12T06:54:30.915472+00:00",
+  "startedMonotonic": 162640.8790255,
+  "roundActualSecondsIncludingFinalSerialization": 1083.455168165994,
+  "roundFinalSerializationSeconds": 0.8192931659868918,
+  "separateFromExperiment": true
+}

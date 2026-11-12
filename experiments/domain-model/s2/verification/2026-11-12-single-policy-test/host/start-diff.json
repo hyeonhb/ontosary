@@ -1,0 +1,13 @@
+{
+  "base": "1aefc85",
+  "start": "aa4939f",
+  "paths": [
+    "docs/ARCHITECTURE.md",
+    "docs/DECISIONS.md",
+    "docs/PROGRESS.md",
+    "docs/ROADMAP.md",
+    "docs/reviews/2026-11-12-s2-single-policy-test-instructions.md",
+    "docs/reviews/REVIEW_CONTEXT.md"
+  ],
+  "clarification": "plan difference string instruction document only abbreviates the instruction plus its context documentation; no code difference"
+}

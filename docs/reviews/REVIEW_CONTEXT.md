@@ -1,5 +1,7 @@
 # 독립 리뷰 맥락
 
+2026-11-12 최신 인계는 [단일 정책 시험](2026-11-12-s2-single-policy-test.md)이다. **bounded-stop-completed / inconclusive**: 유일한 VM 준비가 다운로드450초 상한으로 중단됐고 부팅·container·후보 적용·CLI/model은0회다. 환경20분 전체를 사용한 결과가 아니므로 정책/후보 불가능성으로 해석하지 않는다. 과거11개 분석+close1의 명시적 범위, 이번 분석6개와 별도 closing, 전체 index/변조 거부13회귀·pnpm check304·소유 자원 정리를 확인했다. 독립 리뷰는 아직 없으며 R11/production/live 차단을 유지한다.
+
 2026-11-12 최신 결정: `1aefc85` namespace 구현의 proposal-ready에 독립 리뷰가 동의했다. 원시 trace/정책/실행 입력,66파일·16archive·내부665파일과2521기존 입력 불변, pnpm check304·감사5테스트를 확인했다. 새 VM 실행은 하지 않았다. 저장 감사11개/최종 snapshot12개의 개수 차이만 재현돼 다음 회차에서 범위 목록을 명시한다. 사용자는 [정책 한 행45분 시험](2026-11-12-s2-single-policy-test-instructions.md)(ADR-043)을 승인했다. clone arg0=2013397009 allow 추가만 허용하며 원래/후보는 동일 이미지/trace, 실제 OCI 차이 확인 후 후보1회다. 첫 clone 통과/다음 차단과 전체 sandbox 성공을 구분한다. 추가 권한 확대·실자격 증명/provider/model·본 비교는 리뷰 뒤 결정하며 R11 unresolved·trialAuthorized/readyForTrial=false·results=null을 유지한다. 이번 세션은 지시 문서 작성이고 정책 적용은 하지 않았다.
 
 2026-11-11 최신 구현 인계: **[namespace diagnosis proposal-ready](2026-11-11-s2-namespace-diagnosis.md), 독립 리뷰 대기**. [후보 문서](2026-11-11-s2-namespace-policy-proposal.md)는 비활성이며 정책 적용0회다. [증거](../../experiments/domain-model/s2/verification/2026-11-11-namespace-diagnosis/)의 두 준비 단위·같은 보안 정책/CLI hash·strace clone flags/EPERM·고정 tag source·최초 로그 옵션 오류/수정1회·사전 snapshot/정리를 대조한다. 관찰된 clone과 unshare 정책 사실, traced/untraced, 생성 profile/실제 loaded policy를 구분한다. AppArmor 독립 기여·후속 syscall·후보 충분성은 미확인이다. 직전 config 미열람 문구는 새 보고서에서 정정했고 원시 증거는 그대로다. pnpm check304·증거5테스트, 기존2521입력 불변을 확인했으며 실제 인증/provider/model/trial0이다.

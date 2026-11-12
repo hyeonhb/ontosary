@@ -344,3 +344,12 @@ ADR-041의 [진단](reviews/2026-11-11-s2-namespace-diagnosis.md)은 proposal-re
 **감사 보완:** 이전11개 감사와 최종12개 snapshot의 차이를 과거 원시 증거 변경 없이 새 메타데이터로 설명한다. 감사 대상 ID/hash 목록을 고정해 결과를 재현하고 이후 종료/포장 기록도 최종 전체 index로 검증한다. 미분류 추가 자료를 묵인하거나 모든 후속 자료를 감사했다고 표현하지 않는다.
 
 **상한과 한계:** 최초 시계부터 읽기·준비·구현·실패·검증·정리·보고45분, 계획10분/환경·대조20분/후보 관찰30분/새 탐색 종료35분/마감45분이다. VM1개·container 최대2개·후보 시작1회, 실행 전 근거 있는 기계적 수정1회, 신규 유료 비용0, payload15초/단위 외부120초다. 정책/기준 차이·종료 확인 불가·추가 권한 필요 시 실행하지 않거나 중단한다. 근거 있는 부정/미확인 결과도 유효하며 R11 unresolved·R12 기존 범위·production/live 거부·trialAuthorized/readyForTrial=false·results=null을 유지한다. 이번 기록은 시험 승인이고 실제 적용 완료가 아니다.
+
+
+## ADR-044 · 단일 정책 회차의 부팅 전 중단과 고정 감사 범위 — 2026-11-12
+
+[회차 보고](reviews/2026-11-12-s2-single-policy-test.md)의 관찰은 **inconclusive**다. 유일한 Lima 시작이 Ubuntu 이미지 다운로드 중450초 명령 상한으로 종료됐다. 이 이전 helper 상한은 승인된 환경20분보다 짧았고 환경 전체의 실패 증거가 아니다. 재시도/다른 후보 없이 정리·인계했다. VM 부팅/container/원래 정책/후보 적용/실제 CLI 및 model 각각0회이며 정책의 충분성이나 새 차단점을 판단하지 않는다.
+
+분석 snapshot ID·manifest/archive hash를 실행 전에 고정하고 뒤의 close/포장 증거는 별도 분류한다. 과거11+1을 원본 변경 없이 재현했고 최종 index는 전체 파일/archive 내부를 검사한다. 새 회귀13개와 pnpm check304, 기존 trial/verification1,682파일 불변을 확인했다. 정확한 정책 한 행 검증은 과거 OCI fixture의 오프라인 검사이며 적용 성공이 아니다. 미실행 실행기 초안은 최종 도구에서 제외하고 snapshot에만 보존했다.
+
+소유 stopped 등록·전용 root·불완전 다운로드 cache를 제거했다. 새 준비의 명령/환경 시간 상한과 예산은 결과 리뷰 뒤 정하며 자동 재개하지 않는다. 추가 권한·credential/provider/model·본 비교는 확대하지 않는다. R11 unresolved·R12 기존 범위·production/live 거부·trialAuthorized/readyForTrial=false·results=null이다.

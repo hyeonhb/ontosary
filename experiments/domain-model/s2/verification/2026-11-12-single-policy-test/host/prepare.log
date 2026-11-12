@@ -1,0 +1,8 @@
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  2 47.9M    2 1279k    0     0  2111k      0  0:00:23 --:--:--  0:00:23 2111k 23 47.9M   23 11.2M    0     0  7187k      0  0:00:06  0:00:01  0:00:05 10.0M 36 47.9M   36 17.5M    0     0  6926k      0  0:00:07  0:00:02  0:00:05 8388k 50 47.9M   50 24.0M    0     0  6813k      0  0:00:07  0:00:03  0:00:04 7760k 82 47.9M   82 39.6M    0     0  8692k      0  0:00:05  0:00:04  0:00:01 9675k100 47.9M  100 47.9M    0     0  9360k      0  0:00:05  0:00:05 --:--:-- 10.0M
+time="2026-11-12T15:40:34+09:00" level=info msg="Terminal is not available, proceeding without opening an editor"
+time="2026-11-12T15:40:34+09:00" level=info msg="Starting the instance `s2-lifecycle` with internal VM driver `vz`"
+time="2026-11-12T15:40:34+09:00" level=info msg="Attempting to download the image" arch=aarch64 digest="sha256:8eb876c2ccc4b6ff89e4a65d511815923b285e04503ba465809bf587f763da24" location="https://cloud-images.ubuntu.com/releases/resolute/release-20261016/ubuntu-26.04-server-cloudimg-arm64.img"
+Downloading the image (ubuntu-26.04-server-cloudimg-arm64.img)

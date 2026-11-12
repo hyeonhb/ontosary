@@ -1,0 +1,20 @@
+{
+  "status": "closed",
+  "startedUtc": "2026-11-12T06:36:08.718831+00:00",
+  "measurementEndedUtc": "2026-11-12T06:54:09.434400+00:00",
+  "startedMonotonic": 161536.760681875,
+  "endedMonotonic": 162619.396556875,
+  "measuredSeconds": 1082.6358750000072,
+  "previousCumulativeSeconds": 11408.175213083972,
+  "measuredCumulativeSeconds": 12490.81108808398,
+  "finalSerializationAllowanceSeconds": 5,
+  "conservativeRoundUpperBoundSeconds": 1087.6358750000072,
+  "conservativeCumulativeUpperBoundSeconds": 12495.81108808398,
+  "newPaidCost": 0,
+  "gitDeliveryIncluded": false,
+  "runtimeRetries": 0,
+  "preStartMechanicalCorrections": 0,
+  "verificationCorrection": "first local-link check preceded cost creation; final check passed after cost creation",
+  "completion": "bounded-stop-completed",
+  "outcome": "inconclusive"
+}

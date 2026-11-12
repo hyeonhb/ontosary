@@ -1,0 +1,164 @@
+{
+  "utc": "2026-11-12T06:36:08.718831+00:00",
+  "monotonic": 161536.760681875,
+  "deadlines": {
+    "plan": "2026-11-12T06:46:08.718831+00:00",
+    "environment": "2026-11-12T06:56:08.718831+00:00",
+    "diagnosis": "2026-11-12T07:06:08.718831+00:00",
+    "exploration": "2026-11-12T07:11:08.718831+00:00",
+    "finish": "2026-11-12T07:21:08.718831+00:00"
+  },
+  "events": [
+    {
+      "snapshot": "1794465770033397000",
+      "utc": "2026-11-12T06:42:50.033201+00:00",
+      "monotonic": 161939.954717833,
+      "seconds": 0.31108195800334215,
+      "timeoutSeconds": 30,
+      "phase": "plan",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "experiments/domain-model/s2/trial/container/single-policy-test",
+        "-p",
+        "test_contract.py"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-single-policy-test/contracts.log"
+    },
+    {
+      "snapshot": "1794465923895629000",
+      "utc": "2026-11-12T06:45:23.895297+00:00",
+      "monotonic": 162093.826166958,
+      "seconds": 0.4109105420066044,
+      "timeoutSeconds": 30,
+      "phase": "plan",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "experiments/domain-model/s2/trial/container/single-policy-test",
+        "-p",
+        "test_contract.py"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-single-policy-test/contracts-final.log"
+    },
+    {
+      "snapshot": "1794465922744639000",
+      "utc": "2026-11-12T06:45:22.744431+00:00",
+      "monotonic": 162092.675118666,
+      "seconds": 19.28570608398877,
+      "timeoutSeconds": 120,
+      "phase": "finish",
+      "command": [
+        "pnpm",
+        "check"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-single-policy-test/check.log"
+    },
+    {
+      "snapshot": "1794465627329367000",
+      "utc": "2026-11-12T06:40:27.329103+00:00",
+      "monotonic": 161795.386460041,
+      "seconds": 450.02326170902234,
+      "timeoutSeconds": 450,
+      "phase": "environment",
+      "command": [
+        "python3",
+        "experiments/domain-model/s2/trial/container/single-policy-test/host-prepare.py"
+      ],
+      "exitCode": 124,
+      "log": "work/s2-single-policy-test/prepare.log"
+    },
+    {
+      "snapshot": "1794466140999181000",
+      "utc": "2026-11-12T06:49:00.998963+00:00",
+      "monotonic": 162310.942756416,
+      "seconds": 0.8029954999801703,
+      "timeoutSeconds": 60,
+      "phase": "finish",
+      "command": [
+        "python3",
+        "experiments/domain-model/s2/trial/container/single-policy-test/host-cleanup.py"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-single-policy-test/cleanup.log"
+    },
+    {
+      "snapshot": "1794466386149843000",
+      "utc": "2026-11-12T06:53:06.149646+00:00",
+      "monotonic": 162556.108134958,
+      "seconds": 0.3744577500037849,
+      "timeoutSeconds": 30,
+      "phase": "finish",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "experiments/domain-model/s2/trial/container/single-policy-test",
+        "-p",
+        "test_contract.py"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-single-policy-test/contracts-closing.log"
+    },
+    {
+      "snapshot": "1794466386636005000",
+      "utc": "2026-11-12T06:53:06.635794+00:00",
+      "monotonic": 162556.594324958,
+      "seconds": 0.20414591699955054,
+      "timeoutSeconds": 30,
+      "phase": "finish",
+      "command": [
+        "python3",
+        "experiments/domain-model/s2/trial/container/single-policy-test/package.py"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-single-policy-test/package.log"
+    },
+    {
+      "snapshot": "1794466386954142000",
+      "utc": "2026-11-12T06:53:06.953944+00:00",
+      "monotonic": 162556.912474708,
+      "seconds": 0.09272995800711215,
+      "timeoutSeconds": 30,
+      "phase": "finish",
+      "command": [
+        "python3",
+        "experiments/domain-model/s2/trial/container/single-policy-test/verify-repository.py"
+      ],
+      "exitCode": 1,
+      "log": "work/s2-single-policy-test/links.log"
+    },
+    {
+      "snapshot": "1794466538515930000",
+      "utc": "2026-11-12T06:55:38.515718+00:00",
+      "monotonic": 162708.483366708,
+      "seconds": 0.36673512498964556,
+      "timeoutSeconds": 30,
+      "phase": "finish",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "experiments/domain-model/s2/trial/container/single-policy-test",
+        "-p",
+        "test_contract.py"
+      ],
+      "exitCode": 0,
+      "log": "work/s2-single-policy-test/contracts-review.log"
+    }
+  ],
+  "previousCumulativeSeconds": 11408.175213083972
+}

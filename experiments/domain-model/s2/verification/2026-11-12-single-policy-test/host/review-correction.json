@@ -1,0 +1,5 @@
+{
+  "utc": "2026-11-12T06:55:38.399660+00:00",
+  "monotonic": 162708.367293,
+  "reason": "Self-review found draft policy projection normalized bind sources; replaced with strict full OCI Spec equality for offline fixtures only. No runtime dispatch. Continue original first clock through correction and reclosure; early delivery preflight included in round."
+}
