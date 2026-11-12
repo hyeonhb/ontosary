@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/single-policy-test/verify-repository.py", line 11, in <module>
+    target=urllib.parse.unquote(target.split('#')[0]);assert (p.parent/target).exists(),(name,target);links+=1
+                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('docs/reviews/2026-11-12-s2-single-policy-test.md', '../../experiments/domain-model/s2/verification/2026-11-12-single-policy-test/host/cost.json')
