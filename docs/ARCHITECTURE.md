@@ -1,5 +1,7 @@
 # 현재 아키텍처
 
+2026-11-12 승인된 다음 시험(ADR-043): [단일 정책 지시](reviews/2026-11-12-s2-single-policy-test-instructions.md)는 기존 기본 seccomp를 복제한 일회성 container 전용 profile에 clone arg0=2013397009의 allow 한 행만 추가한다. start 전 실제 OCI의 나머지 정책/보안 설정 보존을 검사하고 동일 이미지/trace의 원래 정책과 대조한다. 감사는 대상 snapshot ID/hash 목록을 고정하고 이후 종료·포장 증거는 전체 index에서 별도 검증한다. 이번은 적용 계획이며 구현/성공 증거가 아니다. 공유 lifecycle와 제품/평가 계약은 유지하고 새로운 자손도 소유 cgroup/runtime 종료 확인 뒤 진단 수집한다. 다음 차단의 추가 권한 변경과 전체 CLI 경계 회귀는 별도 결정이다.
+
 2026-11-11 [namespace 진단](reviews/2026-11-11-s2-namespace-diagnosis.md)(ADR-042): 기존 정책의 두 준비 container를 기준/strace 진단으로 비교해 첫 namespace clone flags와 실제 seccomp 거부 조건을 연결했다. `trial/container/namespace-diagnosis/`는 제한된 관찰·증거 도구이며 lifecycle adapter가 아니다. 정책 후보는 실행 경로 밖의 Markdown에만 있고 적용0회다. AppArmor/후속 syscall·전체 내부 경계는 미확인, production/live는 계속 거부한다.
 
 2026-11-11 다음 진단 범위(ADR-041): [namespace 정책 진단 지시](reviews/2026-11-11-s2-namespace-diagnosis-instructions.md)는 기존 container 제한과 고정 CLI를 그대로 둔 채 정책/버전별 구현/가능한 syscall 관찰을 대조한다. 변경안은 실행 경로와 분리한 문서/비활성 diff로만 제시한다. 관찰용 권한 완화도 하지 않으며 첫 실패 syscall·독립 LSM 기여가 미확인이면 그 상태로 인계한다. 외부 container와 내부 native sandbox의 호환성은 여전히 미검증이고 기존 lifecycle/Linux 평가 결과는 유지한다. 실제 정책 적용과 전체 경계 회귀는 이번 범위가 아니다.

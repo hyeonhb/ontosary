@@ -1,5 +1,7 @@
 # 단계별 계획
 
+2026-11-12 현재 우선순위: namespace 진단 독립 리뷰 후 **정책 한 행만 적용하는45분 대조 시험**을 승인했다(ADR-043). [지시](reviews/2026-11-12-s2-single-policy-test-instructions.md)에 따라 감사 범위 보완→원래 정책 대조→실제 OCI 한 행 차이 검사→후보1회→정리/인계를 수행한다. 첫 clone 통과 여부와 다음 차단점이 목표이며 전체 sandbox/runner 완성은 아니다. 다음 syscall/LSM에서 멈추고 추가 권한 확대·credential/provider/model·본 비교는 결과 리뷰 후 정한다. R11 unresolved·H-O/H-F 미검증을 유지한다. 아래는 당시 우선순위다.
+
 2026-11-11 현재 우선순위: **[namespace 진단 및 비활성 후보](reviews/2026-11-11-s2-namespace-diagnosis.md)의 독립 리뷰**(ADR-042). 첫 차단점은 trace와 실제 seccomp로 좁혔고 제한된 정책 시험을 검토할 근거를 마련했다. [후보](reviews/2026-11-11-s2-namespace-policy-proposal.md)는 충분성 미검증이며 실제 적용/전체 경계 회귀는 별도 결정이다. mount/LSM 등 남은 제약 때문에 전체 runner 구현으로 바로 확대하지 않는다. 실제 credential/provider/model/본 비교와 R11/production/live 차단은 유지한다.
 
 2026-11-11 다음 우선순위: CLI blocked 독립 리뷰 후 사용자는 **동일 후보의 최소 정책 변경 타당성을60분 안에 진단**하기로 했다(ADR-041). [현재 지시](reviews/2026-11-11-s2-namespace-diagnosis-instructions.md)의 산출물은 원인별 근거·적용하지 않은 변경안·경계 영향/후속 비용·정리 기록이다. 실제 정책 변경, 인증/provider/model과 본 비교는 결과 리뷰 후 결정한다. 범용 실행 플랫폼으로 확대하지 않으며 R11 unresolved·readyForTrial=false·H-O/H-F 미검증을 유지한다. 아래 순서는 당시 기록이다.

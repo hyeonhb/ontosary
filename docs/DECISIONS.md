@@ -333,3 +333,14 @@ ADR-041의 [진단](reviews/2026-11-11-s2-namespace-diagnosis.md)은 proposal-re
 [후보](reviews/2026-11-11-s2-namespace-policy-proposal.md)는 그 정확한 clone 조합만 추가 허용하는 **비활성 문서**다. 모든 자식과 ARM compat에도 미치는 영향, 남은 seccomp/mount/LSM 제약, 승인 후 시험·음성 대조·전체 경계 회귀·복구·추정 비용을 명시했다. 충분성이나 전체 최소 집합을 입증하지 않았고 실제 적용 승인도 아니다. 먼저 제한된 첫 차단점 시험의 가치를 독립 리뷰에서 결정하며 전체 runner 구현으로 바로 확대하지 않는다.
 
 준비2단위·비모델 CLI4회, 로그 조회 옵션 국소 수정1회/runtime 재시도0이다. 전체 config 미열람이라는 직전 문구는 새 보고서에서 전체 TOML 파싱/허용값만 기록으로 정정했다. 과거 보고/증거는 보존하고 이번 호스트 인증 조사는0회다. 소유 자원 정리·pnpm check304·증거5테스트를 확인했다. 새 정책·credential 전달·로그인/갱신/provider/model/본 비교 각각0, R11 unresolved·R12 기존 범위·production/live 거부·trialAuthorized/readyForTrial=false·results=null을 유지한다.
+
+
+## ADR-043 · 관찰한 clone 조합 한 행의45분 대조 시험 — 2026-11-12
+
+**사용자 결정:** namespace 진단 독립 리뷰 후 [단일 정책 시험 지시](reviews/2026-11-12-s2-single-policy-test-instructions.md)에 따라 동일 후보에 clone arg0=2013397009의 SCMP_CMP_EQ/ALLOW 한 행만 추가하는 시험을 승인했다. 추가 권한 확대·자격 증명 전달·provider/model·본 비교는 결과 리뷰 뒤 별도로 결정한다.
+
+**구조:** 원래 기본 정책과 일회성 container 전용 복제 profile을 같은 image/trace/합성 명령에서 각1회 비교한다. 후보 start 전 실제 OCI에서 추가 행 외의 seccomp/default/architecture·AppArmor/capability/NNP·자원·mount 권한 보존을 확인한다. clone 성공은 직접 반환값/자식 관계로 확인하며 다음 syscall/LSM 차단에서 정책을 더 넓히지 않는다. 성공해도 전체 내부 경계의 검증이 아니며 새 자손의 종료/정리 확인 없이 결과를 수집하지 않는다.
+
+**감사 보완:** 이전11개 감사와 최종12개 snapshot의 차이를 과거 원시 증거 변경 없이 새 메타데이터로 설명한다. 감사 대상 ID/hash 목록을 고정해 결과를 재현하고 이후 종료/포장 기록도 최종 전체 index로 검증한다. 미분류 추가 자료를 묵인하거나 모든 후속 자료를 감사했다고 표현하지 않는다.
+
+**상한과 한계:** 최초 시계부터 읽기·준비·구현·실패·검증·정리·보고45분, 계획10분/환경·대조20분/후보 관찰30분/새 탐색 종료35분/마감45분이다. VM1개·container 최대2개·후보 시작1회, 실행 전 근거 있는 기계적 수정1회, 신규 유료 비용0, payload15초/단위 외부120초다. 정책/기준 차이·종료 확인 불가·추가 권한 필요 시 실행하지 않거나 중단한다. 근거 있는 부정/미확인 결과도 유효하며 R11 unresolved·R12 기존 범위·production/live 거부·trialAuthorized/readyForTrial=false·results=null을 유지한다. 이번 기록은 시험 승인이고 실제 적용 완료가 아니다.
