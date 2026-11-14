@@ -1,0 +1,133 @@
+{
+  "head": "f6fc3862c124cf675270359b82e4efb1aedd333d",
+  "finalSourceFiles": 65,
+  "finalSourceMismatches": [],
+  "initialInventoryFiles": 2945,
+  "intentionalChanges": 17,
+  "unexpectedChanges": [],
+  "retainedArtifacts": [
+    {
+      "name": "nerdctl-full-2.4.2-linux-arm64",
+      "sha256": "fe0ef0e9840ee8932640e6058f84b7fa98050f9726e44af44883a5b804ae830e",
+      "bytes": 270513423
+    },
+    {
+      "name": "lima-2.3.0-Darwin-arm64",
+      "sha256": "b7af444bd8f91d3c307477e562f2cf3bd7595d62b9429185e4fa841563578cfc",
+      "bytes": 50317981
+    },
+    {
+      "name": "ontosary-fixed-trace-image",
+      "sha256": "c15c09d5fbdcdbc1641238bc7875dd8c2e732aa2f6919b98eaed8e595afc9d68",
+      "bytes": 445026816
+    },
+    {
+      "name": "ubuntu-26.04-20261016-arm64",
+      "sha256": "8eb876c2ccc4b6ff89e4a65d511815923b285e04503ba465809bf587f763da24",
+      "bytes": 940373504
+    }
+  ],
+  "runtimeReexecuted": false,
+  "checks": {
+    "pnpmCheck": {
+      "passed": true,
+      "tests": 304,
+      "skipped": 0
+    },
+    "python": {
+      "new": 56,
+      "shared": 16,
+      "audit": 44,
+      "total": 116
+    }
+  },
+  "savedEvidence": {
+    "files": 126,
+    "analysis": 8,
+    "closing": 4,
+    "inputArchiveFiles": 27,
+    "guestArchiveFiles": 28,
+    "transferredHelperHashes": 20
+  },
+  "cacheProbe": {
+    "mockedExternalCommands": true,
+    "runtimeStarted": false,
+    "allRequestedArtifactsWereCacheHits": true,
+    "reachedUnconditionalGuestBuild": true,
+    "imageLookupBeforeBuild": false,
+    "calls": [
+      [
+        "acquire",
+        "lima-2.3.0-Darwin-arm64"
+      ],
+      [
+        "acquire",
+        "ubuntu-26.04-20261016-arm64"
+      ],
+      [
+        "acquire",
+        "nerdctl-full-2.4.2-linux-arm64"
+      ],
+      [
+        "lookup",
+        "lima-2.3.0-Darwin-arm64"
+      ],
+      [
+        "lookup",
+        "ubuntu-26.04-20261016-arm64"
+      ],
+      [
+        "lookup",
+        "nerdctl-full-2.4.2-linux-arm64"
+      ],
+      [
+        "guest",
+        [
+          "python3",
+          "-c",
+          "import datetime,time,json;print(json.dumps({\"utc\":datetime.datetime.now(datetime.timezone.utc).isoformat(),\"guestMonotonic\":time.monotonic()}))"
+        ]
+      ],
+      [
+        "guest",
+        [
+          "mkdir",
+          "-p",
+          "/opt/ontosary-execution"
+        ]
+      ],
+      [
+        "guest",
+        [
+          "tar",
+          "-xzf",
+          "/tmp/execution-inputs.tar.gz",
+          "-C",
+          "/opt/ontosary-execution"
+        ]
+      ],
+      [
+        "guest",
+        [
+          "python3",
+          "/opt/ontosary-execution/execution-lifecycle/guest.py",
+          "prepare"
+        ]
+      ]
+    ]
+  },
+  "exportProbe": {
+    "runtimeStarted": false,
+    "collectorRejected": "hardlink:source/hardlink.txt",
+    "collectionStatus": "suppressed",
+    "exportContainsRejectedHardlink": true,
+    "exportMember": "runs/aaaaaaaaaaaa/source/hardlink.txt"
+  },
+  "findings": [
+    "R13 runtime PATH removes security feature discovery",
+    "R14 image build precedes artifact lookup",
+    "R15 export bypasses rejected collection"
+  ],
+  "reviewedPullRequest": 54,
+  "actualCredentialOrModelCalls": 0
+}
