@@ -1,5 +1,9 @@
 # 독립 리뷰 맥락
 
+2026-11-14 최신 독립 판단: `f621521`의 감사/deadline 보완은 인정하지만 후보 시작 전 identity 차단과 실패 container 삭제 지연으로 시험은 blocked/inconclusive다. 기존 리뷰에서 pnpm check304·Python44, 새 증거60파일/16archive·분석8/closing4 재현, 이전 입력 불변과 실제 seccomp 한 행 차이를 확인했다. 후보 시작0회를 정책 실패로 해석하지 않는다. 공통 cleanup은 정지를 확인하지만 삭제가 정상 수집 경로에 남아 있고, hook 환경의 동적 값은 검증된 소유 관계로 비교해야 한다.
+
+사용자는 [새3시간 개발 지시](2026-11-14-s2-execution-lifecycle-instructions.md)(ADR-047)를 승인했다. 공개 불변 준비물 재사용·독립 공통 종료/삭제·엄격한 전체 Spec과 identity 대응을 정리하고, 필수7단위/선택1단위와 조건부 원래1·후보1만 검증한다. VM1개·준비물10GiB·단위120초·60/100/150/180분 마감이며 마지막30분에는 새 runtime 실행을 하지 않는다. 실제 삭제 실패 주입은 선택적으로 모든 관찰 뒤 마지막에 두며 폐기한 VM을 재생성하지 않는다. 이번 세션은 문서 작성이고 새 구현/실험은 미실행이다. 후속 리뷰는 세 책임의 실제 연결·비용 절감·실패 정리·원본/치환 Spec·잔여 차단을 확인한다. 실제 credential/provider/model·본 비교는 별도 결과 리뷰 뒤 결정하고 R11/production/live 차단을 유지한다. 아래는 당시 기록이다.
+
 2026-11-12 최신 인계는 [감사·시간 제한 보완/정책 재시도](2026-11-12-s2-policy-retry.md)다. **보완 완료·관찰 blocked/inconclusive·정리 완료**: 실제 포장 거부/같은 절대 deadline을 검증했고 원래 clone EPERM을 재현했다. 후보 created Spec의 seccomp 추가는 정확한 한 행이나, 미등록 MEMORY_PRESSURE_WATCH hook 경로 차이로 시작0회다. 실패 후보 종료 확인0.275초와 삭제181.412초를 구분하며 후자는120초 계약 위반이다. 전체 자원 정리, pnpm check304·Python44·기존 S2 입력2,385파일 불변, 분석8개와 명시적 closing 등록/전체 index를 확인했다. 독립 리뷰는 아직 없고 같은 후보를 자동 재시도하지 않는다. R11/production/live 차단을 유지한다.
 
 2026-11-12 최신 독립 리뷰: `5d723b4`는 중단/정리와 감사 개수 재현의 부분 완료다.58파일·13archive·내부657파일, 분석6/closing6 감사 일치·기존1682파일 불변·최종14도구 일치, pnpm check304·Python13을 확인했다. package.py가 미등록 runtime 명령 snapshot을 closing으로 자동 등록하는 결함을 실제 포장 진입점의 임시 복제 실행으로 재현했다. 환경 준비450초 종료는 최초708.649초, 환경 마감까지491.351초가 남았다. 새 VM/정책 시험은 하지 않았다. 사용자는 [두 보완 후 동일 정책 재개](2026-11-12-s2-policy-retry-instructions.md)(ADR-045)를 승인했다. 새45분에 수정/검증/준비/대조/정리/보고를 포함한다. 추가 권한·실자격 증명/provider/model·본 비교는 리뷰 뒤 결정하며 영구 환경/경계 구조 개편은 미합의다. R11 unresolved·trialAuthorized/readyForTrial=false·results=null을 유지한다.
