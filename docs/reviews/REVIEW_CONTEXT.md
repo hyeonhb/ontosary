@@ -1,5 +1,7 @@
 # 독립 리뷰 맥락
 
+2026-11-14 현재 후속 지시는 [R13~R15 보완](2026-11-14-s2-execution-lifecycle-fix-instructions.md)(ADR-049)이다. PR #54 f6fc386을 이어 R14→R13→R15 로컬 통합 회귀와 같은 기본 정책7단위를 검증하며, 직전과 같은3시간 상한·VM1개를 적용한다. 정책 대조는 이번 범위에서 제외하고 보완 PR은 독립 리뷰 뒤 병합한다. cache 복구/PR #53·독립 리뷰 PR #55는 완료됐으며 실제 credential/model/본 비교 보류를 유지한다.
+
 2026-11-14 [공통 실행 보완 독립 리뷰](2026-11-14-s2-execution-lifecycle-independent-review.md): f6fc386(PR #54)의 부분 완료·시작 전 차단·자동 정리는 재현됐다. pnpm check304와 Python116이 통과했고 cache 누락은 PR #53 후속 복구로 해소됐다. R13은 PATH 제거로 nerdctl 내부 AppArmor/runc 탐지가 실패하는 코드 경로, R14는 warm cache에서도 build가 선행하는 실제 prepare 진입점, R15는 collector가 거부한 hardlink를 export가 포함하는 실제 진입점 재현이다. 세 보완 전 실제7단위 재개나 구현 완료를 승인하지 않는다. 새 VM/권한/credential/model 호출은0회, PR #54 미병합이며 backend 변경보다 해당 운영 코드 보완을 우선 권고한다. 새 지시/예산은 아직 합의하지 않았다. 아래는 당시 기록이다.
 
 2026-11-14 최신 독립 판단: `f621521`의 감사/deadline 보완은 인정하지만 후보 시작 전 identity 차단과 실패 container 삭제 지연으로 시험은 blocked/inconclusive다. 기존 리뷰에서 pnpm check304·Python44, 새 증거60파일/16archive·분석8/closing4 재현, 이전 입력 불변과 실제 seccomp 한 행 차이를 확인했다. 후보 시작0회를 정책 실패로 해석하지 않는다. 공통 cleanup은 정지를 확인하지만 삭제가 정상 수집 경로에 남아 있고, hook 환경의 동적 값은 검증된 소유 관계로 비교해야 한다.
