@@ -373,3 +373,13 @@ ADR-041의 [진단](reviews/2026-11-11-s2-namespace-diagnosis.md)은 proposal-re
 원래 정책1회에서 parent 양성 동작과 namespace clone EPERM을 재현했다. 후보 created Spec의 seccomp는 승인된 한 행만 다르지만, 감독자 hook의 MEMORY_PRESSURE_WATCH 경로가 미리 허용한 identity 치환에 없어서 시작 전 거부했다. 그 항목을 사후 허용하거나 재시도하지 않았다. 후보 Spec 할당1/시작·커널 적용0이며 효과는 inconclusive다. 독립 cleanup의 종료 확인0.275초와 container 삭제181.412초를 구분한다. 삭제는120초 외부 계약 위반이므로 시험 상태를 blocked로 유지한다.
 
 소유 자원은 모두 제거했다. pnpm check304·새31+기존13 Python회귀, 실제 과거11+1/6+6와 새 고정 분석/closing 감사, 기존 S2 입력2,385파일 불변을 확인했다. 실제 모델/provider/본 비교0, 공유 lifecycle·제품·평가기·모델/B/C 불변이다. 다음은 부분 결과/추가 투자 가치 리뷰이며 같은 후보의 미세 조정은 자동 반복하지 않는다. 새로운 실행 경계·영구 cache/VM·추가 권한·실자격 증명/모델 연결로 확대하지 않는다. R11 unresolved·R12 기존 범위·production/live 거부·trialAuthorized/readyForTrial=false·results=null을 유지한다.
+
+## ADR-047 · 준비물 재사용과 공통 실행 운영 보완 승인 — 2026-11-14
+
+**사용자 결정:** [개발 지시](reviews/2026-11-14-s2-execution-lifecycle-instructions.md)에 따라 검증된 준비물 재사용, 실패 경로를 포함한 공통 실행 수명주기, 정책과 실행 식별자의 비교 기준을 새3시간 안에 구현·검증한다. 실제 자격 증명 전달·로그인/갱신·provider/model·본 비교는 결과 리뷰 뒤 결정한다.
+
+**근거와 구조:** 직전 후보는 커널 적용 전 동적 감독자 경로 차이로 거부됐고 실패 container 삭제가120초를 넘었다. 현재 경계의 불가능성을 입증한 결과가 아니므로 같은 Lima/VZ·containerd/nerdctl을 유지한다. 공개 불변 준비물만 hash/입력 검증 후 보관하고 회차 VM·실행 상태는 새로 만든다. 정지/삭제의 책임을 독립 공통 종료 경로에 두고 outcome·종료·삭제·수집을 분리한다. 전체 Spec은 사전 지정한 위치에서 검증된 소유 identity만 치환하며 후보 정책 차이는 기존 clone allow 한 행으로 제한한다. 기존 감사/시간 제한/collector를 재사용하고 공유 lifecycle의 영향 회귀를 수행한다.
+
+**상한과 순서:** 60분까지 로컬 구현/회귀,100분까지 준비,150분까지 실제 관찰,180분까지 검증·정리·보고다. 환경 준비 진입 시 한 번만 `min(진입+20분, 회차+100분)`을 고정한다. VM1개·준비물10GiB·fixture 최대8+원래/후보2·단위120초(80/30/10 배분)·유료0이다. 필수7단위와 로컬 실패 차단 회귀 후에만 정책 대조하며, 선택적인 실제 정리 실패 주입은 모든 다른 관찰 뒤 마지막에 둔다. 실패한 실제 단위의 자동 재시도/시간 초기화는 하지 않는다.
+
+**판정과 제외:** 구현 완료와 근거 있는 중단/회차 종료를 구분하고 정책 성공을 강제하지 않는다. 새 권한 차단에서 중단하며 준비물 보관을 상시 VM/세션 상태 재사용으로 확대하지 않는다. 제품/모델/B/C/평가 의미·배포 ID는 유지한다. R11 unresolved·R12 기존 범위·production/live 거부·trialAuthorized/readyForTrial=false·results=null이다. 이 ADR은 다음 작업 승인이고 구현 완료나 후속 연결 승인이 아니다.
