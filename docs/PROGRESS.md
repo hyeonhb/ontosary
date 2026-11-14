@@ -1,5 +1,7 @@
 # 현재 작업 상태 — 새 세션은 이 문서부터 읽기
 
+2026-11-14 사용자는 R13~R15 보완 지시 작성을 요청했다. [후속 지시](reviews/2026-11-14-s2-execution-lifecycle-fix-instructions.md)(ADR-049)는 PR #54의 이미지 조회 선행(R14), 고정 PATH와 엄격한 hook 환경 대조(R13), 검증된 수집 결과만 export(R15)를 정한다. 직전과 같은3시간 상한·로컬 회귀 우선·새 VM1개·기본 정책 필수7단위로 제한하고 선택적 실패 주입/정책 대조는 결과 리뷰 뒤로 둔다. 이번은 지시 작성이며 구현/VM 시험은 미실행이다. 작성 후 pnpm check304테스트·타입 검사·예제 build와 변경 문서의 로컬 링크252개를 확인했다. 제품/실험 코드는 변경하지 않았다. PR #54 보완은 게시 후 독립 리뷰를 기다리며 R11 unresolved·production/live 차단·실제 credential/model/본 비교 보류를 유지한다.
+
 2026-11-14 공통 실행 보완 독립 리뷰: [PR #54 head f6fc386 검토](reviews/2026-11-14-s2-execution-lifecycle-independent-review.md)는 부분 완료·blocked/inconclusive에 동의하며 R13(runtime PATH로 보안 기능 탐지 실패), R14(이미지 조회 전 무조건 build), R15(거부된 원본을 export가 다시 수집)의 보완을 요구한다. cache 복구 뒤 해당 head에서도 pnpm check304·Python116·저장 증거 재현이 통과했다. final-source65파일 일치·최초2945파일 중 허용17변경·보관 준비물4개 hash를 확인했다. 실제 시도1/start0/필수7 기대통과0, 삭제0.854초/봉인1.236초만 검증됐으며 새 VM/정책 시험은 하지 않았다. PR #54는 미병합, R11/production/live 차단과 실제 credential/model/본 비교 보류를 유지한다. 아래는 당시 기록이다.
 
 2026-11-14 후속 검증: 사용자 요청으로 누락된 Vendure 임시 cache의 고정 검증 입력만 복구했다. [복구 기록](reviews/evidence/2026-11-14-vendure-cache-recovery.json)에 따라 원본 inventory와 npm integrity/파일 hash를 대조해6,106파일·84,396,041바이트를 추가했고 기존 파일/링크를 덮어쓰지 않았다. 전체 설치·lifecycle script 실행은0회다. V2 원본4,735항목·Program1,638파일·진단0·anchor/input valid와 pnpm check304(skip0)·타입·예제 build 통과를 확인했다. 아래 지시 작성 당시의300통과/4실패 기록은 보존한다. PR #53의 검증 차단은 해소됐으며 새 lifecycle 구현의 검토와는 별개다.

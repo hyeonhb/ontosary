@@ -1,5 +1,7 @@
 # 단계별 계획
 
+2026-11-14 다음 우선순위: [R13~R15 보완](reviews/2026-11-14-s2-execution-lifecycle-fix-instructions.md)(ADR-049). 준비 진입점의 cache hit/build 분기와 collector→export 통합 회귀를 먼저 검증하고, 고정 runtime PATH에서 보안 Spec이 유지되는지 같은 기본 정책의7단위로 확인한다. 직전과 같은3시간 상한으로 한정하며 새 권한/backend·조건부 정책 대조·실제 인증/model·본 비교는 결과 리뷰 뒤 결정한다. 제품/모델/FCA/평가 의미는 유지한다.
+
 2026-11-14 현재 우선순위는 **[검증된 준비물 재사용과 공통 실행 운영 보완](reviews/2026-11-14-s2-execution-lifecycle-instructions.md)**이다(ADR-047). 동일 컨테이너 경계에서 새3시간을 상한으로 cache·실패 정리·정책/identity 계약을 검증한다. 로컬/실제 lifecycle 검증을 먼저 통과한 경우에만 원래1/후보1 대조를 진행하고, 다음 권한 차단에서는 중단한다. 운영 보완 완료와 정책 관찰을 구분하며 실제 인증·모델·본 비교는 결과 리뷰 뒤 결정한다. 상시 VM/새 backend/추가 권한 확대는 이번 범위가 아니다. R11 unresolved·H-O/H-F 미검증을 유지한다. 아래는 당시 우선순위다.
 
 2026-11-12 현재 우선순위는 **[정책 재시도의 부분 결과](reviews/2026-11-12-s2-policy-retry.md)와 추가 투자 가치 리뷰**다(ADR-046). 감사/deadline 두 보완은 통과했지만 후보는 미등록 감독자 hook 경로 때문에 시작되지 않았고 실패 container 삭제도120초를 넘었다. 같은 후보의 경로 치환/재시도를 자동 반복하지 않는다. 계속할 때 identity 사전 계약과 즉시 실패 정리 경로를 함께 검토하고, 실행 경계/환경 운영 방식 변경은 사용자와 별도로 결정한다. 새 구조/영구 cache·VM·실제 credential/provider/model·본 비교 승인은 아니다. R11 unresolved·H-O/H-F 미검증을 유지한다.
