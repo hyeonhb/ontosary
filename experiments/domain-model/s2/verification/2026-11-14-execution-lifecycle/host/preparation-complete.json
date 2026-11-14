@@ -1,0 +1,14 @@
+{
+  "seconds": 590.3533045000222,
+  "storeBytes": 1706234324,
+  "actualImage": {
+    "chain": "sha256:3b5f9851906e2c4005a4f4ee0055626d8d719e61e060244b6f96e6a69cf8f7ee",
+    "config": "sha256:e3ab6ef0491100a63b97719f8dd7e7c12e682485b887eb2a2421c85963508f6d",
+    "name": "docker.io/library/ontosary-s2-execution:trace",
+    "platform": "linux/arm64",
+    "target": "sha256:64e3601e5f0cb3d8e48f0c1e3206ca952e276a5c16b7368b356cbaf3ba18293e"
+  },
+  "vmRegistrations": 1,
+  "workUnits": 0,
+  "environmentRemainingSeconds": 609.6463027499849
+}

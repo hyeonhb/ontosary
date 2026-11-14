@@ -1,0 +1,78 @@
+Already up to date
+Done in 210ms using pnpm v11.19.0
+$ pnpm typecheck && pnpm test && pnpm example:build
+$ tsc --noEmit -p tsconfig.json && tsc --noEmit -p examples/react-vite/tsconfig.json && tsc --noEmit -p experiments/domain-model/s2/tsconfig.json
+$ pnpm build && vitest run
+$ tsc -p tsconfig.json && node -e "require('node:fs').chmodSync('dist/cli/index.js', 0o755)"
+
+ RUN  v5.1.0 /Users/hyeon/toys/ontosary
+
+ ❯ tests/domain-model-v2.test.ts (11 tests | 4 failed) 1614ms
+   ❯ V2 validator CLI on pinned prepared cache (read-only) (5)
+     × accepts intact analysis inputs and anchors 453ms
+     × anchor-only mode never grants full validity 607ms
+     × target-only edit is caught while occurrence anchors stay intact 1ms
+     × source edits invalidate both anchor and input checks 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/domain-model-v2.test.ts > V2 validator CLI on pinned prepared cache (read-only) > accepts intact analysis inputs and anchors
+AssertionError: expected 1 to be +0 // Object.is equality
+
+- Expected
++ Received
+
+- 0
++ 1
+
+ ❯ tests/domain-model-v2.test.ts:24:88
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  tests/domain-model-v2.test.ts > V2 validator CLI on pinned prepared cache (read-only) > anchor-only mode never grants full validity
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ tests/domain-model-v2.test.ts:25:113
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  tests/domain-model-v2.test.ts > V2 validator CLI on pinned prepared cache (read-only) > target-only edit is caught while occurrence anchors stay intact
+Error: ENOENT: no such file or directory, copyfile '/tmp/ontosary-vendure-preparation-20261108/vendure/package-lock.json' -> '/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/ontosary-v2-cVO47E/package-lock.json'
+ ❯ tests/domain-model-v2.test.ts:28:137
+     26|  it('target-only edit is caught while occurrence anchors stay intact',…
+     27|   const m=JSON.parse(fs.readFileSync('experiments/domain-model/v1/mani…
+     28|   for(const file of Object.keys(m.inputHashes)){const dest=path.join(s…
+       |                                                                                                                                         ^
+     29|   const file='packages/admin-ui/src/lib/core/src/providers/modal/modal…
+     30|   fs.writeFileSync(dest,text.replaceAll('fromComponent','renamedCompon…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  tests/domain-model-v2.test.ts > V2 validator CLI on pinned prepared cache (read-only) > source edits invalidate both anchor and input checks
+Error: ENOENT: no such file or directory, open '/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/ontosary-v2-cVO47E/packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts'
+ ❯ tests/domain-model-v2.test.ts:36:124
+     34|  it('missing resolution configuration is not success',()=>{const r=run…
+     35|  it('source edits invalidate both anchor and input checks',()=>{
+     36|   const file=path.join(scratch,'packages/admin-ui/src/lib/order/src/co…
+       |                                                                                                                            ^
+     37|   const r=run(scratch);expect(r.anchorValid).toBe(false);expect(r.anal…
+     38|  });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+
+
+ Test Files  1 failed | 15 passed (16)
+      Tests  4 failed | 300 passed (304)
+   Start at  15:15:59
+   Duration  13.22s (tests 89%, import 10%, transform 1%)
+
+[ELIFECYCLE] Test failed. See above for more details.
+[ELIFECYCLE] Command failed with exit code 1.

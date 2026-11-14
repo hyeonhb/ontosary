@@ -1,0 +1,57 @@
+--- expected
+
++++ actual
+
+@@ -16,9 +16,9 @@
+
+     "nerdctl/mounts.3": "{\"Destination\": \"/home/runner/cli-state\", \"Mode\": \"rbind\", \"Propagation\": \"\", \"RW\": true, \"Source\": \"<role:/home/runner/cli-state>\", \"Type\": \"bind\"}",
+     "nerdctl/mounts.4": "{\"Destination\": \"/home/worker\", \"Mode\": \"rbind\", \"Propagation\": \"\", \"RW\": true, \"Source\": \"<role:/home/worker>\", \"Type\": \"bind\"}",
+     "nerdctl/mounts.5": "{\"Destination\": \"/scratch\", \"Mode\": \"rbind\", \"Propagation\": \"\", \"RW\": true, \"Source\": \"<role:/scratch>\", \"Type\": \"bind\"}",
+-    "nerdctl/mounts.6": "{\"Destination\": \"/materials\", \"Mode\": \"rbind,rprivate,rro\", \"Propagation\": \"rprivate\", \"RW\": false, \"Source\": \"<role:/materials>\", \"Type\": \"bind\"}",
+-    "nerdctl/mounts.7": "{\"Destination\": \"/probe\", \"Mode\": \"rbind,rprivate,rro\", \"Propagation\": \"rprivate\", \"RW\": false, \"Source\": \"<role:/probe>\", \"Type\": \"bind\"}",
+-    "nerdctl/mounts.8": "{\"Destination\": \"/home/runner/cli-state/config.toml\", \"Mode\": \"rbind,rprivate,rro\", \"Propagation\": \"rprivate\", \"RW\": false, \"Source\": \"<role:/home/runner/cli-state/config.toml>\", \"Type\": \"bind\"}",
++    "nerdctl/mounts.6": "{\"Destination\": \"/materials\", \"Mode\": \"rbind,rprivate,ro\", \"Propagation\": \"rprivate\", \"RW\": false, \"Source\": \"<role:/materials>\", \"Type\": \"bind\"}",
++    "nerdctl/mounts.7": "{\"Destination\": \"/probe\", \"Mode\": \"rbind,rprivate,ro\", \"Propagation\": \"rprivate\", \"RW\": false, \"Source\": \"<role:/probe>\", \"Type\": \"bind\"}",
++    "nerdctl/mounts.8": "{\"Destination\": \"/home/runner/cli-state/config.toml\", \"Mode\": \"rbind,rprivate,ro\", \"Propagation\": \"rprivate\", \"RW\": false, \"Source\": \"<role:/home/runner/cli-state/config.toml>\", \"Type\": \"bind\"}",
+     "nerdctl/name": "<name>",
+     "nerdctl/namespace": "default",
+     "nerdctl/networks": "[\"none\"]",
+@@ -855,7 +855,7 @@
+
+       "options": [
+         "rbind",
+         "rprivate",
+-        "rro"
++        "ro"
+       ],
+       "source": "<role:/home/runner/cli-state/config.toml>",
+       "type": "bind"
+@@ -874,7 +874,7 @@
+
+       "options": [
+         "rbind",
+         "rprivate",
+-        "rro"
++        "ro"
+       ],
+       "source": "<role:/materials>",
+       "type": "bind"
+@@ -893,7 +893,7 @@
+
+       "options": [
+         "rbind",
+         "rprivate",
+-        "rro"
++        "ro"
+       ],
+       "source": "<role:/probe>",
+       "type": "bind"
+@@ -963,7 +963,6 @@
+
+   ],
+   "ociVersion": "1.3.0",
+   "process": {
+-    "apparmorProfile": "nerdctl-default",
+     "args": [
+       "node",
+       "/probe/fixture.mjs",

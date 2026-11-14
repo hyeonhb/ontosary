@@ -1,5 +1,7 @@
 # 단계별 계획
 
+2026-11-14 현재 다음 단계는 [수명주기 부분 결과](reviews/2026-11-14-s2-execution-lifecycle.md)(ADR-048)의 **독립 리뷰**다. 준비물 재사용·로컬 계약과 실제 사전 비교 실패의 신속한 삭제는 확인했지만 필수7단위 중 기대 결과 통과는0이다. AppArmor/rro를 보존하지 못한 최소 runtime 환경과 남은 실패 경로를 먼저 검토한다. 원래/후보 정책 대조·권한 확대·다른 backend·모델/본 비교를 자동 재개하지 않는다. 기존 Vendure cache 누락 때문에 pnpm check도300통과/4실패로 미완료이며 PR 병합은 보류한다. R11 unresolved와 R12 기존 범위, trialAuthorized/readyForTrial=false·results=null을 유지한다.
+
 2026-11-12 현재 우선순위는 **[정책 재시도의 부분 결과](reviews/2026-11-12-s2-policy-retry.md)와 추가 투자 가치 리뷰**다(ADR-046). 감사/deadline 두 보완은 통과했지만 후보는 미등록 감독자 hook 경로 때문에 시작되지 않았고 실패 container 삭제도120초를 넘었다. 같은 후보의 경로 치환/재시도를 자동 반복하지 않는다. 계속할 때 identity 사전 계약과 즉시 실패 정리 경로를 함께 검토하고, 실행 경계/환경 운영 방식 변경은 사용자와 별도로 결정한다. 새 구조/영구 cache·VM·실제 credential/provider/model·본 비교 승인은 아니다. R11 unresolved·H-O/H-F 미검증을 유지한다.
 
 2026-11-12 현재 우선순위: [감사·시간 제한 보완 및 정책 시험 재개](reviews/2026-11-12-s2-policy-retry-instructions.md)(ADR-045). 새45분 회차에서 두 결함의 실제 진입점/국소 테스트를 먼저 통과시키고 승인된 정책 한 행만 시험한다. 이번에도 환경에서 멈추거나 다음 권한 차단이 나타나면 같은 후보의 미세 조정을 자동 반복하지 않고 비용·판별한 사실을 바탕으로 실행 경계/환경 운영 방식을 사용자와 재판단한다. 새로운 구조 채택은 아직 승인되지 않았다. 추가 권한·credential/provider/model·본 비교와 R11/production 차단은 유지한다. 아래는 당시 우선순위다.

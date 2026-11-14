@@ -44,6 +44,10 @@ def verify_index(root):
   for row in s['closing']:
    assert {'phase':row['phase'],'command':row['command']} in s['closingAllowed'],'closing-command-not-allowed'
    meta=json.loads((root/'snapshots'/(row['id']+'.json')).read_text());assert meta.get('category')=='closing' and meta.get('phase')==row['phase'] and meta['command']==row['command'],'closing-registration-mismatch'
+ if 'analysisAllowed' in s:
+  for row in s['analysis']:
+   meta=json.loads((root/'snapshots'/(row['id']+'.json')).read_text())
+   assert meta.get('category')=='analysis' and {'phase':meta.get('phase'),'command':meta['command']} in s['analysisAllowed'],'analysis-registration-mismatch'
  return {'files':len(inventory(root)['files']),'analysis':len(s['analysis']),'closing':len(s['closing'])}
 
 def registered_scope(work):
@@ -53,4 +57,10 @@ def registered_scope(work):
   meta=json.loads((work/'snapshots'/(row['id']+'.json')).read_text())
   assert meta.get('category')=='closing' and meta.get('phase')==row['phase'] and meta['command']==row['command'],'closing-registration-mismatch'
  classify(work/'snapshots',analysis,closing)
- return {'analysis':analysis,'closing':closing,'closingAllowed':plan['closingAllowed']}
+ result={'analysis':analysis,'closing':closing,'closingAllowed':plan['closingAllowed']}
+ if 'analysisAllowed' in plan:
+  for row in analysis:
+   meta=json.loads((work/'snapshots'/(row['id']+'.json')).read_text())
+   assert meta.get('category')=='analysis' and {'phase':meta.get('phase'),'command':meta['command']} in plan['analysisAllowed'],'analysis-registration-mismatch'
+  result['analysisAllowed']=plan['analysisAllowed']
+ return result

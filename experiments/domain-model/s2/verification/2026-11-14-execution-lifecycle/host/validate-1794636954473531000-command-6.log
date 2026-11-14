@@ -1,0 +1,21 @@
+test_empty_parent_does_not_settle_an_unknown_exec_request (test_cleanup.CleanupTests.test_empty_parent_does_not_settle_an_unknown_exec_request) ... ok
+test_manual_cleanup_cannot_preempt_systemd_success (test_cleanup.CleanupTests.test_manual_cleanup_cannot_preempt_systemd_success) ... ok
+test_service_death_revokes_already_published_result (test_cleanup.CleanupTests.test_service_death_revokes_already_published_result) ... ok
+test_byte_limit (test_collector.CollectorTests.test_byte_limit) ... ok
+test_complete_bytes_delta_and_diagnostic (test_collector.CollectorTests.test_complete_bytes_delta_and_diagnostic) ... ok
+test_copy_failure_never_publishes (test_collector.CollectorTests.test_copy_failure_never_publishes) ... ok
+test_depth_limit (test_collector.CollectorTests.test_depth_limit) ... ok
+test_expired_collection_deadline (test_collector.CollectorTests.test_expired_collection_deadline) ... ok
+test_fifo_rejected_without_open (test_collector.CollectorTests.test_fifo_rejected_without_open) ... ok
+test_file_limit (test_collector.CollectorTests.test_file_limit) ... ok
+test_hardlink (test_collector.CollectorTests.test_hardlink) ... ok
+test_mismatched_run_or_paths (test_collector.CollectorTests.test_mismatched_run_or_paths) ... ok
+test_pending_runtime_request (test_collector.CollectorTests.test_pending_runtime_request) ... ok
+test_socket (test_collector.CollectorTests.test_socket) ... ok
+test_symlink_does_not_copy_external_secret (test_collector.CollectorTests.test_symlink_does_not_copy_external_secret) ... ok
+test_unconfirmed (test_collector.CollectorTests.test_unconfirmed) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.067s
+
+OK
