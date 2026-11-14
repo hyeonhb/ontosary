@@ -1,0 +1,84 @@
+test_build_input_mismatch (test_artifacts.ArtifactTests.test_build_input_mismatch) ... ok
+test_capacity_before_producer (test_artifacts.ArtifactTests.test_capacity_before_producer) ... ok
+test_corruption_is_not_recertified (test_artifacts.ArtifactTests.test_corruption_is_not_recertified) ... ok
+test_deadline (test_artifacts.ArtifactTests.test_deadline) ... ok
+test_hit_rehash_skips_producer (test_artifacts.ArtifactTests.test_hit_rehash_skips_producer) ... ok
+test_missing (test_artifacts.ArtifactTests.test_missing) ... ok
+test_partial_cleaned (test_artifacts.ArtifactTests.test_partial_cleaned) ... ok
+test_producer_failure_cleaned (test_artifacts.ArtifactTests.test_producer_failure_cleaned) ... ok
+test_registration_incomplete (test_artifacts.ArtifactTests.test_registration_incomplete) ... ok
+test_symlink_rejected (test_artifacts.ArtifactTests.test_symlink_rejected) ... ok
+test_unowned_partial_counts_capacity (test_artifacts.ArtifactTests.test_unowned_partial_counts_capacity) ... ok
+test_version_mismatch (test_artifacts.ArtifactTests.test_version_mismatch) ... ok
+test_collector_failure_blocks (test_engine.EngineTests.test_collector_failure_blocks) ... ok
+test_create_nonzero_reconciles_resource (test_engine.EngineTests.test_create_nonzero_reconciles_resource) ... ok
+test_duplicate_cleanup_single_publication (test_engine.EngineTests.test_duplicate_cleanup_single_publication) ... ok
+test_expired_work_request_not_dispatched (test_engine.EngineTests.test_expired_work_request_not_dispatched) ... ok
+test_foreign_container_never_deleted (test_engine.EngineTests.test_foreign_container_never_deleted) ... ok
+test_normal_delete_before_collect_and_seal (test_engine.EngineTests.test_normal_delete_before_collect_and_seal) ... ok
+test_pending_never_absent_by_missing_id (test_engine.EngineTests.test_pending_never_absent_by_missing_id) ... ok
+test_precheck_rejection_no_result_explicit_recovery (test_engine.EngineTests.test_precheck_rejection_no_result_explicit_recovery) ... ok
+test_query_error_not_absence (test_engine.EngineTests.test_query_error_not_absence) ... ok
+test_remove_error_not_absence (test_engine.EngineTests.test_remove_error_not_absence) ... ok
+test_start_failure_cleanup (test_engine.EngineTests.test_start_failure_cleanup) ... ok
+test_start_failure_settled_only_after_inspect (test_engine.EngineTests.test_start_failure_settled_only_after_inspect) ... ok
+test_supervisor_death_suppressed (test_engine.EngineTests.test_supervisor_death_suppressed) ... ok
+test_timeout_diagnostic (test_engine.EngineTests.test_timeout_diagnostic) ... ok
+test_timeout_request_remains_pending (test_engine.EngineTests.test_timeout_request_remains_pending) ... ok
+test_wrapper_death_diagnostic (test_engine.EngineTests.test_wrapper_death_diagnostic) ... ok
+test_entrypoint (unittest.loader._FailedTest.test_entrypoint) ... ERROR
+test_duplicate_env (test_identity.IdentityTests.test_duplicate_env) ... ok
+test_duplicate_mount (test_identity.IdentityTests.test_duplicate_mount) ... ok
+test_extra_command (test_identity.IdentityTests.test_extra_command) ... ok
+test_extra_hook (test_identity.IdentityTests.test_extra_hook) ... ok
+test_extra_privilege (test_identity.IdentityTests.test_extra_privilege) ... ok
+test_extra_seccomp (test_identity.IdentityTests.test_extra_seccomp) ... ok
+test_hook_command_rejected (test_identity.IdentityTests.test_hook_command_rejected) ... ok
+test_independent_peer_order (test_identity.IdentityTests.test_independent_peer_order) ... ok
+test_input_mismatch (test_identity.IdentityTests.test_input_mismatch) ... ok
+test_nested_mount_reorder_rejected (test_identity.IdentityTests.test_nested_mount_reorder_rejected) ... ok
+test_other_run_path (test_identity.IdentityTests.test_other_run_path) ... ok
+test_other_supervisor_pressure_path (test_identity.IdentityTests.test_other_supervisor_pressure_path) ... ok
+test_outside_mount (test_identity.IdentityTests.test_outside_mount) ... ok
+test_raw_historical_duplicates_rejected (test_identity.IdentityTests.test_raw_historical_duplicates_rejected) ... ok
+test_saved_pair_explicit_environment_migration (test_identity.IdentityTests.test_saved_pair_explicit_environment_migration) ... ok
+test_runtime_cli (unittest.loader._FailedTest.test_runtime_cli) ... ERROR
+
+======================================================================
+ERROR: test_entrypoint (unittest.loader._FailedTest.test_entrypoint)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_entrypoint
+Traceback (most recent call last):
+  File "/Users/hyeon/.pyenv/versions/3.12.10/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/hyeon/.pyenv/versions/3.12.10/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/test_entrypoint.py", line 4, in <module>
+    root=pathlib.Path(os.environ['S2_TEST_ROOT']);e.c.ROOT=root;e.UNITS=root/'units';e.SHARED=root/'shared'
+                      ~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "<frozen os>", line 714, in __getitem__
+KeyError: 'S2_TEST_ROOT'
+
+
+======================================================================
+ERROR: test_runtime_cli (unittest.loader._FailedTest.test_runtime_cli)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_runtime_cli
+Traceback (most recent call last):
+  File "/Users/hyeon/.pyenv/versions/3.12.10/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/hyeon/.pyenv/versions/3.12.10/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/test_runtime_cli.py", line 3, in <module>
+    root=pathlib.Path(os.environ['S2_TEST_ROOT']);db=root/'fake.json';s=json.loads(db.read_text());args=sys.argv[1:]
+                      ~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "<frozen os>", line 714, in __getitem__
+KeyError: 'S2_TEST_ROOT'
+
+
+----------------------------------------------------------------------
+Ran 45 tests in 3.469s
+
+FAILED (errors=2)

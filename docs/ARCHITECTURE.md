@@ -1,5 +1,7 @@
 # 현재 아키텍처
 
+2026-11-14 [공통 수명주기 부분 구현](reviews/2026-11-14-s2-execution-lifecycle.md)(ADR-048): 실험 내부 `execution-lifecycle/`가 불변 공개 artifact 보관, 실행별 stop/settle/remove/collect, 소유 관계 검증 후 전체 Spec 비교를 분리한다. 기존 cgroup 확인·bounded collector와 snapshot/deadline/package를 재사용하고, 선택적 deadline/env 인자의 기존 기본값을 유지한다. ExecStopPost와 별도 게스트 observer가 삭제·service inactivity/단위 파일 정리를 확인한다. 실제로는 첫 생성 단위의 사전 비교 실패만 삭제0.854초에 확인했다. 최소 runtime 환경에서 AppArmor가 빠지고 rro가 ro로 달라져 시작을 거부했으므로 전체 lifecycle/CLI 경계는 미검증이다. 4개 공개 archive만 보관하고 VM/writable 상태는 폐기했다. 제품·모델·평가 의미와 production/live 거부는 유지한다. 아래는 각 회차의 당시 설명이다.
+
 2026-11-12 [재시도 결과](reviews/2026-11-12-s2-policy-retry.md)(ADR-046): closing은 정확한 command/args/phase와 생성 시 ID/hash 등록을 요구하며 package는 분석+등록 집합 밖 파일을 거부하고 검증된 staging만 공개한다. 준비 제한은 최초20분의 UTC/host monotonic 잔여를 공유한다. 실제 원래 단위는 기존 종료 도구로1.722초 내 삭제·수집했고, 후보는 strict OCI gate에서 미등록 hook 환경 경로로 시작 전 차단됐다. 후보 전체 종료 확인은0.275초였지만 삭제181.412초로120초 외부 계약에 미달한다. 따라서 새 도구는 진단 fixture이며 검증된 runtime adapter/R11 해결이 아니다. 공유 lifecycle/제품/평가 계약은 유지한다.
 
 2026-11-12 승인된 국소 보완(ADR-045): [재개 지시](reviews/2026-11-12-s2-policy-retry-instructions.md)는 분석 밖 snapshot의 자동 closing 편입을 명시적 명령/단계/ID/hash 등록으로 바꾸고, 실제 package가 미등록 항목을 거부하도록 요구한다. 환경 준비의 중첩 제한은 같은 호스트 절대 마감에서 실행 직전 잔여를 전달한다. 이후 동일 이미지/trace의 원래 정책과 정확한 clone allow 한 행 후보를 대조한다. 이는 다음 구현 계약이며 아직 보완 결과가 아니다. 영구 cache/VM·실행 경계 개편은 별도 논의 대상으로, 이번에 도입하지 않는다.

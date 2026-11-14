@@ -1,0 +1,13 @@
+{
+  "initialAndFinalFailureNamesEqual": true,
+  "failureNames": [
+    "tests/domain-model-v2.test.ts > V2 validator CLI on pinned prepared cache (read-only) > accepts intact analysis inputs and anchors",
+    "tests/domain-model-v2.test.ts > V2 validator CLI on pinned prepared cache (read-only) > anchor-only mode never grants full validity",
+    "tests/domain-model-v2.test.ts > V2 validator CLI on pinned prepared cache (read-only) > target-only edit is caught while occurrence anchors stay intact",
+    "tests/domain-model-v2.test.ts > V2 validator CLI on pinned prepared cache (read-only) > source edits invalidate both anchor and input checks"
+  ],
+  "testsPassed": 300,
+  "testsFailed": 4,
+  "typecheckPassed": true,
+  "testInputsModified": false
+}

@@ -1,0 +1,11 @@
+Already up to date
+Done in 226ms using pnpm v11.19.0
+
+ RUN  v5.1.0 /Users/hyeon/toys/ontosary
+
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  14:58:46
+   Duration  351ms (import 78%, transform 20%, tests 1%, worker 1%)
+

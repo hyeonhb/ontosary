@@ -1,0 +1,65 @@
+[
+  {
+    "request": {
+      "name": "lima-2.3.0-Darwin-arm64",
+      "url": "https://github.com/lima-vm/lima/releases/download/v2.3.0/lima-2.3.0-Darwin-arm64.tar.gz",
+      "sha256": "b7af444bd8f91d3c307477e562f2cf3bd7595d62b9429185e4fa841563578cfc",
+      "maximumBytes": 55000000,
+      "version": "2.3.0",
+      "platform": "darwin/arm64",
+      "buildInputHashes": {}
+    },
+    "actual": {
+      "sha256": "b7af444bd8f91d3c307477e562f2cf3bd7595d62b9429185e4fa841563578cfc",
+      "bytes": 50317981
+    },
+    "ownerUid": 501,
+    "registeredAtMono": 175768.197831333,
+    "path": "/Users/hyeon/Library/Caches/ontosary/s2-prepared-v1/b7af444bd8f91d3c307477e562f2cf3bd7595d62b9429185e4fa841563578cfc/data",
+    "cacheHit": false,
+    "verifiedAtMono": 175768.198608083,
+    "firstUseSeconds": 15.411782666982617
+  },
+  {
+    "request": {
+      "name": "ubuntu-26.04-20261016-arm64",
+      "url": "https://cloud-images.ubuntu.com/releases/resolute/release-20261016/ubuntu-26.04-server-cloudimg-arm64.img",
+      "sha256": "8eb876c2ccc4b6ff89e4a65d511815923b285e04503ba465809bf587f763da24",
+      "bytes": 940373504,
+      "version": "26.04-20261016",
+      "platform": "linux/arm64",
+      "buildInputHashes": {}
+    },
+    "actual": {
+      "sha256": "8eb876c2ccc4b6ff89e4a65d511815923b285e04503ba465809bf587f763da24",
+      "bytes": 940373504
+    },
+    "ownerUid": 501,
+    "registeredAtMono": 176116.453985291,
+    "path": "/Users/hyeon/Library/Caches/ontosary/s2-prepared-v1/8eb876c2ccc4b6ff89e4a65d511815923b285e04503ba465809bf587f763da24/data",
+    "cacheHit": false,
+    "verifiedAtMono": 176116.455347375,
+    "firstUseSeconds": 348.2565990410221
+  },
+  {
+    "request": {
+      "name": "nerdctl-full-2.4.2-linux-arm64",
+      "url": "https://github.com/containerd/nerdctl/releases/download/v2.4.2/nerdctl-full-2.4.2-linux-arm64.tar.gz",
+      "sha256": "fe0ef0e9840ee8932640e6058f84b7fa98050f9726e44af44883a5b804ae830e",
+      "bytes": 270513423,
+      "version": "2.4.2",
+      "platform": "linux/arm64",
+      "buildInputHashes": {}
+    },
+    "actual": {
+      "sha256": "fe0ef0e9840ee8932640e6058f84b7fa98050f9726e44af44883a5b804ae830e",
+      "bytes": 270513423
+    },
+    "ownerUid": 501,
+    "registeredAtMono": 176193.050174791,
+    "path": "/Users/hyeon/Library/Caches/ontosary/s2-prepared-v1/fe0ef0e9840ee8932640e6058f84b7fa98050f9726e44af44883a5b804ae830e/data",
+    "cacheHit": false,
+    "verifiedAtMono": 176193.051019125,
+    "firstUseSeconds": 76.5953724590072
+  }
+]

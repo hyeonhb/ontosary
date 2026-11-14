@@ -1,0 +1,8 @@
+{
+  "utc": "2026-11-14T06:13:51.192098+00:00",
+  "scope": "host cleanup only after analysis freeze; no worker/identity/policy changes",
+  "reason": "limactl list succeeded with empty stdout and no-instance warning on stderr; earlier combined log assertion rejected warning",
+  "safeContinuation": "skip already removed VM; inspect separate stdout/stderr and owned registration directory before removing owned host root",
+  "runtimeRetries": 0,
+  "newRoundSourceSha256": "6174af4d771814abe08674c00782f18a8c59dac80b3099216403f08cbd4b5136"
+}

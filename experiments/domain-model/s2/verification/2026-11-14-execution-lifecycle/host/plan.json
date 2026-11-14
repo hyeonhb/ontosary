@@ -1,0 +1,176 @@
+{
+  "round": "2026-11-14-execution-lifecycle",
+  "baseline": "f62152194ffeac2ea9e203beca9fd37bab862e39",
+  "instructionHead": "191211d",
+  "source": "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle",
+  "sourceDirs": [
+    "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle",
+    "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/lifecycle",
+    "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/single-policy-test"
+  ],
+  "output": "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/verification/2026-11-14-execution-lifecycle",
+  "store": "/Users/hyeon/Library/Caches/ontosary/s2-prepared-v1",
+  "storeLimitBytes": 10737418240,
+  "vmRoot": "/tmp/ontosary-s2-execution-lifecycle-20261114",
+  "vmName": "s2-lifecycle",
+  "fixtures": [
+    "normal-1",
+    "precheck-rejection",
+    "start-failure",
+    "timeout",
+    "wrapper-death",
+    "supervisor-death",
+    "normal-2"
+  ],
+  "optionalRuntimeFailureFixture": false,
+  "conditionalPair": [
+    "baseline",
+    "candidate"
+  ],
+  "maximumVMs": 1,
+  "maximumUnits": 9,
+  "payloadSeconds": 15,
+  "phaseSeconds": {
+    "work": 80,
+    "remove": 110,
+    "finish": 120
+  },
+  "runtimeEnv": {
+    "HOME": "/root",
+    "LANG": "C.UTF-8"
+  },
+  "artifacts": [
+    {
+      "name": "lima-2.3.0-Darwin-arm64",
+      "estimatedBytes": 55000000
+    },
+    {
+      "name": "ubuntu-26.04-20261016-arm64",
+      "bytes": 940373504
+    },
+    {
+      "name": "nerdctl-full-2.4.2-linux-arm64",
+      "bytes": 270513423
+    },
+    {
+      "name": "ontosary-fixed-trace-image",
+      "maximumBytes": 6442450944
+    }
+  ],
+  "mutableScope": [
+    "experiments/domain-model/s2/trial/container/execution-lifecycle/",
+    "experiments/domain-model/s2/trial/container/lifecycle/common.py",
+    "experiments/domain-model/s2/trial/container/lifecycle/collector.py",
+    "experiments/domain-model/s2/trial/container/single-policy-test/snapshot.py",
+    "experiments/domain-model/s2/trial/container/single-policy-test/scope.py",
+    "experiments/domain-model/s2/trial/container/single-policy-test/package.py",
+    "experiments/domain-model/s2/trial/container/single-policy-test/runtime_policy.py",
+    "experiments/domain-model/s2/trial/container/single-policy-test/retry-job.py",
+    "experiments/domain-model/s2/trial/container/single-policy-test/retry-guest.py",
+    "experiments/domain-model/s2/trial/container/single-policy-test/retry-install.py",
+    "experiments/domain-model/s2/trial/container/single-policy-test/retry-remove.py",
+    "experiments/domain-model/s2/trial/container/single-policy-test/retry-export.py",
+    "experiments/domain-model/s2/trial/container/single-policy-test/README.md",
+    "docs/PROGRESS.md",
+    "docs/ARCHITECTURE.md",
+    "docs/ROADMAP.md",
+    "docs/DECISIONS.md",
+    "docs/reviews/REVIEW_CONTEXT.md",
+    "docs/reviews/2026-11-14-s2-execution-lifecycle.md",
+    "experiments/domain-model/s2/verification/2026-11-14-execution-lifecycle/"
+  ],
+  "analysisAllowed": [
+    {
+      "phase": "plan",
+      "command": [
+        "python3",
+        "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+        "local",
+        "--work",
+        "/Users/hyeon/toys/ontosary/work/s2-execution-lifecycle"
+      ]
+    },
+    {
+      "phase": "environment",
+      "command": [
+        "python3",
+        "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+        "prepare",
+        "--work",
+        "/Users/hyeon/toys/ontosary/work/s2-execution-lifecycle"
+      ]
+    },
+    {
+      "phase": "exploration",
+      "command": [
+        "python3",
+        "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+        "fixtures",
+        "--work",
+        "/Users/hyeon/toys/ontosary/work/s2-execution-lifecycle"
+      ]
+    },
+    {
+      "phase": "exploration",
+      "command": [
+        "python3",
+        "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+        "pair",
+        "--work",
+        "/Users/hyeon/toys/ontosary/work/s2-execution-lifecycle"
+      ]
+    },
+    {
+      "phase": "plan",
+      "command": [
+        "python3",
+        "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+        "enter-preparation",
+        "--work",
+        "/Users/hyeon/toys/ontosary/work/s2-execution-lifecycle"
+      ]
+    }
+  ],
+  "closingAllowed": [
+    {
+      "phase": "finish",
+      "command": [
+        "python3",
+        "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+        "cleanup",
+        "--work",
+        "/Users/hyeon/toys/ontosary/work/s2-execution-lifecycle"
+      ]
+    },
+    {
+      "phase": "finish",
+      "command": [
+        "python3",
+        "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+        "validate",
+        "--work",
+        "/Users/hyeon/toys/ontosary/work/s2-execution-lifecycle"
+      ]
+    },
+    {
+      "phase": "finish",
+      "command": [
+        "python3",
+        "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+        "seal",
+        "--work",
+        "/Users/hyeon/toys/ontosary/work/s2-execution-lifecycle"
+      ]
+    }
+  ],
+  "identityRules": "exact predeclared JSON positions; unique env keys; owned bind sources; mount order preserved; minimal explicit hook env, no inherited systemd env",
+  "recovery": "all failed outcomes retain failure; explicit recovery requires confirmed stop/removal/no pending/inactive services; unsettled runtime discards VM",
+  "preparedRetention": "verified public archives only; no VM/writable state; tmp only owned cleanup",
+  "paidCost": 0,
+  "fixtureOnly": true,
+  "validSubmission": false,
+  "trialAuthorized": false,
+  "readyForTrial": false,
+  "results": null,
+  "runtimeEnvironmentReason": "Pinned nerdctl appends PATH unconditionally. Omit PATH at runtime invocation; invoke binaries by absolute path; hook gets sole PATH=:/usr/sbin:/sbin. Runtime/hook working directory must be root-owned non-worker-writable. Reject duplicate keys including PATH. Other manager commands retain explicit system PATH."
+}

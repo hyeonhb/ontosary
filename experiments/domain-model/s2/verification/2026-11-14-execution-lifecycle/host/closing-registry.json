@@ -1,0 +1,54 @@
+[
+  {
+    "id": "1794636726875681000",
+    "manifestSha256": "ffb5316db105e1f2c45875225c17bfb6b888454e68d72c84240ce1da9f7abbbc",
+    "archiveSha256": "3ff37f468c4a57489260f2de2482bc72fe5c15e2bb0d65793029a5b956815d58",
+    "phase": "finish",
+    "command": [
+      "python3",
+      "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+      "cleanup",
+      "--work",
+      "/Users/hyeon/toys/ontosary/work/s2-execution-lifecycle"
+    ]
+  },
+  {
+    "id": "1794636831305883000",
+    "manifestSha256": "adb9da56ed188238c29a5a14b656bc3c4d3e37d6114ca54862f330ebb33b99f6",
+    "archiveSha256": "c7991872e632a0c93b27205bdb9ca262cae3e64daa2ddc5aa6e06655ea1ce794",
+    "phase": "finish",
+    "command": [
+      "python3",
+      "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+      "cleanup",
+      "--work",
+      "/Users/hyeon/toys/ontosary/work/s2-execution-lifecycle"
+    ]
+  },
+  {
+    "id": "1794636954393085000",
+    "manifestSha256": "30294b673d239664f65e0176c8869cccd4829f283e56fa8e38db3c0ce57bbd28",
+    "archiveSha256": "b7a617c94ed335613534db1091a29a992a42b70620c71d406c4b354e1ce28749",
+    "phase": "finish",
+    "command": [
+      "python3",
+      "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+      "validate",
+      "--work",
+      "/Users/hyeon/toys/ontosary/work/s2-execution-lifecycle"
+    ]
+  },
+  {
+    "id": "1794637406513210000",
+    "manifestSha256": "3d1bc1fd34727dee1dc97f1feef9db2c5b9b1c3106c7fe1857bd8ba91c316e75",
+    "archiveSha256": "73f772f64eea18ab20410c8c5402cdac7eb5cff1830e5d88a14a989aaa42cffc",
+    "phase": "finish",
+    "command": [
+      "python3",
+      "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+      "seal",
+      "--work",
+      "/Users/hyeon/toys/ontosary/work/s2-execution-lifecycle"
+    ]
+  }
+]

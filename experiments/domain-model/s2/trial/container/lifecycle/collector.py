@@ -64,7 +64,7 @@ def inventory(roots, destination=None, fail_after=None, deadline=None):
         finally:os.close(fd)
     return {'files':manifest,'directories':sorted(directories),'fileCount':count,'bytes':total}
 
-def collect(run, baseline, termination, fail_after=None):
+def collect(run, baseline, termination, fail_after=None, deadline=None):
     if termination.get('state')!='stopped-confirmed' or not termination.get('admissionClosed') or not termination.get('confirmed'):raise Rejected('termination-not-confirmed')
     current=json.loads((run/'state.json').read_text())
     if current['state']!='collecting' or not current.get('terminationConfirmed') or current.get('createPending') or current.get('startPending') or current.get('execPending'):raise Rejected('manager-state-not-collectible')
@@ -74,7 +74,7 @@ def collect(run, baseline, termination, fail_after=None):
     collection_started={'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'mono':time.monotonic()}
     staging=run/'staging';final=run/'result'
     if staging.exists() or final.exists():raise Rejected('output-exists')
-    staging.mkdir(mode=0o700);end=time.monotonic()+10
+    staging.mkdir(mode=0o700);end=min(time.monotonic()+10,deadline) if deadline is not None else time.monotonic()+10
     roots={n:run/n for n in ['source','auxiliary']}
     try:
         snapshot=inventory(roots,staging,fail_after,end)

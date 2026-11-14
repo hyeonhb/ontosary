@@ -15,9 +15,11 @@ def package(work,out):
   shutil.copytree(work/'snapshots',stage/'snapshots')
   base=pathlib.Path(plan['source'])
   with tarfile.open(stage/'final-source.tar.gz','w:gz') as t:
-   for p in sorted(base.iterdir()):
-    if p.is_file():
-     b=p.read_bytes();info=tarfile.TarInfo("single-policy-test/"+p.name);info.size=len(b);info.mode=0o644;t.addfile(info,io.BytesIO(b))
+   for directory in plan.get('sourceDirs',[str(base)]):
+    directory=pathlib.Path(directory)
+    for p in sorted(directory.iterdir()):
+     if p.is_file():
+      b=p.read_bytes();info=tarfile.TarInfo(directory.name+'/'+p.name);info.size=len(b);info.mode=0o644;t.addfile(info,io.BytesIO(b))
   (stage/'index.json').write_text(json.dumps(inventory(stage),indent=2)+'\n');result=verify_index(stage)
   assert not out.exists(),'output-created-concurrently';os.rename(stage,out)
  return result

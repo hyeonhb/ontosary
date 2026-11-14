@@ -373,3 +373,16 @@ ADR-041의 [진단](reviews/2026-11-11-s2-namespace-diagnosis.md)은 proposal-re
 원래 정책1회에서 parent 양성 동작과 namespace clone EPERM을 재현했다. 후보 created Spec의 seccomp는 승인된 한 행만 다르지만, 감독자 hook의 MEMORY_PRESSURE_WATCH 경로가 미리 허용한 identity 치환에 없어서 시작 전 거부했다. 그 항목을 사후 허용하거나 재시도하지 않았다. 후보 Spec 할당1/시작·커널 적용0이며 효과는 inconclusive다. 독립 cleanup의 종료 확인0.275초와 container 삭제181.412초를 구분한다. 삭제는120초 외부 계약 위반이므로 시험 상태를 blocked로 유지한다.
 
 소유 자원은 모두 제거했다. pnpm check304·새31+기존13 Python회귀, 실제 과거11+1/6+6와 새 고정 분석/closing 감사, 기존 S2 입력2,385파일 불변을 확인했다. 실제 모델/provider/본 비교0, 공유 lifecycle·제품·평가기·모델/B/C 불변이다. 다음은 부분 결과/추가 투자 가치 리뷰이며 같은 후보의 미세 조정은 자동 반복하지 않는다. 새로운 실행 경계·영구 cache/VM·추가 권한·실자격 증명/모델 연결로 확대하지 않는다. R11 unresolved·R12 기존 범위·production/live 거부·trialAuthorized/readyForTrial=false·results=null을 유지한다.
+
+
+## ADR-048 · 준비물 보관·공통 종료의 부분 구현과 보안 설정 차이 차단 — 2026-11-14
+
+사용자가 지정한 [ADR-047 승인 지시](https://github.com/hyeonhb/ontosary/blob/191211d21942137932d189e4229ddfb5d330fece/docs/reviews/2026-11-14-s2-execution-lifecycle-instructions.md)는 별도 docs 브랜치에 있다. main f621521에서 [새3시간 회차](reviews/2026-11-14-s2-execution-lifecycle.md)를 수행했고 그 worktree/과거 증거는 수정하지 않았다.
+
+공개 불변 archive의 전용10GiB 저장소와 실행별 독립 service/ExecStopPost·공통 삭제/수집, 소유 identity 검증 뒤 전체 Spec 비교를 실험 내부에 구현했다. 기존 cgroup/collector·snapshot/deadline/package를 재사용하며 과거 caller의 기본값과 회귀를 유지했다. 준비물4개의 실제 hash·입력 manifest 및 두 번째 다운로드/빌드 생략과 image import identity를 확인했다. VM/writable 상태를 보관하지 않는다. 이전 round 전용5개 retry entrypoint는 새 실행을 거부한다.
+
+최소 환경은 nerdctl의 중복 PATH/systemd 환경 문제를 피했지만 첫 정상 단위의 created Spec에 AppArmor가 없고3개 mount가 rro에서 ro로 바뀌었다. 보안 차이를 identity 예외로 정규화하지 않고 시작을 거부했다. 생성1/start0, 삭제0.854초/단위 봉인1.236초와 결과/다음 실행 차단을 확인했다. 필수7개 중 기대 결과 통과0이므로 **구현 완료로 판정하지 않는다**. 나머지6개·원래/후보 정책·실행 바이너리 identity는 미실행이며 같은 단위를 고쳐 재시도하지 않았다. 현재 outcome의 supervisor-death는 실제 SIGKILL 주입이 아니라 비교 예외에 따른 service 실패 분류라는 한계도 보존한다.
+
+Python116·production/live 거부·예제 build는 통과했다. pnpm check는 시작 때와 같은 기존 Vendure cache13파일 누락으로300통과/4실패이며 테스트 skip이나 cache 임의 복구를 하지 않았다. 따라서 결과는 개발 인계/독립 리뷰 대상으로 게시하고 필수 검사 미완료 상태에서 병합하지 않는다. 소유 VM/전용 임시 경로는 제거하고 검증된 준비물1.59GiB만 의도적으로 보관한다. 분석 동결 뒤 host 정리의 stdout/stderr 판독만 보완했으며 새 runtime 작업은 없다.
+
+다음은 최소 runtime 환경의 기능 보존과 남은 실제 실패 경로를 검토하는 것이다. 추가 권한·다른 backend·영구VM·API/proxy·실자격 증명·provider/model·본 비교를 자동 시작하지 않는다. R11 unresolved·R12 기존 범위·production/live 거부·fixtureOnly=true/validSubmission=false·trialAuthorized/readyForTrial=false·results=null을 유지한다.

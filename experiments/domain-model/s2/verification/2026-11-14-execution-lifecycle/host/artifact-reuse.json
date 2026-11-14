@@ -1,0 +1,71 @@
+[
+  {
+    "actual": {
+      "bytes": 50317981,
+      "sha256": "b7af444bd8f91d3c307477e562f2cf3bd7595d62b9429185e4fa841563578cfc"
+    },
+    "ownerUid": 501,
+    "registeredAtMono": 175768.197831333,
+    "request": {
+      "buildInputHashes": {},
+      "maximumBytes": 55000000,
+      "name": "lima-2.3.0-Darwin-arm64",
+      "platform": "darwin/arm64",
+      "sha256": "b7af444bd8f91d3c307477e562f2cf3bd7595d62b9429185e4fa841563578cfc",
+      "url": "https://github.com/lima-vm/lima/releases/download/v2.3.0/lima-2.3.0-Darwin-arm64.tar.gz",
+      "version": "2.3.0"
+    },
+    "path": "/Users/hyeon/Library/Caches/ontosary/s2-prepared-v1/b7af444bd8f91d3c307477e562f2cf3bd7595d62b9429185e4fa841563578cfc/data",
+    "cacheHit": true,
+    "verifiedAtMono": 176193.0789675,
+    "reuseSeconds": 0.02775349997682497,
+    "downloads": 0,
+    "builds": 0
+  },
+  {
+    "actual": {
+      "bytes": 940373504,
+      "sha256": "8eb876c2ccc4b6ff89e4a65d511815923b285e04503ba465809bf587f763da24"
+    },
+    "ownerUid": 501,
+    "registeredAtMono": 176116.453985291,
+    "request": {
+      "buildInputHashes": {},
+      "bytes": 940373504,
+      "name": "ubuntu-26.04-20261016-arm64",
+      "platform": "linux/arm64",
+      "sha256": "8eb876c2ccc4b6ff89e4a65d511815923b285e04503ba465809bf587f763da24",
+      "url": "https://cloud-images.ubuntu.com/releases/resolute/release-20261016/ubuntu-26.04-server-cloudimg-arm64.img",
+      "version": "26.04-20261016"
+    },
+    "path": "/Users/hyeon/Library/Caches/ontosary/s2-prepared-v1/8eb876c2ccc4b6ff89e4a65d511815923b285e04503ba465809bf587f763da24/data",
+    "cacheHit": true,
+    "verifiedAtMono": 176193.538218166,
+    "reuseSeconds": 0.4592381250113249,
+    "downloads": 0,
+    "builds": 0
+  },
+  {
+    "actual": {
+      "bytes": 270513423,
+      "sha256": "fe0ef0e9840ee8932640e6058f84b7fa98050f9726e44af44883a5b804ae830e"
+    },
+    "ownerUid": 501,
+    "registeredAtMono": 176193.050174791,
+    "request": {
+      "buildInputHashes": {},
+      "bytes": 270513423,
+      "name": "nerdctl-full-2.4.2-linux-arm64",
+      "platform": "linux/arm64",
+      "sha256": "fe0ef0e9840ee8932640e6058f84b7fa98050f9726e44af44883a5b804ae830e",
+      "url": "https://github.com/containerd/nerdctl/releases/download/v2.4.2/nerdctl-full-2.4.2-linux-arm64.tar.gz",
+      "version": "2.4.2"
+    },
+    "path": "/Users/hyeon/Library/Caches/ontosary/s2-prepared-v1/fe0ef0e9840ee8932640e6058f84b7fa98050f9726e44af44883a5b804ae830e/data",
+    "cacheHit": true,
+    "verifiedAtMono": 176193.665463458,
+    "reuseSeconds": 0.12724375000107102,
+    "downloads": 0,
+    "builds": 0
+  }
+]
