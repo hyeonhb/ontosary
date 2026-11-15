@@ -1,0 +1,25 @@
+{
+  "date": "2026-11-14T06:58:51.187703+00:00",
+  "purpose": "Restore only missing inputs for unchanged pinned V2 validation before PR 53 merge",
+  "sourceRevision": "534e6003534f74761e82de1b8c6061cba89945d1",
+  "source": "Local S2 source copy verified against frozen original inventory; required npm entries fetched from public registry with pinned integrity and historical file SHA-256 checks",
+  "restoredFiles": 6106,
+  "restoredBytes": 84396041,
+  "sourceInventoryEntries": 4735,
+  "programFiles": 1638,
+  "diagnostics": [],
+  "anchorValid": true,
+  "analysisInputsValid": true,
+  "wholeInstallPerformed": false,
+  "lifecycleScriptsExecuted": 0,
+  "existingFilesOverwritten": 0,
+  "existingSymlinksPreserved": true,
+  "checks": {
+    "pnpmCheck": "passed",
+    "tests": 304,
+    "skipped": 0,
+    "typecheck": "passed",
+    "exampleBuild": "passed"
+  },
+  "limitations": "This restores the frozen validator input closure, not a complete Vendure install or runnable application; historical failure evidence is preserved."
+}
