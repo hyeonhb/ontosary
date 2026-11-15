@@ -1,5 +1,7 @@
 # 독립 리뷰 맥락
 
+2026-11-15 [보완 결과](2026-11-15-s2-execution-lifecycle-fix.md)는 **부분 완료·blocked/inconclusive**다. PR #54 f6fc386에 main067c028을 통합했고 ADR-048/049를 보존했다. R14는 실제 prepare의 입력 key hit·build/download0·새 VM import identity로 확인됐다. R13은 도구 검사 응답/start gate 통과가 있으나 실제 raw Spec/도구 진단 archive가 없어 부분 완료다. 정상1은 exit0·삭제1.566초 뒤 `seal:inactive-deadline-unconfirmed`로 결과가 철회됐다. R15 export도 `file-owner:image-export.json`으로 차단돼 최종 guest archive가 없다. 필수7 중 시도1/기대통과0이며 나머지6·정책 pair·재시도는0이다. 로컬146회귀·pnpm check304와 원시 호스트 오류/상태·소유 VM 정리를 기준으로 리뷰한다. 실제 실패 뒤 helper를 수정하지 않았고 PR은 독립 결과 리뷰 전 병합하지 않는다.
+
 2026-11-14 현재 후속 지시는 [R13~R15 보완](2026-11-14-s2-execution-lifecycle-fix-instructions.md)(ADR-049)이다. PR #54 f6fc386을 이어 R14→R13→R15 로컬 통합 회귀와 같은 기본 정책7단위를 검증하며, 직전과 같은3시간 상한·VM1개를 적용한다. 정책 대조는 이번 범위에서 제외하고 보완 PR은 독립 리뷰 뒤 병합한다. cache 복구/PR #53·독립 리뷰 PR #55는 완료됐으며 실제 credential/model/본 비교 보류를 유지한다.
 
 2026-11-14 [공통 실행 보완 독립 리뷰](2026-11-14-s2-execution-lifecycle-independent-review.md): f6fc386(PR #54)의 부분 완료·시작 전 차단·자동 정리는 재현됐다. pnpm check304와 Python116이 통과했고 cache 누락은 PR #53 후속 복구로 해소됐다. R13은 PATH 제거로 nerdctl 내부 AppArmor/runc 탐지가 실패하는 코드 경로, R14는 warm cache에서도 build가 선행하는 실제 prepare 진입점, R15는 collector가 거부한 hardlink를 export가 포함하는 실제 진입점 재현이다. 세 보완 전 실제7단위 재개나 구현 완료를 승인하지 않는다. 새 VM/권한/credential/model 호출은0회, PR #54 미병합이며 backend 변경보다 해당 운영 코드 보완을 우선 권고한다. 새 지시/예산은 아직 합의하지 않았다. 아래는 당시 기록이다.

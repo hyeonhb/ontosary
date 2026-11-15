@@ -1,0 +1,250 @@
+{
+  "utc": "2026-11-15T10:22:53.745680+00:00",
+  "monotonic": 203713.853282791,
+  "deadlines": {
+    "plan": {
+      "utc": "2026-11-15T11:22:53.745680+00:00",
+      "monotonic": 207313.853282791
+    },
+    "preparation": {
+      "utc": "2026-11-15T12:02:53.745680+00:00",
+      "monotonic": 209713.853282791
+    },
+    "exploration": {
+      "utc": "2026-11-15T12:52:53.745680+00:00",
+      "monotonic": 212713.853282791
+    },
+    "finish": {
+      "utc": "2026-11-15T13:22:53.745680+00:00",
+      "monotonic": 214513.853282791
+    },
+    "environment": {
+      "utc": "2026-11-15T11:01:36.448610+00:00",
+      "monotonic": 206036.569261333
+    }
+  },
+  "events": [
+    {
+      "command": [
+        "python3",
+        "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+        "local",
+        "--work",
+        "/Users/hyeon/toys/ontosary/work/s2-execution-lifecycle-fix-20261115"
+      ],
+      "phase": "plan",
+      "requestedLimitSeconds": null,
+      "absoluteDeadline": {
+        "utc": "2026-11-15T11:22:53.745680+00:00",
+        "monotonic": 207313.853282791
+      },
+      "remainingBeforeDispatch": 2708.968437375006,
+      "startedUtc": "2026-11-15T10:37:44.766170+00:00",
+      "startedMonotonic": 204604.884844458,
+      "terminationRequested": false,
+      "effectiveLimitSeconds": 2708.9684274159954,
+      "pid": 78631,
+      "exitCode": 0,
+      "reason": "exit",
+      "seconds": 6.863581500016153,
+      "remainingAfter": 2702.1048550830164,
+      "cleanupRequired": false,
+      "snapshot": "1794739064722827000"
+    },
+    {
+      "command": [
+        "python3",
+        "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+        "local",
+        "--work",
+        "/Users/hyeon/toys/ontosary/work/s2-execution-lifecycle-fix-20261115"
+      ],
+      "phase": "plan",
+      "requestedLimitSeconds": null,
+      "absoluteDeadline": {
+        "utc": "2026-11-15T11:22:53.745680+00:00",
+        "monotonic": 207313.853282791
+      },
+      "remainingBeforeDispatch": 2531.733096083015,
+      "startedUtc": "2026-11-15T10:40:41.999597+00:00",
+      "startedMonotonic": 204782.120185916,
+      "terminationRequested": false,
+      "effectiveLimitSeconds": 2531.7330856659974,
+      "pid": 78952,
+      "exitCode": 0,
+      "reason": "exit",
+      "seconds": 6.780227334005758,
+      "remainingAfter": 2524.952865625004,
+      "cleanupRequired": false,
+      "snapshot": "1794739241964546000"
+    },
+    {
+      "command": [
+        "python3",
+        "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+        "enter-preparation",
+        "--work",
+        "/Users/hyeon/toys/ontosary/work/s2-execution-lifecycle-fix-20261115"
+      ],
+      "phase": "plan",
+      "requestedLimitSeconds": null,
+      "absoluteDeadline": {
+        "utc": "2026-11-15T11:22:53.745680+00:00",
+        "monotonic": 207313.853282791
+      },
+      "remainingBeforeDispatch": 2477.3499547080137,
+      "startedUtc": "2026-11-15T10:41:36.382684+00:00",
+      "startedMonotonic": 204836.503327416,
+      "terminationRequested": false,
+      "effectiveLimitSeconds": 2477.3499457080034,
+      "pid": 79272,
+      "exitCode": 0,
+      "reason": "exit",
+      "seconds": 0.0770869170082733,
+      "remainingAfter": 2477.2728675830003,
+      "cleanupRequired": false,
+      "snapshot": "1794739296344249000"
+    },
+    {
+      "command": [
+        "python3",
+        "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+        "prepare",
+        "--work",
+        "/Users/hyeon/toys/ontosary/work/s2-execution-lifecycle-fix-20261115"
+      ],
+      "phase": "environment",
+      "requestedLimitSeconds": null,
+      "absoluteDeadline": {
+        "utc": "2026-11-15T11:01:36.448610+00:00",
+        "monotonic": 206036.569261333
+      },
+      "remainingBeforeDispatch": 1187.053819666995,
+      "startedUtc": "2026-11-15T10:41:49.394650+00:00",
+      "startedMonotonic": 204849.515440833,
+      "terminationRequested": false,
+      "effectiveLimitSeconds": 1187.053809792007,
+      "pid": 79306,
+      "exitCode": 0,
+      "reason": "exit",
+      "seconds": 39.83071095799096,
+      "remainingAfter": 1147.2231009170064,
+      "cleanupRequired": false,
+      "snapshot": "1794739309362058000"
+    },
+    {
+      "command": [
+        "python3",
+        "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+        "fixtures",
+        "--work",
+        "/Users/hyeon/toys/ontosary/work/s2-execution-lifecycle-fix-20261115"
+      ],
+      "phase": "exploration",
+      "requestedLimitSeconds": null,
+      "absoluteDeadline": {
+        "utc": "2026-11-15T12:52:53.745680+00:00",
+        "monotonic": 212713.853282791
+      },
+      "remainingBeforeDispatch": 7794.089529416,
+      "startedUtc": "2026-11-15T10:42:59.642113+00:00",
+      "startedMonotonic": 204919.7637525,
+      "terminationRequested": false,
+      "effectiveLimitSeconds": 7794.089520291018,
+      "pid": 79536,
+      "exitCode": 1,
+      "reason": "command-failed",
+      "seconds": 2.4145694999897387,
+      "remainingAfter": 7791.674959124997,
+      "cleanupRequired": true,
+      "snapshot": "1794739379599572000"
+    },
+    {
+      "command": [
+        "python3",
+        "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+        "cleanup",
+        "--work",
+        "/Users/hyeon/toys/ontosary/work/s2-execution-lifecycle-fix-20261115"
+      ],
+      "phase": "finish",
+      "requestedLimitSeconds": null,
+      "absoluteDeadline": {
+        "utc": "2026-11-15T13:22:53.745680+00:00",
+        "monotonic": 214513.853282791
+      },
+      "remainingBeforeDispatch": 9551.727084000013,
+      "startedUtc": "2026-11-15T10:43:42.004044+00:00",
+      "startedMonotonic": 204962.126197375,
+      "terminationRequested": false,
+      "effectiveLimitSeconds": 9551.727071791014,
+      "pid": 79680,
+      "exitCode": 0,
+      "reason": "exit",
+      "seconds": 0.9437239579856396,
+      "remainingAfter": 9550.783358916,
+      "cleanupRequired": false,
+      "snapshot": "1794739421958790000"
+    },
+    {
+      "command": [
+        "python3",
+        "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+        "validate",
+        "--work",
+        "/Users/hyeon/toys/ontosary/work/s2-execution-lifecycle-fix-20261115"
+      ],
+      "phase": "finish",
+      "requestedLimitSeconds": null,
+      "absoluteDeadline": {
+        "utc": "2026-11-15T13:22:53.745680+00:00",
+        "monotonic": 214513.853282791
+      },
+      "remainingBeforeDispatch": 9205.41876804101,
+      "startedUtc": "2026-11-15T10:49:28.308139+00:00",
+      "startedMonotonic": 205308.434513875,
+      "terminationRequested": false,
+      "effectiveLimitSeconds": 9205.418759041,
+      "pid": 79861,
+      "exitCode": 0,
+      "reason": "exit",
+      "seconds": 27.97089995801798,
+      "remainingAfter": 9177.447866416012,
+      "cleanupRequired": false,
+      "snapshot": "1794739768274426000"
+    },
+    {
+      "command": [
+        "python3",
+        "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+        "validate",
+        "--work",
+        "/Users/hyeon/toys/ontosary/work/s2-execution-lifecycle-fix-20261115"
+      ],
+      "phase": "finish",
+      "requestedLimitSeconds": null,
+      "absoluteDeadline": {
+        "utc": "2026-11-15T13:22:53.745680+00:00",
+        "monotonic": 214513.853282791
+      },
+      "remainingBeforeDispatch": 9075.190649416007,
+      "startedUtc": "2026-11-15T10:51:38.534672+00:00",
+      "startedMonotonic": 205438.662632791,
+      "terminationRequested": false,
+      "effectiveLimitSeconds": 9075.190638708009,
+      "pid": 80378,
+      "exitCode": 0,
+      "reason": "exit",
+      "seconds": 31.342515666998224,
+      "remainingAfter": 9043.848107875005,
+      "cleanupRequired": false,
+      "snapshot": "1794739898501458000"
+    }
+  ],
+  "previousMeasuredSeconds": 17286.048754416985,
+  "previousSerializationUpperBoundSeconds": 20,
+  "environmentEntered": {
+    "utc": "2026-11-15T10:41:36.448610+00:00",
+    "mono": 204836.569261333
+  }
+}

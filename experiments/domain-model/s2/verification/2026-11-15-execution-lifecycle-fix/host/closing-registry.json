@@ -1,0 +1,54 @@
+[
+  {
+    "id": "1794739421958790000",
+    "manifestSha256": "b33037a56a5d0e959d783c84c626f043e57d8495d477d11b084950d28b2f6d1e",
+    "archiveSha256": "de4c2987197152a28f3d9f80a4c7cabedcbc97079949be6935d61307a3ac46f1",
+    "phase": "finish",
+    "command": [
+      "python3",
+      "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+      "cleanup",
+      "--work",
+      "/Users/hyeon/toys/ontosary/work/s2-execution-lifecycle-fix-20261115"
+    ]
+  },
+  {
+    "id": "1794739768274426000",
+    "manifestSha256": "66c2ad76a9fdae5679ca47463e8d72dd1b284c68c787b61c3b6b96630cb62b58",
+    "archiveSha256": "e311e94f8b6dd6c73898074b955e9a072874511ed617036013ee9829cee8dbc5",
+    "phase": "finish",
+    "command": [
+      "python3",
+      "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+      "validate",
+      "--work",
+      "/Users/hyeon/toys/ontosary/work/s2-execution-lifecycle-fix-20261115"
+    ]
+  },
+  {
+    "id": "1794739898501458000",
+    "manifestSha256": "97cbefd3e3f9a87d25311898fe9a052c1100d878b2f0a8265716e0931da97f7f",
+    "archiveSha256": "472e950a70686f864a157f74be1b7122f9a6b632bdcc7342126b0e260f059e54",
+    "phase": "finish",
+    "command": [
+      "python3",
+      "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+      "validate",
+      "--work",
+      "/Users/hyeon/toys/ontosary/work/s2-execution-lifecycle-fix-20261115"
+    ]
+  },
+  {
+    "id": "1794739971749638000",
+    "manifestSha256": "c92cf611345af46a48834e5a3f00024b8f614a118cc3eee8757b5689817b2b9c",
+    "archiveSha256": "4cf4482686e61690e750d7e3ae208785160b97149025a8aca8c83613ee6dfc8d",
+    "phase": "finish",
+    "command": [
+      "python3",
+      "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+      "seal",
+      "--work",
+      "/Users/hyeon/toys/ontosary/work/s2-execution-lifecycle-fix-20261115"
+    ]
+  }
+]

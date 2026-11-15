@@ -1,12 +1,15 @@
 # S2 finite execution lifecycle
 
-This is a fixture runner for the approved 2026-11-14 round, not a production
+This is a fixture runner for the approved 2026-11-15 correction round, not a production
 adapter. R11 remains unresolved; production/live dispatch remains refused.
 Every result is `fixtureOnly=true`, `validSubmission=false`;
 `trialAuthorized=false`, `readyForTrial=false`, `results=null` remain unchanged.
-See the [development handoff](../../../../../../docs/reviews/2026-11-14-s2-execution-lifecycle.md)
+See the [development handoff](../../../../../../docs/reviews/2026-11-15-s2-execution-lifecycle-fix.md)
 for actual observations and limitations. Code availability is not proof that the
-seven required real failure paths passed.
+seven required real failure paths passed. The correction round stopped after the
+first unit: service-inactivity proof failed, then export rejected transferred
+metadata ownership. No guest evidence archive was published; six units remain
+unattempted. See the handoff before any new runtime work.
 
 The three responsibilities are deliberately separate:
 
@@ -26,8 +29,8 @@ The three responsibilities are deliberately separate:
   and require VM disposal; disposal is not a termination receipt.
 - `identity.py` verifies registered container, image, slice and bind-source
   identities, records exact JSON substitutions, then compares the entire Spec.
-  Unknown fields and extra policy changes remain differences. The sole conditional
-  candidate adds `clone(arg0=2013397009)` allow. There is no security-only projection.
+  Unknown fields and extra policy changes remain differences. The historical candidate comparison remains covered by local tests, but actual
+  policy-pair execution is refused in this correction round. There is no security-only projection.
 
 `outcome`, `terminationConfirmed`, `removalConfirmed`, `collectionStatus`, service
 inactivity and recovery are separate. Failed outcomes never become task success.
@@ -44,15 +47,17 @@ is never directly compared with host monotonic. Clock calibration and registrati
 transport are recorded. Fault injection waits for the manager-observed readiness
 and detached-descendant record, rather than an arbitrary sleep.
 
-The pinned nerdctl implementation appends a hook PATH entry unconditionally.
-Runtime commands therefore use absolute executable paths and exactly
-`HOME=/root`, `LANG=C.UTF-8`. The resulting hook environment must be exactly those
-entries plus `PATH=:/usr/sbin:/sbin`; duplicate keys and inherited systemd variables
-are rejected. The empty PATH component requires a manager-owned, non-worker-writable
-runtime working directory, checked during preparation. This deliberate environment
-change is applied to both policies and compared against a separately recorded
-expectation derived from the immutable old Specs. Old raw duplicate-PATH Specs
-remain rejected; their systemd values are not silently normalized.
+Runtime commands use absolute executable paths and the exact ordered environment
+`HOME=/root`, `LANG=C.UTF-8`,
+`PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin`.
+Preparation checks root-owned, non-worker-writable resolved directories and tools,
+versions, `runc features`, AppArmor detection, and every transferred input hash
+under the same runtime environment before any container create. Pinned nerdctl
+2.4.2 appends a second PATH equal to the fixed PATH plus `:/usr/sbin:/sbin`.
+Only this exact hook array and fixed hook commands are accepted. General process
+environment duplicates, extra hooks and inherited systemd variables are rejected.
+Historical expectation migration records original values separately; security
+fields (including AppArmor and recursive read-only mounts) are never rewritten.
 
 Mount normalization accepts only the fixed unique destination set. It verifies
 every parent-before-child edge before sorting independent peers; reversing nested
@@ -71,7 +76,7 @@ inputs are in the saved manifests. No large artifact is committed to Git.
 
 Lima receives verified **local** archive paths. Its existing shared cache is not
 modified or trusted as a hash receipt. The round's VM, extracted tools and disks
-live under `/tmp/ontosary-s2-execution-lifecycle-20261114` and are disposable.
+live under `/tmp/ontosary-s2-execution-lifecycle-fix-20261115` and are disposable.
 Every source/output/HOME/CLI-state/scratch directory is fresh. No worker mount
 exposes the host store, host home, keychain, runtime socket or manager controls.
 Prepared archive retention is intentional and distinct from resource leakage.
@@ -92,16 +97,36 @@ hashes. `enter-preparation` fixes the environment deadline once; `prepare` requi
 that gate unchanged. Execute these through `single-policy-test/command.py` with
 exact command/args/phase entries in `plan.json`. Preparation uses the same remaining
 20-minute deadline for download, extraction, boot, build, archive import and hash
-checks. A second store lookup must skip download/build; an OCI archive is verified
-and imported, then actual manifest/config/rootfs chain is checked again.
+checks. `image_cache.py` hashes canonical `s2-image-input-v1` JSON containing the
+base digest, exact Dockerfile/context bytes, build args, platform and tool bundle
+versions/digest. Runtime-mounted probes and policies are separate execution hashes.
+The actual `prepare` entrypoint looks up this key **before** build/save. A hit
+rehashes the stored output and checks its OCI manifest/config/rootfs chain; the
+fresh VM then imports it and independently verifies actual image identity.
+A miss permits one build. Output SHA/size/identity are bound separately to the key.
+A verified legacy-link record may reference existing immutable output manifests;
+old evidence/manifests are never rewritten. Changed recipes invalidate lookup.
+Unpinned external apt/npm queries mean new builds are not claimed reproducible.
 
 `round.py fixtures` requests, once each: normal-1, precheck rejection, start failure,
-timeout, wrapper death, supervisor death, normal-2 after explicit recovery. Only
-all seven expected outcomes plus cleanup permit `round.py pair` (baseline once,
-candidate once). The optional eighth destructive runtime-failure fixture is not
-planned. Local fake-runtime CLI tests are not evidence of actual runtime-error
+timeout, wrapper death, supervisor death, normal-2 after explicit recovery.
+`round.py pair` is refused in this correction round. The optional eighth
+destructive runtime-failure fixture is not planned. Local fake-runtime CLI tests are not evidence of actual runtime-error
 recovery. No hidden smoke containers are created. Image build is a separate
 preparation stage. Failed runtime units are never patched and retried in this round.
+
+`guest.export()` uses `exporter.py` and the shared FD-based collector reader.
+Worker originals are never traversed. Only successful, sealed manager results
+whose state/termination/removal/manifest bindings verify are eligible; suppressed,
+failed, pending, unknown or revoked outcomes get allowlisted manager diagnostics
+and an explicit exclusion reason. `DIAGNOSTICS`, `PREPARATION`, and `GLOBAL` list
+all diagnostic filenames. No arbitrary file beneath a run is a diagnostic.
+Export allows at most 1,024 files and 16 MiB including generated status and the
+external index; collector limits remain 128 files/16 MiB. Ancestor symlinks,
+hardlinks, special files, unsealed results, replacement/growth, depth, and time
+violations are refused before publication. The verified archive/index pair is
+published together by atomic directory rename; failures publish no partial pair.
+
 
 Freeze explicit analysis IDs/hashes before closing. Only the planned `cleanup`,
 `validate`, `seal` closing commands may be registered; package rejects undeclared

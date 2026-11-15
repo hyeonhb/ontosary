@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/verify_fix.py", line 9, in <module>
+    from exporter import DIAGNOSTICS
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/exporter.py", line 3, in <module>
+    from collector import SafeFiles,Rejected,open_directory,inventory
+ModuleNotFoundError: No module named 'collector'

@@ -1,0 +1,67 @@
+{
+  "mockedExternalCommands": true,
+  "runtimeStarted": false,
+  "allRequestedArtifactsWereCacheHits": true,
+  "reachedUnconditionalGuestBuild": true,
+  "imageLookupBeforeBuild": false,
+  "calls": [
+    [
+      "acquire",
+      "lima-2.3.0-Darwin-arm64"
+    ],
+    [
+      "acquire",
+      "ubuntu-26.04-20261016-arm64"
+    ],
+    [
+      "acquire",
+      "nerdctl-full-2.4.2-linux-arm64"
+    ],
+    [
+      "lookup",
+      "lima-2.3.0-Darwin-arm64"
+    ],
+    [
+      "lookup",
+      "ubuntu-26.04-20261016-arm64"
+    ],
+    [
+      "lookup",
+      "nerdctl-full-2.4.2-linux-arm64"
+    ],
+    [
+      "guest",
+      [
+        "python3",
+        "-c",
+        "import datetime,time,json;print(json.dumps({\"utc\":datetime.datetime.now(datetime.timezone.utc).isoformat(),\"guestMonotonic\":time.monotonic()}))"
+      ]
+    ],
+    [
+      "guest",
+      [
+        "mkdir",
+        "-p",
+        "/opt/ontosary-execution"
+      ]
+    ],
+    [
+      "guest",
+      [
+        "tar",
+        "-xzf",
+        "/tmp/execution-inputs.tar.gz",
+        "-C",
+        "/opt/ontosary-execution"
+      ]
+    ],
+    [
+      "guest",
+      [
+        "python3",
+        "/opt/ontosary-execution/execution-lifecycle/guest.py",
+        "prepare"
+      ]
+    ]
+  ]
+}

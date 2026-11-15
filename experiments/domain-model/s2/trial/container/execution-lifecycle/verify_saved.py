@@ -16,6 +16,14 @@ def archive(path):
  return result
 
 def verify(host):
+ import identity
+ old=identity.HOOK_ENV
+ try:
+  identity.HOOK_ENV=["HOME=/root","LANG=C.UTF-8","PATH=:/usr/sbin:/sbin"]
+  return verify_historical(host)
+ finally:identity.HOOK_ENV=old
+
+def verify_historical(host):
  host=pathlib.Path(host);files=archive(host/'guest-evidence.tar.gz');inputs=archive(host/'inputs.tar.gz');transfer=read(host/'input-transfer.json')
  assert sha((host/'inputs.tar.gz').read_bytes())==transfer['archiveSha256']
  assert {n:sha(b) for n,b in inputs.items()}==transfer['members'],'input-transfer-members'

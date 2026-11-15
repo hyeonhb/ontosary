@@ -405,3 +405,12 @@ Python116·production/live 거부·예제 build는 통과했다. pnpm check는 �
 **검증과 상한:** 직전과 같은3시간을 이번 보완의 상한으로 적용한다. 60분 로컬 회귀/100분 준비/150분 관찰/180분 정리·인계, 환경 진입 후20분 이내·VM1개·기본 정책 필수7단위·단위120초·보관10GiB·유료0이다. 준비 진입점에서 build 금지 cache hit와 collector 거부→export의 부정 회귀를 먼저 통과한다. 선택적8번째 실제 실패 주입과 원래/후보 정책 대조는 이번 범위에서 제외하고 결과 리뷰 뒤 결정한다.
 
 **한계:** 이번은 지시 작성이며 보완 구현·실제 시험 완료가 아니다. 보완 구현 PR은 게시 후 독립 리뷰를 기다린다. R11 unresolved·R12 기존 범위·production/live 거부·trialAuthorized/readyForTrial=false·results=null을 유지한다. 추가 권한/backend·실제 credential/provider/model·본 비교는 진행하지 않는다.
+
+
+## ADR-050 · R13–R15 부분 보완과 봉인·export 실패에서 중단 — 2026-11-15
+
+[ADR-049 승인 회차](reviews/2026-11-14-s2-execution-lifecycle-fix-instructions.md)를 PR #54 위에서 수행했다. [결과](reviews/2026-11-15-s2-execution-lifecycle-fix.md)는 빌드 입력 key 선행 조회와 검증된 옛 출력 연결, 고정 runtime PATH/정확한 hook 배열, collector 결과·관리자 allowlist만 export하는 구현을 담는다. R14의 별도 회차 준비 진입점 회귀와 실제 build/download0·새 VM import identity는 확인했다. 과거 ADR-048의 같은 회차 재조회는 회차 간 build 생략의 근거가 아니었으며 이 보완에서 분리했다.
+
+첫 정상 단위는 start1/exit0·삭제1.566초 뒤 service 비활성 시각을 확인하지 못해 결과가 철회됐다. 이어 export가 관리자 소유가 아닌 전달 image metadata를 거부해 guest 진단 archive도 남기지 못했다. 실제 raw Spec/도구 증거가 부족한 R13과 실제7단위 export가 미완료인 R15는 부분 완료로 남긴다. 필수7 중 시도1/기대통과0이며 실패 뒤 같은 단위 재시도/기대값 확대/실행 코드 수정은 하지 않았다.
+
+pnpm check304·Python146(새30 포함)을 검증하고 소유 VM/임시 실행 경로를 제거했다. 공개 archive4개와 추가 입력-key 연결만 유지한다. 후속 service 증거 보존과 metadata 소유권/진단 export는 독립 리뷰 뒤 범위·예산을 결정한다. 이 결과는 다음 실행 승인이나 R11 해결이 아니며 production/live 거부·fixtureOnly=true·validSubmission=false·trialAuthorized/readyForTrial=false·results=null을 유지한다. PR #54는 갱신 후 독립 리뷰를 기다리고 이번에 병합하지 않는다.

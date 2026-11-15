@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/driver.py", line 18, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/driver.py", line 17, in main
+    if not state.get('serviceInactiveConfirmed'):raise RuntimeError('unit-not-sealed')
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: unit-not-sealed

@@ -1,0 +1,8 @@
+{
+  "utc": "2026-11-15T10:51:38.392381+00:00",
+  "file": "experiments/domain-model/s2/trial/container/execution-lifecycle/verify_fix.py",
+  "beforeSha256": "50bb685e009ea76f3cb51855e5aacfad9dfb64b30e3c51bd3f54cdbb5f184f99",
+  "afterSha256": "24193914cf54f2dcb1004a486a0ec4a4caa3cec865f72091129f225920cef68f",
+  "reason": "Standalone offline verifier missed the shared collector import directory. Only sys.path is corrected; no runtime/Spec/cache/export behavior changed and no VM/unit retried.",
+  "runtimeExecutionAfterChange": false
+}

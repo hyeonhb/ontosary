@@ -2,12 +2,13 @@
 import hashlib,json,pathlib,sys
 from common import ROOT,NERD,CTR,command,write
 
-def identify(log,name):
-    native=json.loads(command(log,NERD+['image','inspect','--mode=native',name])[1])[0]
+def identify(log,name,env=None,deadline=None):
+    def invoke(args):return command(log,args,env=env,deadline=deadline)
+    native=json.loads(invoke(NERD+['image','inspect','--mode=native',name])[1])[0]
     target=native['Image']['Target']['digest']
-    raw=command(log,CTR+['content','get',target])[1];assert 'sha256:'+hashlib.sha256(raw.encode()).hexdigest()==target
+    raw=invoke(CTR+['content','get',target])[1];assert 'sha256:'+hashlib.sha256(raw.encode()).hexdigest()==target
     manifest=json.loads(raw);config_digest=manifest['config']['digest']
-    rawconfig=command(log,CTR+['content','get',config_digest])[1];assert 'sha256:'+hashlib.sha256(rawconfig.encode()).hexdigest()==config_digest
+    rawconfig=invoke(CTR+['content','get',config_digest])[1];assert 'sha256:'+hashlib.sha256(rawconfig.encode()).hexdigest()==config_digest
     config=json.loads(rawconfig);assert (config['os'],config['architecture'])==('linux','arm64')
     layers=config['rootfs']['diff_ids'];chain=layers[0]
     for layer in layers[1:]:chain='sha256:'+hashlib.sha256((chain+' '+layer).encode()).hexdigest()

@@ -1,8 +1,10 @@
 """Full OCI Spec comparison; identities are checked before exact-position substitution."""
 import copy,difflib,hashlib,json,pathlib
 RULE={'names':['clone'],'action':'SCMP_ACT_ALLOW','args':[{'index':0,'op':'SCMP_CMP_EQ','value':2013397009}]}
-RUNTIME_ENV={'HOME':'/root','LANG':'C.UTF-8'}
-HOOK_ENV=['HOME=/root','LANG=C.UTF-8','PATH=:/usr/sbin:/sbin']
+SYSTEM_PATH='/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+RUNTIME_ENV={'HOME':'/root','LANG':'C.UTF-8','PATH':SYSTEM_PATH}
+# nerdctl 2.4.2 appends this exact PATH to os.Environ; order is contractual.
+HOOK_ENV=[k+'='+v for k,v in RUNTIME_ENV.items()]+['PATH='+SYSTEM_PATH+':/usr/sbin:/sbin']
 ROLES={'/source':'source','/output':'auxiliary','/home/runner/cli-state':'cli-state','/home/worker':'shell-home','/scratch':'scratch','/materials':'materials'}
 class Rejected(RuntimeError):pass
 
@@ -57,7 +59,7 @@ def normalize(native,identity):
     for kind,last in [('createRuntime','createRuntime'),('poststop','postStop')]:
         hooks=s['hooks'][kind]
         if len(hooks)!=1:raise Rejected('extra-hook')
-        h=hooks[0];unique_env(h['env'])
+        h=hooks[0] # Only the exact version-pinned hook array below permits duplicate PATH.
         expected={'path':'/usr/local/bin/nerdctl','args':['/usr/local/bin/nerdctl','--address=/run/containerd/containerd.sock','--namespace=default','internal','oci-hook',last],'env':HOOK_ENV}
         if h!=expected:raise Rejected('hook-command-or-environment')
     return s,proof
@@ -72,7 +74,7 @@ def compare(candidate,baseline,candidate_identity,baseline_identity,added_rule=F
 def expected_legacy(native,identity,new_image):
     """Separate expected-input migration, never a permissive runtime normalizer.
     Caller pins original fixture bytes. Removes entire old inherited hook environment;
-    old duplicate PATH / unverifiable systemd values are NOT accepted at runtime.
+    only the exact known nerdctl PATH append is accepted at runtime.
     """
     s=copy.deepcopy(native);changes=[]
     for k in ['createRuntime','poststop']:
