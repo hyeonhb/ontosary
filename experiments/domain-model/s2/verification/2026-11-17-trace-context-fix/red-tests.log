@@ -1,0 +1,123 @@
+test_context_is_retained_after_another_parent_finishes (test_trace_reanalysis.DeferredContextTests.test_context_is_retained_after_another_parent_finishes) ... FAIL
+test_exec_order_has_same_conservative_result (test_trace_reanalysis.DeferredContextTests.test_exec_order_has_same_conservative_result) ... 
+  test_exec_order_has_same_conservative_result (test_trace_reanalysis.DeferredContextTests.test_exec_order_has_same_conservative_result) (before=True) ... FAIL
+test_pending_other_parent_does_not_extend_child_lifetime_backwards (test_trace_reanalysis.DeferredContextTests.test_pending_other_parent_does_not_extend_child_lifetime_backwards) ... ok
+test_pre_clone_context_is_not_attributed (test_trace_reanalysis.DeferredContextTests.test_pre_clone_context_is_not_attributed) ... ok
+test_resumed_mount_order_has_same_conservative_result (test_trace_reanalysis.DeferredContextTests.test_resumed_mount_order_has_same_conservative_result) ... 
+  test_resumed_mount_order_has_same_conservative_result (test_trace_reanalysis.DeferredContextTests.test_resumed_mount_order_has_same_conservative_result) (before=True) ... FAIL
+test_reversed_parent_returns_keep_context_with_correct_child (test_trace_reanalysis.DeferredContextTests.test_reversed_parent_returns_keep_context_with_correct_child) ... FAIL
+test_split_mount_order_has_same_conservative_result (test_trace_reanalysis.DeferredContextTests.test_split_mount_order_has_same_conservative_result) ... 
+  test_split_mount_order_has_same_conservative_result (test_trace_reanalysis.DeferredContextTests.test_split_mount_order_has_same_conservative_result) (before=True) ... FAIL
+test_successful_unsupported_mount_order_is_conservative (test_trace_reanalysis.DeferredContextTests.test_successful_unsupported_mount_order_is_conservative) ... 
+  test_successful_unsupported_mount_order_is_conservative (test_trace_reanalysis.DeferredContextTests.test_successful_unsupported_mount_order_is_conservative) (before=True) ... FAIL
+test_unrelated_pid_context_is_not_attributed (test_trace_reanalysis.DeferredContextTests.test_unrelated_pid_context_is_not_attributed) ... ok
+test_actual_baseline_two_denied_clones (test_trace_reanalysis.TraceReanalysisTests.test_actual_baseline_two_denied_clones) ... ok
+test_actual_candidate_source_lines_and_frozen_result (test_trace_reanalysis.TraceReanalysisTests.test_actual_candidate_source_lines_and_frozen_result) ... ok
+test_additional_or_reordered_flags_not_substring_match (test_trace_reanalysis.TraceReanalysisTests.test_additional_or_reordered_flags_not_substring_match) ... ok
+test_adjacent_attach (test_trace_reanalysis.TraceReanalysisTests.test_adjacent_attach) ... ok
+test_attach_return_child_mismatch (test_trace_reanalysis.TraceReanalysisTests.test_attach_return_child_mismatch) ... ok
+test_candidate_trace_hash_is_required (test_trace_reanalysis.TraceReanalysisTests.test_candidate_trace_hash_is_required) ... ok
+test_changed_archive_is_rejected_before_derivation (test_trace_reanalysis.TraceReanalysisTests.test_changed_archive_is_rejected_before_derivation) ... ok
+test_child_denial_before_parent_resume (test_trace_reanalysis.TraceReanalysisTests.test_child_denial_before_parent_resume) ... ok
+test_cli_refuses_historical_output_and_overwrite (test_trace_reanalysis.TraceReanalysisTests.test_cli_refuses_historical_output_and_overwrite) ... usage: trace_reanalysis.py [-h] [--root ROOT] --output OUTPUT
+trace_reanalysis.py: error: derived output must be outside the historical evidence directory
+usage: trace_reanalysis.py [-h] [--root ROOT] --output OUTPUT
+trace_reanalysis.py: error: output already exists; refusing overwrite
+ok
+test_different_pid_mount_not_attributed (test_trace_reanalysis.TraceReanalysisTests.test_different_pid_mount_not_attributed) ... ok
+test_duplicate_attach_notice (test_trace_reanalysis.TraceReanalysisTests.test_duplicate_attach_notice) ... ok
+test_duplicate_child (test_trace_reanalysis.TraceReanalysisTests.test_duplicate_child) ... ok
+test_duplicate_completion (test_trace_reanalysis.TraceReanalysisTests.test_duplicate_completion) ... ok
+test_duplicate_pending (test_trace_reanalysis.TraceReanalysisTests.test_duplicate_pending) ... ok
+test_evidence_offsets_are_derived_not_hardcoded (test_trace_reanalysis.TraceReanalysisTests.test_evidence_offsets_are_derived_not_hardcoded) ... ok
+test_extra_unknown_clone3_not_ignored (test_trace_reanalysis.TraceReanalysisTests.test_extra_unknown_clone3_not_ignored) ... ok
+test_incomplete_call (test_trace_reanalysis.TraceReanalysisTests.test_incomplete_call) ... ok
+test_intervening_other_pid_output_refused (test_trace_reanalysis.TraceReanalysisTests.test_intervening_other_pid_output_refused) ... ok
+test_limits_trace_line_pending_and_observations (test_trace_reanalysis.TraceReanalysisTests.test_limits_trace_line_pending_and_observations) ... ok
+test_mount_before_clone_not_attributed (test_trace_reanalysis.TraceReanalysisTests.test_mount_before_clone_not_attributed) ... ok
+test_orphan_completion (test_trace_reanalysis.TraceReanalysisTests.test_orphan_completion) ... ok
+test_other_parent_attach_cannot_steal_completion (test_trace_reanalysis.TraceReanalysisTests.test_other_parent_attach_cannot_steal_completion) ... ok
+test_parent_mount_not_child_evidence (test_trace_reanalysis.TraceReanalysisTests.test_parent_mount_not_child_evidence) ... ok
+test_payload_flag_without_marker_is_not_completion (test_trace_reanalysis.TraceReanalysisTests.test_payload_flag_without_marker_is_not_completion) ... ok
+test_pid_prefixed_attach_completion_is_not_guessed (test_trace_reanalysis.TraceReanalysisTests.test_pid_prefixed_attach_completion_is_not_guessed) ... ok
+test_resumed_parent_mismatch (test_trace_reanalysis.TraceReanalysisTests.test_resumed_parent_mismatch) ... ok
+test_saved_archive_reanalysis_and_input_immutability (test_trace_reanalysis.TraceReanalysisTests.test_saved_archive_reanalysis_and_input_immutability) ... ok
+test_single_line (test_trace_reanalysis.TraceReanalysisTests.test_single_line) ... ok
+test_synthetic_payload_completed (test_trace_reanalysis.TraceReanalysisTests.test_synthetic_payload_completed) ... ok
+test_truncated_final_line (test_trace_reanalysis.TraceReanalysisTests.test_truncated_final_line) ... ok
+test_unfinished_completion_order_can_differ (test_trace_reanalysis.TraceReanalysisTests.test_unfinished_completion_order_can_differ) ... ok
+test_unfinished_pids_can_interleave_without_cross_linking (test_trace_reanalysis.TraceReanalysisTests.test_unfinished_pids_can_interleave_without_cross_linking) ... ok
+test_unfinished_resumed (test_trace_reanalysis.TraceReanalysisTests.test_unfinished_resumed) ... ok
+test_unknown_notice_and_syscall_formats (test_trace_reanalysis.TraceReanalysisTests.test_unknown_notice_and_syscall_formats) ... ok
+test_utf8_byte_limit_and_incremental_hash (test_trace_reanalysis.TraceReanalysisTests.test_utf8_byte_limit_and_incremental_hash) ... ok
+
+======================================================================
+FAIL: test_context_is_retained_after_another_parent_finishes (test_trace_reanalysis.DeferredContextTests.test_context_is_retained_after_another_parent_finishes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/test_trace_reanalysis.py", line 278, in test_context_is_retained_after_another_parent_finishes
+    self.assertEqual(tool.parse_trace(text)['status'], 'inconclusive')
+AssertionError: 'first-clone-passed-next-blocked' != 'inconclusive'
+- first-clone-passed-next-blocked
++ inconclusive
+
+
+======================================================================
+FAIL: test_exec_order_has_same_conservative_result (test_trace_reanalysis.DeferredContextTests.test_exec_order_has_same_conservative_result) (before=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/test_trace_reanalysis.py", line 237, in assert_context_rejected
+    self.assertEqual(result['status'], 'inconclusive')
+AssertionError: 'first-clone-passed-next-blocked' != 'inconclusive'
+- first-clone-passed-next-blocked
++ inconclusive
+
+
+======================================================================
+FAIL: test_resumed_mount_order_has_same_conservative_result (test_trace_reanalysis.DeferredContextTests.test_resumed_mount_order_has_same_conservative_result) (before=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/test_trace_reanalysis.py", line 237, in assert_context_rejected
+    self.assertEqual(result['status'], 'inconclusive')
+AssertionError: 'first-clone-passed-next-blocked' != 'inconclusive'
+- first-clone-passed-next-blocked
++ inconclusive
+
+
+======================================================================
+FAIL: test_reversed_parent_returns_keep_context_with_correct_child (test_trace_reanalysis.DeferredContextTests.test_reversed_parent_returns_keep_context_with_correct_child)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/test_trace_reanalysis.py", line 272, in test_reversed_parent_returns_keep_context_with_correct_child
+    self.assertEqual(result['status'], 'inconclusive')
+AssertionError: 'first-clone-passed-next-blocked' != 'inconclusive'
+- first-clone-passed-next-blocked
++ inconclusive
+
+
+======================================================================
+FAIL: test_split_mount_order_has_same_conservative_result (test_trace_reanalysis.DeferredContextTests.test_split_mount_order_has_same_conservative_result) (before=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/test_trace_reanalysis.py", line 237, in assert_context_rejected
+    self.assertEqual(result['status'], 'inconclusive')
+AssertionError: 'first-clone-passed-next-blocked' != 'inconclusive'
+- first-clone-passed-next-blocked
++ inconclusive
+
+
+======================================================================
+FAIL: test_successful_unsupported_mount_order_is_conservative (test_trace_reanalysis.DeferredContextTests.test_successful_unsupported_mount_order_is_conservative) (before=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/test_trace_reanalysis.py", line 237, in assert_context_rejected
+    self.assertEqual(result['status'], 'inconclusive')
+AssertionError: 'first-clone-passed-next-blocked' != 'inconclusive'
+- first-clone-passed-next-blocked
++ inconclusive
+
+
+----------------------------------------------------------------------
+Ran 44 tests in 1.076s
+
+FAILED (failures=6)

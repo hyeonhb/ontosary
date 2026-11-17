@@ -1,5 +1,14 @@
 # S2 finite execution lifecycle
 
+The [R18 context correction](../../../../../../docs/reviews/2026-11-17-s2-trace-context-fix.md)
+retains unsupported child exec/mount context even before the parent clone's
+resumed return. Both output orders use the same bounded check: at most 128 events
+and 64 KiB of source text, with incomplete context refusing a conclusive result.
+Ineligible denials remain in `contextRejectedDenied`, separate from `nextDenied`.
+The original 35 trace cases plus 14 context regressions pass. Historical outputs
+and the first derived result are preserved; the correction uses a new evidence
+directory and does not execute a runtime. PR #63 awaits independent review.
+
 The [offline trace follow-up](../../../../../../docs/reviews/2026-11-17-s2-trace-reanalysis.md)
 adds the explicit `trace_reanalysis.py --output <new-path>` entry point. It checks
 the stored index, sealed archives and frozen verifier before interpreting the

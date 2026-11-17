@@ -1,0 +1,36 @@
+{
+  "utc": "2026-11-17T11:49:51.604133+00:00",
+  "monotonic": 231190.526571166,
+  "explorationDeadlineMonotonic": 232390.526571166,
+  "finishDeadlineMonotonic": 232990.526571166,
+  "entryHead": "8bba520a8fe91355d367642eebf2f8218133cf83",
+  "firstCommand": "UTC/monotonic and git status captured in first command; full head confirmed in second command.",
+  "branch": "codex/s2-trace-reanalysis",
+  "runtimeExecutions": 0,
+  "integrationHead": "e68064f1177497b787a4c52b47dc72a270797c44",
+  "implementationHead": "26c8b41cf27badd05f1bc6d84358fa465b82c384",
+  "implementationFrozenAt": {
+    "utc": "2026-11-17T11:57:20.803819+00:00",
+    "monotonic": 231639.712822083
+  },
+  "allowedChanges": [
+    "experiments/domain-model/s2/trial/container/execution-lifecycle/trace_reanalysis.py",
+    "experiments/domain-model/s2/trial/container/execution-lifecycle/test_trace_reanalysis.py",
+    "experiments/domain-model/s2/trial/container/execution-lifecycle/README.md",
+    "experiments/domain-model/s2/verification/2026-11-17-trace-context-fix/",
+    "docs/reviews/2026-11-17-s2-trace-context-fix.md",
+    "docs/PROGRESS.md",
+    "docs/reviews/REVIEW_CONTEXT.md"
+  ],
+  "finishedAt": {
+    "utc": "2026-11-17T12:00:36.407956+00:00",
+    "monotonic": 231835.311124666
+  },
+  "virtualMachines": 0,
+  "containers": 0,
+  "policyChanges": 0,
+  "paidExperimentCalls": 0,
+  "gitPublicationRecordedSeparately": true,
+  "measuredSeconds": 644.7845535000088,
+  "within30Minutes": true
+}

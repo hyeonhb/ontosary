@@ -1,0 +1,288 @@
+{
+  "indexSha256": "ec03d00e8026ea107691b10eee8a9ffe65e68f9b41350c8d0a48d91d8cdf9869",
+  "inputRoot": "experiments/domain-model/s2/verification/2026-11-17-policy-pair",
+  "indexVerification": {
+    "files": 134,
+    "analysis": 4,
+    "closing": 3
+  },
+  "historicalStatus": "inconclusive",
+  "runtimeReexecuted": false,
+  "fixtureOnly": true,
+  "validSubmission": false,
+  "trialAuthorized": false,
+  "readyForTrial": false,
+  "results": null,
+  "modes": {
+    "baseline": {
+      "archive": "host/recovery-unit-baseline.tar.gz",
+      "archiveSha256": "e076ced50f7b8e566a0e8cbb5df36b612929f90f12564c2f9f126d29ab5c1cfc",
+      "member": "runs/32b2c3ebb587/result/auxiliary/result.json",
+      "resultSha256": "22860c03bae6582d02f5a7c17903171509856225bf395fe24972469735592ac4",
+      "previousAutomaticStatus": "clone-still-denied",
+      "derived": {
+        "status": "clone-still-denied",
+        "traceSha256": "5f484c0f375ee3689774ef2138e219db3097e524f08e564d274103f5ccf31d18",
+        "payloadStarted": false,
+        "commandExitCode": 1,
+        "lsmCauseConfirmed": false,
+        "bwrapExecutions": [
+          {
+            "pid": 42,
+            "kind": "precheck",
+            "source": {
+              "startLine": 58,
+              "endLine": 58,
+              "raw": "[pid    42] execve(\"/proc/self/fd/3\", [\"bwrap\", \"--as-pid-1\", \"--new-session\", \"--die-with-parent\", \"--tmpfs\", \"/\", \"--dev\", \"/dev\", \"--ro-bind\", \"/bin\", \"/bin\", \"--ro-bind\", \"/etc\", \"/etc\", \"--ro-bind\", \"/lib\", \"/lib\", \"--ro-bind\", \"/sbin\", \"/sbin\", \"--ro-bind\", \"/usr\", \"/usr\", \"--unshare-user\", \"--unshare-pid\", \"--unshare-ipc\", \"--unshare-net\", \"--proc\", \"/proc\", \"--cap-drop\", \"ALL\", \"--\", \"/usr/bin/true\"], 0xffffe3194d78 /* 4 vars */) = 0"
+            },
+            "argvAbbreviated": false,
+            "roleBasis": "bwrap argv contains /usr/bin/true; otherwise command-preparation (frozen convention)"
+          },
+          {
+            "pid": 43,
+            "kind": "command-preparation",
+            "source": {
+              "startLine": 76,
+              "endLine": 76,
+              "raw": "[pid    43] execve(\"/proc/self/fd/3\", [\"bwrap\", \"--as-pid-1\", \"--new-session\", \"--die-with-parent\", \"--tmpfs\", \"/\", \"--dev\", \"/dev\", \"--ro-bind\", \"/bin\", \"/bin\", \"--ro-bind\", \"/etc\", \"/etc\", \"--ro-bind\", \"/home/runner/cli-state/tmp/arg0-linux/codex-arg0e5Ho11\", \"/home/runner/cli-state/tmp/arg0-linux/codex-arg0e5Ho11\", \"--ro-bind\", \"/home/worker\", \"/home/worker\", \"--ro-bind\", \"/lib\", \"/lib\", \"--ro-bind\", \"/materials\", \"/materials\", \"--ro-bind\", \"/sbin\", \"/sbin\", \"--ro-bind\", \"/scratch\", \"/scratch\", \"--ro-bind\", \"/source\", \"/source\", \"--ro-bind\", \"/usr\", \"/usr\", \"--bind\", \"/scratch\", \"/scratch\", \"--perms\", \"555\", \"--tmpfs\", \"/scratch/.git\", \"--remount-ro\", \"/scratch/.git\", \"--perms\", \"555\", \"--tmpfs\", \"/scratch/.agents\", \"--remount-ro\", \"/scratch/.agents\", \"--perms\", \"555\", \"--tmpfs\", \"/scratch/.codex\", \"--remount-ro\", \"/scratch/.codex\", \"--perms\", \"555\", \"--tmpfs\", \"/scratch/.aws\", \"--remount-ro\", \"/scratch/.aws\", \"--ro-bind\", \"/scratch/codex-bwrap-synthetic-mount-targets-1000\", \"/scratch/codex-bwrap-synthetic-mount-targets-1000\", \"--bind\", \"/source\", \"/source\", \"--perms\", \"555\", \"--tmpfs\", \"/source/.codex\", \"--remount-ro\", \"/source/.codex\", \"--perms\", \"555\", \"--tmpfs\", \"/source/.git\", \"--remount-ro\", \"/source/.git\", \"--perms\", \"555\", \"--tmpfs\", \"/source/.agents\", \"--remount-ro\", \"/source/.agents\", \"--perms\", \"555\", \"--tmpfs\", \"/source/.aws\", \"--remount-ro\", \"/source/.aws\", \"--bind\", \"/home/worker\", \"/home/worker\", \"--perms\", \"555\", \"--tmpfs\", \"/home/worker/.git\", \"--remount-ro\", \"/home/worker/.git\", \"--perms\", \"555\", \"--tmpfs\", \"/home/worker/.agents\", \"--remount-ro\", \"/home/worker/.agents\", \"--perms\", \"555\", \"--tmpfs\", \"/home/worker/.codex\", \"--remount-ro\", \"/home/worker/.codex\", \"--perms\", \"555\", \"--tmpfs\", \"/home/worker/.aws\", \"--remount-ro\", \"/home/worker/.aws\", \"--perms\", \"000\", \"--tmpfs\", \"/home/runner/cli-state\", \"--remount-ro\", \"/home/runner/cli-state\", ...], 0xffffe3194d78 /* 4 vars */) = 0"
+            },
+            "argvAbbreviated": true,
+            "roleBasis": "bwrap argv contains /usr/bin/true; otherwise command-preparation (frozen convention)"
+          }
+        ],
+        "namespaceClones": [
+          {
+            "pid": 42,
+            "kind": "precheck",
+            "flags": "CLONE_NEWNS|CLONE_NEWIPC|CLONE_NEWUSER|CLONE_NEWPID|CLONE_NEWNET|SIGCHLD",
+            "return": -1,
+            "errno": "EPERM",
+            "format": "single-line",
+            "source": {
+              "startLine": 67,
+              "endLine": 67,
+              "raw": "[pid    42] clone(child_stack=NULL, flags=CLONE_NEWNS|CLONE_NEWIPC|CLONE_NEWUSER|CLONE_NEWPID|CLONE_NEWNET|SIGCHLD) = -1 EPERM (Operation not permitted)"
+            },
+            "completion": {
+              "startLine": 67,
+              "endLine": 67,
+              "raw": "[pid    42] clone(child_stack=NULL, flags=CLONE_NEWNS|CLONE_NEWIPC|CLONE_NEWUSER|CLONE_NEWPID|CLONE_NEWNET|SIGCHLD) = -1 EPERM (Operation not permitted)"
+            },
+            "execLine": 58
+          },
+          {
+            "pid": 43,
+            "kind": "command-preparation",
+            "flags": "CLONE_NEWNS|CLONE_NEWIPC|CLONE_NEWUSER|CLONE_NEWPID|CLONE_NEWNET|SIGCHLD",
+            "return": -1,
+            "errno": "EPERM",
+            "format": "single-line",
+            "source": {
+              "startLine": 85,
+              "endLine": 85,
+              "raw": "[pid    43] clone(child_stack=NULL, flags=CLONE_NEWNS|CLONE_NEWIPC|CLONE_NEWUSER|CLONE_NEWPID|CLONE_NEWNET|SIGCHLD) = -1 EPERM (Operation not permitted)"
+            },
+            "completion": {
+              "startLine": 85,
+              "endLine": 85,
+              "raw": "[pid    43] clone(child_stack=NULL, flags=CLONE_NEWNS|CLONE_NEWIPC|CLONE_NEWUSER|CLONE_NEWPID|CLONE_NEWNET|SIGCHLD) = -1 EPERM (Operation not permitted)"
+            },
+            "execLine": 76
+          }
+        ],
+        "nextDenied": [],
+        "contextRejectedDenied": [],
+        "unlinkedDenied": [],
+        "childContext": [],
+        "contextComplete": true,
+        "contextEventsStored": 0,
+        "contextBytesStored": 0,
+        "joins": [],
+        "issues": [],
+        "linesVisited": 102,
+        "pendingClonePids": [],
+        "supportedFormats": [
+          "PID-prefixed single-line clone",
+          "PID-matched unfinished/resumed clone",
+          "exact /usr/bin/strace attach notice plus immediate unprefixed return"
+        ],
+        "unsupportedFormats": [
+          "clone3 or different flags/order",
+          "nonadjacent attach completion or ambiguous/mismatched PID",
+          "split bwrap exec or split child mount",
+          "truncated final line or any exceeded limit"
+        ],
+        "scope": "PID-prefixed bwrap exec, exact namespace clone, subsequent child denial; unrelated startup syscalls excluded",
+        "limits": {
+          "traceBytes": 16777216,
+          "lineBytes": 65536,
+          "pendingLineBytes": 4096,
+          "pendingCalls": 32,
+          "observations": 256,
+          "issues": 64,
+          "contextEvents": 128,
+          "contextBytes": 65536
+        }
+      }
+    },
+    "candidate": {
+      "archive": "host/recovery-unit-candidate.tar.gz",
+      "archiveSha256": "0c663d12a577ef02dc8e8e0d4510cda45ee5c6e96bb2b493945014907f96f95f",
+      "member": "runs/4eaa03bfb0b5/result/auxiliary/result.json",
+      "resultSha256": "9810a6f7400fccb171d71bcb088ada28e4072e0e5d65f1b6d6ac7a2726e53fde",
+      "previousAutomaticStatus": "inconclusive",
+      "derived": {
+        "status": "first-clone-passed-next-blocked",
+        "traceSha256": "9a949992b23a81361f821d9ec6fd227eebcd4a6a1c1cf8801ee698660e117c5c",
+        "payloadStarted": false,
+        "commandExitCode": 1,
+        "lsmCauseConfirmed": false,
+        "bwrapExecutions": [
+          {
+            "pid": 41,
+            "kind": "precheck",
+            "source": {
+              "startLine": 55,
+              "endLine": 55,
+              "raw": "[pid    41] execve(\"/proc/self/fd/3\", [\"bwrap\", \"--as-pid-1\", \"--new-session\", \"--die-with-parent\", \"--tmpfs\", \"/\", \"--dev\", \"/dev\", \"--ro-bind\", \"/bin\", \"/bin\", \"--ro-bind\", \"/etc\", \"/etc\", \"--ro-bind\", \"/lib\", \"/lib\", \"--ro-bind\", \"/sbin\", \"/sbin\", \"--ro-bind\", \"/usr\", \"/usr\", \"--unshare-user\", \"--unshare-pid\", \"--unshare-ipc\", \"--unshare-net\", \"--proc\", \"/proc\", \"--cap-drop\", \"ALL\", \"--\", \"/usr/bin/true\"], 0xffffd47b27c8 /* 4 vars */) = 0"
+            },
+            "argvAbbreviated": false,
+            "roleBasis": "bwrap argv contains /usr/bin/true; otherwise command-preparation (frozen convention)"
+          },
+          {
+            "pid": 43,
+            "kind": "command-preparation",
+            "source": {
+              "startLine": 123,
+              "endLine": 123,
+              "raw": "[pid    43] execve(\"/proc/self/fd/3\", [\"bwrap\", \"--as-pid-1\", \"--new-session\", \"--die-with-parent\", \"--tmpfs\", \"/\", \"--dev\", \"/dev\", \"--ro-bind\", \"/bin\", \"/bin\", \"--ro-bind\", \"/etc\", \"/etc\", \"--ro-bind\", \"/home/runner/cli-state/tmp/arg0-linux/codex-arg07pUbLK\", \"/home/runner/cli-state/tmp/arg0-linux/codex-arg07pUbLK\", \"--ro-bind\", \"/home/worker\", \"/home/worker\", \"--ro-bind\", \"/lib\", \"/lib\", \"--ro-bind\", \"/materials\", \"/materials\", \"--ro-bind\", \"/sbin\", \"/sbin\", \"--ro-bind\", \"/scratch\", \"/scratch\", \"--ro-bind\", \"/source\", \"/source\", \"--ro-bind\", \"/usr\", \"/usr\", \"--bind\", \"/scratch\", \"/scratch\", \"--perms\", \"555\", \"--tmpfs\", \"/scratch/.git\", \"--remount-ro\", \"/scratch/.git\", \"--perms\", \"555\", \"--tmpfs\", \"/scratch/.agents\", \"--remount-ro\", \"/scratch/.agents\", \"--perms\", \"555\", \"--tmpfs\", \"/scratch/.codex\", \"--remount-ro\", \"/scratch/.codex\", \"--perms\", \"555\", \"--tmpfs\", \"/scratch/.aws\", \"--remount-ro\", \"/scratch/.aws\", \"--ro-bind\", \"/scratch/codex-bwrap-synthetic-mount-targets-1000\", \"/scratch/codex-bwrap-synthetic-mount-targets-1000\", \"--bind\", \"/source\", \"/source\", \"--perms\", \"555\", \"--tmpfs\", \"/source/.codex\", \"--remount-ro\", \"/source/.codex\", \"--perms\", \"555\", \"--tmpfs\", \"/source/.git\", \"--remount-ro\", \"/source/.git\", \"--perms\", \"555\", \"--tmpfs\", \"/source/.agents\", \"--remount-ro\", \"/source/.agents\", \"--perms\", \"555\", \"--tmpfs\", \"/source/.aws\", \"--remount-ro\", \"/source/.aws\", \"--bind\", \"/home/worker\", \"/home/worker\", \"--perms\", \"555\", \"--tmpfs\", \"/home/worker/.git\", \"--remount-ro\", \"/home/worker/.git\", \"--perms\", \"555\", \"--tmpfs\", \"/home/worker/.agents\", \"--remount-ro\", \"/home/worker/.agents\", \"--perms\", \"555\", \"--tmpfs\", \"/home/worker/.codex\", \"--remount-ro\", \"/home/worker/.codex\", \"--perms\", \"555\", \"--tmpfs\", \"/home/worker/.aws\", \"--remount-ro\", \"/home/worker/.aws\", \"--perms\", \"000\", \"--tmpfs\", \"/home/runner/cli-state\", \"--remount-ro\", \"/home/runner/cli-state\", ...], 0xffffd47b27c8 /* 4 vars */) = 0"
+            },
+            "argvAbbreviated": true,
+            "roleBasis": "bwrap argv contains /usr/bin/true; otherwise command-preparation (frozen convention)"
+          }
+        ],
+        "namespaceClones": [
+          {
+            "pid": 41,
+            "kind": "precheck",
+            "flags": "CLONE_NEWNS|CLONE_NEWIPC|CLONE_NEWUSER|CLONE_NEWPID|CLONE_NEWNET|SIGCHLD",
+            "return": 42,
+            "errno": null,
+            "format": "attach-adjacent",
+            "source": {
+              "startLine": 64,
+              "endLine": 64,
+              "raw": "[pid    41] clone(child_stack=NULL, flags=CLONE_NEWNS|CLONE_NEWIPC|CLONE_NEWUSER|CLONE_NEWPID|CLONE_NEWNET|SIGCHLD/usr/bin/strace: Process 42 attached"
+            },
+            "completion": {
+              "startLine": 65,
+              "endLine": 65,
+              "raw": ") = 42"
+            },
+            "execLine": 55
+          },
+          {
+            "pid": 43,
+            "kind": "command-preparation",
+            "flags": "CLONE_NEWNS|CLONE_NEWIPC|CLONE_NEWUSER|CLONE_NEWPID|CLONE_NEWNET|SIGCHLD",
+            "return": 44,
+            "errno": null,
+            "format": "single-line",
+            "source": {
+              "startLine": 132,
+              "endLine": 132,
+              "raw": "[pid    43] clone(child_stack=NULL, flags=CLONE_NEWNS|CLONE_NEWIPC|CLONE_NEWUSER|CLONE_NEWPID|CLONE_NEWNET|SIGCHLD) = 44"
+            },
+            "completion": {
+              "startLine": 132,
+              "endLine": 132,
+              "raw": "[pid    43] clone(child_stack=NULL, flags=CLONE_NEWNS|CLONE_NEWIPC|CLONE_NEWUSER|CLONE_NEWPID|CLONE_NEWNET|SIGCHLD) = 44"
+            },
+            "execLine": 123
+          }
+        ],
+        "nextDenied": [
+          {
+            "pid": 42,
+            "syscall": "mount",
+            "errno": "EPERM",
+            "source": {
+              "startLine": 110,
+              "endLine": 110,
+              "raw": "[pid    42] mount(NULL, \"/\", NULL, MS_REC|MS_SILENT|MS_SLAVE, NULL) = -1 EPERM (Operation not permitted)"
+            },
+            "parentPid": 41,
+            "cloneLine": 64
+          },
+          {
+            "pid": 44,
+            "syscall": "mount",
+            "errno": "EPERM",
+            "source": {
+              "startLine": 178,
+              "endLine": 178,
+              "raw": "[pid    44] mount(NULL, \"/\", NULL, MS_REC|MS_SILENT|MS_SLAVE, NULL) = -1 EPERM (Operation not permitted)"
+            },
+            "parentPid": 43,
+            "cloneLine": 132
+          }
+        ],
+        "contextRejectedDenied": [],
+        "unlinkedDenied": [],
+        "childContext": [],
+        "contextComplete": true,
+        "contextEventsStored": 0,
+        "contextBytesStored": 0,
+        "joins": [
+          {
+            "parentPid": 41,
+            "childPid": 42,
+            "sourceLines": [
+              64,
+              65
+            ],
+            "notice": "/usr/bin/strace: Process 42 attached",
+            "reason": "exact clone flags, adjacent unprefixed return, attached child equals return"
+          }
+        ],
+        "issues": [],
+        "linesVisited": 197,
+        "pendingClonePids": [],
+        "supportedFormats": [
+          "PID-prefixed single-line clone",
+          "PID-matched unfinished/resumed clone",
+          "exact /usr/bin/strace attach notice plus immediate unprefixed return"
+        ],
+        "unsupportedFormats": [
+          "clone3 or different flags/order",
+          "nonadjacent attach completion or ambiguous/mismatched PID",
+          "split bwrap exec or split child mount",
+          "truncated final line or any exceeded limit"
+        ],
+        "scope": "PID-prefixed bwrap exec, exact namespace clone, subsequent child denial; unrelated startup syscalls excluded",
+        "limits": {
+          "traceBytes": 16777216,
+          "lineBytes": 65536,
+          "pendingLineBytes": 4096,
+          "pendingCalls": 32,
+          "observations": 256,
+          "issues": 64,
+          "contextEvents": 128,
+          "contextBytes": 65536
+        }
+      }
+    }
+  },
+  "tool": {
+    "path": "experiments/domain-model/s2/trial/container/execution-lifecycle/trace_reanalysis.py",
+    "sha256": "c4f14702c04105cd922a933204486633f0e6316f049e2ba813c895992eddc55e",
+    "sourceCommit": "26c8b41cf27badd05f1bc6d84358fa465b82c384",
+    "dependencyHashes": {
+      "experiments/domain-model/s2/trial/container/execution-lifecycle/policy_pair.py": "dcb2cd8569c4bea333a041159d18e7ab0f922a071a360374b52c426e4eb91a54",
+      "experiments/domain-model/s2/trial/container/execution-lifecycle/verify_pair.py": "7b03b853ea362e1c652705e5980473547ac6792ea6df99dbb3f5694b109cd2ba",
+      "experiments/domain-model/s2/trial/container/execution-lifecycle/verify_recovery.py": "ba5342f4d4a7d597bb0b5b539a1da4015b831019f3c6743933b76a913aec77b3",
+      "experiments/domain-model/s2/trial/container/single-policy-test/scope.py": "e1a070cf82a8f7e806fb0a28bf838ad3b4f4d9fb66ed51e5ed27302916761d83"
+    },
+    "checkoutHead": "26c8b41cf27badd05f1bc6d84358fa465b82c384"
+  }
+}

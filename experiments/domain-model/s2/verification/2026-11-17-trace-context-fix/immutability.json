@@ -1,0 +1,20 @@
+{
+  "comparisonBase": "e68064f1177497b787a4c52b47dc72a270797c44",
+  "trackedFilesAfterReviewIntegration": 3696,
+  "unchangedTrackedFiles": 3691,
+  "intentionalChangedExistingFiles": [
+    "docs/PROGRESS.md",
+    "docs/reviews/REVIEW_CONTEXT.md",
+    "experiments/domain-model/s2/trial/container/execution-lifecycle/README.md",
+    "experiments/domain-model/s2/trial/container/execution-lifecycle/test_trace_reanalysis.py",
+    "experiments/domain-model/s2/trial/container/execution-lifecycle/trace_reanalysis.py"
+  ],
+  "unexpectedChangedExistingFiles": [],
+  "historicalVerificationFilesUnchanged": 2379,
+  "firstDerivedBundleFilesUnchanged": 15,
+  "historicalProbeUnchanged": true,
+  "frozenParserAndFourVerifiersUnchanged": true,
+  "newReplayByteIdenticalAtImplementationHead": true,
+  "derivedSourceLinesMatched": true,
+  "initialHashInventorySha256": "25512f6e9f5cce9ebc50f28949b997a0491f259540f9c89bfb10d434bbe238c7"
+}

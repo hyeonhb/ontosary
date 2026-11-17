@@ -1,0 +1,106 @@
+{
+  "runtimeExecutions": 0,
+  "cases": [
+    {
+      "name": "resume_before_child_exec",
+      "trace": "[pid 41] execve(\"/proc/self/fd/3\", [\"bwrap\", \"/usr/bin/true\"], 0) = 0\n[pid 41] clone(child_stack=NULL, flags=CLONE_NEWNS|CLONE_NEWIPC|CLONE_NEWUSER|CLONE_NEWPID|CLONE_NEWNET|SIGCHLD <unfinished ...>\n[pid 41] <... clone resumed>) = 42\n[pid 42] execve(\"/usr/bin/other\", [\"other\"], 0) = 0\n[pid 42] mount(NULL, \"/\", NULL, MS_REC|MS_SILENT|MS_SLAVE, NULL) = -1 EPERM (Operation not permitted)\n[pid 43] execve(\"/proc/self/fd/3\", [\"bwrap\", \"/usr/local/bin/node\"], 0) = 0\n[pid 43] clone(child_stack=NULL, flags=CLONE_NEWNS|CLONE_NEWIPC|CLONE_NEWUSER|CLONE_NEWPID|CLONE_NEWNET|SIGCHLD) = 44\n[pid 44] mount(NULL, \"/\", NULL, MS_REC|MS_SILENT|MS_SLAVE, NULL) = -1 EPERM (Operation not permitted)\n",
+      "status": "inconclusive",
+      "issues": [
+        {
+          "reason": "child-exec-outside-denial-scope",
+          "line": 4
+        }
+      ],
+      "nextDenied": [
+        {
+          "pid": 42,
+          "syscall": "mount",
+          "errno": "EPERM",
+          "source": {
+            "startLine": 5,
+            "endLine": 5,
+            "raw": "[pid 42] mount(NULL, \"/\", NULL, MS_REC|MS_SILENT|MS_SLAVE, NULL) = -1 EPERM (Operation not permitted)"
+          },
+          "parentPid": 41,
+          "cloneLine": 2
+        },
+        {
+          "pid": 44,
+          "syscall": "mount",
+          "errno": "EPERM",
+          "source": {
+            "startLine": 8,
+            "endLine": 8,
+            "raw": "[pid 44] mount(NULL, \"/\", NULL, MS_REC|MS_SILENT|MS_SLAVE, NULL) = -1 EPERM (Operation not permitted)"
+          },
+          "parentPid": 43,
+          "cloneLine": 7
+        }
+      ]
+    },
+    {
+      "name": "resume_after_child_exec",
+      "trace": "[pid 41] execve(\"/proc/self/fd/3\", [\"bwrap\", \"/usr/bin/true\"], 0) = 0\n[pid 41] clone(child_stack=NULL, flags=CLONE_NEWNS|CLONE_NEWIPC|CLONE_NEWUSER|CLONE_NEWPID|CLONE_NEWNET|SIGCHLD <unfinished ...>\n[pid 42] execve(\"/usr/bin/other\", [\"other\"], 0) = 0\n[pid 42] mount(NULL, \"/\", NULL, MS_REC|MS_SILENT|MS_SLAVE, NULL) = -1 EPERM (Operation not permitted)\n[pid 41] <... clone resumed>) = 42\n[pid 43] execve(\"/proc/self/fd/3\", [\"bwrap\", \"/usr/local/bin/node\"], 0) = 0\n[pid 43] clone(child_stack=NULL, flags=CLONE_NEWNS|CLONE_NEWIPC|CLONE_NEWUSER|CLONE_NEWPID|CLONE_NEWNET|SIGCHLD) = 44\n[pid 44] mount(NULL, \"/\", NULL, MS_REC|MS_SILENT|MS_SLAVE, NULL) = -1 EPERM (Operation not permitted)\n",
+      "status": "first-clone-passed-next-blocked",
+      "issues": [],
+      "nextDenied": [
+        {
+          "pid": 42,
+          "syscall": "mount",
+          "errno": "EPERM",
+          "source": {
+            "startLine": 4,
+            "endLine": 4,
+            "raw": "[pid 42] mount(NULL, \"/\", NULL, MS_REC|MS_SILENT|MS_SLAVE, NULL) = -1 EPERM (Operation not permitted)"
+          },
+          "parentPid": 41,
+          "cloneLine": 2
+        },
+        {
+          "pid": 44,
+          "syscall": "mount",
+          "errno": "EPERM",
+          "source": {
+            "startLine": 8,
+            "endLine": 8,
+            "raw": "[pid 44] mount(NULL, \"/\", NULL, MS_REC|MS_SILENT|MS_SLAVE, NULL) = -1 EPERM (Operation not permitted)"
+          },
+          "parentPid": 43,
+          "cloneLine": 7
+        }
+      ]
+    },
+    {
+      "name": "supported_denial_before_resume",
+      "trace": "[pid 41] execve(\"/proc/self/fd/3\", [\"bwrap\", \"/usr/bin/true\"], 0) = 0\n[pid 41] clone(child_stack=NULL, flags=CLONE_NEWNS|CLONE_NEWIPC|CLONE_NEWUSER|CLONE_NEWPID|CLONE_NEWNET|SIGCHLD <unfinished ...>\n[pid 42] mount(NULL, \"/\", NULL, MS_REC|MS_SILENT|MS_SLAVE, NULL) = -1 EPERM (Operation not permitted)\n[pid 41] <... clone resumed>) = 42\n[pid 43] execve(\"/proc/self/fd/3\", [\"bwrap\", \"/usr/local/bin/node\"], 0) = 0\n[pid 43] clone(child_stack=NULL, flags=CLONE_NEWNS|CLONE_NEWIPC|CLONE_NEWUSER|CLONE_NEWPID|CLONE_NEWNET|SIGCHLD) = 44\n[pid 44] mount(NULL, \"/\", NULL, MS_REC|MS_SILENT|MS_SLAVE, NULL) = -1 EPERM (Operation not permitted)\n",
+      "status": "first-clone-passed-next-blocked",
+      "issues": [],
+      "nextDenied": [
+        {
+          "pid": 42,
+          "syscall": "mount",
+          "errno": "EPERM",
+          "source": {
+            "startLine": 3,
+            "endLine": 3,
+            "raw": "[pid 42] mount(NULL, \"/\", NULL, MS_REC|MS_SILENT|MS_SLAVE, NULL) = -1 EPERM (Operation not permitted)"
+          },
+          "parentPid": 41,
+          "cloneLine": 2
+        },
+        {
+          "pid": 44,
+          "syscall": "mount",
+          "errno": "EPERM",
+          "source": {
+            "startLine": 7,
+            "endLine": 7,
+            "raw": "[pid 44] mount(NULL, \"/\", NULL, MS_REC|MS_SILENT|MS_SLAVE, NULL) = -1 EPERM (Operation not permitted)"
+          },
+          "parentPid": 43,
+          "cloneLine": 6
+        }
+      ]
+    }
+  ]
+}

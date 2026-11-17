@@ -1,5 +1,7 @@
 # 독립 리뷰 맥락
 
+2026-11-17 최신 인계는 [R18 문맥 보완](2026-11-17-s2-trace-context-fix.md)이다. 기존 PR #63에 main35dbc3d를 통합했고 구현26c8b41은 부모 반환 전·후 자식 exec/미지원 mount를 동일한 bounded 기록/검사로 다룬다. 반례 전후의 입력은 보존하며 두 exec 순서 모두 inconclusive, 정상 지연 denial과 실제 저장 원래/후보 판정은 유지한다. 기존243+새14=257 Python·pnpm304·과거4 verifier 통과, 첫 파생/옛 자동 inconclusive/원문 불변·runtime0이다. 지원 범위·128개/64KiB 문맥 한도·상한 초과 시 보수적 거부를 독립 리뷰하며 PR #63은 미병합으로 둔다. R11/실제 실행 경계·권한/model·본 비교는 계속 별도다.
+
 2026-11-17 최신 판단은 [trace 판독 독립 리뷰](2026-11-17-s2-trace-reanalysis-independent-review.md)다. 8bba520에서 실제 원래/후보 파생 결과와 과거 보존·304+243검사·4개 verifier를 확인했다. R18 반례는 child exec→mount→parent resumed 순서에서 issues 없이 next-blocked가 되는 문제이며 parent resumed→child exec에서는 inconclusive다. 실제 후보 원문 결론은 유지한다. [30분 보완 지시](2026-11-17-s2-trace-context-fix-instructions.md)를 함께 제공하고 PR #63은 미병합으로 둔다. 새 VM/정책/권한/인증/model은0이며 다음 실행 경계 설계는 사용자와 별도로 논의한다.
 
 2026-11-17 최신 구현은 [저장 trace 판독 보완](2026-11-17-s2-trace-reanalysis.md)이다. main e358104 이후695d7f1에서 별도 순수 판독/오프라인 CLI를 추가했으며 기존 runtime parser/verifier·과거 원문/자동 결과는 불변이다. 새 파생 결과는 first-clone-passed-next-blocked이고 원문64–65/132행 clone과110/178행 자식 mount에 연결된다. 이전 inconclusive도 같이 기록하며 payloadStarted/lsmCauseConfirmed=false다. pnpm check304·Python 기존208+새35=243·기존4개 verifier 통과, VM/runtime/정책/credential/model0이다. 이번 PR은 독립 결과 리뷰 전 병합하지 않는다. R11과 실제 실행 경계 선택은 여전히 별도이며 mount 허용·본 비교 승인이 아니다.

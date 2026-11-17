@@ -1,0 +1,140 @@
+{
+  "commands": [
+    {
+      "name": "execution-lifecycle",
+      "command": [
+        "/Users/hyeon/.pyenv/versions/3.12.10/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "experiments/domain-model/s2/trial/container/execution-lifecycle",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "exitCode": 0,
+      "seconds": 10.29303445800906,
+      "log": "execution-lifecycle.log"
+    },
+    {
+      "name": "shared-lifecycle",
+      "command": [
+        "/Users/hyeon/.pyenv/versions/3.12.10/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "experiments/domain-model/s2/trial/container/lifecycle",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "exitCode": 0,
+      "seconds": 0.16450695801177062,
+      "log": "shared-lifecycle.log"
+    },
+    {
+      "name": "audit",
+      "command": [
+        "/Users/hyeon/.pyenv/versions/3.12.10/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "experiments/domain-model/s2/trial/container/single-policy-test",
+        "-p",
+        "test_retry*.py",
+        "-v"
+      ],
+      "exitCode": 0,
+      "seconds": 2.0875791659927927,
+      "log": "audit.log"
+    },
+    {
+      "name": "historical-1114",
+      "command": [
+        "/Users/hyeon/.pyenv/versions/3.12.10/bin/python3",
+        "experiments/domain-model/s2/trial/container/execution-lifecycle/verify_saved.py",
+        "--root",
+        "experiments/domain-model/s2/verification/2026-11-14-execution-lifecycle"
+      ],
+      "exitCode": 0,
+      "seconds": 0.2880190840223804,
+      "log": "historical-1114.log"
+    },
+    {
+      "name": "historical-1115",
+      "command": [
+        "/Users/hyeon/.pyenv/versions/3.12.10/bin/python3",
+        "experiments/domain-model/s2/trial/container/execution-lifecycle/verify_fix.py",
+        "--root",
+        "experiments/domain-model/s2/verification/2026-11-15-execution-lifecycle-fix"
+      ],
+      "exitCode": 0,
+      "seconds": 0.2735381659877021,
+      "log": "historical-1115.log"
+    },
+    {
+      "name": "historical-seal",
+      "command": [
+        "/Users/hyeon/.pyenv/versions/3.12.10/bin/python3",
+        "experiments/domain-model/s2/trial/container/execution-lifecycle/verify_recovery.py",
+        "--root",
+        "experiments/domain-model/s2/verification/2026-11-17-seal-recovery"
+      ],
+      "exitCode": 0,
+      "seconds": 0.3294436659780331,
+      "log": "historical-seal.log"
+    },
+    {
+      "name": "historical-pair",
+      "command": [
+        "/Users/hyeon/.pyenv/versions/3.12.10/bin/python3",
+        "experiments/domain-model/s2/trial/container/execution-lifecycle/verify_pair.py",
+        "--root",
+        "experiments/domain-model/s2/verification/2026-11-17-policy-pair"
+      ],
+      "exitCode": 0,
+      "seconds": 0.5226352500030771,
+      "log": "historical-pair.log"
+    }
+  ],
+  "sourceHashes": {
+    "experiments/domain-model/s2/trial/container/execution-lifecycle/trace_reanalysis.py": "c4f14702c04105cd922a933204486633f0e6316f049e2ba813c895992eddc55e",
+    "experiments/domain-model/s2/trial/container/execution-lifecycle/test_trace_reanalysis.py": "6ae64e6138a4011c37d757a63d68f886c78edb1c5770ca8d0c96b7f8c0c428e1"
+  },
+  "pnpmCheck": {
+    "command": [
+      "pnpm",
+      "check"
+    ],
+    "exitCode": 0,
+    "seconds": 19.61772258297424
+  },
+  "pythonCounts": {
+    "baseline": 243,
+    "existingTraceCases": 35,
+    "newContextCases": 14,
+    "totalTraceCases": 49,
+    "executionLifecycle": 197,
+    "sharedLifecycle": 16,
+    "audit": 44,
+    "uniqueTotal": 257,
+    "skipped": 0
+  },
+  "pnpmCounts": {
+    "tests": 304,
+    "skipped": 0,
+    "typecheck": true,
+    "exampleBuild": true
+  },
+  "redRegression": {
+    "tests": 44,
+    "newCasesAtRedStage": 9,
+    "failureReportsIncludingSubtests": 6
+  },
+  "pnpmExperimentRepeated": false,
+  "vendureEvaluationRepeated": false,
+  "runtimeExecutions": 0
+}

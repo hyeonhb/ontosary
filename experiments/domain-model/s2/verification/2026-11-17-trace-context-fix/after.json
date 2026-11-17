@@ -1,0 +1,445 @@
+{
+  "originalProbeUnmodified": true,
+  "probeSha256": "3d9138d44c8a1f999c93ad8f5c870e8daecd67604e8efa628950e2227bbeb136",
+  "cases": [
+    {
+      "name": "resume_before_child_exec",
+      "traceSha256": "b61ea542a227de4472e04f75bf8f641e61ef26d15b33bf9241bf7a5720ea988c",
+      "previousStatus": "inconclusive",
+      "derived": {
+        "status": "inconclusive",
+        "traceSha256": "b61ea542a227de4472e04f75bf8f641e61ef26d15b33bf9241bf7a5720ea988c",
+        "payloadStarted": false,
+        "commandExitCode": 1,
+        "lsmCauseConfirmed": false,
+        "bwrapExecutions": [
+          {
+            "pid": 41,
+            "kind": "precheck",
+            "source": {
+              "startLine": 1,
+              "endLine": 1,
+              "raw": "[pid 41] execve(\"/proc/self/fd/3\", [\"bwrap\", \"/usr/bin/true\"], 0) = 0"
+            },
+            "argvAbbreviated": false,
+            "roleBasis": "bwrap argv contains /usr/bin/true; otherwise command-preparation (frozen convention)"
+          },
+          {
+            "pid": 43,
+            "kind": "command-preparation",
+            "source": {
+              "startLine": 6,
+              "endLine": 6,
+              "raw": "[pid 43] execve(\"/proc/self/fd/3\", [\"bwrap\", \"/usr/local/bin/node\"], 0) = 0"
+            },
+            "argvAbbreviated": false,
+            "roleBasis": "bwrap argv contains /usr/bin/true; otherwise command-preparation (frozen convention)"
+          }
+        ],
+        "namespaceClones": [
+          {
+            "pid": 41,
+            "kind": "precheck",
+            "flags": "CLONE_NEWNS|CLONE_NEWIPC|CLONE_NEWUSER|CLONE_NEWPID|CLONE_NEWNET|SIGCHLD",
+            "return": 42,
+            "errno": null,
+            "format": "unfinished-resumed",
+            "source": {
+              "startLine": 2,
+              "endLine": 2,
+              "raw": "[pid 41] clone(child_stack=NULL, flags=CLONE_NEWNS|CLONE_NEWIPC|CLONE_NEWUSER|CLONE_NEWPID|CLONE_NEWNET|SIGCHLD <unfinished ...>"
+            },
+            "completion": {
+              "startLine": 3,
+              "endLine": 3,
+              "raw": "[pid 41] <... clone resumed>) = 42"
+            },
+            "execLine": 1
+          },
+          {
+            "pid": 43,
+            "kind": "command-preparation",
+            "flags": "CLONE_NEWNS|CLONE_NEWIPC|CLONE_NEWUSER|CLONE_NEWPID|CLONE_NEWNET|SIGCHLD",
+            "return": 44,
+            "errno": null,
+            "format": "single-line",
+            "source": {
+              "startLine": 7,
+              "endLine": 7,
+              "raw": "[pid 43] clone(child_stack=NULL, flags=CLONE_NEWNS|CLONE_NEWIPC|CLONE_NEWUSER|CLONE_NEWPID|CLONE_NEWNET|SIGCHLD) = 44"
+            },
+            "completion": {
+              "startLine": 7,
+              "endLine": 7,
+              "raw": "[pid 43] clone(child_stack=NULL, flags=CLONE_NEWNS|CLONE_NEWIPC|CLONE_NEWUSER|CLONE_NEWPID|CLONE_NEWNET|SIGCHLD) = 44"
+            },
+            "execLine": 6
+          }
+        ],
+        "nextDenied": [
+          {
+            "pid": 44,
+            "syscall": "mount",
+            "errno": "EPERM",
+            "source": {
+              "startLine": 8,
+              "endLine": 8,
+              "raw": "[pid 44] mount(NULL, \"/\", NULL, MS_REC|MS_SILENT|MS_SLAVE, NULL) = -1 EPERM (Operation not permitted)"
+            },
+            "parentPid": 43,
+            "cloneLine": 7
+          }
+        ],
+        "contextRejectedDenied": [
+          {
+            "pid": 42,
+            "syscall": "mount",
+            "errno": "EPERM",
+            "source": {
+              "startLine": 5,
+              "endLine": 5,
+              "raw": "[pid 42] mount(NULL, \"/\", NULL, MS_REC|MS_SILENT|MS_SLAVE, NULL) = -1 EPERM (Operation not permitted)"
+            },
+            "parentPid": 41,
+            "cloneLine": 2
+          }
+        ],
+        "unlinkedDenied": [],
+        "childContext": [
+          {
+            "pid": 42,
+            "reason": "child-exec-outside-denial-scope",
+            "source": {
+              "startLine": 4,
+              "endLine": 4,
+              "raw": "[pid 42] execve(\"/usr/bin/other\", [\"other\"], 0) = 0"
+            },
+            "parentPid": 41,
+            "cloneLine": 2
+          }
+        ],
+        "contextComplete": true,
+        "contextEventsStored": 1,
+        "contextBytesStored": 51,
+        "joins": [],
+        "issues": [
+          {
+            "reason": "child-exec-outside-denial-scope",
+            "line": 4
+          }
+        ],
+        "linesVisited": 8,
+        "pendingClonePids": [],
+        "supportedFormats": [
+          "PID-prefixed single-line clone",
+          "PID-matched unfinished/resumed clone",
+          "exact /usr/bin/strace attach notice plus immediate unprefixed return"
+        ],
+        "unsupportedFormats": [
+          "clone3 or different flags/order",
+          "nonadjacent attach completion or ambiguous/mismatched PID",
+          "split bwrap exec or split child mount",
+          "truncated final line or any exceeded limit"
+        ],
+        "scope": "PID-prefixed bwrap exec, exact namespace clone, subsequent child denial; unrelated startup syscalls excluded",
+        "limits": {
+          "traceBytes": 16777216,
+          "lineBytes": 65536,
+          "pendingLineBytes": 4096,
+          "pendingCalls": 32,
+          "observations": 256,
+          "issues": 64,
+          "contextEvents": 128,
+          "contextBytes": 65536
+        }
+      }
+    },
+    {
+      "name": "resume_after_child_exec",
+      "traceSha256": "a5f5b4f84e14883afd60798879cfc109be65e1603208feb7bcc28f1608f8d767",
+      "previousStatus": "first-clone-passed-next-blocked",
+      "derived": {
+        "status": "inconclusive",
+        "traceSha256": "a5f5b4f84e14883afd60798879cfc109be65e1603208feb7bcc28f1608f8d767",
+        "payloadStarted": false,
+        "commandExitCode": 1,
+        "lsmCauseConfirmed": false,
+        "bwrapExecutions": [
+          {
+            "pid": 41,
+            "kind": "precheck",
+            "source": {
+              "startLine": 1,
+              "endLine": 1,
+              "raw": "[pid 41] execve(\"/proc/self/fd/3\", [\"bwrap\", \"/usr/bin/true\"], 0) = 0"
+            },
+            "argvAbbreviated": false,
+            "roleBasis": "bwrap argv contains /usr/bin/true; otherwise command-preparation (frozen convention)"
+          },
+          {
+            "pid": 43,
+            "kind": "command-preparation",
+            "source": {
+              "startLine": 6,
+              "endLine": 6,
+              "raw": "[pid 43] execve(\"/proc/self/fd/3\", [\"bwrap\", \"/usr/local/bin/node\"], 0) = 0"
+            },
+            "argvAbbreviated": false,
+            "roleBasis": "bwrap argv contains /usr/bin/true; otherwise command-preparation (frozen convention)"
+          }
+        ],
+        "namespaceClones": [
+          {
+            "pid": 41,
+            "kind": "precheck",
+            "flags": "CLONE_NEWNS|CLONE_NEWIPC|CLONE_NEWUSER|CLONE_NEWPID|CLONE_NEWNET|SIGCHLD",
+            "return": 42,
+            "errno": null,
+            "format": "unfinished-resumed",
+            "source": {
+              "startLine": 2,
+              "endLine": 2,
+              "raw": "[pid 41] clone(child_stack=NULL, flags=CLONE_NEWNS|CLONE_NEWIPC|CLONE_NEWUSER|CLONE_NEWPID|CLONE_NEWNET|SIGCHLD <unfinished ...>"
+            },
+            "completion": {
+              "startLine": 5,
+              "endLine": 5,
+              "raw": "[pid 41] <... clone resumed>) = 42"
+            },
+            "execLine": 1
+          },
+          {
+            "pid": 43,
+            "kind": "command-preparation",
+            "flags": "CLONE_NEWNS|CLONE_NEWIPC|CLONE_NEWUSER|CLONE_NEWPID|CLONE_NEWNET|SIGCHLD",
+            "return": 44,
+            "errno": null,
+            "format": "single-line",
+            "source": {
+              "startLine": 7,
+              "endLine": 7,
+              "raw": "[pid 43] clone(child_stack=NULL, flags=CLONE_NEWNS|CLONE_NEWIPC|CLONE_NEWUSER|CLONE_NEWPID|CLONE_NEWNET|SIGCHLD) = 44"
+            },
+            "completion": {
+              "startLine": 7,
+              "endLine": 7,
+              "raw": "[pid 43] clone(child_stack=NULL, flags=CLONE_NEWNS|CLONE_NEWIPC|CLONE_NEWUSER|CLONE_NEWPID|CLONE_NEWNET|SIGCHLD) = 44"
+            },
+            "execLine": 6
+          }
+        ],
+        "nextDenied": [
+          {
+            "pid": 44,
+            "syscall": "mount",
+            "errno": "EPERM",
+            "source": {
+              "startLine": 8,
+              "endLine": 8,
+              "raw": "[pid 44] mount(NULL, \"/\", NULL, MS_REC|MS_SILENT|MS_SLAVE, NULL) = -1 EPERM (Operation not permitted)"
+            },
+            "parentPid": 43,
+            "cloneLine": 7
+          }
+        ],
+        "contextRejectedDenied": [
+          {
+            "pid": 42,
+            "syscall": "mount",
+            "errno": "EPERM",
+            "source": {
+              "startLine": 4,
+              "endLine": 4,
+              "raw": "[pid 42] mount(NULL, \"/\", NULL, MS_REC|MS_SILENT|MS_SLAVE, NULL) = -1 EPERM (Operation not permitted)"
+            },
+            "parentPid": 41,
+            "cloneLine": 2
+          }
+        ],
+        "unlinkedDenied": [],
+        "childContext": [
+          {
+            "pid": 42,
+            "reason": "child-exec-outside-denial-scope",
+            "source": {
+              "startLine": 3,
+              "endLine": 3,
+              "raw": "[pid 42] execve(\"/usr/bin/other\", [\"other\"], 0) = 0"
+            },
+            "parentPid": 41,
+            "cloneLine": 2
+          }
+        ],
+        "contextComplete": true,
+        "contextEventsStored": 1,
+        "contextBytesStored": 51,
+        "joins": [],
+        "issues": [
+          {
+            "reason": "child-exec-outside-denial-scope",
+            "line": 3
+          }
+        ],
+        "linesVisited": 8,
+        "pendingClonePids": [],
+        "supportedFormats": [
+          "PID-prefixed single-line clone",
+          "PID-matched unfinished/resumed clone",
+          "exact /usr/bin/strace attach notice plus immediate unprefixed return"
+        ],
+        "unsupportedFormats": [
+          "clone3 or different flags/order",
+          "nonadjacent attach completion or ambiguous/mismatched PID",
+          "split bwrap exec or split child mount",
+          "truncated final line or any exceeded limit"
+        ],
+        "scope": "PID-prefixed bwrap exec, exact namespace clone, subsequent child denial; unrelated startup syscalls excluded",
+        "limits": {
+          "traceBytes": 16777216,
+          "lineBytes": 65536,
+          "pendingLineBytes": 4096,
+          "pendingCalls": 32,
+          "observations": 256,
+          "issues": 64,
+          "contextEvents": 128,
+          "contextBytes": 65536
+        }
+      }
+    },
+    {
+      "name": "supported_denial_before_resume",
+      "traceSha256": "b7d243b610195a2a84dc97dccf2fae685efc095dd64149271bc2ed558e189e0e",
+      "previousStatus": "first-clone-passed-next-blocked",
+      "derived": {
+        "status": "first-clone-passed-next-blocked",
+        "traceSha256": "b7d243b610195a2a84dc97dccf2fae685efc095dd64149271bc2ed558e189e0e",
+        "payloadStarted": false,
+        "commandExitCode": 1,
+        "lsmCauseConfirmed": false,
+        "bwrapExecutions": [
+          {
+            "pid": 41,
+            "kind": "precheck",
+            "source": {
+              "startLine": 1,
+              "endLine": 1,
+              "raw": "[pid 41] execve(\"/proc/self/fd/3\", [\"bwrap\", \"/usr/bin/true\"], 0) = 0"
+            },
+            "argvAbbreviated": false,
+            "roleBasis": "bwrap argv contains /usr/bin/true; otherwise command-preparation (frozen convention)"
+          },
+          {
+            "pid": 43,
+            "kind": "command-preparation",
+            "source": {
+              "startLine": 5,
+              "endLine": 5,
+              "raw": "[pid 43] execve(\"/proc/self/fd/3\", [\"bwrap\", \"/usr/local/bin/node\"], 0) = 0"
+            },
+            "argvAbbreviated": false,
+            "roleBasis": "bwrap argv contains /usr/bin/true; otherwise command-preparation (frozen convention)"
+          }
+        ],
+        "namespaceClones": [
+          {
+            "pid": 41,
+            "kind": "precheck",
+            "flags": "CLONE_NEWNS|CLONE_NEWIPC|CLONE_NEWUSER|CLONE_NEWPID|CLONE_NEWNET|SIGCHLD",
+            "return": 42,
+            "errno": null,
+            "format": "unfinished-resumed",
+            "source": {
+              "startLine": 2,
+              "endLine": 2,
+              "raw": "[pid 41] clone(child_stack=NULL, flags=CLONE_NEWNS|CLONE_NEWIPC|CLONE_NEWUSER|CLONE_NEWPID|CLONE_NEWNET|SIGCHLD <unfinished ...>"
+            },
+            "completion": {
+              "startLine": 4,
+              "endLine": 4,
+              "raw": "[pid 41] <... clone resumed>) = 42"
+            },
+            "execLine": 1
+          },
+          {
+            "pid": 43,
+            "kind": "command-preparation",
+            "flags": "CLONE_NEWNS|CLONE_NEWIPC|CLONE_NEWUSER|CLONE_NEWPID|CLONE_NEWNET|SIGCHLD",
+            "return": 44,
+            "errno": null,
+            "format": "single-line",
+            "source": {
+              "startLine": 6,
+              "endLine": 6,
+              "raw": "[pid 43] clone(child_stack=NULL, flags=CLONE_NEWNS|CLONE_NEWIPC|CLONE_NEWUSER|CLONE_NEWPID|CLONE_NEWNET|SIGCHLD) = 44"
+            },
+            "completion": {
+              "startLine": 6,
+              "endLine": 6,
+              "raw": "[pid 43] clone(child_stack=NULL, flags=CLONE_NEWNS|CLONE_NEWIPC|CLONE_NEWUSER|CLONE_NEWPID|CLONE_NEWNET|SIGCHLD) = 44"
+            },
+            "execLine": 5
+          }
+        ],
+        "nextDenied": [
+          {
+            "pid": 42,
+            "syscall": "mount",
+            "errno": "EPERM",
+            "source": {
+              "startLine": 3,
+              "endLine": 3,
+              "raw": "[pid 42] mount(NULL, \"/\", NULL, MS_REC|MS_SILENT|MS_SLAVE, NULL) = -1 EPERM (Operation not permitted)"
+            },
+            "parentPid": 41,
+            "cloneLine": 2
+          },
+          {
+            "pid": 44,
+            "syscall": "mount",
+            "errno": "EPERM",
+            "source": {
+              "startLine": 7,
+              "endLine": 7,
+              "raw": "[pid 44] mount(NULL, \"/\", NULL, MS_REC|MS_SILENT|MS_SLAVE, NULL) = -1 EPERM (Operation not permitted)"
+            },
+            "parentPid": 43,
+            "cloneLine": 6
+          }
+        ],
+        "contextRejectedDenied": [],
+        "unlinkedDenied": [],
+        "childContext": [],
+        "contextComplete": true,
+        "contextEventsStored": 0,
+        "contextBytesStored": 0,
+        "joins": [],
+        "issues": [],
+        "linesVisited": 7,
+        "pendingClonePids": [],
+        "supportedFormats": [
+          "PID-prefixed single-line clone",
+          "PID-matched unfinished/resumed clone",
+          "exact /usr/bin/strace attach notice plus immediate unprefixed return"
+        ],
+        "unsupportedFormats": [
+          "clone3 or different flags/order",
+          "nonadjacent attach completion or ambiguous/mismatched PID",
+          "split bwrap exec or split child mount",
+          "truncated final line or any exceeded limit"
+        ],
+        "scope": "PID-prefixed bwrap exec, exact namespace clone, subsequent child denial; unrelated startup syscalls excluded",
+        "limits": {
+          "traceBytes": 16777216,
+          "lineBytes": 65536,
+          "pendingLineBytes": 4096,
+          "pendingCalls": 32,
+          "observations": 256,
+          "issues": 64,
+          "contextEvents": 128,
+          "contextBytes": 65536
+        }
+      }
+    }
+  ],
+  "runtimeExecutions": 0
+}

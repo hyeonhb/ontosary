@@ -1,0 +1,10 @@
+{
+  "checkedLinks": 215,
+  "missing": [],
+  "documents": [
+    "docs/PROGRESS.md",
+    "docs/reviews/REVIEW_CONTEXT.md",
+    "experiments/domain-model/s2/trial/container/execution-lifecycle/README.md",
+    "docs/reviews/2026-11-17-s2-trace-context-fix.md"
+  ]
+}
