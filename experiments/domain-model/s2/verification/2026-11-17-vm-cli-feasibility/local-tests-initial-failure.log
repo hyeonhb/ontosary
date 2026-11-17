@@ -1,0 +1,80 @@
+test_ancestor_links (test_local.ExtractionTests.test_ancestor_links) ... ok
+test_cumulative_byte_limit (test_local.ExtractionTests.test_cumulative_byte_limit) ... ok
+test_duplicate_selected_member (test_local.ExtractionTests.test_duplicate_selected_member) ... ok
+test_missing_selected_member (test_local.ExtractionTests.test_missing_selected_member) ... ok
+test_selective_regular_file (test_local.ExtractionTests.test_selective_regular_file) ... ok
+test_traversal (test_local.ExtractionTests.test_traversal) ... ok
+test_whiteout (test_local.ExtractionTests.test_whiteout) ... ok
+test_both_errors_are_preserved (test_local.LocalDraftTests.test_both_errors_are_preserved) ... ok
+test_collection_rejects_symlink_and_hardlink (test_local.LocalDraftTests.test_collection_rejects_symlink_and_hardlink) ... 
+  test_collection_rejects_symlink_and_hardlink (test_local.LocalDraftTests.test_collection_rejects_symlink_and_hardlink) (link='symbolic') ... ERROR
+  test_collection_rejects_symlink_and_hardlink (test_local.LocalDraftTests.test_collection_rejects_symlink_and_hardlink) (link='hard') ... ERROR
+test_collection_rejects_unconfirmed_termination (test_local.LocalDraftTests.test_collection_rejects_unconfirmed_termination) ... 
+  test_collection_rejects_unconfirmed_termination (test_local.LocalDraftTests.test_collection_rejects_unconfirmed_termination) (state={}) ... ERROR
+  test_collection_rejects_unconfirmed_termination (test_local.LocalDraftTests.test_collection_rejects_unconfirmed_termination) (state={'terminationConfirmed': False}) ... ERROR
+  test_collection_rejects_unconfirmed_termination (test_local.LocalDraftTests.test_collection_rejects_unconfirmed_termination) (state={'terminationConfirmed': True, 'pendingCommand': True}) ... ERROR
+test_draft_runtime_entrypoints_refuse_without_side_effects (test_local.LocalDraftTests.test_draft_runtime_entrypoints_refuse_without_side_effects) ... ok
+test_expired_deadline_never_dispatches_fake_command (test_local.LocalDraftTests.test_expired_deadline_never_dispatches_fake_command) ... ok
+test_failure_still_dispatches_cleanup (test_local.LocalDraftTests.test_failure_still_dispatches_cleanup) ... ok
+test_guest_properties_fail_closed (test_local.LocalDraftTests.test_guest_properties_fail_closed) ... ERROR
+test_local_process_is_killed_at_deadline (test_local.LocalDraftTests.test_local_process_is_killed_at_deadline) ... ok
+test_missing_evidence_never_passes (test_local.LocalDraftTests.test_missing_evidence_never_passes) ... ok
+
+======================================================================
+ERROR: test_collection_rejects_symlink_and_hardlink (test_local.LocalDraftTests.test_collection_rejects_symlink_and_hardlink) (link='symbolic')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/vm-cli-feasibility/test_local.py", line 70, in test_collection_rejects_symlink_and_hardlink
+    guest.collect(root, {'terminationConfirmed': True, 'finishMono': time.monotonic() + 1})
+    ^^^^^^^^^^^^^
+AttributeError: module 'guest' has no attribute 'collect'
+
+======================================================================
+ERROR: test_collection_rejects_symlink_and_hardlink (test_local.LocalDraftTests.test_collection_rejects_symlink_and_hardlink) (link='hard')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/vm-cli-feasibility/test_local.py", line 70, in test_collection_rejects_symlink_and_hardlink
+    guest.collect(root, {'terminationConfirmed': True, 'finishMono': time.monotonic() + 1})
+    ^^^^^^^^^^^^^
+AttributeError: module 'guest' has no attribute 'collect'
+
+======================================================================
+ERROR: test_collection_rejects_unconfirmed_termination (test_local.LocalDraftTests.test_collection_rejects_unconfirmed_termination) (state={})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/vm-cli-feasibility/test_local.py", line 56, in test_collection_rejects_unconfirmed_termination
+    guest.collect(root, state)
+    ^^^^^^^^^^^^^
+AttributeError: module 'guest' has no attribute 'collect'
+
+======================================================================
+ERROR: test_collection_rejects_unconfirmed_termination (test_local.LocalDraftTests.test_collection_rejects_unconfirmed_termination) (state={'terminationConfirmed': False})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/vm-cli-feasibility/test_local.py", line 56, in test_collection_rejects_unconfirmed_termination
+    guest.collect(root, state)
+    ^^^^^^^^^^^^^
+AttributeError: module 'guest' has no attribute 'collect'
+
+======================================================================
+ERROR: test_collection_rejects_unconfirmed_termination (test_local.LocalDraftTests.test_collection_rejects_unconfirmed_termination) (state={'terminationConfirmed': True, 'pendingCommand': True})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/vm-cli-feasibility/test_local.py", line 56, in test_collection_rejects_unconfirmed_termination
+    guest.collect(root, state)
+    ^^^^^^^^^^^^^
+AttributeError: module 'guest' has no attribute 'collect'
+
+======================================================================
+ERROR: test_guest_properties_fail_closed (test_local.LocalDraftTests.test_guest_properties_fail_closed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/vm-cli-feasibility/test_local.py", line 106, in test_guest_properties_fail_closed
+    self.assertFalse(guest.security({}))
+                     ^^^^^^^^^^^^^^
+AttributeError: module 'guest' has no attribute 'security'
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.270s
+
+FAILED (errors=6)

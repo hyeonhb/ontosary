@@ -1,0 +1,43 @@
+test_ancestor_links (test_local.ExtractionTests.test_ancestor_links) ... ok
+test_cumulative_byte_limit (test_local.ExtractionTests.test_cumulative_byte_limit) ... ok
+test_duplicate_selected_member (test_local.ExtractionTests.test_duplicate_selected_member) ... ok
+test_missing_selected_member (test_local.ExtractionTests.test_missing_selected_member) ... ok
+test_selective_regular_file (test_local.ExtractionTests.test_selective_regular_file) ... ok
+test_traversal (test_local.ExtractionTests.test_traversal) ... ok
+test_whiteout (test_local.ExtractionTests.test_whiteout) ... ok
+test_both_errors_are_preserved (test_local.LocalDraftTests.test_both_errors_are_preserved) ... ok
+test_collection_rejects_symlink_and_hardlink (test_local.LocalDraftTests.test_collection_rejects_symlink_and_hardlink) ... ok
+test_collection_rejects_unconfirmed_termination (test_local.LocalDraftTests.test_collection_rejects_unconfirmed_termination) ... ok
+test_draft_runtime_entrypoints_refuse_without_side_effects (test_local.LocalDraftTests.test_draft_runtime_entrypoints_refuse_without_side_effects) ... ok
+test_expired_deadline_never_dispatches_fake_command (test_local.LocalDraftTests.test_expired_deadline_never_dispatches_fake_command) ... ok
+test_failure_still_dispatches_cleanup (test_local.LocalDraftTests.test_failure_still_dispatches_cleanup) ... ok
+test_guest_properties_fail_closed (test_local.LocalDraftTests.test_guest_properties_fail_closed) ... ok
+test_local_process_is_killed_at_deadline (test_local.LocalDraftTests.test_local_process_is_killed_at_deadline) ... ok
+test_missing_evidence_never_passes (test_local.LocalDraftTests.test_missing_evidence_never_passes) ... ok
+test_counter_cannot_be_boolean_or_nonzero (test_verify.StoppedRecordTests.test_counter_cannot_be_boolean_or_nonzero) ... ok
+test_gate_cannot_be_restarted (test_verify.StoppedRecordTests.test_gate_cannot_be_restarted) ... ok
+test_missing_field_fails (test_verify.StoppedRecordTests.test_missing_field_fails) ... ok
+test_missing_or_spurious_runtime_observations (test_verify.StoppedRecordTests.test_missing_or_spurious_runtime_observations) ... ok
+test_remaining_process_prevents_closed_record (test_verify.StoppedRecordTests.test_remaining_process_prevents_closed_record) ... ok
+test_stored_record_is_inconclusive_only (test_verify.StoppedRecordTests.test_stored_record_is_inconclusive_only) ... ERROR
+test_symlink_cannot_replace_indexed_evidence (test_verify.StoppedRecordTests.test_symlink_cannot_replace_indexed_evidence) ... ok
+test_tampered_raw_evidence_is_rejected (test_verify.StoppedRecordTests.test_tampered_raw_evidence_is_rejected) ... ok
+test_unindexed_file_is_rejected (test_verify.StoppedRecordTests.test_unindexed_file_is_rejected) ... ok
+
+======================================================================
+ERROR: test_stored_record_is_inconclusive_only (test_verify.StoppedRecordTests.test_stored_record_is_inconclusive_only)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/vm-cli-feasibility/test_verify.py", line 20, in test_stored_record_is_inconclusive_only
+    result = verify.verify(EVIDENCE)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/vm-cli-feasibility/verify.py", line 94, in verify
+    require(sum(r['actual']['bytes'] for r in cache['records']) == cache['bytes'], 'cache bytes')
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/vm-cli-feasibility/verify.py", line 19, in require
+    raise ValueError(message)
+ValueError: cache bytes
+
+----------------------------------------------------------------------
+Ran 25 tests in 0.331s
+
+FAILED (errors=1)

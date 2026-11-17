@@ -1,0 +1,36 @@
+{
+  "firstCommand": {
+    "utc": "2026-11-17T12:52:33.929495+00:00",
+    "monotonic": 233538.356099125,
+    "head": "ade291f0891e20bd8a4545cb126dc3b29196761a",
+    "status": "## codex/s2-trace-reanalysis...origin/codex/s2-trace-reanalysis\n"
+  },
+  "baseHead": "5a395040a4046c68c602c31e149291f2f1667093",
+  "branch": "codex/s2-vm-cli-feasibility",
+  "experimentStopUtc": "2026-11-17T13:10:20+00:00",
+  "reportSnapshotUtc": "2026-11-17T13:21:51.920041+00:00",
+  "reportSnapshotMonotonic": 235296.3774635,
+  "elapsedSnapshotSeconds": 1758.0213643749885,
+  "absoluteFinishUtc": "2026-11-17T14:22:33.929495+00:00",
+  "absoluteFinishMonotonic": 238938.356099125,
+  "budgetRestarted": false,
+  "phases": {
+    "minimumPreparation": "missed; observed after 1066.071 seconds",
+    "vm1Payload": "not-started",
+    "boundaries": "not-started",
+    "failureUnits": "not-started",
+    "vm2Repeat": "not-started",
+    "localValidation": "25 new + 60 shared Python; pnpm check 304",
+    "guestRecovery": "not-applicable-no-guest",
+    "cleanup": "not-created"
+  },
+  "runtimeCommands": [],
+  "executionPlanFrozen": false,
+  "runtimeCodeCommit": null,
+  "publicationHead": "Record in PR after committing this evidence; do not infer runtime execution from a publication SHA.",
+  "gitPublicationAndCiExcluded": true,
+  "closedUtc": "2026-11-17T13:23:04.972804+00:00",
+  "closedMonotonic": 235369.430783708,
+  "elapsedSeconds": 1831.074684583,
+  "within90MinuteBudget": true
+}

@@ -466,3 +466,14 @@ R13/R14 유지와 R15/R16/R17은 이 fixture 검증 범위에서 결과 리뷰�
 **상한과 판단:** 순차 VM 최대2개, 실제 fixture 최대4개(정상·timeout·wrapper 사망·새 VM 정상 반복), 준비물 download/build/save0·실제 인증/provider/model0이다. 15/30/50/65/75/90분 gate로 준비·sandbox 시작·접근·종료·반복·정리/검증/보고를 제한한다. 권한 완화나 대규모 재구축, 예상 밖 접근, 종료 불명, 단계 시간 초과면 새 실행을 중단하고 진단/정리/보고로 전환한다. 다른 후보로 자동 전환하지 않는다.
 
 **후속:** 실제4단위와 검증/정리가 확인되면 다음 통합 검토가 가능한 타당성으로만 판정한다. 실제 turn 도구 경계·인증 전달/갱신·Vendure 연결·전체 수집은 별도 남는다. 구현 PR은 독립 결과 리뷰 전에 병합하지 않는다. R11 unresolved·production/live 거부·trialAuthorized/readyForTrial=false·results=null·H-O/H-F 미검증을 유지한다.
+
+
+## ADR-056 · 직접 VM CLI 타당성의 준비 마감 초과와 미실행 인계 — 2026-11-17
+
+[ADR-055 지시](reviews/2026-11-17-s2-vm-cli-feasibility-instructions.md)의90분 회차에서15분 최소 구현/정리 gate를 충족하지 못했다. 최초 UTC/monotonic을 보존했으며17분46초에 마감 초과를 확인했다. [결과](reviews/2026-11-17-s2-vm-cli-feasibility.md)는 inconclusive이고, 단계 초과 시 새 실험 중단 계약에 따라 VM/CLI/필수4단위를 시작하지 않았다. 늦은 감지와 준비 미완료를 명시하며 이후 로컬 검증을 준비 gate 통과로 소급하지 않는다.
+
+공개 cache4개와 선택 member9개의 hash를 확인했지만 실제 guest 버전/정책/권한/자원/종료/반복 관측은 없다. 실행 초안은 진입점에서 거부하며 watchdog 마감 예외, argv/hash/PID 검증 연결, 실제 지연 쓰기 시각 연결 등 미완성을 보존해 독립 리뷰에 제출한다. 새 verifier는 중단 기록의 일관성만 확인하고 feasible 판정을 지원하지 않는다. 기존 runtime/collector/평가 의미·과거 자료를 수정하지 않았고 새 의존성도 없다.
+
+pnpm check304·새 로컬25/공유60 회귀, 과거 verification2397을 포함한3474파일 불변을 확인했다. VM이 생성되지 않아 cleanup=not-created, guest recovery=not-applicable-no-guest이며 실제 삭제 시험 통과가 아니다. 준비물 download/build/save와 실제 credential/login/refresh/provider/model/본 비교는 각각0회다.
+
+다음은 준비 비용과 미실행 결과의 독립 리뷰이며 C안 채택을 보류한다. 후속 실행은 별도 범위/예산 결정 뒤 진행하고 이번 clock을 재시작하지 않는다. PR은 독립 결과 리뷰 전 미병합이다. R11 unresolved·R12 기존 범위·production/live 거부·fixtureOnly=true·validSubmission=false·trialAuthorized/readyForTrial=false·results=null·H-O/H-F 미검증을 유지한다.
