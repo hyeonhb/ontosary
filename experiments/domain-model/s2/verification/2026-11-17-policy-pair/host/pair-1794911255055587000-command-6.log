@@ -1,0 +1,1 @@
+{"status": "complete", "files": 31, "metadataIncludedFiles": 32, "boundedBytes": 562608, "archive": "/tmp/s2-execution-export-unit-baseline/evidence.tar.gz", "bytes": 61643, "sha256": "d734064bc64838aad7fce4413962d061949982fd42295d0cae73efd30aab2553", "runs": {"32b2c3ebb587": {"exportedResult": true, "files": 4, "collectionStatus": "collected"}}}

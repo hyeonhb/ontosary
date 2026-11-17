@@ -1,0 +1,17 @@
+{
+  "initialFiles": 3527,
+  "unchangedFiles": 3520,
+  "intentionalChangedFiles": [
+    "docs/ARCHITECTURE.md",
+    "docs/DECISIONS.md",
+    "docs/PROGRESS.md",
+    "docs/ROADMAP.md",
+    "docs/reviews/REVIEW_CONTEXT.md",
+    "experiments/domain-model/s2/trial/container/execution-lifecycle/README.md",
+    "experiments/domain-model/s2/trial/container/execution-lifecycle/round.py"
+  ],
+  "unexpectedChanges": [],
+  "historicalVerificationFilesUnchanged": 2229,
+  "gateCodeUnchanged": true,
+  "runtimeCodeChangedAfterGate": false
+}

@@ -1,0 +1,5 @@
+{
+  "text": "# One disposable candidate; no host home/cache/socket mounts.\nminimumLimaVersion: 2.3.0\nvmType: vz\narch: aarch64\ncpus: 4\nmemory: 6GiB\ndisk: 24GiB\nimages:\n  - location: /Users/hyeon/Library/Caches/ontosary/s2-prepared-v1/8eb876c2ccc4b6ff89e4a65d511815923b285e04503ba465809bf587f763da24/data\n    arch: aarch64\n    digest: sha256:8eb876c2ccc4b6ff89e4a65d511815923b285e04503ba465809bf587f763da24\nmounts: []\nssh:\n  loadDotSSHPubKeys: false\n  forwardAgent: false\n  forwardX11: false\ncontainerd:\n  archives:\n    - location: /Users/hyeon/Library/Caches/ontosary/s2-prepared-v1/fe0ef0e9840ee8932640e6058f84b7fa98050f9726e44af44883a5b804ae830e/data\n      arch: aarch64\n      digest: sha256:fe0ef0e9840ee8932640e6058f84b7fa98050f9726e44af44883a5b804ae830e\n  system: true\n  user: false\nportForwards:\n  - guestIP: 0.0.0.0\n    proto: any\n    ignore: true\nnetworkOpts:\n  hostLoopback: false\npropagateProxyEnv: false\nparam:\n  internal_netplanOptional: 'true'\n",
+  "sha256": "91c929d66c8512d07b79c4f9641dc17122fa7e8d9074b19915bd688c6ad09486",
+  "noUserCacheMutation": true
+}

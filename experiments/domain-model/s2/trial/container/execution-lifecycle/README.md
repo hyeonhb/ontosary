@@ -1,5 +1,21 @@
 # S2 finite execution lifecycle
 
+The [bounded policy-pair handoff](../../../../../../docs/reviews/2026-11-17-s2-policy-pair.md)
+records one baseline and one candidate in a fresh VM, using the existing clone
+allow row only. Raw trace review shows clone success followed by mount EPERM.
+The frozen parser returned `inconclusive` because strace inserted an attach
+notice into the first clone line; that result remains unchanged. No payload,
+additional policy, or retry was attempted. Both units sealed and all owned VM
+resources were removed. This does not resolve R11 or authorize a trial.
+
+`policy_pair.py` admits only the exact purpose, ordered two modes, fixed rule,
+cache-only limits, and hash-verified historical seven-unit gate. It reads each
+unit's recovered sealed result before continuing; the candidate cannot precede a
+matching baseline. `pair` failures use the same `failed_dispatch()` cleanup path.
+`verify_pair.py` replays the pair's complete Specs, seals, archive bindings and
+automatic trace analysis. `trace-review.json` is separate source-line review of
+the unsupported interleaved trace format, not replacement automated output.
+
 The [cleanup dispatch follow-up](../../../../../../docs/reviews/2026-11-17-s2-cleanup-dispatch-fix.md)
 fixes the host `main()` failure path: scope/registry/snapshot or diagnostic errors
 cannot skip the single owned cleanup attempt. Original and secondary exceptions
@@ -40,7 +56,7 @@ The three responsibilities are deliberately separate:
 - `identity.py` verifies registered container, image, slice and bind-source
   identities, records exact JSON substitutions, then compares the entire Spec.
   Unknown fields and extra policy changes remain differences. The historical candidate comparison remains covered by local tests, but actual
-  policy-pair execution is refused in this correction round. There is no security-only projection.
+  policy-pair execution requires the separately approved exact-purpose plan. There is no security-only projection.
 
 `outcome`, `terminationConfirmed`, `removalConfirmed`, `collectionStatus`, service
 inactivity and recovery are separate. Failed outcomes never become task success.
@@ -122,7 +138,8 @@ Unpinned external apt/npm queries mean new builds are not claimed reproducible.
 
 `round.py fixtures` requests, once each: normal-1, precheck rejection, start failure,
 timeout, wrapper death, supervisor death, normal-2 after explicit recovery.
-`round.py pair` is refused in this correction round. The optional eighth
+`round.py pair` remains refused for the old correction plans; the explicit
+policy-pair purpose allows baseline/candidate only and rejects `fixtures`. The optional eighth
 destructive runtime-failure fixture is not planned. Local fake-runtime CLI tests are not evidence of actual runtime-error
 recovery. No hidden smoke containers are created. Image build is a separate
 preparation stage. Failed runtime units are never patched and retried in this round.
@@ -172,4 +189,10 @@ Latest offline replay (no runtime dispatch):
 
 ```sh
 python3 experiments/domain-model/s2/trial/container/execution-lifecycle/verify_recovery.py --root experiments/domain-model/s2/verification/2026-11-17-seal-recovery
+```
+
+Pair offline replay (no VM or runtime dispatch):
+
+```sh
+python3 experiments/domain-model/s2/trial/container/execution-lifecycle/verify_pair.py --root experiments/domain-model/s2/verification/2026-11-17-policy-pair
 ```

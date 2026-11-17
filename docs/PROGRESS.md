@@ -1,5 +1,7 @@
 # 현재 작업 상태 — 새 세션은 이 문서부터 읽기
 
+2026-11-17 [기존 clone 한 행 정책 대조](reviews/2026-11-17-s2-policy-pair.md)(ADR-054): **원래1/후보1 관찰·정리 완료, 독립 리뷰 대기**다. 원래 두 bwrap clone은 EPERM, 후보의 같은 clone은 자식42/44를 만들고 mount(MS_SLAVE)가 EPERM으로 막혔다. 원문 검토는 first-clone-passed-next-blocked지만, 동결 parser가 strace attach 안내가 섞인 첫 반환 줄을 놓쳐 자동 판정은 inconclusive로 보존했다. payload 미시작·추가 정책/재시도0이다. 전체 Spec 두 개는 정확한 allow 한 행 차이로 검증됐고 두 service 봉인/회수·VM 정리 완료다. pnpm check304·Python208(새15)·과거3/새 verifier 통과. 새 PR은 독립 리뷰 전 미병합, R11/production/live·실제 인증/model/본 비교 보류를 유지한다.
+
 2026-11-17 [최상위 정리 보완 독립 리뷰](reviews/2026-11-17-s2-cleanup-dispatch-independent-review.md): **R17 잔여 해결·추가 차단 결함 없음**. head153f887에서 pnpm check304·Python193·독립 dispatcher8사례·과거3개 verifier를 통과했고 새17파일 hash/기존2324증거 불변을 확인했다. 기존 실제7/7·Spec/봉인7개·회수9개를 유지한다. PR #54는 검증한 head로 병합(7f2f179)했다. R13~R17은 해당 fixture 범위 완료이며 다음은 [같은 정책 한 행 대조 재개 지시](reviews/2026-11-17-s2-policy-pair-resume-instructions.md)를 권고한다(45분·VM1개·원래1/후보1·cacheOnly). 이번 리뷰에서는 새 VM/정책 실행0회다. R11 unresolved·실제 인증/model/본 비교 보류·H-O/H-F 미검증을 유지한다. 아래는 당시 기록이다.
 
 2026-11-17 [최상위 cleanup 호출 잔여 보완](reviews/2026-11-17-s2-cleanup-dispatch-fix.md)(ADR-053): **로컬 보완 검증 완료·독립 리뷰 대기**다. prepare/fixtures의 감사 기록 오류6개에서 cleanup0회인 결함을 재현하고, 기록과 finally의 단일 정리 호출을 분리했다. 최초/감사/정리/출력 오류를 보존하며 marker 유실 시에도 cleanup 등록 없는 seal을 거부한다. pnpm check304·Python193(기존174+새19, skip0)·과거3회차 verifier를 통과했다. 새 VM/runtime0이며 과거 실제7단위는 오프라인 재대조만 했다. PR #54 갱신 후 미병합·R11/production/live·정책 pair/인증/model/본 비교 보류를 유지한다. 아래는 당시 기록이다.

@@ -1,0 +1,19 @@
+test_actual_dispatch_normal_order_profile_and_no_error_cleanup (test_pair.PairTests.test_actual_dispatch_normal_order_profile_and_no_error_cleanup) ... ok
+test_approved_plan_and_historical_seven (test_pair.PairTests.test_approved_plan_and_historical_seven) ... ok
+test_baseline_recovery_error_and_audit_error_still_cleanup (test_pair.PairTests.test_baseline_recovery_error_and_audit_error_still_cleanup) ... ok
+test_baseline_result_mismatch_prevents_candidate_and_cleans_once (test_pair.PairTests.test_baseline_result_mismatch_prevents_candidate_and_cleans_once) ... ok
+test_candidate_failure_cleans_no_retry (test_pair.PairTests.test_candidate_failure_cleans_no_retry) ... ok
+test_candidate_recovery_failure_cleans_no_completion (test_pair.PairTests.test_candidate_recovery_failure_cleans_no_completion) ... ok
+test_code_gate_tamper_blocks_before_unit (test_pair.PairTests.test_code_gate_tamper_blocks_before_unit) ... ok
+test_empty_saved_pair_is_inconclusive (test_pair.PairTests.test_empty_saved_pair_is_inconclusive) ... ok
+test_old_or_changed_plans_refused_before_units (test_pair.PairTests.test_old_or_changed_plans_refused_before_units) ... ok
+test_pair_plan_refuses_fixture_path (test_pair.PairTests.test_pair_plan_refuses_fixture_path) ... ok
+test_positive_clone_child_denial_and_unfinished (test_pair.PairTests.test_positive_clone_child_denial_and_unfinished) ... ok
+test_saved_baseline_trace_and_pid_roles (test_pair.PairTests.test_saved_baseline_trace_and_pid_roles) ... ok
+test_unauthorized_main_cleans_without_unit (test_pair.PairTests.test_unauthorized_main_cleans_without_unit) ... ok
+test_unknown_trace_and_binary_drift_not_success (test_pair.PairTests.test_unknown_trace_and_binary_drift_not_success) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 2.766s
+
+OK
