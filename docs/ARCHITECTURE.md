@@ -1,5 +1,7 @@
 # 현재 아키텍처
 
+2026-11-17 다음 국소 보완(ADR-051): [진단/봉인/정리 지시](reviews/2026-11-17-s2-seal-recovery-instructions.md)는 관리자 검증 metadata의 원자 게시, 정상 결과와 실패 진단의 별도 상태/같은 누적 수집 상한, 봉인까지 service reference 유지, 증거 회수 오류와 VM 정리 책임 분리를 요구한다. 기존 독립 감독자·collector·전체 Spec·deadline을 유지하는 실험 도구 보완이며 아직 구현 완료가 아니다. 새로운 backend/권한/제품 계약은 도입하지 않는다.
+
 2026-11-14 승인된 다음 구조(ADR-047): [실행 운영 보완 지시](reviews/2026-11-14-s2-execution-lifecycle-instructions.md)는 준비물 관리·공통 수명주기·정책 비교의 세 책임을 실험 도구 안에 둔다. 공개 불변 준비물은 실제 hash/입력 검증 후 재사용하고, 회차 VM과 실행별 writable 상태는 새로 만든다. 정상/실패 모두 실행 차단→전체 종료 확인→task/container 제거·부재 확인→제한된 수집을 거치며 독립 감독자가 정지와 삭제를 책임진다. outcome과 정리/수집 상태를 분리하고 불명확한 runtime 요청은 다음 실행을 막는다. 실제 Spec은 소유 관계가 검증된 식별자만 치환한 뒤 전체를 비교하며 승인한 clone 한 행 외 차이는 거부한다. 기존 deadline/snapshot/package/collector를 재사용하고 공유 lifecycle 영향 회귀를 요구한다. 이는 승인된 구현 계약이며 아직 구현·검증 결과가 아니다. 제품 코어·평가 의미·모델/B/C와 production/live 차단은 유지한다.
 
 2026-11-12 [재시도 결과](reviews/2026-11-12-s2-policy-retry.md)(ADR-046): closing은 정확한 command/args/phase와 생성 시 ID/hash 등록을 요구하며 package는 분석+등록 집합 밖 파일을 거부하고 검증된 staging만 공개한다. 준비 제한은 최초20분의 UTC/host monotonic 잔여를 공유한다. 실제 원래 단위는 기존 종료 도구로1.722초 내 삭제·수집했고, 후보는 strict OCI gate에서 미등록 hook 환경 경로로 시작 전 차단됐다. 후보 전체 종료 확인은0.275초였지만 삭제181.412초로120초 외부 계약에 미달한다. 따라서 새 도구는 진단 fixture이며 검증된 runtime adapter/R11 해결이 아니다. 공유 lifecycle/제품/평가 계약은 유지한다.
