@@ -1,0 +1,52 @@
+{
+  "index": {
+    "files": 259,
+    "analysis": 5,
+    "closing": 3
+  },
+  "semantic": {
+    "actualUnits": 7,
+    "passed": 7,
+    "wholeSpecsReplayed": [
+      {
+        "mode": "normal-1",
+        "accepted": true
+      },
+      {
+        "mode": "precheck-rejection",
+        "accepted": true
+      },
+      {
+        "mode": "start-failure",
+        "accepted": true
+      },
+      {
+        "mode": "timeout",
+        "accepted": true
+      },
+      {
+        "mode": "wrapper-death",
+        "accepted": true
+      },
+      {
+        "mode": "supervisor-death",
+        "accepted": true
+      },
+      {
+        "mode": "normal-2",
+        "accepted": true
+      }
+    ],
+    "sealsVerified": [
+      "normal-1",
+      "precheck-rejection",
+      "start-failure",
+      "timeout",
+      "wrapper-death",
+      "supervisor-death",
+      "normal-2"
+    ],
+    "recoveryArchives": 9,
+    "runtimeReexecuted": false
+  }
+}

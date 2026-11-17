@@ -1,0 +1,140 @@
+{
+  "codeHead": "695d7f1a9fdbce9fc371fd322d4357846182e989",
+  "pnpmCheck": {
+    "tests": 304,
+    "skipped": 0,
+    "typecheck": true,
+    "exampleBuild": true,
+    "log": "pnpm-check.log"
+  },
+  "python": {
+    "existingExecutionLifecycle": 148,
+    "existingSharedLifecycle": 16,
+    "existingAudit": 44,
+    "existingTotal": 208,
+    "newTraceTests": 35,
+    "executionLifecycleIncludingNew": 183,
+    "uniqueTotal": 243,
+    "skipped": 0,
+    "newTestsLogIsSubset": true
+  },
+  "commands": [
+    {
+      "name": "execution-lifecycle",
+      "command": [
+        "/Users/hyeon/.pyenv/versions/3.12.10/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "experiments/domain-model/s2/trial/container/execution-lifecycle",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "exitCode": 0,
+      "seconds": 10.469192415999714,
+      "log": "execution-lifecycle.log",
+      "sourceHashes": {
+        "experiments/domain-model/s2/trial/container/execution-lifecycle/trace_reanalysis.py": "ec31be035f4021a0eeab302cb4c99eeed1f84b7e4b176654705626a7b5b7aeb2",
+        "experiments/domain-model/s2/trial/container/execution-lifecycle/test_trace_reanalysis.py": "3a798b739568e6351f8f650bf9af3b7dc84a52c99009ee082ff836ccc077bb46"
+      }
+    },
+    {
+      "name": "shared-lifecycle",
+      "command": [
+        "/Users/hyeon/.pyenv/versions/3.12.10/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "experiments/domain-model/s2/trial/container/lifecycle",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "exitCode": 0,
+      "seconds": 0.13967262499500066,
+      "log": "shared-lifecycle.log"
+    },
+    {
+      "name": "audit",
+      "command": [
+        "/Users/hyeon/.pyenv/versions/3.12.10/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "experiments/domain-model/s2/trial/container/single-policy-test",
+        "-p",
+        "test_retry*.py",
+        "-v"
+      ],
+      "exitCode": 0,
+      "seconds": 1.8761897909862455,
+      "log": "audit.log"
+    },
+    {
+      "name": "historical-1114",
+      "command": [
+        "/Users/hyeon/.pyenv/versions/3.12.10/bin/python3",
+        "experiments/domain-model/s2/trial/container/execution-lifecycle/verify_saved.py",
+        "--root",
+        "experiments/domain-model/s2/verification/2026-11-14-execution-lifecycle"
+      ],
+      "exitCode": 0,
+      "seconds": 0.27151004201732576,
+      "log": "historical-1114.log"
+    },
+    {
+      "name": "historical-1115",
+      "command": [
+        "/Users/hyeon/.pyenv/versions/3.12.10/bin/python3",
+        "experiments/domain-model/s2/trial/container/execution-lifecycle/verify_fix.py",
+        "--root",
+        "experiments/domain-model/s2/verification/2026-11-15-execution-lifecycle-fix"
+      ],
+      "exitCode": 0,
+      "seconds": 0.2533357909996994,
+      "log": "historical-1115.log"
+    },
+    {
+      "name": "historical-seal",
+      "command": [
+        "/Users/hyeon/.pyenv/versions/3.12.10/bin/python3",
+        "experiments/domain-model/s2/trial/container/execution-lifecycle/verify_recovery.py",
+        "--root",
+        "experiments/domain-model/s2/verification/2026-11-17-seal-recovery"
+      ],
+      "exitCode": 0,
+      "seconds": 0.33574083299026825,
+      "log": "historical-seal.log"
+    },
+    {
+      "name": "historical-pair",
+      "command": [
+        "/Users/hyeon/.pyenv/versions/3.12.10/bin/python3",
+        "experiments/domain-model/s2/trial/container/execution-lifecycle/verify_pair.py",
+        "--root",
+        "experiments/domain-model/s2/verification/2026-11-17-policy-pair"
+      ],
+      "exitCode": 0,
+      "seconds": 0.5297224590030964,
+      "log": "historical-pair.log"
+    }
+  ],
+  "newTestsCommand": [
+    "python3",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "experiments/domain-model/s2/trial/container/execution-lifecycle",
+    "-p",
+    "test_trace_reanalysis.py",
+    "-v"
+  ],
+  "runtimeExecutions": 0,
+  "pnpmExperimentRepeated": false,
+  "vendureEvaluationRepeated": false
+}

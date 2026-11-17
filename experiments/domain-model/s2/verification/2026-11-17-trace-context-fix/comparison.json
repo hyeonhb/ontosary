@@ -1,0 +1,80 @@
+{
+  "reason": "R18: apply unsupported child exec/mount context checks independent of parent clone return ordering",
+  "beforeHead": "8bba520a8fe91355d367642eebf2f8218133cf83",
+  "integratedMain": "35dbc3d",
+  "integrationHead": "e68064f1177497b787a4c52b47dc72a270797c44",
+  "implementationHead": "26c8b41cf27badd05f1bc6d84358fa465b82c384",
+  "priorDerived": {
+    "path": "experiments/domain-model/s2/verification/2026-11-17-trace-reanalysis/derived.json",
+    "sha256": "28a74b5ef476c6a7b26fd5333f3e4b325e57d37998fb2deab0b8fa55a645d67e",
+    "tool": {
+      "path": "experiments/domain-model/s2/trial/container/execution-lifecycle/trace_reanalysis.py",
+      "sha256": "ec31be035f4021a0eeab302cb4c99eeed1f84b7e4b176654705626a7b5b7aeb2",
+      "sourceCommit": "695d7f1a9fdbce9fc371fd322d4357846182e989",
+      "dependencyHashes": {
+        "experiments/domain-model/s2/trial/container/execution-lifecycle/policy_pair.py": "dcb2cd8569c4bea333a041159d18e7ab0f922a071a360374b52c426e4eb91a54",
+        "experiments/domain-model/s2/trial/container/execution-lifecycle/verify_pair.py": "7b03b853ea362e1c652705e5980473547ac6792ea6df99dbb3f5694b109cd2ba",
+        "experiments/domain-model/s2/trial/container/execution-lifecycle/verify_recovery.py": "ba5342f4d4a7d597bb0b5b539a1da4015b831019f3c6743933b76a913aec77b3",
+        "experiments/domain-model/s2/trial/container/single-policy-test/scope.py": "e1a070cf82a8f7e806fb0a28bf838ad3b4f4d9fb66ed51e5ed27302916761d83"
+      },
+      "checkoutHead": "695d7f1a9fdbce9fc371fd322d4357846182e989"
+    },
+    "indexSha256": "48979a1c031afd05dcf0cf3d71092e7ac2edbbf81d6fe54e7e4cdbb3cac05dc7"
+  },
+  "newDerived": {
+    "path": "experiments/domain-model/s2/verification/2026-11-17-trace-context-fix/derived.json",
+    "sha256": "48fece38aeaf8adb5246f4449110bfa2936b254211b36cb02a57ca230ef27ca6",
+    "tool": {
+      "path": "experiments/domain-model/s2/trial/container/execution-lifecycle/trace_reanalysis.py",
+      "sha256": "c4f14702c04105cd922a933204486633f0e6316f049e2ba813c895992eddc55e",
+      "sourceCommit": "26c8b41cf27badd05f1bc6d84358fa465b82c384",
+      "dependencyHashes": {
+        "experiments/domain-model/s2/trial/container/execution-lifecycle/policy_pair.py": "dcb2cd8569c4bea333a041159d18e7ab0f922a071a360374b52c426e4eb91a54",
+        "experiments/domain-model/s2/trial/container/execution-lifecycle/verify_pair.py": "7b03b853ea362e1c652705e5980473547ac6792ea6df99dbb3f5694b109cd2ba",
+        "experiments/domain-model/s2/trial/container/execution-lifecycle/verify_recovery.py": "ba5342f4d4a7d597bb0b5b539a1da4015b831019f3c6743933b76a913aec77b3",
+        "experiments/domain-model/s2/trial/container/single-policy-test/scope.py": "e1a070cf82a8f7e806fb0a28bf838ad3b4f4d9fb66ed51e5ed27302916761d83"
+      },
+      "checkoutHead": "26c8b41cf27badd05f1bc6d84358fa465b82c384"
+    }
+  },
+  "probe": {
+    "path": "docs/reviews/evidence/2026-11-17-probe-deferred-child-context.py",
+    "sha256": "3d9138d44c8a1f999c93ad8f5c870e8daecd67604e8efa628950e2227bbeb136",
+    "beforeSha256": "d11c2139529f987de6dfbc3eb16b45fedc29d3aafb31f4d14bc1d928a28c5843",
+    "afterSha256": "3ffda2c3ee50241272d95c1e1a534cdecd3954cb0e7c564a3f4b7180843bc430",
+    "historicalAssertionsUnmodified": true
+  },
+  "modes": {
+    "baseline": {
+      "historicalAutomaticStatus": "clone-still-denied",
+      "firstDerivedStatus": "clone-still-denied",
+      "newDerivedStatus": "clone-still-denied",
+      "traceSha256": "5f484c0f375ee3689774ef2138e219db3097e524f08e564d274103f5ccf31d18",
+      "observationFieldsUnchanged": [
+        "status",
+        "traceSha256",
+        "payloadStarted",
+        "lsmCauseConfirmed",
+        "namespaceClones",
+        "bwrapExecutions",
+        "nextDenied"
+      ]
+    },
+    "candidate": {
+      "historicalAutomaticStatus": "inconclusive",
+      "firstDerivedStatus": "first-clone-passed-next-blocked",
+      "newDerivedStatus": "first-clone-passed-next-blocked",
+      "traceSha256": "9a949992b23a81361f821d9ec6fd227eebcd4a6a1c1cf8801ee698660e117c5c",
+      "observationFieldsUnchanged": [
+        "status",
+        "traceSha256",
+        "payloadStarted",
+        "lsmCauseConfirmed",
+        "namespaceClones",
+        "bwrapExecutions",
+        "nextDenied"
+      ]
+    }
+  },
+  "runtimeExecutions": 0
+}

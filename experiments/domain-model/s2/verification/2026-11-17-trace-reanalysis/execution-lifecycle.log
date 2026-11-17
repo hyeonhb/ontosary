@@ -1,0 +1,207 @@
+test_build_input_mismatch (test_artifacts.ArtifactTests.test_build_input_mismatch) ... ok
+test_capacity_before_producer (test_artifacts.ArtifactTests.test_capacity_before_producer) ... ok
+test_corruption_is_not_recertified (test_artifacts.ArtifactTests.test_corruption_is_not_recertified) ... ok
+test_deadline (test_artifacts.ArtifactTests.test_deadline) ... ok
+test_hit_rehash_skips_producer (test_artifacts.ArtifactTests.test_hit_rehash_skips_producer) ... ok
+test_missing (test_artifacts.ArtifactTests.test_missing) ... ok
+test_partial_cleaned (test_artifacts.ArtifactTests.test_partial_cleaned) ... ok
+test_producer_failure_cleaned (test_artifacts.ArtifactTests.test_producer_failure_cleaned) ... ok
+test_registration_incomplete (test_artifacts.ArtifactTests.test_registration_incomplete) ... ok
+test_symlink_rejected (test_artifacts.ArtifactTests.test_symlink_rejected) ... ok
+test_unowned_partial_counts_capacity (test_artifacts.ArtifactTests.test_unowned_partial_counts_capacity) ... ok
+test_version_mismatch (test_artifacts.ArtifactTests.test_version_mismatch) ... ok
+test_exact_registered_analysis (test_audit.AuditTests.test_exact_registered_analysis) ... ok
+test_forged_analysis_rejected_at_packaging_gate (test_audit.AuditTests.test_forged_analysis_rejected_at_packaging_gate) ... ok
+test_frozen_analysis_cannot_run (test_audit.AuditTests.test_frozen_analysis_cannot_run) ... ok
+test_wrong_args_rejected_before_snapshot (test_audit.AuditTests.test_wrong_args_rejected_before_snapshot) ... ok
+test_command_deadline_charged_before_spawn (test_deadlines.DeadlineTests.test_command_deadline_charged_before_spawn) ... ok
+test_descendant_output_pipe_cannot_extend_deadline (test_deadlines.DeadlineTests.test_descendant_output_pipe_cannot_extend_deadline) ... ok
+test_lock_wait_is_bounded (test_deadlines.DeadlineTests.test_lock_wait_is_bounded) ... ok
+test_registration_rejects_restart_of_120s (test_deadlines.DeadlineTests.test_registration_rejects_restart_of_120s) ... ok
+test_retired_round_entrypoints_fail_before_runtime (test_deadlines.DeadlineTests.test_retired_round_entrypoints_fail_before_runtime) ... ok
+test_archive_failure_and_expiry_publish_only_small_error_receipt (test_diagnostics.DiagnosticTests.test_archive_failure_and_expiry_publish_only_small_error_receipt) ... ok
+test_bad_metadata_retains_independent_service_and_spec_diagnostics (test_diagnostics.DiagnosticTests.test_bad_metadata_retains_independent_service_and_spec_diagnostics) ... ok
+test_count_byte_caps_stop_body_and_preserve_reserved_metadata (test_diagnostics.DiagnosticTests.test_count_byte_caps_stop_body_and_preserve_reserved_metadata) ... ok
+test_invalid_normal_result_becomes_diagnostics_without_result_members (test_diagnostics.DiagnosticTests.test_invalid_normal_result_becomes_diagnostics_without_result_members) ... ok
+test_rejected_hardlink_and_pending_worker_originals_never_read (test_diagnostics.DiagnosticTests.test_rejected_hardlink_and_pending_worker_originals_never_read) ... ok
+test_special_and_parent_symlink_are_diagnostic_rejections (test_diagnostics.DiagnosticTests.test_special_and_parent_symlink_are_diagnostic_rejections) ... ok
+test_actual_snapshot_registration_failure_keeps_orphan_and_rejects_package (test_dispatch.DispatchTests.test_actual_snapshot_registration_failure_keeps_orphan_and_rejects_package) ... ok
+test_analysis_write_failures_cleanup_and_block (test_dispatch.DispatchTests.test_analysis_write_failures_cleanup_and_block) ... ok
+test_audit_and_cleanup_errors_preserve_original (test_dispatch.DispatchTests.test_audit_and_cleanup_errors_preserve_original) ... ok
+test_cleanup_exception_without_audit_failure_is_distinct (test_dispatch.DispatchTests.test_cleanup_exception_without_audit_failure_is_distinct) ... ok
+test_diagnostic_is_bounded (test_dispatch.DispatchTests.test_diagnostic_is_bounded) ... ok
+test_every_record_write_and_stderr_can_fail (test_dispatch.DispatchTests.test_every_record_write_and_stderr_can_fail) ... ok
+test_fixtures_analysis_write_failure (test_dispatch.DispatchTests.test_fixtures_analysis_write_failure) ... ok
+test_fixtures_registry_write_failure (test_dispatch.DispatchTests.test_fixtures_registry_write_failure) ... ok
+test_fixtures_snapshot_creation_failure (test_dispatch.DispatchTests.test_fixtures_snapshot_creation_failure) ... ok
+test_lost_failure_record_cannot_hide_missing_cleanup_registration (test_dispatch.DispatchTests.test_lost_failure_record_cannot_hide_missing_cleanup_registration) ... ok
+test_normal_action_does_not_add_failure_cleanup (test_dispatch.DispatchTests.test_normal_action_does_not_add_failure_cleanup) ... ok
+test_normal_fixtures_does_not_add_failure_cleanup (test_dispatch.DispatchTests.test_normal_fixtures_does_not_add_failure_cleanup) ... ok
+test_original_failure_keeps_real_registration (test_dispatch.DispatchTests.test_original_failure_keeps_real_registration) ... ok
+test_partial_registry_is_not_erased (test_dispatch.DispatchTests.test_partial_registry_is_not_erased) ... ok
+test_record_and_stderr_errors_cannot_skip_cleanup (test_dispatch.DispatchTests.test_record_and_stderr_errors_cannot_skip_cleanup) ... ok
+test_record_failure_reaches_existing_cleanup_stop_delete_absence (test_dispatch.DispatchTests.test_record_failure_reaches_existing_cleanup_stop_delete_absence) ... {"evidenceStatus": "missing", "cleanupStatus": "complete", "errors": [{"phase": "retrieve", "error": "injected-export"}], "attempts": [["/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/tmp63fwnvoe/ontosary-s2-dispatch/prefix/bin/limactl", "stop", "--force", "fake"], ["/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/tmp63fwnvoe/ontosary-s2-dispatch/prefix/bin/limactl", "delete", "--force", "fake"], ["/Users/hyeon/.pyenv/versions/3.12.10/bin/python3", "-c", "import subprocess,sys,json;p=subprocess.run([sys.argv[1],\"list\",\"--json\"],capture_output=True,text=True,timeout=7);print(json.dumps({\"exitCode\":p.returncode,\"stdout\":p.stdout,\"stderr\":p.stderr}))", "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/tmp63fwnvoe/ontosary-s2-dispatch/prefix/bin/limactl"]], "vmAbsent": true, "rootAbsent": true, "vmDisposalIsNotUnitTerminationProof": true, "listing": {"exitCode": 0, "stdout": "", "stderr": ""}, "retainedBytes": 0, "ownedTemporaryRemoved": [], "temporaryEntries": [], "seconds": 0.0014915420033503324, "remainingSeconds": 299.972956}
+ok
+test_registry_write_failures_preserve_partial_scope (test_dispatch.DispatchTests.test_registry_write_failures_preserve_partial_scope) ... ok
+test_snapshot_creation_failure_is_not_success (test_dispatch.DispatchTests.test_snapshot_creation_failure_is_not_success) ... ok
+test_unprintable_exception_still_dispatches_cleanup (test_dispatch.DispatchTests.test_unprintable_exception_still_dispatches_cleanup) ... ok
+test_collector_failure_blocks (test_engine.EngineTests.test_collector_failure_blocks) ... ok
+test_create_nonzero_keeps_unsettled_request (test_engine.EngineTests.test_create_nonzero_keeps_unsettled_request) ... ok
+test_duplicate_cleanup_single_publication (test_engine.EngineTests.test_duplicate_cleanup_single_publication) ... ok
+test_expired_work_request_not_dispatched (test_engine.EngineTests.test_expired_work_request_not_dispatched) ... ok
+test_foreign_container_never_deleted (test_engine.EngineTests.test_foreign_container_never_deleted) ... ok
+test_normal_delete_before_collect_and_seal (test_engine.EngineTests.test_normal_delete_before_collect_and_seal) ... ok
+test_pending_never_absent_by_missing_id (test_engine.EngineTests.test_pending_never_absent_by_missing_id) ... ok
+test_precheck_rejection_no_result_explicit_recovery (test_engine.EngineTests.test_precheck_rejection_no_result_explicit_recovery) ... ok
+test_query_error_not_absence (test_engine.EngineTests.test_query_error_not_absence) ... ok
+test_remove_error_not_absence (test_engine.EngineTests.test_remove_error_not_absence) ... ok
+test_start_failure_cleanup (test_engine.EngineTests.test_start_failure_cleanup) ... ok
+test_start_failure_settled_only_after_inspect (test_engine.EngineTests.test_start_failure_settled_only_after_inspect) ... ok
+test_supervisor_death_suppressed (test_engine.EngineTests.test_supervisor_death_suppressed) ... ok
+test_timeout_diagnostic (test_engine.EngineTests.test_timeout_diagnostic) ... ok
+test_timeout_request_remains_pending (test_engine.EngineTests.test_timeout_request_remains_pending) ... ok
+test_wrapper_death_diagnostic (test_engine.EngineTests.test_wrapper_death_diagnostic) ... ok
+test_actual_import_identity_mismatch_stops_before_reaper (test_guest_import.ImportTests.test_actual_import_identity_mismatch_stops_before_reaper) ... ok
+test_partial_archive_rejected_before_runtime_load (test_guest_import.ImportTests.test_partial_archive_rejected_before_runtime_load) ... ok
+test_duplicate_env (test_identity.IdentityTests.test_duplicate_env) ... ok
+test_duplicate_mount (test_identity.IdentityTests.test_duplicate_mount) ... ok
+test_extra_command (test_identity.IdentityTests.test_extra_command) ... ok
+test_extra_hook (test_identity.IdentityTests.test_extra_hook) ... ok
+test_extra_privilege (test_identity.IdentityTests.test_extra_privilege) ... ok
+test_extra_seccomp (test_identity.IdentityTests.test_extra_seccomp) ... ok
+test_hook_command_rejected (test_identity.IdentityTests.test_hook_command_rejected) ... ok
+test_independent_peer_order (test_identity.IdentityTests.test_independent_peer_order) ... ok
+test_input_mismatch (test_identity.IdentityTests.test_input_mismatch) ... ok
+test_nested_mount_reorder_rejected (test_identity.IdentityTests.test_nested_mount_reorder_rejected) ... ok
+test_other_run_path (test_identity.IdentityTests.test_other_run_path) ... ok
+test_other_supervisor_pressure_path (test_identity.IdentityTests.test_other_supervisor_pressure_path) ... ok
+test_outside_mount (test_identity.IdentityTests.test_outside_mount) ... ok
+test_raw_historical_duplicates_rejected (test_identity.IdentityTests.test_raw_historical_duplicates_rejected) ... ok
+test_saved_pair_explicit_environment_migration (test_identity.IdentityTests.test_saved_pair_explicit_environment_migration) ... ok
+test_bad_blob (test_image_archive.ImageArchiveTests.test_bad_blob) ... ok
+test_manifest_config_chain_and_all_blobs (test_image_archive.ImageArchiveTests.test_manifest_config_chain_and_all_blobs) ... ok
+test_missing_layer (test_image_archive.ImageArchiveTests.test_missing_layer) ... ok
+test_wrong_chain (test_image_archive.ImageArchiveTests.test_wrong_chain) ... ok
+test_atomic_publication_failure_leaves_no_partial (test_metadata.MetadataTests.test_atomic_publication_failure_leaves_no_partial) ... ok
+test_bad_owner_mode_hash_and_schema_leave_no_publication (test_metadata.MetadataTests.test_bad_owner_mode_hash_and_schema_leave_no_publication) ... ok
+test_distinct_transfer_uid_publishes_manager_owned_bytes (test_metadata.MetadataTests.test_distinct_transfer_uid_publishes_manager_owned_bytes) ... ok
+test_publish_import_export_connection (test_metadata.MetadataTests.test_publish_import_export_connection) ... ok
+test_symlink_hardlink_fifo_rejected_without_block (test_metadata.MetadataTests.test_symlink_hardlink_fifo_rejected_without_block) ... ok
+test_actual_common_unit_recovery_failure_reaches_dispatch_cleanup (test_pair.PairTests.test_actual_common_unit_recovery_failure_reaches_dispatch_cleanup) ... ok
+test_actual_dispatch_normal_order_profile_and_no_error_cleanup (test_pair.PairTests.test_actual_dispatch_normal_order_profile_and_no_error_cleanup) ... ok
+test_approved_plan_and_historical_seven (test_pair.PairTests.test_approved_plan_and_historical_seven) ... ok
+test_baseline_recovery_error_and_audit_error_still_cleanup (test_pair.PairTests.test_baseline_recovery_error_and_audit_error_still_cleanup) ... ok
+test_baseline_result_mismatch_prevents_candidate_and_cleans_once (test_pair.PairTests.test_baseline_result_mismatch_prevents_candidate_and_cleans_once) ... ok
+test_candidate_failure_cleans_no_retry (test_pair.PairTests.test_candidate_failure_cleans_no_retry) ... ok
+test_candidate_recovery_failure_cleans_no_completion (test_pair.PairTests.test_candidate_recovery_failure_cleans_no_completion) ... ok
+test_code_gate_tamper_blocks_before_unit (test_pair.PairTests.test_code_gate_tamper_blocks_before_unit) ... ok
+test_empty_saved_pair_is_inconclusive (test_pair.PairTests.test_empty_saved_pair_is_inconclusive) ... ok
+test_old_or_changed_plans_refused_before_units (test_pair.PairTests.test_old_or_changed_plans_refused_before_units) ... ok
+test_pair_plan_refuses_fixture_path (test_pair.PairTests.test_pair_plan_refuses_fixture_path) ... ok
+test_positive_clone_child_denial_and_unfinished (test_pair.PairTests.test_positive_clone_child_denial_and_unfinished) ... ok
+test_saved_baseline_trace_and_pid_roles (test_pair.PairTests.test_saved_baseline_trace_and_pid_roles) ... ok
+test_unauthorized_main_cleans_without_unit (test_pair.PairTests.test_unauthorized_main_cleans_without_unit) ... ok
+test_unknown_trace_and_binary_drift_not_success (test_pair.PairTests.test_unknown_trace_and_binary_drift_not_success) ... ok
+test_actual_entrypoint_miss_then_distinct_round_hit (test_prepare_cache.PrepareCacheTests.test_actual_entrypoint_miss_then_distinct_round_hit) ... ok
+test_conflicting_same_key_cannot_overwrite (test_prepare_cache.PrepareCacheTests.test_conflicting_same_key_cannot_overwrite) ... ok
+test_corrupt_registered_archive_rejects_before_build (test_prepare_cache.PrepareCacheTests.test_corrupt_registered_archive_rejects_before_build) ... ok
+test_import_identity_failure_blocks_preparation (test_prepare_cache.PrepareCacheTests.test_import_identity_failure_blocks_preparation) ... ok
+test_output_fields_are_not_lookup_inputs (test_prepare_cache.PrepareCacheTests.test_output_fields_are_not_lookup_inputs) ... ok
+test_partial_binding_rejected (test_prepare_cache.PrepareCacheTests.test_partial_binding_rejected) ... ok
+test_real_build_inputs_invalidate_key (test_prepare_cache.PrepareCacheTests.test_real_build_inputs_invalidate_key) ... ok
+test_archive_and_index_copy_errors_do_not_skip_disposal (test_recovery.CleanupTests.test_archive_and_index_copy_errors_do_not_skip_disposal) ... {"evidenceStatus": "missing", "cleanupStatus": "complete", "errors": [{"phase": "retrieve", "error": "copy:evidence.tar.gz"}], "attempts": [["/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/tmp685f7yvg/ontosary-s2-test/prefix/bin/limactl", "stop", "--force", "vm"], ["/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/tmp685f7yvg/ontosary-s2-test/prefix/bin/limactl", "delete", "--force", "vm"], ["/Users/hyeon/.pyenv/versions/3.12.10/bin/python3", "-c", "import subprocess,sys,json;p=subprocess.run([sys.argv[1],\"list\",\"--json\"],capture_output=True,text=True,timeout=7);print(json.dumps({\"exitCode\":p.returncode,\"stdout\":p.stdout,\"stderr\":p.stderr}))", "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/tmp685f7yvg/ontosary-s2-test/prefix/bin/limactl"]], "vmAbsent": true, "rootAbsent": true, "vmDisposalIsNotUnitTerminationProof": true, "listing": {"exitCode": 0, "stdout": "", "stderr": "No instance found"}, "retainedBytes": 0, "ownedTemporaryRemoved": [], "temporaryEntries": [], "seconds": 0.032758417015429586, "remainingSeconds": 300}
+{"evidenceStatus": "missing", "cleanupStatus": "complete", "errors": [{"phase": "retrieve", "error": "copy:index.json"}], "attempts": [["/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/tmp685f7yvg/ontosary-s2-test/prefix/bin/limactl", "stop", "--force", "vm"], ["/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/tmp685f7yvg/ontosary-s2-test/prefix/bin/limactl", "delete", "--force", "vm"], ["/Users/hyeon/.pyenv/versions/3.12.10/bin/python3", "-c", "import subprocess,sys,json;p=subprocess.run([sys.argv[1],\"list\",\"--json\"],capture_output=True,text=True,timeout=7);print(json.dumps({\"exitCode\":p.returncode,\"stdout\":p.stdout,\"stderr\":p.stderr}))", "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/tmp685f7yvg/ontosary-s2-test/prefix/bin/limactl"]], "vmAbsent": true, "rootAbsent": true, "vmDisposalIsNotUnitTerminationProof": true, "listing": {"exitCode": 0, "stdout": "", "stderr": "No instance found"}, "retainedBytes": 0, "ownedTemporaryRemoved": [], "temporaryEntries": [], "seconds": 0.03265708399703726, "remainingSeconds": 300}
+ok
+test_delete_or_absence_failure_keeps_management_root (test_recovery.CleanupTests.test_delete_or_absence_failure_keeps_management_root) ... {"evidenceStatus": "diagnostic", "cleanupStatus": "unconfirmed", "errors": [{"phase": "delete", "error": "1:"}, {"phase": "absence", "error": "owned-vm-still-present"}], "attempts": [["/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/tmpa78m6scp/ontosary-s2-test/prefix/bin/limactl", "stop", "--force", "vm"], ["/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/tmpa78m6scp/ontosary-s2-test/prefix/bin/limactl", "delete", "--force", "vm"], ["/Users/hyeon/.pyenv/versions/3.12.10/bin/python3", "-c", "import subprocess,sys,json;p=subprocess.run([sys.argv[1],\"list\",\"--json\"],capture_output=True,text=True,timeout=7);print(json.dumps({\"exitCode\":p.returncode,\"stdout\":p.stdout,\"stderr\":p.stderr}))", "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/tmpa78m6scp/ontosary-s2-test/prefix/bin/limactl"]], "vmAbsent": false, "rootAbsent": false, "vmDisposalIsNotUnitTerminationProof": true, "listing": {"exitCode": 0, "stdout": "", "stderr": "No instance found"}, "retainedBytes": 0, "ownedTemporaryRemoved": [], "temporaryEntries": [], "seconds": 0.0024834159994497895, "remainingSeconds": 300}
+{"evidenceStatus": "missing", "cleanupStatus": "unconfirmed", "errors": [{"phase": "absence", "error": "listing-status:1"}], "attempts": [["/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/tmpa78m6scp/ontosary-s2-test/prefix/bin/limactl", "stop", "--force", "vm"], ["/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/tmpa78m6scp/ontosary-s2-test/prefix/bin/limactl", "delete", "--force", "vm"], ["/Users/hyeon/.pyenv/versions/3.12.10/bin/python3", "-c", "import subprocess,sys,json;p=subprocess.run([sys.argv[1],\"list\",\"--json\"],capture_output=True,text=True,timeout=7);print(json.dumps({\"exitCode\":p.returncode,\"stdout\":p.stdout,\"stderr\":p.stderr}))", "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/tmpa78m6scp/ontosary-s2-test/prefix/bin/limactl"]], "vmAbsent": false, "rootAbsent": false, "vmDisposalIsNotUnitTerminationProof": true, "listing": {"exitCode": 1, "stdout": "", "stderr": "No instance found"}, "retainedBytes": 0, "ownedTemporaryRemoved": [], "temporaryEntries": [], "seconds": 0.000662000005831942, "remainingSeconds": 300}
+ok
+test_duplicate_cleanup_never_reuses_old_archive (test_recovery.CleanupTests.test_duplicate_cleanup_never_reuses_old_archive) ... {"evidenceStatus": "diagnostic", "cleanupStatus": "complete", "errors": [], "attempts": [["/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/tmpdgso9g38/ontosary-s2-test/prefix/bin/limactl", "stop", "--force", "vm"], ["/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/tmpdgso9g38/ontosary-s2-test/prefix/bin/limactl", "delete", "--force", "vm"], ["/Users/hyeon/.pyenv/versions/3.12.10/bin/python3", "-c", "import subprocess,sys,json;p=subprocess.run([sys.argv[1],\"list\",\"--json\"],capture_output=True,text=True,timeout=7);print(json.dumps({\"exitCode\":p.returncode,\"stdout\":p.stdout,\"stderr\":p.stderr}))", "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/tmpdgso9g38/ontosary-s2-test/prefix/bin/limactl"]], "vmAbsent": true, "rootAbsent": true, "vmDisposalIsNotUnitTerminationProof": true, "listing": {"exitCode": 0, "stdout": "", "stderr": "No instance found"}, "retainedBytes": 0, "ownedTemporaryRemoved": [], "temporaryEntries": [], "seconds": 0.03339804199640639, "remainingSeconds": 300}
+{"evidenceStatus": "not-retried", "cleanupStatus": "complete", "errors": [], "attempts": [], "vmAbsent": true, "rootAbsent": true, "vmDisposalIsNotUnitTerminationProof": true, "duplicateCleanup": true, "seconds": 8.208400686271489e-05, "remainingSeconds": 300}
+ok
+test_export_exit_and_transport_exception_still_dispose (test_recovery.CleanupTests.test_export_exit_and_transport_exception_still_dispose) ... {"evidenceStatus": "missing", "cleanupStatus": "complete", "errors": [{"phase": "retrieve", "error": "recovery-command:1:{\"status\": \"diagnostic\"}"}], "attempts": [["/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/tmp1fcbwju2/ontosary-s2-test/prefix/bin/limactl", "stop", "--force", "vm"], ["/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/tmp1fcbwju2/ontosary-s2-test/prefix/bin/limactl", "delete", "--force", "vm"], ["/Users/hyeon/.pyenv/versions/3.12.10/bin/python3", "-c", "import subprocess,sys,json;p=subprocess.run([sys.argv[1],\"list\",\"--json\"],capture_output=True,text=True,timeout=7);print(json.dumps({\"exitCode\":p.returncode,\"stdout\":p.stdout,\"stderr\":p.stderr}))", "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/tmp1fcbwju2/ontosary-s2-test/prefix/bin/limactl"]], "vmAbsent": true, "rootAbsent": true, "vmDisposalIsNotUnitTerminationProof": true, "listing": {"exitCode": 0, "stdout": "", "stderr": "No instance found"}, "retainedBytes": 0, "ownedTemporaryRemoved": [], "temporaryEntries": [], "seconds": 0.032143874996108934, "remainingSeconds": 300}
+{"evidenceStatus": "missing", "cleanupStatus": "complete", "errors": [{"phase": "retrieve", "error": "transport"}], "attempts": [["/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/tmp1fcbwju2/ontosary-s2-test/prefix/bin/limactl", "stop", "--force", "vm"], ["/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/tmp1fcbwju2/ontosary-s2-test/prefix/bin/limactl", "delete", "--force", "vm"], ["/Users/hyeon/.pyenv/versions/3.12.10/bin/python3", "-c", "import subprocess,sys,json;p=subprocess.run([sys.argv[1],\"list\",\"--json\"],capture_output=True,text=True,timeout=7);print(json.dumps({\"exitCode\":p.returncode,\"stdout\":p.stdout,\"stderr\":p.stderr}))", "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/tmp1fcbwju2/ontosary-s2-test/prefix/bin/limactl"]], "vmAbsent": true, "rootAbsent": true, "vmDisposalIsNotUnitTerminationProof": true, "listing": {"exitCode": 0, "stdout": "", "stderr": "No instance found"}, "retainedBytes": 0, "ownedTemporaryRemoved": [], "temporaryEntries": [], "seconds": 0.03195995799615048, "remainingSeconds": 300}
+ok
+test_record_failure_still_disposes (test_recovery.CleanupTests.test_record_failure_still_disposes) ... {"recoveryRecordFailure": {"scope": "final", "runId": null, "evidenceStatus": "diagnostic", "errors": [{"phase": "record", "error": "record-failure"}], "secondsAvailable": 30, "partialPublished": false, "verified": {"files": 1, "bytes": 108}, "artifact": "recovery-final.tar.gz", "archiveSha256": "7cd4ac2c82bce904bcd4098d1d47b603687a325686c34d523cab21b3489290ba", "seconds": 0.0014608750061597675}}
+{"evidenceStatus": "diagnostic", "cleanupStatus": "complete", "errors": [{"phase": "record", "error": "record-failure"}, {"phase": "cleanup-record", "error": "record-failure"}], "attempts": [["/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/tmpz560y532/ontosary-s2-test/prefix/bin/limactl", "stop", "--force", "vm"], ["/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/tmpz560y532/ontosary-s2-test/prefix/bin/limactl", "delete", "--force", "vm"], ["/Users/hyeon/.pyenv/versions/3.12.10/bin/python3", "-c", "import subprocess,sys,json;p=subprocess.run([sys.argv[1],\"list\",\"--json\"],capture_output=True,text=True,timeout=7);print(json.dumps({\"exitCode\":p.returncode,\"stdout\":p.stdout,\"stderr\":p.stderr}))", "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/tmpz560y532/ontosary-s2-test/prefix/bin/limactl"]], "vmAbsent": true, "rootAbsent": true, "vmDisposalIsNotUnitTerminationProof": true, "listing": {"exitCode": 0, "stdout": "", "stderr": "No instance found"}, "retainedBytes": 0, "ownedTemporaryRemoved": [], "temporaryEntries": [], "seconds": 0.03269945801002905, "remainingSeconds": 300}
+ok
+test_reserve_preempts_retrieval (test_recovery.CleanupTests.test_reserve_preempts_retrieval) ... {"evidenceStatus": "missing", "cleanupStatus": "complete", "errors": [], "attempts": [["/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/tmptsi88wdb/ontosary-s2-test/prefix/bin/limactl", "stop", "--force", "vm"], ["/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/tmptsi88wdb/ontosary-s2-test/prefix/bin/limactl", "delete", "--force", "vm"], ["/Users/hyeon/.pyenv/versions/3.12.10/bin/python3", "-c", "import subprocess,sys,json;p=subprocess.run([sys.argv[1],\"list\",\"--json\"],capture_output=True,text=True,timeout=7);print(json.dumps({\"exitCode\":p.returncode,\"stdout\":p.stdout,\"stderr\":p.stderr}))", "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/tmptsi88wdb/ontosary-s2-test/prefix/bin/limactl"]], "vmAbsent": true, "rootAbsent": true, "vmDisposalIsNotUnitTerminationProof": true, "listing": {"exitCode": 0, "stdout": "", "stderr": "No instance found"}, "retainedBytes": 0, "ownedTemporaryRemoved": [], "temporaryEntries": [], "seconds": 0.03204670798731968, "remainingSeconds": 89}
+ok
+test_stop_failure_does_not_skip_delete (test_recovery.CleanupTests.test_stop_failure_does_not_skip_delete) ... {"evidenceStatus": "diagnostic", "cleanupStatus": "complete", "errors": [{"phase": "stop", "error": "1:"}], "attempts": [["/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/tmpx1gfd5x3/ontosary-s2-test/prefix/bin/limactl", "stop", "--force", "vm"], ["/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/tmpx1gfd5x3/ontosary-s2-test/prefix/bin/limactl", "delete", "--force", "vm"], ["/Users/hyeon/.pyenv/versions/3.12.10/bin/python3", "-c", "import subprocess,sys,json;p=subprocess.run([sys.argv[1],\"list\",\"--json\"],capture_output=True,text=True,timeout=7);print(json.dumps({\"exitCode\":p.returncode,\"stdout\":p.stdout,\"stderr\":p.stderr}))", "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/tmpx1gfd5x3/ontosary-s2-test/prefix/bin/limactl"]], "vmAbsent": true, "rootAbsent": true, "vmDisposalIsNotUnitTerminationProof": true, "listing": {"exitCode": 0, "stdout": "", "stderr": "No instance found"}, "retainedBytes": 0, "ownedTemporaryRemoved": [], "temporaryEntries": [], "seconds": 0.03296991699608043, "remainingSeconds": 300}
+ok
+test_verified_pair_published_after_both_copies (test_recovery.CleanupTests.test_verified_pair_published_after_both_copies) ... {"evidenceStatus": "diagnostic", "cleanupStatus": "complete", "errors": [], "attempts": [["/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/tmpoko0p42q/ontosary-s2-test/prefix/bin/limactl", "stop", "--force", "vm"], ["/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/tmpoko0p42q/ontosary-s2-test/prefix/bin/limactl", "delete", "--force", "vm"], ["/Users/hyeon/.pyenv/versions/3.12.10/bin/python3", "-c", "import subprocess,sys,json;p=subprocess.run([sys.argv[1],\"list\",\"--json\"],capture_output=True,text=True,timeout=7);print(json.dumps({\"exitCode\":p.returncode,\"stdout\":p.stdout,\"stderr\":p.stderr}))", "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/tmpoko0p42q/ontosary-s2-test/prefix/bin/limactl"]], "vmAbsent": true, "rootAbsent": true, "vmDisposalIsNotUnitTerminationProof": true, "listing": {"exitCode": 0, "stdout": "", "stderr": "No instance found"}, "retainedBytes": 0, "ownedTemporaryRemoved": [], "temporaryEntries": [], "seconds": 0.03307495798799209, "remainingSeconds": 300}
+ok
+test_wrong_owner_refuses_all_deletion (test_recovery.CleanupTests.test_wrong_owner_refuses_all_deletion) ... {"evidenceStatus": "missing", "cleanupStatus": "unconfirmed", "errors": [{"phase": "ownership-or-cleanup", "error": "cleanup-ownership-mismatch"}], "attempts": [], "vmAbsent": false, "rootAbsent": false, "vmDisposalIsNotUnitTerminationProof": true, "seconds": 4.22910088673234e-05, "remainingSeconds": 300}
+ok
+test_block_receipt_precedes_release (test_reference.ReferenceTests.test_block_receipt_precedes_release) ... ok
+test_failed_and_deactivating_states (test_reference.ReferenceTests.test_failed_and_deactivating_states) ... ok
+test_holder_failure_blocks (test_reference.ReferenceTests.test_holder_failure_blocks) ... ok
+test_late_observation_rejected_without_new_clock (test_reference.ReferenceTests.test_late_observation_rejected_without_new_clock) ... ok
+test_reference_acquire_before_start_and_release_after_receipt (test_reference.ReferenceTests.test_reference_acquire_before_start_and_release_after_receipt) ... ok
+test_same_name_other_invocation_rejected (test_reference.ReferenceTests.test_same_name_other_invocation_rejected) ... ok
+test_timestamp_outside_deadline_and_before_finalizer (test_reference.ReferenceTests.test_timestamp_outside_deadline_and_before_finalizer) ... ok
+test_unloaded_not_found_and_missing_or_zero_timestamp (test_reference.ReferenceTests.test_unloaded_not_found_and_missing_or_zero_timestamp) ... ok
+test_exact_environment_at_subprocess_boundary (test_runtime_env.RuntimeEnvironmentTests.test_exact_environment_at_subprocess_boundary) ... ok
+test_known_hook_duplicate_exact_only (test_runtime_env.RuntimeEnvironmentTests.test_known_hook_duplicate_exact_only) ... ok
+test_reject_missing_and_contaminated_environment (test_runtime_env.RuntimeEnvironmentTests.test_reject_missing_and_contaminated_environment) ... ok
+test_security_changes_are_full_spec_differences (test_runtime_env.RuntimeEnvironmentTests.test_security_changes_are_full_spec_differences) ... ok
+test_collector_to_exact_export (test_safe_export.ExportTests.test_collector_to_exact_export) ... ok
+test_depth_bound (test_safe_export.ExportTests.test_depth_bound) ... ok
+test_expired_deadline_and_partial_archive_unpublished (test_safe_export.ExportTests.test_expired_deadline_and_partial_archive_unpublished) ... ok
+test_hardlink_collector_rejection_cannot_reenter_export (test_safe_export.ExportTests.test_hardlink_collector_rejection_cannot_reenter_export) ... ok
+test_ineligible_states_never_open_worker_roots (test_safe_export.ExportTests.test_ineligible_states_never_open_worker_roots) ... ok
+test_oversize_rejected_before_body_open (test_safe_export.ExportTests.test_oversize_rejected_before_body_open) ... ok
+test_previous_archive_cannot_be_reported_as_new_success (test_safe_export.ExportTests.test_previous_archive_cannot_be_reported_as_new_success) ... ok
+test_replacement_and_growth_during_safe_read_rejected (test_safe_export.ExportTests.test_replacement_and_growth_during_safe_read_rejected) ... ok
+test_result_binding_tamper (test_safe_export.ExportTests.test_result_binding_tamper) ... ok
+test_result_symlink_and_unsealed_files_rejected (test_safe_export.ExportTests.test_result_symlink_and_unsealed_files_rejected) ... ok
+test_revoked_success_remains_diagnostic (test_safe_export.ExportTests.test_revoked_success_remains_diagnostic) ... ok
+test_symlink_parent_symlink_fifo_hardlink_diagnostic (test_safe_export.ExportTests.test_symlink_parent_symlink_fifo_hardlink_diagnostic) ... ok
+test_tampered_manifest_rejected (test_safe_export.ExportTests.test_tampered_manifest_rejected) ... ok
+test_time_limit_while_reading_and_pending_state (test_safe_export.ExportTests.test_time_limit_while_reading_and_pending_state) ... ok
+test_total_bytes_and_final_metadata_included (test_safe_export.ExportTests.test_total_bytes_and_final_metadata_included) ... ok
+test_total_file_count_includes_external_index (test_safe_export.ExportTests.test_total_file_count_includes_external_index) ... ok
+test_unlisted_manager_file_is_excluded (test_safe_export.ExportTests.test_unlisted_manager_file_is_excluded) ... ok
+test_actual_baseline_two_denied_clones (test_trace_reanalysis.TraceReanalysisTests.test_actual_baseline_two_denied_clones) ... ok
+test_actual_candidate_source_lines_and_frozen_result (test_trace_reanalysis.TraceReanalysisTests.test_actual_candidate_source_lines_and_frozen_result) ... ok
+test_additional_or_reordered_flags_not_substring_match (test_trace_reanalysis.TraceReanalysisTests.test_additional_or_reordered_flags_not_substring_match) ... ok
+test_adjacent_attach (test_trace_reanalysis.TraceReanalysisTests.test_adjacent_attach) ... ok
+test_attach_return_child_mismatch (test_trace_reanalysis.TraceReanalysisTests.test_attach_return_child_mismatch) ... ok
+test_candidate_trace_hash_is_required (test_trace_reanalysis.TraceReanalysisTests.test_candidate_trace_hash_is_required) ... ok
+test_changed_archive_is_rejected_before_derivation (test_trace_reanalysis.TraceReanalysisTests.test_changed_archive_is_rejected_before_derivation) ... ok
+test_child_denial_before_parent_resume (test_trace_reanalysis.TraceReanalysisTests.test_child_denial_before_parent_resume) ... ok
+test_cli_refuses_historical_output_and_overwrite (test_trace_reanalysis.TraceReanalysisTests.test_cli_refuses_historical_output_and_overwrite) ... usage: trace_reanalysis.py [-h] [--root ROOT] --output OUTPUT
+trace_reanalysis.py: error: derived output must be outside the historical evidence directory
+usage: trace_reanalysis.py [-h] [--root ROOT] --output OUTPUT
+trace_reanalysis.py: error: output already exists; refusing overwrite
+ok
+test_different_pid_mount_not_attributed (test_trace_reanalysis.TraceReanalysisTests.test_different_pid_mount_not_attributed) ... ok
+test_duplicate_attach_notice (test_trace_reanalysis.TraceReanalysisTests.test_duplicate_attach_notice) ... ok
+test_duplicate_child (test_trace_reanalysis.TraceReanalysisTests.test_duplicate_child) ... ok
+test_duplicate_completion (test_trace_reanalysis.TraceReanalysisTests.test_duplicate_completion) ... ok
+test_duplicate_pending (test_trace_reanalysis.TraceReanalysisTests.test_duplicate_pending) ... ok
+test_evidence_offsets_are_derived_not_hardcoded (test_trace_reanalysis.TraceReanalysisTests.test_evidence_offsets_are_derived_not_hardcoded) ... ok
+test_extra_unknown_clone3_not_ignored (test_trace_reanalysis.TraceReanalysisTests.test_extra_unknown_clone3_not_ignored) ... ok
+test_incomplete_call (test_trace_reanalysis.TraceReanalysisTests.test_incomplete_call) ... ok
+test_intervening_other_pid_output_refused (test_trace_reanalysis.TraceReanalysisTests.test_intervening_other_pid_output_refused) ... ok
+test_limits_trace_line_pending_and_observations (test_trace_reanalysis.TraceReanalysisTests.test_limits_trace_line_pending_and_observations) ... ok
+test_mount_before_clone_not_attributed (test_trace_reanalysis.TraceReanalysisTests.test_mount_before_clone_not_attributed) ... ok
+test_orphan_completion (test_trace_reanalysis.TraceReanalysisTests.test_orphan_completion) ... ok
+test_other_parent_attach_cannot_steal_completion (test_trace_reanalysis.TraceReanalysisTests.test_other_parent_attach_cannot_steal_completion) ... ok
+test_parent_mount_not_child_evidence (test_trace_reanalysis.TraceReanalysisTests.test_parent_mount_not_child_evidence) ... ok
+test_payload_flag_without_marker_is_not_completion (test_trace_reanalysis.TraceReanalysisTests.test_payload_flag_without_marker_is_not_completion) ... ok
+test_pid_prefixed_attach_completion_is_not_guessed (test_trace_reanalysis.TraceReanalysisTests.test_pid_prefixed_attach_completion_is_not_guessed) ... ok
+test_resumed_parent_mismatch (test_trace_reanalysis.TraceReanalysisTests.test_resumed_parent_mismatch) ... ok
+test_saved_archive_reanalysis_and_input_immutability (test_trace_reanalysis.TraceReanalysisTests.test_saved_archive_reanalysis_and_input_immutability) ... ok
+test_single_line (test_trace_reanalysis.TraceReanalysisTests.test_single_line) ... ok
+test_synthetic_payload_completed (test_trace_reanalysis.TraceReanalysisTests.test_synthetic_payload_completed) ... ok
+test_truncated_final_line (test_trace_reanalysis.TraceReanalysisTests.test_truncated_final_line) ... ok
+test_unfinished_completion_order_can_differ (test_trace_reanalysis.TraceReanalysisTests.test_unfinished_completion_order_can_differ) ... ok
+test_unfinished_pids_can_interleave_without_cross_linking (test_trace_reanalysis.TraceReanalysisTests.test_unfinished_pids_can_interleave_without_cross_linking) ... ok
+test_unfinished_resumed (test_trace_reanalysis.TraceReanalysisTests.test_unfinished_resumed) ... ok
+test_unknown_notice_and_syscall_formats (test_trace_reanalysis.TraceReanalysisTests.test_unknown_notice_and_syscall_formats) ... ok
+test_utf8_byte_limit_and_incremental_hash (test_trace_reanalysis.TraceReanalysisTests.test_utf8_byte_limit_and_incremental_hash) ... ok
+
+----------------------------------------------------------------------
+Ran 183 tests in 10.379s
+
+OK

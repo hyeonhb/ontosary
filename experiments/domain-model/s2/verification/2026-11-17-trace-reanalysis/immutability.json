@@ -1,0 +1,16 @@
+{
+  "startHead": "e358104e47def436aab2e1d5837544e1c4895093",
+  "trackedAtStart": 3674,
+  "unchangedTrackedFiles": 3671,
+  "intentionalChangedExistingFiles": [
+    "docs/PROGRESS.md",
+    "docs/reviews/REVIEW_CONTEXT.md",
+    "experiments/domain-model/s2/trial/container/execution-lifecycle/README.md"
+  ],
+  "unexpectedChangedExistingFiles": [],
+  "historicalVerificationFilesUnchanged": 2364,
+  "pairEvidenceFilesUnchanged": 135,
+  "initialHashInventorySha256": "1612f3a938f0e0322709d417c0b815a7cad9a956c491f171b94e7c0761916388",
+  "derivedReplayByteIdentical": true,
+  "frozenParserAndFourVerifiersUnchanged": true
+}

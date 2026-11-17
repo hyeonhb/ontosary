@@ -1,0 +1,13 @@
+{
+  "index": {
+    "files": 123,
+    "analysis": 5,
+    "closing": 4
+  },
+  "semantic": {
+    "actualUnits": 1,
+    "passed": 0,
+    "runtimeReexecuted": false,
+    "guestEvidenceAvailable": false
+  }
+}

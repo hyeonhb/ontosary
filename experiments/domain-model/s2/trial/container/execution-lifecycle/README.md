@@ -1,5 +1,24 @@
 # S2 finite execution lifecycle
 
+The [R18 context correction](../../../../../../docs/reviews/2026-11-17-s2-trace-context-fix.md)
+retains unsupported child exec/mount context even before the parent clone's
+resumed return. Both output orders use the same bounded check: at most 128 events
+and 64 KiB of source text, with incomplete context refusing a conclusive result.
+Ineligible denials remain in `contextRejectedDenied`, separate from `nextDenied`.
+The original 35 trace cases plus 14 context regressions pass. Historical outputs
+and the first derived result are preserved; the correction uses a new evidence
+directory and does not execute a runtime. PR #63 awaits independent review.
+
+The [offline trace follow-up](../../../../../../docs/reviews/2026-11-17-s2-trace-reanalysis.md)
+adds the explicit `trace_reanalysis.py --output <new-path>` entry point. It checks
+the stored index, sealed archives and frozen verifier before interpreting the
+exact adjacent attach/return shape, with source-line evidence and bounded state.
+The derived candidate status is `first-clone-passed-next-blocked`; the historical
+parser and saved `inconclusive` result remain unchanged. Outputs must be outside
+the historical directory and must not already exist. The tool must match its
+recorded Git commit. It never invokes the runtime. See the handoff for supported
+formats, limits, 35 new regression cases and the separate evidence directory.
+
 The [bounded policy-pair handoff](../../../../../../docs/reviews/2026-11-17-s2-policy-pair.md)
 records one baseline and one candidate in a fresh VM, using the existing clone
 allow row only. Raw trace review shows clone success followed by mount EPERM.
