@@ -6,7 +6,10 @@ allow row only. Raw trace review shows clone success followed by mount EPERM.
 The frozen parser returned `inconclusive` because strace inserted an attach
 notice into the first clone line; that result remains unchanged. No payload,
 additional policy, or retry was attempted. Both units sealed and all owned VM
-resources were removed. This does not resolve R11 or authorize a trial.
+resources were removed. [Independent review](../../../../../../docs/reviews/2026-11-17-s2-policy-pair-independent-review.md)
+confirmed this bounded observation and PR #61 is merged. Stored-trace reanalysis
+is a separate follow-up; no additional runtime or permission change is approved
+by that work. This does not resolve R11 or authorize a trial.
 
 `policy_pair.py` admits only the exact purpose, ordered two modes, fixed rule,
 cache-only limits, and hash-verified historical seven-unit gate. It reads each
@@ -24,8 +27,8 @@ A missing failure marker cannot replace the required cleanup closing registratio
 Seal checks the existing command/ID/hash contract before adding a snapshot.
 The follow-up adds 19 local dispatcher tests (193 Python tests total); it does not
 rerun the seven historical runtime fixtures. [Independent review](../../../../../../docs/reviews/2026-11-17-s2-cleanup-dispatch-independent-review.md)
-confirmed the fix; PR #54 is merged. The existing pair command remains refused
-until a separately planned limited comparison is implemented.
+confirmed the fix; PR #54 is merged. The old correction plans remain refused
+by the current pair gate; only the explicit two-unit plan above is admitted.
 
 This is a fixture runner for the approved 2026-11-17 seal/recovery round.
 R11 remains unresolved; production/live dispatch remains refused.

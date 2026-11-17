@@ -452,3 +452,6 @@ R13/R14 유지와 R15/R16/R17은 이 fixture 검증 범위에서 결과 리뷰�
 원래 두 namespace clone은 EPERM, 후보 원문은 사전 검사41→42·명령 준비43→44의 clone 통과 후 두 자식의 mount(MS_SLAVE) EPERM이다. 실제 전체 Spec 차이는 승인된 clone arg0=2013397009 allow 한 행이다. 정확한 seccomp/AppArmor/kernel 기여는 분리하지 않았다. 자동 parser는 첫 clone 줄의 strace attach 안내와 다음 줄 반환값 연결을 지원하지 못해 inconclusive로 보존했다. 원문 검토의 first-clone-passed-next-blocked와 자동 결과를 구분하고 동결 코드 수정/실제 재시도는 하지 않았다.
 
 두 단위 종료·service 봉인·reference 해제와 회수4개, VM/임시 root 정리를 확인했다. pnpm check304·Python208(기존193+새15)·과거3/새 verifier 통과다. 다음은 결과와 저장 trace 판독의 독립 리뷰이며 mount 허용/다른 후보/CLI 전체 경계의 범위·예산은 별도로 결정한다. 새 PR은 리뷰 전 병합하지 않는다. R11 unresolved·R12 기존 범위·production/live 거부·fixtureOnly=true·validSubmission=false·trialAuthorized/readyForTrial=false·results=null·실제 인증/model/본 비교 보류를 유지한다.
+
+
+2026-11-17 독립 검토 추가: [리뷰](reviews/2026-11-17-s2-policy-pair-independent-review.md)에서 원문 clone 통과→mount EPERM과 전체 Spec/봉인/회수 근거를 확인해 PR #61을ee7ac98로 병합했다. 자동 inconclusive는 보존하며 저장 trace의 제한된 오프라인 판독만 후속 지시한다. 다음 실제 정책 시험은 외부/내부 경계의 책임과 권한을 사용자와 논의한 뒤 정한다. 이번 리뷰에서 새 runtime이나 권한 변경은 하지 않았다.
