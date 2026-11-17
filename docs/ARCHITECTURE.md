@@ -1,5 +1,7 @@
 # 현재 아키텍처
 
+2026-11-17 [직접 VM 후보 독립 리뷰](reviews/2026-11-17-s2-vm-cli-feasibility-independent-review.md): C안은 준비 gate 미달로 VM/CLI 관측0이며 미확정이다. PR #67의 host/guest/worker는 비활성 초안이고 제품/기존 container 경로는 불변이다. 호스트 Python API·worker socket 권한 불일치(R19)와 watchdog 종료 연결 등 실행 전 보완이 남는다. 준비된 코드량을 동작 근거로 보지 않으며 가설 우선의 축소 검증을 제안한 상태다. 기존 보장이나 C안의 책임 분담을 변경·채택한 결과가 아니다. 아래는 당시 기록이다.
+
 2026-11-17 승인한 다음 검증(ADR-055): [일회성 VM 직접 CLI 타당성 지시](reviews/2026-11-17-s2-vm-cli-feasibility-instructions.md)는 VM의 호스트/실행 간 분리, CLI 내부 sandbox의 명령 파일/인증/네트워크 제한, 독립 관리자의 전체 종료/수집 책임을 시험한다. 기존 container 중첩을 worker 경로에서 제외하는 후보이며 아직 채택·구현된 구조가 아니다. 기존 Linux 컨테이너 평가기와 제품/모델/B/C는 유지하고 agent VM에 숨겨진 평가 자료를 제공하지 않는다. 직접 VM의 service/cgroup·worker 권한·수집은 새로 검증하며 과거 OCI 증거로 대신하지 않는다. 총90분·순차 VM2/fixture4 상한, 실제 인증/model/본 비교 보류다. 아래는 당시 기록이다.
 
 2026-11-17 [R18 독립 검토](reviews/2026-11-17-s2-trace-context-independent-review.md) 완료·PR #63 병합. 별도 offline parser는 pending 중이거나 확인된 자식의 exec/미지원 mount 문맥을128개/64KiB 안에 보존하고, 반환 PID/clone 시작 시점으로 한 번 대조한 뒤 근거를 승인한다. 미지원/누락 문맥의 거부는 원문을 남기되 확정 판정에서 제외한다. 기존 runtime parser/정책·공통 수명주기는 불변이며 외부/내부 sandbox 책임 변경은 아직 미합의다.
