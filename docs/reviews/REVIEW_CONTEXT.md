@@ -1,5 +1,7 @@
 # 독립 리뷰 맥락
 
+2026-11-17 최신 판단은 [진단·봉인 보완 독립 리뷰](2026-11-17-s2-seal-recovery-independent-review.md)다. d970072(PR #54)의 기본 정책7/7·Spec/봉인/회수와 R13/R14/R15/R16을 fixture 범위에서 확인했다. 304+174검사·259파일·소스/준비물 연결도 통과했다. R17은 하위 cleanup은 보완됐지만 main의 분석 동결/closing 기록 예외가 cleanup 호출을 건너뛴다. 6개 로컬 오류 주입으로 재현했고 실제 이번 VM 정리 완료와 구분한다. 사용자 요청에 따라 [로컬60분·새 VM0의 후속 지시](2026-11-17-s2-cleanup-dispatch-instructions.md)를 함께 제공한다. 구조 변경 없이 실제 진입점 회귀로 마무리하며 PR #54/정책 pair/인증/model/본 비교는 보완 리뷰까지 보류한다. H-O/H-F는 여전히 미검증이다.
+
 2026-11-17 최신 구현 인계는 [진단/봉인/정리 결과](2026-11-17-s2-seal-recovery.md)(ADR-052)다. PR #54에서 metadata의 UID501→root/mode0600 게시, active target reference와 InvocationID/raw inactive timestamp 봉인, 제한된 단계별 진단 회수와 독립 VM 정리를 보완했다. 기본 정책7/7·whole Spec7개/봉인7개 재대조·회수9개, pnpm check304·Python174·과거2/새 verifier 통과, 자원 정리 완료다. fixture 검증 완료와 R11/CLI native sandbox·모델 효용은 구분한다. PR #54 미병합·정책 pair/인증/model/본 비교 보류다. 독립 리뷰는 새 evidence/최종 코드/전달 hash와 R15/R16/R17 실패 회귀를 대조한다.
 
 2026-11-17 최신 개발 지시는 [진단/봉인/정리 보완](2026-11-17-s2-seal-recovery-instructions.md)(ADR-051)이다. ff7ec19(PR #54)을 이어 R15 잔여·R16·R17을 같은3시간/VM1개/기본 정책7단위 안에서 확인한다. R14 재사용은 유지하고 새 build·정책 pair·인증/model·본 비교는 제외한다. 사용자는 앞으로 논의가 필요 없는 보완은 리뷰와 함께 지시문도 바로 제공하도록 요청했다. 합의된 구조의 결함 수정은 바로 작성하고, 주요 방향/아키텍처 변경·범위/비용/권한 확대는 먼저 논의한다. 이것을 개발 세션 자동 실행이나 보류된 시험의 포괄 승인으로 확대하지 않는다.
