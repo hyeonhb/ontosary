@@ -1,0 +1,15 @@
+{
+  "scope": "preparation",
+  "runId": null,
+  "evidenceStatus": "diagnostic",
+  "errors": [],
+  "secondsAvailable": 30,
+  "partialPublished": false,
+  "verified": {
+    "files": 11,
+    "bytes": 95876
+  },
+  "artifact": "recovery-preparation.tar.gz",
+  "archiveSha256": "9d0151db26e997d088e919904c4b6f60d503ae2434cb4d0f14274f56802d6c04",
+  "seconds": 0.4441307079978287
+}

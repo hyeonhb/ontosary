@@ -1,0 +1,220 @@
+{
+  "implementationHead": "da4e94787209c977f3e1b7ae9bf8c08b27ea770d",
+  "gateCodeFiles": 81,
+  "deliveredInputs": 38,
+  "deliveredCodeConnections": [
+    {
+      "member": "execution-lifecycle/verify_pair.py",
+      "sha256": "7b03b853ea362e1c652705e5980473547ac6792ea6df99dbb3f5694b109cd2ba"
+    },
+    {
+      "member": "execution-lifecycle/metadata.py",
+      "sha256": "725280cc12c4c4c351251ce97dba3c7ddf866184aad7798772cc6d1cbb39820b"
+    },
+    {
+      "member": "execution-lifecycle/recovery.py",
+      "sha256": "cd406db16d8be3ed98c58af20c0c14d137146da7fefa88feac205f9cdd08f17a"
+    },
+    {
+      "member": "execution-lifecycle/verify_fix.py",
+      "sha256": "24193914cf54f2dcb1004a486a0ec4a4caa3cec865f72091129f225920cef68f"
+    },
+    {
+      "member": "execution-lifecycle/exporter.py",
+      "sha256": "b879f808412de46c2010e68eb1016a4bdcd6e7a1631c224a6d51efd8737b8907"
+    },
+    {
+      "member": "execution-lifecycle/verify_saved.py",
+      "sha256": "9966d23a81c88cb2a0e3bd1a0b7e515c668b11aa47cef16fb069666bd28cbe23"
+    },
+    {
+      "member": "execution-lifecycle/runtime_env.py",
+      "sha256": "39f8499da2465f8e850e461fdd2ad4930c019db05a648cb07839dade9ed581c1"
+    },
+    {
+      "member": "execution-lifecycle/policy_pair.py",
+      "sha256": "dcb2cd8569c4bea333a041159d18e7ab0f922a071a360374b52c426e4eb91a54"
+    },
+    {
+      "member": "execution-lifecycle/engine.py",
+      "sha256": "fac3cb158470767dc4e62081712747bce2ce4d2e0bfae247c4937a3dcb488022"
+    },
+    {
+      "member": "execution-lifecycle/round.py",
+      "sha256": "6b9719062b0aa894d3118a3ca7bcee3e676aadfc75b4668d686b30c91cbb088e"
+    },
+    {
+      "member": "execution-lifecycle/guest.py",
+      "sha256": "ccaaa7fd6ca27507924f0a1e1156971f3d9ef3c3e35b0ce8565243b9085df367"
+    },
+    {
+      "member": "execution-lifecycle/reference.py",
+      "sha256": "9625e4da0e5ccbb31a14c0072400a81391189c67fe204c7cd72eaf48625d9907"
+    },
+    {
+      "member": "execution-lifecycle/artifacts.py",
+      "sha256": "dd3211cbd90887a5eaa83ddf2d1cf9807c7c205652bcf7a99665d5487ec33e4a"
+    },
+    {
+      "member": "execution-lifecycle/driver.py",
+      "sha256": "8f509daa22f0b7775f50de37685d7beb45ea6cf0fcf6ccbf8a81f141e676a70f"
+    },
+    {
+      "member": "execution-lifecycle/identity.py",
+      "sha256": "cfe9b4130898c4f3387f9cdb72eede620e5c3be99d76599457ddb30335d9736b"
+    },
+    {
+      "member": "execution-lifecycle/image_cache.py",
+      "sha256": "75be54ca335201878663d73197a04d665786eb407f800efefcb49db84c09bed7"
+    },
+    {
+      "member": "execution-lifecycle/verify_recovery.py",
+      "sha256": "ba5342f4d4a7d597bb0b5b539a1da4015b831019f3c6743933b76a913aec77b3"
+    },
+    {
+      "member": "lifecycle/command.py",
+      "sha256": "c2dda5cd89212ee25d90a7d461951b9517a719f524c2bcf7f1bb36a67002c692"
+    },
+    {
+      "member": "lifecycle/audit.py",
+      "sha256": "fe2d51407b50fba515ff2b027fc55cac0e2f404b0b5c17b6e2b1852e3f302b52"
+    },
+    {
+      "member": "lifecycle/supervisor.py",
+      "sha256": "c9e85431bf6b9c45ef19268dcf2c791d7c30d1046cd549466358b35e598793b2"
+    },
+    {
+      "member": "lifecycle/remove.py",
+      "sha256": "d554c76330b2887815e32d4f95e70d86a5b3886a756b9f51a71377347ed66ff2"
+    },
+    {
+      "member": "lifecycle/test_cleanup.py",
+      "sha256": "91bb598623a3cd49d6f35b4bbc8859e4a99fa3f74280f0a320f178372865f08e"
+    },
+    {
+      "member": "lifecycle/collector.py",
+      "sha256": "5ada54abe010282650c87f0b7f5b51bab5164dcd419763fbf0ad06b660698505"
+    },
+    {
+      "member": "lifecycle/export.py",
+      "sha256": "14671e9499b9e881550adcedceb15f352bd0adb34e60d5b5daba8fc319076d5a"
+    },
+    {
+      "member": "lifecycle/common.py",
+      "sha256": "a5859b7c6afeff508500b09218f8b5488c9a4bd6be67dc64a7726b31bc9a0822"
+    },
+    {
+      "member": "lifecycle/probe.py",
+      "sha256": "33820d0c5342634c8a98543ff7407c4adbb3ed8ef93ab78094fe0b3209176e80"
+    },
+    {
+      "member": "lifecycle/freeze.py",
+      "sha256": "7cc66b05163b245783553eb19dcae6da5b3d6d8fe6ed188b5756e45fee2c5dc1"
+    },
+    {
+      "member": "lifecycle/test_collector.py",
+      "sha256": "952a57526c307c589bc24c9ac8e676ffa61e8b41dccee2e0be68eabb91725454"
+    },
+    {
+      "member": "lifecycle/image.py",
+      "sha256": "d3f3725d55ed6c5b9dc059f004e054dd104ec29c77324b1b2aa96d2736a28577"
+    },
+    {
+      "member": "lifecycle/host_driver.py",
+      "sha256": "e41bc2971e27676c392f56224c61e36173a0f9ccbb62bdf321a5a873f1fa2bb3"
+    },
+    {
+      "member": "lifecycle/manager.py",
+      "sha256": "ef270319077708b04413e1f44aa52bfb7b2142b3bdb82603ace088b84bc982bb"
+    }
+  ],
+  "finalSourceFiles": {
+    "execution-lifecycle/test_dispatch.py": "ebb97db8f60d9ae4f0c96787fc308a555eec541e6147314e4b6c95a30d6e0629",
+    "execution-lifecycle/test_diagnostics.py": "b502df042e0912dd7d97bb0152bc1407684e509a5527f165067e46917e71a155",
+    "execution-lifecycle/test_reference.py": "206f8a51bf6fcd7c39eeb13b992657d0a0e3162a17bb37da2cf6159ec46838b6",
+    "execution-lifecycle/test_engine.py": "0d61e42fc44e257dee3bbed761574502d9b9859b014d41abb3e6fa1e7cacd161",
+    "execution-lifecycle/test_prepare_cache.py": "d139366ffd40544103ecf85b5aef2fc30d853f7828626e41457213d0d333daa7",
+    "execution-lifecycle/verify_pair.py": "7b03b853ea362e1c652705e5980473547ac6792ea6df99dbb3f5694b109cd2ba",
+    "execution-lifecycle/metadata.py": "725280cc12c4c4c351251ce97dba3c7ddf866184aad7798772cc6d1cbb39820b",
+    "execution-lifecycle/fixture_entrypoint.py": "6e438f8af7c6db8f513cf84b4ce2c1872aec1763a6726aeeb5878c42c26d1c6f",
+    "execution-lifecycle/recovery.py": "cd406db16d8be3ed98c58af20c0c14d137146da7fefa88feac205f9cdd08f17a",
+    "execution-lifecycle/fixture.mjs": "5c12b1dc0b729749556bfe9e76357ac5fa6727f230ad9081d9944e2a1483fc1b",
+    "execution-lifecycle/verify_fix.py": "24193914cf54f2dcb1004a486a0ec4a4caa3cec865f72091129f225920cef68f",
+    "execution-lifecycle/test_image_archive.py": "bc37be691cfb54ff0f16aac8dd1c9a270ed738d524dc7ec8434c2fe277c3ba50",
+    "execution-lifecycle/exporter.py": "b879f808412de46c2010e68eb1016a4bdcd6e7a1631c224a6d51efd8737b8907",
+    "execution-lifecycle/test_safe_export.py": "fefa7e1bead302e9404d9e39497d8631eee984101a1b5f662a8d3835bf4760e0",
+    "execution-lifecycle/verify_saved.py": "9966d23a81c88cb2a0e3bd1a0b7e515c668b11aa47cef16fb069666bd28cbe23",
+    "execution-lifecycle/test_recovery.py": "748b02da953e09991fd6a2239f75bbc05003a5e770b54e8387cfb265b92869a8",
+    "execution-lifecycle/test_metadata.py": "c7658ee97356bea62688c71a85bc934ff6dd674e385c421bbc38af717369c7bd",
+    "execution-lifecycle/test_artifacts.py": "1c149fb10c02c0eab28793265f77f29d070c4d25aa49bf1051fcd92a4c8bd020",
+    "execution-lifecycle/README.md": "988da7771cd59803236e431d4d9874e331cd616829628300d4716f964e84ea20",
+    "execution-lifecycle/runtime_env.py": "39f8499da2465f8e850e461fdd2ad4930c019db05a648cb07839dade9ed581c1",
+    "execution-lifecycle/policy_pair.py": "dcb2cd8569c4bea333a041159d18e7ab0f922a071a360374b52c426e4eb91a54",
+    "execution-lifecycle/engine.py": "fac3cb158470767dc4e62081712747bce2ce4d2e0bfae247c4937a3dcb488022",
+    "execution-lifecycle/round.py": "6b9719062b0aa894d3118a3ca7bcee3e676aadfc75b4668d686b30c91cbb088e",
+    "execution-lifecycle/test_deadlines.py": "a1027ea4657f54561aa4eb52b3e64e22c4ba264b2d9ea24ff9d008051470a2fb",
+    "execution-lifecycle/test_audit.py": "880d1657d816a5e068db0eb8da63c827b1d298e54916fd7bf482a6fcccae3b90",
+    "execution-lifecycle/test_identity.py": "b23926d826477d60dac377c427ea10b400bfb19c8ba37ef2122cf46394177abb",
+    "execution-lifecycle/guest.py": "ccaaa7fd6ca27507924f0a1e1156971f3d9ef3c3e35b0ce8565243b9085df367",
+    "execution-lifecycle/reference.py": "9625e4da0e5ccbb31a14c0072400a81391189c67fe204c7cd72eaf48625d9907",
+    "execution-lifecycle/test_runtime_env.py": "1d856634c35189cb15fb8fcb0bb3b33c1d8cf4a0ee91351d0ab390c8c1aaec81",
+    "execution-lifecycle/artifacts.py": "dd3211cbd90887a5eaa83ddf2d1cf9807c7c205652bcf7a99665d5487ec33e4a",
+    "execution-lifecycle/test_guest_import.py": "cf7d7b8df0c1ffa4fff755090391c527594bef59a48c8a7189d6c43d15945c7a",
+    "execution-lifecycle/fixture_runtime_cli.py": "d87f6b5907f823a5c5ee737df0c215e0515db602f47553d1d54b795a39cc61aa",
+    "execution-lifecycle/driver.py": "8f509daa22f0b7775f50de37685d7beb45ea6cf0fcf6ccbf8a81f141e676a70f",
+    "execution-lifecycle/test_pair.py": "0fa51f223e5484ea60207c749c8450b909be54ce82cef3d69336d8c2bf22bba4",
+    "execution-lifecycle/identity.py": "cfe9b4130898c4f3387f9cdb72eede620e5c3be99d76599457ddb30335d9736b",
+    "execution-lifecycle/image_cache.py": "75be54ca335201878663d73197a04d665786eb407f800efefcb49db84c09bed7",
+    "execution-lifecycle/verify_recovery.py": "ba5342f4d4a7d597bb0b5b539a1da4015b831019f3c6743933b76a913aec77b3",
+    "lifecycle/command.py": "c2dda5cd89212ee25d90a7d461951b9517a719f524c2bcf7f1bb36a67002c692",
+    "lifecycle/audit.py": "fe2d51407b50fba515ff2b027fc55cac0e2f404b0b5c17b6e2b1852e3f302b52",
+    "lifecycle/supervisor.py": "c9e85431bf6b9c45ef19268dcf2c791d7c30d1046cd549466358b35e598793b2",
+    "lifecycle/fixture.js": "43fe1041d33411ae63502f5598d144f37bce2361eca44552d1cb64f2bf4a3a41",
+    "lifecycle/refusal.mjs": "0f153285668c583a09d1fabb9415d129b125d6b98910c61a1b1f0ba32429ff51",
+    "lifecycle/remove.py": "d554c76330b2887815e32d4f95e70d86a5b3886a756b9f51a71377347ed66ff2",
+    "lifecycle/test_cleanup.py": "91bb598623a3cd49d6f35b4bbc8859e4a99fa3f74280f0a320f178372865f08e",
+    "lifecycle/collector.py": "5ada54abe010282650c87f0b7f5b51bab5164dcd419763fbf0ad06b660698505",
+    "lifecycle/export.py": "14671e9499b9e881550adcedceb15f352bd0adb34e60d5b5daba8fc319076d5a",
+    "lifecycle/README.md": "56a94e5d863013d1d25313106bf96a625ecd5c12ab3941f020c40cb5981042e9",
+    "lifecycle/common.py": "a5859b7c6afeff508500b09218f8b5488c9a4bd6be67dc64a7726b31bc9a0822",
+    "lifecycle/probe.py": "33820d0c5342634c8a98543ff7407c4adbb3ed8ef93ab78094fe0b3209176e80",
+    "lifecycle/freeze.py": "7cc66b05163b245783553eb19dcae6da5b3d6d8fe6ed188b5756e45fee2c5dc1",
+    "lifecycle/test_collector.py": "952a57526c307c589bc24c9ac8e676ffa61e8b41dccee2e0be68eabb91725454",
+    "lifecycle/image.py": "d3f3725d55ed6c5b9dc059f004e054dd104ec29c77324b1b2aa96d2736a28577",
+    "lifecycle/host_driver.py": "e41bc2971e27676c392f56224c61e36173a0f9ccbb62bdf321a5a873f1fa2bb3",
+    "lifecycle/manager.py": "ef270319077708b04413e1f44aa52bfb7b2142b3bdb82603ace088b84bc982bb",
+    "single-policy-test/package.py": "58e447c8daeeff92ef77b95783fe4b439b76c5b4c1cd411a7aeb1932e173098d",
+    "single-policy-test/retry-finish.py": "513485c79b0708adbebf42d12ca5f04e8c41a8137584da7c08ffdcea9209a4fb",
+    "single-policy-test/retry-close.py": "d8e6cbe4bc661a733d93c3f141073000c9da92e1fc7cbd8c152c6508b882a511",
+    "single-policy-test/retry-audit.py": "44d6c040ee03eb00fe1fbc72555267712eccc76694a57c48b8f354510245549d",
+    "single-policy-test/verify-repository.py": "d65c2d36a8b322ca82ce9daf74717cf90a8776e577f0796be322a8c57cc5b462",
+    "single-policy-test/command.py": "c3b3ca2d4b49558a29789861c3ca4499d724bfacb680503abf224e7dd829ecb9",
+    "single-policy-test/test_retry_contract.py": "3f438f0cfb5685c0478b0f33403d5d9b467a716e3118de2fddb07e42b20a8bbb",
+    "single-policy-test/close.py": "00721d6b48acfb9272c7b8504638021c67ca31ad16292018231fa5c475cd120b",
+    "single-policy-test/audit.py": "6f0109e0c4832c7d7898fcade941c0d60c46f92b941a35163af51b62e82f8a09",
+    "single-policy-test/retry-job.py": "a4e2909d17a88bdac2a87b9e7a5c9fd3c1f271c5aa6683d82d1582b410e141bd",
+    "single-policy-test/retry-verify.py": "6f76cd5ecce7b0a9d675eab72484bc9a0b578e8b2161e703972705d92b3531e2",
+    "single-policy-test/retry-freeze.py": "2cd6580d38ce2245a611c1ce2c450380665135bf77a628d26476c8e3b25df196",
+    "single-policy-test/freeze-analysis.py": "5ba0afac350b6e0ab207b93bfaaaa812094aef60abc4c47f3b3a899aed43c646",
+    "single-policy-test/runtime_policy.py": "125b09ff36785f9c33eb5ac4a7c6dac8927ab083181c843de9e4e90ba5b3a2fd",
+    "single-policy-test/policy.py": "f8be859a4f32217e16169f7eb33c2c59aea65c91c932e4d8d5ed396612640f66",
+    "single-policy-test/test_retry_policy.py": "8fb2f0b497efa40d92881a4930ca261872f10c723bf7ee4a2592bb9a7c7d3da8",
+    "single-policy-test/retry-install.py": "a4e2909d17a88bdac2a87b9e7a5c9fd3c1f271c5aa6683d82d1582b410e141bd",
+    "single-policy-test/host-cleanup.py": "5666a41580cf2d97fc0baeef46f477234cca09fc76f1185207653409a4b97c86",
+    "single-policy-test/README.md": "2ab3f994ff656050f414c6394760852a0d281b71589a31f8a43e96457e500943",
+    "single-policy-test/retry-export.py": "a4e2909d17a88bdac2a87b9e7a5c9fd3c1f271c5aa6683d82d1582b410e141bd",
+    "single-policy-test/test_retry_regression.py": "9a4d5886e2743fcf18bf699335c048674c4a5a9b540de3007e159327a61229d3",
+    "single-policy-test/test_contract.py": "73fa0779f5aff2ed9874297ffd621088b75c89ce89eae4ad0c8fa5d67de4608c",
+    "single-policy-test/retry-guest.py": "a4e2909d17a88bdac2a87b9e7a5c9fd3c1f271c5aa6683d82d1582b410e141bd",
+    "single-policy-test/retry-remove.py": "a4e2909d17a88bdac2a87b9e7a5c9fd3c1f271c5aa6683d82d1582b410e141bd",
+    "single-policy-test/deadline.py": "7bcffdd5e50426e4984b51129b56ece08980a35ba857e62efc2dab582ef93a44",
+    "single-policy-test/verify-saved.py": "5d5c2a1ef9ea0c25ba15a9943d77a6d1b8914a1635334752779f5dc52b33a92c",
+    "single-policy-test/host-prepare.py": "89e6250c68ed6271b565a4a16184ee342a5e32325dd61917844c3d59451f77ff",
+    "single-policy-test/retry-metadata.py": "3fbbdb8162de6ab0daa3ed881f01a3c4e6cf846fb2b9a69dc472ab8155e28d0b",
+    "single-policy-test/scope.py": "e1a070cf82a8f7e806fb0a28bf838ad3b4f4d9fb66ed51e5ed27302916761d83",
+    "single-policy-test/snapshot.py": "324c291ad2d807a78dee91bce8aaa579cd8d6f499feea17a70caf39cd4a30e76",
+    "single-policy-test/retry-probe.mjs": "952b773dbecd3a93c660c3ab3af153a115c82121724f7ef1d49d16890260fc85"
+  },
+  "runtimeCodeChangedAfterGate": false,
+  "documentationChangedAfterValidation": true
+}

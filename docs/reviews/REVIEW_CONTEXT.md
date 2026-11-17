@@ -1,5 +1,7 @@
 # 독립 리뷰 맥락
 
+2026-11-17 최신 인계는 [정책 pair 결과](2026-11-17-s2-policy-pair.md)(ADR-054)다. main e569373에서 새 브랜치 codex/s2-policy-pair-resume, 실행 구현 da4e947로 기존 원래1/clone allow 한 행 후보1을 관찰했다. 원문은 clone 통과 뒤 mount EPERM, 자동 parser는 attach 안내가 끼어든 반환 줄을 놓쳐 inconclusive다. trace-review.json은 별도 원문 검토이며 자동 결과를 덮지 않는다. Spec/봉인2개·회수4개·VM 정리 완료, pnpm check304·Python208·과거3/새 verifier 통과. 실제 정책 추가/재시도/credential/model0이며 새 PR은 독립 리뷰 전 미병합이다.
+
 2026-11-17 최신 판단은 [최상위 정리 보완 독립 리뷰](2026-11-17-s2-cleanup-dispatch-independent-review.md)다. 153f887의 R17 잔여를 해결로 판정했고 PR #54를7f2f179로 병합했다. 304+193검사·독립8사례·새17증거/기존2324증거 불변·과거3개 verifier 통과, 기존 실제7단위 증거 유지다. R13~R17의 해당 fixture 보완은 완료다. [다음 지시](2026-11-17-s2-policy-pair-resume-instructions.md)는 동일 후보의 원래1/후보1 정책 관찰을45분 상한으로 권고한다. 새 구조·추가 권한·인증/model/본 비교 승인이 아니며 이번 리뷰에서 실제 실행은 하지 않았다. R11 unresolved·H-O/H-F 미검증을 유지한다.
 
 2026-11-17 최신 인계는 [최상위 cleanup 호출 보완](2026-11-17-s2-cleanup-dispatch-fix.md)(ADR-053)다. 구현 head e4474f2에서 main의 감사 실패→cleanup 연결만 보완했다. 새 회귀19개·Python193·pnpm check304와 과거3개 verifier 통과, 새 VM/runtime0이다. 과거 실제7단위와 새 호스트 실패 회귀를 구분해 검토한다. 기록 실패/marker 유실에도 cleanup1회·최초/후속 오류 보존·유효 감사 없는 seal 거부를 확인한다. PR #54는 독립 리뷰 전 미병합이며 R11/production/live·실제 인증/model/본 비교 차단은 유지한다.

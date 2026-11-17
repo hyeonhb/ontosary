@@ -1,0 +1,38 @@
+[
+  {
+    "mode": "baseline",
+    "runId": "32b2c3ebb587",
+    "starts": 1,
+    "exitCode": 0,
+    "outcome": "exit",
+    "collectionStatus": "collected",
+    "registeredToRemovalSeconds": 1.7691120429999998,
+    "registeredToSealSeconds": 2.246694459000004,
+    "totalSeconds": 3.067944082984468,
+    "recoveryStatus": "complete",
+    "archiveFiles": 31,
+    "resultFiles": 5,
+    "invocationId": "bec1b52c47354274a35209686b683861",
+    "inactiveAtMono": 53.84722,
+    "rawObservations": 6,
+    "seccompRuleCount": 17
+  },
+  {
+    "mode": "candidate",
+    "runId": "4eaa03bfb0b5",
+    "starts": 1,
+    "exitCode": 0,
+    "outcome": "exit",
+    "collectionStatus": "collected",
+    "registeredToRemovalSeconds": 1.6127980010000016,
+    "registeredToSealSeconds": 1.9715344170000009,
+    "totalSeconds": 2.781846875004703,
+    "recoveryStatus": "complete",
+    "archiveFiles": 32,
+    "resultFiles": 5,
+    "invocationId": "7370e3de65f14acbac2831e9a50a6697",
+    "inactiveAtMono": 56.75858,
+    "rawObservations": 6,
+    "seccompRuleCount": 18
+  }
+]

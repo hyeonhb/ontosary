@@ -1,0 +1,15 @@
+{
+  "scope": "unit-candidate",
+  "runId": "4eaa03bfb0b5",
+  "evidenceStatus": "complete",
+  "errors": [],
+  "secondsAvailable": 30,
+  "partialPublished": false,
+  "verified": {
+    "files": 32,
+    "bytes": 579734
+  },
+  "artifact": "recovery-unit-candidate.tar.gz",
+  "archiveSha256": "0c663d12a577ef02dc8e8e0d4510cda45ee5c6e96bb2b493945014907f96f95f",
+  "seconds": 0.4352235000114888
+}

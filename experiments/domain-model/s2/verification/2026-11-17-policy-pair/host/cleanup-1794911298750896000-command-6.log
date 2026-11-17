@@ -1,0 +1,1 @@
+{"exitCode": 0, "stdout": "", "stderr": "time=\"2026-11-17T19:28:19+09:00\" level=warning msg=\"No instance found. Run `limactl create` to create an instance.\"\n"}

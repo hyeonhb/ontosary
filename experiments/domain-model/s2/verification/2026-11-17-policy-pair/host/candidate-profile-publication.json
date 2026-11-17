@@ -1,0 +1,17 @@
+{
+  "sha256": "93684899af9c25f13cdffe699d65f795d4e876ca16e0565b9584629079ed6128",
+  "derivedFromRun": "32b2c3ebb587",
+  "rule": {
+    "names": [
+      "clone"
+    ],
+    "action": "SCMP_ACT_ALLOW",
+    "args": [
+      {
+        "index": 0,
+        "op": "SCMP_CMP_EQ",
+        "value": 2013397009
+      }
+    ]
+  }
+}

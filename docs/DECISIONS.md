@@ -443,3 +443,12 @@ R13/R14 유지와 R15/R16/R17은 이 fixture 검증 범위에서 결과 리뷰�
 
 
 2026-11-17 독립 검토 추가: [리뷰](reviews/2026-11-17-s2-cleanup-dispatch-independent-review.md)에서 실제 main의 감사 실패→cleanup 연결과 기존 증거를 재검증해 R17 해결로 판정했다. PR #54는7f2f179로 병합했다. 기존 구조를 유지하며 [동일 후보의 제한된 대조 재개](reviews/2026-11-17-s2-policy-pair-resume-instructions.md)를 다음 작업으로 권고한다. 이 추가 기록은 새 정책 실행 결과나 인증/model/본 비교 승인이 아니다.
+
+
+## ADR-054 · 고정 clone 한 행 대조와 다음 mount 차단 관찰 — 2026-11-17
+
+[R13~R17 완료 리뷰 뒤 승인한 제한 대조](reviews/2026-11-17-s2-policy-pair-resume-instructions.md)를 같은 Lima/VZ·고정 이미지·공통 unit에서 원래1/후보1만 수행했다. [결과](reviews/2026-11-17-s2-policy-pair.md)의 pair 진입점은 명시적 목적/분모/고정 RULE/cacheOnly와 과거7단위 hash를 확인한다. baseline 봉인·회수·기준 관찰 뒤에만 후보로 진행하고 pair 예외도 기존 감사/cleanup 경로를 거친다. guest/engine/reference/recovery/collector나 추가 권한 집합을 바꾸지 않았다.
+
+원래 두 namespace clone은 EPERM, 후보 원문은 사전 검사41→42·명령 준비43→44의 clone 통과 후 두 자식의 mount(MS_SLAVE) EPERM이다. 실제 전체 Spec 차이는 승인된 clone arg0=2013397009 allow 한 행이다. 정확한 seccomp/AppArmor/kernel 기여는 분리하지 않았다. 자동 parser는 첫 clone 줄의 strace attach 안내와 다음 줄 반환값 연결을 지원하지 못해 inconclusive로 보존했다. 원문 검토의 first-clone-passed-next-blocked와 자동 결과를 구분하고 동결 코드 수정/실제 재시도는 하지 않았다.
+
+두 단위 종료·service 봉인·reference 해제와 회수4개, VM/임시 root 정리를 확인했다. pnpm check304·Python208(기존193+새15)·과거3/새 verifier 통과다. 다음은 결과와 저장 trace 판독의 독립 리뷰이며 mount 허용/다른 후보/CLI 전체 경계의 범위·예산은 별도로 결정한다. 새 PR은 리뷰 전 병합하지 않는다. R11 unresolved·R12 기존 범위·production/live 거부·fixtureOnly=true·validSubmission=false·trialAuthorized/readyForTrial=false·results=null·실제 인증/model/본 비교 보류를 유지한다.

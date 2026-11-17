@@ -1,0 +1,40 @@
+{
+  "status": "inconclusive",
+  "bwrapExecutions": [
+    {
+      "pid": 41,
+      "kind": "precheck",
+      "line": 55,
+      "raw": "[pid    41] execve(\"/proc/self/fd/3\", [\"bwrap\", \"--as-pid-1\", \"--new-session\", \"--die-with-parent\", \"--tmpfs\", \"/\", \"--dev\", \"/dev\", \"--ro-bind\", \"/bin\", \"/bin\", \"--ro-bind\", \"/etc\", \"/etc\", \"--ro-bind\", \"/lib\", \"/lib\", \"--ro-bind\", \"/sbin\", \"/sbin\", \"--ro-bind\", \"/usr\", \"/usr\", \"--unshare-user\", \"--unshare-pid\", \"--unshare-ipc\", \"--unshare-net\", \"--proc\", \"/proc\", \"--cap-drop\", \"ALL\", \"--\", \"/usr/bin/true\"], 0xffffd47b27c8 /* 4 vars */) = 0"
+    },
+    {
+      "pid": 43,
+      "kind": "command-preparation",
+      "line": 123,
+      "raw": "[pid    43] execve(\"/proc/self/fd/3\", [\"bwrap\", \"--as-pid-1\", \"--new-session\", \"--die-with-parent\", \"--tmpfs\", \"/\", \"--dev\", \"/dev\", \"--ro-bind\", \"/bin\", \"/bin\", \"--ro-bind\", \"/etc\", \"/etc\", \"--ro-bind\", \"/home/runner/cli-state/tmp/arg0-linux/codex-arg07pUbLK\", \"/home/runner/cli-state/tmp/arg0-linux/codex-arg07pUbLK\", \"--ro-bind\", \"/home/worker\", \"/home/worker\", \"--ro-bind\", \"/lib\", \"/lib\", \"--ro-bind\", \"/materials\", \"/materials\", \"--ro-bind\", \"/sbin\", \"/sbin\", \"--ro-bind\", \"/scratch\", \"/scratch\", \"--ro-bind\", \"/source\", \"/source\", \"--ro-bind\", \"/usr\", \"/usr\", \"--bind\", \"/scratch\", \"/scratch\", \"--perms\", \"555\", \"--tmpfs\", \"/scratch/.git\", \"--remount-ro\", \"/scratch/.git\", \"--perms\", \"555\", \"--tmpfs\", \"/scratch/.agents\", \"--remount-ro\", \"/scratch/.agents\", \"--perms\", \"555\", \"--tmpfs\", \"/scratch/.codex\", \"--remount-ro\", \"/scratch/.codex\", \"--perms\", \"555\", \"--tmpfs\", \"/scratch/.aws\", \"--remount-ro\", \"/scratch/.aws\", \"--ro-bind\", \"/scratch/codex-bwrap-synthetic-mount-targets-1000\", \"/scratch/codex-bwrap-synthetic-mount-targets-1000\", \"--bind\", \"/source\", \"/source\", \"--perms\", \"555\", \"--tmpfs\", \"/source/.codex\", \"--remount-ro\", \"/source/.codex\", \"--perms\", \"555\", \"--tmpfs\", \"/source/.git\", \"--remount-ro\", \"/source/.git\", \"--perms\", \"555\", \"--tmpfs\", \"/source/.agents\", \"--remount-ro\", \"/source/.agents\", \"--perms\", \"555\", \"--tmpfs\", \"/source/.aws\", \"--remount-ro\", \"/source/.aws\", \"--bind\", \"/home/worker\", \"/home/worker\", \"--perms\", \"555\", \"--tmpfs\", \"/home/worker/.git\", \"--remount-ro\", \"/home/worker/.git\", \"--perms\", \"555\", \"--tmpfs\", \"/home/worker/.agents\", \"--remount-ro\", \"/home/worker/.agents\", \"--perms\", \"555\", \"--tmpfs\", \"/home/worker/.codex\", \"--remount-ro\", \"/home/worker/.codex\", \"--perms\", \"555\", \"--tmpfs\", \"/home/worker/.aws\", \"--remount-ro\", \"/home/worker/.aws\", \"--perms\", \"000\", \"--tmpfs\", \"/home/runner/cli-state\", \"--remount-ro\", \"/home/runner/cli-state\", ...], 0xffffd47b27c8 /* 4 vars */) = 0"
+    }
+  ],
+  "namespaceClones": [
+    {
+      "pid": 43,
+      "line": 132,
+      "raw": "[pid    43] clone(child_stack=NULL, flags=CLONE_NEWNS|CLONE_NEWIPC|CLONE_NEWUSER|CLONE_NEWPID|CLONE_NEWNET|SIGCHLD) = 44",
+      "completion": "[pid    43] clone(child_stack=NULL, flags=CLONE_NEWNS|CLONE_NEWIPC|CLONE_NEWUSER|CLONE_NEWPID|CLONE_NEWNET|SIGCHLD) = 44",
+      "return": 44,
+      "errno": null,
+      "kind": "command-preparation"
+    }
+  ],
+  "nextDenied": [
+    {
+      "pid": 44,
+      "line": 178,
+      "raw": "[pid    44] mount(NULL, \"/\", NULL, MS_REC|MS_SILENT|MS_SLAVE, NULL) = -1 EPERM (Operation not permitted)"
+    }
+  ],
+  "pendingCloneObservations": [],
+  "traceSha256": "9a949992b23a81361f821d9ec6fd227eebcd4a6a1c1cf8801ee698660e117c5c",
+  "commandExitCode": 1,
+  "nativePayloadStarted": false,
+  "lsmCauseConfirmed": false
+}

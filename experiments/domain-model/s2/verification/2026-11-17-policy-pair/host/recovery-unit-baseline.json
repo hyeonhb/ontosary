@@ -1,0 +1,15 @@
+{
+  "scope": "unit-baseline",
+  "runId": "32b2c3ebb587",
+  "evidenceStatus": "complete",
+  "errors": [],
+  "secondsAvailable": 30,
+  "partialPublished": false,
+  "verified": {
+    "files": 31,
+    "bytes": 556857
+  },
+  "artifact": "recovery-unit-baseline.tar.gz",
+  "archiveSha256": "e076ced50f7b8e566a0e8cbb5df36b612929f90f12564c2f9f126d29ab5c1cfc",
+  "seconds": 0.44732224999461323
+}

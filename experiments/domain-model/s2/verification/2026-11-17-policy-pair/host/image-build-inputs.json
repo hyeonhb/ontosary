@@ -1,0 +1,22 @@
+{
+  "key": "4bc8ef40b201ccadb928faec44031c95d15e0831716cea76f24d9c41f33e02a4",
+  "inputs": {
+    "schema": "s2-image-input-v1",
+    "context": {
+      "Dockerfile": {
+        "sha256": "4a70e2341e549a929aa008e50bcdec3a45aa5daebcfdafc1ca2f01dddb5f0a59",
+        "bytes": 604
+      }
+    },
+    "buildArgs": {
+      "BASE_IMAGE": "docker.io/library/node@sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90"
+    },
+    "platform": "linux/arm64",
+    "tools": {
+      "nerdctl": "2.4.2",
+      "containerd": "2.4.2-b7a25261e029d68978bbf290df0a62fc819b3c51",
+      "runc": "1.5.2",
+      "fullBundleSha256": "fe0ef0e9840ee8932640e6058f84b7fa98050f9726e44af44883a5b804ae830e"
+    }
+  }
+}

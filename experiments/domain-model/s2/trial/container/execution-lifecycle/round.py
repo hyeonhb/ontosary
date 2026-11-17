@@ -24,6 +24,9 @@ class Round:
   return r,path.read_text()
  def guest(self,args,**kw):return self.cmd(self.shell+args,**kw)
  def local(self):
+  if self.plan.get('purpose'):
+   from policy_pair import authorize
+   authorize(self.plan)
   self.phase='plan';results=[];write(self.w/'local-gate.json',{'passed':False,'status':'running'})
   for directory,pattern in [('execution-lifecycle','test_*.py'),('lifecycle','test_*.py'),('single-policy-test','test_retry*.py')]:
    r,output=self.cmd([sys.executable,'-m','unittest','discover','-s',str(CONTAINER/directory),'-p',pattern,'-v'],60);results.append({'directory':directory,'pattern':pattern,'exitCode':r['exitCode'],'log':output[-500:]})
@@ -35,6 +38,9 @@ class Round:
   now=datetime.datetime.now(datetime.timezone.utc);mono=time.monotonic();utc=min(now+datetime.timedelta(minutes=20),datetime.datetime.fromisoformat(self.budget['deadlines']['preparation']['utc']));end=min(mono+1200,self.budget['deadlines']['preparation']['monotonic'])
   self.budget['deadlines']['environment']={'utc':utc.isoformat(),'monotonic':end};self.budget['environmentEntered']={'utc':now.isoformat(),'mono':mono};write(self.w/'budget.json',self.budget)
  def prepare(self):
+  if self.plan.get('purpose'):
+   from policy_pair import authorize
+   authorize(self.plan)
   gate=read(self.w/'local-gate.json');assert gate['passed'];limit(self.budget,'plan')
   assert all(sha(p)==h for p,h in gate['codeHashes'].items()),'code-changed-since-local-gate'
   self.phase='environment';end=time.monotonic()+limit(self.budget,'environment');mono=self.budget['environmentEntered']['mono'];limit(self.budget,'environment')
@@ -172,26 +178,21 @@ class Round:
     except subprocess.TimeoutExpired:driver.kill();driver.wait(timeout=2)
    log.close()
  def fixtures(self):
+  if self.plan.get('purpose'):raise RuntimeError('pair-round-cannot-run-seven-fixtures')
   self.phase='exploration';assert (self.w/'preparation-complete.json').exists()
   gate=read(self.w/'local-gate.json');assert gate['passed'] and all(sha(p)==h for p,h in gate['codeHashes'].items()),'execution-code-changed-after-gate'
   for mode in self.plan['fixtures']:self.unit(mode)
   write(self.w/'fixtures-complete.json',{'passed':True,'requiredUnits':7,'optionalRuntimeFailureFixture':False})
  def pair(self):
-  raise RuntimeError('policy-pair-not-authorized-in-fix-round')
-  self.phase='exploration';assert read(self.w/'fixtures-complete.json')['passed']
-  rid=self.unit('baseline');_,raw=self.guest(['cat','/opt/ontosary-fixture/runs/'+rid+'/result/auxiliary/result.json']);baseline=json.loads(raw);write(self.w/'baseline-observation.json',baseline)
-  assert all(baseline['parent'].values()) and not baseline['nativePayloadStarted'] and baseline['nodeVersion']=='v22.19.0'
-  assert baseline['calls'][0]['stdout']=='codex-cli 0.167.0-alpha.3.2\n'
-  assert baseline['binaries']['codex']['sha256']=='e7f91e14eab4ba3a0f65047c1757b593409d4ce791ccb6ac65c67c970dfed76f' and baseline['binaries']['bwrap']['sha256']=='0f543a7356ab343b4827222f910461d4196778f328b28acd6c126ef18e9557ab'
-  assert baseline['calls'][-1]['stderr'].count('clone(child_stack=NULL, flags=CLONE_NEWNS|CLONE_NEWIPC|CLONE_NEWUSER|CLONE_NEWPID|CLONE_NEWNET|SIGCHLD) = -1 EPERM')==2
-  self.guest(['python3','-c',"import sys,pathlib,json,os;sys.path.insert(0,'/opt/ontosary-execution/execution-lifecycle');from identity import RULE;p=pathlib.Path('/opt/ontosary-execution');s=json.loads((p/'baseline-native.json').read_text())['Spec']['linux']['seccomp'];s['syscalls'].append(RULE);f=p/'candidate.json';f.write_text(json.dumps(s));os.chmod(f,0o400)"])
-  rid=self.unit('candidate');_,raw=self.guest(['cat','/opt/ontosary-fixture/runs/'+rid+'/result/auxiliary/result.json']);write(self.w/'candidate-observation.json',json.loads(raw))
+  from policy_pair import execute
+  return execute(self)
  def cleanup(self):
   from recovery import cleanup
   return cleanup(self)
  def validate(self):
   self.phase='finish';result={}
-  for name,args in [('pnpm-check',['pnpm','check']),('examples-build',['pnpm','example:build']),('production-live-refusal',['pnpm','exec','vitest','run','tests/s2-lifecycle.test.ts']),('saved-evidence-replay',[sys.executable,str(HERE/'verify_recovery.py'),'--work',str(self.w)]),('prior-evidence-replay',[sys.executable,str(HERE/'verify_saved.py'),'--root',str(pathlib.Path(self.plan['legacyEvidence']).parent)]),('prior-fix-replay',[sys.executable,str(HERE/'verify_fix.py'),'--root','experiments/domain-model/s2/verification/2026-11-15-execution-lifecycle-fix']),('new-tests',[sys.executable,'-m','unittest','discover','-s',str(HERE),'-p','test_*.py','-v']),('lifecycle-tests',[sys.executable,'-m','unittest','discover','-s',str(CONTAINER/'lifecycle'),'-p','test_*.py','-v']),('audit-tests',[sys.executable,'-m','unittest','discover','-s',str(CONTAINER/'single-policy-test'),'-p','test_retry*.py','-v'])]:
+  verifier='verify_pair.py' if self.plan.get('purpose') else 'verify_recovery.py'
+  for name,args in [('pnpm-check',['pnpm','check']),('examples-build',['pnpm','example:build']),('production-live-refusal',['pnpm','exec','vitest','run','tests/s2-lifecycle.test.ts']),('saved-evidence-replay',[sys.executable,str(HERE/verifier),'--work',str(self.w)]),('prior-evidence-replay',[sys.executable,str(HERE/'verify_saved.py'),'--root',str(pathlib.Path(self.plan['legacyEvidence']).parent)]),('prior-fix-replay',[sys.executable,str(HERE/'verify_fix.py'),'--root','experiments/domain-model/s2/verification/2026-11-15-execution-lifecycle-fix']),('prior-seal-replay',[sys.executable,str(HERE/'verify_recovery.py'),'--root','experiments/domain-model/s2/verification/2026-11-17-seal-recovery']),('new-tests',[sys.executable,'-m','unittest','discover','-s',str(HERE),'-p','test_*.py','-v']),('lifecycle-tests',[sys.executable,'-m','unittest','discover','-s',str(CONTAINER/'lifecycle'),'-p','test_*.py','-v']),('audit-tests',[sys.executable,'-m','unittest','discover','-s',str(CONTAINER/'single-policy-test'),'-p','test_retry*.py','-v'])]:
    r,output=self.cmd(args,180,False);result[name]={'exitCode':r['exitCode'],'tail':output[-600:]}
   initial=read(self.w/'start-inventory.json');changed=[];unchanged=0
   # Initial inventory supports both flat hash rows and {sha256,bytes} rows.
@@ -209,7 +210,10 @@ class Round:
   cost={'status':'closed','startedUtc':self.budget['utc'],'measuredUntilUtc':now.isoformat(),'roundMeasuredSeconds':seconds,'previousMeasuredSeconds':self.budget['previousMeasuredSeconds'],'cumulativeMeasuredSeconds':self.budget['previousMeasuredSeconds']+seconds,'previousSerializationUpperBoundSeconds':self.budget['previousSerializationUpperBoundSeconds'],'currentSerializationUpperBoundSeconds':10,'cumulativeUpperBoundSeconds':self.budget['previousMeasuredSeconds']+seconds+self.budget['previousSerializationUpperBoundSeconds']+10,'newPaidCost':0,'gitDeliveryIncluded':False,'actualUnits':len(units),'passedUnits':sum(x.get('passed',False) for x in units),'runtimeRetries':0}
   write(self.w/'cost.json',cost)
   report=pathlib.Path(self.plan['report']);report.write_text(report.read_text().replace('ROUND_SECONDS',f'{seconds:.3f}').replace('CUMULATIVE_SECONDS',f'{cost["cumulativeMeasuredSeconds"]:.3f}'))
-  result=package(self.w,self.plan['output']);from verify_recovery import verify as verify_semantics;verify_semantics(pathlib.Path(self.plan['output'])/'host')
+  result=package(self.w,self.plan['output'])
+  if self.plan.get('purpose'):from verify_pair import verify as verify_semantics
+  else:from verify_recovery import verify as verify_semantics
+  verify_semantics(pathlib.Path(self.plan['output'])/'host')
   index=read(pathlib.Path(self.plan['output'])/'index.json');report.write_text(report.read_text().replace('EVIDENCE_FILES',str(len(index['files']))).replace('ARCHIVES',str(len(index['archives']))).replace('ARCHIVE_MEMBERS',str(sum(len(x) for x in index['archives'].values()))))
   import re,urllib.parse
   links=0
@@ -282,6 +286,6 @@ def main():
   snapshot(r.w,['python3',str(HERE/'round.py'),'seal','--work',str(r.w)],'finish','closing')
  try:getattr(r,a.action.replace('-','_'))()
  except Exception as original:
-  if a.action in ['prepare','fixtures']:failed_dispatch(r,original)
+  if a.action in ['prepare','fixtures','pair']:failed_dispatch(r,original)
   raise
 if __name__=='__main__':main()
