@@ -1,5 +1,7 @@
 # 현재 작업 상태 — 새 세션은 이 문서부터 읽기
 
+2026-11-17 [오프라인 trace 판독 독립 리뷰](reviews/2026-11-17-s2-trace-reanalysis-independent-review.md): head8bba520에서304+243검사·과거4개 verifier·새14파일 hash·기존2364 verification 불변과 실제 파생 결과(checkoutHead 제외) 일치를 확인했다. 다만 R18은 자식 exec가 부모 resumed보다 먼저 출력되면 미지원 문맥을 놓쳐 next-blocked로 승격되는 반례다. 실제 고정 후보의 clone→mount 결론은 유지하며 PR #63은 보완 리뷰까지 미병합이다. [30분 오프라인 국소 지시](reviews/2026-11-17-s2-trace-context-fix-instructions.md)를 함께 제공한다. 새 runtime/권한/인증/model/본 비교는 보류하고 실행 경계 책임 논의는 별도로 진행할 수 있다. 아래는 당시 기록이다.
+
 2026-11-17 [저장 trace 오프라인 보완](reviews/2026-11-17-s2-trace-reanalysis.md): **별도 판독 구현·검증 완료, 독립 리뷰 대기**다. 최신 main e358104에서 최종 구현695d7f1로 후보의 precheck41→42(64–65행)·명령 준비43→44(132행)와 자식 mount EPERM(110/178행)을 자동 연결했다. 새 파생 판정은 first-clone-passed-next-blocked, payloadStarted/lsmCauseConfirmed=false다. 기존 parser·원문·index·과거 inconclusive는 보존했고 기존4개 verifier는 이전 상태 그대로 통과했다. pnpm check304·Python 기존208+새35=243(skip0), 새 runtime/정책/credential/model0이다. PR은 결과 리뷰 전 미병합이며 R11 unresolved·production/live 거부·본 비교 보류를 유지한다. 아래는 당시 기록이다.
 
 2026-11-17 [정책 대조 독립 리뷰](reviews/2026-11-17-s2-policy-pair-independent-review.md): **제한 대조·종료/회수 완료, 추가 병합 차단 없음**. head7a5eb53에서304+208검사·4개 verifier·134파일/Spec2/봉인2/회수4·final-source85/전달38·준비물4개 hash를 확인했다. 원문은 clone 통과 후 mount EPERM이며 자동 inconclusive는 미지원 혼합 줄 때문에 그대로 보존한다. PR #61을ee7ac98로 병합했다. [30분 오프라인 판독 지시](reviews/2026-11-17-s2-trace-reanalysis-instructions.md)를 함께 제공한다. 새 VM/정책 재시도 없이 저장 trace를 별도 재분석하고, 다음 실제 시험 전 외부/내부 sandbox의 책임·권한을 사용자와 논의한다. 추가 mount/권한·인증/model/본 비교 보류·R11 unresolved를 유지한다. 아래는 당시 기록이다.
