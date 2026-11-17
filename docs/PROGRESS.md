@@ -1,5 +1,7 @@
 # 현재 작업 상태 — 새 세션은 이 문서부터 읽기
 
+2026-11-17 사용자는 R15 잔여·R16·R17의 보완 지시를 요청했다. [진단/봉인/정리 지시](reviews/2026-11-17-s2-seal-recovery-instructions.md)(ADR-051)는 회수 실패와 최종 정리 분리→관리자 metadata 게시→실패 진단 보존→service reference를 봉인까지 유지하는 순서다. 직전과 같은3시간·VM1개·기본 정책7단위·build0 상한을 적용한다. 이번은 지시 작성이며 구현/VM 시험은 하지 않는다. 작성 후 pnpm check304테스트·타입/예제 build와 문서 로컬 링크295개를 확인했다. 제품/실험 코드는 불변이다. 구현 PR #54는 보완 결과 리뷰 뒤 병합하며 정책 pair·권한 확대·실제 인증/model·본 비교는 보류한다. 앞으로 합의된 범위의 보완은 리뷰와 함께 지시문을 제공하고 중요한 방향/아키텍처·권한/비용 확대는 먼저 논의한다.
+
 2026-11-17 [R13~R15 보완 독립 리뷰](reviews/2026-11-17-s2-execution-lifecycle-fix-independent-review.md): PR #54 head ff7ec19에서 pnpm check304·Python146·새123파일(분석5/closing4)·과거126파일 재현, final-source73/전달32파일 연결과 준비물4개 실제 hash를 확인했다. R14는 새 VM의 build/download0·import1 범위에서 해결됐다. R13은 실제 Spec 원문 유실로 부분 완료, R15는 전달 metadata 소유권/실패 진단 보존이 남는다. 정상1 start1/exit0/삭제1.566초 후 service 봉인 실패(R16), 필수7 기대통과0이다. 추가로 archive copy/export 호출 예외가 VM 정리를 건너뛰는 R17을 가짜 외부 명령으로 재현했다. PR #54 미병합·새 실행 예산 미승인·R11/production/live 차단·실제 credential/model/본 비교 보류를 유지한다. 이번은 코드/저장 증거 리뷰이며 새 VM 실행은 없다. 아래는 당시 기록이다.
 
 2026-11-14 사용자는 R13~R15 보완 지시 작성을 요청했다. [후속 지시](reviews/2026-11-14-s2-execution-lifecycle-fix-instructions.md)(ADR-049)는 PR #54의 이미지 조회 선행(R14), 고정 PATH와 엄격한 hook 환경 대조(R13), 검증된 수집 결과만 export(R15)를 정한다. 직전과 같은3시간 상한·로컬 회귀 우선·새 VM1개·기본 정책 필수7단위로 제한하고 선택적 실패 주입/정책 대조는 결과 리뷰 뒤로 둔다. 이번은 지시 작성이며 구현/VM 시험은 미실행이다. 작성 후 pnpm check304테스트·타입 검사·예제 build와 변경 문서의 로컬 링크252개를 확인했다. 제품/실험 코드는 변경하지 않았다. PR #54 보완은 게시 후 독립 리뷰를 기다리며 R11 unresolved·production/live 차단·실제 credential/model/본 비교 보류를 유지한다.
