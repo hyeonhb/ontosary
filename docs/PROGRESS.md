@@ -1,5 +1,7 @@
 # 현재 작업 상태 — 새 세션은 이 문서부터 읽기
 
+2026-11-17 사용자는 [직접 VM CLI 최소 호환성 시험](reviews/2026-11-17-s2-vm-cli-smoke-instructions.md)을 **총60분·새 VM1개·실제 sandbox 명령1회**로 승인했다(ADR-057). 15분은 중간 점검이며45분부터 새 실험을 중단하고 정리/검증/보고한다. 고정 도구·준비물과 최소 마감/폐기 수단을 재사용하고 R19의 실제 재사용 경로만 보완한다. 전체 비활성 runner·인증/socket 부정 대조·새 봉인/제출 수집·VM2 반복은 제외한다. 이번은 지시 작성이며 pnpm check304테스트·타입/예제 build와 문서 링크280개를 확인했다. 새 VM/CLI/인증/model 실행은 없다. 구현은 새 PR로 인계하고 독립 리뷰 전 병합하지 않는다. PR #67·전체 C안 채택·R11 해결·본 비교는 보류한다. 아래는 당시 기록이다.
+
 2026-11-17 [C안 타당성 독립 리뷰](reviews/2026-11-17-s2-vm-cli-feasibility-independent-review.md): PR #67 head ed0250b의 **inconclusive 기록을 재현**했다. 90분 소진이 아니라15분 최소 구현 gate 미달로 VM0/단위0에서 중단했고 전체1831.075초였다. pnpm check304·Python98·18파일/과거3474파일·공개 cache4개 hash를 대조했다. 비활성 초안의 호스트 Python API와 Unix socket 디렉터리 권한 불일치(R19), 기존 watchdog 마감 예외를 확인했다. C안 불가능 근거는 없으며 검증 순서 축소를 권고한다. 새60분·VM1·payload1 호환성 시험은 미합의 제안이다. PR #67 미병합·새 runtime/인증/model0·R11 unresolved를 유지한다. 아래는 당시 기록이다.
 
 2026-11-17 사용자는 **C안: 일회성 VM에서 CLI 직접 실행 + CLI 내부 sandbox 유지의 타당성 검증을 총90분 한도로 승인**했다(ADR-055). [개발 지시](reviews/2026-11-17-s2-vm-cli-feasibility-instructions.md)는 검증된 공개 준비물·고정 CLI를 재사용하고 정상/timeout/wrapper 사망/새 VM 정상 반복을 최대4단위·순차 VM2개 안에서 확인한다. 비특권 worker와 관리자를 분리하고 가짜 인증·로컬 네트워크 양성/음성 대조·전체 자손 종료 후 제한 수집을 검증한다. 이번은 지시 작성이며 pnpm check304테스트·타입/예제 build와 문서 로컬 링크277개를 확인했다. 새 runtime/인증/model 실행은 없다. C안의 전체 전환은 미확정이며 구현 PR은 독립 결과 리뷰 뒤 병합한다. R11 unresolved·production/live 거부·H-O/H-F 미검증을 유지한다. 아래는 당시 기록이다.
