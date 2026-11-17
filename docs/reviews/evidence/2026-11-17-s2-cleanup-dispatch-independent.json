@@ -1,0 +1,141 @@
+{
+  "reviewedHead": "153f8878b1e929f2ef221cf63143d3b8c312c146",
+  "implementationHead": "e4474f29c715bacf01793de7b78e2163f28ea581",
+  "localEvidenceFilesVerified": 17,
+  "historicalEvidenceFilesUnchanged": 2324,
+  "sourceHashesMatched": {
+    "experiments/domain-model/s2/trial/container/execution-lifecycle/round.py": "e65d05307f301b4d84990e6f1dbda8f000236f8672fd1846242deaae91b496bb",
+    "experiments/domain-model/s2/trial/container/execution-lifecycle/test_dispatch.py": "ebb97db8f60d9ae4f0c96787fc308a555eec541e6147314e4b6c95a30d6e0629"
+  },
+  "runtimeExecutions": 0,
+  "tests": {
+    "pnpm": 304,
+    "execution": 133,
+    "lifecycle": 16,
+    "audit": 44,
+    "pythonTotal": 193
+  },
+  "probe": {
+    "runtimeCommandsExecuted": 0,
+    "cases": [
+      {
+        "action": "prepare",
+        "failure": "none",
+        "cleanupCalls": 1,
+        "originalPreserved": true,
+        "auditRegistered": true
+      },
+      {
+        "action": "prepare",
+        "failure": "scope",
+        "cleanupCalls": 1,
+        "originalPreserved": true,
+        "auditRegistered": false
+      },
+      {
+        "action": "prepare",
+        "failure": "registry",
+        "cleanupCalls": 1,
+        "originalPreserved": true,
+        "auditRegistered": false
+      },
+      {
+        "action": "prepare",
+        "failure": "snapshot",
+        "cleanupCalls": 1,
+        "originalPreserved": true,
+        "auditRegistered": false
+      },
+      {
+        "action": "fixtures",
+        "failure": "none",
+        "cleanupCalls": 1,
+        "originalPreserved": true,
+        "auditRegistered": true
+      },
+      {
+        "action": "fixtures",
+        "failure": "scope",
+        "cleanupCalls": 1,
+        "originalPreserved": true,
+        "auditRegistered": false
+      },
+      {
+        "action": "fixtures",
+        "failure": "registry",
+        "cleanupCalls": 1,
+        "originalPreserved": true,
+        "auditRegistered": false
+      },
+      {
+        "action": "fixtures",
+        "failure": "snapshot",
+        "cleanupCalls": 1,
+        "originalPreserved": true,
+        "auditRegistered": false
+      }
+    ]
+  },
+  "priorReplay": {
+    "index": {
+      "files": 259,
+      "analysis": 5,
+      "closing": 3
+    },
+    "semantic": {
+      "actualUnits": 7,
+      "passed": 7,
+      "wholeSpecsReplayed": [
+        {
+          "mode": "normal-1",
+          "accepted": true
+        },
+        {
+          "mode": "precheck-rejection",
+          "accepted": true
+        },
+        {
+          "mode": "start-failure",
+          "accepted": true
+        },
+        {
+          "mode": "timeout",
+          "accepted": true
+        },
+        {
+          "mode": "wrapper-death",
+          "accepted": true
+        },
+        {
+          "mode": "supervisor-death",
+          "accepted": true
+        },
+        {
+          "mode": "normal-2",
+          "accepted": true
+        }
+      ],
+      "sealsVerified": [
+        "normal-1",
+        "precheck-rejection",
+        "start-failure",
+        "timeout",
+        "wrapper-death",
+        "supervisor-death",
+        "normal-2"
+      ],
+      "recoveryArchives": 9,
+      "runtimeReexecuted": false
+    }
+  },
+  "mergeCommit": "7f2f1794b6240086079828338dff5f4c3f505e1a",
+  "logDigests": {
+    "lifecycle.log": "4eb3f8df026323da3ee2122fd9ac59000b9133e0b7f407a8e7ce019de4466e1d",
+    "prior15.json": "96dc7071a126743605ba9b23d3dc4fbd8a53e538b9f0585dd0f192f244d9f414",
+    "prior14.json": "61d32c27b7340c63adad6783e58b7686f529bde9742958223e380f03912ede3b",
+    "prior17.json": "1b78c3dce7b5642ac63a662667b668d6b4cbc611db0064a957afc2005ecd104a",
+    "audit.log": "a0cd2232c949e0aa146c35b05666cb06776dba2ad401da838c16e749b2822a83",
+    "execution.log": "64a6188a0ec093d6b66daf09aeccc280807d2f90ef187b806d2451877d8be0d0",
+    "check.log": "ed866d377807f4cec7b962dad426a7eb1303f5b7aba80a9dabfbb962d6ab6cb8"
+  }
+}

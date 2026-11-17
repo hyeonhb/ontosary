@@ -440,3 +440,6 @@ R13/R14 유지와 R15/R16/R17은 이 fixture 검증 범위에서 결과 리뷰�
 [국소 보완 지시](reviews/2026-11-17-s2-cleanup-dispatch-instructions.md)의 R17 잔여를 host main 안에서 해결했다. [결과](reviews/2026-11-17-s2-cleanup-dispatch-fix.md)는 감사 기록 try와 cleanup finally의 단일 호출, 최초/감사/정리/출력 오류의 보존, 제한된 실패 진단과 미등록 cleanup의 seal 거부를 담는다. 감사 등록 실패를 성공으로 봉합하지 않으며 기존 registry/orphan을 보존한다. 하위 recovery·guest·정책/cache·공유 감사/package는 변경하지 않는다.
 
 기준 head에서 기록 오류6개가 cleanup을 건너뛰는 것을 재현했고, 실제 main 회귀19개와 기존 회귀를 합쳐 Python193·pnpm check304를 통과했다. 기존 cleanup 연결의 stop/delete/부재 확인은 가짜 외부 명령으로 확인했다. 과거3회차 저장 verifier와 실제7단위 증거를 오프라인 재대조했으며 새 VM/runtime은0회다. 독립 리뷰 뒤 다음 단계의 범위·예산을 결정하고 PR #54는 이번에 병합하지 않는다. R11 unresolved·R12 기존 범위·production/live 거부·fixtureOnly=true·validSubmission=false·trialAuthorized/readyForTrial=false·results=null을 유지한다.
+
+
+2026-11-17 독립 검토 추가: [리뷰](reviews/2026-11-17-s2-cleanup-dispatch-independent-review.md)에서 실제 main의 감사 실패→cleanup 연결과 기존 증거를 재검증해 R17 해결로 판정했다. PR #54는7f2f179로 병합했다. 기존 구조를 유지하며 [동일 후보의 제한된 대조 재개](reviews/2026-11-17-s2-policy-pair-resume-instructions.md)를 다음 작업으로 권고한다. 이 추가 기록은 새 정책 실행 결과나 인증/model/본 비교 승인이 아니다.

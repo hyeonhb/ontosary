@@ -7,7 +7,9 @@ remain distinct; audit completion and resource cleanup are separate states.
 A missing failure marker cannot replace the required cleanup closing registration.
 Seal checks the existing command/ID/hash contract before adding a snapshot.
 The follow-up adds 19 local dispatcher tests (193 Python tests total); it does not
-rerun the seven historical runtime fixtures. PR #54 still awaits independent review.
+rerun the seven historical runtime fixtures. [Independent review](../../../../../../docs/reviews/2026-11-17-s2-cleanup-dispatch-independent-review.md)
+confirmed the fix; PR #54 is merged. The existing pair command remains refused
+until a separately planned limited comparison is implemented.
 
 This is a fixture runner for the approved 2026-11-17 seal/recovery round.
 R11 remains unresolved; production/live dispatch remains refused.
@@ -16,8 +18,7 @@ Every result is `fixtureOnly=true`, `validSubmission=false`;
 The [latest handoff](../../../../../../docs/reviews/2026-11-17-s2-seal-recovery.md)
 records all seven required default-policy fixtures, seven raw Spec/seal replays,
 nine stage recovery archives, and confirmed VM disposal. These observations do
-not establish CLI native sandbox feasibility or authorize a trial. PR #54 awaits
-independent review. The [previous handoff](../../../../../../docs/reviews/2026-11-15-s2-execution-lifecycle-fix.md)
+not establish CLI native sandbox feasibility or authorize a trial. PR #54 is merged after independent review. The [previous handoff](../../../../../../docs/reviews/2026-11-15-s2-execution-lifecycle-fix.md)
 retains the earlier seal/metadata failure without a guest archive.
 
 The three responsibilities are deliberately separate:
