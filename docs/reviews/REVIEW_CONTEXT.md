@@ -1,5 +1,7 @@
 # 독립 리뷰 맥락
 
+2026-11-17 최신 판단은 [최상위 정리 보완 독립 리뷰](2026-11-17-s2-cleanup-dispatch-independent-review.md)다. 153f887의 R17 잔여를 해결로 판정했고 PR #54를7f2f179로 병합했다. 304+193검사·독립8사례·새17증거/기존2324증거 불변·과거3개 verifier 통과, 기존 실제7단위 증거 유지다. R13~R17의 해당 fixture 보완은 완료다. [다음 지시](2026-11-17-s2-policy-pair-resume-instructions.md)는 동일 후보의 원래1/후보1 정책 관찰을45분 상한으로 권고한다. 새 구조·추가 권한·인증/model/본 비교 승인이 아니며 이번 리뷰에서 실제 실행은 하지 않았다. R11 unresolved·H-O/H-F 미검증을 유지한다.
+
 2026-11-17 최신 인계는 [최상위 cleanup 호출 보완](2026-11-17-s2-cleanup-dispatch-fix.md)(ADR-053)다. 구현 head e4474f2에서 main의 감사 실패→cleanup 연결만 보완했다. 새 회귀19개·Python193·pnpm check304와 과거3개 verifier 통과, 새 VM/runtime0이다. 과거 실제7단위와 새 호스트 실패 회귀를 구분해 검토한다. 기록 실패/marker 유실에도 cleanup1회·최초/후속 오류 보존·유효 감사 없는 seal 거부를 확인한다. PR #54는 독립 리뷰 전 미병합이며 R11/production/live·실제 인증/model/본 비교 차단은 유지한다.
 
 2026-11-17 최신 판단은 [진단·봉인 보완 독립 리뷰](2026-11-17-s2-seal-recovery-independent-review.md)다. d970072(PR #54)의 기본 정책7/7·Spec/봉인/회수와 R13/R14/R15/R16을 fixture 범위에서 확인했다. 304+174검사·259파일·소스/준비물 연결도 통과했다. R17은 하위 cleanup은 보완됐지만 main의 분석 동결/closing 기록 예외가 cleanup 호출을 건너뛴다. 6개 로컬 오류 주입으로 재현했고 실제 이번 VM 정리 완료와 구분한다. 사용자 요청에 따라 [로컬60분·새 VM0의 후속 지시](2026-11-17-s2-cleanup-dispatch-instructions.md)를 함께 제공한다. 구조 변경 없이 실제 진입점 회귀로 마무리하며 PR #54/정책 pair/인증/model/본 비교는 보완 리뷰까지 보류한다. H-O/H-F는 여전히 미검증이다.

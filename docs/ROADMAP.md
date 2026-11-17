@@ -1,5 +1,7 @@
 # 단계별 계획
 
+2026-11-17 [R17 독립 리뷰 통과](reviews/2026-11-17-s2-cleanup-dispatch-independent-review.md)·PR #54 병합. 다음 권고는 [동일 후보 정책 대조](reviews/2026-11-17-s2-policy-pair-resume-instructions.md)다. 새45분·VM1개·원래1/후보1에 한정하고 검증된 준비물/수명주기를 재사용한다. 7단위를 반복하거나 추가 권한을 넓히지 않는다. 정책 효과 또는 다음 차단을 확인한 뒤 별도 리뷰하며 실제 CLI 전체 경계/인증/model/본 비교를 자동 진행하지 않는다. 이번에는 리뷰와 지시만 작성했고 실제 정책 재개는 미실행이다.
+
 2026-11-17 다음 우선순위는 [R17 최상위 호출 보완 결과](reviews/2026-11-17-s2-cleanup-dispatch-fix.md)(ADR-053)의 독립 리뷰다. 새 호스트 회귀19개와 과거 실제7단위 증거 재대조를 완료했다. 새 VM/runtime은 실행하지 않았다. PR #54는 결과 리뷰 전 병합하지 않으며 정책/CLI 단계의 다음 범위·예산은 별도로 결정한다.
 
 2026-11-17 다음은 [R17 최상위 정리 호출 보완](reviews/2026-11-17-s2-cleanup-dispatch-instructions.md)이다. [독립 리뷰](reviews/2026-11-17-s2-seal-recovery-independent-review.md)에서 실제 기본 정책7/7과 R13/R14/R15/R16은 확인됐으므로 경계 재설계/새 VM 반복을 하지 않는다. 로컬60분 안에서 감사 기록 실패와 cleanup 호출을 분리하고 실제 dispatcher 회귀·기존 증거 재대조 후 리뷰한다. PR #54와 다음 정책/CLI 단계는 계속 보류하며 추가 권한·실제 인증/model·본 비교로 확대하지 않는다.
