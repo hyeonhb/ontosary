@@ -1,0 +1,146 @@
+{
+  "reviewedHead": "8bba520a8fe91355d367642eebf2f8218133cf83",
+  "implementationHead": "695d7f1a9fdbce9fc371fd322d4357846182e989",
+  "evidenceFilesVerified": 14,
+  "savedDerivedCheckout": "695d7f1a9fdbce9fc371fd322d4357846182e989",
+  "replayedCheckout": "8bba520a8fe91355d367642eebf2f8218133cf83",
+  "derivedEqualExceptCheckoutHead": true,
+  "initialFiles": 3674,
+  "existingChangedFiles": [
+    "docs/PROGRESS.md",
+    "docs/reviews/REVIEW_CONTEXT.md",
+    "experiments/domain-model/s2/trial/container/execution-lifecycle/README.md"
+  ],
+  "historicalVerificationFilesUnchanged": 2364,
+  "frozenParserAndVerifiersUnchanged": true,
+  "tests": {
+    "typescript": 304,
+    "pythonExecution": 183,
+    "pythonLifecycle": 16,
+    "pythonAudit": 44,
+    "pythonTotal": 243,
+    "skip": 0
+  },
+  "runtimeExecutions": 0,
+  "storedStatuses": {
+    "baseline": "clone-still-denied",
+    "candidate": "first-clone-passed-next-blocked"
+  },
+  "probe": {
+    "runtimeExecutions": 0,
+    "cases": [
+      {
+        "name": "resume_before_child_exec",
+        "trace": "[pid 41] execve(\"/proc/self/fd/3\", [\"bwrap\", \"/usr/bin/true\"], 0) = 0\n[pid 41] clone(child_stack=NULL, flags=CLONE_NEWNS|CLONE_NEWIPC|CLONE_NEWUSER|CLONE_NEWPID|CLONE_NEWNET|SIGCHLD <unfinished ...>\n[pid 41] <... clone resumed>) = 42\n[pid 42] execve(\"/usr/bin/other\", [\"other\"], 0) = 0\n[pid 42] mount(NULL, \"/\", NULL, MS_REC|MS_SILENT|MS_SLAVE, NULL) = -1 EPERM (Operation not permitted)\n[pid 43] execve(\"/proc/self/fd/3\", [\"bwrap\", \"/usr/local/bin/node\"], 0) = 0\n[pid 43] clone(child_stack=NULL, flags=CLONE_NEWNS|CLONE_NEWIPC|CLONE_NEWUSER|CLONE_NEWPID|CLONE_NEWNET|SIGCHLD) = 44\n[pid 44] mount(NULL, \"/\", NULL, MS_REC|MS_SILENT|MS_SLAVE, NULL) = -1 EPERM (Operation not permitted)\n",
+        "status": "inconclusive",
+        "issues": [
+          {
+            "reason": "child-exec-outside-denial-scope",
+            "line": 4
+          }
+        ],
+        "nextDenied": [
+          {
+            "pid": 42,
+            "syscall": "mount",
+            "errno": "EPERM",
+            "source": {
+              "startLine": 5,
+              "endLine": 5,
+              "raw": "[pid 42] mount(NULL, \"/\", NULL, MS_REC|MS_SILENT|MS_SLAVE, NULL) = -1 EPERM (Operation not permitted)"
+            },
+            "parentPid": 41,
+            "cloneLine": 2
+          },
+          {
+            "pid": 44,
+            "syscall": "mount",
+            "errno": "EPERM",
+            "source": {
+              "startLine": 8,
+              "endLine": 8,
+              "raw": "[pid 44] mount(NULL, \"/\", NULL, MS_REC|MS_SILENT|MS_SLAVE, NULL) = -1 EPERM (Operation not permitted)"
+            },
+            "parentPid": 43,
+            "cloneLine": 7
+          }
+        ]
+      },
+      {
+        "name": "resume_after_child_exec",
+        "trace": "[pid 41] execve(\"/proc/self/fd/3\", [\"bwrap\", \"/usr/bin/true\"], 0) = 0\n[pid 41] clone(child_stack=NULL, flags=CLONE_NEWNS|CLONE_NEWIPC|CLONE_NEWUSER|CLONE_NEWPID|CLONE_NEWNET|SIGCHLD <unfinished ...>\n[pid 42] execve(\"/usr/bin/other\", [\"other\"], 0) = 0\n[pid 42] mount(NULL, \"/\", NULL, MS_REC|MS_SILENT|MS_SLAVE, NULL) = -1 EPERM (Operation not permitted)\n[pid 41] <... clone resumed>) = 42\n[pid 43] execve(\"/proc/self/fd/3\", [\"bwrap\", \"/usr/local/bin/node\"], 0) = 0\n[pid 43] clone(child_stack=NULL, flags=CLONE_NEWNS|CLONE_NEWIPC|CLONE_NEWUSER|CLONE_NEWPID|CLONE_NEWNET|SIGCHLD) = 44\n[pid 44] mount(NULL, \"/\", NULL, MS_REC|MS_SILENT|MS_SLAVE, NULL) = -1 EPERM (Operation not permitted)\n",
+        "status": "first-clone-passed-next-blocked",
+        "issues": [],
+        "nextDenied": [
+          {
+            "pid": 42,
+            "syscall": "mount",
+            "errno": "EPERM",
+            "source": {
+              "startLine": 4,
+              "endLine": 4,
+              "raw": "[pid 42] mount(NULL, \"/\", NULL, MS_REC|MS_SILENT|MS_SLAVE, NULL) = -1 EPERM (Operation not permitted)"
+            },
+            "parentPid": 41,
+            "cloneLine": 2
+          },
+          {
+            "pid": 44,
+            "syscall": "mount",
+            "errno": "EPERM",
+            "source": {
+              "startLine": 8,
+              "endLine": 8,
+              "raw": "[pid 44] mount(NULL, \"/\", NULL, MS_REC|MS_SILENT|MS_SLAVE, NULL) = -1 EPERM (Operation not permitted)"
+            },
+            "parentPid": 43,
+            "cloneLine": 7
+          }
+        ]
+      },
+      {
+        "name": "supported_denial_before_resume",
+        "trace": "[pid 41] execve(\"/proc/self/fd/3\", [\"bwrap\", \"/usr/bin/true\"], 0) = 0\n[pid 41] clone(child_stack=NULL, flags=CLONE_NEWNS|CLONE_NEWIPC|CLONE_NEWUSER|CLONE_NEWPID|CLONE_NEWNET|SIGCHLD <unfinished ...>\n[pid 42] mount(NULL, \"/\", NULL, MS_REC|MS_SILENT|MS_SLAVE, NULL) = -1 EPERM (Operation not permitted)\n[pid 41] <... clone resumed>) = 42\n[pid 43] execve(\"/proc/self/fd/3\", [\"bwrap\", \"/usr/local/bin/node\"], 0) = 0\n[pid 43] clone(child_stack=NULL, flags=CLONE_NEWNS|CLONE_NEWIPC|CLONE_NEWUSER|CLONE_NEWPID|CLONE_NEWNET|SIGCHLD) = 44\n[pid 44] mount(NULL, \"/\", NULL, MS_REC|MS_SILENT|MS_SLAVE, NULL) = -1 EPERM (Operation not permitted)\n",
+        "status": "first-clone-passed-next-blocked",
+        "issues": [],
+        "nextDenied": [
+          {
+            "pid": 42,
+            "syscall": "mount",
+            "errno": "EPERM",
+            "source": {
+              "startLine": 3,
+              "endLine": 3,
+              "raw": "[pid 42] mount(NULL, \"/\", NULL, MS_REC|MS_SILENT|MS_SLAVE, NULL) = -1 EPERM (Operation not permitted)"
+            },
+            "parentPid": 41,
+            "cloneLine": 2
+          },
+          {
+            "pid": 44,
+            "syscall": "mount",
+            "errno": "EPERM",
+            "source": {
+              "startLine": 7,
+              "endLine": 7,
+              "raw": "[pid 44] mount(NULL, \"/\", NULL, MS_REC|MS_SILENT|MS_SLAVE, NULL) = -1 EPERM (Operation not permitted)"
+            },
+            "parentPid": 43,
+            "cloneLine": 6
+          }
+        ]
+      }
+    ]
+  },
+  "logDigests": {
+    "derive.log": "fbc0ad2d0e27e0dfd7ae0dd7d8131bcc5fe3606388cf8c764970957f43694c2b",
+    "lifecycle.log": "6335a605aa53309c4e206db7adb624261a1688e669e85fc34808bc5ca50c3929",
+    "prior15.json": "96dc7071a126743605ba9b23d3dc4fbd8a53e538b9f0585dd0f192f244d9f414",
+    "prior14.json": "61d32c27b7340c63adad6783e58b7686f529bde9742958223e380f03912ede3b",
+    "prior17.json": "1b78c3dce7b5642ac63a662667b668d6b4cbc611db0064a957afc2005ecd104a",
+    "audit.log": "53243fb6d31dae9a3ce2805df01d17797ba3de199fba2f5abb1fcf8e2badd7d3",
+    "execution.log": "f1a6062d8cdcccc73ae87d85ab366f4d006d7ef26a006d2aaa99f158ae71ea57",
+    "check.log": "3eebde3435865f912703fbd42a935b86bb32694c76408adf707e99b3f4d6b4b2",
+    "pair.json": "feb82b2cbeac56988cde7a84f160580077fd650952e1cc5f8bf3cf93c9737654"
+  }
+}

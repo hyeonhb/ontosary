@@ -1,5 +1,7 @@
 # 독립 리뷰 맥락
 
+2026-11-17 최신 판단은 [trace 판독 독립 리뷰](2026-11-17-s2-trace-reanalysis-independent-review.md)다. 8bba520에서 실제 원래/후보 파생 결과와 과거 보존·304+243검사·4개 verifier를 확인했다. R18 반례는 child exec→mount→parent resumed 순서에서 issues 없이 next-blocked가 되는 문제이며 parent resumed→child exec에서는 inconclusive다. 실제 후보 원문 결론은 유지한다. [30분 보완 지시](2026-11-17-s2-trace-context-fix-instructions.md)를 함께 제공하고 PR #63은 미병합으로 둔다. 새 VM/정책/권한/인증/model은0이며 다음 실행 경계 설계는 사용자와 별도로 논의한다.
+
 2026-11-17 최신 판단은 [정책 대조 독립 리뷰](2026-11-17-s2-policy-pair-independent-review.md)다. 7a5eb53의 원래1/후보1·정확한 clone 한 행·종료/회수를 확인했고 PR #61을ee7ac98로 병합했다. 원문은 precheck41→42/명령 준비43→44 clone 통과 후 자식 mount EPERM, payload 미시작이다. 자동 parser는 strace 안내문 혼합 형식 미지원으로 inconclusive이며 보존한다. 304+208검사·4개 verifier·코드/준비물 연결 통과다. [오프라인30분 보완 지시](2026-11-17-s2-trace-reanalysis-instructions.md)는 새 결과를 별도 기록하며 runtime/권한 변경0이다. 다음 실제 단계는 실행 경계의 책임 분담을 사용자와 논의하고 추가 mount/권한·인증/model/본 비교를 자동 진행하지 않는다.
 
 2026-11-17 최신 인계는 [정책 pair 결과](2026-11-17-s2-policy-pair.md)(ADR-054)다. main e569373에서 새 브랜치 codex/s2-policy-pair-resume, 실행 구현 da4e947로 기존 원래1/clone allow 한 행 후보1을 관찰했다. 원문은 clone 통과 뒤 mount EPERM, 자동 parser는 attach 안내가 끼어든 반환 줄을 놓쳐 inconclusive다. trace-review.json은 별도 원문 검토이며 자동 결과를 덮지 않는다. Spec/봉인2개·회수4개·VM 정리 완료, pnpm check304·Python208·과거3/새 verifier 통과. 실제 정책 추가/재시도/credential/model0이며 새 PR은 독립 리뷰 전 미병합이다.
