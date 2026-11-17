@@ -1,0 +1,247 @@
+{
+  "reviewedHead": "d97007213c527fc06cc7d3708d7c546b14077d9b",
+  "runtimeExecuted": false,
+  "finalSourceFilesMatched": 81,
+  "inputMembersMatched": 36,
+  "changedAfterExecution": [],
+  "initialFiles": 3230,
+  "unchangedFiles": 3213,
+  "changedAllowedFiles": [
+    "AGENTS.md",
+    "docs/ARCHITECTURE.md",
+    "docs/DECISIONS.md",
+    "docs/PROGRESS.md",
+    "docs/ROADMAP.md",
+    "docs/reviews/REVIEW_CONTEXT.md",
+    "experiments/domain-model/s2/trial/container/execution-lifecycle/README.md",
+    "experiments/domain-model/s2/trial/container/execution-lifecycle/engine.py",
+    "experiments/domain-model/s2/trial/container/execution-lifecycle/exporter.py",
+    "experiments/domain-model/s2/trial/container/execution-lifecycle/fixture_entrypoint.py",
+    "experiments/domain-model/s2/trial/container/execution-lifecycle/fixture_runtime_cli.py",
+    "experiments/domain-model/s2/trial/container/execution-lifecycle/guest.py",
+    "experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+    "experiments/domain-model/s2/trial/container/execution-lifecycle/test_engine.py",
+    "experiments/domain-model/s2/trial/container/execution-lifecycle/test_prepare_cache.py",
+    "experiments/domain-model/s2/trial/container/execution-lifecycle/test_safe_export.py",
+    "experiments/domain-model/s2/trial/container/lifecycle/collector.py"
+  ],
+  "unexpectedChanges": [],
+  "retainedArtifacts": [
+    {
+      "sha256": "b7af444bd8f91d3c307477e562f2cf3bd7595d62b9429185e4fa841563578cfc",
+      "bytes": 50317981
+    },
+    {
+      "sha256": "8eb876c2ccc4b6ff89e4a65d511815923b285e04503ba465809bf587f763da24",
+      "bytes": 940373504
+    },
+    {
+      "sha256": "fe0ef0e9840ee8932640e6058f84b7fa98050f9726e44af44883a5b804ae830e",
+      "bytes": 270513423
+    },
+    {
+      "sha256": "c15c09d5fbdcdbc1641238bc7875dd8c2e732aa2f6919b98eaed8e595afc9d68",
+      "bytes": 445026816
+    }
+  ],
+  "imageBindingMatched": true,
+  "stageCommandCount": 143,
+  "cleanup": {
+    "evidenceStatus": "diagnostic",
+    "cleanupStatus": "complete",
+    "errors": [],
+    "attempts": [
+      [
+        "/tmp/ontosary-s2-seal-recovery-20261117/prefix/bin/limactl",
+        "stop",
+        "--force",
+        "s2-lifecycle"
+      ],
+      [
+        "/tmp/ontosary-s2-seal-recovery-20261117/prefix/bin/limactl",
+        "delete",
+        "--force",
+        "s2-lifecycle"
+      ],
+      [
+        "/Users/hyeon/.pyenv/versions/3.12.10/bin/python3",
+        "-c",
+        "import subprocess,sys,json;p=subprocess.run([sys.argv[1],\"list\",\"--json\"],capture_output=True,text=True,timeout=7);print(json.dumps({\"exitCode\":p.returncode,\"stdout\":p.stdout,\"stderr\":p.stderr}))",
+        "/tmp/ontosary-s2-seal-recovery-20261117/prefix/bin/limactl"
+      ]
+    ],
+    "vmAbsent": true,
+    "rootAbsent": true,
+    "vmDisposalIsNotUnitTerminationProof": true,
+    "listing": {
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": "time=\"2026-11-17T18:33:03+09:00\" level=warning msg=\"No instance found. Run `limactl create` to create an instance.\"\n"
+    },
+    "retainedBytes": 1706236958,
+    "ownedTemporaryRemoved": [],
+    "temporaryEntries": [],
+    "seconds": 1.0064038340060506,
+    "remainingSeconds": 8803.48447091601
+  },
+  "savedReplay": {
+    "index": {
+      "files": 259,
+      "analysis": 5,
+      "closing": 3
+    },
+    "semantic": {
+      "actualUnits": 7,
+      "passed": 7,
+      "wholeSpecsReplayed": [
+        {
+          "mode": "normal-1",
+          "accepted": true
+        },
+        {
+          "mode": "precheck-rejection",
+          "accepted": true
+        },
+        {
+          "mode": "start-failure",
+          "accepted": true
+        },
+        {
+          "mode": "timeout",
+          "accepted": true
+        },
+        {
+          "mode": "wrapper-death",
+          "accepted": true
+        },
+        {
+          "mode": "supervisor-death",
+          "accepted": true
+        },
+        {
+          "mode": "normal-2",
+          "accepted": true
+        }
+      ],
+      "sealsVerified": [
+        "normal-1",
+        "precheck-rejection",
+        "start-failure",
+        "timeout",
+        "wrapper-death",
+        "supervisor-death",
+        "normal-2"
+      ],
+      "recoveryArchives": 9,
+      "runtimeReexecuted": false
+    }
+  },
+  "dispatchProbe": {
+    "runtimeCommandsExecuted": 0,
+    "cases": [
+      {
+        "action": "prepare",
+        "failure": "none",
+        "calls": [
+          "prepare",
+          "snapshot",
+          "cleanup"
+        ],
+        "surfacedError": "original-prepare-failure",
+        "cleanupCalled": true
+      },
+      {
+        "action": "prepare",
+        "failure": "scope-write",
+        "calls": [
+          "prepare"
+        ],
+        "surfacedError": "injected-scope-write-failure",
+        "cleanupCalled": false
+      },
+      {
+        "action": "prepare",
+        "failure": "registry-write",
+        "calls": [
+          "prepare"
+        ],
+        "surfacedError": "injected-registry-write-failure",
+        "cleanupCalled": false
+      },
+      {
+        "action": "prepare",
+        "failure": "snapshot",
+        "calls": [
+          "prepare",
+          "snapshot"
+        ],
+        "surfacedError": "injected-snapshot-failure",
+        "cleanupCalled": false
+      },
+      {
+        "action": "fixtures",
+        "failure": "none",
+        "calls": [
+          "fixtures",
+          "snapshot",
+          "cleanup"
+        ],
+        "surfacedError": "original-fixtures-failure",
+        "cleanupCalled": true
+      },
+      {
+        "action": "fixtures",
+        "failure": "scope-write",
+        "calls": [
+          "fixtures"
+        ],
+        "surfacedError": "injected-scope-write-failure",
+        "cleanupCalled": false
+      },
+      {
+        "action": "fixtures",
+        "failure": "registry-write",
+        "calls": [
+          "fixtures"
+        ],
+        "surfacedError": "injected-registry-write-failure",
+        "cleanupCalled": false
+      },
+      {
+        "action": "fixtures",
+        "failure": "snapshot",
+        "calls": [
+          "fixtures",
+          "snapshot"
+        ],
+        "surfacedError": "injected-snapshot-failure",
+        "cleanupCalled": false
+      }
+    ]
+  },
+  "checks": {
+    "pnpmCheck": {
+      "passed": 304,
+      "skipped": 0,
+      "typesAndExampleBuild": true
+    },
+    "python": {
+      "executionLifecycle": 114,
+      "sharedLifecycle": 16,
+      "audit": 44,
+      "total": 174
+    },
+    "priorVerifiersPassed": 2,
+    "runtimeCommandsExecuted": 0,
+    "experimentRepeated": false
+  },
+  "localLogDigests": {
+    "check.log": "99fb2ed61b457c1e4c95684e73c7ee46e47cf19579a5e1b0c21eb338c6dff5dd",
+    "python-execution.log": "6472bbfa3eafef00cd553157edab4e5aa0407d4151b44ac804a5218a5aecbb6e",
+    "python-lifecycle.log": "697f688b19b870ef1458f3800a545ef51cd099541ad838a87a919f1080aacb9b",
+    "python-audit.log": "73886e0148b53a81a14b0d77e03128ac041debbb3715b81d6703170302cb69c0",
+    "verify-recovery.json": "1b78c3dce7b5642ac63a662667b668d6b4cbc611db0064a957afc2005ecd104a",
+    "verify-fix.json": "96dc7071a126743605ba9b23d3dc4fbd8a53e538b9f0585dd0f192f244d9f414",
+    "verify-prior.json": "61d32c27b7340c63adad6783e58b7686f529bde9742958223e380f03912ede3b"
+  }
+}
