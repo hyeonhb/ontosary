@@ -1,0 +1,37 @@
+{
+  "observedUtc": "2026-11-17T13:15:46.273239+00:00",
+  "records": [
+    {
+      "name": "nerdctl-full-2.4.2-linux-arm64",
+      "actual": {
+        "sha256": "fe0ef0e9840ee8932640e6058f84b7fa98050f9726e44af44883a5b804ae830e",
+        "bytes": 270513423
+      },
+      "unchanged": true
+    },
+    {
+      "name": "lima-2.3.0-Darwin-arm64",
+      "actual": {
+        "sha256": "b7af444bd8f91d3c307477e562f2cf3bd7595d62b9429185e4fa841563578cfc",
+        "bytes": 50317981
+      },
+      "unchanged": true
+    },
+    {
+      "name": "ontosary-fixed-trace-image",
+      "actual": {
+        "sha256": "c15c09d5fbdcdbc1641238bc7875dd8c2e732aa2f6919b98eaed8e595afc9d68",
+        "bytes": 445026816
+      },
+      "unchanged": true
+    },
+    {
+      "name": "ubuntu-26.04-20261016-arm64",
+      "actual": {
+        "sha256": "8eb876c2ccc4b6ff89e4a65d511815923b285e04503ba465809bf587f763da24",
+        "bytes": 940373504
+      },
+      "unchanged": true
+    }
+  ]
+}

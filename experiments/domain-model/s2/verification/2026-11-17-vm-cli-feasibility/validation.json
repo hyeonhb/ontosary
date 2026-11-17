@@ -1,0 +1,62 @@
+{
+  "pnpmCheck": {
+    "command": [
+      "pnpm",
+      "check"
+    ],
+    "exitCode": 0,
+    "tests": 304,
+    "log": "pnpm-check.log"
+  },
+  "localTests": {
+    "command": [
+      "python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "experiments/domain-model/s2/trial/vm-cli-feasibility",
+      "-p",
+      "test_*.py",
+      "-v"
+    ],
+    "exitCode": 0,
+    "tests": 25,
+    "log": "local-tests-final.log",
+    "scope": "16 local draft regressions + 9 stopped-record verifier regressions"
+  },
+  "sharedLifecycle": {
+    "exitCode": 0,
+    "tests": 16,
+    "log": "shared-lifecycle-tests.log"
+  },
+  "sharedDeadlines": {
+    "exitCode": 0,
+    "tests": 44,
+    "log": "shared-deadline-tests.log"
+  },
+  "initialLocalFailure": {
+    "tests": 16,
+    "errors": 6,
+    "log": "local-tests-initial-failure.log",
+    "reason": "test import selected historical guest module due to sys.path order; fixed by loading local draft explicitly",
+    "runtimeCalls": 0
+  },
+  "pnpmExperiment": "not-run: product and evaluation semantics unchanged",
+  "sharedCodeChanged": false,
+  "initialVerifierFailure": {
+    "tests": 25,
+    "errors": 1,
+    "log": "local-verifier-initial-failure.log",
+    "reason": "verifier compared archive body sum to Store.usage including metadata; corrected to bounded body <= store usage",
+    "runtimeCalls": 0
+  },
+  "syntaxChecks": {
+    "pythonCompile": "passed",
+    "nodeCheck": "passed"
+  },
+  "documentationLinks": {
+    "checked": 14,
+    "missing": 0
+  }
+}

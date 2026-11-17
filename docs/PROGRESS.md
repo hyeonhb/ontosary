@@ -1,5 +1,7 @@
 # 현재 작업 상태 — 새 세션은 이 문서부터 읽기
 
+2026-11-17 [C안 직접 VM CLI 타당성 결과](reviews/2026-11-17-s2-vm-cli-feasibility.md)(ADR-056)는 **inconclusive·준비 단계 중단**이다. 최초15분 최소 구현/정리 gate를17분46초에 미충족으로 확인해 새 실험을 중단했다. 공개 cache4개 hash와 OCI member9개는 확인했지만 VM0·실제 CLI0·필수4단위 관측0이며 실행 초안은 비활성이다. pnpm check304·새 로컬25/공유60 회귀, 기존3474파일(과거 verification2397 포함) 불변을 확인했다. 로컬 검증을15분 통과로 소급하지 않고 C안 채택·다음 통합 판단을 보류한다. PR은 독립 결과 리뷰 전 미병합이며 R11 unresolved·production/live 거부·인증/model/본 비교 보류·H-O/H-F 미검증을 유지한다. 아래는 당시 기록이다.
+
 2026-11-17 사용자는 **C안: 일회성 VM에서 CLI 직접 실행 + CLI 내부 sandbox 유지의 타당성 검증을 총90분 한도로 승인**했다(ADR-055). [개발 지시](reviews/2026-11-17-s2-vm-cli-feasibility-instructions.md)는 검증된 공개 준비물·고정 CLI를 재사용하고 정상/timeout/wrapper 사망/새 VM 정상 반복을 최대4단위·순차 VM2개 안에서 확인한다. 비특권 worker와 관리자를 분리하고 가짜 인증·로컬 네트워크 양성/음성 대조·전체 자손 종료 후 제한 수집을 검증한다. 이번은 지시 작성이며 pnpm check304테스트·타입/예제 build와 문서 로컬 링크277개를 확인했다. 새 runtime/인증/model 실행은 없다. C안의 전체 전환은 미확정이며 구현 PR은 독립 결과 리뷰 뒤 병합한다. R11 unresolved·production/live 거부·H-O/H-F 미검증을 유지한다. 아래는 당시 기록이다.
 
 2026-11-17 [R18 보완 독립 리뷰](reviews/2026-11-17-s2-trace-context-independent-review.md): **R18 해결·추가 차단 결함 없음**. ade291f에서304+257검사·과거4개 verifier·기존 반례3개 및 독립 순서1036개를 확인했다. 실제 원래/후보 판정과 근거 유지, 새 파생 결과는 checkoutHead 제외 일치, 첫14/새17 index 대상·과거2379 verification 불변을 확인했다. PR #63을 검증한 head로 병합(0181606)했다. 오프라인 판독 보완은 완료하며 다음은 외부 컨테이너/VM과 내부 CLI sandbox의 책임 분담을 사용자와 논의한다. 새 runtime/추가 권한/인증/model/본 비교는 진행하지 않았고 R11 unresolved·H-O/H-F 미검증을 유지한다. 아래는 당시 기록이다.

@@ -1,0 +1,58 @@
+{
+  "status": "inconclusive",
+  "reason": "15-minute-minimum-implementation-and-cleanup-gate-missed",
+  "fixtureOnly": true,
+  "validSubmission": false,
+  "trialAuthorized": false,
+  "readyForTrial": false,
+  "results": null,
+  "runtimeVerified": false,
+  "executionCodeHashes": null,
+  "implementationStatus": "unexecuted-disabled-draft",
+  "cleanupStatus": "not-created",
+  "recoveryStatus": "not-applicable-no-guest",
+  "requiredUnits": [
+    "normal-1",
+    "timeout",
+    "wrapper-death",
+    "normal-2"
+  ],
+  "actualUnits": [],
+  "observedUnits": 0,
+  "counts": {
+    "vmAttempts": 0,
+    "fixtureAttempts": 0,
+    "cliDiscoveryCalls": 0,
+    "sandboxCalls": 0,
+    "downloads": 0,
+    "builds": 0,
+    "imageSaves": 0,
+    "vendureInstalls": 0,
+    "credentialTransfers": 0,
+    "logins": 0,
+    "refreshes": 0,
+    "providerRequests": 0,
+    "modelCalls": 0,
+    "trialRuns": 0
+  },
+  "startHead": "ade291f0891e20bd8a4545cb126dc3b29196761a",
+  "baseHead": "5a395040a4046c68c602c31e149291f2f1667093",
+  "headNote": "Full base SHA is recorded separately by git rev-parse in round.json; start head predates main synchronization. No runtime execution head exists.",
+  "missing": [
+    "VM preparation",
+    "native CLI version/help and actual sandbox start",
+    "guest effective policy/security/resource verification",
+    "positive and negative access/network controls",
+    "whole-cgroup termination and bounded recovery",
+    "timeout and actual host wrapper SIGKILL",
+    "VM2 repetition and identity separation",
+    "VM disposal verification"
+  ],
+  "scopePreserved": [
+    "R11 unresolved",
+    "R12 existing scope",
+    "production/live refused",
+    "H-O/H-F unverified"
+  ],
+  "evidenceLimitation": "Host cache and local offline tests only. A consistent stopped record is not runtime evidence. No raw VM/CLI argv, service, cgroup or guest archive exists."
+}

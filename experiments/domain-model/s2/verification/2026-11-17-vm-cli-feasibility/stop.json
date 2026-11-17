@@ -1,0 +1,31 @@
+{
+  "status": "inconclusive",
+  "reason": "15-minute-minimum-implementation-and-cleanup-gate-missed",
+  "firstCommand": {
+    "utc": "2026-11-17T12:52:33.929495+00:00",
+    "monotonic": 233538.356099125,
+    "head": "ade291f0891e20bd8a4545cb126dc3b29196761a",
+    "status": "## codex/s2-trace-reanalysis...origin/codex/s2-trace-reanalysis\n"
+  },
+  "detectedUtc": "2026-11-17T13:10:20+00:00",
+  "detectedElapsedSeconds": 1066.070505,
+  "recordedUtc": "2026-11-17T13:11:42.878860+00:00",
+  "recordedMonotonic": 234687.332069041,
+  "gateUtc": "2026-11-17T13:07:33.929495+00:00",
+  "gateMonotonic": 234438.356099125,
+  "gatePassed": false,
+  "actualExperimentsStopped": true,
+  "vmAttempts": 0,
+  "fixtureAttempts": 0,
+  "cliDiscoveryCalls": 0,
+  "sandboxCalls": 0,
+  "executionCodeHashes": null,
+  "draftHashesAtStop": {
+    "experiments/domain-model/s2/trial/vm-cli-feasibility/worker.py": "513b5e337435de9428a7a91013c1cc30f7ef9ea4e804f1a9e0e97140673462ed",
+    "experiments/domain-model/s2/trial/vm-cli-feasibility/host.py": "fb217c2b036263e7e3bac2f1f232265f8f965888ad3ff80c375c6567b9f15f1f",
+    "experiments/domain-model/s2/trial/vm-cli-feasibility/checks.py": "46f66277f4d6a6508ec83bdaba3e5c0a33dcc5e011a9ed9710ddbc444431b3be",
+    "experiments/domain-model/s2/trial/vm-cli-feasibility/payload.mjs": "a00722ca05abd62072d50c6e73bf4d7e86b3ed916000cc0bc5366bcd9e222694",
+    "experiments/domain-model/s2/trial/vm-cli-feasibility/materialize.py": "62677e6e0429b9a337f299c5e7ed8d2b6f5827c26f0b49988654ed8551d44a5a",
+    "experiments/domain-model/s2/trial/vm-cli-feasibility/guest.py": "98d9e9aa5ac371d99e081209995c3d1928b57e3f0b16c82b372f3c8d5935138e"
+  }
+}

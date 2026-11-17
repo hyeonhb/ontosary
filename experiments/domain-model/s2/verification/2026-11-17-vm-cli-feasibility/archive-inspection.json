@@ -1,0 +1,77 @@
+{
+  "observedUtc": "2026-11-17T13:15:44.242053+00:00",
+  "method": "read-only archive verification and selected-member inspection; no materialization or execution",
+  "verifiedOCI": {
+    "manifest": "sha256:64e3601e5f0cb3d8e48f0c1e3206ca952e276a5c16b7368b356cbaf3ba18293e",
+    "config": "sha256:e3ab6ef0491100a63b97719f8dd7e7c12e682485b887eb2a2421c85963508f6d",
+    "rootfsChain": "sha256:3b5f9851906e2c4005a4f4ee0055626d8d719e61e060244b6f96e6a69cf8f7ee",
+    "blobsVerified": 11,
+    "uncompressedArchiveBytes": 445015209
+  },
+  "files": {
+    "usr/local/CHANGELOG.md": {
+      "bytes": 708013,
+      "sha256": "9a8f6c902f8ea2c2227ccfcbe67310932f414a5fc9dcc65dc22d3bdcc7cea1f5",
+      "type": "regular",
+      "mode": "0o644",
+      "layer": "sha256:050cc65304670b77c0cbdad5cc622b762fd3e4c69b0c45fad068df13c895e5db"
+    },
+    "usr/local/LICENSE": {
+      "bytes": 143299,
+      "sha256": "e991d81497a85bb24fc6bffae0a3637a6accd6c6bc5ce1f2c5698bd555cf9d49",
+      "type": "regular",
+      "mode": "0o644",
+      "layer": "sha256:050cc65304670b77c0cbdad5cc622b762fd3e4c69b0c45fad068df13c895e5db"
+    },
+    "usr/local/bin/node": {
+      "bytes": 119647280,
+      "sha256": "79e8b4bcffeb26e6062a162c80125ea725ad1500f72c97f134a453ec557be32f",
+      "type": "regular",
+      "mode": "0o755",
+      "layer": "sha256:050cc65304670b77c0cbdad5cc622b762fd3e4c69b0c45fad068df13c895e5db"
+    },
+    "usr/local/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-arm64/package.json": {
+      "bytes": 525,
+      "sha256": "d53d8a9c5f54277c1ae54d07c800ebf9fb744d6dc0d601bf4fedecf1ffa20150",
+      "type": "regular",
+      "mode": "0o644",
+      "layer": "sha256:f7df5f19c2e06951d55aeaf30cd154213938c1b9afbc94c7d1bb044484ef6e7c"
+    },
+    "usr/local/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-arm64/vendor/aarch64-unknown-linux-musl/bin/codex": {
+      "bytes": 278729112,
+      "sha256": "e7f91e14eab4ba3a0f65047c1757b593409d4ce791ccb6ac65c67c970dfed76f",
+      "type": "regular",
+      "mode": "0o755",
+      "layer": "sha256:f7df5f19c2e06951d55aeaf30cd154213938c1b9afbc94c7d1bb044484ef6e7c"
+    },
+    "usr/local/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-arm64/vendor/aarch64-unknown-linux-musl/codex-package.json": {
+      "bytes": 216,
+      "sha256": "67c05250287cd2be352cfbbad34421b5163363457954f3d30c5fb98c2a8afc32",
+      "type": "regular",
+      "mode": "0o644",
+      "layer": "sha256:f7df5f19c2e06951d55aeaf30cd154213938c1b9afbc94c7d1bb044484ef6e7c"
+    },
+    "usr/local/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-arm64/vendor/aarch64-unknown-linux-musl/codex-path/rg": {
+      "bytes": 4506992,
+      "sha256": "e36d0eb52e70696bdf1781392722e05a21bb91d3b7b762ef5ec20e5df2ec687b",
+      "type": "regular",
+      "mode": "0o755",
+      "layer": "sha256:f7df5f19c2e06951d55aeaf30cd154213938c1b9afbc94c7d1bb044484ef6e7c"
+    },
+    "usr/local/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-arm64/vendor/aarch64-unknown-linux-musl/codex-resources/bwrap": {
+      "bytes": 529168,
+      "sha256": "0f543a7356ab343b4827222f910461d4196778f328b28acd6c126ef18e9557ab",
+      "type": "regular",
+      "mode": "0o755",
+      "layer": "sha256:f7df5f19c2e06951d55aeaf30cd154213938c1b9afbc94c7d1bb044484ef6e7c"
+    },
+    "usr/local/lib/node_modules/@openai/codex/package.json": {
+      "bytes": 1152,
+      "sha256": "952c4bc1cdb9400b83282cf9c307ca7642f1a35ad4a7ab295fe56098d5629477",
+      "type": "regular",
+      "mode": "0o644",
+      "layer": "sha256:f7df5f19c2e06951d55aeaf30cd154213938c1b9afbc94c7d1bb044484ef6e7c"
+    }
+  },
+  "extractedFiles": 0
+}

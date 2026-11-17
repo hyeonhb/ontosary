@@ -1,0 +1,14 @@
+{
+  "observedUtc": "2026-11-17T13:15:47.196234+00:00",
+  "observedMonotonic": 234931.651002208,
+  "cleanupStatus": "not-created",
+  "ownershipRecords": [],
+  "executionRegistrations": [],
+  "prospectiveRoots": {
+    "/tmp/ontosary-s2-vm-cli-20261117-1": false,
+    "/tmp/ontosary-s2-vm-cli-20261117-2": false
+  },
+  "ownedProcesses": [],
+  "vmDeletionVerified": false,
+  "note": "No VM creation or disposal was attempted. These narrow host observations do not substitute for VM cleanup tests."
+}
