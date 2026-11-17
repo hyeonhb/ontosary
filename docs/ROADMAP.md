@@ -1,5 +1,7 @@
 # 단계별 계획
 
+2026-11-17 다음 작업은 [R15 잔여·R16·R17 보완](reviews/2026-11-17-s2-seal-recovery-instructions.md)(ADR-051)이다. 같은 실행 경계에서 실패해도 진단 회수와 소유 자원 정리가 이어지도록 하고, service 종료 증거를 봉인까지 보존한다. R14 재사용을 유지하며 R13 실제 Spec 재검증과 기본 정책7단위까지만 확인한다. 직전과 같은3시간 상한이며 추가 정책/인증/model/본 비교는 결과 리뷰 뒤 결정한다.
+
 2026-11-15 다음 우선순위는 [R13–R15 부분 보완 결과](reviews/2026-11-15-s2-execution-lifecycle-fix.md)의 독립 리뷰다(ADR-050). 실제 이미지 재사용은 확인됐지만 service 비활성 시각 증거와 전달 metadata의 관리자 소유권/export 연결이 남았다. 첫 단위의 결과 철회·최종 guest archive 미생성을 보존하고, 이 두 실패의 국소 보완과 새 실행 범위/예산을 먼저 결정한다. 남은6단위·정책 대조·권한/backend 확대·실제 인증/model/본 비교를 자동 재개하지 않는다.
 
 2026-11-14 다음 우선순위: [R13~R15 보완](reviews/2026-11-14-s2-execution-lifecycle-fix-instructions.md)(ADR-049). 준비 진입점의 cache hit/build 분기와 collector→export 통합 회귀를 먼저 검증하고, 고정 runtime PATH에서 보안 Spec이 유지되는지 같은 기본 정책의7단위로 확인한다. 직전과 같은3시간 상한으로 한정하며 새 권한/backend·조건부 정책 대조·실제 인증/model·본 비교는 결과 리뷰 뒤 결정한다. 제품/모델/FCA/평가 의미는 유지한다.

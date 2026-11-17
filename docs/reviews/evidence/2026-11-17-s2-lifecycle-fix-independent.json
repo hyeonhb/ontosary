@@ -1,0 +1,131 @@
+{
+  "reviewedHead": "ff7ec19ebc7e3e12380fb82cc6a377d5aaf4dd6c",
+  "runtimeExecuted": false,
+  "finalSourceFilesMatched": 73,
+  "inputMembersMatched": 32,
+  "changedAfterExecution": [
+    "execution-lifecycle/verify_fix.py"
+  ],
+  "initialFiles": 3090,
+  "unchangedFiles": 3078,
+  "changedAllowedFiles": [
+    "docs/ARCHITECTURE.md",
+    "docs/DECISIONS.md",
+    "docs/PROGRESS.md",
+    "docs/ROADMAP.md",
+    "docs/reviews/REVIEW_CONTEXT.md",
+    "experiments/domain-model/s2/trial/container/execution-lifecycle/README.md",
+    "experiments/domain-model/s2/trial/container/execution-lifecycle/guest.py",
+    "experiments/domain-model/s2/trial/container/execution-lifecycle/identity.py",
+    "experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+    "experiments/domain-model/s2/trial/container/execution-lifecycle/verify_saved.py",
+    "experiments/domain-model/s2/trial/container/lifecycle/collector.py",
+    "experiments/domain-model/s2/trial/container/lifecycle/image.py"
+  ],
+  "unexpectedChanges": [],
+  "retainedArtifacts": [
+    {
+      "sha256": "b7af444bd8f91d3c307477e562f2cf3bd7595d62b9429185e4fa841563578cfc",
+      "bytes": 50317981
+    },
+    {
+      "sha256": "8eb876c2ccc4b6ff89e4a65d511815923b285e04503ba465809bf587f763da24",
+      "bytes": 940373504
+    },
+    {
+      "sha256": "fe0ef0e9840ee8932640e6058f84b7fa98050f9726e44af44883a5b804ae830e",
+      "bytes": 270513423
+    },
+    {
+      "sha256": "c15c09d5fbdcdbc1641238bc7875dd8c2e732aa2f6919b98eaed8e595afc9d68",
+      "bytes": 445026816
+    }
+  ],
+  "imageBindingMatched": true,
+  "stageCommandCount": 45,
+  "starts": 1,
+  "exitCode": 0,
+  "removedSeconds": 1.5662158760000011,
+  "terminationConfirmed": true,
+  "removalConfirmed": true,
+  "collectionStatus": "suppressed",
+  "error": "seal:inactive-deadline-unconfirmed",
+  "guestEvidenceAvailable": false,
+  "checks": {
+    "pnpmCheck": {
+      "tests": 304,
+      "skipped": 0,
+      "typecheck": true,
+      "exampleBuild": true
+    },
+    "python": {
+      "executionLifecycle": 86,
+      "lifecycle": 16,
+      "audit": 44,
+      "total": 146
+    },
+    "newSavedReplay": {
+      "index": {
+        "files": 123,
+        "analysis": 5,
+        "closing": 4
+      },
+      "semantic": {
+        "actualUnits": 1,
+        "passed": 0,
+        "runtimeReexecuted": false,
+        "guestEvidenceAvailable": false
+      }
+    },
+    "priorSavedReplay": {
+      "index": {
+        "files": 126,
+        "analysis": 8,
+        "closing": 4
+      },
+      "semantic": {
+        "actualUnits": 1,
+        "startedUnits": 0,
+        "expectedOutcomesPassed": 0,
+        "requiredUnits": 7,
+        "guestArchiveFiles": 28,
+        "inputArchiveFiles": 27,
+        "transferredHelperHashes": 20,
+        "wholeSpecDiffReproduced": true,
+        "missingAppArmor": true,
+        "recursiveReadOnlyChanged": [
+          "/materials",
+          "/probe",
+          "/home/runner/cli-state/config.toml"
+        ],
+        "containerRemovedSeconds": 0.8539982960000145,
+        "unitSealedSeconds": 1.236440880999993,
+        "resultSuppressed": true,
+        "nextBlocked": true,
+        "actualBinaryIdentityVerified": false,
+        "runtimeReexecuted": false
+      }
+    }
+  },
+  "cleanupFailureProbe": {
+    "runtimeCommandsExecuted": 0,
+    "cases": [
+      {
+        "failure": "archive-copy",
+        "error": "injected-archive-copy-failure",
+        "stopCalls": 0,
+        "deleteCalls": 0,
+        "rootStillPresent": true,
+        "cleanupRecord": false
+      },
+      {
+        "failure": "export-transport",
+        "error": "injected-export-transport-failure",
+        "stopCalls": 0,
+        "deleteCalls": 0,
+        "rootStillPresent": true,
+        "cleanupRecord": false
+      }
+    ]
+  }
+}

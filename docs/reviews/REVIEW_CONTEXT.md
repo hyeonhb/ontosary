@@ -1,5 +1,9 @@
 # 독립 리뷰 맥락
 
+2026-11-17 최신 개발 지시는 [진단/봉인/정리 보완](2026-11-17-s2-seal-recovery-instructions.md)(ADR-051)이다. ff7ec19(PR #54)을 이어 R15 잔여·R16·R17을 같은3시간/VM1개/기본 정책7단위 안에서 확인한다. R14 재사용은 유지하고 새 build·정책 pair·인증/model·본 비교는 제외한다. 사용자는 앞으로 논의가 필요 없는 보완은 리뷰와 함께 지시문도 바로 제공하도록 요청했다. 합의된 구조의 결함 수정은 바로 작성하고, 주요 방향/아키텍처 변경·범위/비용/권한 확대는 먼저 논의한다. 이것을 개발 세션 자동 실행이나 보류된 시험의 포괄 승인으로 확대하지 않는다.
+
+2026-11-17 [보완 독립 리뷰](2026-11-17-s2-execution-lifecycle-fix-independent-review.md)가 최신 판단이다. PR #54 ff7ec19의 partial/blocked 보고에 동의하며 R14 재사용은 확인했다. R13은 raw Spec 유실로 검증 미완료, R15는 metadata 관리자 소유 게시/실패 진단 보존을 보완해야 한다. R16은 service 종료 증거 수명과 봉인, R17은 export/copy 예외가 cleanup을 중단하는 문제다. 304+146 검사·새123/과거126 증거·소스/준비물 연결을 확인했고 실제 VM 재실행은 없다. 다음 구조/예산은 사용자와 정하며 구현 PR #54·정책 대조·실제 인증/model/본 비교는 계속 보류한다.
+
 2026-11-15 [보완 결과](2026-11-15-s2-execution-lifecycle-fix.md)는 **부분 완료·blocked/inconclusive**다. PR #54 f6fc386에 main067c028을 통합했고 ADR-048/049를 보존했다. R14는 실제 prepare의 입력 key hit·build/download0·새 VM import identity로 확인됐다. R13은 도구 검사 응답/start gate 통과가 있으나 실제 raw Spec/도구 진단 archive가 없어 부분 완료다. 정상1은 exit0·삭제1.566초 뒤 `seal:inactive-deadline-unconfirmed`로 결과가 철회됐다. R15 export도 `file-owner:image-export.json`으로 차단돼 최종 guest archive가 없다. 필수7 중 시도1/기대통과0이며 나머지6·정책 pair·재시도는0이다. 로컬146회귀·pnpm check304와 원시 호스트 오류/상태·소유 VM 정리를 기준으로 리뷰한다. 실제 실패 뒤 helper를 수정하지 않았고 PR은 독립 결과 리뷰 전 병합하지 않는다.
 
 2026-11-14 현재 후속 지시는 [R13~R15 보완](2026-11-14-s2-execution-lifecycle-fix-instructions.md)(ADR-049)이다. PR #54 f6fc386을 이어 R14→R13→R15 로컬 통합 회귀와 같은 기본 정책7단위를 검증하며, 직전과 같은3시간 상한·VM1개를 적용한다. 정책 대조는 이번 범위에서 제외하고 보완 PR은 독립 리뷰 뒤 병합한다. cache 복구/PR #53·독립 리뷰 PR #55는 완료됐으며 실제 credential/model/본 비교 보류를 유지한다.
