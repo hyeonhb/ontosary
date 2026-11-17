@@ -224,5 +224,98 @@ class TraceReanalysisTests(unittest.TestCase):
                 tool.reanalyze(tool.DEFAULT_ROOT)
 
 
+class DeferredContextTests(unittest.TestCase):
+    def ordered(self, events, before):
+        lines = fixture('unfinished').splitlines()
+        return '\n'.join(lines[:2] + (events + lines[3:4] + lines[2:3] if before else lines[2:3] + events + lines[3:4]) + lines[4:]) + '\n'
+
+    def assert_context_rejected(self, event, reason):
+        for before in [True, False]:
+            with self.subTest(before=before):
+                trace = self.ordered([event], before)
+                result = tool.parse_trace(trace)
+                self.assertEqual(result['status'], 'inconclusive')
+                issue = next(i for i in result['issues'] if i['reason'] == reason)
+                self.assertEqual(trace.splitlines()[issue['line'] - 1], event)
+
+    def test_exec_order_has_same_conservative_result(self):
+        self.assert_context_rejected('[pid 42] execve("/usr/bin/other", ["other"], 0) = 0', 'child-exec-outside-denial-scope')
+
+    def test_split_mount_order_has_same_conservative_result(self):
+        self.assert_context_rejected('[pid 42] mount(NULL, "/", NULL, MS_SLAVE, NULL <unfinished ...>', 'unsupported-child-mount')
+
+    def test_resumed_mount_order_has_same_conservative_result(self):
+        self.assert_context_rejected('[pid 42] <... mount resumed>) = -1 EPERM (Operation not permitted)', 'unsupported-child-mount')
+
+    def test_successful_unsupported_mount_order_is_conservative(self):
+        self.assert_context_rejected('[pid 42] mount(NULL, "/", NULL, MS_SLAVE, NULL) = 0', 'unsupported-child-mount')
+
+    def test_unrelated_pid_context_is_not_attributed(self):
+        for before in [True, False]:
+            result = tool.parse_trace(self.ordered(['[pid 99] execve("/other", ["other"], 0) = 0', '[pid 99] mount(NULL, "/", NULL, 0, NULL <unfinished ...>'], before))
+            self.assertEqual(result['status'], 'first-clone-passed-next-blocked')
+
+    def test_pre_clone_context_is_not_attributed(self):
+        text = '[pid 42] execve("/other", ["other"], 0) = 0\n' + fixture('unfinished')
+        self.assertEqual(tool.parse_trace(text)['status'], 'first-clone-passed-next-blocked')
+
+    def test_pending_other_parent_does_not_extend_child_lifetime_backwards(self):
+        lines = fixture('unfinished').splitlines()
+        text = '\n'.join(lines[:2] + ['[pid 44] execve("/other", ["other"], 0) = 0'] + lines[4:6] + lines[2:4] + lines[6:]) + '\n'
+        self.assertEqual(tool.parse_trace(text)['status'], 'first-clone-passed-next-blocked')
+
+    def test_reversed_parent_returns_keep_context_with_correct_child(self):
+        lines = fixture('unfinished').splitlines()
+        event = '[pid 42] execve("/other", ["other"], 0) = 0'
+        text = '\n'.join(lines[:2] + lines[4:6] + [event] + lines[6:] + lines[2:4]) + '\n'
+        result = tool.parse_trace(text)
+        self.assertEqual(result['status'], 'inconclusive')
+        self.assertEqual([d['pid'] for d in result['nextDenied']], [44])
+
+    def test_context_is_retained_after_another_parent_finishes(self):
+        lines = fixture('unfinished').splitlines()
+        text = '\n'.join(lines[:2] + ['[pid 42] execve("/other", ["other"], 0) = 0'] + lines[4:] + lines[2:4]) + '\n'
+        self.assertEqual(tool.parse_trace(text)['status'], 'inconclusive')
+
+    def test_rejected_context_denial_is_retained_but_not_admitted(self):
+        text = self.ordered(['[pid 42] execve("/other", ["other"], 0) = 0'], True)
+        result = tool.parse_trace(text)
+        self.assertEqual([d['pid'] for d in result['nextDenied']], [44])
+        self.assertEqual([d['pid'] for d in result['contextRejectedDenied']], [42])
+        self.assertEqual(result['childContext'][0]['parentPid'], 41)
+
+    def test_duplicate_context_is_explicit_and_bounded(self):
+        event = '[pid 42] execve("/other", ["other"], 0) = 0'
+        result = tool.parse_trace(self.ordered([event, event], True))
+        self.assertEqual(result['status'], 'inconclusive')
+        self.assertIn('duplicate-child-context', [i['reason'] for i in result['issues']])
+
+    def test_context_event_limit_cannot_hide_missing_child_event(self):
+        events = ['[pid 99] execve("/other", ["other"], 0) = 0', '[pid 42] execve("/other", ["other"], 0) = 0']
+        with patch.object(tool, 'MAX_CONTEXT_EVENTS', 1):
+            result = tool.parse_trace(self.ordered(events, True))
+        self.assertEqual(result['status'], 'inconclusive')
+        self.assertFalse(result['contextComplete'])
+        self.assertEqual(result['contextEventsStored'], 1)
+        self.assertEqual(result['nextDenied'], [])
+        self.assertIn('child-context-limit', [i['reason'] for i in result['issues']])
+
+    def test_context_byte_limit_is_fail_closed_in_both_orders(self):
+        for before in [True, False]:
+            with self.subTest(before=before), patch.object(tool, 'MAX_CONTEXT_BYTES', 1):
+                result = tool.parse_trace(self.ordered(['[pid 42] execve("/other", ["other"], 0) = 0'], before))
+                self.assertEqual(result['status'], 'inconclusive')
+                self.assertEqual(result['contextBytesStored'], 0)
+                self.assertFalse(result['contextComplete'])
+
+    def test_exact_context_capacity_is_not_reported_as_missing(self):
+        event = '[pid 99] execve("/other", ["other"], 0) = 0'
+        with patch.object(tool, 'MAX_CONTEXT_BYTES', len(event.encode())), patch.object(tool, 'MAX_CONTEXT_EVENTS', 1):
+            result = tool.parse_trace(self.ordered([event], True))
+        self.assertEqual(result['status'], 'first-clone-passed-next-blocked')
+        self.assertTrue(result['contextComplete'])
+        self.assertEqual(result['childContext'], [])
+
+
 if __name__ == '__main__':
     unittest.main()

@@ -26,6 +26,8 @@ MAX_PENDING_BYTES = 4096
 MAX_PENDING = 32
 MAX_OBSERVATIONS = 256
 MAX_ISSUES = 64
+MAX_CONTEXT_EVENTS = 128
+MAX_CONTEXT_BYTES = 65536
 PID = re.compile(r'\[pid\s+([1-9][0-9]{0,9})\]\s+(.*)')
 START = 'clone(child_stack=NULL, flags=' + FLAGS
 RETURN = r'\)\s+= (-?[0-9]{1,10})(?: (EPERM|EACCES) \([^\n]*\))?'
@@ -79,6 +81,9 @@ def parse_trace(trace, *, payload_started=False, exit_code=1, stdout=''):
     trace_sha = trace_digest(trace)
     pending, executions, children = {}, {}, {}
     clones, denied, issues, joins = [], [], [], []
+    context = []
+    context_bytes = 0
+    context_complete = True
     adjacent = None
     previous = ''
     number = 0
@@ -153,8 +158,24 @@ def parse_trace(trace, *, payload_started=False, exit_code=1, stdout=''):
             continue
         pid, body = int(match[1]), match[2]
         previous = raw
-        if pid in children and body.startswith('execve('):
-            issue('child-exec-outside-denial-scope', number)
+        failure = DENIED.fullmatch(body)
+        context_reason = None
+        if body.startswith(('execve(', '<... execve resumed>')):
+            context_reason = 'child-exec-outside-denial-scope'
+        elif not failure and body.startswith(('mount(', '<... mount resumed>')):
+            context_reason = 'unsupported-child-mount'
+        # Until a pending clone returns, any PID may be its child. Keep only
+        # the two unsupported context kinds, with an independent finite budget.
+        # The same capture/filter path handles already-known children as well.
+        if context_reason and (pending or pid in children):
+            size = len(raw.encode())
+            if len(context) >= MAX_CONTEXT_EVENTS or context_bytes + size > MAX_CONTEXT_BYTES:
+                issue('child-context-limit', number)
+                context_complete = False
+            else:
+                context.append({'pid': pid, 'reason': context_reason,
+                                'source': evidence(number, raw)})
+                context_bytes += size
         if body.startswith('execve(') and '["bwrap",' in body:
             if pid in executions or pid in children:
                 issue('duplicate-or-reused-bwrap-pid', number)
@@ -201,16 +222,10 @@ def parse_trace(trace, *, payload_started=False, exit_code=1, stdout=''):
             elif pid in executions:
                 issue('orphan-or-duplicate-clone-resume', number)
         else:
-            failure = DENIED.fullmatch(body)
             if failure:
                 denied.append({'pid': pid, 'syscall': failure[1], 'errno': failure[2],
                                'source': evidence(number, raw),
-                               'parentPid': children.get(pid, {}).get('pid'),
-                               'cloneLine': children.get(pid, {}).get('source', {}).get('startLine')})
-            elif pid in children and (body.startswith('mount(') or body.startswith('<... mount resumed>')):
-                # Other mount shapes may be valid strace, but not this parser's
-                # evidence grammar. Never guess a denial from a substring.
-                issue('unsupported-child-mount', number)
+                               'parentPid': None, 'cloneLine': None})
             if pid in pending and not body.startswith(('--- ', '+++ ')):
                 issue('same-pid-output-during-pending-clone', number)
 
@@ -221,15 +236,29 @@ def parse_trace(trace, *, payload_started=False, exit_code=1, stdout=''):
              and {c['kind'] for c in clones} == {'precheck', 'command-preparation'})
     if not known:
         issue('expected-one-clone-per-bwrap-role', number)
-    # A child's syscall may precede its parent's resumed return in strace.
-    # Resolve that relation using the returned PID and source ordering, without
-    # rescanning the trace or attributing earlier unrelated PID failures.
+    # Resolve bounded context once, before admitting any deferred denial. This
+    # is a pass over at most MAX_CONTEXT_EVENTS records, never over input again.
+    invalid_children, child_context, seen_context = set(), [], set()
+    for event in context:
+        clone = children.get(event['pid'])
+        if clone and event['source']['startLine'] > clone['source']['startLine']:
+            event = {**event, 'parentPid': clone['pid'], 'cloneLine': clone['source']['startLine']}
+            child_context.append(event)
+            invalid_children.add(event['pid'])
+            issue(event['reason'], event['source']['startLine'])
+            key = (event['pid'], event['source']['raw'])
+            if key in seen_context:
+                issue('duplicate-child-context', event['source']['startLine'])
+            seen_context.add(key)
+    # A child's denial may precede its parent's resumed return. Both orders
+    # require the same complete, supported context after the clone start.
     for failure in denied:
         clone = children.get(failure['pid'])
         if clone and failure['source']['startLine'] > clone['source']['startLine']:
             failure['parentPid'] = clone['pid']
             failure['cloneLine'] = clone['source']['startLine']
-    linked = [d for d in denied if d['parentPid'] is not None]
+    related = [d for d in denied if d['parentPid'] is not None]
+    linked = [d for d in related if context_complete and d['pid'] not in invalid_children]
     status = 'inconclusive'
     if not issues and known:
         if all(c['return'] == -1 and c['errno'] == 'EPERM' for c in clones) and not payload_started:
@@ -245,7 +274,11 @@ def parse_trace(trace, *, payload_started=False, exit_code=1, stdout=''):
             'payloadStarted': payload_started, 'commandExitCode': exit_code,
             'lsmCauseConfirmed': False, 'bwrapExecutions': list(executions.values()),
             'namespaceClones': clones, 'nextDenied': linked,
+            'contextRejectedDenied': [d for d in related if not context_complete or d['pid'] in invalid_children],
             'unlinkedDenied': [d for d in denied if d['parentPid'] is None],
+            'childContext': child_context,
+            'contextComplete': context_complete,
+            'contextEventsStored': len(context), 'contextBytesStored': context_bytes,
             'joins': joins, 'issues': issues, 'linesVisited': number,
             'pendingClonePids': list(pending),
             'supportedFormats': ['PID-prefixed single-line clone',
@@ -258,7 +291,8 @@ def parse_trace(trace, *, payload_started=False, exit_code=1, stdout=''):
             'scope': 'PID-prefixed bwrap exec, exact namespace clone, subsequent child denial; unrelated startup syscalls excluded',
             'limits': {'traceBytes': MAX_BYTES, 'lineBytes': MAX_LINE,
                        'pendingLineBytes': MAX_PENDING_BYTES, 'pendingCalls': MAX_PENDING,
-                       'observations': MAX_OBSERVATIONS, 'issues': MAX_ISSUES}}
+                       'observations': MAX_OBSERVATIONS, 'issues': MAX_ISSUES,
+                       'contextEvents': MAX_CONTEXT_EVENTS, 'contextBytes': MAX_CONTEXT_BYTES}}
 
 
 def reanalyze(root):
