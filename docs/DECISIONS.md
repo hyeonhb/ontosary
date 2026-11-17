@@ -455,3 +455,14 @@ R13/R14 유지와 R15/R16/R17은 이 fixture 검증 범위에서 결과 리뷰�
 
 
 2026-11-17 독립 검토 추가: [리뷰](reviews/2026-11-17-s2-policy-pair-independent-review.md)에서 원문 clone 통과→mount EPERM과 전체 Spec/봉인/회수 근거를 확인해 PR #61을ee7ac98로 병합했다. 자동 inconclusive는 보존하며 저장 trace의 제한된 오프라인 판독만 후속 지시한다. 다음 실제 정책 시험은 외부/내부 경계의 책임과 권한을 사용자와 논의한 뒤 정한다. 이번 리뷰에서 새 runtime이나 권한 변경은 하지 않았다.
+
+
+## ADR-055 · 일회성 VM 직접 CLI 실행의 90분 타당성 검증 — 2026-11-17
+
+**합의:** 사용자는 외부 VM에서 CLI를 직접 실행하고 내부 sandbox를 유지하는 C안을 총90분 안에서 검증하도록 승인했다. [개발 지시](reviews/2026-11-17-s2-vm-cli-feasibility-instructions.md)는 이미 검증한 준비물·고정 CLI와 기존 Linux 평가기를 유지하면서 중첩 컨테이너의 호환성 비용을 줄일 수 있는지 확인한다. 이는 후보 타당성 검증이며 전체 전환의 확정이나 실행 결과가 아니다.
+
+**보장과 책임:** 실행 간 상태 분리, 숨겨진 평가/제어 상태 보호, 모든 writer 종료 후 수집, 생성된 명령의 인증·통신 제한을 유지한다. 호스트 관리자는 VM/외부 마감, guest 감독자는 worker service/cgroup 종료/수집, CLI 내부 sandbox는 명령 접근 제한을 맡는다. worker는 관리 사용자와 분리하고 sudo·관리 소켓·추가 capability를 주지 않는다. 기존 컨테이너의 OCI/RO root/종료 검증을 직접 VM의 보장으로 전용하지 않는다.
+
+**상한과 판단:** 순차 VM 최대2개, 실제 fixture 최대4개(정상·timeout·wrapper 사망·새 VM 정상 반복), 준비물 download/build/save0·실제 인증/provider/model0이다. 15/30/50/65/75/90분 gate로 준비·sandbox 시작·접근·종료·반복·정리/검증/보고를 제한한다. 권한 완화나 대규모 재구축, 예상 밖 접근, 종료 불명, 단계 시간 초과면 새 실행을 중단하고 진단/정리/보고로 전환한다. 다른 후보로 자동 전환하지 않는다.
+
+**후속:** 실제4단위와 검증/정리가 확인되면 다음 통합 검토가 가능한 타당성으로만 판정한다. 실제 turn 도구 경계·인증 전달/갱신·Vendure 연결·전체 수집은 별도 남는다. 구현 PR은 독립 결과 리뷰 전에 병합하지 않는다. R11 unresolved·production/live 거부·trialAuthorized/readyForTrial=false·results=null·H-O/H-F 미검증을 유지한다.
