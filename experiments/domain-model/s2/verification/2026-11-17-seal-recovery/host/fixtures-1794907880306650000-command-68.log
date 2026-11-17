@@ -1,0 +1,1 @@
+{"status": "complete", "files": 38, "metadataIncludedFiles": 39, "boundedBytes": 1931326, "archive": "/tmp/s2-execution-export-unit-timeout/evidence.tar.gz", "bytes": 82329, "sha256": "e2d26a2178073bf27b38d3968379bd1f22d896c800b88fd39bce393db53c21dc", "runs": {"a6228a089adc": {"exportedResult": true, "files": 9, "collectionStatus": "collected"}}}

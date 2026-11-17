@@ -1,0 +1,12 @@
+{
+  "hostBeforeUtc": "2026-11-17T09:30:51.575755+00:00",
+  "hostAfterUtc": "2026-11-17T09:30:51.702033+00:00",
+  "hostRoundTripSeconds": 0.12629891600226983,
+  "guest": {
+    "utc": "2026-11-17T09:30:51.794594+00:00",
+    "guestMonotonic": 17.03273033
+  },
+  "registrationTransportReserveSeconds": 6,
+  "maximumRegistrationCommandSeconds": 5,
+  "monotonicClocksCompared": false
+}

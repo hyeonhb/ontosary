@@ -1,4 +1,4 @@
-import copy,json,os,pathlib,subprocess,sys,tempfile,time,unittest
+import copy,hashlib,json,os,pathlib,subprocess,sys,tempfile,time,unittest
 import engine as e
 from collector import inventory
 class EngineTests(unittest.TestCase):
@@ -8,7 +8,9 @@ class EngineTests(unittest.TestCase):
   for n in ['source','auxiliary']:(self.run/n).mkdir()
   (self.run/'source/input').write_text('positive')
   now=time.monotonic();self.state={'runId':self.rid,'mode':'normal-1','state':'running','outcome':'exit','reason':'exit','exitCode':0,'image':{'target':'image','chain':'chain'},'slice':'ontosary-'+self.rid+'.slice','service':'ontosary-execution-'+self.rid+'.service','cgroup':str(self.cg),'cgroupInode':self.cg.stat().st_ino,'containerName':'ontosary-'+self.rid,'containerId':'b'*64,'deadlines':{'work':now+80,'remove':now+110,'finish':now+120},'createPending':False,'startPending':False,'execPending':False,'terminationConfirmed':False,'removalConfirmed':False,'collectionStatus':'not-started','cleanupDone':False,'runtimeRequests':[]}
-  self.fake={'rid':self.rid,'cid':'b'*64,'present':True};self.save();e.c.write(self.root/'gate.json',{'runId':self.rid,'allowNext':False});e.c.write(self.run/'baseline.json',inventory({n:self.run/n for n in ['source','auxiliary']}))
+  self.state.update(invocationId='c'*32,referenceHolder='ontosary-reference-'+self.rid+'.target')
+  text='test owned reference';(self.root/'units'/self.state['referenceHolder']).write_text(text);e.c.write(self.run/'reference.json',{'runId':self.rid,'holder':self.state['referenceHolder'],'service':self.state['service'],'phase':'held','fileSha256':hashlib.sha256(text.encode()).hexdigest()})
+  self.fake={'rid':self.rid,'cid':'b'*64,'present':True,'holderActive':True,'serviceShow':{'Id':self.state['service'],'LoadState':'loaded','ActiveState':'inactive','SubState':'dead','InvocationID':'c'*32,'InactiveEnterTimestampMonotonic':0,'Result':'success'}};self.save();e.c.write(self.root/'gate.json',{'runId':self.rid,'allowNext':False});e.c.write(self.run/'baseline.json',inventory({n:self.run/n for n in ['source','auxiliary']}))
   for n in ['slice','service']:(self.root/'units'/self.state[n]).write_text('owned unit')
  def tearDown(self):self.tmp.cleanup()
  def save(self):e.c.write(self.run/'state.json',self.state);e.c.write(self.root/'fake.json',self.fake)

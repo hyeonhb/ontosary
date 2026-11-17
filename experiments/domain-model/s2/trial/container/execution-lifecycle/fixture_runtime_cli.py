@@ -27,7 +27,15 @@ if args[0] in ['nerdctl','ctr']:
   sys.exit(s.get('requestExit',0))
  else:raise RuntimeError(args)
 elif args[0]=='systemctl':
- if args[1]=='stop':shutil.rmtree(root/'cgroup')
- elif args[1]=='show':print('ActiveState=inactive\nInactiveEnterTimestampMonotonic='+str(int(time.monotonic()*1000000)))
+ if args[1]=='stop':
+  if args[2].endswith('.target'):s['holderActive']=False;db.write_text(json.dumps(s))
+  else:shutil.rmtree(root/'cgroup')
+ elif args[1]=='show':
+  unit=args[2]
+  if unit.endswith('.target'):
+   print('Id='+unit+'\nLoadState=loaded\nActiveState='+('active' if s.get('holderActive',True) else 'inactive')+'\nAfter=ontosary-execution-'+s['rid']+'.service\nBindsTo=ontosary-execution-seal.service')
+  else:
+   fields=s.get('serviceShow',{})
+   for k,v in fields.items():print(k+'='+str(v))
  elif args[1]!='daemon-reload':raise RuntimeError(args)
 else:raise RuntimeError(args)

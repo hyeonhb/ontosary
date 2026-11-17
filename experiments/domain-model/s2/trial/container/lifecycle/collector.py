@@ -43,14 +43,14 @@ def read_regular(fd,name,before,end,target=None,owner=None,sealed=False):
 class SafeFiles:
     """One cumulative export budget, including generated metadata."""
     def __init__(self,staging,deadline,max_files=1024,max_bytes=16*1024*1024):
-        self.staging=pathlib.Path(staging);self.deadline=deadline;self.max_files=max_files;self.max_bytes=max_bytes;self.members={};self.bytes=0
+        self.staging=pathlib.Path(staging);self.deadline=deadline;self.max_files=max_files;self.max_bytes=max_bytes;self.members={};self.bytes=0;self.attempts=0
     def reserve(self,name,size):
         if time.monotonic()>=self.deadline:raise Rejected('collection-time-limit')
         parts=pathlib.PurePosixPath(name).parts
         if not parts or len(parts)>16 or name.startswith('/') or '..' in parts or name in self.members:raise Rejected('export-name')
-        if len(self.members)+1>self.max_files:raise Rejected('file-count-limit')
+        if self.attempts+1>self.max_files:raise Rejected('file-count-limit')
         if self.bytes+size>self.max_bytes:raise Rejected('byte-limit')
-        self.bytes+=size
+        self.bytes+=size;self.attempts+=1
         target=self.staging/name;target.parent.mkdir(parents=True,exist_ok=True,mode=0o700);return target
     def copy(self,path,name,sealed=False):
         path=pathlib.Path(path);fd=open_directory(path.parent)
@@ -63,7 +63,7 @@ class SafeFiles:
     def metadata(self,name,value):
         data=(json.dumps(value,sort_keys=True,indent=2)+'\n').encode();target=self.reserve(name,len(data));target.write_bytes(data);self.members[name]={'sha256':hashlib.sha256(data).hexdigest(),'bytes':len(data)};return target
 
-def inventory(roots, destination=None, fail_after=None, deadline=None):
+def inventory(roots, destination=None, fail_after=None, deadline=None, names_only=False):
     end=deadline if deadline is not None else time.monotonic()+10
     manifest={};directories=[];count=0;total=0
     def visit(fd, prefix, depth):
@@ -94,7 +94,7 @@ def inventory(roots, destination=None, fail_after=None, deadline=None):
                 if total>16*1024*1024:raise Rejected('byte-limit')
                 target=destination/rel if destination else None
                 if target:target.parent.mkdir(mode=0o700,parents=True,exist_ok=True)
-                manifest[rel]=read_regular(fd,name,before,end,target)
+                manifest[rel]={'bytes':before.st_size} if names_only else read_regular(fd,name,before,end,target)
                 if fail_after is not None and count>=fail_after:raise Rejected('injected-copy-failure')
             else:raise Rejected('nonregular:'+rel+':'+str(stat.S_IFMT(before.st_mode)))
     for name,root in sorted(roots.items()):

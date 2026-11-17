@@ -1,0 +1,1 @@
+{"status": "complete", "files": 38, "metadataIncludedFiles": 39, "boundedBytes": 828711, "archive": "/tmp/s2-execution-export-unit-wrapper-death/evidence.tar.gz", "bytes": 65896, "sha256": "ff61a7ad7494dfcaff4065d398831036bf67609298b42ea26aac303dedfa39cd", "runs": {"e7dd63728e33": {"exportedResult": true, "files": 9, "collectionStatus": "collected"}}}

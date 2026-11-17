@@ -1,0 +1,38 @@
+{
+  "evidenceStatus": "diagnostic",
+  "cleanupStatus": "complete",
+  "errors": [],
+  "attempts": [
+    [
+      "/tmp/ontosary-s2-seal-recovery-20261117/prefix/bin/limactl",
+      "stop",
+      "--force",
+      "s2-lifecycle"
+    ],
+    [
+      "/tmp/ontosary-s2-seal-recovery-20261117/prefix/bin/limactl",
+      "delete",
+      "--force",
+      "s2-lifecycle"
+    ],
+    [
+      "/Users/hyeon/.pyenv/versions/3.12.10/bin/python3",
+      "-c",
+      "import subprocess,sys,json;p=subprocess.run([sys.argv[1],\"list\",\"--json\"],capture_output=True,text=True,timeout=7);print(json.dumps({\"exitCode\":p.returncode,\"stdout\":p.stdout,\"stderr\":p.stderr}))",
+      "/tmp/ontosary-s2-seal-recovery-20261117/prefix/bin/limactl"
+    ]
+  ],
+  "vmAbsent": true,
+  "rootAbsent": true,
+  "vmDisposalIsNotUnitTerminationProof": true,
+  "listing": {
+    "exitCode": 0,
+    "stdout": "",
+    "stderr": "time=\"2026-11-17T18:33:03+09:00\" level=warning msg=\"No instance found. Run `limactl create` to create an instance.\"\n"
+  },
+  "retainedBytes": 1706236958,
+  "ownedTemporaryRemoved": [],
+  "temporaryEntries": [],
+  "seconds": 1.0064038340060506,
+  "remainingSeconds": 8803.48447091601
+}

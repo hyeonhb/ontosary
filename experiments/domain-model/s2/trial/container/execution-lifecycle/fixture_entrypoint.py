@@ -1,5 +1,5 @@
 """Subprocess adapter exclusively for tests; no production alternate backend."""
-import os,pathlib,sys
+import os,pathlib,sys,json,time
 import engine as e
 root=pathlib.Path(os.environ['S2_TEST_ROOT']);e.c.ROOT=root;e.UNITS=root/'units';e.SHARED=root/'shared'
 e.c.NERD=[sys.executable,str(pathlib.Path(__file__).with_name('fixture_runtime_cli.py')),'nerdctl'];e.c.CTR=[sys.executable,str(pathlib.Path(__file__).with_name('fixture_runtime_cli.py')),'ctr']
@@ -17,4 +17,7 @@ def common_cmd(run,args,*a,**kw):
 e.c.command=common_cmd
 if sys.argv[1]=='test-request':
  run=e.c.runpath(sys.argv[2]);e.request(run,sys.argv[3],e.c.NERD+[sys.argv[3]],.05)
-else:e.main()
+else:
+ e.main()
+ if sys.argv[1]=='finalize':
+  path=root/'fake.json';value=json.loads(path.read_text());value['serviceShow']['InactiveEnterTimestampMonotonic']=int(time.monotonic()*1000000);path.write_text(json.dumps(value))

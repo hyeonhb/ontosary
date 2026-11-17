@@ -1,10 +1,11 @@
 """One bounded, explicitly planned round. No model/auth/provider operations."""
 import argparse,copy,datetime,hashlib,io,json,os,pathlib,signal,shutil,subprocess,sys,tarfile,tempfile,time,urllib.request
 HERE=pathlib.Path(__file__).resolve().parent;CONTAINER=HERE.parent
-sys.path[:0]=[str(HERE),str(CONTAINER/'single-policy-test')]
+sys.path[:0]=[str(HERE),str(CONTAINER/'single-policy-test'),str(CONTAINER/'lifecycle')]
 from deadline import run,limit
 from artifacts import Store,download,verify_image_archive
 from image_cache import ImageCache,build_inputs,key
+from metadata import BOOTSTRAP
 from scope import rows,registered_scope,inventory,verify_index
 from snapshot import snapshot
 from package import package
@@ -41,7 +42,7 @@ class Round:
   store=Store(self.plan['store'],owner_tag=self.plan['round']);requests=[{'name':'lima-2.3.0-Darwin-arm64','url':'https://github.com/lima-vm/lima/releases/download/v2.3.0/lima-2.3.0-Darwin-arm64.tar.gz','sha256':'b7af444bd8f91d3c307477e562f2cf3bd7595d62b9429185e4fa841563578cfc','maximumBytes':55000000,'version':'2.3.0','platform':'darwin/arm64','buildInputHashes':{}},{'name':'ubuntu-26.04-20261016-arm64','url':'https://cloud-images.ubuntu.com/releases/resolute/release-20261016/ubuntu-26.04-server-cloudimg-arm64.img','sha256':'8eb876c2ccc4b6ff89e4a65d511815923b285e04503ba465809bf587f763da24','bytes':940373504,'version':'26.04-20261016','platform':'linux/arm64','buildInputHashes':{}},{'name':'nerdctl-full-2.4.2-linux-arm64','url':'https://github.com/containerd/nerdctl/releases/download/v2.4.2/nerdctl-full-2.4.2-linux-arm64.tar.gz','sha256':'fe0ef0e9840ee8932640e6058f84b7fa98050f9726e44af44883a5b804ae830e','bytes':270513423,'version':'2.4.2','platform':'linux/arm64','buildInputHashes':{}}]
   records=[]
   for req in requests:
-   start=time.monotonic();record=store.acquire(req,download(req,end),end);record['firstUseSeconds']=time.monotonic()-start;records.append(record);write(self.w/'artifact-acquisitions.json',records)
+   start=time.monotonic();record=store.lookup(req,end) if self.plan.get('cacheOnly') else store.acquire(req,download(req,end),end);assert record,'required-public-cache-missing';record['firstUseSeconds']=time.monotonic()-start;records.append(record);write(self.w/'artifact-acquisitions.json',records)
   second=[]
   for req in requests:
    start=time.monotonic();r=store.lookup(req,end);assert r;second.append({**r,'reuseSeconds':time.monotonic()-start,'downloads':0,'builds':0})
@@ -66,13 +67,16 @@ class Round:
    for p,name in files:t.add(p,arcname=name)
   write(self.w/'input-transfer.json',{'archiveSha256':sha(self.w/'inputs.tar.gz'),'members':{n:sha(p) for p,n in files}})
   write(self.w/'input-members.json',{n:sha(p) for p,n in files})
-  self.cmd([self.lima,'copy',str(self.w/'inputs.tar.gz'),self.plan['vmName']+':/tmp/execution-inputs.tar.gz'])
-  self.guest(['mkdir','-p','/opt/ontosary-execution']);self.guest(['tar','-xzf','/tmp/execution-inputs.tar.gz','-C','/opt/ontosary-execution'])
-  self.cmd([self.lima,'copy',str(self.w/'input-members.json'),self.plan['vmName']+':/tmp/input-members.json'])
-  self.guest(['mv','/tmp/input-members.json','/opt/ontosary-execution/input-members.json'])
+  _,out=self.cmd([self.lima,'shell','--workdir=/tmp',self.plan['vmName'],'python3','-c','import tempfile,os,json;print(json.dumps({"path":tempfile.mkdtemp(prefix="ontosary-transfer-",dir="/tmp"),"uid":os.getuid()}))'])
+  transport=json.loads(out);write(self.w/'transport.json',transport);staging=transport['path']
+  if not staging.startswith('/tmp/ontosary-transfer-') or '/' in staging[len('/tmp/ontosary-transfer-'):]:raise RuntimeError('transport-ownership-path')
+  self.cmd([self.lima,'copy',str(self.w/'inputs.tar.gz'),self.plan['vmName']+':'+staging+'/inputs.tar.gz'])
+  self.guest(['python3','-c',BOOTSTRAP,staging+'/inputs.tar.gz',sha(self.w/'inputs.tar.gz'),str(transport['uid'])])
+  self.publish_metadata('input-members.json',transport)
   cache=ImageCache(store);image_inputs=build_inputs(docker.encode());write(self.w/'image-build-inputs.json',{'key':key(image_inputs),'inputs':image_inputs})
   cached=cache.lookup(image_inputs,end)
-  if cached is None and self.plan.get('legacyEvidence'):cached=cache.legacy_link(image_inputs,self.plan['legacyEvidence'],end)
+  if cached is None and not self.plan.get('cacheOnly') and self.plan.get('legacyEvidence'):cached=cache.legacy_link(image_inputs,self.plan['legacyEvidence'],end)
+  if cached is None and self.plan.get('cacheOnly'):raise RuntimeError('required-image-cache-missing')
   self.guest(['python3','/opt/ontosary-execution/execution-lifecycle/guest.py','prepare'])
   builds=0
   if cached is None:
@@ -86,16 +90,38 @@ class Round:
    store.acquire(image_request,copy_public(local_image),end)
    cached=cache.bind(image_inputs,image_request,export['image'],{'kind':'new-build','externalPackageQueriesFullyPinned':False},end)
    local_image.unlink()
-  export={**cached['artifact']['actual'],'image':cached['binding']['image']}
+  export={**cached['artifact']['actual'],'image':cached['binding']['image'],'buildKey':key(image_inputs)}
   write(self.w/'image-export.json',export)
   write(self.w/'image-artifact.json',{**cached,'builds':builds,'downloads':0,'importAttempts':1})
-  self.cmd([self.lima,'copy',str(self.w/'image-export.json'),self.plan['vmName']+':/tmp/image-export.json'])
-  self.guest(['mv','/tmp/image-export.json','/opt/ontosary-execution/image-export.json'])
-  self.cmd([self.lima,'copy',cached['artifact']['path'],self.plan['vmName']+':/tmp/reused-image.tar']);self.guest(['mv','/tmp/reused-image.tar','/opt/ontosary-execution/reused-image.tar']);self.guest(['python3','/opt/ontosary-execution/execution-lifecycle/guest.py','import'])
+  self.publish_metadata('image-export.json',transport,key(image_inputs))
+  self.cmd([self.lima,'copy',cached['artifact']['path'],self.plan['vmName']+':'+staging+'/reused-image.tar'])
+  self.guest(['python3','/opt/ontosary-execution/execution-lifecycle/guest.py','import',staging+'/reused-image.tar',str(transport['uid'])])
+  self.guest(['rm','-rf','--',staging])
+  from recovery import retrieve
+  receipt=retrieve(self,'preparation')
+  if receipt['evidenceStatus'] not in ['complete','diagnostic']:raise RuntimeError('preparation-diagnostics-not-retained')
   write(self.w/'preparation-complete.json',{'seconds':time.monotonic()-mono,'storeBytes':store.usage(),'actualImage':export['image'],'vmRegistrations':1,'workUnits':0,'environmentRemainingSeconds':limit(self.budget,'environment')})
+ def publish_metadata(self,name,transport,binding='-'):
+  self.cmd([self.lima,'copy',str(self.w/name),self.plan['vmName']+':'+transport['path']+'/'+name])
+  self.guest(['python3','/opt/ontosary-execution/execution-lifecycle/guest.py','publish',transport['path']+'/'+name,name,sha(self.w/name),str(transport['uid']),binding])
  def engine(self,args,timeout=3):
   _,out=self.guest(['python3','/opt/ontosary-execution/execution-lifecycle/engine.py',*args],timeout=timeout);return json.loads(out) if out.strip() else None
  def unit(self,mode):
+  from recovery import retrieve
+  assert limit(self.budget,'finish')>=210,'insufficient-unit-and-cleanup-reserve'
+  began=time.monotonic();failure=None
+  try:return self._unit(mode)
+  except Exception as e:failure=e;raise
+  finally:
+   registry=read(self.w/'units.json') if (self.w/'units.json').exists() else []
+   row=next((x for x in registry if x['mode']==mode),None)
+   if row:
+    receipt=retrieve(self,'unit-'+mode,row.get('runId'),max(0,120-(time.monotonic()-began)))
+    row['recovery']=receipt;row['secondsIncludingRecovery']=time.monotonic()-began
+    if not failure and (receipt['evidenceStatus'] not in ['complete','diagnostic'] or row['secondsIncludingRecovery']>=120):
+     row['passed']=False;row['error']='unit-recovery-or-external-deadline';write(self.w/'units.json',registry);raise RuntimeError(row['error'])
+    write(self.w/'units.json',registry)
+ def _unit(self,mode):
   assert limit(self.budget,'exploration')>=120
   registry=read(self.w/'units.json') if (self.w/'units.json').exists() else []
   assert mode not in [x['mode'] for x in registry] and len(registry)<self.plan['maximumUnits'] and mode in self.plan['fixtures']
@@ -161,27 +187,11 @@ class Round:
   self.guest(['python3','-c',"import sys,pathlib,json,os;sys.path.insert(0,'/opt/ontosary-execution/execution-lifecycle');from identity import RULE;p=pathlib.Path('/opt/ontosary-execution');s=json.loads((p/'baseline-native.json').read_text())['Spec']['linux']['seccomp'];s['syscalls'].append(RULE);f=p/'candidate.json';f.write_text(json.dumps(s));os.chmod(f,0o400)"])
   rid=self.unit('candidate');_,raw=self.guest(['cat','/opt/ontosary-fixture/runs/'+rid+'/result/auxiliary/result.json']);write(self.w/'candidate-observation.json',json.loads(raw))
  def cleanup(self):
-  self.phase='finish'
-  if not (self.w/'ownership.json').exists():write(self.w/'cleanup.json',{'vmCreated':False,'rootAbsent':not self.root.exists(),'storeRetained':False});return
-  owner=read(self.w/'ownership.json');assert owner['root']==str(self.root) and self.root.name=='ontosary-s2-execution-lifecycle-fix-20261115'
-  if pathlib.Path(self.lima).exists():
-   if owner['vmRegistrations'] and (self.root/'lima'/self.plan['vmName']).exists():
-    exported,out=self.guest(['python3','/opt/ontosary-execution/execution-lifecycle/guest.py','export'],timeout=min(30,limit(self.budget,'finish')),check=False)
-    write(self.w/'export-result.json',{'exitCode':exported['exitCode'],'output':out})
-    if exported['exitCode']==0:
-     self.cmd([self.lima,'copy',self.plan['vmName']+':/tmp/s2-execution-export/evidence.tar.gz',str(self.w/'guest-evidence.tar.gz')],timeout=15)
-     self.cmd([self.lima,'copy',self.plan['vmName']+':/tmp/s2-execution-export/index.json',str(self.w/'guest-export-index.json')],timeout=5)
-    self.cmd([self.lima,'stop','--force',self.plan['vmName']],timeout=30,check=False)
-    self.cmd([self.lima,'delete','--force',self.plan['vmName']],timeout=30)
-   _,listing=self.cmd([sys.executable,'-c','import subprocess,sys,json;p=subprocess.run([sys.argv[1],"list","--json"],capture_output=True,text=True,timeout=8);print(json.dumps({"exitCode":p.returncode,"stdout":p.stdout,"stderr":p.stderr}))',self.lima],timeout=10)
-   listing= json.loads(listing);write(self.w/'lima-final-listing.json',listing)
-   assert listing['exitCode']==0 and not listing['stdout'].strip() and not (self.root/'lima'/self.plan['vmName']).exists()
-   processes=subprocess.check_output(['ps','-axo','pid=,ppid=,command='],text=True);remaining=[x for x in processes.splitlines() if str(self.root/'prefix') in x or str(self.root/'lima') in x];assert not remaining,remaining
-  shutil.rmtree(self.root)
-  store=Store(self.plan['store'],owner_tag=self.plan['round']);pending_removed=store.cleanup_pending(time.monotonic()+10);write(self.w/'cleanup.json',{'vmCreated':bool(owner['vmRegistrations']),'vmAbsent':True,'rootAbsent':not self.root.exists(),'dedicatedStore':self.plan['store'],'ownedTemporaryRemoved':pending_removed,'retainedBytes':store.usage(),'retainedEntries':[p.name for p in store.root.iterdir() if not p.name.startswith('.')],'temporaryEntries':[p.name for p in store.root.iterdir() if p.name.startswith('.pending-')],'existingUserCacheModified':False,'vmDisposalIsNotUnitTerminationProof':True})
+  from recovery import cleanup
+  return cleanup(self)
  def validate(self):
   self.phase='finish';result={}
-  for name,args in [('pnpm-check',['pnpm','check']),('examples-build',['pnpm','example:build']),('production-live-refusal',['pnpm','exec','vitest','run','tests/s2-lifecycle.test.ts']),('saved-evidence-replay',[sys.executable,str(HERE/'verify_fix.py'),'--work',str(self.w)]),('prior-evidence-replay',[sys.executable,str(HERE/'verify_saved.py'),'--root',str(pathlib.Path(self.plan['legacyEvidence']).parent)]),('new-tests',[sys.executable,'-m','unittest','discover','-s',str(HERE),'-p','test_*.py','-v']),('lifecycle-tests',[sys.executable,'-m','unittest','discover','-s',str(CONTAINER/'lifecycle'),'-p','test_*.py','-v']),('audit-tests',[sys.executable,'-m','unittest','discover','-s',str(CONTAINER/'single-policy-test'),'-p','test_retry*.py','-v'])]:
+  for name,args in [('pnpm-check',['pnpm','check']),('examples-build',['pnpm','example:build']),('production-live-refusal',['pnpm','exec','vitest','run','tests/s2-lifecycle.test.ts']),('saved-evidence-replay',[sys.executable,str(HERE/'verify_recovery.py'),'--work',str(self.w)]),('prior-evidence-replay',[sys.executable,str(HERE/'verify_saved.py'),'--root',str(pathlib.Path(self.plan['legacyEvidence']).parent)]),('prior-fix-replay',[sys.executable,str(HERE/'verify_fix.py'),'--root','experiments/domain-model/s2/verification/2026-11-15-execution-lifecycle-fix']),('new-tests',[sys.executable,'-m','unittest','discover','-s',str(HERE),'-p','test_*.py','-v']),('lifecycle-tests',[sys.executable,'-m','unittest','discover','-s',str(CONTAINER/'lifecycle'),'-p','test_*.py','-v']),('audit-tests',[sys.executable,'-m','unittest','discover','-s',str(CONTAINER/'single-policy-test'),'-p','test_retry*.py','-v'])]:
    r,output=self.cmd(args,180,False);result[name]={'exitCode':r['exitCode'],'tail':output[-600:]}
   initial=read(self.w/'start-inventory.json');changed=[];unchanged=0
   # Initial inventory supports both flat hash rows and {sha256,bytes} rows.
@@ -199,7 +209,7 @@ class Round:
   cost={'status':'closed','startedUtc':self.budget['utc'],'measuredUntilUtc':now.isoformat(),'roundMeasuredSeconds':seconds,'previousMeasuredSeconds':self.budget['previousMeasuredSeconds'],'cumulativeMeasuredSeconds':self.budget['previousMeasuredSeconds']+seconds,'previousSerializationUpperBoundSeconds':self.budget['previousSerializationUpperBoundSeconds'],'currentSerializationUpperBoundSeconds':10,'cumulativeUpperBoundSeconds':self.budget['previousMeasuredSeconds']+seconds+self.budget['previousSerializationUpperBoundSeconds']+10,'newPaidCost':0,'gitDeliveryIncluded':False,'actualUnits':len(units),'passedUnits':sum(x.get('passed',False) for x in units),'runtimeRetries':0}
   write(self.w/'cost.json',cost)
   report=pathlib.Path(self.plan['report']);report.write_text(report.read_text().replace('ROUND_SECONDS',f'{seconds:.3f}').replace('CUMULATIVE_SECONDS',f'{cost["cumulativeMeasuredSeconds"]:.3f}'))
-  result=package(self.w,self.plan['output']);from verify_fix import verify as verify_semantics;verify_semantics(pathlib.Path(self.plan['output'])/'host')
+  result=package(self.w,self.plan['output']);from verify_recovery import verify as verify_semantics;verify_semantics(pathlib.Path(self.plan['output'])/'host')
   index=read(pathlib.Path(self.plan['output'])/'index.json');report.write_text(report.read_text().replace('EVIDENCE_FILES',str(len(index['files']))).replace('ARCHIVES',str(len(index['archives']))).replace('ARCHIVE_MEMBERS',str(sum(len(x) for x in index['archives'].values()))))
   import re,urllib.parse
   links=0
@@ -213,5 +223,13 @@ def main():
  p=argparse.ArgumentParser();p.add_argument('action',choices=['local','enter-preparation','prepare','fixtures','pair','cleanup','validate','seal']);p.add_argument('--work',required=True);a=p.parse_args();r=Round(a.work);r.action=a.action
  if a.action in ['local','enter-preparation','prepare','fixtures','pair'] and (r.w/'analysis-scope.json').exists():raise RuntimeError('analysis-frozen')
  if a.action=='seal':snapshot(r.w,['python3',str(HERE/'round.py'),'seal','--work',str(r.w)],'finish','closing')
- getattr(r,a.action.replace('-','_'))()
+ try:getattr(r,a.action.replace('-','_'))()
+ except Exception:
+  if a.action in ['prepare','fixtures']:
+   # Freeze the actual analysis snapshots and register safety cleanup before dispatch.
+   if not (r.w/'analysis-scope.json').exists():
+    ids=sorted(p.stem for p in (r.w/'snapshots').glob('*.json'));write(r.w/'analysis-scope.json',rows(r.w/'snapshots',ids));write(r.w/'closing-registry.json',[])
+   snapshot(r.w,['python3',str(HERE/'round.py'),'cleanup','--work',str(r.w)],'finish','closing')
+   r.action='cleanup';r.cleanup()
+  raise
 if __name__=='__main__':main()

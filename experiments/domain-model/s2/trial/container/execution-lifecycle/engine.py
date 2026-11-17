@@ -3,6 +3,7 @@ import argparse,datetime,json,os,pathlib,sys,time,uuid
 HERE=pathlib.Path(__file__).resolve().parent
 sys.path[:0]=[str(HERE),str(HERE.parent/'lifecycle'),'/opt/ontosary-fixture/code']
 import common as c
+import reference
 from collector import collect,inventory
 from identity import RUNTIME_ENV,ROLES,normalize,compare,RULE,expected_legacy
 c.NERD[0]='/usr/local/bin/nerdctl';c.CTR[0]='/usr/local/bin/ctr'
@@ -22,7 +23,16 @@ def pending(s):return any(s.get(k) for k in PENDING)
 def revoke(run):
     if (run/'result').exists():os.rename(run/'result',run/'quarantined-result');c.event(run,'result-revoked')
 def blocked(run,error,discard=True):
-    revoke(run);c.state(run,state='blocked',collectionStatus='suppressed',cleanupDone=False,recoveryRequired=True,discardVM=discard,error=str(error));gate(run,False,'discard-vm-required' if discard else 'recovery-required')
+    revoke(run);previous=c.read(run/'state.json');errors=previous.get('additionalErrors',[])
+    if previous.get('error'):errors=errors+[str(error)]
+    c.state(run,state='blocked',collectionStatus='suppressed',cleanupDone=False,recoveryRequired=True,discardVM=discard,error=previous.get('error') or str(error),additionalErrors=errors)
+    c.write(run/'blocked-receipt.json',{'runId':run.name,'reason':str(error),'resultRevoked':True,**c.stamp()})
+    try:gate(run,False,'discard-vm-required' if discard else 'recovery-required')
+    except Exception as e:c.event(run,'blocked-gate-error',error=str(e))
+    if (run/'reference.json').exists():
+        try:reference.release(run,UNITS,command,blocked=True)
+        except Exception as e:c.event(run,'reference-release-failed',error=str(e))
+
 def native(run,name,phase='remove'):
     return json.loads(command(run,c.NERD+['inspect','--mode=native',name],phase)[1])[0]
 def list_containers(run,phase='remove'):
@@ -60,7 +70,7 @@ def register(mode,remaining,host_deadline):
     text=f'[Unit]\nDescription=Ontosary finite execution supervisor\n[Service]\nType=exec\nWorkingDirectory={SHARED}\nExecStart=/usr/bin/python3 {HERE}/engine.py supervise {rid}\nExecStopPost=/usr/bin/python3 {HERE}/engine.py finalize {rid}\nRestart=no\nRuntimeMaxSec={max(.1,finish-40-time.monotonic()):.3f}\nTimeoutStopSec=39\nKillMode=control-group\nKillSignal=SIGKILL\n'
     try:
         (UNITS/service).write_text(text);(run/service).write_text(text)
-        command(run,['systemctl','daemon-reload'],'work');command(run,['systemctl','start',service],'work',5)
+        reference.acquire(run,UNITS,command);command(run,['systemctl','start',service],'work',5)
     except Exception as e:
         c.state(run,outcome='registration-failure',error=str(e));finalize(run)
         raise
@@ -117,7 +127,7 @@ def request(run,kind,args,timeout=10):
 def supervise(run):
     try:
         with c.lock(run/'operation.lock',deadline(run,'work')):
-            prepare(run);s=c.read(run/'state.json')
+            reference.invocation(run,UNITS,command);prepare(run);s=c.read(run/'state.json')
             if resolve_owned(run,'work'):raise RuntimeError('planned-name-already-exists')
             created=request(run,'create',create_args(run),30)
             if created[0]:c.state(run,outcome='create-failure',reason='create-failure');return
@@ -222,18 +232,17 @@ def seal(run,recover=False):
             if resolve_owned(run,'finish') or pending(s):raise RuntimeError('recovery-resource-present')
             c.write(run/'recovery.json',{'priorOutcome':s['outcome'],'confirmed':True,**c.stamp()});gate(run,True,'explicit-recovery')
         return s
-    status=command(run,['systemctl','show',s['service'],'-p','ActiveState','-p','InactiveEnterTimestampMonotonic'],'finish')[1]
-    fields=dict(line.split('=',1) for line in status.splitlines() if '=' in line)
-    if fields.get('ActiveState') not in ['inactive','failed']:return s
-    inactive=int(fields.get('InactiveEnterTimestampMonotonic','0'))/1000000
+    receipt=reference.end_observation(run,UNITS,command)
+    if receipt is None:return s
+    inactive=receipt['inactiveAtMono']
     if not s.get('cleanupDone') or not s.get('terminationConfirmed') or not s.get('removalConfirmed') or pending(s):raise RuntimeError('cleanup-unconfirmed')
     # Unloaded unit may lose timestamp after daemon-reload: preserve a prior systemd proof only.
     if inactive<=0 or inactive>s['deadlines']['finish']:raise RuntimeError('inactive-deadline-unconfirmed')
     if resolve_owned(run,'finish'):raise RuntimeError('late-container')
     if pathlib.Path(s['cgroup']).exists():raise RuntimeError('late-cgroup')
     if time.monotonic()>s['deadlines']['finish']:raise RuntimeError('external-observation-deadline')
-    (UNITS/s['service']).unlink()
-    command(run,['systemctl','daemon-reload'],'finish')
+    c.write(run/'seal-receipt.json',receipt)
+    reference.release(run,UNITS,command)
     c.state(run,serviceInactiveConfirmed=True,unitFilesRemoved=True,inactiveAtMono=inactive,sealedAt=c.stamp())
     if s['recoveryRequired'] and not recover:gate(run,False,'explicit-recovery-required')
     else:
@@ -255,8 +264,13 @@ def reap():
         time.sleep(.1)
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('action',choices=['register','supervise','finalize','observe','recover','heartbeat','reap','status']);p.add_argument('value',nargs='?');p.add_argument('--remaining',type=float);p.add_argument('--host-deadline');a=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument('action',choices=['register','supervise','finalize','observe','recover','heartbeat','reap','reaper-failed','status']);p.add_argument('value',nargs='?');p.add_argument('--remaining',type=float);p.add_argument('--host-deadline');a=p.parse_args()
     if a.action=='reap':reap();return
+    if a.action=='reaper-failed':
+        if (c.ROOT/'runs').exists():
+            for run in (c.ROOT/'runs').iterdir():
+                if (run/'state.json').exists() and not c.read(run/'state.json').get('serviceInactiveConfirmed'):blocked(run,'reference-observer-stopped')
+        return
     if a.action=='register':register(a.value,a.remaining,a.host_deadline);return
     run=c.runpath(a.value)
     if a.action=='status':

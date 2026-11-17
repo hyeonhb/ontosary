@@ -1,0 +1,15 @@
+{
+  "scope": "final",
+  "runId": null,
+  "evidenceStatus": "diagnostic",
+  "errors": [],
+  "secondsAvailable": 30,
+  "partialPublished": false,
+  "verified": {
+    "files": 155,
+    "bytes": 4700793
+  },
+  "artifact": "recovery-final.tar.gz",
+  "archiveSha256": "8a93d1437f230c02872e2078f2fabf4b2f7c814c2c658afacfd907cdc59bebb6",
+  "seconds": 0.5687303750019055
+}

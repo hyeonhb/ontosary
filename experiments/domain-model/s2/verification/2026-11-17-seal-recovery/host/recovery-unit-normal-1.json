@@ -1,0 +1,15 @@
+{
+  "scope": "unit-normal-1",
+  "runId": "8273e05aa79a",
+  "evidenceStatus": "complete",
+  "errors": [],
+  "secondsAvailable": 30,
+  "partialPublished": false,
+  "verified": {
+    "files": 35,
+    "bytes": 525546
+  },
+  "artifact": "recovery-unit-normal-1.tar.gz",
+  "archiveSha256": "29437cd131604cf7e21ae5ceb64bed4d5bdeed8c61e0c1b226b56d7007b99867",
+  "seconds": 0.4982840419979766
+}

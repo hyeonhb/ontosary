@@ -26,6 +26,7 @@ class PrepareCacheTests(unittest.TestCase):
     return super().lookup(request,end)
   def cmd(args,**kw):
    self.calls.append((name,'cmd',args))
+   if args[1]=='shell':return {'exitCode':0},json.dumps({'path':'/tmp/ontosary-transfer-test','uid':501})
    if len(args)>2 and args[1]=='copy' and args[2].endswith(':/opt/ontosary-execution/image.tar'):
     if forbid_build:self.fail('save/export producer called on hit')
     shutil.copyfile(self.archive,args[3])
@@ -35,7 +36,7 @@ class PrepareCacheTests(unittest.TestCase):
    if args[:2]==['python3','-c']:return {'exitCode':0},json.dumps({'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'guestMonotonic':1})
    if args[-1]=='build' and forbid_build:self.fail('build called on cache hit')
    if args[0]=='cat':return {'exitCode':0},json.dumps(self.export)
-   if args[-1]=='import' and import_bad:raise RuntimeError('import-image-identity')
+   if len(args)>2 and args[2]=='import' and import_bad:raise RuntimeError('import-image-identity')
    return {'exitCode':0},''
   obj.cmd=cmd;obj.guest=guest;real_sha=round_module.sha
   def changed_sha(p):return 'different-probe' if probe_change and str(p).endswith('retry-probe.mjs') else real_sha(p)
@@ -46,11 +47,11 @@ class PrepareCacheTests(unittest.TestCase):
   def forbidden_download(*a):
    def producer(sink):self.fail('download producer called')
    return producer
-  with patch.object(round_module,'Store',FakeDownloads),patch.object(round_module,'download',forbidden_download),patch.object(round_module,'sha',side_effect=changed_sha),patch.object(round_module,'build_inputs',side_effect=inputs):obj.prepare()
+  with patch('recovery.retrieve',return_value={'evidenceStatus':'diagnostic'}),patch.object(round_module,'Store',FakeDownloads),patch.object(round_module,'download',forbidden_download),patch.object(round_module,'sha',side_effect=changed_sha),patch.object(round_module,'build_inputs',side_effect=inputs):obj.prepare()
   return json.loads((w/'image-artifact.json').read_text())
  def test_actual_entrypoint_miss_then_distinct_round_hit(self):
   first=self.prepare('first');second=self.prepare('second',forbid_build=True,probe_change=True)
-  self.assertEqual(first['builds'],1);self.assertEqual(second['builds'],0);self.assertEqual(first['binding'],second['binding']);self.assertTrue(any(n=='second' and args[-1]=='prepare' for n,kind,args in self.calls))
+  self.assertEqual(first['builds'],1);self.assertEqual(second['builds'],0);self.assertEqual(first['binding'],second['binding']);self.assertEqual(sum(n=='second' and kind=='guest' and len(args)>2 and args[2]=='publish' for n,kind,args in self.calls),2);self.assertTrue(any(n=='second' and args[-1]=='prepare' for n,kind,args in self.calls))
  def test_real_build_inputs_invalidate_key(self):
   self.prepare('first')
   # A miss must reach build; stop there instead of claiming the same fake output is new.

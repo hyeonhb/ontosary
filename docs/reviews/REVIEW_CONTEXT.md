@@ -1,5 +1,7 @@
 # 독립 리뷰 맥락
 
+2026-11-17 최신 구현 인계는 [진단/봉인/정리 결과](2026-11-17-s2-seal-recovery.md)(ADR-052)다. PR #54에서 metadata의 UID501→root/mode0600 게시, active target reference와 InvocationID/raw inactive timestamp 봉인, 제한된 단계별 진단 회수와 독립 VM 정리를 보완했다. 기본 정책7/7·whole Spec7개/봉인7개 재대조·회수9개, pnpm check304·Python174·과거2/새 verifier 통과, 자원 정리 완료다. fixture 검증 완료와 R11/CLI native sandbox·모델 효용은 구분한다. PR #54 미병합·정책 pair/인증/model/본 비교 보류다. 독립 리뷰는 새 evidence/최종 코드/전달 hash와 R15/R16/R17 실패 회귀를 대조한다.
+
 2026-11-17 최신 개발 지시는 [진단/봉인/정리 보완](2026-11-17-s2-seal-recovery-instructions.md)(ADR-051)이다. ff7ec19(PR #54)을 이어 R15 잔여·R16·R17을 같은3시간/VM1개/기본 정책7단위 안에서 확인한다. R14 재사용은 유지하고 새 build·정책 pair·인증/model·본 비교는 제외한다. 사용자는 앞으로 논의가 필요 없는 보완은 리뷰와 함께 지시문도 바로 제공하도록 요청했다. 합의된 구조의 결함 수정은 바로 작성하고, 주요 방향/아키텍처 변경·범위/비용/권한 확대는 먼저 논의한다. 이것을 개발 세션 자동 실행이나 보류된 시험의 포괄 승인으로 확대하지 않는다.
 
 2026-11-17 [보완 독립 리뷰](2026-11-17-s2-execution-lifecycle-fix-independent-review.md)가 최신 판단이다. PR #54 ff7ec19의 partial/blocked 보고에 동의하며 R14 재사용은 확인했다. R13은 raw Spec 유실로 검증 미완료, R15는 metadata 관리자 소유 게시/실패 진단 보존을 보완해야 한다. R16은 service 종료 증거 수명과 봉인, R17은 export/copy 예외가 cleanup을 중단하는 문제다. 304+146 검사·새123/과거126 증거·소스/준비물 연결을 확인했고 실제 VM 재실행은 없다. 다음 구조/예산은 사용자와 정하며 구현 PR #54·정책 대조·실제 인증/model/본 비교는 계속 보류한다.

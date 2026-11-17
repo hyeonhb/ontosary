@@ -1,0 +1,15 @@
+{
+  "scope": "unit-precheck-rejection",
+  "runId": "cad253dd9638",
+  "evidenceStatus": "diagnostic",
+  "errors": [],
+  "secondsAvailable": 30,
+  "partialPublished": false,
+  "verified": {
+    "files": 26,
+    "bytes": 428867
+  },
+  "artifact": "recovery-unit-precheck-rejection.tar.gz",
+  "archiveSha256": "854dfc26db866761ab90afef91d76a17ef6833665549767de502413476e6574f",
+  "seconds": 0.4986836659954861
+}

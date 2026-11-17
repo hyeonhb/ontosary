@@ -422,3 +422,14 @@ pnpm check304·Python146(새30 포함)을 검증하고 소유 VM/임시 실행 �
 **구조:** [지시](reviews/2026-11-17-s2-seal-recovery-instructions.md)는 회수 예외와 VM 최종 정리를 분리하고, 전달 metadata를 검증한 뒤 관리자 소유로 게시한다. 정상 결과와 실패 진단은 상태를 구분하되 같은 누적 상한을 쓰며 거부 파일은 제외하고 허용 진단을 보존한다. 기존 독립 관리자가 service reference를 시작 전부터 봉인까지 유지하고, 원시 조회와 invocation/종료 시각을 연결한 뒤 해제한다. 검증된 도구 안에서 최소 표현을 선택하며 새로운 backend/상주 플랫폼/의존성을 도입하지 않는다. GC는 이전 실패의 확정 원인이 아니라 검증할 가설이다.
 
 **상한과 인계:** 직전과 같은3시간·60/100/150/180분 gate·환경 진입20분·VM1개·기본 정책7단위·단위120초·cache10GiB·build0·유료0이다. 회수는 최대30초로 제한하고 회차 정리에90초를 남긴다. 실패 뒤 자동 재시도 없이 진단/정리/부분 인계하며 실제 정책 대조·권한 확대·인증/model·본 비교는 결과 리뷰 뒤 결정한다. PR #54 보완은 게시 후 독립 리뷰를 기다린다. PR #54의 ADR-050과 과거 증거는 보존한다. 이 기록은 지시이며 구현·실제 검증 완료가 아니다.
+
+
+## ADR-052 · 진단 보존·service reference·독립 정리와 기본 정책 7단위 검증 — 2026-11-17
+
+[ADR-051 지시](reviews/2026-11-17-s2-seal-recovery-instructions.md)에 따라 PR #54의 기존 실행 경계 안에서 보완했다. [결과](reviews/2026-11-17-s2-seal-recovery.md)는 metadata의 FD/hash/schema/UID 검증 후 관리자 원자 게시, 동일 누적 상한의 정상 결과/실패 진단/오류 receipt, 증거 회수와 최종 자원 정리 분리를 담는다. 회수 실패가 stop/delete를 건너뛰는 기존 결함을 먼저 재현하고 실제 Round.cleanup 회귀로 확인했다.
+
+service 수명 보유자는 기존 독립 observer에 BindsTo로 연결한 active target이며 After 참조만 worker에 둔다. 시작 전에 획득하고 InvocationID·raw systemd 상태·finalizer/종료/삭제를 연결한 durable seal 또는 blocked receipt 뒤 해제한다. worker를 재시작하는 의존성을 추가하지 않았고 이전 실패의 GC를 확정 원인으로 단정하지 않는다.
+
+새 VM1개·기본 정책 필수7단위가 기대 결과와120초 외부 상한을 통과했다. raw Spec7개와 service seal7개를 오프라인 재대조했고 준비/각 단위/최종 회수9개를 보존했다. 실제 UID501→root/mode0600 게시, cache build/download/save0·import1, VM/소유 process/관리 root 제거를 확인했다. pnpm check304·Python174(새28 포함)·과거 두 verifier·새 verifier가 통과했다. 공개 archive4개만 의도적으로 보관하며 과거 실패/증거는 수정하지 않았다.
+
+R13/R14 유지와 R15/R16/R17은 이 fixture 검증 범위에서 결과 리뷰에 제출한다. 실제 observer 사망·transport 장애 주입은 새 VM 추가 없이 로컬 회귀로 검증한 범위다. 이번은 R11 전체 해결·CLI native sandbox·모델 효용 증명이나 본 비교 승인이 아니다. PR #54는 갱신 후 독립 리뷰를 기다리고 병합하지 않는다. R11 unresolved·R12 기존 범위·production/live 거부·fixtureOnly=true·validSubmission=false·trialAuthorized/readyForTrial=false·results=null을 유지한다.

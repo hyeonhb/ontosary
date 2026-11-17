@@ -1,15 +1,15 @@
 # S2 finite execution lifecycle
 
-This is a fixture runner for the approved 2026-11-15 correction round, not a production
-adapter. R11 remains unresolved; production/live dispatch remains refused.
+This is a fixture runner for the approved 2026-11-17 seal/recovery round.
+R11 remains unresolved; production/live dispatch remains refused.
 Every result is `fixtureOnly=true`, `validSubmission=false`;
 `trialAuthorized=false`, `readyForTrial=false`, `results=null` remain unchanged.
-See the [development handoff](../../../../../../docs/reviews/2026-11-15-s2-execution-lifecycle-fix.md)
-for actual observations and limitations. Code availability is not proof that the
-seven required real failure paths passed. The correction round stopped after the
-first unit: service-inactivity proof failed, then export rejected transferred
-metadata ownership. No guest evidence archive was published; six units remain
-unattempted. See the handoff before any new runtime work.
+The [latest handoff](../../../../../../docs/reviews/2026-11-17-s2-seal-recovery.md)
+records all seven required default-policy fixtures, seven raw Spec/seal replays,
+nine stage recovery archives, and confirmed VM disposal. These observations do
+not establish CLI native sandbox feasibility or authorize a trial. PR #54 awaits
+independent review. The [previous handoff](../../../../../../docs/reviews/2026-11-15-s2-execution-lifecycle-fix.md)
+retains the earlier seal/metadata failure without a guest archive.
 
 The three responsibilities are deliberately separate:
 
@@ -76,7 +76,7 @@ inputs are in the saved manifests. No large artifact is committed to Git.
 
 Lima receives verified **local** archive paths. Its existing shared cache is not
 modified or trusted as a hash receipt. The round's VM, extracted tools and disks
-live under `/tmp/ontosary-s2-execution-lifecycle-fix-20261115` and are disposable.
+live under `/tmp/ontosary-s2-seal-recovery-20261117` and are disposable.
 Every source/output/HOME/CLI-state/scratch directory is fresh. No worker mount
 exposes the host store, host home, keychain, runtime socket or manager controls.
 Prepared archive retention is intentional and distinct from resource leakage.
@@ -96,14 +96,16 @@ python3 -m unittest discover -s experiments/domain-model/s2/trial/container/sing
 hashes. `enter-preparation` fixes the environment deadline once; `prepare` requires
 that gate unchanged. Execute these through `single-policy-test/command.py` with
 exact command/args/phase entries in `plan.json`. Preparation uses the same remaining
-20-minute deadline for download, extraction, boot, build, archive import and hash
-checks. `image_cache.py` hashes canonical `s2-image-input-v1` JSON containing the
+20-minute deadline for cache verification, extraction, boot, archive import and hash
+checks. This round requires cache hits: no download/build/save on a miss. `image_cache.py` hashes canonical `s2-image-input-v1` JSON containing the
 base digest, exact Dockerfile/context bytes, build args, platform and tool bundle
 versions/digest. Runtime-mounted probes and policies are separate execution hashes.
 The actual `prepare` entrypoint looks up this key **before** build/save. A hit
 rehashes the stored output and checks its OCI manifest/config/rootfs chain; the
 fresh VM then imports it and independently verifies actual image identity.
-A miss permits one build. Output SHA/size/identity are bound separately to the key.
+The legacy preparation path permits one build on a miss; this round sets
+`cacheOnly=true` and stops on missing or corrupt inputs. Output SHA/size/identity
+are bound separately to the key.
 A verified legacy-link record may reference existing immutable output manifests;
 old evidence/manifests are never rewritten. Changed recipes invalidate lookup.
 Unpinned external apt/npm queries mean new builds are not claimed reproducible.
@@ -128,6 +130,21 @@ violations are refused before publication. The verified archive/index pair is
 published together by atomic directory rename; failures publish no partial pair.
 
 
+`metadata.py` publishes validated transport bytes through manager-owned temporary
+files, mode 0600 and atomic rename; UID/hash/schema/binding are checked across
+transfer, import and export. Root-owned diagnostic archives are readable for host
+retrieval and never mounted into workers.
+
+`reference.py` starts a manager target with `After=<worker.service>` and a
+`BindsTo` relationship to the existing seal observer. It pins InvocationID and
+stores raw systemd observations before interpretation. A durable seal or blocked
+receipt precedes release; only confirmed release opens the next execution.
+`recovery.py` retrieves at preparation and each unit boundary. A failed individual
+diagnostic is excluded with a reason; invalid results cannot be partially published.
+Metadata and error receipts consume the same cumulative quota. Final retrieval
+uses at most 30 seconds and leaves 90 seconds for independent stop/delete/absence
+checks. Evidence and cleanup status are separate, including on top-level failure.
+
 Freeze explicit analysis IDs/hashes before closing. Only the planned `cleanup`,
 `validate`, `seal` closing commands may be registered; package rejects undeclared
 or forged analysis/closing commands. `seal` registers its own snapshot before
@@ -140,3 +157,9 @@ Implementation references:
 [Lima v2.3.0 downloader](https://github.com/lima-vm/lima/blob/v2.3.0/pkg/downloader/downloader.go),
 [nerdctl v2.4.2 hook creation](https://github.com/containerd/nerdctl/blob/v2.4.2/pkg/cmd/container/create.go),
 [systemd v260 service environment](https://github.com/systemd/systemd/blob/v260/man/systemd.exec.xml).
+
+Latest offline replay (no runtime dispatch):
+
+```sh
+python3 experiments/domain-model/s2/trial/container/execution-lifecycle/verify_recovery.py --root experiments/domain-model/s2/verification/2026-11-17-seal-recovery
+```

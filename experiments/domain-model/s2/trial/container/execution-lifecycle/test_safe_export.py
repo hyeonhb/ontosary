@@ -19,7 +19,7 @@ class ExportTests(unittest.TestCase):
  def collected(self):
   record=collect(self.run,self.baseline,self.term);self.state['collectionStatus']='collected';self.state['state']='finalized';self.save();return record
  def export(self,**kwargs):
-  with patch.object(guest.c,'ROOT',self.root),patch.object(guest,'SHARED',self.shared),contextlib.redirect_stdout(io.StringIO()):return guest.export(target=self.target,deadline=kwargs.pop('deadline',time.monotonic()+3),**kwargs)
+  with patch.object(guest.c,'ROOT',self.root),patch.object(guest,'SHARED',self.shared),contextlib.redirect_stdout(io.StringIO()):return guest.export(target=self.target,deadline=kwargs.pop('deadline',time.monotonic()+3),strict=kwargs.pop('strict',True),**kwargs)
  def members(self):
   with tarfile.open(self.target/'evidence.tar.gz') as t:return {m.name:t.extractfile(m).read() for m in t}
  def test_collector_to_exact_export(self):
