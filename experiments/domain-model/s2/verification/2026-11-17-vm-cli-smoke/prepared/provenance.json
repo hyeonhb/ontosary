@@ -1,0 +1,35 @@
+{
+  "baseHead": "e8784ae4f5cde36d9205ee43575a70cede4ee6c0",
+  "selectionSource": {
+    "commit": "ed0250bd534bedfe994814bdf0a6920cb5eb727f",
+    "path": "experiments/domain-model/s2/trial/vm-cli-feasibility/materialize.py",
+    "hash": "ead149b960148d59ac57633ff937052b817f7986c71f5db6d05427984857f092",
+    "changed": true,
+    "originalHash": "62677e6e0429b9a337f299c5e7ed8d2b6f5827c26f0b49988654ed8551d44a5a",
+    "change": "skip only normal dot root-directory metadata; all path/link/file checks retained"
+  },
+  "cacheManifestSource": {
+    "commit": "ed0250bd534bedfe994814bdf0a6920cb5eb727f",
+    "path": "experiments/domain-model/s2/verification/2026-11-17-vm-cli-feasibility/public-cache.json"
+  },
+  "hostInterpreter": {
+    "path": "/opt/homebrew/Cellar/python@3.13/3.13.13_1/Frameworks/Python.framework/Versions/3.13/bin/python3.13",
+    "version": "3.13.13 (main, Apr  7 2026, 18:19:01) [Clang 21.0.0 (clang-2100.0.123.102)]",
+    "fileDigestSupported": true,
+    "extractallSignature": "(self, path='.', members=None, *, numeric_owner=False, filter=None)"
+  },
+  "reusedHashes": {
+    "experiments/domain-model/s2/trial/container/lima.yaml": "9a3eddc6cff17057a1657843fa623ba3de4ea3d4e0094bc403fd951528ce31f9",
+    "experiments/domain-model/s2/trial/container/cli-feasibility/policy.toml": "a8ad466d3c6f1d971358ec8d5079305099f8daa58a33b33aac6e39bc8a75e90d",
+    "experiments/domain-model/s2/trial/container/single-policy-test/deadline.py": "7bcffdd5e50426e4984b51129b56ece08980a35ba857e62efc2dab582ef93a44",
+    "experiments/domain-model/s2/trial/container/execution-lifecycle/artifacts.py": "dd3211cbd90887a5eaa83ddf2d1cf9807c7c205652bcf7a99665d5487ec33e4a",
+    "experiments/domain-model/s2/trial/container/execution-lifecycle/recovery.py": "cd406db16d8be3ed98c58af20c0c14d137146da7fefa88feac205f9cdd08f17a"
+  },
+  "cleanupAdaptation": "ownership, stop/delete, list and owned-process absence from recovery.cleanup; omit container export/store mutation; independent finite safety calls",
+  "r19Socket": "not-used; not-fixed",
+  "selectionRegressionSource": {
+    "commit": "ed0250bd534bedfe994814bdf0a6920cb5eb727f",
+    "path": "experiments/domain-model/s2/trial/vm-cli-feasibility/test_local.py",
+    "selection": "ExtractionTests class only"
+  }
+}

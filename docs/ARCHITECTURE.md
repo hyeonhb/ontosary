@@ -1,5 +1,7 @@
 # 현재 아키텍처
 
+2026-11-17 [직접 VM CLI smoke 관측](reviews/2026-11-17-s2-vm-cli-smoke.md)(ADR-058): 별도 host watchdog/소유 VM 폐기와 기본 OS transient service만 연결했다. 실제 worker UID/GID22002·capability0/NNP·cgroup 자원·loopback만 있는 별도 network namespace를 확인했다. Node/CLI 고정 버전과 PID/service 연결은 확인했지만 native sandbox는 bubblewrap 명령 구성 중 EROFS/exit1로 payload 전에 차단됐다. 정확한 쓰기 대상·하위 원인은 미관측이며 전체 C안 채택·격리/제출 종료 계약으로 승격하지 않는다. VM 정리는 완료했고 기존 container/평가기·공유 구현은 불변이다. 아래는 당시 기록이다.
+
 2026-11-17 승인된 다음 관측(ADR-057): [60분 최소 호환성 지시](reviews/2026-11-17-s2-vm-cli-smoke-instructions.md)는 같은 C안 후보에서 VM1개·고정 CLI sandbox1회로 작은 source 읽기/쓰기·materials 읽기를 확인한다. 관리자 마감/VM 폐기와 worker 비특권·외부 통신 차단을 유지하며, 새 supervisor/봉인 프로토콜·평가 제출 수집은 만들지 않는다. 호스트의 유한 진단을 남기고 결과 관측 직후 VM을 폐기한다. 이는 제한된 실행 호환성 관측으로 전체 격리/종료 계약이나 C안 채택을 증명하지 않는다. 아래는 당시 기록이다.
 
 2026-11-17 [직접 VM 후보 독립 리뷰](reviews/2026-11-17-s2-vm-cli-feasibility-independent-review.md): C안은 준비 gate 미달로 VM/CLI 관측0이며 미확정이다. PR #67의 host/guest/worker는 비활성 초안이고 제품/기존 container 경로는 불변이다. 호스트 Python API·worker socket 권한 불일치(R19)와 watchdog 종료 연결 등 실행 전 보완이 남는다. 준비된 코드량을 동작 근거로 보지 않으며 가설 우선의 축소 검증을 제안한 상태다. 기존 보장이나 C안의 책임 분담을 변경·채택한 결과가 아니다. 아래는 당시 기록이다.

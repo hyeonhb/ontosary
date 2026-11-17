@@ -1,5 +1,7 @@
 # 현재 작업 상태 — 새 세션은 이 문서부터 읽기
 
+2026-11-17 [직접 VM CLI smoke 결과](reviews/2026-11-17-s2-vm-cli-smoke.md)(ADR-058)는 **blocked-before-payload·정리 완료**다. 새 VM1개에서 전용 UID/GID22002·capability0/NNP·CPU2/4GiB/Tasks256·외부 route 없는 별도 network namespace를 확인한 뒤 고정 CLI sandbox1회를 실행했다. 명령 구성 중 `Read-only file system (os error 30)`/exit1, payload 표식·출력 없음으로 재시도 없이 중단했다. VM/소유 process/root와 watchdog 부재를 확인했다. pnpm check304·Python17·오프라인 부정4건 통과, 기존 코드/증거 불변이다. 정확한 실패 경로는 미관측이며 다음은 독립 리뷰다. 새 PR과 PR #67은 리뷰 전 미병합, R11 unresolved·R19 socket 미사용/미수정·인증/model/본 비교 보류·H-O/H-F 미검증을 유지한다. 아래는 당시 기록이다.
+
 2026-11-17 사용자는 [직접 VM CLI 최소 호환성 시험](reviews/2026-11-17-s2-vm-cli-smoke-instructions.md)을 **총60분·새 VM1개·실제 sandbox 명령1회**로 승인했다(ADR-057). 15분은 중간 점검이며45분부터 새 실험을 중단하고 정리/검증/보고한다. 고정 도구·준비물과 최소 마감/폐기 수단을 재사용하고 R19의 실제 재사용 경로만 보완한다. 전체 비활성 runner·인증/socket 부정 대조·새 봉인/제출 수집·VM2 반복은 제외한다. 이번은 지시 작성이며 pnpm check304테스트·타입/예제 build와 문서 링크280개를 확인했다. 새 VM/CLI/인증/model 실행은 없다. 구현은 새 PR로 인계하고 독립 리뷰 전 병합하지 않는다. PR #67·전체 C안 채택·R11 해결·본 비교는 보류한다. 아래는 당시 기록이다.
 
 2026-11-17 [C안 타당성 독립 리뷰](reviews/2026-11-17-s2-vm-cli-feasibility-independent-review.md): PR #67 head ed0250b의 **inconclusive 기록을 재현**했다. 90분 소진이 아니라15분 최소 구현 gate 미달로 VM0/단위0에서 중단했고 전체1831.075초였다. pnpm check304·Python98·18파일/과거3474파일·공개 cache4개 hash를 대조했다. 비활성 초안의 호스트 Python API와 Unix socket 디렉터리 권한 불일치(R19), 기존 watchdog 마감 예외를 확인했다. C안 불가능 근거는 없으며 검증 순서 축소를 권고한다. 새60분·VM1·payload1 호환성 시험은 미합의 제안이다. PR #67 미병합·새 runtime/인증/model0·R11 unresolved를 유지한다. 아래는 당시 기록이다.

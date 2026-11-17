@@ -1,0 +1,18 @@
+{
+  "atUtc": "2026-11-17T13:58:18.377885+00:00",
+  "atMonotonic": 237411.88282025,
+  "elapsedSeconds": 892.3947700830176,
+  "purpose": "15-minute progress checkpoint, not a completion gate",
+  "state": "actual observation complete, VM disposed; local evidence/report work remains",
+  "observation": "blocked-before-payload",
+  "nativeStderr": "error building bubblewrap command: Read-only file system (os error 30)\n",
+  "sandboxAttempts": 1,
+  "vmRegistrations": 1,
+  "cleanupStatus": "complete",
+  "remainingWork": [
+    "offline raw/hash consistency check",
+    "report and project documentation",
+    "commit and independent-review PR"
+  ],
+  "newExperimentsAllowed": false
+}

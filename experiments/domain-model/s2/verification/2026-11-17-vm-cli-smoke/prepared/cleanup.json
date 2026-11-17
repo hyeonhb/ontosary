@@ -1,0 +1,27 @@
+{
+  "cleanupStatus": "complete",
+  "vmAbsent": true,
+  "rootAbsent": true,
+  "attempts": [
+    [
+      "/private/tmp/ontosary-s2-vm-smoke-20261117/prefix/bin/limactl",
+      "stop",
+      "--force",
+      "ontosary-s2-vm-smoke"
+    ],
+    [
+      "/private/tmp/ontosary-s2-vm-smoke-20261117/prefix/bin/limactl",
+      "delete",
+      "--force",
+      "ontosary-s2-vm-smoke"
+    ],
+    [
+      "/private/tmp/ontosary-s2-vm-smoke-20261117/prefix/bin/limactl",
+      "list",
+      "--json"
+    ]
+  ],
+  "errors": [],
+  "vmDisposalIsNotSubmissionProof": true,
+  "ownedProcesses": []
+}

@@ -1,0 +1,23 @@
+{
+  "args": [
+    "/private/tmp/ontosary-s2-vm-smoke-20261117/prefix/bin/limactl",
+    "shell",
+    "--workdir=/tmp",
+    "ontosary-s2-vm-smoke",
+    "sudo",
+    "-n",
+    "python3",
+    "-c",
+    "import pathlib,tarfile,hashlib,json,sys; p=pathlib.Path('/tmp/ontosary-smoke-inputs.tar'); assert hashlib.file_digest(p.open('rb'),'sha256').hexdigest()==sys.argv[1]; b=pathlib.Path('/opt/s2-smoke'); assert not b.exists(); b.mkdir(); t=tarfile.open(p); assert all(m.isfile() and not m.name.startswith('/') and '..' not in pathlib.PurePosixPath(m.name).parts for m in t.getmembers()); t.extractall(b,filter='data'); manifest=json.loads((b/'manifest.json').read_text()); assert all(hashlib.file_digest((b/n).open('rb'),'sha256').hexdigest()==h for n,h in manifest.items()); p.unlink(); print(sys.version)",
+    "a2c77960effa56424ac409551f6917431f253af00789a4fa9110eac18973dda8"
+  ],
+  "startedUtc": "2026-11-17T13:56:25.989408+00:00",
+  "limitSeconds": 60,
+  "truncated": false,
+  "timedOut": false,
+  "capPerStream": 1048576,
+  "pid": 14639,
+  "exitCode": 0,
+  "seconds": 0.7833326249965467,
+  "finishedUtc": "2026-11-17T13:56:26.772747+00:00"
+}

@@ -475,3 +475,14 @@ ADR-056은 미병합 PR #67의 중단 인계에 사용된 번호로 보존한다
 15분은 중간 점검,45분은 새 준비/실험 종료,60분은 정리/검증/보고 완료 상한이다. 최소 마감/소유 VM 폐기 수단과 비특권·외부 통신 차단은 유지하고, source 읽기/쓰기·materials 읽기의 실제 실행/종료 결과만 유한 진단으로 남긴다. 전체 실행기·새 봉인/제출 수집·인증/socket 부정 대조·VM2 반복은 후속으로 둔다. R19는 이번에 재사용하는 호스트 경로만 보완하고 미사용 초안의 결함을 해결했다고 표현하지 않는다.
 
 고정 공개 cache/도구를 재사용하며 새 권한·패키지·후보·실제 인증/provider/model 호출을 도입하지 않는다. 실제 명령은 재시도하지 않고 관측 또는 차단 근거를 얻으면 정리한다. 새 PR을 독립 결과 리뷰 전에 병합하지 않으며 PR #67을 자동 병합/폐기하지 않는다. 이번은 지시 작성이고 runtime 관측은 없다. R11 unresolved·production/live 거부·본 비교/H-O/H-F 미검증을 유지하며 C안 채택과 후속 통합/예산은 결과 리뷰 뒤 정한다.
+
+
+## ADR-058 · 직접 VM의 단일 native CLI EROFS 관측 — 2026-11-17
+
+[ADR-057 축소 지시](reviews/2026-11-17-s2-vm-cli-smoke-instructions.md)를 새60분·VM1·실제 sandbox1 상한으로 수행했다. [결과](reviews/2026-11-17-s2-vm-cli-smoke.md)는 blocked-before-payload다. 전용 UID/GID22002·capability0/NNP·CPU2/4GiB/Tasks256와 별도 network namespace/loopback만 존재/외부 route 없음 확인 뒤 고정 CLI0.167.0-alpha.3.2가 bubblewrap 명령 구성 중 EROFS/exit1로 끝났다. Node22.19.0·실제 argv/hash/PID/service 연결은 확인했지만 payload 표식과 출력은 없다. 정확한 경로·syscall·LSM 원인을 추정해 확정하지 않고 실제 실패 뒤 수정/재시도/추가 trace를 하지 않았다.
+
+기존 공개 cache·절대 마감·소유 stop/delete/부재 확인을 사용하고 OS transient worker service 외 새 봉인/제출 수집 프로토콜은 만들지 않았다. PR #67의 선택 추출 함수와 해당 합성 회귀만 출처를 기록해 가져왔다. 첫 준비의 정상 OCI `.` 디렉터리 과잉 거부는 VM 생성 전 로컬 보완으로 처리하고 원문/전후 patch를 보존했다. 동일 최초 시각을 유지했으며 실제 sandbox 재시도가 아니다. R19의 재사용 host API는 설치돼 있던 Python3.13.13을 고정해 실제 함수/명령으로 검사했다. 미사용 socket 결함을 포함한 R19 전체 해결은 주장하지 않는다.
+
+실제 VM stop/delete/list exit0·소유 process/root와 watchdog 부재를 확인했다. service 추가 stop의 not-loaded/exit5와 초기 VM 미생성 준비의 stop exit1은 별도 원문으로 보존한다. 이번 VM 폐기는 모든 writer 종료→불변 제출 수집 보장의 대체가 아니다. pnpm check304·로컬 Python17·오프라인 부정4건을 확인했으며 공유 코드/제품/평가 의미·과거 증거는 불변이다. download/build/save·Vendure 재설치와 실제 모델 credential/login/refresh/provider/model/본 비교는0회다.
+
+다음은 최초 차단의 독립 리뷰다. 필요한 쓰기 경로 진단과 권한/구조 변경은 구분하고 다음 범위·예산을 별도로 정한다. 새 PR은 독립 리뷰 전 미병합이며 PR #67도 자동 병합/폐기하지 않는다. R11 unresolved·R12 기존 범위·production/live 거부·fixtureOnly=true·validSubmission=false·trialAuthorized/readyForTrial=false·results=null·H-O/H-F 미검증을 유지한다.

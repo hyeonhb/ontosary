@@ -1,0 +1,95 @@
+[
+  {
+    "actual": {
+      "bytes": 270513423,
+      "sha256": "fe0ef0e9840ee8932640e6058f84b7fa98050f9726e44af44883a5b804ae830e"
+    },
+    "ownerUid": 501,
+    "registeredAtMono": 176193.050174791,
+    "request": {
+      "buildInputHashes": {},
+      "bytes": 270513423,
+      "name": "nerdctl-full-2.4.2-linux-arm64",
+      "platform": "linux/arm64",
+      "sha256": "fe0ef0e9840ee8932640e6058f84b7fa98050f9726e44af44883a5b804ae830e",
+      "url": "https://github.com/containerd/nerdctl/releases/download/v2.4.2/nerdctl-full-2.4.2-linux-arm64.tar.gz",
+      "version": "2.4.2"
+    },
+    "path": "/Users/hyeon/Library/Caches/ontosary/s2-prepared-v1/fe0ef0e9840ee8932640e6058f84b7fa98050f9726e44af44883a5b804ae830e/data",
+    "cacheHit": true,
+    "verifiedAtMono": 237083.473556416
+  },
+  {
+    "actual": {
+      "bytes": 50317981,
+      "sha256": "b7af444bd8f91d3c307477e562f2cf3bd7595d62b9429185e4fa841563578cfc"
+    },
+    "ownerUid": 501,
+    "registeredAtMono": 175768.197831333,
+    "request": {
+      "buildInputHashes": {},
+      "maximumBytes": 55000000,
+      "name": "lima-2.3.0-Darwin-arm64",
+      "platform": "darwin/arm64",
+      "sha256": "b7af444bd8f91d3c307477e562f2cf3bd7595d62b9429185e4fa841563578cfc",
+      "url": "https://github.com/lima-vm/lima/releases/download/v2.3.0/lima-2.3.0-Darwin-arm64.tar.gz",
+      "version": "2.3.0"
+    },
+    "path": "/Users/hyeon/Library/Caches/ontosary/s2-prepared-v1/b7af444bd8f91d3c307477e562f2cf3bd7595d62b9429185e4fa841563578cfc/data",
+    "cacheHit": true,
+    "verifiedAtMono": 237083.503810708
+  },
+  {
+    "actual": {
+      "bytes": 445026816,
+      "sha256": "c15c09d5fbdcdbc1641238bc7875dd8c2e732aa2f6919b98eaed8e595afc9d68"
+    },
+    "ownerUid": 501,
+    "registeredAtMono": 176329.89512575,
+    "request": {
+      "buildInputHashes": {
+        "baseImage": "sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90",
+        "fixture": "5c12b1dc0b729749556bfe9e76357ac5fa6727f230ad9081d9944e2a1483fc1b",
+        "policy": "a8ad466d3c6f1d971358ec8d5079305099f8daa58a33b33aac6e39bc8a75e90d",
+        "probe": "952b773dbecd3a93c660c3ab3af153a115c82121724f7ef1d49d16890260fc85",
+        "recipe": "4a70e2341e549a929aa008e50bcdec3a45aa5daebcfdafc1ca2f01dddb5f0a59"
+      },
+      "bytes": 445026816,
+      "image": {
+        "chain": "sha256:3b5f9851906e2c4005a4f4ee0055626d8d719e61e060244b6f96e6a69cf8f7ee",
+        "config": "sha256:e3ab6ef0491100a63b97719f8dd7e7c12e682485b887eb2a2421c85963508f6d",
+        "name": "docker.io/library/ontosary-s2-execution:trace",
+        "platform": "linux/arm64",
+        "target": "sha256:64e3601e5f0cb3d8e48f0c1e3206ca952e276a5c16b7368b356cbaf3ba18293e"
+      },
+      "name": "ontosary-fixed-trace-image",
+      "platform": "linux/arm64",
+      "sha256": "c15c09d5fbdcdbc1641238bc7875dd8c2e732aa2f6919b98eaed8e595afc9d68",
+      "url": "local-build:fixed-public-inputs",
+      "version": "codex-0.167.0-alpha.3.2-node-22.19.0-strace"
+    },
+    "path": "/Users/hyeon/Library/Caches/ontosary/s2-prepared-v1/c15c09d5fbdcdbc1641238bc7875dd8c2e732aa2f6919b98eaed8e595afc9d68/data",
+    "cacheHit": true,
+    "verifiedAtMono": 237083.752653875
+  },
+  {
+    "actual": {
+      "bytes": 940373504,
+      "sha256": "8eb876c2ccc4b6ff89e4a65d511815923b285e04503ba465809bf587f763da24"
+    },
+    "ownerUid": 501,
+    "registeredAtMono": 176116.453985291,
+    "request": {
+      "buildInputHashes": {},
+      "bytes": 940373504,
+      "name": "ubuntu-26.04-20261016-arm64",
+      "platform": "linux/arm64",
+      "sha256": "8eb876c2ccc4b6ff89e4a65d511815923b285e04503ba465809bf587f763da24",
+      "url": "https://cloud-images.ubuntu.com/releases/resolute/release-20261016/ubuntu-26.04-server-cloudimg-arm64.img",
+      "version": "26.04-20261016"
+    },
+    "path": "/Users/hyeon/Library/Caches/ontosary/s2-prepared-v1/8eb876c2ccc4b6ff89e4a65d511815923b285e04503ba465809bf587f763da24/data",
+    "cacheHit": true,
+    "verifiedAtMono": 237084.28862325
+  }
+]

@@ -1,0 +1,6 @@
+Running as unit: ontosary-smoke.service; invocation ID: 2a341fb70225475f9364a297e96da01c
+          Finished with result: success
+Main processes terminated with: code=exited, status=0/SUCCESS
+               Service runtime: 235ms
+             CPU time consumed: 228ms
+                   Memory peak: 12.3M (swap: 0B)

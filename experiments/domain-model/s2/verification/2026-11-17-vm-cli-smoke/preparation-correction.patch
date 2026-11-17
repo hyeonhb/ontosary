@@ -1,0 +1,38 @@
+--- initial/materialize.py
++++ prepared/materialize.py
+@@ -29,6 +29,8 @@
+    with tarfile.open(fileobj=outer.extractfile('blobs/'+layer['digest'].replace(':','/')),mode='r|gz') as archive:
+     for member in archive:
+      if time.monotonic()>=end:raise TimeoutError('extraction-deadline')
++     # OCI layers may contain root-directory metadata. It is not an extraction target.
++     if member.name in ('.','./') and member.isdir():continue
+      name=safe_name(member.name)
+      if (member.issym() or member.islnk()) and any(p==name or p.startswith(name+'/') for p in SELECTED):raise ValueError('selected-ancestor-link')
+      # No whiteout may silently invalidate a selected file or its ancestor.
+--- initial/run.py
++++ prepared/run.py
+@@ -30,7 +30,8 @@
+         self.env={'PATH':'/usr/bin:/bin:/usr/sbin:/sbin','HOME':str(self.root/'home'),'LIMA_HOME':str(self.root/'lima'),'LANG':'C.UTF-8'}
+     def cmd(self,args,timeout=30,check=True,safety=False):
+         seconds=timeout if safety else limit(self.budget,self.phase,timeout)
+-        used=sum(p.stat().st_size for pattern in ['*.stdout','*.stderr'] for p in self.w.glob(pattern))
++        diagnostic_root=pathlib.Path(self.plan.get('diagnosticRoot',str(self.w)))
++        used=sum(p.stat().st_size for pattern in ['*.stdout','*.stderr'] for p in diagnostic_root.rglob(pattern))
+         cap=min(1024*1024,max(0,(4*1024*1024-used-65536)//2))
+         row=capture(args,seconds,env=self.env,cap=cap)
+         key='command-'+uuid.uuid4().hex[:12]
+--- initial/test_materialize.py
++++ prepared/test_materialize.py
+@@ -51,6 +51,12 @@
+     def test_selective_regular_file(self):
+         self.exercise([('public/tool', tarfile.REGTYPE, b'tool'), ('unselected', tarfile.REGTYPE, b'ignored')])
+ 
++    def test_root_directory_metadata_is_ignored(self):
++        self.exercise([('.', tarfile.DIRTYPE, b''), ('public/tool', tarfile.REGTYPE, b'tool')])
++
++    def test_root_regular_file_is_still_rejected(self):
++        self.exercise([('.', tarfile.REGTYPE, b'bad')], 'unsafe-archive-path')
++
+     def test_traversal(self):
+         self.exercise([('../outside', tarfile.REGTYPE, b'x')], 'unsafe-archive-path')
+ 

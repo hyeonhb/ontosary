@@ -1,0 +1,10 @@
+{
+  "utc": "2026-11-17T13:57:22.418219+00:00",
+  "hostMonotonic": 237355.923254833,
+  "elapsedSeconds": 836.4352047080174,
+  "watchdogPid": 14600,
+  "watchdogAlive": false,
+  "rootExists": false,
+  "runtimeStopped": true,
+  "sandboxAttempts": 1
+}

@@ -1,0 +1,22 @@
+{
+  "args": [
+    "/private/tmp/ontosary-s2-vm-smoke-20261117/prefix/bin/limactl",
+    "shell",
+    "--workdir=/tmp",
+    "ontosary-s2-vm-smoke",
+    "sudo",
+    "-n",
+    "python3",
+    "/opt/s2-smoke/setup.py",
+    "hyeon"
+  ],
+  "startedUtc": "2026-11-17T13:56:26.773865+00:00",
+  "limitSeconds": 15,
+  "truncated": false,
+  "timedOut": false,
+  "capPerStream": 1048576,
+  "pid": 14645,
+  "exitCode": 0,
+  "seconds": 0.1360151249973569,
+  "finishedUtc": "2026-11-17T13:56:26.909885+00:00"
+}

@@ -1,0 +1,21 @@
+test_ancestor_links (test_materialize.ExtractionTests.test_ancestor_links) ... ok
+test_cumulative_byte_limit (test_materialize.ExtractionTests.test_cumulative_byte_limit) ... ok
+test_duplicate_selected_member (test_materialize.ExtractionTests.test_duplicate_selected_member) ... ok
+test_missing_selected_member (test_materialize.ExtractionTests.test_missing_selected_member) ... ok
+test_selective_regular_file (test_materialize.ExtractionTests.test_selective_regular_file) ... ok
+test_traversal (test_materialize.ExtractionTests.test_traversal) ... ok
+test_whiteout (test_materialize.ExtractionTests.test_whiteout) ... ok
+test_actual_host_hash_and_filtered_extraction_api (test_smoke.SmokeTests.test_actual_host_hash_and_filtered_extraction_api) ... ok
+test_bounded_command_reports_timeout_and_truncation (test_smoke.SmokeTests.test_bounded_command_reports_timeout_and_truncation) ... ok
+test_diagnostic_failure_cannot_skip_disposal (test_smoke.SmokeTests.test_diagnostic_failure_cannot_skip_disposal) ... ok
+test_expired_watchdog_still_stops_deletes_and_checks_absence (test_smoke.SmokeTests.test_expired_watchdog_still_stops_deletes_and_checks_absence) ... ok
+test_expired_work_command_is_not_dispatched (test_smoke.SmokeTests.test_expired_work_command_is_not_dispatched) ... ok
+test_external_preparation_error_reaches_real_cleanup_commands (test_smoke.SmokeTests.test_external_preparation_error_reaches_real_cleanup_commands) ... {"observation": "inconclusive", "fixtureOnly": true, "validSubmission": false, "trialAuthorized": false, "readyForTrial": false, "results": null, "error": "command-failed:command-d2ad1ba783e6:synthetic preparation error", "cleanup": {"cleanupStatus": "complete", "vmAbsent": true, "rootAbsent": true, "attempts": [["/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/tmpk9f6egy9/ontosary-s2-local-test/prefix/bin/limactl", "stop", "--force", "smoke-test"], ["/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/tmpk9f6egy9/ontosary-s2-local-test/prefix/bin/limactl", "delete", "--force", "smoke-test"], ["/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/tmpk9f6egy9/ontosary-s2-local-test/prefix/bin/limactl", "list", "--json"]], "errors": [], "vmDisposalIsNotSubmissionProof": true, "ownedProcesses": []}}
+ok
+test_payload_result_requires_all_markers_content_exit_and_no_truncation (test_smoke.SmokeTests.test_payload_result_requires_all_markers_content_exit_and_no_truncation) ... ok
+test_stop_error_does_not_skip_delete_or_absence (test_smoke.SmokeTests.test_stop_error_does_not_skip_delete_or_absence) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.221s
+
+OK
