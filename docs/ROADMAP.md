@@ -1,5 +1,7 @@
 # 단계별 계획
 
+2026-11-17 다음 우선순위는 [R17 최상위 호출 보완 결과](reviews/2026-11-17-s2-cleanup-dispatch-fix.md)(ADR-053)의 독립 리뷰다. 새 호스트 회귀19개와 과거 실제7단위 증거 재대조를 완료했다. 새 VM/runtime은 실행하지 않았다. PR #54는 결과 리뷰 전 병합하지 않으며 정책/CLI 단계의 다음 범위·예산은 별도로 결정한다.
+
 2026-11-17 다음은 [R17 최상위 정리 호출 보완](reviews/2026-11-17-s2-cleanup-dispatch-instructions.md)이다. [독립 리뷰](reviews/2026-11-17-s2-seal-recovery-independent-review.md)에서 실제 기본 정책7/7과 R13/R14/R15/R16은 확인됐으므로 경계 재설계/새 VM 반복을 하지 않는다. 로컬60분 안에서 감사 기록 실패와 cleanup 호출을 분리하고 실제 dispatcher 회귀·기존 증거 재대조 후 리뷰한다. PR #54와 다음 정책/CLI 단계는 계속 보류하며 추가 권한·실제 인증/model·본 비교로 확대하지 않는다.
 
 2026-11-17 다음 우선순위는 [진단/봉인/정리 보완 결과](reviews/2026-11-17-s2-seal-recovery.md)(ADR-052)의 **독립 리뷰**다. R13 전체 Spec7개·R14 cache 재사용·R15 metadata/진단·R16 봉인·R17 최종 정리와 필수7단위 기대 결과를 확인했다. PR #54는 결과 리뷰 전 병합하지 않으며 정책 pair·추가 권한/backend·실제 인증/model·본 비교를 자동 재개하지 않는다. R11 unresolved와 R12 기존 범위는 유지한다.

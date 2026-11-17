@@ -433,3 +433,10 @@ service 수명 보유자는 기존 독립 observer에 BindsTo로 연결한 activ
 새 VM1개·기본 정책 필수7단위가 기대 결과와120초 외부 상한을 통과했다. raw Spec7개와 service seal7개를 오프라인 재대조했고 준비/각 단위/최종 회수9개를 보존했다. 실제 UID501→root/mode0600 게시, cache build/download/save0·import1, VM/소유 process/관리 root 제거를 확인했다. pnpm check304·Python174(새28 포함)·과거 두 verifier·새 verifier가 통과했다. 공개 archive4개만 의도적으로 보관하며 과거 실패/증거는 수정하지 않았다.
 
 R13/R14 유지와 R15/R16/R17은 이 fixture 검증 범위에서 결과 리뷰에 제출한다. 실제 observer 사망·transport 장애 주입은 새 VM 추가 없이 로컬 회귀로 검증한 범위다. 이번은 R11 전체 해결·CLI native sandbox·모델 효용 증명이나 본 비교 승인이 아니다. PR #54는 갱신 후 독립 리뷰를 기다리고 병합하지 않는다. R11 unresolved·R12 기존 범위·production/live 거부·fixtureOnly=true·validSubmission=false·trialAuthorized/readyForTrial=false·results=null을 유지한다.
+
+
+## ADR-053 · 최상위 감사 실패와 소유 정리 호출 분리 — 2026-11-17
+
+[국소 보완 지시](reviews/2026-11-17-s2-cleanup-dispatch-instructions.md)의 R17 잔여를 host main 안에서 해결했다. [결과](reviews/2026-11-17-s2-cleanup-dispatch-fix.md)는 감사 기록 try와 cleanup finally의 단일 호출, 최초/감사/정리/출력 오류의 보존, 제한된 실패 진단과 미등록 cleanup의 seal 거부를 담는다. 감사 등록 실패를 성공으로 봉합하지 않으며 기존 registry/orphan을 보존한다. 하위 recovery·guest·정책/cache·공유 감사/package는 변경하지 않는다.
+
+기준 head에서 기록 오류6개가 cleanup을 건너뛰는 것을 재현했고, 실제 main 회귀19개와 기존 회귀를 합쳐 Python193·pnpm check304를 통과했다. 기존 cleanup 연결의 stop/delete/부재 확인은 가짜 외부 명령으로 확인했다. 과거3회차 저장 verifier와 실제7단위 증거를 오프라인 재대조했으며 새 VM/runtime은0회다. 독립 리뷰 뒤 다음 단계의 범위·예산을 결정하고 PR #54는 이번에 병합하지 않는다. R11 unresolved·R12 기존 범위·production/live 거부·fixtureOnly=true·validSubmission=false·trialAuthorized/readyForTrial=false·results=null을 유지한다.

@@ -1,0 +1,117 @@
+{
+  "pnpm-check": {
+    "command": [
+      "pnpm",
+      "check"
+    ],
+    "exitCode": 0,
+    "seconds": 18.8804685829964,
+    "log": "pnpm-check.log"
+  },
+  "execution-lifecycle": {
+    "command": [
+      "python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "experiments/domain-model/s2/trial/container/execution-lifecycle",
+      "-p",
+      "test_*.py",
+      "-v"
+    ],
+    "exitCode": 0,
+    "seconds": 6.236031791981077,
+    "log": "execution-lifecycle.log"
+  },
+  "shared-lifecycle": {
+    "command": [
+      "python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "experiments/domain-model/s2/trial/container/lifecycle",
+      "-p",
+      "test_*.py",
+      "-v"
+    ],
+    "exitCode": 0,
+    "seconds": 0.18779933301266283,
+    "log": "shared-lifecycle.log"
+  },
+  "audit-deadline-package": {
+    "command": [
+      "python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "experiments/domain-model/s2/trial/container/single-policy-test",
+      "-p",
+      "test_retry*.py",
+      "-v"
+    ],
+    "exitCode": 0,
+    "seconds": 1.967736166989198,
+    "log": "audit-deadline-package.log"
+  },
+  "prior-14": {
+    "command": [
+      "python3",
+      "experiments/domain-model/s2/trial/container/execution-lifecycle/verify_saved.py",
+      "--root",
+      "experiments/domain-model/s2/verification/2026-11-14-execution-lifecycle"
+    ],
+    "exitCode": 0,
+    "seconds": 0.2895393749931827,
+    "log": "prior-14.log"
+  },
+  "prior-15": {
+    "command": [
+      "python3",
+      "experiments/domain-model/s2/trial/container/execution-lifecycle/verify_fix.py",
+      "--root",
+      "experiments/domain-model/s2/verification/2026-11-15-execution-lifecycle-fix"
+    ],
+    "exitCode": 0,
+    "seconds": 0.2930983330006711,
+    "log": "prior-15.log"
+  },
+  "prior-17": {
+    "command": [
+      "python3",
+      "experiments/domain-model/s2/trial/container/execution-lifecycle/verify_recovery.py",
+      "--root",
+      "experiments/domain-model/s2/verification/2026-11-17-seal-recovery"
+    ],
+    "exitCode": 0,
+    "seconds": 0.4061616669932846,
+    "log": "prior-17.log"
+  },
+  "execution-lifecycle-final": {
+    "command": [
+      "python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "experiments/domain-model/s2/trial/container/execution-lifecycle",
+      "-p",
+      "test_*.py",
+      "-v"
+    ],
+    "exitCode": 0,
+    "log": "execution-lifecycle-final.log",
+    "tests": 133
+  },
+  "uniqueTotals": {
+    "typescript": 304,
+    "pythonPrior": 174,
+    "pythonNew": 19,
+    "pythonTotal": 193,
+    "skip": 0,
+    "newRuntimeUnits": 0,
+    "historicalRuntimeUnitsReplayed": 7
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "firstCommandUtc": "2026-11-17T09:53:38+00:00",
+  "firstMonotonicObservation": {
+    "utc": "2026-11-17T09:54:06.070793+00:00",
+    "monotonic": 226075.220772083
+  },
+  "monotonicObservationWasAfterInitialRead": true,
+  "baseline": "d97007213c527fc06cc7d3708d7c546b14077d9b",
+  "implementationDeadlineUtc": "2026-11-17T10:33:38+00:00",
+  "finishDeadlineUtc": "2026-11-17T10:53:38+00:00",
+  "allowedChanges": [
+    "experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+    "experiments/domain-model/s2/trial/container/execution-lifecycle/dispatch_failure.py",
+    "experiments/domain-model/s2/trial/container/execution-lifecycle/test_dispatch.py",
+    "experiments/domain-model/s2/trial/container/execution-lifecycle/README.md",
+    "docs/PROGRESS.md",
+    "docs/ARCHITECTURE.md",
+    "docs/ROADMAP.md",
+    "docs/DECISIONS.md",
+    "docs/reviews/REVIEW_CONTEXT.md",
+    "docs/reviews/2026-11-17-s2-cleanup-dispatch-fix.md",
+    "docs/reviews/evidence/2026-11-17-cleanup-dispatch/"
+  ],
+  "runtimeExecutions": 0,
+  "newVMs": 0,
+  "paidCost": 0
+}

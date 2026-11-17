@@ -1,5 +1,14 @@
 # S2 finite execution lifecycle
 
+The [cleanup dispatch follow-up](../../../../../../docs/reviews/2026-11-17-s2-cleanup-dispatch-fix.md)
+fixes the host `main()` failure path: scope/registry/snapshot or diagnostic errors
+cannot skip the single owned cleanup attempt. Original and secondary exceptions
+remain distinct; audit completion and resource cleanup are separate states.
+A missing failure marker cannot replace the required cleanup closing registration.
+Seal checks the existing command/ID/hash contract before adding a snapshot.
+The follow-up adds 19 local dispatcher tests (193 Python tests total); it does not
+rerun the seven historical runtime fixtures. PR #54 still awaits independent review.
+
 This is a fixture runner for the approved 2026-11-17 seal/recovery round.
 R11 remains unresolved; production/live dispatch remains refused.
 Every result is `fixtureOnly=true`, `validSubmission=false`;

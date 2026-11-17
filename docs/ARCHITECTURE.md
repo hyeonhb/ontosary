@@ -1,5 +1,7 @@
 # 현재 아키텍처
 
+2026-11-17 [cleanup dispatcher 보완](reviews/2026-11-17-s2-cleanup-dispatch-fix.md)(ADR-053): host main의 실패 처리만 국소 수정했다. 감사 동결/등록과 finally의 단일 cleanup 호출을 분리하고 최초 오류와 후속 오류를 ExceptionGroup으로 보존한다. bounded 실패 기록/출력은 정리를 막지 않는다. seal은 유효한 cleanup command의 closing 등록을 요구해 실패 marker 유실을 감사 성공으로 해석하지 않는다. 기존 recovery/guest/reference/exporter와 공유 snapshot/package 의미는 불변이며 새 runtime 실행은 없다.
+
 2026-11-17 [진단/봉인/정리 구현](reviews/2026-11-17-s2-seal-recovery.md)(ADR-052): 전달 metadata는 UID/hash/schema 검증 후 관리자 소유 mode0600으로 원자 게시한다. export는 봉인된 result와 allowlist 진단을 같은 누적 상한으로 처리하고 per-file 거부/partial/diagnostic/error-receipt를 구분한다. 기존 seal observer에 연결한 active target의 After 참조가 worker service를 시작 전부터 durable seal까지 보유하며 InvocationID와 raw inactive 시각을 연결한 뒤 해제한다. 회수는 최대30초/정리 reserve90초로 제한하고 stop/delete/부재 확인은 회수 오류와 독립적이다. 실제7단위·회수9개를 검증했으며 새 backend/권한/제품 계약은 도입하지 않았다. R11/production/live 차단은 유지한다.
 
 2026-11-17 다음 국소 보완(ADR-051): [진단/봉인/정리 지시](reviews/2026-11-17-s2-seal-recovery-instructions.md)는 관리자 검증 metadata의 원자 게시, 정상 결과와 실패 진단의 별도 상태/같은 누적 수집 상한, 봉인까지 service reference 유지, 증거 회수 오류와 VM 정리 책임 분리를 요구한다. 기존 독립 감독자·collector·전체 Spec·deadline을 유지하는 실험 도구 보완이며 아직 구현 완료가 아니다. 새로운 backend/권한/제품 계약은 도입하지 않는다.
