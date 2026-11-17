@@ -1,0 +1,15 @@
+{
+  "scope": "unit-start-failure",
+  "runId": "3ead3a54c2fc",
+  "evidenceStatus": "diagnostic",
+  "errors": [],
+  "secondsAvailable": 30,
+  "partialPublished": false,
+  "verified": {
+    "files": 27,
+    "bytes": 512592
+  },
+  "artifact": "recovery-unit-start-failure.tar.gz",
+  "archiveSha256": "eed51f75f8545b654462c36df5601e69a42556b3cac2c6eaf5c51ec09d6d7afe",
+  "seconds": 0.4434306669863872
+}

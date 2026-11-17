@@ -1,0 +1,15 @@
+{
+  "scope": "unit-supervisor-death",
+  "runId": "4dbc4d22afda",
+  "evidenceStatus": "diagnostic",
+  "errors": [],
+  "secondsAvailable": 30,
+  "partialPublished": false,
+  "verified": {
+    "files": 28,
+    "bytes": 533944
+  },
+  "artifact": "recovery-unit-supervisor-death.tar.gz",
+  "archiveSha256": "aa600241d6d1a86bd7156c6cdf865aff4c25976e8b734ebaca6e95eb5099a2a7",
+  "seconds": 0.44011345799663104
+}

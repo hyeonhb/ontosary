@@ -1,0 +1,184 @@
+{
+  "round": "2026-11-17-seal-recovery",
+  "baseline": "ff7ec19ebc7e3e12380fb82cc6a377d5aaf4dd6c",
+  "instructionHead": "cd7d9ad",
+  "source": "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle",
+  "sourceDirs": [
+    "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle",
+    "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/lifecycle",
+    "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/single-policy-test"
+  ],
+  "output": "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/verification/2026-11-17-seal-recovery",
+  "store": "/Users/hyeon/Library/Caches/ontosary/s2-prepared-v1",
+  "storeLimitBytes": 10737418240,
+  "vmRoot": "/tmp/ontosary-s2-seal-recovery-20261117",
+  "vmName": "s2-lifecycle",
+  "fixtures": [
+    "normal-1",
+    "precheck-rejection",
+    "start-failure",
+    "timeout",
+    "wrapper-death",
+    "supervisor-death",
+    "normal-2"
+  ],
+  "optionalRuntimeFailureFixture": false,
+  "conditionalPair": [],
+  "maximumVMs": 1,
+  "maximumUnits": 7,
+  "payloadSeconds": 15,
+  "phaseSeconds": {
+    "work": 80,
+    "remove": 110,
+    "finish": 120
+  },
+  "runtimeEnv": {
+    "HOME": "/root",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+  },
+  "artifacts": [
+    {
+      "name": "lima-2.3.0-Darwin-arm64",
+      "estimatedBytes": 55000000
+    },
+    {
+      "name": "ubuntu-26.04-20261016-arm64",
+      "bytes": 940373504
+    },
+    {
+      "name": "nerdctl-full-2.4.2-linux-arm64",
+      "bytes": 270513423
+    },
+    {
+      "name": "ontosary-fixed-trace-image",
+      "maximumBytes": 6442450944
+    }
+  ],
+  "mutableScope": [
+    "experiments/domain-model/s2/trial/container/execution-lifecycle/",
+    "experiments/domain-model/s2/trial/container/lifecycle/collector.py",
+    "docs/PROGRESS.md",
+    "docs/ARCHITECTURE.md",
+    "docs/ROADMAP.md",
+    "docs/DECISIONS.md",
+    "docs/reviews/REVIEW_CONTEXT.md",
+    "docs/reviews/2026-11-17-s2-seal-recovery.md"
+  ],
+  "analysisAllowed": [
+    {
+      "phase": "plan",
+      "command": [
+        "python3",
+        "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+        "local",
+        "--work",
+        "/Users/hyeon/toys/ontosary/work/s2-seal-recovery-20261117"
+      ]
+    },
+    {
+      "phase": "environment",
+      "command": [
+        "python3",
+        "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+        "prepare",
+        "--work",
+        "/Users/hyeon/toys/ontosary/work/s2-seal-recovery-20261117"
+      ]
+    },
+    {
+      "phase": "exploration",
+      "command": [
+        "python3",
+        "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+        "fixtures",
+        "--work",
+        "/Users/hyeon/toys/ontosary/work/s2-seal-recovery-20261117"
+      ]
+    },
+    {
+      "phase": "plan",
+      "command": [
+        "python3",
+        "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+        "enter-preparation",
+        "--work",
+        "/Users/hyeon/toys/ontosary/work/s2-seal-recovery-20261117"
+      ]
+    },
+    {
+      "phase": "plan",
+      "command": [
+        "python3",
+        "docs/reviews/evidence/2026-11-17-probe-cleanup.py"
+      ]
+    }
+  ],
+  "closingAllowed": [
+    {
+      "phase": "finish",
+      "command": [
+        "python3",
+        "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+        "cleanup",
+        "--work",
+        "/Users/hyeon/toys/ontosary/work/s2-seal-recovery-20261117"
+      ]
+    },
+    {
+      "phase": "finish",
+      "command": [
+        "python3",
+        "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+        "validate",
+        "--work",
+        "/Users/hyeon/toys/ontosary/work/s2-seal-recovery-20261117"
+      ]
+    },
+    {
+      "phase": "finish",
+      "command": [
+        "python3",
+        "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+        "seal",
+        "--work",
+        "/Users/hyeon/toys/ontosary/work/s2-seal-recovery-20261117"
+      ]
+    }
+  ],
+  "identityRules": "Full Spec and exact hook array; only owned identities and validated independent mount ordering.",
+  "recovery": "all failed outcomes retain failure; explicit recovery requires confirmed stop/removal/no pending/inactive services; unsettled runtime discards VM",
+  "preparedRetention": "verified public archives only; no VM/writable state; tmp only owned cleanup",
+  "paidCost": 0,
+  "fixtureOnly": true,
+  "validSubmission": false,
+  "trialAuthorized": false,
+  "readyForTrial": false,
+  "results": null,
+  "runtimeEnvironmentReason": "Exact fixed system PATH, root-owned resolution checked before create. Known nerdctl 2.4.2 append only; no inherited environment.",
+  "maximumImageBuilds": 0,
+  "report": "docs/reviews/2026-11-17-s2-seal-recovery.md",
+  "legacyEvidence": "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/verification/2026-11-14-execution-lifecycle/host",
+  "integratedMainFiles": [
+    "AGENTS.md",
+    "docs/ARCHITECTURE.md",
+    "docs/DECISIONS.md",
+    "docs/PROGRESS.md",
+    "docs/ROADMAP.md",
+    "docs/reviews/2026-11-17-s2-execution-lifecycle-fix-independent-review.md",
+    "docs/reviews/2026-11-17-s2-seal-recovery-instructions.md",
+    "docs/reviews/REVIEW_CONTEXT.md",
+    "docs/reviews/evidence/2026-11-17-probe-cleanup.py",
+    "docs/reviews/evidence/2026-11-17-s2-lifecycle-fix-independent.json"
+  ],
+  "cacheOnly": true,
+  "reference": {
+    "mechanism": "active manager target with After=worker service; no Wants/Requires on worker",
+    "holder": "ontosary-reference-<run>.target",
+    "owner": "existing independent seal observer service",
+    "lifetime": "registered/acquired and verified before worker start; release only after durable seal or blocked receipt",
+    "holderFailure": "BindsTo observer, active identity verified before seal; block and revoke on failure"
+  },
+  "cleanupReserveSeconds": 90,
+  "recoveryMaximumSeconds": 30
+}

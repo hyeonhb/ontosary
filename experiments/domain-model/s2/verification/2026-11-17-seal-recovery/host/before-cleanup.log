@@ -1,0 +1,44 @@
+{
+  "runtimeCommandsExecuted": 0,
+  "cases": [
+    {
+      "failure": "archive-copy",
+      "error": "injected-archive-copy-failure",
+      "stopCalls": 0,
+      "deleteCalls": 0,
+      "rootStillPresent": true,
+      "cleanupRecord": false,
+      "calls": [
+        [
+          "guest",
+          "python3",
+          "/opt/ontosary-execution/execution-lifecycle/guest.py",
+          "export"
+        ],
+        [
+          "cmd",
+          "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/tmp945q6cqk/ontosary-s2-execution-lifecycle-fix-20261115/prefix/bin/limactl",
+          "copy",
+          "test-vm:/tmp/s2-execution-export/evidence.tar.gz",
+          "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/tmp945q6cqk/guest-evidence.tar.gz"
+        ]
+      ]
+    },
+    {
+      "failure": "export-transport",
+      "error": "injected-export-transport-failure",
+      "stopCalls": 0,
+      "deleteCalls": 0,
+      "rootStillPresent": true,
+      "cleanupRecord": false,
+      "calls": [
+        [
+          "guest",
+          "python3",
+          "/opt/ontosary-execution/execution-lifecycle/guest.py",
+          "export"
+        ]
+      ]
+    }
+  ]
+}

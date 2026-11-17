@@ -385,6 +385,19 @@ ADR-041의 [진단](reviews/2026-11-11-s2-namespace-diagnosis.md)은 proposal-re
 **판정과 제외:** 구현 완료와 근거 있는 중단/회차 종료를 구분하고 정책 성공을 강제하지 않는다. 새 권한 차단에서 중단하며 준비물 보관을 상시 VM/세션 상태 재사용으로 확대하지 않는다. 제품/모델/B/C/평가 의미·배포 ID는 유지한다. R11 unresolved·R12 기존 범위·production/live 거부·trialAuthorized/readyForTrial=false·results=null이다. 이 ADR은 다음 작업 승인이고 구현 완료나 후속 연결 승인이 아니다.
 
 
+
+## ADR-048 · 준비물 보관·공통 종료의 부분 구현과 보안 설정 차이 차단 — 2026-11-14
+
+사용자가 지정한 [ADR-047 승인 지시](https://github.com/hyeonhb/ontosary/blob/191211d21942137932d189e4229ddfb5d330fece/docs/reviews/2026-11-14-s2-execution-lifecycle-instructions.md)는 별도 docs 브랜치에 있다. main f621521에서 [새3시간 회차](reviews/2026-11-14-s2-execution-lifecycle.md)를 수행했고 그 worktree/과거 증거는 수정하지 않았다.
+
+공개 불변 archive의 전용10GiB 저장소와 실행별 독립 service/ExecStopPost·공통 삭제/수집, 소유 identity 검증 뒤 전체 Spec 비교를 실험 내부에 구현했다. 기존 cgroup/collector·snapshot/deadline/package를 재사용하며 과거 caller의 기본값과 회귀를 유지했다. 준비물4개의 실제 hash·입력 manifest 및 두 번째 다운로드/빌드 생략과 image import identity를 확인했다. VM/writable 상태를 보관하지 않는다. 이전 round 전용5개 retry entrypoint는 새 실행을 거부한다.
+
+최소 환경은 nerdctl의 중복 PATH/systemd 환경 문제를 피했지만 첫 정상 단위의 created Spec에 AppArmor가 없고3개 mount가 rro에서 ro로 바뀌었다. 보안 차이를 identity 예외로 정규화하지 않고 시작을 거부했다. 생성1/start0, 삭제0.854초/단위 봉인1.236초와 결과/다음 실행 차단을 확인했다. 필수7개 중 기대 결과 통과0이므로 **구현 완료로 판정하지 않는다**. 나머지6개·원래/후보 정책·실행 바이너리 identity는 미실행이며 같은 단위를 고쳐 재시도하지 않았다. 현재 outcome의 supervisor-death는 실제 SIGKILL 주입이 아니라 비교 예외에 따른 service 실패 분류라는 한계도 보존한다.
+
+Python116·production/live 거부·예제 build는 통과했다. pnpm check는 시작 때와 같은 기존 Vendure cache13파일 누락으로300통과/4실패이며 테스트 skip이나 cache 임의 복구를 하지 않았다. 따라서 결과는 개발 인계/독립 리뷰 대상으로 게시하고 필수 검사 미완료 상태에서 병합하지 않는다. 소유 VM/전용 임시 경로는 제거하고 검증된 준비물1.59GiB만 의도적으로 보관한다. 분석 동결 뒤 host 정리의 stdout/stderr 판독만 보완했으며 새 runtime 작업은 없다.
+
+다음은 최소 runtime 환경의 기능 보존과 남은 실제 실패 경로를 검토하는 것이다. 추가 권한·다른 backend·영구VM·API/proxy·실자격 증명·provider/model·본 비교를 자동 시작하지 않는다. R11 unresolved·R12 기존 범위·production/live 거부·fixtureOnly=true/validSubmission=false·trialAuthorized/readyForTrial=false·results=null을 유지한다.
+
 ## ADR-049 · R13 R14 R15 보완과 기본 정책 검증 범위 — 2026-11-14
 
 **요청과 범위:** 사용자는 독립 리뷰에서 발견한 R13~R15의 보완 지시를 요청했다. [후속 지시](reviews/2026-11-14-s2-execution-lifecycle-fix-instructions.md)는 기존 구조 안에서 빌드 전 입력 key 조회, 고정 runtime PATH와 알려진 hook 환경의 정확한 대조, 검증된 collector 산출물·허용 관리자 진단만 export하는 경로를 정한다. PR #54의 ADR-048/과거 원시 증거는 보존하며 구현 기준은 f6fc386이다.
@@ -394,6 +407,14 @@ ADR-041의 [진단](reviews/2026-11-11-s2-namespace-diagnosis.md)은 proposal-re
 **한계:** 이번은 지시 작성이며 보완 구현·실제 시험 완료가 아니다. 보완 구현 PR은 게시 후 독립 리뷰를 기다린다. R11 unresolved·R12 기존 범위·production/live 거부·trialAuthorized/readyForTrial=false·results=null을 유지한다. 추가 권한/backend·실제 credential/provider/model·본 비교는 진행하지 않는다.
 
 
+## ADR-050 · R13–R15 부분 보완과 봉인·export 실패에서 중단 — 2026-11-15
+
+[ADR-049 승인 회차](reviews/2026-11-14-s2-execution-lifecycle-fix-instructions.md)를 PR #54 위에서 수행했다. [결과](reviews/2026-11-15-s2-execution-lifecycle-fix.md)는 빌드 입력 key 선행 조회와 검증된 옛 출력 연결, 고정 runtime PATH/정확한 hook 배열, collector 결과·관리자 allowlist만 export하는 구현을 담는다. R14의 별도 회차 준비 진입점 회귀와 실제 build/download0·새 VM import identity는 확인했다. 과거 ADR-048의 같은 회차 재조회는 회차 간 build 생략의 근거가 아니었으며 이 보완에서 분리했다.
+
+첫 정상 단위는 start1/exit0·삭제1.566초 뒤 service 비활성 시각을 확인하지 못해 결과가 철회됐다. 이어 export가 관리자 소유가 아닌 전달 image metadata를 거부해 guest 진단 archive도 남기지 못했다. 실제 raw Spec/도구 증거가 부족한 R13과 실제7단위 export가 미완료인 R15는 부분 완료로 남긴다. 필수7 중 시도1/기대통과0이며 실패 뒤 같은 단위 재시도/기대값 확대/실행 코드 수정은 하지 않았다.
+
+pnpm check304·Python146(새30 포함)을 검증하고 소유 VM/임시 실행 경로를 제거했다. 공개 archive4개와 추가 입력-key 연결만 유지한다. 후속 service 증거 보존과 metadata 소유권/진단 export는 독립 리뷰 뒤 범위·예산을 결정한다. 이 결과는 다음 실행 승인이나 R11 해결이 아니며 production/live 거부·fixtureOnly=true·validSubmission=false·trialAuthorized/readyForTrial=false·results=null을 유지한다. PR #54는 갱신 후 독립 리뷰를 기다리고 이번에 병합하지 않는다.
+
 ## ADR-051 · 실패 진단과 service 봉인 및 최종 정리 보완 — 2026-11-17
 
 **요청:** 사용자는 R15 잔여·R16·R17 보완 지시를 요청하고, 앞으로 추가 논의가 필요 없는 작업은 리뷰와 함께 개발 지시문을 제공하도록 했다. 주요 방향/아키텍처·범위/비용/권한 확대는 먼저 논의하며 별도 개발 실행/보류 시험의 포괄 승인은 아니다.
@@ -401,3 +422,21 @@ ADR-041의 [진단](reviews/2026-11-11-s2-namespace-diagnosis.md)은 proposal-re
 **구조:** [지시](reviews/2026-11-17-s2-seal-recovery-instructions.md)는 회수 예외와 VM 최종 정리를 분리하고, 전달 metadata를 검증한 뒤 관리자 소유로 게시한다. 정상 결과와 실패 진단은 상태를 구분하되 같은 누적 상한을 쓰며 거부 파일은 제외하고 허용 진단을 보존한다. 기존 독립 관리자가 service reference를 시작 전부터 봉인까지 유지하고, 원시 조회와 invocation/종료 시각을 연결한 뒤 해제한다. 검증된 도구 안에서 최소 표현을 선택하며 새로운 backend/상주 플랫폼/의존성을 도입하지 않는다. GC는 이전 실패의 확정 원인이 아니라 검증할 가설이다.
 
 **상한과 인계:** 직전과 같은3시간·60/100/150/180분 gate·환경 진입20분·VM1개·기본 정책7단위·단위120초·cache10GiB·build0·유료0이다. 회수는 최대30초로 제한하고 회차 정리에90초를 남긴다. 실패 뒤 자동 재시도 없이 진단/정리/부분 인계하며 실제 정책 대조·권한 확대·인증/model·본 비교는 결과 리뷰 뒤 결정한다. PR #54 보완은 게시 후 독립 리뷰를 기다린다. PR #54의 ADR-050과 과거 증거는 보존한다. 이 기록은 지시이며 구현·실제 검증 완료가 아니다.
+
+
+## ADR-052 · 진단 보존·service reference·독립 정리와 기본 정책 7단위 검증 — 2026-11-17
+
+[ADR-051 지시](reviews/2026-11-17-s2-seal-recovery-instructions.md)에 따라 PR #54의 기존 실행 경계 안에서 보완했다. [결과](reviews/2026-11-17-s2-seal-recovery.md)는 metadata의 FD/hash/schema/UID 검증 후 관리자 원자 게시, 동일 누적 상한의 정상 결과/실패 진단/오류 receipt, 증거 회수와 최종 자원 정리 분리를 담는다. 회수 실패가 stop/delete를 건너뛰는 기존 결함을 먼저 재현하고 실제 Round.cleanup 회귀로 확인했다.
+
+service 수명 보유자는 기존 독립 observer에 BindsTo로 연결한 active target이며 After 참조만 worker에 둔다. 시작 전에 획득하고 InvocationID·raw systemd 상태·finalizer/종료/삭제를 연결한 durable seal 또는 blocked receipt 뒤 해제한다. worker를 재시작하는 의존성을 추가하지 않았고 이전 실패의 GC를 확정 원인으로 단정하지 않는다.
+
+새 VM1개·기본 정책 필수7단위가 기대 결과와120초 외부 상한을 통과했다. raw Spec7개와 service seal7개를 오프라인 재대조했고 준비/각 단위/최종 회수9개를 보존했다. 실제 UID501→root/mode0600 게시, cache build/download/save0·import1, VM/소유 process/관리 root 제거를 확인했다. pnpm check304·Python174(새28 포함)·과거 두 verifier·새 verifier가 통과했다. 공개 archive4개만 의도적으로 보관하며 과거 실패/증거는 수정하지 않았다.
+
+R13/R14 유지와 R15/R16/R17은 이 fixture 검증 범위에서 결과 리뷰에 제출한다. 실제 observer 사망·transport 장애 주입은 새 VM 추가 없이 로컬 회귀로 검증한 범위다. 이번은 R11 전체 해결·CLI native sandbox·모델 효용 증명이나 본 비교 승인이 아니다. PR #54는 갱신 후 독립 리뷰를 기다리고 병합하지 않는다. R11 unresolved·R12 기존 범위·production/live 거부·fixtureOnly=true·validSubmission=false·trialAuthorized/readyForTrial=false·results=null을 유지한다.
+
+
+## ADR-053 · 최상위 감사 실패와 소유 정리 호출 분리 — 2026-11-17
+
+[국소 보완 지시](reviews/2026-11-17-s2-cleanup-dispatch-instructions.md)의 R17 잔여를 host main 안에서 해결했다. [결과](reviews/2026-11-17-s2-cleanup-dispatch-fix.md)는 감사 기록 try와 cleanup finally의 단일 호출, 최초/감사/정리/출력 오류의 보존, 제한된 실패 진단과 미등록 cleanup의 seal 거부를 담는다. 감사 등록 실패를 성공으로 봉합하지 않으며 기존 registry/orphan을 보존한다. 하위 recovery·guest·정책/cache·공유 감사/package는 변경하지 않는다.
+
+기준 head에서 기록 오류6개가 cleanup을 건너뛰는 것을 재현했고, 실제 main 회귀19개와 기존 회귀를 합쳐 Python193·pnpm check304를 통과했다. 기존 cleanup 연결의 stop/delete/부재 확인은 가짜 외부 명령으로 확인했다. 과거3회차 저장 verifier와 실제7단위 증거를 오프라인 재대조했으며 새 VM/runtime은0회다. 독립 리뷰 뒤 다음 단계의 범위·예산을 결정하고 PR #54는 이번에 병합하지 않는다. R11 unresolved·R12 기존 범위·production/live 거부·fixtureOnly=true·validSubmission=false·trialAuthorized/readyForTrial=false·results=null을 유지한다.

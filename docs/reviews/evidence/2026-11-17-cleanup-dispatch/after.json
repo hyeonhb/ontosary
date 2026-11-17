@@ -1,0 +1,99 @@
+{
+  "runtimeCommandsExecuted": 0,
+  "cases": [
+    {
+      "action": "prepare",
+      "failure": "none",
+      "cleanupCalls": 1,
+      "originalPreserved": true,
+      "nonzeroException": "RuntimeError",
+      "auditRegistered": true,
+      "errorPhases": [
+        "action"
+      ]
+    },
+    {
+      "action": "prepare",
+      "failure": "scope",
+      "cleanupCalls": 1,
+      "originalPreserved": true,
+      "nonzeroException": "ExceptionGroup",
+      "auditRegistered": false,
+      "errorPhases": [
+        "action",
+        "audit-registration"
+      ]
+    },
+    {
+      "action": "prepare",
+      "failure": "registry",
+      "cleanupCalls": 1,
+      "originalPreserved": true,
+      "nonzeroException": "ExceptionGroup",
+      "auditRegistered": false,
+      "errorPhases": [
+        "action",
+        "audit-registration"
+      ]
+    },
+    {
+      "action": "prepare",
+      "failure": "snapshot",
+      "cleanupCalls": 1,
+      "originalPreserved": true,
+      "nonzeroException": "ExceptionGroup",
+      "auditRegistered": false,
+      "errorPhases": [
+        "action",
+        "audit-registration"
+      ]
+    },
+    {
+      "action": "fixtures",
+      "failure": "none",
+      "cleanupCalls": 1,
+      "originalPreserved": true,
+      "nonzeroException": "RuntimeError",
+      "auditRegistered": true,
+      "errorPhases": [
+        "action"
+      ]
+    },
+    {
+      "action": "fixtures",
+      "failure": "scope",
+      "cleanupCalls": 1,
+      "originalPreserved": true,
+      "nonzeroException": "ExceptionGroup",
+      "auditRegistered": false,
+      "errorPhases": [
+        "action",
+        "audit-registration"
+      ]
+    },
+    {
+      "action": "fixtures",
+      "failure": "registry",
+      "cleanupCalls": 1,
+      "originalPreserved": true,
+      "nonzeroException": "ExceptionGroup",
+      "auditRegistered": false,
+      "errorPhases": [
+        "action",
+        "audit-registration"
+      ]
+    },
+    {
+      "action": "fixtures",
+      "failure": "snapshot",
+      "cleanupCalls": 1,
+      "originalPreserved": true,
+      "nonzeroException": "ExceptionGroup",
+      "auditRegistered": false,
+      "errorPhases": [
+        "action",
+        "audit-registration"
+      ]
+    }
+  ]
+}

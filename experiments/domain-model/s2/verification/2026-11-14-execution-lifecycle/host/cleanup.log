@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py", line 189, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py", line 188, in main
+    getattr(r,a.action.replace('-','_'))()
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py", line 160, in cleanup
+    _,listing=self.cmd([self.lima,'list','--json'],timeout=10);assert not listing.strip()
+                                                                      ^^^^^^^^^^^^^^^^^^^
+AssertionError

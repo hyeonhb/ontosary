@@ -1,10 +1,16 @@
 # 독립 리뷰 맥락
 
+2026-11-17 최신 인계는 [최상위 cleanup 호출 보완](2026-11-17-s2-cleanup-dispatch-fix.md)(ADR-053)다. 구현 head e4474f2에서 main의 감사 실패→cleanup 연결만 보완했다. 새 회귀19개·Python193·pnpm check304와 과거3개 verifier 통과, 새 VM/runtime0이다. 과거 실제7단위와 새 호스트 실패 회귀를 구분해 검토한다. 기록 실패/marker 유실에도 cleanup1회·최초/후속 오류 보존·유효 감사 없는 seal 거부를 확인한다. PR #54는 독립 리뷰 전 미병합이며 R11/production/live·실제 인증/model/본 비교 차단은 유지한다.
+
 2026-11-17 최신 판단은 [진단·봉인 보완 독립 리뷰](2026-11-17-s2-seal-recovery-independent-review.md)다. d970072(PR #54)의 기본 정책7/7·Spec/봉인/회수와 R13/R14/R15/R16을 fixture 범위에서 확인했다. 304+174검사·259파일·소스/준비물 연결도 통과했다. R17은 하위 cleanup은 보완됐지만 main의 분석 동결/closing 기록 예외가 cleanup 호출을 건너뛴다. 6개 로컬 오류 주입으로 재현했고 실제 이번 VM 정리 완료와 구분한다. 사용자 요청에 따라 [로컬60분·새 VM0의 후속 지시](2026-11-17-s2-cleanup-dispatch-instructions.md)를 함께 제공한다. 구조 변경 없이 실제 진입점 회귀로 마무리하며 PR #54/정책 pair/인증/model/본 비교는 보완 리뷰까지 보류한다. H-O/H-F는 여전히 미검증이다.
+
+2026-11-17 최신 구현 인계는 [진단/봉인/정리 결과](2026-11-17-s2-seal-recovery.md)(ADR-052)다. PR #54에서 metadata의 UID501→root/mode0600 게시, active target reference와 InvocationID/raw inactive timestamp 봉인, 제한된 단계별 진단 회수와 독립 VM 정리를 보완했다. 기본 정책7/7·whole Spec7개/봉인7개 재대조·회수9개, pnpm check304·Python174·과거2/새 verifier 통과, 자원 정리 완료다. fixture 검증 완료와 R11/CLI native sandbox·모델 효용은 구분한다. PR #54 미병합·정책 pair/인증/model/본 비교 보류다. 독립 리뷰는 새 evidence/최종 코드/전달 hash와 R15/R16/R17 실패 회귀를 대조한다.
 
 2026-11-17 최신 개발 지시는 [진단/봉인/정리 보완](2026-11-17-s2-seal-recovery-instructions.md)(ADR-051)이다. ff7ec19(PR #54)을 이어 R15 잔여·R16·R17을 같은3시간/VM1개/기본 정책7단위 안에서 확인한다. R14 재사용은 유지하고 새 build·정책 pair·인증/model·본 비교는 제외한다. 사용자는 앞으로 논의가 필요 없는 보완은 리뷰와 함께 지시문도 바로 제공하도록 요청했다. 합의된 구조의 결함 수정은 바로 작성하고, 주요 방향/아키텍처 변경·범위/비용/권한 확대는 먼저 논의한다. 이것을 개발 세션 자동 실행이나 보류된 시험의 포괄 승인으로 확대하지 않는다.
 
 2026-11-17 [보완 독립 리뷰](2026-11-17-s2-execution-lifecycle-fix-independent-review.md)가 최신 판단이다. PR #54 ff7ec19의 partial/blocked 보고에 동의하며 R14 재사용은 확인했다. R13은 raw Spec 유실로 검증 미완료, R15는 metadata 관리자 소유 게시/실패 진단 보존을 보완해야 한다. R16은 service 종료 증거 수명과 봉인, R17은 export/copy 예외가 cleanup을 중단하는 문제다. 304+146 검사·새123/과거126 증거·소스/준비물 연결을 확인했고 실제 VM 재실행은 없다. 다음 구조/예산은 사용자와 정하며 구현 PR #54·정책 대조·실제 인증/model/본 비교는 계속 보류한다.
+
+2026-11-15 [보완 결과](2026-11-15-s2-execution-lifecycle-fix.md)는 **부분 완료·blocked/inconclusive**다. PR #54 f6fc386에 main067c028을 통합했고 ADR-048/049를 보존했다. R14는 실제 prepare의 입력 key hit·build/download0·새 VM import identity로 확인됐다. R13은 도구 검사 응답/start gate 통과가 있으나 실제 raw Spec/도구 진단 archive가 없어 부분 완료다. 정상1은 exit0·삭제1.566초 뒤 `seal:inactive-deadline-unconfirmed`로 결과가 철회됐다. R15 export도 `file-owner:image-export.json`으로 차단돼 최종 guest archive가 없다. 필수7 중 시도1/기대통과0이며 나머지6·정책 pair·재시도는0이다. 로컬146회귀·pnpm check304와 원시 호스트 오류/상태·소유 VM 정리를 기준으로 리뷰한다. 실제 실패 뒤 helper를 수정하지 않았고 PR은 독립 결과 리뷰 전 병합하지 않는다.
 
 2026-11-14 현재 후속 지시는 [R13~R15 보완](2026-11-14-s2-execution-lifecycle-fix-instructions.md)(ADR-049)이다. PR #54 f6fc386을 이어 R14→R13→R15 로컬 통합 회귀와 같은 기본 정책7단위를 검증하며, 직전과 같은3시간 상한·VM1개를 적용한다. 정책 대조는 이번 범위에서 제외하고 보완 PR은 독립 리뷰 뒤 병합한다. cache 복구/PR #53·독립 리뷰 PR #55는 완료됐으며 실제 credential/model/본 비교 보류를 유지한다.
 
@@ -13,6 +19,8 @@
 2026-11-14 최신 독립 판단: `f621521`의 감사/deadline 보완은 인정하지만 후보 시작 전 identity 차단과 실패 container 삭제 지연으로 시험은 blocked/inconclusive다. 기존 리뷰에서 pnpm check304·Python44, 새 증거60파일/16archive·분석8/closing4 재현, 이전 입력 불변과 실제 seccomp 한 행 차이를 확인했다. 후보 시작0회를 정책 실패로 해석하지 않는다. 공통 cleanup은 정지를 확인하지만 삭제가 정상 수집 경로에 남아 있고, hook 환경의 동적 값은 검증된 소유 관계로 비교해야 한다.
 
 사용자는 [새3시간 개발 지시](2026-11-14-s2-execution-lifecycle-instructions.md)(ADR-047)를 승인했다. 공개 불변 준비물 재사용·독립 공통 종료/삭제·엄격한 전체 Spec과 identity 대응을 정리하고, 필수7단위/선택1단위와 조건부 원래1·후보1만 검증한다. VM1개·준비물10GiB·단위120초·60/100/150/180분 마감이며 마지막30분에는 새 runtime 실행을 하지 않는다. 실제 삭제 실패 주입은 선택적으로 모든 관찰 뒤 마지막에 두며 폐기한 VM을 재생성하지 않는다. 이번 세션은 문서 작성이고 새 구현/실험은 미실행이다. 후속 리뷰는 세 책임의 실제 연결·비용 절감·실패 정리·원본/치환 Spec·잔여 차단을 확인한다. 실제 credential/provider/model·본 비교는 별도 결과 리뷰 뒤 결정하고 R11/production/live 차단을 유지한다. 아래는 당시 기록이다.
+
+2026-11-14 개발 인계: [공통 실행 수명주기 결과](2026-11-14-s2-execution-lifecycle.md)는 **부분 구현·blocked/inconclusive**다. 승인 지시는 별도 docs 브랜치191211d의 ADR-047이며, 구현 기준은 main f621521/PR52다. 공개 준비물4개를 검증·보관했고 새/기존 Python116개가 통과했다. 실제 정상1이 created Spec의 AppArmor 누락과3개 mount의 rro→ro로 start 전에 거부됐으며 container 삭제0.854초/단위 봉인1.236초, 결과와 next 차단을 확인했다. 필수 나머지6단위·정책 pair·실행 바이너리 identity는 미검증이다. VM은 삭제했고 기존 cache13파일 누락에 따른 pnpm check300통과/4실패도 그대로 남는다. 독립 리뷰와 필수 검사 미완료로 PR 게시 후 병합 보류이며 자동 재시도하지 않는다. 원시 Spec과 전체 diff·분석8/closing4·최종 index를 기준으로 검토한다. R11 unresolved·R12 기존 범위·production/live 거부·trialAuthorized/readyForTrial=false·results=null이다. 아래는 이전 회차 맥락이다.
 
 2026-11-12 최신 인계는 [감사·시간 제한 보완/정책 재시도](2026-11-12-s2-policy-retry.md)다. **보완 완료·관찰 blocked/inconclusive·정리 완료**: 실제 포장 거부/같은 절대 deadline을 검증했고 원래 clone EPERM을 재현했다. 후보 created Spec의 seccomp 추가는 정확한 한 행이나, 미등록 MEMORY_PRESSURE_WATCH hook 경로 차이로 시작0회다. 실패 후보 종료 확인0.275초와 삭제181.412초를 구분하며 후자는120초 계약 위반이다. 전체 자원 정리, pnpm check304·Python44·기존 S2 입력2,385파일 불변, 분석8개와 명시적 closing 등록/전체 index를 확인했다. 독립 리뷰는 아직 없고 같은 후보를 자동 재시도하지 않는다. R11/production/live 차단을 유지한다.
 

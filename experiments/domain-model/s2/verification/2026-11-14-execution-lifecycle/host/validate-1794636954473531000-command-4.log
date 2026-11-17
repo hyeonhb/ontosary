@@ -1,0 +1,22 @@
+{
+  "actualUnits": 1,
+  "startedUnits": 0,
+  "expectedOutcomesPassed": 0,
+  "requiredUnits": 7,
+  "guestArchiveFiles": 28,
+  "inputArchiveFiles": 27,
+  "transferredHelperHashes": 20,
+  "wholeSpecDiffReproduced": true,
+  "missingAppArmor": true,
+  "recursiveReadOnlyChanged": [
+    "/materials",
+    "/probe",
+    "/home/runner/cli-state/config.toml"
+  ],
+  "containerRemovedSeconds": 0.8539982960000145,
+  "unitSealedSeconds": 1.236440880999993,
+  "resultSuppressed": true,
+  "nextBlocked": true,
+  "actualBinaryIdentityVerified": false,
+  "runtimeReexecuted": false
+}

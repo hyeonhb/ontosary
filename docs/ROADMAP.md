@@ -1,12 +1,20 @@
 # 단계별 계획
 
+2026-11-17 다음 우선순위는 [R17 최상위 호출 보완 결과](reviews/2026-11-17-s2-cleanup-dispatch-fix.md)(ADR-053)의 독립 리뷰다. 새 호스트 회귀19개와 과거 실제7단위 증거 재대조를 완료했다. 새 VM/runtime은 실행하지 않았다. PR #54는 결과 리뷰 전 병합하지 않으며 정책/CLI 단계의 다음 범위·예산은 별도로 결정한다.
+
 2026-11-17 다음은 [R17 최상위 정리 호출 보완](reviews/2026-11-17-s2-cleanup-dispatch-instructions.md)이다. [독립 리뷰](reviews/2026-11-17-s2-seal-recovery-independent-review.md)에서 실제 기본 정책7/7과 R13/R14/R15/R16은 확인됐으므로 경계 재설계/새 VM 반복을 하지 않는다. 로컬60분 안에서 감사 기록 실패와 cleanup 호출을 분리하고 실제 dispatcher 회귀·기존 증거 재대조 후 리뷰한다. PR #54와 다음 정책/CLI 단계는 계속 보류하며 추가 권한·실제 인증/model·본 비교로 확대하지 않는다.
 
+2026-11-17 다음 우선순위는 [진단/봉인/정리 보완 결과](reviews/2026-11-17-s2-seal-recovery.md)(ADR-052)의 **독립 리뷰**다. R13 전체 Spec7개·R14 cache 재사용·R15 metadata/진단·R16 봉인·R17 최종 정리와 필수7단위 기대 결과를 확인했다. PR #54는 결과 리뷰 전 병합하지 않으며 정책 pair·추가 권한/backend·실제 인증/model·본 비교를 자동 재개하지 않는다. R11 unresolved와 R12 기존 범위는 유지한다.
+
 2026-11-17 다음 작업은 [R15 잔여·R16·R17 보완](reviews/2026-11-17-s2-seal-recovery-instructions.md)(ADR-051)이다. 같은 실행 경계에서 실패해도 진단 회수와 소유 자원 정리가 이어지도록 하고, service 종료 증거를 봉인까지 보존한다. R14 재사용을 유지하며 R13 실제 Spec 재검증과 기본 정책7단위까지만 확인한다. 직전과 같은3시간 상한이며 추가 정책/인증/model/본 비교는 결과 리뷰 뒤 결정한다.
+
+2026-11-15 다음 우선순위는 [R13–R15 부분 보완 결과](reviews/2026-11-15-s2-execution-lifecycle-fix.md)의 독립 리뷰다(ADR-050). 실제 이미지 재사용은 확인됐지만 service 비활성 시각 증거와 전달 metadata의 관리자 소유권/export 연결이 남았다. 첫 단위의 결과 철회·최종 guest archive 미생성을 보존하고, 이 두 실패의 국소 보완과 새 실행 범위/예산을 먼저 결정한다. 남은6단위·정책 대조·권한/backend 확대·실제 인증/model/본 비교를 자동 재개하지 않는다.
 
 2026-11-14 다음 우선순위: [R13~R15 보완](reviews/2026-11-14-s2-execution-lifecycle-fix-instructions.md)(ADR-049). 준비 진입점의 cache hit/build 분기와 collector→export 통합 회귀를 먼저 검증하고, 고정 runtime PATH에서 보안 Spec이 유지되는지 같은 기본 정책의7단위로 확인한다. 직전과 같은3시간 상한으로 한정하며 새 권한/backend·조건부 정책 대조·실제 인증/model·본 비교는 결과 리뷰 뒤 결정한다. 제품/모델/FCA/평가 의미는 유지한다.
 
 2026-11-14 현재 우선순위는 **[검증된 준비물 재사용과 공통 실행 운영 보완](reviews/2026-11-14-s2-execution-lifecycle-instructions.md)**이다(ADR-047). 동일 컨테이너 경계에서 새3시간을 상한으로 cache·실패 정리·정책/identity 계약을 검증한다. 로컬/실제 lifecycle 검증을 먼저 통과한 경우에만 원래1/후보1 대조를 진행하고, 다음 권한 차단에서는 중단한다. 운영 보완 완료와 정책 관찰을 구분하며 실제 인증·모델·본 비교는 결과 리뷰 뒤 결정한다. 상시 VM/새 backend/추가 권한 확대는 이번 범위가 아니다. R11 unresolved·H-O/H-F 미검증을 유지한다. 아래는 당시 우선순위다.
+
+2026-11-14 현재 다음 단계는 [수명주기 부분 결과](reviews/2026-11-14-s2-execution-lifecycle.md)(ADR-048)의 **독립 리뷰**다. 준비물 재사용·로컬 계약과 실제 사전 비교 실패의 신속한 삭제는 확인했지만 필수7단위 중 기대 결과 통과는0이다. AppArmor/rro를 보존하지 못한 최소 runtime 환경과 남은 실패 경로를 먼저 검토한다. 원래/후보 정책 대조·권한 확대·다른 backend·모델/본 비교를 자동 재개하지 않는다. 기존 Vendure cache 누락 때문에 pnpm check도300통과/4실패로 미완료이며 PR 병합은 보류한다. R11 unresolved와 R12 기존 범위, trialAuthorized/readyForTrial=false·results=null을 유지한다.
 
 2026-11-12 현재 우선순위는 **[정책 재시도의 부분 결과](reviews/2026-11-12-s2-policy-retry.md)와 추가 투자 가치 리뷰**다(ADR-046). 감사/deadline 두 보완은 통과했지만 후보는 미등록 감독자 hook 경로 때문에 시작되지 않았고 실패 container 삭제도120초를 넘었다. 같은 후보의 경로 치환/재시도를 자동 반복하지 않는다. 계속할 때 identity 사전 계약과 즉시 실패 정리 경로를 함께 검토하고, 실행 경계/환경 운영 방식 변경은 사용자와 별도로 결정한다. 새 구조/영구 cache·VM·실제 credential/provider/model·본 비교 승인은 아니다. R11 unresolved·H-O/H-F 미검증을 유지한다.
 

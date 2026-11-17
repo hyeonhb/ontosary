@@ -1,0 +1,52 @@
+func withNerdctlOCIHook(cmd string, args []string) (oci.SpecOpts, error) {
+	if rootlessutil.IsRootless() {
+		detachedNetNS, err := rootlessutil.DetachedNetNS()
+		if err != nil {
+			return nil, fmt.Errorf("failed to check whether RootlessKit is running with --detach-netns: %w", err)
+		}
+		if detachedNetNS != "" {
+			// Rewrite {cmd, args} if RootlessKit is running with --detach-netns, so that the hook can gain
+			// CAP_NET_ADMIN in the namespaces.
+			//   - Old:
+			//     - cmd:  "/usr/local/bin/nerdctl"
+			//     - args: {"--data-root=/foo", "internal", "oci-hook"}
+			//   - New:
+			//     - cmd:  "/usr/bin/nsenter"
+			//     - args: {"-n/run/user/1000/containerd-rootless/netns", "-F", "--", "/usr/local/bin/nerdctl", "--data-root=/foo", "internal", "oci-hook"}
+			oldCmd, oldArgs := cmd, args
+			cmd, err = exec.LookPath("nsenter")
+			if err != nil {
+				return nil, err
+			}
+			args = append([]string{"-n" + detachedNetNS, "-F", "--", oldCmd}, oldArgs...)
+		}
+	}
+
+	args = append([]string{cmd}, append(args, "internal", "oci-hook")...)
+	// sbin is appended for iptables https://github.com/containerd/nerdctl/discussions/1536
+	env := append(os.Environ(), "PATH="+os.Getenv("PATH")+":/usr/sbin:/sbin")
+	return func(_ context.Context, _ oci.Client, _ *containers.Container, s *specs.Spec) error {
+		if s.Hooks == nil {
+			s.Hooks = &specs.Hooks{}
+		}
+		crArgs := append(args, "createRuntime")
+		s.Hooks.CreateRuntime = append(s.Hooks.CreateRuntime, specs.Hook{
+			Path: cmd,
+			Args: crArgs,
+			Env:  env,
+		})
+		argsCopy := append([]string(nil), args...)
+		psArgs := append(argsCopy, "postStop")
+		s.Hooks.Poststop = append(s.Hooks.Poststop, specs.Hook{
+			Path: cmd,
+			Args: psArgs,
+			Env:  env,
+		})
+		return nil
+	}, nil
+}
+
+// withoutReservedLabels drops labels in the internal "nerdctl/" namespace. It runs
+// right after WithImageConfigLabels, the one path that can set them without going
+// through --label (which rejects the prefix): otherwise an image could forge
+// internal state, e.g. the image-mount host paths that `nerdctl rm` deletes.

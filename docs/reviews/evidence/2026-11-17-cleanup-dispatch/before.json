@@ -1,0 +1,83 @@
+{
+  "runtimeCommandsExecuted": 0,
+  "cases": [
+    {
+      "action": "prepare",
+      "failure": "none",
+      "calls": [
+        "prepare",
+        "snapshot",
+        "cleanup"
+      ],
+      "surfacedError": "original-prepare-failure",
+      "cleanupCalled": true
+    },
+    {
+      "action": "prepare",
+      "failure": "scope-write",
+      "calls": [
+        "prepare"
+      ],
+      "surfacedError": "injected-scope-write-failure",
+      "cleanupCalled": false
+    },
+    {
+      "action": "prepare",
+      "failure": "registry-write",
+      "calls": [
+        "prepare"
+      ],
+      "surfacedError": "injected-registry-write-failure",
+      "cleanupCalled": false
+    },
+    {
+      "action": "prepare",
+      "failure": "snapshot",
+      "calls": [
+        "prepare",
+        "snapshot"
+      ],
+      "surfacedError": "injected-snapshot-failure",
+      "cleanupCalled": false
+    },
+    {
+      "action": "fixtures",
+      "failure": "none",
+      "calls": [
+        "fixtures",
+        "snapshot",
+        "cleanup"
+      ],
+      "surfacedError": "original-fixtures-failure",
+      "cleanupCalled": true
+    },
+    {
+      "action": "fixtures",
+      "failure": "scope-write",
+      "calls": [
+        "fixtures"
+      ],
+      "surfacedError": "injected-scope-write-failure",
+      "cleanupCalled": false
+    },
+    {
+      "action": "fixtures",
+      "failure": "registry-write",
+      "calls": [
+        "fixtures"
+      ],
+      "surfacedError": "injected-registry-write-failure",
+      "cleanupCalled": false
+    },
+    {
+      "action": "fixtures",
+      "failure": "snapshot",
+      "calls": [
+        "fixtures",
+        "snapshot"
+      ],
+      "surfacedError": "injected-snapshot-failure",
+      "cleanupCalled": false
+    }
+  ]
+}

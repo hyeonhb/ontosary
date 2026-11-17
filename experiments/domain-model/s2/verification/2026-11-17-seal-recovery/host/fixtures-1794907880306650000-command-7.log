@@ -1,0 +1,1 @@
+{"status": "complete", "files": 35, "metadataIncludedFiles": 36, "boundedBytes": 531321, "archive": "/tmp/s2-execution-export-unit-normal-1/evidence.tar.gz", "bytes": 57463, "sha256": "2bdc6b516f0fbaa53b72db517933747b2081baaf41719d79552105236da5883e", "runs": {"8273e05aa79a": {"exportedResult": true, "files": 7, "collectionStatus": "collected"}}}

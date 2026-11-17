@@ -1,0 +1,8 @@
+{
+  "root": "/tmp/ontosary-s2-execution-lifecycle-20261114",
+  "vmName": "s2-lifecycle",
+  "store": "/Users/hyeon/Library/Caches/ontosary/s2-prepared-v1",
+  "storeExistedBefore": false,
+  "ownedRootPlannedBeforeCreation": true,
+  "vmRegistrations": 1
+}

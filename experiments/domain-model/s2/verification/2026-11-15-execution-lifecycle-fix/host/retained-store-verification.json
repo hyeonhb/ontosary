@@ -1,0 +1,33 @@
+{
+  "checkedAt": "2026-11-15T10:45:57.868806+00:00",
+  "initialArtifacts": {
+    "8eb876c2ccc4b6ff89e4a65d511815923b285e04503ba465809bf587f763da24": {
+      "manifestUnchanged": true,
+      "sha256": "8eb876c2ccc4b6ff89e4a65d511815923b285e04503ba465809bf587f763da24",
+      "bytes": 940373504,
+      "matchesInitial": true
+    },
+    "b7af444bd8f91d3c307477e562f2cf3bd7595d62b9429185e4fa841563578cfc": {
+      "manifestUnchanged": true,
+      "sha256": "b7af444bd8f91d3c307477e562f2cf3bd7595d62b9429185e4fa841563578cfc",
+      "bytes": 50317981,
+      "matchesInitial": true
+    },
+    "c15c09d5fbdcdbc1641238bc7875dd8c2e732aa2f6919b98eaed8e595afc9d68": {
+      "manifestUnchanged": true,
+      "sha256": "c15c09d5fbdcdbc1641238bc7875dd8c2e732aa2f6919b98eaed8e595afc9d68",
+      "bytes": 445026816,
+      "matchesInitial": true
+    },
+    "fe0ef0e9840ee8932640e6058f84b7fa98050f9726e44af44883a5b804ae830e": {
+      "manifestUnchanged": true,
+      "sha256": "fe0ef0e9840ee8932640e6058f84b7fa98050f9726e44af44883a5b804ae830e",
+      "bytes": 270513423,
+      "matchesInitial": true
+    }
+  },
+  "newLinks": [
+    ".image-key-4bc8ef40b201ccadb928faec44031c95d15e0831716cea76f24d9c41f33e02a4.json"
+  ],
+  "pending": []
+}

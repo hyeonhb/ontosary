@@ -1,0 +1,78 @@
+{
+  "first": {
+    "request": {
+      "name": "ontosary-fixed-trace-image",
+      "url": "local-build:fixed-public-inputs",
+      "version": "codex-0.167.0-alpha.3.2-node-22.19.0-strace",
+      "platform": "linux/arm64",
+      "bytes": 445026816,
+      "sha256": "c15c09d5fbdcdbc1641238bc7875dd8c2e732aa2f6919b98eaed8e595afc9d68",
+      "image": {
+        "chain": "sha256:3b5f9851906e2c4005a4f4ee0055626d8d719e61e060244b6f96e6a69cf8f7ee",
+        "config": "sha256:e3ab6ef0491100a63b97719f8dd7e7c12e682485b887eb2a2421c85963508f6d",
+        "name": "docker.io/library/ontosary-s2-execution:trace",
+        "platform": "linux/arm64",
+        "target": "sha256:64e3601e5f0cb3d8e48f0c1e3206ca952e276a5c16b7368b356cbaf3ba18293e"
+      },
+      "buildInputHashes": {
+        "probe": "952b773dbecd3a93c660c3ab3af153a115c82121724f7ef1d49d16890260fc85",
+        "fixture": "5c12b1dc0b729749556bfe9e76357ac5fa6727f230ad9081d9944e2a1483fc1b",
+        "policy": "a8ad466d3c6f1d971358ec8d5079305099f8daa58a33b33aac6e39bc8a75e90d",
+        "recipe": "4a70e2341e549a929aa008e50bcdec3a45aa5daebcfdafc1ca2f01dddb5f0a59",
+        "baseImage": "sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90"
+      }
+    },
+    "actual": {
+      "sha256": "c15c09d5fbdcdbc1641238bc7875dd8c2e732aa2f6919b98eaed8e595afc9d68",
+      "bytes": 445026816
+    },
+    "ownerUid": 501,
+    "registeredAtMono": 176329.89512575,
+    "path": "/Users/hyeon/Library/Caches/ontosary/s2-prepared-v1/c15c09d5fbdcdbc1641238bc7875dd8c2e732aa2f6919b98eaed8e595afc9d68/data",
+    "cacheHit": false,
+    "verifiedAtMono": 176329.896184666
+  },
+  "archiveVerification": {
+    "manifest": "sha256:64e3601e5f0cb3d8e48f0c1e3206ca952e276a5c16b7368b356cbaf3ba18293e",
+    "config": "sha256:e3ab6ef0491100a63b97719f8dd7e7c12e682485b887eb2a2421c85963508f6d",
+    "rootfsChain": "sha256:3b5f9851906e2c4005a4f4ee0055626d8d719e61e060244b6f96e6a69cf8f7ee",
+    "blobsVerified": 11,
+    "uncompressedArchiveBytes": 445015209
+  },
+  "second": {
+    "actual": {
+      "bytes": 445026816,
+      "sha256": "c15c09d5fbdcdbc1641238bc7875dd8c2e732aa2f6919b98eaed8e595afc9d68"
+    },
+    "ownerUid": 501,
+    "registeredAtMono": 176329.89512575,
+    "request": {
+      "buildInputHashes": {
+        "baseImage": "sha256:4a4884e8a44826194dff92ba316264f392056cbe243dcc9fd3551e71cea02b90",
+        "fixture": "5c12b1dc0b729749556bfe9e76357ac5fa6727f230ad9081d9944e2a1483fc1b",
+        "policy": "a8ad466d3c6f1d971358ec8d5079305099f8daa58a33b33aac6e39bc8a75e90d",
+        "probe": "952b773dbecd3a93c660c3ab3af153a115c82121724f7ef1d49d16890260fc85",
+        "recipe": "4a70e2341e549a929aa008e50bcdec3a45aa5daebcfdafc1ca2f01dddb5f0a59"
+      },
+      "bytes": 445026816,
+      "image": {
+        "chain": "sha256:3b5f9851906e2c4005a4f4ee0055626d8d719e61e060244b6f96e6a69cf8f7ee",
+        "config": "sha256:e3ab6ef0491100a63b97719f8dd7e7c12e682485b887eb2a2421c85963508f6d",
+        "name": "docker.io/library/ontosary-s2-execution:trace",
+        "platform": "linux/arm64",
+        "target": "sha256:64e3601e5f0cb3d8e48f0c1e3206ca952e276a5c16b7368b356cbaf3ba18293e"
+      },
+      "name": "ontosary-fixed-trace-image",
+      "platform": "linux/arm64",
+      "sha256": "c15c09d5fbdcdbc1641238bc7875dd8c2e732aa2f6919b98eaed8e595afc9d68",
+      "url": "local-build:fixed-public-inputs",
+      "version": "codex-0.167.0-alpha.3.2-node-22.19.0-strace"
+    },
+    "path": "/Users/hyeon/Library/Caches/ontosary/s2-prepared-v1/c15c09d5fbdcdbc1641238bc7875dd8c2e732aa2f6919b98eaed8e595afc9d68/data",
+    "cacheHit": true,
+    "verifiedAtMono": 176330.349773791
+  },
+  "secondDownloads": 0,
+  "secondBuilds": 0,
+  "seconds": 1.725232833006885
+}

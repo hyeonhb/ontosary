@@ -6,13 +6,16 @@ def snapshot(work,command,phase=None,category="analysis"):
  if (work/"analysis-scope.json").exists() and category!="closing":raise ValueError("analysis-frozen")
  if category=="closing":
   plan=json.loads((work/"plan.json").read_text());assert {"phase":phase,"command":command} in plan["closingAllowed"],"closing-command-not-allowed"
- else:assert category=="analysis"
+ else:
+  assert category=="analysis"
+  plan=json.loads((work/'plan.json').read_text()) if (work/'plan.json').exists() else {}
+  if 'analysisAllowed' in plan:assert {'phase':phase,'command':command} in plan['analysisAllowed'],'analysis-command-not-allowed'
  folder=pathlib.Path(work)/'snapshots';folder.mkdir(exist_ok=True);identity=str(time.time_ns());archive=folder/(identity+'.tar.gz');files={}
  paths=[*ROOT.glob('*.yaml'),ROOT/'Dockerfile']
- for directory in ['single-policy-test','cli-feasibility','lifecycle']:
-  paths += [p for p in (ROOT/directory).iterdir() if p.is_file() and p.suffix in ['.py','.mjs','.js','.json','.toml']]
+ for directory in ['single-policy-test','cli-feasibility','lifecycle','execution-lifecycle']:
+  paths += [p for p in (ROOT/directory).glob('*') if p.is_file() and p.suffix in ['.py','.mjs','.js','.json','.toml']]
  paths += [p for p in pathlib.Path(work).glob('*.py')]
- paths += [pathlib.Path(work)/n for n in ['plan.json','budget.json','start-input-hashes.json','Dockerfile','prior-native.json','seccomp-loader.go','prior-snapshot-scope.json'] if (pathlib.Path(work)/n).exists()]
+ paths += [pathlib.Path(work)/n for n in ['plan.json','budget.json','start-input-hashes.json','Dockerfile','prior-native.json','seccomp-loader.go','prior-snapshot-scope.json','start-inventory.json','start.json','instructions.md','prior-pair.json','inputs.json'] if (pathlib.Path(work)/n).exists()]
  with tarfile.open(archive,'w:gz') as t:
   for p in sorted(paths):
    b=p.read_bytes();name=('round-inputs/'+p.relative_to(work).as_posix()) if p.is_absolute() else p.as_posix();files[name]={'sha256':hashlib.sha256(b).hexdigest(),'bytes':len(b)};info=tarfile.TarInfo(name);info.size=len(b);info.mode=0o644;t.addfile(info,io.BytesIO(b))

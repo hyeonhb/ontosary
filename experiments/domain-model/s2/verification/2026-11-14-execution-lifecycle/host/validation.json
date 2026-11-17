@@ -1,0 +1,48 @@
+{
+  "checks": {
+    "pnpm-check": {
+      "exitCode": 1,
+      "tail": "36|   const file=path.join(scratch,'packages/admin-ui/src/lib/order/src/co\u2026\n       |                                                                                                                            ^\n     37|   const r=run(scratch);expect(r.anchorValid).toBe(false);expect(r.anal\u2026\n     38|  });\n\n\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[4/4]\u23af\n\n\n Test Files  1 failed | 15 passed (16)\n      Tests  4 failed | 300 passed (304)\n   Start at  15:15:59\n   Duration  13.22s (tests 89%, import 10%, transform 1%)\n\n[ELIFECYCLE] Test failed. See above for more details.\n[ELIFECYCLE] Command failed with exit code 1.\n"
+    },
+    "examples-build": {
+      "exitCode": 0,
+      "tail": "Already up to date\nDone in 210ms using pnpm v11.19.0\n$ vite build examples/react-vite\nvite v8.3.5 building client environment for production...\ntransforming...\n\u2713 17 modules transformed.\nrendering chunks...\ncomputing gzip size...\nexamples/react-vite/dist/index.html                   0.37 kB \u2502 gzip:  0.28 kB\nexamples/react-vite/dist/assets/index-DKVqXzap.css    0.89 kB \u2502 gzip:  0.48 kB\nexamples/react-vite/dist/assets/index-DR5c6bmT.js   221.96 kB \u2502 gzip: 69.73 kB\n\n\u2713 built in 103ms\n"
+    },
+    "production-live-refusal": {
+      "exitCode": 0,
+      "tail": "Already up to date\nDone in 211ms using pnpm v11.19.0\n\n RUN  v5.1.0 /Users/hyeon/toys/ontosary\n\n\n Test Files  1 passed (1)\n      Tests  1 passed (1)\n   Start at  15:16:14\n   Duration  333ms (import 78%, transform 20%, tests 1%, worker 1%)\n\n"
+    },
+    "saved-evidence-replay": {
+      "exitCode": 0,
+      "tail": "{\n  \"actualUnits\": 1,\n  \"startedUnits\": 0,\n  \"expectedOutcomesPassed\": 0,\n  \"requiredUnits\": 7,\n  \"guestArchiveFiles\": 28,\n  \"inputArchiveFiles\": 27,\n  \"transferredHelperHashes\": 20,\n  \"wholeSpecDiffReproduced\": true,\n  \"missingAppArmor\": true,\n  \"recursiveReadOnlyChanged\": [\n    \"/materials\",\n    \"/probe\",\n    \"/home/runner/cli-state/config.toml\"\n  ],\n  \"containerRemovedSeconds\": 0.8539982960000145,\n  \"unitSealedSeconds\": 1.236440880999993,\n  \"resultSuppressed\": true,\n  \"nextBlocked\": true,\n  \"actualBinaryIdentityVerified\": false,\n  \"runtimeReexecuted\": false\n}\n"
+    },
+    "new-tests": {
+      "exitCode": 0,
+      "tail": " ok\ntest_saved_pair_explicit_environment_migration (test_identity.IdentityTests.test_saved_pair_explicit_environment_migration) ... ok\ntest_bad_blob (test_image_archive.ImageArchiveTests.test_bad_blob) ... ok\ntest_manifest_config_chain_and_all_blobs (test_image_archive.ImageArchiveTests.test_manifest_config_chain_and_all_blobs) ... ok\ntest_missing_layer (test_image_archive.ImageArchiveTests.test_missing_layer) ... ok\ntest_wrong_chain (test_image_archive.ImageArchiveTests.test_wrong_chain) ... ok\n\n----------------------------------------------------------------------\nRan 56 tests in 3.804s\n\nOK\n"
+    },
+    "lifecycle-tests": {
+      "exitCode": 0,
+      "tail": "ollector.CollectorTests.test_hardlink) ... ok\ntest_mismatched_run_or_paths (test_collector.CollectorTests.test_mismatched_run_or_paths) ... ok\ntest_pending_runtime_request (test_collector.CollectorTests.test_pending_runtime_request) ... ok\ntest_socket (test_collector.CollectorTests.test_socket) ... ok\ntest_symlink_does_not_copy_external_secret (test_collector.CollectorTests.test_symlink_does_not_copy_external_secret) ... ok\ntest_unconfirmed (test_collector.CollectorTests.test_unconfirmed) ... ok\n\n----------------------------------------------------------------------\nRan 16 tests in 0.067s\n\nOK\n"
+    },
+    "audit-tests": {
+      "exitCode": 0,
+      "tail": "contract.Policy.test_not_applied) ... ok\ntest_wider_flags (test_contract.Policy.test_wider_flags) ... ok\ntest_closing_index_tamper (test_contract.Scope.test_closing_index_tamper) ... ok\ntest_closing_stable (test_contract.Scope.test_closing_stable) ... ok\ntest_missing (test_contract.Scope.test_missing) ... ok\ntest_real_11_plus_1 (test_contract.Scope.test_real_11_plus_1) ... ok\ntest_tampered (test_contract.Scope.test_tampered) ... ok\ntest_unclassified (test_contract.Scope.test_unclassified) ... ok\n\n----------------------------------------------------------------------\nRan 44 tests in 1.811s\n\nOK\n"
+    }
+  },
+  "unchangedTrackedFiles": 2933,
+  "intentionalChangedFiles": [
+    "experiments/domain-model/s2/trial/container/lifecycle/collector.py",
+    "experiments/domain-model/s2/trial/container/lifecycle/common.py",
+    "experiments/domain-model/s2/trial/container/single-policy-test/README.md",
+    "experiments/domain-model/s2/trial/container/single-policy-test/package.py",
+    "experiments/domain-model/s2/trial/container/single-policy-test/retry-export.py",
+    "experiments/domain-model/s2/trial/container/single-policy-test/retry-guest.py",
+    "experiments/domain-model/s2/trial/container/single-policy-test/retry-install.py",
+    "experiments/domain-model/s2/trial/container/single-policy-test/retry-job.py",
+    "experiments/domain-model/s2/trial/container/single-policy-test/retry-remove.py",
+    "experiments/domain-model/s2/trial/container/single-policy-test/runtime_policy.py",
+    "experiments/domain-model/s2/trial/container/single-policy-test/scope.py",
+    "experiments/domain-model/s2/trial/container/single-policy-test/snapshot.py"
+  ],
+  "priorCacheRestored": false
+}

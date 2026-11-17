@@ -1,0 +1,15 @@
+{
+  "scope": "unit-wrapper-death",
+  "runId": "e7dd63728e33",
+  "evidenceStatus": "complete",
+  "errors": [],
+  "secondsAvailable": 30,
+  "partialPublished": false,
+  "verified": {
+    "files": 38,
+    "bytes": 822921
+  },
+  "artifact": "recovery-unit-wrapper-death.tar.gz",
+  "archiveSha256": "299df318cbd7cdcf02c6007cb1a67b94bc3cce805eff7d7ea61cc276dc385c31",
+  "seconds": 0.44886516701080836
+}

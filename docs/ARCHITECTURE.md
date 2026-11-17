@@ -1,8 +1,16 @@
 # 현재 아키텍처
 
+2026-11-17 [cleanup dispatcher 보완](reviews/2026-11-17-s2-cleanup-dispatch-fix.md)(ADR-053): host main의 실패 처리만 국소 수정했다. 감사 동결/등록과 finally의 단일 cleanup 호출을 분리하고 최초 오류와 후속 오류를 ExceptionGroup으로 보존한다. bounded 실패 기록/출력은 정리를 막지 않는다. seal은 유효한 cleanup command의 closing 등록을 요구해 실패 marker 유실을 감사 성공으로 해석하지 않는다. 기존 recovery/guest/reference/exporter와 공유 snapshot/package 의미는 불변이며 새 runtime 실행은 없다.
+
+2026-11-17 [진단/봉인/정리 구현](reviews/2026-11-17-s2-seal-recovery.md)(ADR-052): 전달 metadata는 UID/hash/schema 검증 후 관리자 소유 mode0600으로 원자 게시한다. export는 봉인된 result와 allowlist 진단을 같은 누적 상한으로 처리하고 per-file 거부/partial/diagnostic/error-receipt를 구분한다. 기존 seal observer에 연결한 active target의 After 참조가 worker service를 시작 전부터 durable seal까지 보유하며 InvocationID와 raw inactive 시각을 연결한 뒤 해제한다. 회수는 최대30초/정리 reserve90초로 제한하고 stop/delete/부재 확인은 회수 오류와 독립적이다. 실제7단위·회수9개를 검증했으며 새 backend/권한/제품 계약은 도입하지 않았다. R11/production/live 차단은 유지한다.
+
 2026-11-17 다음 국소 보완(ADR-051): [진단/봉인/정리 지시](reviews/2026-11-17-s2-seal-recovery-instructions.md)는 관리자 검증 metadata의 원자 게시, 정상 결과와 실패 진단의 별도 상태/같은 누적 수집 상한, 봉인까지 service reference 유지, 증거 회수 오류와 VM 정리 책임 분리를 요구한다. 기존 독립 감독자·collector·전체 Spec·deadline을 유지하는 실험 도구 보완이며 아직 구현 완료가 아니다. 새로운 backend/권한/제품 계약은 도입하지 않는다.
 
+2026-11-15 [R13–R15 보완](reviews/2026-11-15-s2-execution-lifecycle-fix.md): 이미지 입력 key 조회를 build보다 앞에 두고 출력 archive/OCI identity를 별도 검증한다. runtime은 고정 시스템 PATH와 nerdctl 2.4.2의 정확한 hook PATH 추가 배열을 사용한다. export는 공유 FD reader로 봉인된 collector 결과와 관리자 allowlist만 읽고 archive/index를 원자 공개한다. 로컬146회귀는 통과했으나 실제 정상1의 service 봉인 실패 및 전달 metadata 소유권 불일치로 export가 중단됐다. 준비→소유권→진단 보존 연결은 미완료이며 제품/평가 의미와 production/live 차단은 유지한다.
+
 2026-11-14 승인된 다음 구조(ADR-047): [실행 운영 보완 지시](reviews/2026-11-14-s2-execution-lifecycle-instructions.md)는 준비물 관리·공통 수명주기·정책 비교의 세 책임을 실험 도구 안에 둔다. 공개 불변 준비물은 실제 hash/입력 검증 후 재사용하고, 회차 VM과 실행별 writable 상태는 새로 만든다. 정상/실패 모두 실행 차단→전체 종료 확인→task/container 제거·부재 확인→제한된 수집을 거치며 독립 감독자가 정지와 삭제를 책임진다. outcome과 정리/수집 상태를 분리하고 불명확한 runtime 요청은 다음 실행을 막는다. 실제 Spec은 소유 관계가 검증된 식별자만 치환한 뒤 전체를 비교하며 승인한 clone 한 행 외 차이는 거부한다. 기존 deadline/snapshot/package/collector를 재사용하고 공유 lifecycle 영향 회귀를 요구한다. 이는 승인된 구현 계약이며 아직 구현·검증 결과가 아니다. 제품 코어·평가 의미·모델/B/C와 production/live 차단은 유지한다.
+
+2026-11-14 [공통 수명주기 부분 구현](reviews/2026-11-14-s2-execution-lifecycle.md)(ADR-048): 실험 내부 `execution-lifecycle/`가 불변 공개 artifact 보관, 실행별 stop/settle/remove/collect, 소유 관계 검증 후 전체 Spec 비교를 분리한다. 기존 cgroup 확인·bounded collector와 snapshot/deadline/package를 재사용하고, 선택적 deadline/env 인자의 기존 기본값을 유지한다. ExecStopPost와 별도 게스트 observer가 삭제·service inactivity/단위 파일 정리를 확인한다. 실제로는 첫 생성 단위의 사전 비교 실패만 삭제0.854초에 확인했다. 최소 runtime 환경에서 AppArmor가 빠지고 rro가 ro로 달라져 시작을 거부했으므로 전체 lifecycle/CLI 경계는 미검증이다. 4개 공개 archive만 보관하고 VM/writable 상태는 폐기했다. 제품·모델·평가 의미와 production/live 거부는 유지한다. 아래는 각 회차의 당시 설명이다.
 
 2026-11-12 [재시도 결과](reviews/2026-11-12-s2-policy-retry.md)(ADR-046): closing은 정확한 command/args/phase와 생성 시 ID/hash 등록을 요구하며 package는 분석+등록 집합 밖 파일을 거부하고 검증된 staging만 공개한다. 준비 제한은 최초20분의 UTC/host monotonic 잔여를 공유한다. 실제 원래 단위는 기존 종료 도구로1.722초 내 삭제·수집했고, 후보는 strict OCI gate에서 미등록 hook 환경 경로로 시작 전 차단됐다. 후보 전체 종료 확인은0.275초였지만 삭제181.412초로120초 외부 계약에 미달한다. 따라서 새 도구는 진단 fixture이며 검증된 runtime adapter/R11 해결이 아니다. 공유 lifecycle/제품/평가 계약은 유지한다.
 

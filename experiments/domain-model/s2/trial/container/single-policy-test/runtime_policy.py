@@ -38,3 +38,13 @@ def verify(candidate,baseline,candidate_identity,baseline_identity):
  c=normalize(candidate,**candidate_identity);b=normalize(baseline,**baseline_identity);b['linux']['seccomp']['syscalls'].append(copy.deepcopy(RULE))
  assert c==b,'candidate-extra-difference'
  return {'exactAddedRule':RULE,'normalizedSpecUnchangedOtherwise':True,'candidateIdentity':candidate_identity,'baselineIdentity':baseline_identity}
+
+# New executions must use the strict, evidence-bound implementation. Legacy
+# functions above remain solely for replaying historical verification fixtures.
+def strict_verify(candidate,baseline,candidate_identity,baseline_identity,added_rule=True):
+ import importlib.util,pathlib
+ path=pathlib.Path(__file__).resolve().parent.parent/'execution-lifecycle/identity.py'
+ spec=importlib.util.spec_from_file_location('s2_execution_identity',path);module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
+ result=module.compare(candidate,baseline,candidate_identity,baseline_identity,added_rule)
+ if not result['accepted']:raise RuntimeError('full-spec-difference:'+json.dumps(result['fullSpecDiff']))
+ return result

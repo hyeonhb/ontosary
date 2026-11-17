@@ -1,5 +1,14 @@
 # Single-policy experiment tools
 
+2026-11-14: new execution uses [the common lifecycle](../execution-lifecycle/README.md).
+The five `retry-job/guest/install/remove/export.py` entrypoints now refuse runtime
+execution. Their original code remains in immutable historical snapshots. The
+legacy normalizer remains for historical replay; new executions use the strict
+full-Spec comparator with verified ownership and explicit runtime environment.
+Snapshot/package now also support exact planned analysis commands and multiple
+source directories while retaining the previous callers' defaults. The following
+paragraphs describe the historical 2026-11-12 implementation.
+
 The 2026-11-12 retry fixes the two reviewed audit/deadline defects, but its runtime
 observation remains **inconclusive**. The original policy reproduced two namespace
 clone EPERM calls inside one CLI sandbox invocation. The candidate was created

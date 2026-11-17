@@ -1,0 +1,151 @@
+{
+  "analysis": [
+    {
+      "id": "1794906111248412000",
+      "manifestSha256": "28482aa9f2a807ba16258fa676f3c102cb7da2d9e219ccc5664259105f5db215",
+      "archiveSha256": "53dc79ed2e63c03939a0ce4294a607487b1931c50bfa1536c56f5d5c4bd83dfc"
+    },
+    {
+      "id": "1794907788654706000",
+      "manifestSha256": "074bf2cf1d4672e8a577494b4e97bc9653fe4ceb4cb07d8dd72f979b365268aa",
+      "archiveSha256": "690e337d166a705f8d4f736dc975da158064b3ef43f17fad266ca335f0811423"
+    },
+    {
+      "id": "1794907815680339000",
+      "manifestSha256": "593cfae9694b7cbc4f3d4cc94e04ca2ba67d8353ff3734f23a8b8bc771a3e10c",
+      "archiveSha256": "d971e558b9690f1f388b338f5cff7b2af57ef4d6f01c20ec3251d2e2e789fe3f"
+    },
+    {
+      "id": "1794907822670369000",
+      "manifestSha256": "5111bc06e3b41f92f746e1e798977fd4544189b2810211b652fd515652ebabb8",
+      "archiveSha256": "d937e788eab6d40831ce5ec42a80a3a671381c1f7c1f1df32c22d3eb5379171d"
+    },
+    {
+      "id": "1794907880183292000",
+      "manifestSha256": "623b22f05d4a93e273b0fc79193dc6577669f5318ba63d294c4b75eb2e786bb1",
+      "archiveSha256": "e504abe8d0eab819c938d8a7fe790d98df88b8b1040189cd8f516843d7e3f5a5"
+    }
+  ],
+  "closing": [
+    {
+      "id": "1794907982769390000",
+      "manifestSha256": "11d254a69a06b126967f29acbabbc8ae1ee4a38340317d59ea367ad3bcde1977",
+      "archiveSha256": "05b092cac3072964c88bcf4306a61f50a7878a372057e9f06e69fa4ef930fdfb",
+      "phase": "finish",
+      "command": [
+        "python3",
+        "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+        "cleanup",
+        "--work",
+        "/Users/hyeon/toys/ontosary/work/s2-seal-recovery-20261117"
+      ]
+    },
+    {
+      "id": "1794907992942316000",
+      "manifestSha256": "ca62f0b2b41a964dccaae3d1e4376265cddd0943f34f72e30e8eb05b1c8ac65e",
+      "archiveSha256": "809e1f22792b380c3cf034e0cec4b92cdc37b1acd27e3b794b1d8d9374dc030c",
+      "phase": "finish",
+      "command": [
+        "python3",
+        "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+        "validate",
+        "--work",
+        "/Users/hyeon/toys/ontosary/work/s2-seal-recovery-20261117"
+      ]
+    },
+    {
+      "id": "1794908299431297000",
+      "manifestSha256": "c2173bca27b434c8817ad1310e413dec4bae36092ff6242fcae2d0bdbe695aeb",
+      "archiveSha256": "aab7ca75b370f005da556b88d8177f628c183238092c7eb95bb9fd2986a6eae7",
+      "phase": "finish",
+      "command": [
+        "python3",
+        "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+        "seal",
+        "--work",
+        "/Users/hyeon/toys/ontosary/work/s2-seal-recovery-20261117"
+      ]
+    }
+  ],
+  "closingAllowed": [
+    {
+      "phase": "finish",
+      "command": [
+        "python3",
+        "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+        "cleanup",
+        "--work",
+        "/Users/hyeon/toys/ontosary/work/s2-seal-recovery-20261117"
+      ]
+    },
+    {
+      "phase": "finish",
+      "command": [
+        "python3",
+        "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+        "validate",
+        "--work",
+        "/Users/hyeon/toys/ontosary/work/s2-seal-recovery-20261117"
+      ]
+    },
+    {
+      "phase": "finish",
+      "command": [
+        "python3",
+        "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+        "seal",
+        "--work",
+        "/Users/hyeon/toys/ontosary/work/s2-seal-recovery-20261117"
+      ]
+    }
+  ],
+  "analysisAllowed": [
+    {
+      "phase": "plan",
+      "command": [
+        "python3",
+        "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+        "local",
+        "--work",
+        "/Users/hyeon/toys/ontosary/work/s2-seal-recovery-20261117"
+      ]
+    },
+    {
+      "phase": "environment",
+      "command": [
+        "python3",
+        "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+        "prepare",
+        "--work",
+        "/Users/hyeon/toys/ontosary/work/s2-seal-recovery-20261117"
+      ]
+    },
+    {
+      "phase": "exploration",
+      "command": [
+        "python3",
+        "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+        "fixtures",
+        "--work",
+        "/Users/hyeon/toys/ontosary/work/s2-seal-recovery-20261117"
+      ]
+    },
+    {
+      "phase": "plan",
+      "command": [
+        "python3",
+        "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+        "enter-preparation",
+        "--work",
+        "/Users/hyeon/toys/ontosary/work/s2-seal-recovery-20261117"
+      ]
+    },
+    {
+      "phase": "plan",
+      "command": [
+        "python3",
+        "docs/reviews/evidence/2026-11-17-probe-cleanup.py"
+      ]
+    }
+  ]
+}

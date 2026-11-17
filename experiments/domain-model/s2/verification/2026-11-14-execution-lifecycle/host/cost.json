@@ -1,0 +1,16 @@
+{
+  "status": "closed",
+  "startedUtc": "2026-11-14T05:33:20.873332+00:00",
+  "measuredUntilUtc": "2026-11-14T06:23:26.606709+00:00",
+  "roundMeasuredSeconds": 3005.7519281249843,
+  "previousMeasuredSeconds": 14280.296826292,
+  "cumulativeMeasuredSeconds": 17286.048754416985,
+  "previousSerializationUpperBoundSeconds": 10,
+  "currentSerializationUpperBoundSeconds": 10,
+  "cumulativeUpperBoundSeconds": 17306.048754416985,
+  "newPaidCost": 0,
+  "gitDeliveryIncluded": false,
+  "actualUnits": 1,
+  "passedUnits": 0,
+  "runtimeRetries": 0
+}

@@ -1,0 +1,20 @@
+{
+  "status": "blocked/inconclusive",
+  "registeredUnits": 1,
+  "requiredUnits": 7,
+  "expectedOutcomesPassed": 0,
+  "containerCreates": 1,
+  "containerStarts": 1,
+  "containerExecRequests": 0,
+  "candidateStarts": 0,
+  "unexpectedFailure": "seal:inactive-deadline-unconfirmed",
+  "remainingUnitsNotAttempted": 6,
+  "runtimeRetries": 0,
+  "analysisStoppedUTC": "2026-11-15T10:43:41.807861+00:00",
+  "analysisStoppedMonotonic": 204961.930153041,
+  "fixtureOnly": true,
+  "validSubmission": false,
+  "trialAuthorized": false,
+  "readyForTrial": false,
+  "results": null
+}

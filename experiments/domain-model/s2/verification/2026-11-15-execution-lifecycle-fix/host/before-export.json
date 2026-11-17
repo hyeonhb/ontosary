@@ -1,0 +1,7 @@
+{
+  "runtimeStarted": false,
+  "collectorRejected": "hardlink:source/hardlink.txt",
+  "collectionStatus": "suppressed",
+  "exportContainsRejectedHardlink": true,
+  "exportMember": "runs/aaaaaaaaaaaa/source/hardlink.txt"
+}

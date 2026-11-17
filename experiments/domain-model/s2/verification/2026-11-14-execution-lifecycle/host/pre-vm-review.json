@@ -1,0 +1,7 @@
+{
+  "utc": "2026-11-14T06:05:58.755103+00:00",
+  "vmRegistrations": 0,
+  "change": "payload deadline starts before start request, not after its response",
+  "environmentDeadlineReset": false,
+  "sourceProof": "next registered local snapshot and input-transfer archive"
+}

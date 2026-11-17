@@ -1,5 +1,5 @@
 """Manager-only state and kernel/runtime checks for the finite fixture harness."""
-import contextlib,datetime,fcntl,hashlib,json,os,pathlib,re,subprocess,time
+import contextlib,datetime,fcntl,hashlib,json,os,pathlib,re,signal,subprocess,time
 ROOT=pathlib.Path('/opt/ontosary-fixture')
 CODE=ROOT/'code'
 NERD=['nerdctl','--address','/run/containerd/containerd.sock','--namespace','default']
@@ -15,15 +15,37 @@ def runpath(runid):
     if not re.fullmatch('[0-9a-f]{12}',runid):raise ValueError('invalid manager run ID')
     return ROOT/'runs'/runid
 @contextlib.contextmanager
-def lock(path):
-    with path.open('a') as f:fcntl.flock(f,fcntl.LOCK_EX);yield
+def lock(path,deadline=None):
+    with path.open('a') as f:
+        if deadline is None:fcntl.flock(f,fcntl.LOCK_EX)
+        else:
+            while True:
+                if time.monotonic()>=deadline:raise RuntimeError('lock-deadline')
+                try:fcntl.flock(f,fcntl.LOCK_EX|fcntl.LOCK_NB);break
+                except BlockingIOError:time.sleep(.01)
+        yield
 
 def event(run,kind,**details):
     with (run/'events.jsonl').open('a') as f:f.write(json.dumps({'kind':kind,**stamp(),**details},sort_keys=True)+'\n')
-def command(run,args,timeout=3,check=True):
+def command(run,args,timeout=3,check=True,env=None,deadline=None):
+    if deadline is not None:
+        timeout=min(timeout,deadline-time.monotonic())
+        if timeout<=0:raise RuntimeError("command-deadline")
     started=stamp()
     try:
-        p=subprocess.run(args,capture_output=True,timeout=timeout);code=p.returncode;out=p.stdout.decode(errors='replace');err=p.stderr.decode(errors='replace')
+        if deadline is None:
+            p=subprocess.run(args,capture_output=True,timeout=timeout,env=env);rawout,rawerr=p.stdout,p.stderr
+        else:
+            p=subprocess.Popen(args,stdout=subprocess.PIPE,stderr=subprocess.PIPE,env=env,start_new_session=True)
+            try:rawout,rawerr=p.communicate(timeout=timeout)
+            except subprocess.TimeoutExpired:
+                # Kill the owned CLI process group, not just a PID with inherited output pipes.
+                try:os.killpg(p.pid,signal.SIGKILL)
+                except ProcessLookupError:pass
+                try:p.communicate(timeout=.2)
+                except subprocess.TimeoutExpired:pass
+                raise
+        code=p.returncode;out=rawout.decode(errors='replace');err=rawerr.decode(errors='replace')
     except subprocess.TimeoutExpired as e:
         code=124;out=(e.stdout or b'').decode(errors='replace');err=(e.stderr or b'').decode(errors='replace')
     event(run,'command',command=args,start=started,seconds=time.monotonic()-started['mono'],exitCode=code,stdout=out,stderr=err)
@@ -33,8 +55,8 @@ def command(run,args,timeout=3,check=True):
 def state(run,**updates):
     s=read(run/'state.json');s.update(updates);write(run/'state.json',s);event(run,'state',state=s);return s
 
-def gate(run,allow,reason):
-    with lock(ROOT/'gate.lock'):
+def gate(run,allow,reason,deadline=None):
+    with lock(ROOT/'gate.lock',deadline):
         g=read(ROOT/'gate.json')
         if g['runId']==run.name:write(ROOT/'gate.json',{'runId':run.name,'allowNext':allow,'reason':reason,**stamp()})
 
@@ -58,14 +80,14 @@ def cgroup_snapshot(run):
             except FileNotFoundError:pass
     return {'path':str(cg),'inode':info.st_ino,'events':events,'members':members,**stamp()}
 
-def stop_confirm(run,inject=None):
+def stop_confirm(run,inject=None,deadline=None,runtime_env=None):
     previous=read(run/'state.json');preserve=previous['state']=='blocked'
     s=state(run,admissionClosed=True,**({} if preserve else {'state':'stopping'}),stopRequested=stamp())
-    gate(run,False,'stopping')
+    gate(run,False,'stopping',deadline)
     before=cgroup_snapshot(run);event(run,'before-kill',snapshot=before)
     if inject=='kill-error':raise RuntimeError('injected-kill-command-failure')
     (pathlib.Path(s['cgroup'])/'cgroup.kill').write_text('1')
-    end=time.monotonic()+10
+    end=min(time.monotonic()+10,deadline) if deadline is not None else time.monotonic()+10
     while True:
         if inject=='query-error':raise RuntimeError('injected-state-query-failure')
         after=cgroup_snapshot(run)
@@ -77,16 +99,16 @@ def stop_confirm(run,inject=None):
     cid=s.get('containerId');runtime=None
     if cid:
         while True:
-            runtime=json.loads(command(run,NERD+['inspect',cid],timeout=min(2,max(.01,end-time.monotonic())))[1])[0]
+            runtime=json.loads(command(run,NERD+['inspect',cid],timeout=min(2,max(.01,end-time.monotonic())),deadline=end,env=runtime_env)[1])[0]
             if not runtime['State']['Running'] and runtime['State']['Pid']==0:break
             if time.monotonic()>=end:raise RuntimeError('runtime-task-still-active')
             time.sleep(.02)
-        tasklist=command(run,CTR+['tasks','list'],timeout=min(2,max(.01,end-time.monotonic())))[1]
+        tasklist=command(run,CTR+['tasks','list'],timeout=min(2,max(.01,end-time.monotonic())),deadline=end,env=runtime_env)[1]
         matching=[line.split() for line in tasklist.splitlines()[1:] if line.split() and line.split()[0]==cid]
         if matching:
             if len(matching)!=1 or matching[0][-1]!='STOPPED':raise RuntimeError('runtime-task-not-stopped')
-            command(run,CTR+['tasks','delete',cid],timeout=min(2,max(.01,end-time.monotonic())))
-            remaining=command(run,CTR+['tasks','list'],timeout=min(2,max(.01,end-time.monotonic())))[1]
+            command(run,CTR+['tasks','delete',cid],timeout=min(2,max(.01,end-time.monotonic())),deadline=end,env=runtime_env)
+            remaining=command(run,CTR+['tasks','list'],timeout=min(2,max(.01,end-time.monotonic())),deadline=end,env=runtime_env)[1]
             if any(line.split() and line.split()[0]==cid for line in remaining.splitlines()[1:]):raise RuntimeError('runtime-task-present')
     after=cgroup_snapshot(run)
     if after['events'].get('populated')!='0':raise RuntimeError('cgroup-repopulated')

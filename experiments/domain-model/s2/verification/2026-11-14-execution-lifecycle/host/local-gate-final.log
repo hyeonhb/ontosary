@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py", line 184, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py", line 183, in main
+    getattr(r,a.action)()
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py", line 26, in local
+    r,output=self.cmd([sys.executable,'-m','unittest','discover','-s',str(CONTAINER/directory),'-p',pattern,'-v'],60);results.append({'directory':directory,'pattern':pattern,'exitCode':r['exitCode'],'log':output[-500:]})
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py", line 19, in cmd
+    with path.open('x') as log:r=run(args,self.budget,self.phase,self.w/'stage-commands.jsonl',timeout,stdout=log,env=self.env)
+         ^^^^^^^^^^^^^^
+  File "/Users/hyeon/.pyenv/versions/3.12.10/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileExistsError: [Errno 17] File exists: '/Users/hyeon/toys/ontosary/work/s2-execution-lifecycle/local-command-1.log'

@@ -1,0 +1,70 @@
+{
+  "rootExists": true,
+  "required": {
+    "package-lock.json": {
+      "exists": false,
+      "expected": "36f9848d635ceca4f586e5cd1aab48ed1e99fa80dda5d2a91dfd59a8daff65db",
+      "actual": null
+    },
+    "packages/admin-ui/ontosary.scope.json": {
+      "exists": false,
+      "expected": "98afa072585213a784aea6ac6f166463a4444b87f1d00a596949c182d1842478",
+      "actual": null
+    },
+    "packages/admin-ui/src/lib/core/src/data/definitions/order-definitions.ts": {
+      "exists": false,
+      "expected": "26a6b81368d53a731b2847e0587eeb94463ec706bb8df73bee13d304fb770701",
+      "actual": null
+    },
+    "packages/admin-ui/src/lib/core/src/data/providers/base-data.service.ts": {
+      "exists": false,
+      "expected": "0a6db92e5fab822c00b9210251693af883ceab8d3c027e417e77a9e47eeb1824",
+      "actual": null
+    },
+    "packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts": {
+      "exists": false,
+      "expected": "27ddd40b2430caebc5f0defc901d1e42aa54f1cb29038fe4e7657a2448c03811",
+      "actual": null
+    },
+    "packages/admin-ui/src/lib/core/src/providers/modal/modal.service.ts": {
+      "exists": false,
+      "expected": "d4096905f43f3134d12aa2567a2a0a6d1deb25b985222de877d7057fc336f365",
+      "actual": null
+    },
+    "packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.html": {
+      "exists": false,
+      "expected": "308499c673a3cf4fc514210e6ab9aef74e8b89c877cea72d25b371db5fa97dc3",
+      "actual": null
+    },
+    "packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts": {
+      "exists": false,
+      "expected": "a47e7000b222454302c8a0dfc374555f78616517fdc3ec03621a199ecf234cc5",
+      "actual": null
+    },
+    "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.html": {
+      "exists": false,
+      "expected": "fecfd12fc47bb2f2d862b618a73e0c98104b87225436046d96938d3bc3220d89",
+      "actual": null
+    },
+    "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts": {
+      "exists": false,
+      "expected": "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede",
+      "actual": null
+    },
+    "packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts": {
+      "exists": false,
+      "expected": "d9ea112f17bff650686842306bef46fa6f7564278b1166762a7c9b7a8473a6fb",
+      "actual": null
+    },
+    "packages/admin-ui/tsconfig.json": {
+      "exists": false,
+      "expected": "b5e2f3a67b9de14fae6721525fca69486e10c65723cdffd606bd6d907ac8fab2",
+      "actual": null
+    },
+    "tsconfig.json": {
+      "exists": false,
+      "expected": "e2825b9f270aa924ea42af876988a50763b189dabf6b1294480fd5b206c46297",
+      "actual": null
+    }
+  }
+}

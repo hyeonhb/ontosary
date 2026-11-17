@@ -1,0 +1,17 @@
+{
+  "vmCreated": true,
+  "vmAbsent": true,
+  "rootAbsent": true,
+  "dedicatedStore": "/Users/hyeon/Library/Caches/ontosary/s2-prepared-v1",
+  "ownedTemporaryRemoved": [],
+  "retainedBytes": 1706234324,
+  "retainedEntries": [
+    "fe0ef0e9840ee8932640e6058f84b7fa98050f9726e44af44883a5b804ae830e",
+    "b7af444bd8f91d3c307477e562f2cf3bd7595d62b9429185e4fa841563578cfc",
+    "c15c09d5fbdcdbc1641238bc7875dd8c2e732aa2f6919b98eaed8e595afc9d68",
+    "8eb876c2ccc4b6ff89e4a65d511815923b285e04503ba465809bf587f763da24"
+  ],
+  "temporaryEntries": [],
+  "existingUserCacheModified": false,
+  "vmDisposalIsNotUnitTerminationProof": true
+}

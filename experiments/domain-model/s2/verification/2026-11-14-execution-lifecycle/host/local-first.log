@@ -1,0 +1,176 @@
+test_build_input_mismatch (test_artifacts.ArtifactTests.test_build_input_mismatch) ... ERROR
+test_capacity_before_producer (test_artifacts.ArtifactTests.test_capacity_before_producer) ... ERROR
+test_corruption_is_not_recertified (test_artifacts.ArtifactTests.test_corruption_is_not_recertified) ... ERROR
+test_deadline (test_artifacts.ArtifactTests.test_deadline) ... ERROR
+test_hit_rehash_skips_producer (test_artifacts.ArtifactTests.test_hit_rehash_skips_producer) ... ERROR
+test_missing (test_artifacts.ArtifactTests.test_missing) ... ERROR
+test_partial_cleaned (test_artifacts.ArtifactTests.test_partial_cleaned) ... ERROR
+test_producer_failure_cleaned (test_artifacts.ArtifactTests.test_producer_failure_cleaned) ... ERROR
+test_registration_incomplete (test_artifacts.ArtifactTests.test_registration_incomplete) ... ERROR
+test_symlink_rejected (test_artifacts.ArtifactTests.test_symlink_rejected) ... ERROR
+test_unowned_partial_counts_capacity (test_artifacts.ArtifactTests.test_unowned_partial_counts_capacity) ... ERROR
+test_version_mismatch (test_artifacts.ArtifactTests.test_version_mismatch) ... ERROR
+test_duplicate_env (test_identity.IdentityTests.test_duplicate_env) ... ok
+test_duplicate_mount (test_identity.IdentityTests.test_duplicate_mount) ... ok
+test_extra_command (test_identity.IdentityTests.test_extra_command) ... ok
+test_extra_hook (test_identity.IdentityTests.test_extra_hook) ... ok
+test_extra_privilege (test_identity.IdentityTests.test_extra_privilege) ... ok
+test_extra_seccomp (test_identity.IdentityTests.test_extra_seccomp) ... ok
+test_hook_command_rejected (test_identity.IdentityTests.test_hook_command_rejected) ... ok
+test_independent_peer_order (test_identity.IdentityTests.test_independent_peer_order) ... ok
+test_input_mismatch (test_identity.IdentityTests.test_input_mismatch) ... ok
+test_nested_mount_reorder_rejected (test_identity.IdentityTests.test_nested_mount_reorder_rejected) ... ok
+test_other_run_path (test_identity.IdentityTests.test_other_run_path) ... ok
+test_other_supervisor_pressure_path (test_identity.IdentityTests.test_other_supervisor_pressure_path) ... ok
+test_outside_mount (test_identity.IdentityTests.test_outside_mount) ... ok
+test_raw_historical_duplicates_rejected (test_identity.IdentityTests.test_raw_historical_duplicates_rejected) ... ok
+test_saved_pair_explicit_environment_migration (test_identity.IdentityTests.test_saved_pair_explicit_environment_migration) ... ok
+
+======================================================================
+ERROR: test_build_input_mismatch (test_artifacts.ArtifactTests.test_build_input_mismatch)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/test_artifacts.py", line 5, in setUp
+    self.tmp=tempfile.TemporaryDirectory();self.root=pathlib.Path(self.tmp.name)/'store';self.store=Store(self.root,100000);self.req={'name':'fixed','version':'1','platform':'fixture','url':'fixture://public','bytes':3,'sha256':hashlib.sha256(b'abc').hexdigest(),'buildInputHashes':{}};self.end=time.monotonic()+5
+                                                                                                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/artifacts.py", line 26, in __init__
+    if self.root.resolve()!=self.root:raise Rejected('store-symlink')
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+artifacts.Rejected: store-symlink
+
+======================================================================
+ERROR: test_capacity_before_producer (test_artifacts.ArtifactTests.test_capacity_before_producer)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/test_artifacts.py", line 5, in setUp
+    self.tmp=tempfile.TemporaryDirectory();self.root=pathlib.Path(self.tmp.name)/'store';self.store=Store(self.root,100000);self.req={'name':'fixed','version':'1','platform':'fixture','url':'fixture://public','bytes':3,'sha256':hashlib.sha256(b'abc').hexdigest(),'buildInputHashes':{}};self.end=time.monotonic()+5
+                                                                                                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/artifacts.py", line 26, in __init__
+    if self.root.resolve()!=self.root:raise Rejected('store-symlink')
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+artifacts.Rejected: store-symlink
+
+======================================================================
+ERROR: test_corruption_is_not_recertified (test_artifacts.ArtifactTests.test_corruption_is_not_recertified)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/test_artifacts.py", line 5, in setUp
+    self.tmp=tempfile.TemporaryDirectory();self.root=pathlib.Path(self.tmp.name)/'store';self.store=Store(self.root,100000);self.req={'name':'fixed','version':'1','platform':'fixture','url':'fixture://public','bytes':3,'sha256':hashlib.sha256(b'abc').hexdigest(),'buildInputHashes':{}};self.end=time.monotonic()+5
+                                                                                                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/artifacts.py", line 26, in __init__
+    if self.root.resolve()!=self.root:raise Rejected('store-symlink')
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+artifacts.Rejected: store-symlink
+
+======================================================================
+ERROR: test_deadline (test_artifacts.ArtifactTests.test_deadline)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/test_artifacts.py", line 5, in setUp
+    self.tmp=tempfile.TemporaryDirectory();self.root=pathlib.Path(self.tmp.name)/'store';self.store=Store(self.root,100000);self.req={'name':'fixed','version':'1','platform':'fixture','url':'fixture://public','bytes':3,'sha256':hashlib.sha256(b'abc').hexdigest(),'buildInputHashes':{}};self.end=time.monotonic()+5
+                                                                                                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/artifacts.py", line 26, in __init__
+    if self.root.resolve()!=self.root:raise Rejected('store-symlink')
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+artifacts.Rejected: store-symlink
+
+======================================================================
+ERROR: test_hit_rehash_skips_producer (test_artifacts.ArtifactTests.test_hit_rehash_skips_producer)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/test_artifacts.py", line 5, in setUp
+    self.tmp=tempfile.TemporaryDirectory();self.root=pathlib.Path(self.tmp.name)/'store';self.store=Store(self.root,100000);self.req={'name':'fixed','version':'1','platform':'fixture','url':'fixture://public','bytes':3,'sha256':hashlib.sha256(b'abc').hexdigest(),'buildInputHashes':{}};self.end=time.monotonic()+5
+                                                                                                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/artifacts.py", line 26, in __init__
+    if self.root.resolve()!=self.root:raise Rejected('store-symlink')
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+artifacts.Rejected: store-symlink
+
+======================================================================
+ERROR: test_missing (test_artifacts.ArtifactTests.test_missing)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/test_artifacts.py", line 5, in setUp
+    self.tmp=tempfile.TemporaryDirectory();self.root=pathlib.Path(self.tmp.name)/'store';self.store=Store(self.root,100000);self.req={'name':'fixed','version':'1','platform':'fixture','url':'fixture://public','bytes':3,'sha256':hashlib.sha256(b'abc').hexdigest(),'buildInputHashes':{}};self.end=time.monotonic()+5
+                                                                                                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/artifacts.py", line 26, in __init__
+    if self.root.resolve()!=self.root:raise Rejected('store-symlink')
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+artifacts.Rejected: store-symlink
+
+======================================================================
+ERROR: test_partial_cleaned (test_artifacts.ArtifactTests.test_partial_cleaned)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/test_artifacts.py", line 5, in setUp
+    self.tmp=tempfile.TemporaryDirectory();self.root=pathlib.Path(self.tmp.name)/'store';self.store=Store(self.root,100000);self.req={'name':'fixed','version':'1','platform':'fixture','url':'fixture://public','bytes':3,'sha256':hashlib.sha256(b'abc').hexdigest(),'buildInputHashes':{}};self.end=time.monotonic()+5
+                                                                                                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/artifacts.py", line 26, in __init__
+    if self.root.resolve()!=self.root:raise Rejected('store-symlink')
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+artifacts.Rejected: store-symlink
+
+======================================================================
+ERROR: test_producer_failure_cleaned (test_artifacts.ArtifactTests.test_producer_failure_cleaned)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/test_artifacts.py", line 5, in setUp
+    self.tmp=tempfile.TemporaryDirectory();self.root=pathlib.Path(self.tmp.name)/'store';self.store=Store(self.root,100000);self.req={'name':'fixed','version':'1','platform':'fixture','url':'fixture://public','bytes':3,'sha256':hashlib.sha256(b'abc').hexdigest(),'buildInputHashes':{}};self.end=time.monotonic()+5
+                                                                                                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/artifacts.py", line 26, in __init__
+    if self.root.resolve()!=self.root:raise Rejected('store-symlink')
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+artifacts.Rejected: store-symlink
+
+======================================================================
+ERROR: test_registration_incomplete (test_artifacts.ArtifactTests.test_registration_incomplete)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/test_artifacts.py", line 5, in setUp
+    self.tmp=tempfile.TemporaryDirectory();self.root=pathlib.Path(self.tmp.name)/'store';self.store=Store(self.root,100000);self.req={'name':'fixed','version':'1','platform':'fixture','url':'fixture://public','bytes':3,'sha256':hashlib.sha256(b'abc').hexdigest(),'buildInputHashes':{}};self.end=time.monotonic()+5
+                                                                                                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/artifacts.py", line 26, in __init__
+    if self.root.resolve()!=self.root:raise Rejected('store-symlink')
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+artifacts.Rejected: store-symlink
+
+======================================================================
+ERROR: test_symlink_rejected (test_artifacts.ArtifactTests.test_symlink_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/test_artifacts.py", line 5, in setUp
+    self.tmp=tempfile.TemporaryDirectory();self.root=pathlib.Path(self.tmp.name)/'store';self.store=Store(self.root,100000);self.req={'name':'fixed','version':'1','platform':'fixture','url':'fixture://public','bytes':3,'sha256':hashlib.sha256(b'abc').hexdigest(),'buildInputHashes':{}};self.end=time.monotonic()+5
+                                                                                                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/artifacts.py", line 26, in __init__
+    if self.root.resolve()!=self.root:raise Rejected('store-symlink')
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+artifacts.Rejected: store-symlink
+
+======================================================================
+ERROR: test_unowned_partial_counts_capacity (test_artifacts.ArtifactTests.test_unowned_partial_counts_capacity)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/test_artifacts.py", line 5, in setUp
+    self.tmp=tempfile.TemporaryDirectory();self.root=pathlib.Path(self.tmp.name)/'store';self.store=Store(self.root,100000);self.req={'name':'fixed','version':'1','platform':'fixture','url':'fixture://public','bytes':3,'sha256':hashlib.sha256(b'abc').hexdigest(),'buildInputHashes':{}};self.end=time.monotonic()+5
+                                                                                                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/artifacts.py", line 26, in __init__
+    if self.root.resolve()!=self.root:raise Rejected('store-symlink')
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+artifacts.Rejected: store-symlink
+
+======================================================================
+ERROR: test_version_mismatch (test_artifacts.ArtifactTests.test_version_mismatch)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/test_artifacts.py", line 5, in setUp
+    self.tmp=tempfile.TemporaryDirectory();self.root=pathlib.Path(self.tmp.name)/'store';self.store=Store(self.root,100000);self.req={'name':'fixed','version':'1','platform':'fixture','url':'fixture://public','bytes':3,'sha256':hashlib.sha256(b'abc').hexdigest(),'buildInputHashes':{}};self.end=time.monotonic()+5
+                                                                                                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/artifacts.py", line 26, in __init__
+    if self.root.resolve()!=self.root:raise Rejected('store-symlink')
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+artifacts.Rejected: store-symlink
+
+----------------------------------------------------------------------
+Ran 27 tests in 0.072s
+
+FAILED (errors=12)

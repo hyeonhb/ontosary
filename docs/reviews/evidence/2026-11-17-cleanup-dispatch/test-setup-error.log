@@ -1,0 +1,171 @@
+test_actual_snapshot_registration_failure_keeps_orphan_and_rejects_package (test_dispatch.DispatchTests.test_actual_snapshot_registration_failure_keeps_orphan_and_rejects_package) ... FAIL
+test_analysis_write_failures_cleanup_and_block (test_dispatch.DispatchTests.test_analysis_write_failures_cleanup_and_block) ... FAIL
+test_audit_and_cleanup_errors_preserve_original (test_dispatch.DispatchTests.test_audit_and_cleanup_errors_preserve_original) ... FAIL
+test_diagnostic_is_bounded (test_dispatch.DispatchTests.test_diagnostic_is_bounded) ... FAIL
+test_fixtures_analysis_write_failure (test_dispatch.DispatchTests.test_fixtures_analysis_write_failure) ... FAIL
+test_fixtures_registry_write_failure (test_dispatch.DispatchTests.test_fixtures_registry_write_failure) ... FAIL
+test_fixtures_snapshot_creation_failure (test_dispatch.DispatchTests.test_fixtures_snapshot_creation_failure) ... FAIL
+test_normal_action_does_not_add_failure_cleanup (test_dispatch.DispatchTests.test_normal_action_does_not_add_failure_cleanup) ... ok
+test_normal_fixtures_does_not_add_failure_cleanup (test_dispatch.DispatchTests.test_normal_fixtures_does_not_add_failure_cleanup) ... ok
+test_original_failure_keeps_real_registration (test_dispatch.DispatchTests.test_original_failure_keeps_real_registration) ... 
+  test_original_failure_keeps_real_registration (test_dispatch.DispatchTests.test_original_failure_keeps_real_registration) (action='prepare') ... FAIL
+  test_original_failure_keeps_real_registration (test_dispatch.DispatchTests.test_original_failure_keeps_real_registration) (action='fixtures') ... FAIL
+test_record_and_stderr_errors_cannot_skip_cleanup (test_dispatch.DispatchTests.test_record_and_stderr_errors_cannot_skip_cleanup) ... FAIL
+test_record_failure_reaches_existing_cleanup_stop_delete_absence (test_dispatch.DispatchTests.test_record_failure_reaches_existing_cleanup_stop_delete_absence) ... FAIL
+test_registry_write_failures_preserve_partial_scope (test_dispatch.DispatchTests.test_registry_write_failures_preserve_partial_scope) ... FAIL
+test_snapshot_creation_failure_is_not_success (test_dispatch.DispatchTests.test_snapshot_creation_failure_is_not_success) ... FAIL
+
+======================================================================
+FAIL: test_actual_snapshot_registration_failure_keeps_orphan_and_rejects_package (test_dispatch.DispatchTests.test_actual_snapshot_registration_failure_keeps_orphan_and_rejects_package)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/test_dispatch.py", line 80, in test_actual_snapshot_registration_failure_keeps_orphan_and_rejects_package
+    self.check_failure(self.invoke('fixtures','registration'),'injected-registration');self.refused()
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/test_dispatch.py", line 47, in check_failure
+    self.assertIsNotNone(error);self.assertEqual(self.calls.count('cleanup'),1);errors=self.flatten(error);self.assertIn(self.original,errors)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 1
+
+======================================================================
+FAIL: test_analysis_write_failures_cleanup_and_block (test_dispatch.DispatchTests.test_analysis_write_failures_cleanup_and_block)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/test_dispatch.py", line 66, in test_analysis_write_failures_cleanup_and_block
+    self.check_failure(self.invoke('prepare','scope'),'analysis-scope');self.refused()
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/test_dispatch.py", line 47, in check_failure
+    self.assertIsNotNone(error);self.assertEqual(self.calls.count('cleanup'),1);errors=self.flatten(error);self.assertIn(self.original,errors)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 1
+
+======================================================================
+FAIL: test_audit_and_cleanup_errors_preserve_original (test_dispatch.DispatchTests.test_audit_and_cleanup_errors_preserve_original)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/test_dispatch.py", line 85, in test_audit_and_cleanup_errors_preserve_original
+    e=self.invoke(failure='scope',cleanup_failure=True);self.check_failure(e,'injected-cleanup');self.assertTrue(any('analysis-scope' in str(x) for x in self.flatten(e)));self.refused()
+                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/test_dispatch.py", line 47, in check_failure
+    self.assertIsNotNone(error);self.assertEqual(self.calls.count('cleanup'),1);errors=self.flatten(error);self.assertIn(self.original,errors)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 1
+
+======================================================================
+FAIL: test_diagnostic_is_bounded (test_dispatch.DispatchTests.test_diagnostic_is_bounded)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/test_dispatch.py", line 90, in test_diagnostic_is_bounded
+    self.original=RuntimeError('x'*100000);e=self.invoke(failure='scope');self.check_failure(e);self.assertLess(len(self.stderr.getvalue().encode()),8192);self.assertLess((self.w/'dispatch-failure.json').stat().st_size,8192)
+                                                                          ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/test_dispatch.py", line 47, in check_failure
+    self.assertIsNotNone(error);self.assertEqual(self.calls.count('cleanup'),1);errors=self.flatten(error);self.assertIn(self.original,errors)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 1
+
+======================================================================
+FAIL: test_fixtures_analysis_write_failure (test_dispatch.DispatchTests.test_fixtures_analysis_write_failure)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/test_dispatch.py", line 69, in test_fixtures_analysis_write_failure
+    self.check_failure(self.invoke('fixtures','scope'),'analysis-scope');self.refused()
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/test_dispatch.py", line 47, in check_failure
+    self.assertIsNotNone(error);self.assertEqual(self.calls.count('cleanup'),1);errors=self.flatten(error);self.assertIn(self.original,errors)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 1
+
+======================================================================
+FAIL: test_fixtures_registry_write_failure (test_dispatch.DispatchTests.test_fixtures_registry_write_failure)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/test_dispatch.py", line 74, in test_fixtures_registry_write_failure
+    self.check_failure(self.invoke('fixtures','registry'),'closing-registry');self.refused()
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/test_dispatch.py", line 47, in check_failure
+    self.assertIsNotNone(error);self.assertEqual(self.calls.count('cleanup'),1);errors=self.flatten(error);self.assertIn(self.original,errors)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 1
+
+======================================================================
+FAIL: test_fixtures_snapshot_creation_failure (test_dispatch.DispatchTests.test_fixtures_snapshot_creation_failure)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/test_dispatch.py", line 78, in test_fixtures_snapshot_creation_failure
+    self.check_failure(self.invoke('fixtures','snapshot'),'injected-snapshot');self.refused()
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/test_dispatch.py", line 47, in check_failure
+    self.assertIsNotNone(error);self.assertEqual(self.calls.count('cleanup'),1);errors=self.flatten(error);self.assertIn(self.original,errors)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 1
+
+======================================================================
+FAIL: test_original_failure_keeps_real_registration (test_dispatch.DispatchTests.test_original_failure_keeps_real_registration) (action='prepare')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/test_dispatch.py", line 60, in test_original_failure_keeps_real_registration
+    e=self.invoke(action);self.assertIs(e,self.original);self.check_failure(e)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: TypeError("DispatchTests.action() missing 1 required positional argument: 'r'") is not RuntimeError('original-action-failure')
+
+======================================================================
+FAIL: test_original_failure_keeps_real_registration (test_dispatch.DispatchTests.test_original_failure_keeps_real_registration) (action='fixtures')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/test_dispatch.py", line 60, in test_original_failure_keeps_real_registration
+    e=self.invoke(action);self.assertIs(e,self.original);self.check_failure(e)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: TypeError("DispatchTests.action() missing 1 required positional argument: 'r'") is not RuntimeError('original-action-failure')
+
+======================================================================
+FAIL: test_record_and_stderr_errors_cannot_skip_cleanup (test_dispatch.DispatchTests.test_record_and_stderr_errors_cannot_skip_cleanup)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/test_dispatch.py", line 87, in test_record_and_stderr_errors_cannot_skip_cleanup
+    e=self.invoke(failure='registry',cleanup_failure=True,record_failure=True,stderr_failure=True);self.check_failure(e,'injected-stderr');text=' '.join(str(x) for x in self.flatten(e));self.assertIn('dispatch-failure.json',text);self.assertIn('injected-cleanup',text)
+                                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/test_dispatch.py", line 47, in check_failure
+    self.assertIsNotNone(error);self.assertEqual(self.calls.count('cleanup'),1);errors=self.flatten(error);self.assertIn(self.original,errors)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 1
+
+======================================================================
+FAIL: test_record_failure_reaches_existing_cleanup_stop_delete_absence (test_dispatch.DispatchTests.test_record_failure_reaches_existing_cleanup_stop_delete_absence)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/test_dispatch.py", line 104, in test_record_failure_reaches_existing_cleanup_stop_delete_absence
+    self.check_failure(e,'analysis-scope');self.assertEqual(self.calls,['prepare','cleanup','stop','delete','list']);self.assertFalse(root.exists())
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/test_dispatch.py", line 47, in check_failure
+    self.assertIsNotNone(error);self.assertEqual(self.calls.count('cleanup'),1);errors=self.flatten(error);self.assertIn(self.original,errors)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 1
+
+======================================================================
+FAIL: test_registry_write_failures_preserve_partial_scope (test_dispatch.DispatchTests.test_registry_write_failures_preserve_partial_scope)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/test_dispatch.py", line 71, in test_registry_write_failures_preserve_partial_scope
+    self.check_failure(self.invoke('prepare','registry'),'closing-registry');self.assertTrue((self.w/'analysis-scope.json').exists());self.refused()
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/test_dispatch.py", line 47, in check_failure
+    self.assertIsNotNone(error);self.assertEqual(self.calls.count('cleanup'),1);errors=self.flatten(error);self.assertIn(self.original,errors)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 1
+
+======================================================================
+FAIL: test_snapshot_creation_failure_is_not_success (test_dispatch.DispatchTests.test_snapshot_creation_failure_is_not_success)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/test_dispatch.py", line 76, in test_snapshot_creation_failure_is_not_success
+    self.check_failure(self.invoke('prepare','snapshot'),'injected-snapshot');self.refused();self.assertFalse(json.loads((self.w/'dispatch-failure.json').read_text())['auditRegistered'])
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/test_dispatch.py", line 47, in check_failure
+    self.assertIsNotNone(error);self.assertEqual(self.calls.count('cleanup'),1);errors=self.flatten(error);self.assertIn(self.original,errors)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 1
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.401s
+
+FAILED (failures=13)

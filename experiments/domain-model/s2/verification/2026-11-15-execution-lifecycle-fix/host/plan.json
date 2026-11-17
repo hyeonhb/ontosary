@@ -1,0 +1,170 @@
+{
+  "round": "2026-11-15-execution-lifecycle-fix",
+  "baseline": "f6fc3862c124cf675270359b82e4efb1aedd333d",
+  "instructionHead": "067c028",
+  "source": "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle",
+  "sourceDirs": [
+    "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle",
+    "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/lifecycle",
+    "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/single-policy-test"
+  ],
+  "output": "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/verification/2026-11-15-execution-lifecycle-fix",
+  "store": "/Users/hyeon/Library/Caches/ontosary/s2-prepared-v1",
+  "storeLimitBytes": 10737418240,
+  "vmRoot": "/tmp/ontosary-s2-execution-lifecycle-fix-20261115",
+  "vmName": "s2-lifecycle",
+  "fixtures": [
+    "normal-1",
+    "precheck-rejection",
+    "start-failure",
+    "timeout",
+    "wrapper-death",
+    "supervisor-death",
+    "normal-2"
+  ],
+  "optionalRuntimeFailureFixture": false,
+  "conditionalPair": [],
+  "maximumVMs": 1,
+  "maximumUnits": 7,
+  "payloadSeconds": 15,
+  "phaseSeconds": {
+    "work": 80,
+    "remove": 110,
+    "finish": 120
+  },
+  "runtimeEnv": {
+    "HOME": "/root",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+  },
+  "artifacts": [
+    {
+      "name": "lima-2.3.0-Darwin-arm64",
+      "estimatedBytes": 55000000
+    },
+    {
+      "name": "ubuntu-26.04-20261016-arm64",
+      "bytes": 940373504
+    },
+    {
+      "name": "nerdctl-full-2.4.2-linux-arm64",
+      "bytes": 270513423
+    },
+    {
+      "name": "ontosary-fixed-trace-image",
+      "maximumBytes": 6442450944
+    }
+  ],
+  "mutableScope": [
+    "experiments/domain-model/s2/trial/container/execution-lifecycle/",
+    "experiments/domain-model/s2/trial/container/lifecycle/collector.py",
+    "experiments/domain-model/s2/trial/container/lifecycle/image.py",
+    "docs/PROGRESS.md",
+    "docs/ARCHITECTURE.md",
+    "docs/ROADMAP.md",
+    "docs/DECISIONS.md",
+    "docs/reviews/REVIEW_CONTEXT.md",
+    "docs/reviews/2026-11-15-s2-execution-lifecycle-fix.md"
+  ],
+  "analysisAllowed": [
+    {
+      "phase": "plan",
+      "command": [
+        "python3",
+        "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+        "local",
+        "--work",
+        "/Users/hyeon/toys/ontosary/work/s2-execution-lifecycle-fix-20261115"
+      ]
+    },
+    {
+      "phase": "environment",
+      "command": [
+        "python3",
+        "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+        "prepare",
+        "--work",
+        "/Users/hyeon/toys/ontosary/work/s2-execution-lifecycle-fix-20261115"
+      ]
+    },
+    {
+      "phase": "exploration",
+      "command": [
+        "python3",
+        "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+        "fixtures",
+        "--work",
+        "/Users/hyeon/toys/ontosary/work/s2-execution-lifecycle-fix-20261115"
+      ]
+    },
+    {
+      "phase": "plan",
+      "command": [
+        "python3",
+        "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+        "enter-preparation",
+        "--work",
+        "/Users/hyeon/toys/ontosary/work/s2-execution-lifecycle-fix-20261115"
+      ]
+    }
+  ],
+  "closingAllowed": [
+    {
+      "phase": "finish",
+      "command": [
+        "python3",
+        "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+        "cleanup",
+        "--work",
+        "/Users/hyeon/toys/ontosary/work/s2-execution-lifecycle-fix-20261115"
+      ]
+    },
+    {
+      "phase": "finish",
+      "command": [
+        "python3",
+        "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+        "validate",
+        "--work",
+        "/Users/hyeon/toys/ontosary/work/s2-execution-lifecycle-fix-20261115"
+      ]
+    },
+    {
+      "phase": "finish",
+      "command": [
+        "python3",
+        "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+        "seal",
+        "--work",
+        "/Users/hyeon/toys/ontosary/work/s2-execution-lifecycle-fix-20261115"
+      ]
+    }
+  ],
+  "identityRules": "Full Spec and exact hook array; only owned identities and validated independent mount ordering.",
+  "recovery": "all failed outcomes retain failure; explicit recovery requires confirmed stop/removal/no pending/inactive services; unsettled runtime discards VM",
+  "preparedRetention": "verified public archives only; no VM/writable state; tmp only owned cleanup",
+  "paidCost": 0,
+  "fixtureOnly": true,
+  "validSubmission": false,
+  "trialAuthorized": false,
+  "readyForTrial": false,
+  "results": null,
+  "runtimeEnvironmentReason": "Exact fixed system PATH, root-owned resolution checked before create. Known nerdctl 2.4.2 append only; no inherited environment.",
+  "maximumImageBuilds": 1,
+  "report": "docs/reviews/2026-11-15-s2-execution-lifecycle-fix.md",
+  "legacyEvidence": "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/verification/2026-11-14-execution-lifecycle/host",
+  "integratedMainFiles": [
+    "docs/ARCHITECTURE.md",
+    "docs/DECISIONS.md",
+    "docs/PROGRESS.md",
+    "docs/ROADMAP.md",
+    "docs/reviews/2026-11-14-s2-execution-lifecycle-fix-instructions.md",
+    "docs/reviews/2026-11-14-s2-execution-lifecycle-independent-review.md",
+    "docs/reviews/2026-11-14-s2-execution-lifecycle-instructions.md",
+    "docs/reviews/REVIEW_CONTEXT.md",
+    "docs/reviews/evidence/2026-11-14-probe-cached-prepare.py",
+    "docs/reviews/evidence/2026-11-14-probe-export.py",
+    "docs/reviews/evidence/2026-11-14-s2-execution-independent.json",
+    "docs/reviews/evidence/2026-11-14-vendure-cache-recovery.json"
+  ]
+}

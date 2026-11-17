@@ -1,0 +1,21 @@
+{
+  "firstUTC": "2026-11-15T10:22:53.745680+00:00",
+  "firstMonotonic": 203713.853282791,
+  "recordedUTC": "2026-11-15T10:27:53.269443+00:00",
+  "recordedMonotonic": 204013.381180125,
+  "limitsMinutes": {
+    "local": 60,
+    "preparation": 100,
+    "experiment": 150,
+    "finish": 180
+  },
+  "maxVM": 1,
+  "maxFixtures": 7,
+  "maxBuild": 1,
+  "paidCost": 0,
+  "fixtureOnly": true,
+  "validSubmission": false,
+  "trialAuthorized": false,
+  "readyForTrial": false,
+  "results": null
+}

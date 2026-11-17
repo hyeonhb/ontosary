@@ -1,0 +1,182 @@
+{
+  "analysis": [
+    {
+      "id": "1794635755331720000",
+      "manifestSha256": "c16594be2f411534e1a6d23998b4d78095abd1a8abfedcf3859139d9adc4df4f",
+      "archiveSha256": "6f28601a66cbc2e8823d0811290d51bdcea94d96622ec5a160357a718b2214df"
+    },
+    {
+      "id": "1794635887151131000",
+      "manifestSha256": "db7141e099c8ba463b81775545d31f598d58584f64bdc27d63869a95f7bfa4f4",
+      "archiveSha256": "3624dea2ac03ce388bf33416f96634ddc30cff6aed9f128caa4c4284310aaa8f"
+    },
+    {
+      "id": "1794635905433204000",
+      "manifestSha256": "e75673180ad5d057c444fc149a27df55961ee612fe74485cbb3f5654458aa00e",
+      "archiveSha256": "730f5640a05f63d0dd3fc446fc05bfc21c03207c4903422ba4921cb17c95a51b"
+    },
+    {
+      "id": "1794635986412975000",
+      "manifestSha256": "2da816f2691bc9a3694bcec2d463cb93ca3d66fab3a51719480b384a96ab28df",
+      "archiveSha256": "329ac9232b43c10fa521e9ea838f8351713572e0d9824e576bb37e1d84684084"
+    },
+    {
+      "id": "1794636017280635000",
+      "manifestSha256": "40bc4a0f9d1ad13f69b0b806a4caf992c45020f44edfb596145acc0ca0f256f9",
+      "archiveSha256": "076ea4475f5db1221b232b0eb1dfe392b59f95d214ec3481d2241316debf89a7"
+    },
+    {
+      "id": "1794636024714104000",
+      "manifestSha256": "c9191110b27252f94bd371883cc15a0a959012e781f2aa4b5f6e7908fd63d383",
+      "archiveSha256": "aa733b0fe8cd71dc216aa98eb1a46bc41af33aa19c4f703704f7e0f736633f70"
+    },
+    {
+      "id": "1794636358873578000",
+      "manifestSha256": "deab7195d1c80bdfc238c9e6df8cf4c0f6d230e7dc12fffc8978497c5b8cce7d",
+      "archiveSha256": "436d6b6dc170252b15c953affd142f25f7ffb4ec99247e9a52ec0e3cc47e3fa5"
+    },
+    {
+      "id": "1794636678553116000",
+      "manifestSha256": "fa98bc4c57a2445fbf33d04557b606931e4e9a25285a57e4f4e88b80a58168cf",
+      "archiveSha256": "14f43f49c89aacf6ef1af64b6fb6e96e57d3dad25255436dc66aefbca29d432b"
+    }
+  ],
+  "closing": [
+    {
+      "id": "1794636726875681000",
+      "manifestSha256": "ffb5316db105e1f2c45875225c17bfb6b888454e68d72c84240ce1da9f7abbbc",
+      "archiveSha256": "3ff37f468c4a57489260f2de2482bc72fe5c15e2bb0d65793029a5b956815d58",
+      "phase": "finish",
+      "command": [
+        "python3",
+        "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+        "cleanup",
+        "--work",
+        "/Users/hyeon/toys/ontosary/work/s2-execution-lifecycle"
+      ]
+    },
+    {
+      "id": "1794636831305883000",
+      "manifestSha256": "adb9da56ed188238c29a5a14b656bc3c4d3e37d6114ca54862f330ebb33b99f6",
+      "archiveSha256": "c7991872e632a0c93b27205bdb9ca262cae3e64daa2ddc5aa6e06655ea1ce794",
+      "phase": "finish",
+      "command": [
+        "python3",
+        "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+        "cleanup",
+        "--work",
+        "/Users/hyeon/toys/ontosary/work/s2-execution-lifecycle"
+      ]
+    },
+    {
+      "id": "1794636954393085000",
+      "manifestSha256": "30294b673d239664f65e0176c8869cccd4829f283e56fa8e38db3c0ce57bbd28",
+      "archiveSha256": "b7a617c94ed335613534db1091a29a992a42b70620c71d406c4b354e1ce28749",
+      "phase": "finish",
+      "command": [
+        "python3",
+        "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+        "validate",
+        "--work",
+        "/Users/hyeon/toys/ontosary/work/s2-execution-lifecycle"
+      ]
+    },
+    {
+      "id": "1794637406513210000",
+      "manifestSha256": "3d1bc1fd34727dee1dc97f1feef9db2c5b9b1c3106c7fe1857bd8ba91c316e75",
+      "archiveSha256": "73f772f64eea18ab20410c8c5402cdac7eb5cff1830e5d88a14a989aaa42cffc",
+      "phase": "finish",
+      "command": [
+        "python3",
+        "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+        "seal",
+        "--work",
+        "/Users/hyeon/toys/ontosary/work/s2-execution-lifecycle"
+      ]
+    }
+  ],
+  "closingAllowed": [
+    {
+      "phase": "finish",
+      "command": [
+        "python3",
+        "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+        "cleanup",
+        "--work",
+        "/Users/hyeon/toys/ontosary/work/s2-execution-lifecycle"
+      ]
+    },
+    {
+      "phase": "finish",
+      "command": [
+        "python3",
+        "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+        "validate",
+        "--work",
+        "/Users/hyeon/toys/ontosary/work/s2-execution-lifecycle"
+      ]
+    },
+    {
+      "phase": "finish",
+      "command": [
+        "python3",
+        "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+        "seal",
+        "--work",
+        "/Users/hyeon/toys/ontosary/work/s2-execution-lifecycle"
+      ]
+    }
+  ],
+  "analysisAllowed": [
+    {
+      "phase": "plan",
+      "command": [
+        "python3",
+        "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+        "local",
+        "--work",
+        "/Users/hyeon/toys/ontosary/work/s2-execution-lifecycle"
+      ]
+    },
+    {
+      "phase": "environment",
+      "command": [
+        "python3",
+        "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+        "prepare",
+        "--work",
+        "/Users/hyeon/toys/ontosary/work/s2-execution-lifecycle"
+      ]
+    },
+    {
+      "phase": "exploration",
+      "command": [
+        "python3",
+        "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+        "fixtures",
+        "--work",
+        "/Users/hyeon/toys/ontosary/work/s2-execution-lifecycle"
+      ]
+    },
+    {
+      "phase": "exploration",
+      "command": [
+        "python3",
+        "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+        "pair",
+        "--work",
+        "/Users/hyeon/toys/ontosary/work/s2-execution-lifecycle"
+      ]
+    },
+    {
+      "phase": "plan",
+      "command": [
+        "python3",
+        "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/round.py",
+        "enter-preparation",
+        "--work",
+        "/Users/hyeon/toys/ontosary/work/s2-execution-lifecycle"
+      ]
+    }
+  ]
+}

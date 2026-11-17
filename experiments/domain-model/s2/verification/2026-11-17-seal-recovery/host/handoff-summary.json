@@ -1,0 +1,244 @@
+{
+  "units": [
+    {
+      "mode": "normal-1",
+      "runId": "8273e05aa79a",
+      "passed": true,
+      "outcome": "exit",
+      "starts": 1,
+      "collection": "collected",
+      "removalSeconds": 1.5824266260000002,
+      "sealSeconds": 1.992145917000002,
+      "totalSeconds": 3.0927430000156164,
+      "status": "complete",
+      "files": 35,
+      "resultFiles": 8,
+      "rejections": [],
+      "inactiveAt": 47.841497,
+      "invocation": "d4cd77e4544941babcc74b5517aa0adc",
+      "rawObservations": 6,
+      "late": null,
+      "priorPathCount": 0,
+      "recovered": false
+    },
+    {
+      "mode": "precheck-rejection",
+      "runId": "cad253dd9638",
+      "passed": true,
+      "outcome": "precheck-rejected",
+      "starts": 0,
+      "collection": "suppressed",
+      "removalSeconds": 0.7358698329999953,
+      "sealSeconds": 1.1629234169999947,
+      "totalSeconds": 2.247276291018352,
+      "status": "diagnostic",
+      "files": 26,
+      "resultFiles": 0,
+      "rejections": [],
+      "inactiveAt": 50.062355,
+      "invocation": "a197d00a1c2846ad898d3ada399e8484",
+      "rawObservations": 6,
+      "late": null,
+      "priorPathCount": null,
+      "recovered": true
+    },
+    {
+      "mode": "start-failure",
+      "runId": "3ead3a54c2fc",
+      "passed": true,
+      "outcome": "start-failed",
+      "starts": 0,
+      "collection": "suppressed",
+      "removalSeconds": 0.8900893750000023,
+      "sealSeconds": 1.3494957500000027,
+      "totalSeconds": 2.2244194169761613,
+      "status": "diagnostic",
+      "files": 27,
+      "resultFiles": 0,
+      "rejections": [],
+      "inactiveAt": 52.429992,
+      "invocation": "34ba44487a4143eb831fd4a3f64da4d2",
+      "rawObservations": 6,
+      "late": null,
+      "priorPathCount": null,
+      "recovered": true
+    },
+    {
+      "mode": "timeout",
+      "runId": "a6228a089adc",
+      "passed": true,
+      "outcome": "timeout",
+      "starts": 1,
+      "collection": "collected",
+      "removalSeconds": 15.822462715999997,
+      "sealSeconds": 16.319428465999998,
+      "totalSeconds": 24.77006354101468,
+      "status": "complete",
+      "files": 38,
+      "resultFiles": 10,
+      "rejections": [],
+      "inactiveAt": 69.634072,
+      "invocation": "af66c690dbce48e283418cf43fe923bd",
+      "rawObservations": 6,
+      "late": {
+        "lateExists": false,
+        "lastWrite": 1794907903696050853
+      },
+      "priorPathCount": 12,
+      "recovered": true
+    },
+    {
+      "mode": "wrapper-death",
+      "runId": "e7dd63728e33",
+      "passed": true,
+      "outcome": "wrapper-death",
+      "starts": 1,
+      "collection": "collected",
+      "removalSeconds": 4.281816542000001,
+      "sealSeconds": 4.652564738999999,
+      "totalSeconds": 24.32535362499766,
+      "status": "complete",
+      "files": 38,
+      "resultFiles": 10,
+      "rejections": [],
+      "inactiveAt": 82.796829,
+      "invocation": "6e4fb7170b704daeafba0f8187f3791c",
+      "rawObservations": 6,
+      "late": {
+        "lateExists": false,
+        "lastWrite": 1794907916921137065
+      },
+      "priorPathCount": 16,
+      "recovered": true
+    },
+    {
+      "mode": "supervisor-death",
+      "runId": "4dbc4d22afda",
+      "passed": true,
+      "outcome": "supervisor-death",
+      "starts": 1,
+      "collection": "suppressed",
+      "removalSeconds": 1.4876535880000006,
+      "sealSeconds": 1.9434611750000101,
+      "totalSeconds": 24.204821999999695,
+      "status": "diagnostic",
+      "files": 28,
+      "resultFiles": 0,
+      "rejections": [],
+      "inactiveAt": 104.347521,
+      "invocation": "e9d8c9c792d142538339945021db3cd3",
+      "rawObservations": 6,
+      "late": {
+        "lateExists": false,
+        "lastWrite": 1794907938443941896
+      },
+      "priorPathCount": null,
+      "recovered": true
+    },
+    {
+      "mode": "normal-2",
+      "runId": "0b8f2e2ec15f",
+      "passed": true,
+      "outcome": "exit",
+      "starts": 1,
+      "collection": "collected",
+      "removalSeconds": 1.4685892499999937,
+      "sealSeconds": 1.8909120430000002,
+      "totalSeconds": 2.84545412499574,
+      "status": "complete",
+      "files": 35,
+      "resultFiles": 8,
+      "rejections": [],
+      "inactiveAt": 128.55212,
+      "invocation": "b73561401fe34504bf5143debc926bb9",
+      "rawObservations": 6,
+      "late": null,
+      "priorPathCount": 24,
+      "recovered": false
+    }
+  ],
+  "semantic": {
+    "actualUnits": 7,
+    "passed": 7,
+    "wholeSpecsReplayed": [
+      {
+        "mode": "normal-1",
+        "accepted": true
+      },
+      {
+        "mode": "precheck-rejection",
+        "accepted": true
+      },
+      {
+        "mode": "start-failure",
+        "accepted": true
+      },
+      {
+        "mode": "timeout",
+        "accepted": true
+      },
+      {
+        "mode": "wrapper-death",
+        "accepted": true
+      },
+      {
+        "mode": "supervisor-death",
+        "accepted": true
+      },
+      {
+        "mode": "normal-2",
+        "accepted": true
+      }
+    ],
+    "sealsVerified": [
+      "normal-1",
+      "precheck-rejection",
+      "start-failure",
+      "timeout",
+      "wrapper-death",
+      "supervisor-death",
+      "normal-2"
+    ],
+    "recoveryArchives": 9,
+    "runtimeReexecuted": false
+  },
+  "cleanup": {
+    "evidenceStatus": "diagnostic",
+    "cleanupStatus": "complete",
+    "errors": [],
+    "attempts": [
+      [
+        "/tmp/ontosary-s2-seal-recovery-20261117/prefix/bin/limactl",
+        "stop",
+        "--force",
+        "s2-lifecycle"
+      ],
+      [
+        "/tmp/ontosary-s2-seal-recovery-20261117/prefix/bin/limactl",
+        "delete",
+        "--force",
+        "s2-lifecycle"
+      ],
+      [
+        "/Users/hyeon/.pyenv/versions/3.12.10/bin/python3",
+        "-c",
+        "import subprocess,sys,json;p=subprocess.run([sys.argv[1],\"list\",\"--json\"],capture_output=True,text=True,timeout=7);print(json.dumps({\"exitCode\":p.returncode,\"stdout\":p.stdout,\"stderr\":p.stderr}))",
+        "/tmp/ontosary-s2-seal-recovery-20261117/prefix/bin/limactl"
+      ]
+    ],
+    "vmAbsent": true,
+    "rootAbsent": true,
+    "vmDisposalIsNotUnitTerminationProof": true,
+    "listing": {
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": "time=\"2026-11-17T18:33:03+09:00\" level=warning msg=\"No instance found. Run `limactl create` to create an instance.\"\n"
+    },
+    "retainedBytes": 1706236958,
+    "ownedTemporaryRemoved": [],
+    "temporaryEntries": [],
+    "seconds": 1.0064038340060506,
+    "remainingSeconds": 8803.48447091601
+  },
+  "startInventoryFiles": 3230
+}

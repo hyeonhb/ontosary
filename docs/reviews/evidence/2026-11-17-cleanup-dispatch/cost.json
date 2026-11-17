@@ -1,0 +1,18 @@
+{
+  "firstCommandUtc": "2026-11-17T09:53:38+00:00",
+  "firstMonotonicObservation": {
+    "utc": "2026-11-17T09:54:06.070793+00:00",
+    "monotonic": 226075.220772083
+  },
+  "completedUtc": "2026-11-17T10:06:03.750373+00:00",
+  "utcElapsedSeconds": 745.750373,
+  "observedMonotonicSeconds": 717.681490707997,
+  "firstClockWasNotSimultaneous": true,
+  "finishDeadlineUtc": "2026-11-17T10:53:38+00:00",
+  "localLinksVerified": 327,
+  "serializationAllowanceSeconds": 5,
+  "newVMs": 0,
+  "runtimeExecutions": 0,
+  "paidCost": 0,
+  "gitPublishingExcluded": true
+}

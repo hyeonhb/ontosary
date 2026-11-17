@@ -1,0 +1,36 @@
+test_actual_snapshot_registration_failure_keeps_orphan_and_rejects_package (test_dispatch.DispatchTests.test_actual_snapshot_registration_failure_keeps_orphan_and_rejects_package) ... ok
+test_analysis_write_failures_cleanup_and_block (test_dispatch.DispatchTests.test_analysis_write_failures_cleanup_and_block) ... ok
+test_audit_and_cleanup_errors_preserve_original (test_dispatch.DispatchTests.test_audit_and_cleanup_errors_preserve_original) ... ok
+test_cleanup_exception_without_audit_failure_is_distinct (test_dispatch.DispatchTests.test_cleanup_exception_without_audit_failure_is_distinct) ... ok
+test_diagnostic_is_bounded (test_dispatch.DispatchTests.test_diagnostic_is_bounded) ... ok
+test_every_record_write_and_stderr_can_fail (test_dispatch.DispatchTests.test_every_record_write_and_stderr_can_fail) ... ok
+test_fixtures_analysis_write_failure (test_dispatch.DispatchTests.test_fixtures_analysis_write_failure) ... ok
+test_fixtures_registry_write_failure (test_dispatch.DispatchTests.test_fixtures_registry_write_failure) ... ok
+test_fixtures_snapshot_creation_failure (test_dispatch.DispatchTests.test_fixtures_snapshot_creation_failure) ... ok
+test_lost_failure_record_cannot_hide_missing_cleanup_registration (test_dispatch.DispatchTests.test_lost_failure_record_cannot_hide_missing_cleanup_registration) ... FAIL
+test_normal_action_does_not_add_failure_cleanup (test_dispatch.DispatchTests.test_normal_action_does_not_add_failure_cleanup) ... ok
+test_normal_fixtures_does_not_add_failure_cleanup (test_dispatch.DispatchTests.test_normal_fixtures_does_not_add_failure_cleanup) ... ok
+test_original_failure_keeps_real_registration (test_dispatch.DispatchTests.test_original_failure_keeps_real_registration) ... ok
+test_partial_registry_is_not_erased (test_dispatch.DispatchTests.test_partial_registry_is_not_erased) ... ok
+test_record_and_stderr_errors_cannot_skip_cleanup (test_dispatch.DispatchTests.test_record_and_stderr_errors_cannot_skip_cleanup) ... ok
+test_record_failure_reaches_existing_cleanup_stop_delete_absence (test_dispatch.DispatchTests.test_record_failure_reaches_existing_cleanup_stop_delete_absence) ... {"evidenceStatus": "missing", "cleanupStatus": "complete", "errors": [{"phase": "retrieve", "error": "injected-export"}], "attempts": [["/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/tmp1am7j0kz/ontosary-s2-dispatch/prefix/bin/limactl", "stop", "--force", "fake"], ["/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/tmp1am7j0kz/ontosary-s2-dispatch/prefix/bin/limactl", "delete", "--force", "fake"], ["/Users/hyeon/.pyenv/versions/3.12.10/bin/python3", "-c", "import subprocess,sys,json;p=subprocess.run([sys.argv[1],\"list\",\"--json\"],capture_output=True,text=True,timeout=7);print(json.dumps({\"exitCode\":p.returncode,\"stdout\":p.stdout,\"stderr\":p.stderr}))", "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/tmp1am7j0kz/ontosary-s2-dispatch/prefix/bin/limactl"]], "vmAbsent": true, "rootAbsent": true, "vmDisposalIsNotUnitTerminationProof": true, "listing": {"exitCode": 0, "stdout": "", "stderr": ""}, "retainedBytes": 0, "ownedTemporaryRemoved": [], "temporaryEntries": [], "seconds": 0.00151908298721537, "remainingSeconds": 299.971574}
+ok
+test_registry_write_failures_preserve_partial_scope (test_dispatch.DispatchTests.test_registry_write_failures_preserve_partial_scope) ... ok
+test_snapshot_creation_failure_is_not_success (test_dispatch.DispatchTests.test_snapshot_creation_failure_is_not_success) ... ok
+test_unprintable_exception_still_dispatches_cleanup (test_dispatch.DispatchTests.test_unprintable_exception_still_dispatches_cleanup) ... ok
+
+======================================================================
+FAIL: test_lost_failure_record_cannot_hide_missing_cleanup_registration (test_dispatch.DispatchTests.test_lost_failure_record_cannot_hide_missing_cleanup_registration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/test_dispatch.py", line 93, in test_lost_failure_record_cannot_hide_missing_cleanup_registration
+    self.assertFalse((self.w/'dispatch-failure.json').exists());self.refused()
+                                                                ^^^^^^^^^^^^^^
+  File "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/container/execution-lifecycle/test_dispatch.py", line 55, in refused
+    self.assertEqual(len(list((self.w/'snapshots').iterdir())),count)
+AssertionError: 4 != 2
+
+----------------------------------------------------------------------
+Ran 19 tests in 0.786s
+
+FAILED (failures=1)

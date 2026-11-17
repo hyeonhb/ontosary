@@ -1,0 +1,24 @@
+{
+  "baseline": "d97007213c527fc06cc7d3708d7c546b14077d9b",
+  "implementationHead": "e4474f29c715bacf01793de7b78e2163f28ea581",
+  "integratedMain": "1608f23",
+  "initialInventorySha256": "631759d08d78e300e037d6751e0bb7b1dce8b4a93ebb38be530428d68212037b",
+  "initialFiles": 3503,
+  "unchangedFiles": 3496,
+  "changedFiles": [
+    "docs/ARCHITECTURE.md",
+    "docs/DECISIONS.md",
+    "docs/PROGRESS.md",
+    "docs/ROADMAP.md",
+    "docs/reviews/REVIEW_CONTEXT.md",
+    "experiments/domain-model/s2/trial/container/execution-lifecycle/README.md",
+    "experiments/domain-model/s2/trial/container/execution-lifecycle/round.py"
+  ],
+  "unexpectedChanges": [],
+  "sourceHashes": {
+    "experiments/domain-model/s2/trial/container/execution-lifecycle/round.py": "e65d05307f301b4d84990e6f1dbda8f000236f8672fd1846242deaae91b496bb",
+    "experiments/domain-model/s2/trial/container/execution-lifecycle/test_dispatch.py": "ebb97db8f60d9ae4f0c96787fc308a555eec541e6147314e4b6c95a30d6e0629"
+  },
+  "historicalEvidenceFilesUnchanged": 2229,
+  "runtimeExecutions": 0
+}

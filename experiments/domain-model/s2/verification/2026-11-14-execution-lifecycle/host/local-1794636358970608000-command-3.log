@@ -1,0 +1,49 @@
+test_earlier_clock (test_retry_contract.DeadlineTests.test_earlier_clock) ... ok
+test_expired_logs_without_spawn (test_retry_contract.DeadlineTests.test_expired_logs_without_spawn) ... ok
+test_expired_no_dispatch (test_retry_contract.DeadlineTests.test_expired_no_dispatch) ... ok
+test_no_450_limit (test_retry_contract.DeadlineTests.test_no_450_limit) ... ok
+test_prior_snapshot_and_download_consumed (test_retry_contract.DeadlineTests.test_prior_snapshot_and_download_consumed) ... ok
+test_timeout_and_failure_ledger (test_retry_contract.DeadlineTests.test_timeout_and_failure_ledger) ... ok
+test_wrapper_snapshot_consumes_remaining (test_retry_contract.DeadlineTests.test_wrapper_snapshot_consumes_remaining) ... ok
+test_duplicate (test_retry_contract.PackageTests.test_duplicate) ... ok
+test_index_closing_missing (test_retry_contract.PackageTests.test_index_closing_missing) ... ok
+test_index_closing_tamper (test_retry_contract.PackageTests.test_index_closing_tamper) ... ok
+test_missing (test_retry_contract.PackageTests.test_missing) ... ok
+test_output_not_overwritten (test_retry_contract.PackageTests.test_output_not_overwritten) ... ok
+test_overlap (test_retry_contract.PackageTests.test_overlap) ... ok
+test_real_prior_scopes (test_retry_contract.PackageTests.test_real_prior_scopes) ... ok
+test_registered_stable (test_retry_contract.PackageTests.test_registered_stable) ... ok
+test_runtime_registration_package (test_retry_contract.PackageTests.test_runtime_registration_package) ... ok
+test_same_executable_wrong_args (test_retry_contract.PackageTests.test_same_executable_wrong_args) ... ok
+test_tamper (test_retry_contract.PackageTests.test_tamper) ... ok
+test_unregistered_package (test_retry_contract.PackageTests.test_unregistered_package) ... ok
+test_wrong_phase (test_retry_contract.PackageTests.test_wrong_phase) ... ok
+test_analysis_after_freeze_creates_nothing (test_retry_contract.SnapshotRegistrationTests.test_analysis_after_freeze_creates_nothing) ... ok
+test_forbidden_registration_creates_nothing (test_retry_contract.SnapshotRegistrationTests.test_forbidden_registration_creates_nothing) ... ok
+test_registration_at_creation (test_retry_contract.SnapshotRegistrationTests.test_registration_at_creation) ... ok
+test_default (test_retry_policy.RuntimePolicy.test_default) ... ok
+test_exact_and_original (test_retry_policy.RuntimePolicy.test_exact_and_original) ... ok
+test_extra_allow (test_retry_policy.RuntimePolicy.test_extra_allow) ... ok
+test_hook_change (test_retry_policy.RuntimePolicy.test_hook_change) ... ok
+test_nnp (test_retry_policy.RuntimePolicy.test_nnp) ... ok
+test_not_applied (test_retry_policy.RuntimePolicy.test_not_applied) ... ok
+test_unowned_mount (test_retry_policy.RuntimePolicy.test_unowned_mount) ... ok
+test_wider_flags (test_retry_policy.RuntimePolicy.test_wider_flags) ... ok
+test_default (test_contract.Policy.test_default) ... ok
+test_exact (test_contract.Policy.test_exact) ... ok
+test_extra_allow (test_contract.Policy.test_extra_allow) ... ok
+test_mount_access (test_contract.Policy.test_mount_access) ... ok
+test_nnp (test_contract.Policy.test_nnp) ... ok
+test_not_applied (test_contract.Policy.test_not_applied) ... ok
+test_wider_flags (test_contract.Policy.test_wider_flags) ... ok
+test_closing_index_tamper (test_contract.Scope.test_closing_index_tamper) ... ok
+test_closing_stable (test_contract.Scope.test_closing_stable) ... ok
+test_missing (test_contract.Scope.test_missing) ... ok
+test_real_11_plus_1 (test_contract.Scope.test_real_11_plus_1) ... ok
+test_tampered (test_contract.Scope.test_tampered) ... ok
+test_unclassified (test_contract.Scope.test_unclassified) ... ok
+
+----------------------------------------------------------------------
+Ran 44 tests in 1.792s
+
+OK
