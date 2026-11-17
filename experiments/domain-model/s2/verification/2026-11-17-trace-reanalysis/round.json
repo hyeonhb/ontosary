@@ -1,0 +1,37 @@
+{
+  "clockUtc": "2026-11-17T11:08:28.521090+00:00",
+  "clockMonotonic": 229669.873943291,
+  "clockDeviation": "First command inspected status/docs without a clock; second command captured clocks. Conservatively count an additional 60 seconds.",
+  "conservativeStartMonotonic": 229609.873943291,
+  "explorationDeadlineMonotonic": 230809.873943291,
+  "finishDeadlineMonotonic": 231409.873943291,
+  "startHead": "e358104e47def436aab2e1d5837544e1c4895093",
+  "entryHead": "7a5eb53f96e48c28e972bbd059d74aa5636c4933",
+  "allowedChanges": [
+    "experiments/domain-model/s2/trial/container/execution-lifecycle/trace_reanalysis.py",
+    "experiments/domain-model/s2/trial/container/execution-lifecycle/test_trace_reanalysis.py",
+    "experiments/domain-model/s2/trial/container/execution-lifecycle/README.md",
+    "experiments/domain-model/s2/verification/2026-11-17-trace-reanalysis/",
+    "docs/reviews/2026-11-17-s2-trace-reanalysis.md",
+    "docs/PROGRESS.md",
+    "docs/reviews/REVIEW_CONTEXT.md"
+  ],
+  "runtimeExecutions": 0,
+  "implementationFrozenAt": {
+    "utc": "2026-11-17T11:18:11.019871+00:00",
+    "monotonic": 230252.381923458
+  },
+  "implementationHead": "695d7f1a9fdbce9fc371fd322d4357846182e989",
+  "finishedAt": {
+    "utc": "2026-11-17T11:21:21.146412+00:00",
+    "monotonic": 230442.511467
+  },
+  "containers": 0,
+  "virtualMachines": 0,
+  "policyChanges": 0,
+  "paidExperimentCalls": 0,
+  "gitPublicationRecordedSeparately": true,
+  "measuredSecondsSinceFirstClock": 772.6375237090106,
+  "conservativeBudgetSeconds": 832.6375237090106,
+  "within30Minutes": true
+}
