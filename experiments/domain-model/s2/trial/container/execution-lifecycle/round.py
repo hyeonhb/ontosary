@@ -203,7 +203,7 @@ class Round:
    else:unchanged+=1
   write(self.w/'validation.json',{'checks':result,'unchangedTrackedFiles':unchanged,'intentionalChangedFiles':changed,'priorCacheRestored':True})
  def seal(self):
-  self.phase='finish';registered_scope(self.w);assert (self.w/'cleanup.json').exists() and (self.w/'validation.json').exists()
+  require_failure_audit(self);self.phase='finish';registered_scope(self.w);assert (self.w/'cleanup.json').exists() and (self.w/'validation.json').exists()
   now=datetime.datetime.now(datetime.timezone.utc);mono=time.monotonic();seconds=mono-self.budget['monotonic'];assert limit(self.budget,'finish')>10
   units=read(self.w/'units.json') if (self.w/'units.json').exists() else []
   cost={'status':'closed','startedUtc':self.budget['utc'],'measuredUntilUtc':now.isoformat(),'roundMeasuredSeconds':seconds,'previousMeasuredSeconds':self.budget['previousMeasuredSeconds'],'cumulativeMeasuredSeconds':self.budget['previousMeasuredSeconds']+seconds,'previousSerializationUpperBoundSeconds':self.budget['previousSerializationUpperBoundSeconds'],'currentSerializationUpperBoundSeconds':10,'cumulativeUpperBoundSeconds':self.budget['previousMeasuredSeconds']+seconds+self.budget['previousSerializationUpperBoundSeconds']+10,'newPaidCost':0,'gitDeliveryIncluded':False,'actualUnits':len(units),'passedUnits':sum(x.get('passed',False) for x in units),'runtimeRetries':0}
@@ -219,17 +219,69 @@ class Round:
     target=urllib.parse.unquote(target.split('#')[0]);assert (path.parent/target).exists(),(str(path),target);links+=1
   print(json.dumps({'index':result,'verification':verify_index(pathlib.Path(self.plan['output'])),'localLinks':links,'serializationActualSeconds':time.monotonic()-mono}));assert time.monotonic()-mono<10
 
+def require_failure_audit(r):
+ record=r.w/'dispatch-failure.json'
+ if record.exists() and not read(record).get('auditRegistered'):
+  raise RuntimeError('dispatch-audit-incomplete')
+ # A lost diagnostic marker must not turn an absent cleanup registration into
+ # valid closing evidence. Check the existing ID/hash contract before seal adds
+ # any new snapshot; diagnostics cannot substitute for that registration.
+ scope=registered_scope(r.w)
+ command=['python3',str(HERE/'round.py'),'cleanup','--work',str(r.w)]
+ if not any(row['phase']=='finish' and row['command']==command for row in scope['closing']):
+  raise RuntimeError('cleanup-dispatch-unregistered')
+
+def failed_dispatch(r,original):
+ """Audit is best effort here; owned cleanup has one unconditional dispatch site."""
+ errors=[];audit_registered=False;cleanup_result=None;action=r.action
+ def remember(phase,error):errors.append((phase,error))
+ def describe(phase,error):
+  try:message=str(error)[:96]
+  except Exception:message='<unprintable exception>'
+  return {'phase':phase,'type':type(error).__name__[:80],'message':message}
+ def receipt(status):
+  return {'status':status,'action':action,'auditRegistered':audit_registered,
+   'cleanupAttempted':status=='failed','cleanupStatus':cleanup_result.get('cleanupStatus','unknown') if isinstance(cleanup_result,dict) else 'unknown',
+   'errors':[describe('action',original),*[describe(phase,e) for phase,e in errors]]}
+ try:
+  # If later audit writes fail, this small marker also blocks another dispatch/seal.
+  try:write(r.w/'dispatch-failure.json',receipt('handling'))
+  except Exception as e:remember('failure-record-before-cleanup',e)
+  try:
+   if not (r.w/'analysis-scope.json').exists():
+    ids=sorted(p.stem for p in (r.w/'snapshots').glob('*.json'))
+    write(r.w/'analysis-scope.json',rows(r.w/'snapshots',ids))
+    # Never erase a partial/existing closing registry to manufacture success.
+    if not (r.w/'closing-registry.json').exists():write(r.w/'closing-registry.json',[])
+   snapshot(r.w,['python3',str(HERE/'round.py'),'cleanup','--work',str(r.w)],'finish','closing')
+   registered_scope(r.w);audit_registered=True
+  except Exception as e:remember('audit-registration',e)
+ finally:
+  r.action='cleanup'
+  try:cleanup_result=r.cleanup()
+  except Exception as e:remember('cleanup',e)
+ # Both diagnostics happen after the only cleanup attempt. Their own failures
+ # remain errors, but can neither prevent nor recursively dispatch cleanup.
+ try:write(r.w/'dispatch-failure.json',receipt('failed'))
+ except Exception as e:remember('failure-record-after-cleanup',e)
+ try:
+  diagnostic=json.dumps(receipt('failed'),ensure_ascii=True)+'\n'
+  if len(diagnostic.encode())>8192:raise RuntimeError('dispatch-diagnostic-bound')
+  sys.stderr.write(diagnostic)
+ except Exception as e:remember('stderr',e)
+ if errors:
+  raise ExceptionGroup('action failed; cleanup attempted once',
+   [original,*[ExceptionGroup(phase,[e]) for phase,e in errors]]) from original
+
+
 def main():
  p=argparse.ArgumentParser();p.add_argument('action',choices=['local','enter-preparation','prepare','fixtures','pair','cleanup','validate','seal']);p.add_argument('--work',required=True);a=p.parse_args();r=Round(a.work);r.action=a.action
- if a.action in ['local','enter-preparation','prepare','fixtures','pair'] and (r.w/'analysis-scope.json').exists():raise RuntimeError('analysis-frozen')
- if a.action=='seal':snapshot(r.w,['python3',str(HERE/'round.py'),'seal','--work',str(r.w)],'finish','closing')
+ if a.action in ['local','enter-preparation','prepare','fixtures','pair'] and any((r.w/name).exists() for name in ['analysis-scope.json','closing-registry.json','dispatch-failure.json','cleanup.json']):raise RuntimeError('analysis-frozen-or-dispatch-failed')
+ if a.action=='seal':
+  require_failure_audit(r)
+  snapshot(r.w,['python3',str(HERE/'round.py'),'seal','--work',str(r.w)],'finish','closing')
  try:getattr(r,a.action.replace('-','_'))()
- except Exception:
-  if a.action in ['prepare','fixtures']:
-   # Freeze the actual analysis snapshots and register safety cleanup before dispatch.
-   if not (r.w/'analysis-scope.json').exists():
-    ids=sorted(p.stem for p in (r.w/'snapshots').glob('*.json'));write(r.w/'analysis-scope.json',rows(r.w/'snapshots',ids));write(r.w/'closing-registry.json',[])
-   snapshot(r.w,['python3',str(HERE/'round.py'),'cleanup','--work',str(r.w)],'finish','closing')
-   r.action='cleanup';r.cleanup()
+ except Exception as original:
+  if a.action in ['prepare','fixtures']:failed_dispatch(r,original)
   raise
 if __name__=='__main__':main()
