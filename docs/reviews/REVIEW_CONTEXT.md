@@ -1,5 +1,7 @@
 # 독립 리뷰 맥락
 
+2026-11-17 최신 판단은 [R18 보완 독립 리뷰](2026-11-17-s2-trace-context-independent-review.md)다. ade291f의 bounded 자식 문맥 보존/근거 승인 분리를 확인해 R18 해결로 판정했고 PR #63을0181606로 병합했다. 304+257검사·과거4개 verifier·기존3반례·순서1036개가 통과했고 실제 trace 판정과 모든 과거 근거를 유지한다. 오프라인 보완은 완료다. 다음은 사용자와 실행 경계 책임을 합의하는 단계이며 추가 parser/권한/인증/model/본 비교 지시를 자동 작성·실행하지 않는다. R11 unresolved·H-O/H-F 미검증을 유지한다.
+
 2026-11-17 최신 인계는 [R18 문맥 보완](2026-11-17-s2-trace-context-fix.md)이다. 기존 PR #63에 main35dbc3d를 통합했고 구현26c8b41은 부모 반환 전·후 자식 exec/미지원 mount를 동일한 bounded 기록/검사로 다룬다. 반례 전후의 입력은 보존하며 두 exec 순서 모두 inconclusive, 정상 지연 denial과 실제 저장 원래/후보 판정은 유지한다. 기존243+새14=257 Python·pnpm304·과거4 verifier 통과, 첫 파생/옛 자동 inconclusive/원문 불변·runtime0이다. 지원 범위·128개/64KiB 문맥 한도·상한 초과 시 보수적 거부를 독립 리뷰하며 PR #63은 미병합으로 둔다. R11/실제 실행 경계·권한/model·본 비교는 계속 별도다.
 
 2026-11-17 최신 판단은 [trace 판독 독립 리뷰](2026-11-17-s2-trace-reanalysis-independent-review.md)다. 8bba520에서 실제 원래/후보 파생 결과와 과거 보존·304+243검사·4개 verifier를 확인했다. R18 반례는 child exec→mount→parent resumed 순서에서 issues 없이 next-blocked가 되는 문제이며 parent resumed→child exec에서는 inconclusive다. 실제 후보 원문 결론은 유지한다. [30분 보완 지시](2026-11-17-s2-trace-context-fix-instructions.md)를 함께 제공하고 PR #63은 미병합으로 둔다. 새 VM/정책/권한/인증/model은0이며 다음 실행 경계 설계는 사용자와 별도로 논의한다.

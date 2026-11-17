@@ -1,5 +1,7 @@
 # 현재 아키텍처
 
+2026-11-17 [R18 독립 검토](reviews/2026-11-17-s2-trace-context-independent-review.md) 완료·PR #63 병합. 별도 offline parser는 pending 중이거나 확인된 자식의 exec/미지원 mount 문맥을128개/64KiB 안에 보존하고, 반환 PID/clone 시작 시점으로 한 번 대조한 뒤 근거를 승인한다. 미지원/누락 문맥의 거부는 원문을 남기되 확정 판정에서 제외한다. 기존 runtime parser/정책·공통 수명주기는 불변이며 외부/내부 sandbox 책임 변경은 아직 미합의다.
+
 2026-11-17 [정책 대조 독립 리뷰](reviews/2026-11-17-s2-policy-pair-independent-review.md)에서 현재 경계의 제한 대조/종료/회수를 확인했다. 원래1/후보1의 실제 정책 차이는 고정 clone 한 행이며 후보는 clone 후 mount에서 막혔다. 원문 관찰과 동결 자동 inconclusive를 분리한다. 외부 경계와 내부 CLI sandbox의 역할 재검토는 다음 논의 대상이고 아직 구조 변경을 결정하지 않았다. 현재 정책/production 차단을 유지한다.
 
 2026-11-17 [제한된 정책 pair 연결](reviews/2026-11-17-s2-policy-pair.md)(ADR-054): 공통 round는 명시된 목적·mode 순서·maximumUnits2·고정 RULE·cacheOnly·과거7단위 hash/gate가 맞는 계획만 pair를 허용한다. baseline의 공통 unit 봉인/회수와 예상 clone 거부를 확인한 뒤 후보 profile을 게시한다. pair 예외도 기존 failed_dispatch/cleanup을 거치며 engine/reference/recovery/collector·보안 비교기는 불변이다. 실제2개 Spec/봉인은 확인했고 원문은 clone 통과 뒤 mount 거부다. 자동 trace parser의 혼합 줄 누락은 inconclusive로 보존하며 전체 CLI 경계는 미검증이다.
