@@ -1,5 +1,7 @@
 # 단계별 계획
 
+2026-11-17 [R18 독립 재검토](reviews/2026-11-17-s2-trace-context-independent-review.md) 통과·PR #63 병합으로 오프라인 trace 보완을 완료했다. 추가 parser 수정이나 새 VM/정책 시험을 자동 반복하지 않는다. 다음은 사용자와 외부/내부 경계의 파일·제어/인증 상태·네트워크·자손 종료 책임을 정하는 아키텍처 논의다. 합의 뒤 다음 개발/실험 지시를 작성하며 mount 권한 추가·내부 sandbox 변경·실제 인증/model/본 비교는 아직 결정하지 않는다.
+
 2026-11-17 [R18 독립 리뷰](reviews/2026-11-17-s2-trace-reanalysis-independent-review.md)에 따라 [지연된 자식 문맥의 국소 보완](reviews/2026-11-17-s2-trace-context-fix-instructions.md)을 먼저 마무리한다(30분·runtime0). 실제 저장 trace 판정과 원문/동결 결과는 유지하고 PR #63은 보완 리뷰 전 미병합이다. 외부 컨테이너/내부 CLI의 격리 책임 논의는 이 작은 수정과 별개이며 추가 mount/권한·인증/model·본 비교는 자동 진행하지 않는다.
 
 2026-11-17 [정책 대조 독립 리뷰](reviews/2026-11-17-s2-policy-pair-independent-review.md) 통과·PR #61 병합. 바로 가능한 국소 작업은 [저장 trace 오프라인 판독 보완](reviews/2026-11-17-s2-trace-reanalysis-instructions.md)(30분·runtime0)이며 기존 inconclusive/원문을 보존한다. 그 외에는 mount 허용 시험을 자동 반복하지 않고, 외부 컨테이너/VM과 내부 CLI sandbox 각각의 격리 책임·필요 권한을 먼저 사용자와 정한다. 정책 추가·실제 인증/model/본 비교는 보류하며 도메인 모델/FCA 효용은 미검증이다.

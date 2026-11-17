@@ -1,5 +1,7 @@
 # 현재 작업 상태 — 새 세션은 이 문서부터 읽기
 
+2026-11-17 [R18 보완 독립 리뷰](reviews/2026-11-17-s2-trace-context-independent-review.md): **R18 해결·추가 차단 결함 없음**. ade291f에서304+257검사·과거4개 verifier·기존 반례3개 및 독립 순서1036개를 확인했다. 실제 원래/후보 판정과 근거 유지, 새 파생 결과는 checkoutHead 제외 일치, 첫14/새17 index 대상·과거2379 verification 불변을 확인했다. PR #63을 검증한 head로 병합(0181606)했다. 오프라인 판독 보완은 완료하며 다음은 외부 컨테이너/VM과 내부 CLI sandbox의 책임 분담을 사용자와 논의한다. 새 runtime/추가 권한/인증/model/본 비교는 진행하지 않았고 R11 unresolved·H-O/H-F 미검증을 유지한다. 아래는 당시 기록이다.
+
 2026-11-17 [R18 지연된 자식 문맥 보완](reviews/2026-11-17-s2-trace-context-fix.md): **로컬 보완 검증 완료·독립 리뷰 대기**다. 기준8bba520에 main35dbc3d를 통합하고 구현26c8b41에서 clone 반환 전·후의 exec/미지원 mount를 같은 bounded 문맥 검사로 처리했다. 128개/64KiB 상한·누락 시 inconclusive·부적격 거부의 별도 보존을 적용했다. 독립 반례는 두 순서 모두 inconclusive, 정상 지연 mount와 실제 원래/후보 판정은 유지한다. pnpm check304·Python243+새14=257(skip0)·과거4개 verifier 통과, 이전 파생/원문 불변·runtime0이다. PR #63을 갱신하고 독립 리뷰 전 미병합, R11/production/live·본 비교 보류를 유지한다.
 
 2026-11-17 [오프라인 trace 판독 독립 리뷰](reviews/2026-11-17-s2-trace-reanalysis-independent-review.md): head8bba520에서304+243검사·과거4개 verifier·새14파일 hash·기존2364 verification 불변과 실제 파생 결과(checkoutHead 제외) 일치를 확인했다. 다만 R18은 자식 exec가 부모 resumed보다 먼저 출력되면 미지원 문맥을 놓쳐 next-blocked로 승격되는 반례다. 실제 고정 후보의 clone→mount 결론은 유지하며 PR #63은 보완 리뷰까지 미병합이다. [30분 오프라인 국소 지시](reviews/2026-11-17-s2-trace-context-fix-instructions.md)를 함께 제공한다. 새 runtime/권한/인증/model/본 비교는 보류하고 실행 경계 책임 논의는 별도로 진행할 수 있다. 아래는 당시 기록이다.

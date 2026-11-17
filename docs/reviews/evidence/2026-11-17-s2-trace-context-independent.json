@@ -1,0 +1,131 @@
+{
+  "reviewedHead": "ade291f0891e20bd8a4545cb126dc3b29196761a",
+  "implementationHead": "26c8b41cf27badd05f1bc6d84358fa465b82c384",
+  "newDerivedEqualExceptCheckoutHead": true,
+  "savedDerivedCheckout": "26c8b41cf27badd05f1bc6d84358fa465b82c384",
+  "replayedCheckout": "ade291f0891e20bd8a4545cb126dc3b29196761a",
+  "evidenceFilesVerified": {
+    "2026-11-17-trace-reanalysis": 14,
+    "2026-11-17-trace-context-fix": 17
+  },
+  "initialFiles": 3696,
+  "unchangedFiles": 3691,
+  "changedExistingFiles": [
+    "docs/PROGRESS.md",
+    "docs/reviews/REVIEW_CONTEXT.md",
+    "experiments/domain-model/s2/trial/container/execution-lifecycle/README.md",
+    "experiments/domain-model/s2/trial/container/execution-lifecycle/test_trace_reanalysis.py",
+    "experiments/domain-model/s2/trial/container/execution-lifecycle/trace_reanalysis.py"
+  ],
+  "historicalVerificationFilesUnchanged": 2379,
+  "sourceLinesMatched": true,
+  "observationFieldsPreserved": {
+    "baseline": {
+      "historicalAutomaticStatus": "clone-still-denied",
+      "firstDerivedStatus": "clone-still-denied",
+      "newDerivedStatus": "clone-still-denied",
+      "traceSha256": "5f484c0f375ee3689774ef2138e219db3097e524f08e564d274103f5ccf31d18",
+      "observationFieldsUnchanged": [
+        "status",
+        "traceSha256",
+        "payloadStarted",
+        "lsmCauseConfirmed",
+        "namespaceClones",
+        "bwrapExecutions",
+        "nextDenied"
+      ]
+    },
+    "candidate": {
+      "historicalAutomaticStatus": "inconclusive",
+      "firstDerivedStatus": "first-clone-passed-next-blocked",
+      "newDerivedStatus": "first-clone-passed-next-blocked",
+      "traceSha256": "9a949992b23a81361f821d9ec6fd227eebcd4a6a1c1cf8801ee698660e117c5c",
+      "observationFieldsUnchanged": [
+        "status",
+        "traceSha256",
+        "payloadStarted",
+        "lsmCauseConfirmed",
+        "namespaceClones",
+        "bwrapExecutions",
+        "nextDenied"
+      ]
+    }
+  },
+  "runtimeExecutions": 0,
+  "tests": {
+    "typescript": 304,
+    "pythonExecution": 197,
+    "pythonLifecycle": 16,
+    "pythonAudit": 44,
+    "pythonTotal": 257,
+    "skip": 0
+  },
+  "probe": {
+    "runtimeExecutions": 0,
+    "originalProbeReplay": [
+      {
+        "case": "resume_before_child_exec",
+        "previous": "inconclusive",
+        "current": "inconclusive",
+        "issues": [
+          {
+            "reason": "child-exec-outside-denial-scope",
+            "line": 4
+          }
+        ],
+        "admittedChildPids": [
+          44
+        ]
+      },
+      {
+        "case": "resume_after_child_exec",
+        "previous": "first-clone-passed-next-blocked",
+        "current": "inconclusive",
+        "issues": [
+          {
+            "reason": "child-exec-outside-denial-scope",
+            "line": 3
+          }
+        ],
+        "admittedChildPids": [
+          44
+        ]
+      },
+      {
+        "case": "supported_denial_before_resume",
+        "previous": "first-clone-passed-next-blocked",
+        "current": "first-clone-passed-next-blocked",
+        "issues": [],
+        "admittedChildPids": [
+          42,
+          44
+        ]
+      }
+    ],
+    "interleavings": [
+      {
+        "childExec": false,
+        "ordersChecked": 280,
+        "expectedStatus": "first-clone-passed-next-blocked",
+        "traceSetSha256": "b5c6e2bb2e19bbff1f688a4cf01e4bedec09ff854f0588adde0adb4b0215ada0"
+      },
+      {
+        "childExec": true,
+        "ordersChecked": 756,
+        "expectedStatus": "inconclusive",
+        "traceSetSha256": "2f68287339aa5457bbcfceac37eac764797959bd0600b5417bf4fe1ef60fb17f"
+      }
+    ]
+  },
+  "logDigests": {
+    "derive.log": "fbc0ad2d0e27e0dfd7ae0dd7d8131bcc5fe3606388cf8c764970957f43694c2b",
+    "lifecycle.log": "ba17e1ab4f3b646eb2c77b0137ceecdc7709c4c1ed3755293a55934497366379",
+    "prior15.json": "96dc7071a126743605ba9b23d3dc4fbd8a53e538b9f0585dd0f192f244d9f414",
+    "prior14.json": "61d32c27b7340c63adad6783e58b7686f529bde9742958223e380f03912ede3b",
+    "prior17.json": "1b78c3dce7b5642ac63a662667b668d6b4cbc611db0064a957afc2005ecd104a",
+    "audit.log": "a10bf0e9483c02f8b639a2e9f6f5c3848683153c6a1159b70522e3d090962eb3",
+    "execution.log": "7b05306c538fd52fe29d61f3be88f64a43066cb87176bff60a876fd80b71f6b3",
+    "check.log": "3141c4d5249105d428c96d90a8502f86cf41fab1119ba786853c5fc4d2dc9df8",
+    "pair.json": "feb82b2cbeac56988cde7a84f160580077fd650952e1cc5f8bf3cf93c9737654"
+  }
+}

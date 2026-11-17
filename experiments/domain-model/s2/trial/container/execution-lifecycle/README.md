@@ -7,7 +7,9 @@ and 64 KiB of source text, with incomplete context refusing a conclusive result.
 Ineligible denials remain in `contextRejectedDenied`, separate from `nextDenied`.
 The original 35 trace cases plus 14 context regressions pass. Historical outputs
 and the first derived result are preserved; the correction uses a new evidence
-directory and does not execute a runtime. PR #63 awaits independent review.
+directory and does not execute a runtime. [Independent review](../../../../../../docs/reviews/2026-11-17-s2-trace-context-independent-review.md)
+confirmed R18 resolved and PR #63 is merged. Further runtime work awaits a
+separate decision on outer-container and inner-sandbox responsibilities.
 
 The [offline trace follow-up](../../../../../../docs/reviews/2026-11-17-s2-trace-reanalysis.md)
 adds the explicit `trace_reanalysis.py --output <new-path>` entry point. It checks
