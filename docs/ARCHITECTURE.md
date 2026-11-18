@@ -1,5 +1,7 @@
 # 현재 아키텍처
 
+2026-11-18 [직접 VM smoke 독립 검토](reviews/2026-11-18-s2-vm-cli-smoke-independent-review.md): 공개 준비물→새 guest→비특권 worker→native CLI 연결과 EROFS 차단/실제 VM 정리를 확인했다. payload·전체 접근/종료 계약은 미검증이다. R20은 safety 명령도 일반 진단 capture cap의 초과 종료를 공유하는 결함으로, 안전 정리 실행과 bounded 진단 보존/제어 응답을 분리하는 국소 보완이 필요하다. 현재 실제 정리 증거는 유지하며 새 경계/권한 변경은 하지 않는다. 아래는 당시 기록이다.
+
 2026-11-17 승인된 다음 관측(ADR-057): [60분 최소 호환성 지시](reviews/2026-11-17-s2-vm-cli-smoke-instructions.md)는 같은 C안 후보에서 VM1개·고정 CLI sandbox1회로 작은 source 읽기/쓰기·materials 읽기를 확인한다. 관리자 마감/VM 폐기와 worker 비특권·외부 통신 차단을 유지하며, 새 supervisor/봉인 프로토콜·평가 제출 수집은 만들지 않는다. 호스트의 유한 진단을 남기고 결과 관측 직후 VM을 폐기한다. 이는 제한된 실행 호환성 관측으로 전체 격리/종료 계약이나 C안 채택을 증명하지 않는다. 아래는 당시 기록이다.
 
 2026-11-17 [직접 VM 후보 독립 리뷰](reviews/2026-11-17-s2-vm-cli-feasibility-independent-review.md): C안은 준비 gate 미달로 VM/CLI 관측0이며 미확정이다. PR #67의 host/guest/worker는 비활성 초안이고 제품/기존 container 경로는 불변이다. 호스트 Python API·worker socket 권한 불일치(R19)와 watchdog 종료 연결 등 실행 전 보완이 남는다. 준비된 코드량을 동작 근거로 보지 않으며 가설 우선의 축소 검증을 제안한 상태다. 기존 보장이나 C안의 책임 분담을 변경·채택한 결과가 아니다. 아래는 당시 기록이다.
