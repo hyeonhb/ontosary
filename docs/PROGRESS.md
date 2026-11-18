@@ -1,5 +1,7 @@
 # 현재 작업 상태 — 새 세션은 이 문서부터 읽기
 
+2026-11-18 같은 VM 대조에서 사전 준비 후 EROFS 통과와 payload 시작 전 RTM_NEWADDR 오류를 확인했다. 검증한 PR #79를 fff4f52로 병합했다. [독립 리뷰](reviews/2026-11-18-s2-erofs-comparison-independent-review.md)
+
 2026-11-18 추가 승인된 같은 VM 기준·대조에서 daemon 경로 mkdirat가 EROFS에서 EEXIST로 바뀌고 openat가 성공했다. 다음 차단은 bwrap loopback RTM_NEWADDR 권한 오류이며 payload 시작 전 exit 1이다. VM·소유 프로세스·watchdog 정리 완료, PR #79 독립 리뷰 대기다. [추가 VM 대조 결과](reviews/2026-11-18-s2-erofs-comparison.md)
 
 2026-11-18 기준 VM에서 helper PID 2503의 mkdirat(/tmp/codex-daemon-22002, 0700) EROFS와 서비스의 /tmp ro를 확인했다. 실행 당시 분리된 execve 반환을 놓쳐 관리자 사전 준비·대조는 0회였고 VM·root·소유 프로세스·watchdog 부재를 확인했다. 저장 trace로 판독기를 보완했다. [EROFS 관측 결과](reviews/2026-11-18-s2-erofs-observation.md)

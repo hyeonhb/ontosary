@@ -1,5 +1,7 @@
 # 단계별 계획
 
+2026-11-18 EROFS 대조를 마쳤다. 다음 판단은 기존 격리 조건에서 loopback 차단을 더 조사할 비용과 S2 효용 검증에 미치는 영향이다. [독립 리뷰](reviews/2026-11-18-s2-erofs-comparison-independent-review.md)
+
 2026-11-18 PR #79 독립 리뷰에서 daemon 디렉터리 사전 준비의 효과와 다음 loopback 주소 설정 차단을 검토한다. 이번 대조에서 payload는 시작 전 종료됐다. [추가 VM 대조 결과](reviews/2026-11-18-s2-erofs-comparison.md)
 
 2026-11-18 독립 리뷰에서 새 VM의 기준·조건부 대조 회차를 판단한다. 기존 VM에서 실패 연산은 확인됐고, 해당 디렉터리만 사전 준비했을 때의 효과는 미검증이다. [EROFS 관측 결과](reviews/2026-11-18-s2-erofs-observation.md)
