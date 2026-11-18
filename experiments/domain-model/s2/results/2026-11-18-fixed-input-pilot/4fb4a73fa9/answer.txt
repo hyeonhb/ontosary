@@ -1,0 +1,90 @@
+diff --git a/packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts b/packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts
+--- a/packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts
++++ b/packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts
+@@ -1,3 +1,5 @@
++import { EMPTY, Observable } from 'rxjs';
++
+ import * as Codegen from '../../common/generated-types';
+ import {
+     ADD_ITEM_TO_DRAFT_ORDER,
+@@ -113,10 +115,14 @@
+     }
+ 
+-    cancelOrder(input: Codegen.CancelOrderInput) {
++    cancelOrder(input: Codegen.CancelOrderInput): Observable<Codegen.CancelOrderMutation> {
++        const reason = input.reason?.trim();
++        if (!reason) {
++            return EMPTY;
++        }
+         return this.baseDataService.mutate<Codegen.CancelOrderMutation, Codegen.CancelOrderMutationVariables>(
+             CANCEL_ORDER,
+             {
+-                input,
++                input: { ...input, reason },
+             },
+         );
+     }
+diff --git a/packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts b/packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts
+--- a/packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts
++++ b/packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts
+@@ -68,9 +68,14 @@
+ 
+     select() {
++        const reason = this.reason?.trim();
++        if (!reason) {
++            this.resolveWith(undefined);
++            return;
++        }
+         this.resolveWith({
+             orderId: this.order.id,
+             lines: this.getLineInputs(),
+-            reason: this.reason,
++            reason,
+             cancelShipping: this.cancelAll,
+         });
+     }
+diff --git a/packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts b/packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts
+--- a/packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts
++++ b/packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts
+@@ -179,6 +179,11 @@
+     select() {
+         const refundLines = this.getOrderLineInput(() => true);
+         const cancelLines = this.getOrderLineInput(line => line.cancel);
++        const cancelReason = cancelLines.length ? this.reason?.trim() : this.reason;
++        if (cancelLines.length && !cancelReason) {
++            this.resolveWith(undefined);
++            return;
++        }
+ 
+         this.resolveWith({
+             refunds: this.refundablePayments
+@@ -198,7 +203,7 @@
+             cancel: {
+                 lines: cancelLines,
+                 orderId: this.order.id,
+-                reason: this.reason,
++                reason: cancelReason,
+                 cancelShipping: this.refundShippingLineIds.length > 0,
+             },
+         });
+diff --git a/packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts b/packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts
+--- a/packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts
++++ b/packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts
+@@ -585,7 +585,7 @@
+                     if (input) {
+                         return this.dataService.order.cancelOrder(input);
+                     } else {
+-                        return of(undefined);
++                        return EMPTY;
+                     }
+                 }),
+                 switchMap(result => this.refetchOrder(result)),
+@@ -609,7 +609,7 @@
+             .pipe(
+                 switchMap(input => {
+                     if (!input) {
+-                        return of(undefined);
++                        return EMPTY;
+                     }
+ 
+                     if (input.cancel.lines?.length) {
