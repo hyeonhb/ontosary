@@ -1,5 +1,7 @@
 # 현재 아키텍처
 
+2026-11-18 [R20 국소 보완](reviews/2026-11-18-s2-r20-cleanup.md)(ADR-060): smoke 소유 정리는 고정 크기 메모리에 출력을 받아 명령 완료와 진단 저장을 분리한다. 초과 출력은 정리 명령을 죽이지 않고 버리며 일반 실험 명령은 기존처럼 중단한다. stop/delete 오류 뒤에도 후속 정리를 시도하고, list/process 조회의 실패·절단·timeout·파싱 불능은 부재 근거로 쓰지 않는다. 기존 ownership 파일로 잠가 진단 쓰기 실패가 정리를 막지 않게 했다. 공유 runtime·guest 권한·제품/평가 구조는 불변이며 로컬 대체 명령으로만 검증했다. 아래는 당시 기록이다.
+
 2026-11-18 [직접 VM smoke 독립 검토](reviews/2026-11-18-s2-vm-cli-smoke-independent-review.md): 공개 준비물→새 guest→비특권 worker→native CLI 연결과 EROFS 차단/실제 VM 정리를 확인했다. payload·전체 접근/종료 계약은 미검증이다. R20은 safety 명령도 일반 진단 capture cap의 초과 종료를 공유하는 결함으로, 안전 정리 실행과 bounded 진단 보존/제어 응답을 분리하는 국소 보완이 필요하다. 현재 실제 정리 증거는 유지하며 새 경계/권한 변경은 하지 않는다. 아래는 당시 기록이다.
 
 2026-11-17 [직접 VM CLI smoke 관측](reviews/2026-11-17-s2-vm-cli-smoke.md)(ADR-058): 별도 host watchdog/소유 VM 폐기와 기본 OS transient service만 연결했다. 실제 worker UID/GID22002·capability0/NNP·cgroup 자원·loopback만 있는 별도 network namespace를 확인했다. Node/CLI 고정 버전과 PID/service 연결은 확인했지만 native sandbox는 bubblewrap 명령 구성 중 EROFS/exit1로 payload 전에 차단됐다. 정확한 쓰기 대상·하위 원인은 미관측이며 전체 C안 채택·격리/제출 종료 계약으로 승격하지 않는다. VM 정리는 완료했고 기존 container/평가기·공유 구현은 불변이다. 아래는 당시 기록이다.

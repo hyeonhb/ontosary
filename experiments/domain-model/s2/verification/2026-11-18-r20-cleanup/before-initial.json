@@ -1,0 +1,108 @@
+{
+  "implementation": "2008351b926aa8c7f7c762f297c0be8b43c2e2a9",
+  "codeHashes": {
+    "run.py": "1c3e6f9efdcf6d9759e66ca57792e97578f646b58f7186faeef4315b71306162",
+    "bounded.py": "5e70b73899d0cae72ad991b6276220378ce1c76e98a600f0690675ad447de2e6"
+  },
+  "cases": [
+    {
+      "condition": "normal",
+      "result": {
+        "cleanupStatus": "complete",
+        "vmAbsent": true,
+        "rootAbsent": true,
+        "attempts": [
+          [
+            "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/s2-r20-local-dryzujiy/ontosary-s2-fake/prefix/bin/limactl",
+            "stop",
+            "--force",
+            "fixture-vm"
+          ],
+          [
+            "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/s2-r20-local-dryzujiy/ontosary-s2-fake/prefix/bin/limactl",
+            "delete",
+            "--force",
+            "fixture-vm"
+          ],
+          [
+            "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/s2-r20-local-dryzujiy/ontosary-s2-fake/prefix/bin/limactl",
+            "list",
+            "--json"
+          ]
+        ],
+        "errors": [
+          {
+            "action": "stop",
+            "exitCode": -9
+          }
+        ],
+        "vmDisposalIsNotSubmissionProof": true,
+        "ownedProcesses": []
+      },
+      "stopCompleted": false,
+      "deleteCompleted": true,
+      "vmStatePresent": false,
+      "ownedRootPresent": false,
+      "actions": [
+        "stop",
+        "delete",
+        "list"
+      ],
+      "storedStreamBytesBefore": 0,
+      "storedStreamBytesAfter": 34
+    },
+    {
+      "condition": "exhausted",
+      "result": {
+        "cleanupStatus": "unconfirmed",
+        "vmAbsent": false,
+        "rootAbsent": false,
+        "attempts": [
+          [
+            "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/s2-r20-local-jsvgz7pc/ontosary-s2-fake/prefix/bin/limactl",
+            "stop",
+            "--force",
+            "fixture-vm"
+          ],
+          [
+            "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/s2-r20-local-jsvgz7pc/ontosary-s2-fake/prefix/bin/limactl",
+            "delete",
+            "--force",
+            "fixture-vm"
+          ],
+          [
+            "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/s2-r20-local-jsvgz7pc/ontosary-s2-fake/prefix/bin/limactl",
+            "list",
+            "--json"
+          ]
+        ],
+        "errors": [
+          {
+            "action": "stop",
+            "exitCode": -9
+          },
+          {
+            "action": "delete",
+            "exitCode": -9
+          },
+          {
+            "action": "absence",
+            "error": "listing-failed"
+          }
+        ],
+        "vmDisposalIsNotSubmissionProof": true
+      },
+      "stopCompleted": false,
+      "deleteCompleted": false,
+      "vmStatePresent": true,
+      "ownedRootPresent": true,
+      "actions": [
+        "stop",
+        "delete",
+        "list"
+      ],
+      "storedStreamBytesBefore": 4128768,
+      "storedStreamBytesAfter": 4128768
+    }
+  ]
+}

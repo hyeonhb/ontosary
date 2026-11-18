@@ -35,7 +35,7 @@ Use the already-installed pinned Python3.13 interpreter for reproduction:
 
 ```sh
 /opt/homebrew/bin/python3.13 -m unittest discover -s experiments/domain-model/s2/trial/vm-cli-smoke -p 'test_*.py' -v
-/opt/homebrew/bin/python3.13 experiments/domain-model/s2/trial/vm-cli-smoke/verify.py experiments/domain-model/s2/verification/2026-11-17-vm-cli-smoke
+/opt/homebrew/bin/python3.13 experiments/domain-model/s2/trial/vm-cli-smoke/verify_historical.py --reproduce-r20
 ```
 
 These are offline checks. The original round is closed and `execution-started.json`
@@ -47,3 +47,27 @@ R19's reused host API path was checked with the actual interpreter; the unused
 socket defect is not fixed. R11 unresolved, R12 previous scope, production/live
 refusal, `fixtureOnly=true`, `validSubmission=false`, `trialAuthorized=false`,
 `readyForTrial=false`, `results=null`, and unverified H-O/H-F remain unchanged.
+
+
+## R20 follow-up — 2026-11-18
+
+Cleanup now completes independently of diagnostic storage: bounded capture drains
+and discards excess output for safety commands, then attempts bounded persistence.
+General experimental commands still terminate on output overflow. Stop/delete
+failures remain in the receipt even when later queries confirm absence. Failed,
+truncated, timed-out or malformed queries never prove absence. An existing ownership
+file supplies the cleanup lock without requiring a new writable diagnostic file;
+receipt/marker failures are reported separately from resource state.
+
+The local regression suite uses executable Python fakes with completion markers
+and an external VM-state file. It invokes the real disposal/capture path; it never
+controls Lima or starts a VM. See the [R20 report](../../../../../docs/reviews/2026-11-18-s2-r20-cleanup.md)
+and [before/after evidence](../../verification/2026-11-18-r20-cleanup/after.json).
+
+`verify_historical.py` restores the exact `2008351` verifier/runtime and its helpers
+from Git into a temporary directory, checks the original freeze hashes, and runs
+that verifier against the unchanged historical evidence. `--reproduce-r20` also
+runs the current local fake fixture against that archived runtime. The original
+`verify.py` intentionally rejects the modified runtime against the old freeze;
+no hash bypass or replacement of historical code identities is used. This helper
+requires local Git history containing `2008351` and starts no real runtime.
