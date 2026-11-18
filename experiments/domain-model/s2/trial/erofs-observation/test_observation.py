@@ -17,6 +17,13 @@ class ObservationTests(unittest.TestCase):
                      self.trace.replace(TARGET, TARGET + '1'), '\n'.join(reversed(self.trace.splitlines()))]:
             self.assertIsNone(confirming_pid(text))
 
+    def test_split_exec_requires_matching_success_before_mkdir(self):
+        split = self.trace.replace(') = 0', ' <unfinished ...>\n90  <... clone resumed>) = 91\n91  <... execve resumed>) = 0')
+        self.assertEqual(confirming_pid(split), 91)
+        for bad in [split.replace('91  <...', '92  <...'), split.replace(' = 0', ' = -1 ENOENT'),
+                    split.replace('91 mkdir', '91 execve("/bin/true", ["true"], []) = 0\n91 mkdir')]:
+            self.assertIsNone(confirming_pid(bad))
+
     def test_incomplete_or_unexpected_state_blocks_preparation(self):
         n = dict(exitCode=1, truncated=False, timedOut=False, stderr=self.trace, stdout='',
                  before=dict(tmp='/tmp', uid=22002, readOnly=True, target=None))

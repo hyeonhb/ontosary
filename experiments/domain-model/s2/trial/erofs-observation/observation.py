@@ -20,10 +20,25 @@ TARGET = "/tmp/codex-daemon-22002"
 
 def confirming_pid(trace):
     helpers = set()
+    pending = set()
     for line in trace.splitlines():
-        exec_match = re.match(r'^(\d+)\s+execve\("[^"]+", \["codex-linux-sandbox"', line)
-        if exec_match and re.search(r'= 0$', line):
-            helpers.add(exec_match[1])
+        new_exec = re.match(r'^(\d+)\s+execve(?:at)?\(', line)
+        if new_exec:
+            pid = new_exec[1]
+            helpers.discard(pid)
+            pending.discard(pid)
+            is_helper = re.match(r'^\d+\s+execve\("[^"]+", \["codex-linux-sandbox"', line)
+            if is_helper and line.endswith("<unfinished ...>"):
+                pending.add(pid)
+            elif is_helper and re.search(r'= 0$', line):
+                helpers.add(pid)
+            continue
+        resumed = re.match(r'^(\d+)\s+<\.\.\. execve resumed>', line)
+        if resumed and resumed[1] in pending:
+            pending.remove(resumed[1])
+            if re.search(r'= 0$', line):
+                helpers.add(resumed[1])
+            continue
         mkdir = re.fullmatch(r'(\d+)\s+(?:mkdir\(|mkdirat\(AT_FDCWD, )"'
                              + re.escape(TARGET) + r'", 0700\)\s+= -1 EROFS \(Read-only file system\)', line)
         if mkdir and mkdir[1] in helpers:
