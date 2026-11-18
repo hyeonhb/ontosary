@@ -1,0 +1,25 @@
+{
+  "args": [
+    "/private/tmp/ontosary-s2-erofs-observation/prefix/bin/limactl",
+    "copy",
+    "/private/tmp/ontosary-s2-erofs-observation/inputs.tar",
+    "ontosary-s2-erofs-observation:/tmp/ontosary-smoke-inputs.tar"
+  ],
+  "startedUtc": "2026-11-18T08:17:53.872337+00:00",
+  "limitSeconds": 60,
+  "truncated": false,
+  "timedOut": false,
+  "capPerStream": 1048576,
+  "outputPolicy": "terminate",
+  "pid": 28039,
+  "exitCode": 0,
+  "seconds": 3.222730125009548,
+  "finishedUtc": "2026-11-18T08:17:57.095066+00:00",
+  "diagnostics": {
+    "status": "stored",
+    "storedBytes": 0,
+    "storageTruncated": false,
+    "captureTruncated": false,
+    "record": "command-9c8a9436625d.json"
+  }
+}

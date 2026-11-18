@@ -1,0 +1,38 @@
+test_all_report_writes_can_fail_after_real_cleanup (test_cleanup_budget.CleanupBudgetTests.test_all_report_writes_can_fail_after_real_cleanup) ... ok
+test_command_stream_and_metadata_write_failures_do_not_prevent_completion (test_cleanup_budget.CleanupBudgetTests.test_command_stream_and_metadata_write_failures_do_not_prevent_completion) ... ok
+test_delete_failure_or_timeout_keeps_state_unconfirmed (test_cleanup_budget.CleanupBudgetTests.test_delete_failure_or_timeout_keeps_state_unconfirmed) ... ok
+test_diagnostic_lookup_failure_does_not_prevent_completion (test_cleanup_budget.CleanupBudgetTests.test_diagnostic_lookup_failure_does_not_prevent_completion) ... ok
+test_discard_still_times_out_even_after_pipe_eof (test_cleanup_budget.CleanupBudgetTests.test_discard_still_times_out_even_after_pipe_eof) ... ok
+test_disposed_marker_failure_is_a_diagnostic_error (test_cleanup_budget.CleanupBudgetTests.test_disposed_marker_failure_is_a_diagnostic_error) ... ok
+test_existing_owner_lock_needs_no_writable_diagnostic_file (test_cleanup_budget.CleanupBudgetTests.test_existing_owner_lock_needs_no_writable_diagnostic_file) ... ok
+test_general_output_overflow_still_stops_before_side_effect (test_cleanup_budget.CleanupBudgetTests.test_general_output_overflow_still_stops_before_side_effect) ... ok
+test_incomplete_or_malformed_listing_never_proves_absence (test_cleanup_budget.CleanupBudgetTests.test_incomplete_or_malformed_listing_never_proves_absence) ... ok
+test_noisy_cleanup_completes_with_bounded_storage (test_cleanup_budget.CleanupBudgetTests.test_noisy_cleanup_completes_with_bounded_storage) ... ok
+test_normal_and_exhausted_budget_reach_real_completion (test_cleanup_budget.CleanupBudgetTests.test_normal_and_exhausted_budget_reach_real_completion) ... ok
+test_owner_mismatch_blocks_dispatch_and_cached_receipt (test_cleanup_budget.CleanupBudgetTests.test_owner_mismatch_blocks_dispatch_and_cached_receipt) ... ok
+test_process_query_failure_or_presence_never_proves_absence (test_cleanup_budget.CleanupBudgetTests.test_process_query_failure_or_presence_never_proves_absence) ... ok
+test_stop_failure_or_timeout_does_not_prevent_delete (test_cleanup_budget.CleanupBudgetTests.test_stop_failure_or_timeout_does_not_prevent_delete) ... ok
+test_unreadable_prior_receipt_does_not_skip_cleanup (test_cleanup_budget.CleanupBudgetTests.test_unreadable_prior_receipt_does_not_skip_cleanup) ... ok
+test_ancestor_links (test_materialize.ExtractionTests.test_ancestor_links) ... ok
+test_cumulative_byte_limit (test_materialize.ExtractionTests.test_cumulative_byte_limit) ... ok
+test_duplicate_selected_member (test_materialize.ExtractionTests.test_duplicate_selected_member) ... ok
+test_missing_selected_member (test_materialize.ExtractionTests.test_missing_selected_member) ... ok
+test_root_directory_metadata_is_ignored (test_materialize.ExtractionTests.test_root_directory_metadata_is_ignored) ... ok
+test_root_regular_file_is_still_rejected (test_materialize.ExtractionTests.test_root_regular_file_is_still_rejected) ... ok
+test_selective_regular_file (test_materialize.ExtractionTests.test_selective_regular_file) ... ok
+test_traversal (test_materialize.ExtractionTests.test_traversal) ... ok
+test_whiteout (test_materialize.ExtractionTests.test_whiteout) ... ok
+test_actual_host_hash_and_filtered_extraction_api (test_smoke.SmokeTests.test_actual_host_hash_and_filtered_extraction_api) ... ok
+test_bounded_command_reports_timeout_and_truncation (test_smoke.SmokeTests.test_bounded_command_reports_timeout_and_truncation) ... ok
+test_diagnostic_failure_cannot_skip_disposal (test_smoke.SmokeTests.test_diagnostic_failure_cannot_skip_disposal) ... ok
+test_expired_watchdog_still_stops_deletes_and_checks_absence (test_smoke.SmokeTests.test_expired_watchdog_still_stops_deletes_and_checks_absence) ... ok
+test_expired_work_command_is_not_dispatched (test_smoke.SmokeTests.test_expired_work_command_is_not_dispatched) ... ok
+test_external_preparation_error_reaches_real_cleanup_commands (test_smoke.SmokeTests.test_external_preparation_error_reaches_real_cleanup_commands) ... {"observation": "inconclusive", "fixtureOnly": true, "validSubmission": false, "trialAuthorized": false, "readyForTrial": false, "results": null, "error": "command-failed:['fake-prepare']:synthetic preparation error", "cleanup": {"cleanupStatus": "complete", "vmAbsent": true, "rootAbsent": true, "attempts": [["/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/tmp2j5p3_de/ontosary-s2-local-test/prefix/bin/limactl", "stop", "--force", "smoke-test"], ["/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/tmp2j5p3_de/ontosary-s2-local-test/prefix/bin/limactl", "delete", "--force", "smoke-test"], ["/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/tmp2j5p3_de/ontosary-s2-local-test/prefix/bin/limactl", "list", "--json"]], "errors": [], "commandResults": [{"action": "stop", "exitCode": 0, "timedOut": false, "truncated": false, "diagnostics": {"status": "stored", "storedBytes": 0, "storageTruncated": false, "captureTruncated": false, "record": "command-69d33ebfa2a5.json"}}, {"action": "delete", "exitCode": 0, "timedOut": false, "truncated": false, "diagnostics": {"status": "stored", "storedBytes": 0, "storageTruncated": false, "captureTruncated": false, "record": "command-52e45c5359c2.json"}}, {"action": "list", "exitCode": 0, "timedOut": false, "truncated": false, "diagnostics": {"status": "stored", "storedBytes": 0, "storageTruncated": false, "captureTruncated": false, "record": "command-29e659bcec8b.json"}}, {"action": "process-absence", "exitCode": 0, "timedOut": false, "truncated": false}], "diagnosticErrors": [], "owner": {"root": "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/tmp2j5p3_de/ontosary-s2-local-test", "name": "smoke-test"}, "vmDisposalIsNotSubmissionProof": true, "ownedProcesses": [], "receiptWritten": true}}
+ok
+test_payload_result_requires_all_markers_content_exit_and_no_truncation (test_smoke.SmokeTests.test_payload_result_requires_all_markers_content_exit_and_no_truncation) ... ok
+test_stop_error_does_not_skip_delete_or_absence (test_smoke.SmokeTests.test_stop_error_does_not_skip_delete_or_absence) ... ok
+
+----------------------------------------------------------------------
+Ran 32 tests in 21.297s
+
+OK

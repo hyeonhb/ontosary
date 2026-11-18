@@ -1,0 +1,9 @@
+{
+  "pid": 27741,
+  "parent": 27662,
+  "experimentDeadline": {
+    "utc": "2026-11-18T08:47:15.516102+00:00",
+    "monotonic": 248070.644813416
+  },
+  "disposalTool": "same owned cleanup path, separate process/session"
+}
