@@ -1,5 +1,7 @@
 # 현재 작업 상태 — 새 세션은 이 문서부터 읽기
 
+2026-11-18 사용자는 다음 제한 관측과 조건부 최소 조치의 개발 지시를 요청했다. [새 지시](reviews/2026-11-18-s2-erofs-observation-instructions.md)는 일회성 VM1개에서 기준 관측과 가설 확인 시 daemon 디렉터리 사전 준비 대조를 수행하는 범위다. 60~90분은 참고 예상이며 고정 상한이 아니다. 실제 실행은 개발 세션 과업이며 이번 작성에서는 수행하지 않았다. 문서 변경은 `pnpm check`의304개 테스트·타입 검사·예제 build와 링크/diff 검사를 통과했다. 리뷰의 잘한 점/개선점 구분은 가독성을 위한 것이며, 매번 회고나 수정 과업을 만들지 않도록 AGENTS를 정정했다.
+
 2026-11-18 [EROFS 독립 리뷰](reviews/2026-11-18-s2-erofs-diagnosis-independent-review.md): **정적 진단 완료·추가 보완 결함 없음**. PR #76은 이미6042f23으로 병합됐으며, 고정 소스12개/발췌20개·공개 archive/파일4개 hash·provenance 연결·당시 원문·과거99파일과 pnpm check304를 재검증했다. 선두 후보는 canonical(/tmp)/codex-daemon-22002 생성이며 실제 실패 syscall은 미확정이다. 다음 제한 관측과 조건부 국소 조치를 한 과업으로 합의하는 방안을 권고하되 이번에 실행/설정 변경은 승인하지 않는다. 앞으로 리뷰에 잘한 점과 관리자 측 개선점도 포함한다.
 
 2026-11-18 [EROFS 읽기 전용 진단](reviews/2026-11-18-s2-erofs-diagnosis.md): 선두 후보는 helper의 `canonical(/tmp)/codex-daemon-22002` 생성이며 **실패 경로는 아직 미확정**이다. 공개 npm archive integrity·release asset digest·당시 native/bwrap hash와 provenance/tag의 소스 commit c40729e를 연결했다. 고정 소스는 TMPDIR/daemon_auto_start와 무관하게 bwrap 인자 구성 전에 이 디렉터리를 준비한다. 외부 ProtectSystem=strict와 충돌 가능성이 높지만 당시 syscall/mount 상태가 없어 EROFS 해결로 판정하지 않는다. 다음 권고는 같은 조건의 최소 동적 관측이며 이번에는 구현/실행하지 않았다. pnpm check304·과거99파일 불변 확인, VM/실제 CLI/trace/model0이다. 아래는 당시 기록이다.
