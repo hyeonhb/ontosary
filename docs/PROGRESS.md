@@ -1,5 +1,7 @@
 # 현재 작업 상태 — 새 세션은 이 문서부터 읽기
 
+2026-11-18 R20 지시 개정: [목적·완료 기준 중심의 새 지시](reviews/2026-11-18-s2-r20-outcome-instructions.md)가 이전 지시를 대체한다. 구현·검증 순서는 개발 세션에 맡기며 기존 45분·로컬 검증 범위와 보류 상태는 유지한다. 이번 작업은 지시문 작성이며 R20 구현은 진행하지 않았다. `pnpm check`의 304개 테스트·타입 검사·예제 빌드와 문서 링크 대상·diff 검사를 통과했다.
+
 2026-11-18 개발 지시 운영 변경(ADR-059): 사용자와 합의해 [개발 지침](../AGENTS.md)의 지시 방식을 목적·완료 기준·필수 경계 중심으로 정리했다. 구현·진단·검증 순서와 범위 내 국소 수정은 개발 세션에 맡기고, 지시의 세부 방법 준수 자체를 리뷰 기준으로 삼지 않는다. 과도한 준비 gate와 첫 관측 전 구현 범위도 실패 원인으로 검토한다. 제품 코드·실험 경계·기존 예산과 보류 상태는 변경하지 않았다. `pnpm check`의 304개 테스트·타입 검사·예제 빌드와 diff 검사를 통과했다.
 
 2026-11-18 [직접 VM smoke 독립 리뷰](reviews/2026-11-18-s2-vm-cli-smoke-independent-review.md): PR #70 head2008351의 **실제1회 blocked-before-payload·VM 폐기 근거는 확인**했다. 전체1530.223초·VM1/CLI sandbox1·payload0, EROFS 정확한 path는 미확인이다. pnpm check304·Python17·증거98파일/121674bytes·원시 outer/worker 연결·공개 cache4개를 재대조했다. 다만 진단 예산 소진이 safety stop/delete까지 SIGKILL하는 R20(P2)을 실제 정리 함수+가짜 외부 명령으로 재현했다. [45분 무실행 보완 지시](reviews/2026-11-18-s2-smoke-cleanup-budget-instructions.md)를 제공하며 PR #70은 보완 리뷰 전 미병합이다. 새 VM/정책/CLI 재실행0·PR #67 보류·R11 unresolved·H-O/H-F 미검증을 유지한다. 아래는 당시 기록이다.
