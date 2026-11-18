@@ -1,5 +1,7 @@
 # 단계별 계획
 
+2026-11-18 loopback 진단을 보류하고 [고정 입력 패치 파일럿 지시](reviews/2026-11-18-s2-fixed-input-pilot-instructions.md)를 우선한다. 세 패치의 동작 차이와 해석 한계를 검토한 뒤 도구를 갖춘 본 비교의 투자 여부를 판단한다.
+
 2026-11-18 EROFS 대조를 마쳤다. 다음 판단은 기존 격리 조건에서 loopback 차단을 더 조사할 비용과 S2 효용 검증에 미치는 영향이다. [독립 리뷰](reviews/2026-11-18-s2-erofs-comparison-independent-review.md)
 
 2026-11-18 PR #79 독립 리뷰에서 daemon 디렉터리 사전 준비의 효과와 다음 loopback 주소 설정 차단을 검토한다. 이번 대조에서 payload는 시작 전 종료됐다. [추가 VM 대조 결과](reviews/2026-11-18-s2-erofs-comparison.md)
