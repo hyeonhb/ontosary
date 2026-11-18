@@ -1,0 +1,82 @@
+{
+  "observation": "blocked-before-payload",
+  "cleanupStatus": "complete",
+  "firstCommand": {
+    "utc": "2026-11-17T13:43:25.981337+00:00",
+    "monotonic": 236519.488050375,
+    "head": "ed0250bd534bedfe994814bdf0a6920cb5eb727f",
+    "status": "## codex/s2-vm-cli-feasibility...origin/codex/s2-vm-cli-feasibility\n"
+  },
+  "baseHead": "e8784ae4f5cde36d9205ee43575a70cede4ee6c0",
+  "runtimeFreeze": "prepared/freeze.json",
+  "runtimeUnchangedAfterNativeCall": true,
+  "counts": {
+    "vmStarts": 1,
+    "vmDeletions": 1,
+    "cliDiscovery": 2,
+    "sandboxCalls": 1,
+    "payloadStarts": 0,
+    "hostPreparationAttempts": 2,
+    "downloads": 0,
+    "builds": 0,
+    "imageSaves": 0,
+    "vendureInstalls": 0,
+    "credentialTransfers": 0,
+    "logins": 0,
+    "refreshes": 0,
+    "providerRequests": 0,
+    "modelCalls": 0,
+    "trialRuns": 0
+  },
+  "validation": {
+    "pnpmCheck": {
+      "exitCode": 0,
+      "tests": 304,
+      "log": "pnpm-check.log"
+    },
+    "python": {
+      "exitCode": 0,
+      "tests": 17,
+      "log": "local-tests-after-root-entry-fix.log"
+    },
+    "offlineNegativeCases": 4,
+    "oldTrackedCodeOrEvidenceChanges": [],
+    "sharedFilesChanged": false,
+    "pnpmExperiment": "not-run; analysis/evaluation semantics unchanged",
+    "localDocumentationLinks": {
+      "checked": 15,
+      "missing": 0
+    }
+  },
+  "preparationCorrection": "preparation-correction.patch",
+  "diagnosticScope": "fixed host command responses/stdout/stderr only; no guest directory export",
+  "r19": {
+    "reusedHostApi": "verified with pinned installed Python3.13.13",
+    "socket": "not-used; not-fixed",
+    "wholeIssueResolved": false
+  },
+  "fixtureOnly": true,
+  "validSubmission": false,
+  "trialAuthorized": false,
+  "readyForTrial": false,
+  "results": null,
+  "unverified": [
+    "payload source read/write/material read",
+    "failing filesystem path/syscall or LSM contribution",
+    "full access/authentication boundary",
+    "all writers stopped then immutable submission collection",
+    "fresh-VM repetition",
+    "Vendure/evaluator integration",
+    "real credentials/turn tools/model comparison"
+  ],
+  "reportSnapshotUtc": "2026-11-17T14:06:41.323893+00:00",
+  "elapsedSnapshotSeconds": 1395.3396709160006,
+  "totalBudgetSeconds": 3600,
+  "newRuntimeStopped": true,
+  "publicationHead": "Recorded in PR after commit; runtime identity is frozen file hashes plus base head",
+  "offlineVerifierHash": "deb9739510032d954af4670d4f99e17132096aadbe16ac8e2d14cbc24b98b22a",
+  "closedUtc": "2026-11-17T14:08:56.207828+00:00",
+  "closedHostMonotonic": 238049.711376583,
+  "elapsedSeconds": 1530.2233262080117,
+  "within60MinuteBudget": true
+}

@@ -1,0 +1,1199 @@
+{
+  "sourceHashes": {
+    "experiments/domain-model/s2/trial/vm-cli-smoke/run.py": "bcc4c21ac51ff6f1767539f3021ef21473615ccb385cf64e0b4034a4c030f255",
+    "experiments/domain-model/s2/trial/vm-cli-smoke/bounded.py": "a3cbf079f284f7107722b5f7ee508fae9f1985051ba784bc237d69f42ac68bb1",
+    "experiments/domain-model/s2/trial/vm-cli-smoke/test_cleanup_budget.py": "ebd92c7deff32d1fdc906e02ba29ef3272e296520e92c187f59ea65377fdea4a",
+    "experiments/domain-model/s2/trial/vm-cli-smoke/verify_historical.py": "3c05043d4d7cfdc619d96e86596bcd5b131bfd8d690f28632487f36b53dd4b07"
+  },
+  "cases": [
+    {
+      "condition": "normal",
+      "result": {
+        "cleanupStatus": "complete",
+        "vmAbsent": true,
+        "rootAbsent": true,
+        "attempts": [
+          [
+            "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/s2-r20-local-jhhezacy/ontosary-s2-fake/prefix/bin/limactl",
+            "stop",
+            "--force",
+            "fixture-vm"
+          ],
+          [
+            "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/s2-r20-local-jhhezacy/ontosary-s2-fake/prefix/bin/limactl",
+            "delete",
+            "--force",
+            "fixture-vm"
+          ],
+          [
+            "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/s2-r20-local-jhhezacy/ontosary-s2-fake/prefix/bin/limactl",
+            "list",
+            "--json"
+          ]
+        ],
+        "errors": [],
+        "commandResults": [
+          {
+            "action": "stop",
+            "exitCode": 0,
+            "timedOut": false,
+            "truncated": false,
+            "diagnostics": {
+              "status": "stored",
+              "storedBytes": 14,
+              "storageTruncated": false,
+              "captureTruncated": false,
+              "record": "command-a6798fa92c6b.json"
+            }
+          },
+          {
+            "action": "delete",
+            "exitCode": 0,
+            "timedOut": false,
+            "truncated": false,
+            "diagnostics": {
+              "status": "stored",
+              "storedBytes": 16,
+              "storageTruncated": false,
+              "captureTruncated": false,
+              "record": "command-fdf2be82b077.json"
+            }
+          },
+          {
+            "action": "list",
+            "exitCode": 0,
+            "timedOut": false,
+            "truncated": false,
+            "diagnostics": {
+              "status": "stored",
+              "storedBytes": 0,
+              "storageTruncated": false,
+              "captureTruncated": false,
+              "record": "command-a257f2ed91ec.json"
+            }
+          },
+          {
+            "action": "process-absence",
+            "exitCode": 0,
+            "timedOut": false,
+            "truncated": false
+          }
+        ],
+        "diagnosticErrors": [],
+        "owner": {
+          "root": "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/s2-r20-local-jhhezacy/ontosary-s2-fake",
+          "name": "fixture-vm"
+        },
+        "vmDisposalIsNotSubmissionProof": true,
+        "ownedProcesses": [],
+        "receiptWritten": true
+      },
+      "stopCompleted": true,
+      "deleteCompleted": true,
+      "vmStatePresent": false,
+      "ownedRootPresent": false,
+      "seconds": 0.8513599580037408,
+      "actions": [
+        "stop",
+        "delete",
+        "list"
+      ],
+      "storedTotalBytesAfter": 4408,
+      "storedStreamBytesBefore": 0,
+      "storedStreamBytesAfter": 30
+    },
+    {
+      "condition": "exhausted",
+      "result": {
+        "cleanupStatus": "complete",
+        "vmAbsent": true,
+        "rootAbsent": true,
+        "attempts": [
+          [
+            "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/s2-r20-local-_jwtc73p/ontosary-s2-fake/prefix/bin/limactl",
+            "stop",
+            "--force",
+            "fixture-vm"
+          ],
+          [
+            "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/s2-r20-local-_jwtc73p/ontosary-s2-fake/prefix/bin/limactl",
+            "delete",
+            "--force",
+            "fixture-vm"
+          ],
+          [
+            "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/s2-r20-local-_jwtc73p/ontosary-s2-fake/prefix/bin/limactl",
+            "list",
+            "--json"
+          ]
+        ],
+        "errors": [],
+        "commandResults": [
+          {
+            "action": "stop",
+            "exitCode": 0,
+            "timedOut": false,
+            "truncated": false,
+            "diagnostics": {
+              "status": "partial",
+              "storedBytes": 0,
+              "storageTruncated": true,
+              "captureTruncated": false,
+              "record": "command-7a06f7c1a0d8.json"
+            }
+          },
+          {
+            "action": "delete",
+            "exitCode": 0,
+            "timedOut": false,
+            "truncated": false,
+            "diagnostics": {
+              "status": "partial",
+              "storedBytes": 0,
+              "storageTruncated": true,
+              "captureTruncated": false,
+              "record": "command-5607c33a0ad9.json"
+            }
+          },
+          {
+            "action": "list",
+            "exitCode": 0,
+            "timedOut": false,
+            "truncated": false,
+            "diagnostics": {
+              "status": "stored",
+              "storedBytes": 0,
+              "storageTruncated": false,
+              "captureTruncated": false,
+              "record": "command-25e06fac5660.json"
+            }
+          },
+          {
+            "action": "process-absence",
+            "exitCode": 0,
+            "timedOut": false,
+            "truncated": false
+          }
+        ],
+        "diagnosticErrors": [],
+        "owner": {
+          "root": "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/s2-r20-local-_jwtc73p/ontosary-s2-fake",
+          "name": "fixture-vm"
+        },
+        "vmDisposalIsNotSubmissionProof": true,
+        "ownedProcesses": [],
+        "receiptWritten": true
+      },
+      "stopCompleted": true,
+      "deleteCompleted": true,
+      "vmStatePresent": false,
+      "ownedRootPresent": false,
+      "seconds": 0.8749996249971446,
+      "actions": [
+        "stop",
+        "delete",
+        "list"
+      ],
+      "storedTotalBytesAfter": 4133141,
+      "storedStreamBytesBefore": 4128768,
+      "storedStreamBytesAfter": 4128768
+    },
+    {
+      "condition": "scan-failed",
+      "result": {
+        "cleanupStatus": "complete",
+        "vmAbsent": true,
+        "rootAbsent": true,
+        "attempts": [
+          [
+            "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/s2-r20-local-gr92uhlv/ontosary-s2-fake/prefix/bin/limactl",
+            "stop",
+            "--force",
+            "fixture-vm"
+          ],
+          [
+            "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/s2-r20-local-gr92uhlv/ontosary-s2-fake/prefix/bin/limactl",
+            "delete",
+            "--force",
+            "fixture-vm"
+          ],
+          [
+            "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/s2-r20-local-gr92uhlv/ontosary-s2-fake/prefix/bin/limactl",
+            "list",
+            "--json"
+          ]
+        ],
+        "errors": [],
+        "commandResults": [
+          {
+            "action": "stop",
+            "exitCode": 0,
+            "timedOut": false,
+            "truncated": false,
+            "diagnostics": {
+              "status": "failed",
+              "error": "scan denied"
+            }
+          },
+          {
+            "action": "delete",
+            "exitCode": 0,
+            "timedOut": false,
+            "truncated": false,
+            "diagnostics": {
+              "status": "failed",
+              "error": "scan denied"
+            }
+          },
+          {
+            "action": "list",
+            "exitCode": 0,
+            "timedOut": false,
+            "truncated": false,
+            "diagnostics": {
+              "status": "failed",
+              "error": "scan denied"
+            }
+          },
+          {
+            "action": "process-absence",
+            "exitCode": 0,
+            "timedOut": false,
+            "truncated": false
+          }
+        ],
+        "diagnosticErrors": [
+          {
+            "action": "stop",
+            "status": "failed",
+            "error": "scan denied"
+          },
+          {
+            "action": "delete",
+            "status": "failed",
+            "error": "scan denied"
+          },
+          {
+            "action": "list",
+            "status": "failed",
+            "error": "scan denied"
+          }
+        ],
+        "owner": {
+          "root": "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/s2-r20-local-gr92uhlv/ontosary-s2-fake",
+          "name": "fixture-vm"
+        },
+        "vmDisposalIsNotSubmissionProof": true,
+        "ownedProcesses": [],
+        "receiptWritten": true
+      },
+      "stopCompleted": true,
+      "deleteCompleted": true,
+      "vmStatePresent": false,
+      "ownedRootPresent": false,
+      "seconds": 0.81951741699595,
+      "actions": [
+        "stop",
+        "delete",
+        "list"
+      ],
+      "storedTotalBytesAfter": 2382,
+      "storedStreamBytesBefore": 0,
+      "storedStreamBytesAfter": 0
+    },
+    {
+      "condition": "writes-failed",
+      "result": {
+        "cleanupStatus": "complete",
+        "vmAbsent": true,
+        "rootAbsent": true,
+        "attempts": [
+          [
+            "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/s2-r20-local-iithi8cm/ontosary-s2-fake/prefix/bin/limactl",
+            "stop",
+            "--force",
+            "fixture-vm"
+          ],
+          [
+            "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/s2-r20-local-iithi8cm/ontosary-s2-fake/prefix/bin/limactl",
+            "delete",
+            "--force",
+            "fixture-vm"
+          ],
+          [
+            "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/s2-r20-local-iithi8cm/ontosary-s2-fake/prefix/bin/limactl",
+            "list",
+            "--json"
+          ]
+        ],
+        "errors": [],
+        "commandResults": [
+          {
+            "action": "stop",
+            "exitCode": 0,
+            "timedOut": false,
+            "truncated": false,
+            "diagnostics": {
+              "status": "failed",
+              "error": "disk full"
+            }
+          },
+          {
+            "action": "delete",
+            "exitCode": 0,
+            "timedOut": false,
+            "truncated": false,
+            "diagnostics": {
+              "status": "failed",
+              "error": "disk full"
+            }
+          },
+          {
+            "action": "list",
+            "exitCode": 0,
+            "timedOut": false,
+            "truncated": false,
+            "diagnostics": {
+              "status": "failed",
+              "error": "disk full"
+            }
+          },
+          {
+            "action": "process-absence",
+            "exitCode": 0,
+            "timedOut": false,
+            "truncated": false
+          }
+        ],
+        "diagnosticErrors": [
+          {
+            "action": "stop",
+            "status": "failed",
+            "error": "disk full"
+          },
+          {
+            "action": "delete",
+            "status": "failed",
+            "error": "disk full"
+          },
+          {
+            "action": "list",
+            "status": "failed",
+            "error": "disk full"
+          },
+          {
+            "action": "cleanup-receipt",
+            "error": "disk full"
+          }
+        ],
+        "owner": {
+          "root": "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/s2-r20-local-iithi8cm/ontosary-s2-fake",
+          "name": "fixture-vm"
+        },
+        "vmDisposalIsNotSubmissionProof": true,
+        "ownedProcesses": [],
+        "receiptWritten": false
+      },
+      "stopCompleted": true,
+      "deleteCompleted": true,
+      "vmStatePresent": false,
+      "ownedRootPresent": false,
+      "seconds": 0.7990943749900907,
+      "actions": [
+        "stop",
+        "delete",
+        "list"
+      ],
+      "storedTotalBytesAfter": 462,
+      "storedStreamBytesBefore": 0,
+      "storedStreamBytesAfter": 30
+    },
+    {
+      "condition": "noisy",
+      "result": {
+        "cleanupStatus": "complete",
+        "vmAbsent": true,
+        "rootAbsent": true,
+        "attempts": [
+          [
+            "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/s2-r20-local-s69sj00s/ontosary-s2-fake/prefix/bin/limactl",
+            "stop",
+            "--force",
+            "fixture-vm"
+          ],
+          [
+            "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/s2-r20-local-s69sj00s/ontosary-s2-fake/prefix/bin/limactl",
+            "delete",
+            "--force",
+            "fixture-vm"
+          ],
+          [
+            "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/s2-r20-local-s69sj00s/ontosary-s2-fake/prefix/bin/limactl",
+            "list",
+            "--json"
+          ]
+        ],
+        "errors": [],
+        "commandResults": [
+          {
+            "action": "stop",
+            "exitCode": 0,
+            "timedOut": false,
+            "truncated": true,
+            "diagnostics": {
+              "status": "partial",
+              "storedBytes": 2097152,
+              "storageTruncated": false,
+              "captureTruncated": true,
+              "record": "command-889da8ced9a3.json"
+            }
+          },
+          {
+            "action": "delete",
+            "exitCode": 0,
+            "timedOut": false,
+            "truncated": true,
+            "diagnostics": {
+              "status": "partial",
+              "storedBytes": 2031616,
+              "storageTruncated": true,
+              "captureTruncated": true,
+              "record": "command-787aef634fd3.json"
+            }
+          },
+          {
+            "action": "list",
+            "exitCode": 0,
+            "timedOut": false,
+            "truncated": false,
+            "diagnostics": {
+              "status": "stored",
+              "storedBytes": 0,
+              "storageTruncated": false,
+              "captureTruncated": false,
+              "record": "command-463f4a6fa3a7.json"
+            }
+          },
+          {
+            "action": "process-absence",
+            "exitCode": 0,
+            "timedOut": false,
+            "truncated": false
+          }
+        ],
+        "diagnosticErrors": [],
+        "owner": {
+          "root": "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/s2-r20-local-s69sj00s/ontosary-s2-fake",
+          "name": "fixture-vm"
+        },
+        "vmDisposalIsNotSubmissionProof": true,
+        "ownedProcesses": [],
+        "receiptWritten": true
+      },
+      "stopCompleted": true,
+      "deleteCompleted": true,
+      "vmStatePresent": false,
+      "ownedRootPresent": false,
+      "seconds": 0.852865416003624,
+      "actions": [
+        "stop",
+        "delete",
+        "list"
+      ],
+      "storedTotalBytesAfter": 4133160,
+      "storedStreamBytesBefore": 0,
+      "storedStreamBytesAfter": 4128768
+    },
+    {
+      "condition": "stop-failed",
+      "result": {
+        "cleanupStatus": "complete",
+        "vmAbsent": true,
+        "rootAbsent": true,
+        "attempts": [
+          [
+            "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/s2-r20-local-rmkljml1/ontosary-s2-fake/prefix/bin/limactl",
+            "stop",
+            "--force",
+            "fixture-vm"
+          ],
+          [
+            "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/s2-r20-local-rmkljml1/ontosary-s2-fake/prefix/bin/limactl",
+            "delete",
+            "--force",
+            "fixture-vm"
+          ],
+          [
+            "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/s2-r20-local-rmkljml1/ontosary-s2-fake/prefix/bin/limactl",
+            "list",
+            "--json"
+          ]
+        ],
+        "errors": [
+          {
+            "action": "stop",
+            "exitCode": 7,
+            "timedOut": false
+          }
+        ],
+        "commandResults": [
+          {
+            "action": "stop",
+            "exitCode": 7,
+            "timedOut": false,
+            "truncated": false,
+            "diagnostics": {
+              "status": "stored",
+              "storedBytes": 14,
+              "storageTruncated": false,
+              "captureTruncated": false,
+              "record": "command-171606e7c2e0.json"
+            }
+          },
+          {
+            "action": "delete",
+            "exitCode": 0,
+            "timedOut": false,
+            "truncated": false,
+            "diagnostics": {
+              "status": "stored",
+              "storedBytes": 16,
+              "storageTruncated": false,
+              "captureTruncated": false,
+              "record": "command-2291c4e65d31.json"
+            }
+          },
+          {
+            "action": "list",
+            "exitCode": 0,
+            "timedOut": false,
+            "truncated": false,
+            "diagnostics": {
+              "status": "stored",
+              "storedBytes": 0,
+              "storageTruncated": false,
+              "captureTruncated": false,
+              "record": "command-60124670173f.json"
+            }
+          },
+          {
+            "action": "process-absence",
+            "exitCode": 0,
+            "timedOut": false,
+            "truncated": false
+          }
+        ],
+        "diagnosticErrors": [],
+        "owner": {
+          "root": "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/s2-r20-local-rmkljml1/ontosary-s2-fake",
+          "name": "fixture-vm"
+        },
+        "vmDisposalIsNotSubmissionProof": true,
+        "ownedProcesses": [],
+        "receiptWritten": true
+      },
+      "stopCompleted": false,
+      "deleteCompleted": true,
+      "vmStatePresent": false,
+      "ownedRootPresent": false,
+      "seconds": 0.6602031250076834,
+      "actions": [
+        "stop",
+        "delete",
+        "list"
+      ],
+      "storedTotalBytesAfter": 4492,
+      "storedStreamBytesBefore": 0,
+      "storedStreamBytesAfter": 30
+    },
+    {
+      "condition": "stop-timeout",
+      "result": {
+        "cleanupStatus": "complete",
+        "vmAbsent": true,
+        "rootAbsent": true,
+        "attempts": [
+          [
+            "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/s2-r20-local-kqxtfsk8/ontosary-s2-fake/prefix/bin/limactl",
+            "stop",
+            "--force",
+            "fixture-vm"
+          ],
+          [
+            "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/s2-r20-local-kqxtfsk8/ontosary-s2-fake/prefix/bin/limactl",
+            "delete",
+            "--force",
+            "fixture-vm"
+          ],
+          [
+            "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/s2-r20-local-kqxtfsk8/ontosary-s2-fake/prefix/bin/limactl",
+            "list",
+            "--json"
+          ]
+        ],
+        "errors": [
+          {
+            "action": "stop",
+            "exitCode": -9,
+            "timedOut": true
+          }
+        ],
+        "commandResults": [
+          {
+            "action": "stop",
+            "exitCode": -9,
+            "timedOut": true,
+            "truncated": false,
+            "diagnostics": {
+              "status": "stored",
+              "storedBytes": 0,
+              "storageTruncated": false,
+              "captureTruncated": false,
+              "record": "command-20abebf969c9.json"
+            }
+          },
+          {
+            "action": "delete",
+            "exitCode": 0,
+            "timedOut": false,
+            "truncated": false,
+            "diagnostics": {
+              "status": "stored",
+              "storedBytes": 16,
+              "storageTruncated": false,
+              "captureTruncated": false,
+              "record": "command-270a7f274ae1.json"
+            }
+          },
+          {
+            "action": "list",
+            "exitCode": 0,
+            "timedOut": false,
+            "truncated": false,
+            "diagnostics": {
+              "status": "stored",
+              "storedBytes": 0,
+              "storageTruncated": false,
+              "captureTruncated": false,
+              "record": "command-03d6894d05bd.json"
+            }
+          },
+          {
+            "action": "process-absence",
+            "exitCode": 0,
+            "timedOut": false,
+            "truncated": false
+          }
+        ],
+        "diagnosticErrors": [],
+        "owner": {
+          "root": "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/s2-r20-local-kqxtfsk8/ontosary-s2-fake",
+          "name": "fixture-vm"
+        },
+        "vmDisposalIsNotSubmissionProof": true,
+        "ownedProcesses": [],
+        "receiptWritten": true
+      },
+      "stopCompleted": false,
+      "deleteCompleted": true,
+      "vmStatePresent": false,
+      "ownedRootPresent": false,
+      "seconds": 0.6714671670051757,
+      "actions": [
+        "stop",
+        "delete",
+        "list"
+      ],
+      "storedTotalBytesAfter": 4478,
+      "storedStreamBytesBefore": 0,
+      "storedStreamBytesAfter": 16
+    },
+    {
+      "condition": "delete-timeout",
+      "result": {
+        "cleanupStatus": "unconfirmed",
+        "vmAbsent": false,
+        "rootAbsent": false,
+        "attempts": [
+          [
+            "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/s2-r20-local-wcmfw5tw/ontosary-s2-fake/prefix/bin/limactl",
+            "stop",
+            "--force",
+            "fixture-vm"
+          ],
+          [
+            "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/s2-r20-local-wcmfw5tw/ontosary-s2-fake/prefix/bin/limactl",
+            "delete",
+            "--force",
+            "fixture-vm"
+          ],
+          [
+            "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/s2-r20-local-wcmfw5tw/ontosary-s2-fake/prefix/bin/limactl",
+            "list",
+            "--json"
+          ]
+        ],
+        "errors": [
+          {
+            "action": "delete",
+            "exitCode": -9,
+            "timedOut": true
+          },
+          {
+            "action": "absence",
+            "error": "Expecting property name enclosed in double quotes: line 1 column 2 (char 1)"
+          }
+        ],
+        "commandResults": [
+          {
+            "action": "stop",
+            "exitCode": 0,
+            "timedOut": false,
+            "truncated": false,
+            "diagnostics": {
+              "status": "stored",
+              "storedBytes": 14,
+              "storageTruncated": false,
+              "captureTruncated": false,
+              "record": "command-148d087aeec7.json"
+            }
+          },
+          {
+            "action": "delete",
+            "exitCode": -9,
+            "timedOut": true,
+            "truncated": false,
+            "diagnostics": {
+              "status": "stored",
+              "storedBytes": 16,
+              "storageTruncated": false,
+              "captureTruncated": false,
+              "record": "command-19b7ef315c5d.json"
+            }
+          },
+          {
+            "action": "list",
+            "exitCode": 0,
+            "timedOut": false,
+            "truncated": false,
+            "diagnostics": {
+              "status": "stored",
+              "storedBytes": 28,
+              "storageTruncated": false,
+              "captureTruncated": false,
+              "record": "command-677dad0e1eff.json"
+            }
+          }
+        ],
+        "diagnosticErrors": [],
+        "owner": {
+          "root": "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/s2-r20-local-wcmfw5tw/ontosary-s2-fake",
+          "name": "fixture-vm"
+        },
+        "vmDisposalIsNotSubmissionProof": true,
+        "receiptWritten": true
+      },
+      "stopCompleted": true,
+      "deleteCompleted": false,
+      "vmStatePresent": true,
+      "ownedRootPresent": true,
+      "seconds": 2.200705833005486,
+      "actions": [
+        "stop",
+        "delete",
+        "list"
+      ],
+      "storedTotalBytesAfter": 4521,
+      "storedStreamBytesBefore": 0,
+      "storedStreamBytesAfter": 58
+    },
+    {
+      "condition": "truncated-list",
+      "result": {
+        "cleanupStatus": "unconfirmed",
+        "vmAbsent": false,
+        "rootAbsent": false,
+        "attempts": [
+          [
+            "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/s2-r20-local-ow848hfs/ontosary-s2-fake/prefix/bin/limactl",
+            "stop",
+            "--force",
+            "fixture-vm"
+          ],
+          [
+            "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/s2-r20-local-ow848hfs/ontosary-s2-fake/prefix/bin/limactl",
+            "delete",
+            "--force",
+            "fixture-vm"
+          ],
+          [
+            "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/s2-r20-local-ow848hfs/ontosary-s2-fake/prefix/bin/limactl",
+            "list",
+            "--json"
+          ]
+        ],
+        "errors": [
+          {
+            "action": "absence",
+            "error": "listing-failed"
+          }
+        ],
+        "commandResults": [
+          {
+            "action": "stop",
+            "exitCode": 0,
+            "timedOut": false,
+            "truncated": false,
+            "diagnostics": {
+              "status": "stored",
+              "storedBytes": 14,
+              "storageTruncated": false,
+              "captureTruncated": false,
+              "record": "command-0e4c93db0c3c.json"
+            }
+          },
+          {
+            "action": "delete",
+            "exitCode": 0,
+            "timedOut": false,
+            "truncated": false,
+            "diagnostics": {
+              "status": "stored",
+              "storedBytes": 16,
+              "storageTruncated": false,
+              "captureTruncated": false,
+              "record": "command-881d25aec385.json"
+            }
+          },
+          {
+            "action": "list",
+            "exitCode": 0,
+            "timedOut": false,
+            "truncated": true,
+            "diagnostics": {
+              "status": "partial",
+              "storedBytes": 1048576,
+              "storageTruncated": false,
+              "captureTruncated": true,
+              "record": "command-9640103964b0.json"
+            }
+          }
+        ],
+        "diagnosticErrors": [],
+        "owner": {
+          "root": "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/s2-r20-local-ow848hfs/ontosary-s2-fake",
+          "name": "fixture-vm"
+        },
+        "vmDisposalIsNotSubmissionProof": true,
+        "receiptWritten": true
+      },
+      "stopCompleted": true,
+      "deleteCompleted": true,
+      "vmStatePresent": false,
+      "ownedRootPresent": true,
+      "seconds": 0.8644590420008171,
+      "actions": [
+        "stop",
+        "delete",
+        "list"
+      ],
+      "storedTotalBytesAfter": 1052930,
+      "storedStreamBytesBefore": 0,
+      "storedStreamBytesAfter": 1048606
+    },
+    {
+      "condition": "malformed-list",
+      "result": {
+        "cleanupStatus": "unconfirmed",
+        "vmAbsent": false,
+        "rootAbsent": false,
+        "attempts": [
+          [
+            "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/s2-r20-local-jsjs8j8g/ontosary-s2-fake/prefix/bin/limactl",
+            "stop",
+            "--force",
+            "fixture-vm"
+          ],
+          [
+            "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/s2-r20-local-jsjs8j8g/ontosary-s2-fake/prefix/bin/limactl",
+            "delete",
+            "--force",
+            "fixture-vm"
+          ],
+          [
+            "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/s2-r20-local-jsjs8j8g/ontosary-s2-fake/prefix/bin/limactl",
+            "list",
+            "--json"
+          ]
+        ],
+        "errors": [
+          {
+            "action": "absence",
+            "error": "Expecting value: line 1 column 1 (char 0)"
+          }
+        ],
+        "commandResults": [
+          {
+            "action": "stop",
+            "exitCode": 0,
+            "timedOut": false,
+            "truncated": false,
+            "diagnostics": {
+              "status": "stored",
+              "storedBytes": 14,
+              "storageTruncated": false,
+              "captureTruncated": false,
+              "record": "command-40a9603c157b.json"
+            }
+          },
+          {
+            "action": "delete",
+            "exitCode": 0,
+            "timedOut": false,
+            "truncated": false,
+            "diagnostics": {
+              "status": "stored",
+              "storedBytes": 16,
+              "storageTruncated": false,
+              "captureTruncated": false,
+              "record": "command-5bf480c00bbe.json"
+            }
+          },
+          {
+            "action": "list",
+            "exitCode": 0,
+            "timedOut": false,
+            "truncated": false,
+            "diagnostics": {
+              "status": "stored",
+              "storedBytes": 9,
+              "storageTruncated": false,
+              "captureTruncated": false,
+              "record": "command-966ad50d0083.json"
+            }
+          }
+        ],
+        "diagnosticErrors": [],
+        "owner": {
+          "root": "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/s2-r20-local-jsjs8j8g/ontosary-s2-fake",
+          "name": "fixture-vm"
+        },
+        "vmDisposalIsNotSubmissionProof": true,
+        "receiptWritten": true
+      },
+      "stopCompleted": true,
+      "deleteCompleted": true,
+      "vmStatePresent": false,
+      "ownedRootPresent": true,
+      "seconds": 0.8530822079919744,
+      "actions": [
+        "stop",
+        "delete",
+        "list"
+      ],
+      "storedTotalBytesAfter": 4378,
+      "storedStreamBytesBefore": 0,
+      "storedStreamBytesAfter": 39
+    },
+    {
+      "condition": "malformed-process-list",
+      "result": {
+        "cleanupStatus": "unconfirmed",
+        "vmAbsent": false,
+        "rootAbsent": false,
+        "attempts": [
+          [
+            "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/s2-r20-local-toeissuh/ontosary-s2-fake/prefix/bin/limactl",
+            "stop",
+            "--force",
+            "fixture-vm"
+          ],
+          [
+            "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/s2-r20-local-toeissuh/ontosary-s2-fake/prefix/bin/limactl",
+            "delete",
+            "--force",
+            "fixture-vm"
+          ],
+          [
+            "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/s2-r20-local-toeissuh/ontosary-s2-fake/prefix/bin/limactl",
+            "list",
+            "--json"
+          ]
+        ],
+        "errors": [
+          {
+            "action": "absence",
+            "error": "process-listing-schema"
+          }
+        ],
+        "commandResults": [
+          {
+            "action": "stop",
+            "exitCode": 0,
+            "timedOut": false,
+            "truncated": false,
+            "diagnostics": {
+              "status": "stored",
+              "storedBytes": 14,
+              "storageTruncated": false,
+              "captureTruncated": false,
+              "record": "command-4396a74f7eeb.json"
+            }
+          },
+          {
+            "action": "delete",
+            "exitCode": 0,
+            "timedOut": false,
+            "truncated": false,
+            "diagnostics": {
+              "status": "stored",
+              "storedBytes": 16,
+              "storageTruncated": false,
+              "captureTruncated": false,
+              "record": "command-ec42acb8d81a.json"
+            }
+          },
+          {
+            "action": "list",
+            "exitCode": 0,
+            "timedOut": false,
+            "truncated": false,
+            "diagnostics": {
+              "status": "stored",
+              "storedBytes": 0,
+              "storageTruncated": false,
+              "captureTruncated": false,
+              "record": "command-74fc74bc915f.json"
+            }
+          },
+          {
+            "action": "process-absence",
+            "exitCode": 0,
+            "timedOut": false,
+            "truncated": false
+          }
+        ],
+        "diagnosticErrors": [],
+        "owner": {
+          "root": "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/s2-r20-local-toeissuh/ontosary-s2-fake",
+          "name": "fixture-vm"
+        },
+        "vmDisposalIsNotSubmissionProof": true,
+        "receiptWritten": true
+      },
+      "stopCompleted": true,
+      "deleteCompleted": true,
+      "vmStatePresent": false,
+      "ownedRootPresent": true,
+      "seconds": 0.8779077499930281,
+      "actions": [
+        "stop",
+        "delete",
+        "list"
+      ],
+      "storedTotalBytesAfter": 4469,
+      "storedStreamBytesBefore": 0,
+      "storedStreamBytesAfter": 30
+    },
+    {
+      "condition": "process-query-timeout",
+      "result": {
+        "cleanupStatus": "unconfirmed",
+        "vmAbsent": false,
+        "rootAbsent": false,
+        "attempts": [
+          [
+            "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/s2-r20-local-rty3o485/ontosary-s2-fake/prefix/bin/limactl",
+            "stop",
+            "--force",
+            "fixture-vm"
+          ],
+          [
+            "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/s2-r20-local-rty3o485/ontosary-s2-fake/prefix/bin/limactl",
+            "delete",
+            "--force",
+            "fixture-vm"
+          ],
+          [
+            "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/s2-r20-local-rty3o485/ontosary-s2-fake/prefix/bin/limactl",
+            "list",
+            "--json"
+          ]
+        ],
+        "errors": [
+          {
+            "action": "absence",
+            "error": "owned-process-presence-unknown"
+          }
+        ],
+        "commandResults": [
+          {
+            "action": "stop",
+            "exitCode": 0,
+            "timedOut": false,
+            "truncated": false,
+            "diagnostics": {
+              "status": "stored",
+              "storedBytes": 14,
+              "storageTruncated": false,
+              "captureTruncated": false,
+              "record": "command-f37d45c94e67.json"
+            }
+          },
+          {
+            "action": "delete",
+            "exitCode": 0,
+            "timedOut": false,
+            "truncated": false,
+            "diagnostics": {
+              "status": "stored",
+              "storedBytes": 16,
+              "storageTruncated": false,
+              "captureTruncated": false,
+              "record": "command-f9e63463fd75.json"
+            }
+          },
+          {
+            "action": "list",
+            "exitCode": 0,
+            "timedOut": false,
+            "truncated": false,
+            "diagnostics": {
+              "status": "stored",
+              "storedBytes": 0,
+              "storageTruncated": false,
+              "captureTruncated": false,
+              "record": "command-5e406e231007.json"
+            }
+          },
+          {
+            "action": "process-absence",
+            "exitCode": -9,
+            "timedOut": true,
+            "truncated": false
+          }
+        ],
+        "diagnosticErrors": [],
+        "owner": {
+          "root": "/private/var/folders/_2/d521wz411d14zc62s6kdydc00000gn/T/s2-r20-local-rty3o485/ontosary-s2-fake",
+          "name": "fixture-vm"
+        },
+        "vmDisposalIsNotSubmissionProof": true,
+        "receiptWritten": true
+      },
+      "stopCompleted": true,
+      "deleteCompleted": true,
+      "vmStatePresent": false,
+      "ownedRootPresent": true,
+      "seconds": 1.0866607500065584,
+      "actions": [
+        "stop",
+        "delete",
+        "list"
+      ],
+      "storedTotalBytesAfter": 4477,
+      "storedStreamBytesBefore": 0,
+      "storedStreamBytesAfter": 30
+    }
+  ]
+}

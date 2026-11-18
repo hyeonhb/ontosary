@@ -1,0 +1,26 @@
+{
+  "runId": "vm-smoke-20261117-134325",
+  "argv": [
+    "/opt/s2-smoke/public/usr/local/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-arm64/vendor/aarch64-unknown-linux-musl/bin/codex",
+    "sandbox",
+    "-P",
+    "fixture",
+    "-C",
+    "/source",
+    "--",
+    "/opt/s2-smoke/public/usr/local/bin/node",
+    "/source/payload.mjs",
+    "vm-smoke-20261117-134325"
+  ],
+  "binaries": {
+    "node": "79e8b4bcffeb26e6062a162c80125ea725ad1500f72c97f134a453ec557be32f",
+    "codex": "e7f91e14eab4ba3a0f65047c1757b593409d4ce791ccb6ac65c67c970dfed76f"
+  },
+  "configHash": "5fe08c8bbb64f577362408b7926c0b13cd9064ba339febf2d6c344ff84a6a6d5",
+  "payloadHash": "206056767fbca29ee3f65533584287be3c41f6afb7f7e66cb54996e28b5aa77c",
+  "inputs": {
+    "source": "smoke source\n",
+    "material": "smoke material\n"
+  },
+  "expectedOutput": "smoke output vm-smoke-20261117-134325\n"
+}

@@ -1,0 +1,10 @@
+{
+  "command": [
+    "/opt/homebrew/bin/python3.13",
+    "experiments/domain-model/s2/trial/vm-cli-smoke/verify.py",
+    "experiments/domain-model/s2/verification/2026-11-17-vm-cli-smoke"
+  ],
+  "exitCode": 1,
+  "stderr": "Traceback (most recent call last):\n  File \"/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/vm-cli-smoke/verify.py\", line 50, in <module>\n    if __name__=='__main__':print(json.dumps(verify(sys.argv[1]),indent=2))\n                                             ~~~~~~^^^^^^^^^^^^^\n  File \"/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/vm-cli-smoke/verify.py\", line 19, in verify\n    assert hashlib.sha256((HERE/pathlib.Path(path).name).read_bytes()).hexdigest()==h,'runtime code changed'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: runtime code changed\n",
+  "expectedRejection": true
+}

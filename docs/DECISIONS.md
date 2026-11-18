@@ -477,6 +477,16 @@ ADR-056은 미병합 PR #67의 중단 인계에 사용된 번호로 보존한다
 고정 공개 cache/도구를 재사용하며 새 권한·패키지·후보·실제 인증/provider/model 호출을 도입하지 않는다. 실제 명령은 재시도하지 않고 관측 또는 차단 근거를 얻으면 정리한다. 새 PR을 독립 결과 리뷰 전에 병합하지 않으며 PR #67을 자동 병합/폐기하지 않는다. 이번은 지시 작성이고 runtime 관측은 없다. R11 unresolved·production/live 거부·본 비교/H-O/H-F 미검증을 유지하며 C안 채택과 후속 통합/예산은 결과 리뷰 뒤 정한다.
 
 
+## ADR-058 · 직접 VM의 단일 native CLI EROFS 관측 — 2026-11-17
+
+[ADR-057 축소 지시](reviews/2026-11-17-s2-vm-cli-smoke-instructions.md)를 새60분·VM1·실제 sandbox1 상한으로 수행했다. [결과](reviews/2026-11-17-s2-vm-cli-smoke.md)는 blocked-before-payload다. 전용 UID/GID22002·capability0/NNP·CPU2/4GiB/Tasks256와 별도 network namespace/loopback만 존재/외부 route 없음 확인 뒤 고정 CLI0.167.0-alpha.3.2가 bubblewrap 명령 구성 중 EROFS/exit1로 끝났다. Node22.19.0·실제 argv/hash/PID/service 연결은 확인했지만 payload 표식과 출력은 없다. 정확한 경로·syscall·LSM 원인을 추정해 확정하지 않고 실제 실패 뒤 수정/재시도/추가 trace를 하지 않았다.
+
+기존 공개 cache·절대 마감·소유 stop/delete/부재 확인을 사용하고 OS transient worker service 외 새 봉인/제출 수집 프로토콜은 만들지 않았다. PR #67의 선택 추출 함수와 해당 합성 회귀만 출처를 기록해 가져왔다. 첫 준비의 정상 OCI `.` 디렉터리 과잉 거부는 VM 생성 전 로컬 보완으로 처리하고 원문/전후 patch를 보존했다. 동일 최초 시각을 유지했으며 실제 sandbox 재시도가 아니다. R19의 재사용 host API는 설치돼 있던 Python3.13.13을 고정해 실제 함수/명령으로 검사했다. 미사용 socket 결함을 포함한 R19 전체 해결은 주장하지 않는다.
+
+실제 VM stop/delete/list exit0·소유 process/root와 watchdog 부재를 확인했다. service 추가 stop의 not-loaded/exit5와 초기 VM 미생성 준비의 stop exit1은 별도 원문으로 보존한다. 이번 VM 폐기는 모든 writer 종료→불변 제출 수집 보장의 대체가 아니다. pnpm check304·로컬 Python17·오프라인 부정4건을 확인했으며 공유 코드/제품/평가 의미·과거 증거는 불변이다. download/build/save·Vendure 재설치와 실제 모델 credential/login/refresh/provider/model/본 비교는0회다.
+
+다음은 최초 차단의 독립 리뷰다. 필요한 쓰기 경로 진단과 권한/구조 변경은 구분하고 다음 범위·예산을 별도로 정한다. 새 PR은 독립 리뷰 전 미병합이며 PR #67도 자동 병합/폐기하지 않는다. R11 unresolved·R12 기존 범위·production/live 거부·fixtureOnly=true·validSubmission=false·trialAuthorized/readyForTrial=false·results=null·H-O/H-F 미검증을 유지한다.
+
 ## ADR-059 · 목적과 완료 기준 중심의 개발 지시 — 2026-11-18
 
 ADR-058은 미병합 PR #70의 smoke 관측에 사용된 번호로 보존한다. 사용자는 반복된 실패에 지시의 과도한 방법 통제가 기여했을 가능성을 지적하고, 목표와 필요한 기준을 제시하되 개발 세션의 자율성을 높이도록 요청했다. 앞선 15분 준비 완료 gate는 실제 VM 관측 전에 작업을 중단시켰다. 실행 환경의 실제 결함과 별도로, 첫 관측 전에 요구한 구현 범위와 제약도 검토자의 책임으로 평가한다.
@@ -484,3 +494,11 @@ ADR-058은 미병합 PR #70의 smoke 관측에 사용된 번호로 보존한다.
 앞으로 지시하는 세션은 목적·범위·필수 제약·완료 기준을 정하고, 개발 세션은 구현·진단·검증 방법과 순서를 선택한다. 합의 범위 안의 국소 수정은 자율적으로 진행하며 중요한 방향·아키텍처·비용·권한 변경은 논의한다. 방법 제안은 참고임을 명시하고, 결과 리뷰는 목표 달성·근거·구현 품질을 기준으로 한다. 실패 시 개발 결과뿐 아니라 지시의 현실성도 함께 검토한다.
 
 기간은 난이도·의존성과 개발 세션의 추정을 고려해 정하고, 중간 점검을 근거 없는 자동 중단 조건으로 만들지 않는다. 타당성 검증에서는 핵심 불확실성을 먼저 확인하되 실제 위험에 필요한 보호는 유지한다. [AGENTS.md](../AGENTS.md)에 운영 원칙을 반영하며 별도 필수 보고 양식은 추가하지 않는다. 과거 지시와 원시 증거는 보존한다. 기존 합의한 예산·실행 횟수·보안 경계나 보류된 시험의 승인 상태를 자동 변경하지 않는다.
+
+## ADR-060 · 진단 저장 실패와 소유 정리 실행 분리 — 2026-11-18
+
+[R20 결과 중심 지시](reviews/2026-11-18-s2-r20-outcome-instructions.md)에 따라 smoke 정리 경로만 보완했다. safety 명령은 기존 최대1MiB/stream 메모리와 명령별 마감 안에서 초과 출력을 버리며 실행하고, 이후 남은 진단 용량에 맞춰 저장한다. 일반 실험 명령의 출력 초과 중단은 유지한다. 로그 예산을 늘리거나 공유 runtime·guest 권한·평가 의미를 바꾸지 않고 정리와 관측의 결합을 끊는 선택이다.
+
+소유권 확인과 기존 파일의 배타 잠금 뒤 stop/delete/list를 실행한다. 명령 상태·진단 상태·자원 부재를 각각 보고하며, 앞선 오류와 나중의 부재 확인을 함께 보존한다. 실패·timeout·잘린 조회나 파싱 불능은 unconfirmed이며, 진단 receipt/marker 저장 실패는 완료한 자원 정리를 되돌려 실패로 표현하지 않는다. 쓰기 실패 때 영구 기록을 보장하지는 않으며 호출자에게 receiptWritten=false와 오류를 반환한다.
+
+[반례와 회귀](reviews/2026-11-18-s2-r20-cleanup.md)는 실제 로컬 대체 프로세스의 완료와 외부 상태 파일 제거로 확인했다. 당시 코드2008351과 과거 증거는 보존하고 별도 임시 Git snapshot으로 당시 verifier를 실행한다. 새 VM/실제 CLI/trace/model 호출 없이 PR #70만 갱신하며 독립 보완 리뷰 전 미병합이다. EROFS·R11·C안 전체 통합·H-O/H-F의 기존 판단은 변경하지 않는다.

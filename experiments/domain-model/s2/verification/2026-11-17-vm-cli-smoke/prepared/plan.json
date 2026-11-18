@@ -1,0 +1,12 @@
+{
+  "root": "/private/tmp/ontosary-s2-vm-smoke-20261117",
+  "name": "ontosary-s2-vm-smoke",
+  "store": "/Users/hyeon/Library/Caches/ontosary/s2-prepared-v1",
+  "maximumVMs": 1,
+  "maximumSandboxCalls": 1,
+  "maximumCliDiscovery": 4,
+  "diagnosticBytes": 4194304,
+  "streamBytes": 1048576,
+  "python": "/opt/homebrew/Cellar/python@3.13/3.13.13_1/Frameworks/Python.framework/Versions/3.13/bin/python3.13",
+  "diagnosticRoot": "/Users/hyeon/toys/ontosary/work/s2-vm-cli-smoke-20261117"
+}

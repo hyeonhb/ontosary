@@ -1,0 +1,19 @@
+{
+  "args": [
+    "/private/tmp/ontosary-s2-vm-smoke-20261117/prefix/bin/limactl",
+    "shell",
+    "--workdir=/tmp",
+    "ontosary-s2-vm-smoke",
+    "id",
+    "-un"
+  ],
+  "startedUtc": "2026-11-17T13:56:23.329737+00:00",
+  "limitSeconds": 30,
+  "truncated": false,
+  "timedOut": false,
+  "capPerStream": 1048576,
+  "pid": 14629,
+  "exitCode": 0,
+  "seconds": 0.09106208398588933,
+  "finishedUtc": "2026-11-17T13:56:23.420804+00:00"
+}

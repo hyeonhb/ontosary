@@ -1,0 +1,18 @@
+{
+  "args": [
+    "/opt/homebrew/Cellar/python@3.13/3.13.13_1/Frameworks/Python.framework/Versions/3.13/bin/python3.13",
+    "-c",
+    "import tarfile,sys;tarfile.open(sys.argv[1]).extractall(sys.argv[2],filter=\"data\")",
+    "/Users/hyeon/Library/Caches/ontosary/s2-prepared-v1/b7af444bd8f91d3c307477e562f2cf3bd7595d62b9429185e4fa841563578cfc/data",
+    "/private/tmp/ontosary-s2-vm-smoke-20261117/prefix"
+  ],
+  "startedUtc": "2026-11-17T13:52:50.783860+00:00",
+  "limitSeconds": 30,
+  "truncated": false,
+  "timedOut": false,
+  "capPerStream": 1048576,
+  "pid": 14316,
+  "exitCode": 0,
+  "seconds": 0.4026697920053266,
+  "finishedUtc": "2026-11-17T13:52:51.186537+00:00"
+}

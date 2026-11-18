@@ -1,0 +1,11 @@
+{
+  "reason": "normal OCI root directory metadata was over-rejected",
+  "priorVmRegistrations": 0,
+  "priorSandboxAttempts": 0,
+  "priorCleanup": "complete",
+  "budgetRestarted": false,
+  "sameFirstCommand": true,
+  "oldEvidencePreserved": true,
+  "newPreparationWork": "prepared",
+  "correctionBeforeVmAndCli": true
+}

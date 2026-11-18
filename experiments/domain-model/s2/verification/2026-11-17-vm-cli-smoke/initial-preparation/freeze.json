@@ -1,0 +1,28 @@
+{
+  "atUtc": "2026-11-17T13:52:03.682961+00:00",
+  "atMonotonic": 237037.188748958,
+  "codeHashes": {
+    "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/vm-cli-smoke/worker.py": "85fb2f8bf366b12036e2a978f37862272afd7ef09e8f3cedd5d6b0f414885076",
+    "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/vm-cli-smoke/run.py": "2d38292039642c19e8644ddd8c670acfad03326cb642da2baa0ce6e5bd196bcf",
+    "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/vm-cli-smoke/bounded.py": "5e70b73899d0cae72ad991b6276220378ce1c76e98a600f0690675ad447de2e6",
+    "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/vm-cli-smoke/payload.mjs": "206056767fbca29ee3f65533584287be3c41f6afb7f7e66cb54996e28b5aa77c",
+    "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/vm-cli-smoke/test_smoke.py": "8c845c55e636dc6e7d8cf863fd7aa5fdd2876351c9b1277e6b4bbe4f81881ed9",
+    "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/vm-cli-smoke/setup.py": "4d388b3f20a33409b0f8d5e6ca63e86a5c3c4ee6097ffa4fd487e0d3ebab681c",
+    "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/vm-cli-smoke/materialize.py": "62677e6e0429b9a337f299c5e7ed8d2b6f5827c26f0b49988654ed8551d44a5a",
+    "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/vm-cli-smoke/test_materialize.py": "4f4b700ddbf9654b2dd2f90eef2460828a929a2a09516adf7007563791bec6a1"
+  },
+  "inputHashes": {
+    "plan.json": "17e0e14b05ab96aa91b65c0e84ac99b95e86d047239c2f9e3ada533d3536bccd",
+    "budget.json": "c12c8500ea15b573e0a5a5d2ba1099a233945f14259d70a52df91780e343deae",
+    "worker-plan.json": "3d11623df32945bde748d13c210c7bf6126f83f4bae2531e58c61b8d6d93d584",
+    "config.toml": "5fe08c8bbb64f577362408b7926c0b13cd9064ba339febf2d6c344ff84a6a6d5",
+    "cache-inputs.json": "29df3b016fd8240aaa3203c72ccb1936cb0b16e011a5326f0d0f0b17a7e89cdd"
+  },
+  "command": [
+    "/opt/homebrew/Cellar/python@3.13/3.13.13_1/Frameworks/Python.framework/Versions/3.13/bin/python3.13",
+    "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/vm-cli-smoke/run.py",
+    "execute",
+    "--work",
+    "/Users/hyeon/toys/ontosary/work/s2-vm-cli-smoke-20261117"
+  ]
+}

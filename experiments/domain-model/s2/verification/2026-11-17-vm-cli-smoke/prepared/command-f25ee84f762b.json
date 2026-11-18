@@ -1,0 +1,19 @@
+{
+  "args": [
+    "/private/tmp/ontosary-s2-vm-smoke-20261117/prefix/bin/limactl",
+    "start",
+    "--yes",
+    "--name=ontosary-s2-vm-smoke",
+    "--timeout=600s",
+    "/private/tmp/ontosary-s2-vm-smoke-20261117/vm.yaml"
+  ],
+  "startedUtc": "2026-11-17T13:55:53.860634+00:00",
+  "limitSeconds": 600,
+  "truncated": false,
+  "timedOut": false,
+  "capPerStream": 1048576,
+  "pid": 14601,
+  "exitCode": 0,
+  "seconds": 29.466654749994632,
+  "finishedUtc": "2026-11-17T13:56:23.327378+00:00"
+}

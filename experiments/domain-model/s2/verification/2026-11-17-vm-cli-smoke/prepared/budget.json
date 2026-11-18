@@ -1,0 +1,20 @@
+{
+  "firstCommand": {
+    "utc": "2026-11-17T13:43:25.981337+00:00",
+    "monotonic": 236519.488050375,
+    "head": "ed0250bd534bedfe994814bdf0a6920cb5eb727f",
+    "status": "## codex/s2-vm-cli-feasibility...origin/codex/s2-vm-cli-feasibility\n"
+  },
+  "deadlines": {
+    "experiment": {
+      "utc": "2026-11-17T14:28:25.981337+00:00",
+      "monotonic": 239219.488050375
+    },
+    "finish": {
+      "utc": "2026-11-17T14:43:25.981337+00:00",
+      "monotonic": 240119.488050375
+    }
+  },
+  "checkpointMinutes": 15,
+  "cleanupReserveSeconds": 90
+}

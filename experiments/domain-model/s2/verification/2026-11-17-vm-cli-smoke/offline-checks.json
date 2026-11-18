@@ -1,0 +1,35 @@
+{
+  "original": {
+    "observation": "blocked-before-payload",
+    "vmStarts": 1,
+    "sandboxAttempts": 1,
+    "cliDiscoveryCalls": 2,
+    "payloadStarted": false,
+    "cleanupStatus": "complete",
+    "indexedFiles": 96,
+    "diagnosticBytes": 117352,
+    "fullIsolationVerified": false
+  },
+  "negativeCases": [
+    {
+      "case": "raw-tamper",
+      "rejected": true,
+      "reason": "index mismatch"
+    },
+    {
+      "case": "extra-file",
+      "rejected": true,
+      "reason": "index mismatch"
+    },
+    {
+      "case": "missing-result",
+      "rejected": true,
+      "reason": "index mismatch"
+    },
+    {
+      "case": "truncated-success",
+      "rejected": true,
+      "reason": "observation changed"
+    }
+  ]
+}

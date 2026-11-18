@@ -1,0 +1,6 @@
+{
+  "passed": true,
+  "tests": 15,
+  "log": "local-tests.log",
+  "interpreter": "/opt/homebrew/Cellar/python@3.13/3.13.13_1/Frameworks/Python.framework/Versions/3.13/bin/python3.13"
+}
