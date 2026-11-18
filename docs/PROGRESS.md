@@ -1,5 +1,7 @@
 # 현재 작업 상태 — 새 세션은 이 문서부터 읽기
 
+2026-11-18 개발 지시 운영 변경(ADR-059): 사용자와 합의해 [개발 지침](../AGENTS.md)의 지시 방식을 목적·완료 기준·필수 경계 중심으로 정리했다. 구현·진단·검증 순서와 범위 내 국소 수정은 개발 세션에 맡기고, 지시의 세부 방법 준수 자체를 리뷰 기준으로 삼지 않는다. 과도한 준비 gate와 첫 관측 전 구현 범위도 실패 원인으로 검토한다. 제품 코드·실험 경계·기존 예산과 보류 상태는 변경하지 않았다. `pnpm check`의 304개 테스트·타입 검사·예제 빌드와 diff 검사를 통과했다.
+
 2026-11-18 [직접 VM smoke 독립 리뷰](reviews/2026-11-18-s2-vm-cli-smoke-independent-review.md): PR #70 head2008351의 **실제1회 blocked-before-payload·VM 폐기 근거는 확인**했다. 전체1530.223초·VM1/CLI sandbox1·payload0, EROFS 정확한 path는 미확인이다. pnpm check304·Python17·증거98파일/121674bytes·원시 outer/worker 연결·공개 cache4개를 재대조했다. 다만 진단 예산 소진이 safety stop/delete까지 SIGKILL하는 R20(P2)을 실제 정리 함수+가짜 외부 명령으로 재현했다. [45분 무실행 보완 지시](reviews/2026-11-18-s2-smoke-cleanup-budget-instructions.md)를 제공하며 PR #70은 보완 리뷰 전 미병합이다. 새 VM/정책/CLI 재실행0·PR #67 보류·R11 unresolved·H-O/H-F 미검증을 유지한다. 아래는 당시 기록이다.
 
 2026-11-17 사용자는 [직접 VM CLI 최소 호환성 시험](reviews/2026-11-17-s2-vm-cli-smoke-instructions.md)을 **총60분·새 VM1개·실제 sandbox 명령1회**로 승인했다(ADR-057). 15분은 중간 점검이며45분부터 새 실험을 중단하고 정리/검증/보고한다. 고정 도구·준비물과 최소 마감/폐기 수단을 재사용하고 R19의 실제 재사용 경로만 보완한다. 전체 비활성 runner·인증/socket 부정 대조·새 봉인/제출 수집·VM2 반복은 제외한다. 이번은 지시 작성이며 pnpm check304테스트·타입/예제 build와 문서 링크280개를 확인했다. 새 VM/CLI/인증/model 실행은 없다. 구현은 새 PR로 인계하고 독립 리뷰 전 병합하지 않는다. PR #67·전체 C안 채택·R11 해결·본 비교는 보류한다. 아래는 당시 기록이다.
