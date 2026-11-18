@@ -1,0 +1,34 @@
+{
+  "tarball": "https://registry.npmjs.org/@openai/codex/-/codex-0.167.0-alpha.3.2-linux-arm64.tgz",
+  "downloadedBytes": 165822267,
+  "sha512Integrity": "sha512-dLT8WZjWKDJ7nlcQKFnDMlFizKLyCq/jY0Uv6LEPTr7KOwORp8d1inUyUfiUevLgGSkmB4DpMss579LWSbRU/A==",
+  "registryIntegrityMatches": true,
+  "files": [
+    {
+      "packagePath": "package/vendor/aarch64-unknown-linux-musl/codex-resources/bwrap",
+      "bytes": 529168,
+      "sha256": "0f543a7356ab343b4827222f910461d4196778f328b28acd6c126ef18e9557ab",
+      "matchesHistoricalMaterialization": true
+    },
+    {
+      "packagePath": "package/vendor/aarch64-unknown-linux-musl/bin/codex",
+      "bytes": 278729112,
+      "sha256": "e7f91e14eab4ba3a0f65047c1757b593409d4ce791ccb6ac65c67c970dfed76f",
+      "matchesHistoricalMaterialization": true
+    },
+    {
+      "packagePath": "package/vendor/aarch64-unknown-linux-musl/codex-package.json",
+      "bytes": 216,
+      "sha256": "67c05250287cd2be352cfbbad34421b5163363457954f3d30c5fb98c2a8afc32",
+      "matchesHistoricalMaterialization": true
+    },
+    {
+      "packagePath": "package/package.json",
+      "bytes": 525,
+      "sha256": "d53d8a9c5f54277c1ae54d07c800ebf9fb744d6dc0d601bf4fedecf1ffa20150",
+      "matchesHistoricalMaterialization": true
+    }
+  ],
+  "executed": false,
+  "installed": false
+}

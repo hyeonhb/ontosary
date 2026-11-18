@@ -1,5 +1,7 @@
 # 현재 작업 상태 — 새 세션은 이 문서부터 읽기
 
+2026-11-18 [EROFS 읽기 전용 진단](reviews/2026-11-18-s2-erofs-diagnosis.md): 선두 후보는 helper의 `canonical(/tmp)/codex-daemon-22002` 생성이며 **실패 경로는 아직 미확정**이다. 공개 npm archive integrity·release asset digest·당시 native/bwrap hash와 provenance/tag의 소스 commit c40729e를 연결했다. 고정 소스는 TMPDIR/daemon_auto_start와 무관하게 bwrap 인자 구성 전에 이 디렉터리를 준비한다. 외부 ProtectSystem=strict와 충돌 가능성이 높지만 당시 syscall/mount 상태가 없어 EROFS 해결로 판정하지 않는다. 다음 권고는 같은 조건의 최소 동적 관측이며 이번에는 구현/실행하지 않았다. pnpm check304·과거99파일 불변 확인, VM/실제 CLI/trace/model0이다. 아래는 당시 기록이다.
+
 2026-11-18 사용자는 EROFS 쓰기 경로 진단의 개발 지시를 요청했다. [진단 지시](reviews/2026-11-18-s2-erofs-diagnosis-instructions.md)는 고정 CLI와 당시 소스·환경·정책 근거로 경로/연산 후보를 좁히는 읽기 전용 조사다. 구현·조사 순서는 개발 세션이 선택하며 30~60분은 참고 예상이고 확정 상한이 아니다. 이번은 지시 작성이며 실제 진단/실행 결과는 없다. `pnpm check`의 304개 테스트·타입 검사·예제 build와 새 문서 링크4개·diff 검사를 통과했다. 후속 trace·재실행·권한 변경은 결과 리뷰 뒤 결정한다.
 
 2026-11-18 [R20 독립 리뷰](reviews/2026-11-18-s2-r20-cleanup-independent-review.md): **R20 해결·추가 병합 차단 결함 없음**. head3f3cc13에서 Python32·pnpm check304·역사 verifier/원래 반례·독립 복합 실패3개와 무한 출력 timeout을 확인했다. 과거99파일 bytes와 새4개 코드 hash 일치를 검증하고 PR #70을ca576e4로 병합했다. 다음은 고정 CLI의 EROFS 쓰기 대상 진단 범위·예산 합의다. 새 실제 실행/권한 변경0·PR #67/실제 인증/model/본 비교 보류·R11/H-O/H-F 미검증을 유지한다.

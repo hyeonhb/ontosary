@@ -1,0 +1,142 @@
+[
+  {
+    "path": "codex-rs/uds/src/daemon_directory.rs",
+    "startLine": 1,
+    "endLine": 39,
+    "text": "//! The host-local rendezvous root for privileged app-server RPC sockets.\n//!\n//! Every listener uses this root, which sandboxes hide even before a daemon\n//! starts. It must not depend on HOME, TMPDIR, CODEX_HOME, or command settings.\n\nuse std::fs;\nuse std::io;\nuse std::os::unix::fs::DirBuilderExt;\nuse std::os::unix::fs::MetadataExt;\nuse std::path::PathBuf;\n\n/// Returns the fixed executor-local directory that every sandbox must hide.\npub fn shared_daemon_socket_directory() -> io::Result<PathBuf> {\n    // Resolve the system alias /tmp -> /private/tmp on macOS.\n    let temporary_root = fs::canonicalize(\"/tmp\")?;\n    let uid = unsafe { libc::geteuid() };\n    Ok(temporary_root.join(format!(\"codex-daemon-{uid}\")))\n}\n\n/// Creates the reserved directory, rejecting symlinks and unsafe existing owners or modes.\npub fn prepare_shared_daemon_socket_directory() -> io::Result<PathBuf> {\n    let directory = shared_daemon_socket_directory()?;\n    match fs::DirBuilder::new().mode(0o700).create(&directory) {\n        Ok(()) => {}\n        Err(error) if error.kind() == io::ErrorKind::AlreadyExists => {}\n        Err(error) => return Err(error),\n    }\n    let metadata = fs::symlink_metadata(&directory)?;\n    if !metadata.is_dir()\n        || metadata.uid() != unsafe { libc::geteuid() }\n        || metadata.mode() & 0o777 != 0o700\n    {\n        return Err(io::Error::new(\n            io::ErrorKind::PermissionDenied,\n            \"app-server socket directory must be a user-owned directory with mode 0700\",\n        ));\n    }\n    Ok(directory)\n}\n",
+    "sha256": "fd1eae1b3292f4fbc98e482a392d16246baa7fac4593dd7c1818a481fed070d6"
+  },
+  {
+    "path": "codex-rs/linux-sandbox/src/bwrap.rs",
+    "startLine": 409,
+    "endLine": 422,
+    "text": "fn create_filesystem_args(\n    file_system_sandbox_policy: &FileSystemSandboxPolicy,\n    cwd: &Path,\n    options: BwrapOptions,\n) -> Result<BwrapArgs> {\n    let daemon_directory = codex_uds::prepare_shared_daemon_socket_directory()?;\n    let daemon_directories = crate::daemon_mounts::daemon_socket_mask_paths(\n        &daemon_directory,\n        options\n            .mask_wslg_distro\n            .then_some(Path::new(WSLG_DISTRO_ROOT)),\n    )?;\n    let unreadable_globs = file_system_sandbox_policy.get_unreadable_globs_with_cwd(cwd);\n    // Bubblewrap requires bind mount targets to exist. Skip missing writable\n",
+    "sha256": "4cea095e680aa8c3b2f2fe640c602c5a6f631f6b97bce4f1d4653c3d82fcf52b"
+  },
+  {
+    "path": "codex-rs/linux-sandbox/src/bwrap.rs",
+    "startLine": 730,
+    "endLine": 744,
+    "text": "        let registry_root = synthetic_mount_registry_root();\n        let registry_mount = if registry_root.starts_with(mount_root) {\n            Some(registry_root.as_path())\n        } else if mount_root.starts_with(&registry_root) {\n            Some(mount_root)\n        } else {\n            None\n        };\n        if let Some(registry_mount) = registry_mount {\n            fs::create_dir_all(&registry_root)?;\n            bwrap_args.args.push(\"--ro-bind\".to_string());\n            bwrap_args.args.push(path_to_string(registry_mount));\n            bwrap_args.args.push(path_to_string(registry_mount));\n            append_daemon_socket_masks(&mut bwrap_args.args, registry_mount, &daemon_directories)?;\n        }\n",
+    "sha256": "2ce4160d413c458ead176cdc8edf0780008c8e2c01b127e59e9a3735941cb93f"
+  },
+  {
+    "path": "codex-rs/linux-sandbox/src/bwrap.rs",
+    "startLine": 1279,
+    "endLine": 1310,
+    "text": "fn append_empty_file_bind_data_args(bwrap_args: &mut BwrapArgs, path: &Path) -> Result<()> {\n    // Bubblewrap consumes and closes the descriptor for each bind-data mount.\n    let null_file = File::open(\"/dev/null\")?;\n    let null_fd = null_file.as_raw_fd().to_string();\n    bwrap_args.preserved_files.push(null_file);\n    bwrap_args.args.push(\"--ro-bind-data\".to_string());\n    bwrap_args.args.push(null_fd);\n    bwrap_args.args.push(path_to_string(path));\n    Ok(())\n}\n\nfn append_empty_directory_args(bwrap_args: &mut BwrapArgs, path: &Path) {\n    bwrap_args.args.push(\"--perms\".to_string());\n    bwrap_args.args.push(\"555\".to_string());\n    bwrap_args.args.push(\"--tmpfs\".to_string());\n    bwrap_args.args.push(path_to_string(path));\n    bwrap_args.args.push(\"--remount-ro\".to_string());\n    bwrap_args.args.push(path_to_string(path));\n}\n\nfn append_missing_read_only_subpath_args(bwrap_args: &mut BwrapArgs, path: &Path) -> Result<()> {\n    if path.file_name().is_some_and(is_protected_metadata_name) {\n        append_empty_directory_args(bwrap_args, path);\n        bwrap_args\n            .synthetic_mount_targets\n            .push(SyntheticMountTarget::missing_empty_directory(path));\n        return Ok(());\n    }\n\n    append_missing_empty_file_bind_data_args(bwrap_args, path)\n}\n\n",
+    "sha256": "0d730034c04662f3f3a03a66d28f65f1421bf1edcb0a9c4d44827db6289fa6db"
+  },
+  {
+    "path": "codex-rs/linux-sandbox/src/linux_run_main.rs",
+    "startLine": 270,
+    "endLine": 285,
+    "text": "            (Some(proxy_route_spec), controls)\n        } else {\n            (None, Vec::new())\n        };\n        let options = BwrapOptions {\n            mount_proc: !no_proc && !inherit_pid_namespace,\n            inherit_pid_namespace,\n            network_mode: bwrap_network_mode(network_sandbox_policy, allow_network_for_proxy),\n            mask_wsl_interop: !file_system_sandbox_policy.has_full_disk_write_access()\n                && Path::new(WSL_INTEROP_DIR).is_dir(),\n            mask_wslg_distro: (!file_system_sandbox_policy.has_full_disk_write_access()\n                || !file_system_sandbox_policy\n                    .get_unreadable_globs_with_cwd(&sandbox_policy_cwd)\n                    .is_empty())\n                && crate::wslg::is_duplicate_root(Path::new(WSLG_DISTRO_ROOT))\n                    .unwrap_or_else(|err| exit_with_bwrap_build_error(err.into())),\n",
+    "sha256": "f42b46b9262b32e13eab251fc483611af2fcbac6b993fe91975479e6c24540d4"
+  },
+  {
+    "path": "codex-rs/linux-sandbox/src/linux_run_main.rs",
+    "startLine": 389,
+    "endLine": 422,
+    "text": "fn run_bwrap_with_proc_fallback(\n    sandbox_policy_cwd: &Path,\n    command_cwd: Option<&Path>,\n    file_system_sandbox_policy: &FileSystemSandboxPolicy,\n    mut options: BwrapOptions,\n    inner: Vec<String>,\n    proxy_controls: Vec<File>,\n) -> ! {\n    let command_cwd = command_cwd.unwrap_or(sandbox_policy_cwd);\n\n    // Select before the preflight, whose synthetic policy omits writable roots.\n    initialize_bwrap_launcher(file_system_sandbox_policy, sandbox_policy_cwd);\n\n    if options.mount_proc\n        && !preflight_proc_mount_support(options)\n            .unwrap_or_else(|err| exit_with_bwrap_build_error(err))\n    {\n        // Keep the retry silent so sandbox-internal diagnostics do not leak into the\n        // child process stderr stream.\n        options.mount_proc = false;\n    }\n\n    let mut bwrap_args = build_bwrap_argv(\n        inner,\n        file_system_sandbox_policy,\n        sandbox_policy_cwd,\n        command_cwd,\n        options,\n    )\n    .unwrap_or_else(|err| exit_with_bwrap_build_error(err));\n    bwrap_args.preserved_files.extend(proxy_controls);\n    apply_inner_command_argv0(&mut bwrap_args.args);\n    run_or_exec_bwrap(bwrap_args);\n}\n",
+    "sha256": "1b3d3e093d63f5ed494119adac88763c5e99cec0d87a08170ec5c79dc412a41d"
+  },
+  {
+    "path": "codex-rs/linux-sandbox/src/linux_run_main.rs",
+    "startLine": 437,
+    "endLine": 464,
+    "text": "fn build_bwrap_argv(\n    inner: Vec<String>,\n    file_system_sandbox_policy: &FileSystemSandboxPolicy,\n    sandbox_policy_cwd: &Path,\n    command_cwd: &Path,\n    options: BwrapOptions,\n) -> CodexResult<crate::bwrap::BwrapArgs> {\n    let bwrap_args = create_bwrap_command_args(\n        inner,\n        file_system_sandbox_policy,\n        sandbox_policy_cwd,\n        command_cwd,\n        options,\n    )?;\n\n    let mut argv = vec![\"bwrap\".to_string()];\n    argv.extend(bwrap_args.args);\n    Ok(crate::bwrap::BwrapArgs {\n        args: argv,\n        preserved_files: bwrap_args.preserved_files,\n        synthetic_mount_targets: bwrap_args.synthetic_mount_targets,\n    })\n}\n\nfn exit_with_bwrap_build_error(err: codex_protocol::error::CodexErr) -> ! {\n    eprintln!(\"error building bubblewrap command: {err}\");\n    std::process::exit(1);\n}\n",
+    "sha256": "b06699d2955cf724060ab0438abe75fed19cf4041adba1e535489ef5c5154b4f"
+  },
+  {
+    "path": "codex-rs/linux-sandbox/src/linux_run_main.rs",
+    "startLine": 506,
+    "endLine": 534,
+    "text": "fn preflight_proc_mount_support(options: BwrapOptions) -> CodexResult<bool> {\n    let preflight_argv = build_preflight_bwrap_argv(options)?;\n    let stderr = run_bwrap_in_child_capture_stderr(preflight_argv);\n    Ok(!is_proc_mount_failure(stderr.as_str()))\n}\n\nfn build_preflight_bwrap_argv(options: BwrapOptions) -> CodexResult<crate::bwrap::BwrapArgs> {\n    let file_system_sandbox_policy =\n        FileSystemSandboxPolicy::restricted(vec![FileSystemSandboxEntry {\n            path: FileSystemPath::Special {\n                value: FileSystemSpecialPath::Minimal,\n            },\n            access: FileSystemAccessMode::Read,\n            missing_path_behavior: None,\n        }]);\n    let preflight_command = vec![resolve_true_command()];\n    build_bwrap_argv(\n        preflight_command,\n        &file_system_sandbox_policy,\n        Path::new(\"/\"),\n        Path::new(\"/\"),\n        BwrapOptions {\n            mount_proc: true,\n            // The alias check must see the same WSL masks as the main sandbox.\n            ..options\n        },\n    )\n}\n\n",
+    "sha256": "a14b62ba17889c9b7ac901caf4109b38525dec0afc9c79f94d6719e019b655fd"
+  },
+  {
+    "path": "codex-rs/linux-sandbox/src/linux_run_main.rs",
+    "startLine": 725,
+    "endLine": 740,
+    "text": "fn register_synthetic_mount_targets(\n    targets: &[crate::bwrap::SyntheticMountTarget],\n) -> Vec<SyntheticMountTargetRegistration> {\n    with_synthetic_mount_registry_lock(|| {\n        targets\n            .iter()\n            .map(|target| {\n                let marker_dir = synthetic_mount_marker_dir(target.path());\n                fs::create_dir_all(&marker_dir).unwrap_or_else(|err| {\n                    panic!(\n                        \"failed to create synthetic bubblewrap mount marker directory {}: {err}\",\n                        marker_dir.display()\n                    )\n                });\n                let target = if target.preserves_pre_existing_path()\n                    && synthetic_mount_marker_dir_has_active_synthetic_owner(&marker_dir)\n",
+    "sha256": "74c9fbc28f244eb7afc7865ae5de5ab5329e1b8555aeb52d1acd9760105b96c4"
+  },
+  {
+    "path": "codex-rs/linux-sandbox/src/linux_run_main.rs",
+    "startLine": 920,
+    "endLine": 938,
+    "text": "    let registry_root = synthetic_mount_registry_root();\n    fs::create_dir_all(&registry_root).unwrap_or_else(|err| {\n        panic!(\n            \"failed to create synthetic bubblewrap mount registry {}: {err}\",\n            registry_root.display()\n        )\n    });\n    let lock_path = registry_root.join(\"lock\");\n    let lock_file = OpenOptions::new()\n        .read(true)\n        .write(true)\n        .create(true)\n        .truncate(false)\n        .open(&lock_path)\n        .unwrap_or_else(|err| {\n            panic!(\n                \"failed to open synthetic bubblewrap mount registry lock {}: {err}\",\n                lock_path.display()\n            )\n",
+    "sha256": "a90e6210e9087749bd8a56969676356009c28cb6e5e843564228e6e179be2d46"
+  },
+  {
+    "path": "codex-rs/linux-sandbox/src/linux_run_main.rs",
+    "startLine": 962,
+    "endLine": 989,
+    "text": "pub(crate) fn synthetic_mount_registry_root() -> PathBuf {\n    static REGISTRY_ROOT: OnceLock<PathBuf> = OnceLock::new();\n\n    REGISTRY_ROOT\n        .get_or_init(|| {\n            let effective_uid = unsafe { libc::geteuid() };\n            let temp_dir = std::env::temp_dir();\n            let temp_dir = temp_dir.canonicalize().unwrap_or_else(|err| {\n                panic!(\n                    \"failed to resolve synthetic mount registry temp directory {}: {err}\",\n                    temp_dir.display()\n                )\n            });\n            let registry_root = temp_dir.join(format!(\n                \"codex-bwrap-synthetic-mount-targets-{effective_uid}\"\n            ));\n            // A registry symlink can redirect bookkeeping into a writable root\n            // that does not overlap TMPDIR, bypassing its read-only mount.\n            assert!(\n                !registry_root.is_symlink(),\n                \"synthetic mount registry must not be a symlink: {}\",\n                registry_root.display()\n            );\n            registry_root\n        })\n        .clone()\n}\n\n",
+    "sha256": "1d6cfcd98744d2a59aa5d0a8b025165c4a129b728205f9ee20cc3fd8b3466233"
+  },
+  {
+    "path": "codex-rs/cli/src/debug_sandbox.rs",
+    "startLine": 243,
+    "endLine": 262,
+    "text": "            .parse_overrides()\n            .map_err(anyhow::Error::msg)?,\n        codex_linux_sandbox_exe,\n        config_options,\n        /*strict_config*/ false,\n    )\n    .await?;\n\n    // In practice, this should be `std::env::current_dir()` because this CLI\n    // does not support `--cwd`, but let's use the config value for consistency.\n    let cwd = config.cwd.clone();\n    // Non-Windows sandbox launchers still use `sandbox_policy_cwd` for any\n    // remaining cwd-dependent policy resolution. `:workspace_roots` entries in\n    // the effective profile have already been materialized from config roots.\n    let sandbox_policy_cwd = cwd.clone();\n    let env = create_env(\n        &config.permissions.shell_environment_policy,\n        /*thread_id*/ None,\n    );\n    let mut permission_profile = match sandbox_state.as_ref() {\n",
+    "sha256": "6d6e4bcf8d2305dba64755fabc35ef3256385f3072b72c668142197e1edb573b"
+  },
+  {
+    "path": "codex-rs/cli/src/debug_sandbox.rs",
+    "startLine": 442,
+    "endLine": 472,
+    "text": "            #[expect(clippy::expect_used)]\n            let codex_linux_sandbox_exe = config\n                .codex_linux_sandbox_exe\n                .expect(\"codex-linux-sandbox executable not found\");\n            let network_sandbox_policy = runtime_permission_profile.network_sandbox_policy();\n            let (env, managed_network) = if let Some(network) = network.as_ref() {\n                let prepared =\n                    network.prepare_for_optional_environment(env, /*environment_id*/ None)?;\n                (prepared.env, Some(prepared.sandbox_context))\n            } else {\n                (env, None)\n            };\n            let args = create_linux_sandbox_command_args_for_permission_profile(\n                command,\n                cwd.as_path(),\n                &runtime_permission_profile,\n                sandbox_policy_cwd.as_path(),\n                use_legacy_landlock,\n                managed_network.as_ref(),\n            );\n            spawn_debug_sandbox_child(\n                codex_linux_sandbox_exe,\n                args,\n                Some(\"codex-linux-sandbox\"),\n                cwd.to_path_buf(),\n                network_sandbox_policy,\n                env,\n                |_| {},\n            )\n            .await?\n        }\n",
+    "sha256": "fb7218b6e41c12ceb8eac0ad15ff09bd2fc0d29a3a011975c2b83d0a0e3b21f6"
+  },
+  {
+    "path": "codex-rs/cli/src/debug_sandbox.rs",
+    "startLine": 612,
+    "endLine": 639,
+    "text": "async fn spawn_debug_sandbox_child(\n    program: PathBuf,\n    args: Vec<String>,\n    arg0: Option<&str>,\n    cwd: PathBuf,\n    network_sandbox_policy: NetworkSandboxPolicy,\n    mut env: std::collections::HashMap<String, String>,\n    apply_env: impl FnOnce(&mut std::collections::HashMap<String, String>),\n) -> std::io::Result<Child> {\n    let mut cmd = TokioCommand::new(&program);\n    #[cfg(unix)]\n    cmd.arg0(arg0.map_or_else(|| program.to_string_lossy().to_string(), String::from));\n    #[cfg(not(unix))]\n    let _ = arg0;\n    cmd.args(args);\n    cmd.current_dir(cwd);\n    apply_env(&mut env);\n    cmd.env_clear();\n    cmd.envs(env);\n\n    if !network_sandbox_policy.is_enabled() {\n        cmd.env(CODEX_SANDBOX_NETWORK_DISABLED_ENV_VAR, \"1\");\n    }\n\n    cmd.stdin(Stdio::inherit())\n        .stdout(Stdio::inherit())\n        .stderr(Stdio::inherit())\n        .kill_on_drop(true)\n",
+    "sha256": "c853ddb99961dd0ce83e26ae979d230563705b644e42a3397cb68902c4f4e4e6"
+  },
+  {
+    "path": "codex-rs/core/src/exec_env.rs",
+    "startLine": 32,
+    "endLine": 38,
+    "text": "pub fn create_env(\n    policy: &ShellEnvironmentPolicy,\n    thread_id: Option<ThreadId>,\n) -> HashMap<String, String> {\n    let thread_id = thread_id.map(|thread_id| thread_id.to_string());\n    shell_environment::create_env(policy, thread_id.as_deref())\n}\n",
+    "sha256": "216012ea039b3dea6a46077df57436c8262b09f3788250cf738a35437ef53da9"
+  },
+  {
+    "path": "codex-rs/protocol/src/shell_environment.rs",
+    "startLine": 114,
+    "endLine": 120,
+    "text": "    // `inherit` strategy.\n    let mut env_map: HashMap<String, String> = match policy.inherit {\n        ShellEnvironmentPolicyInherit::All => vars.into_iter().collect(),\n        ShellEnvironmentPolicyInherit::None => HashMap::new(),\n        ShellEnvironmentPolicyInherit::Core => {\n            #[cfg(not(target_os = \"windows\"))]\n            let core_env_vars = UNIX_CORE_ENV_VARS;\n",
+    "sha256": "cd8476c5cba2d0dc45478e1c7a905ded14023a08d2af0a75629bbb18c295ee0a"
+  },
+  {
+    "path": "codex-rs/protocol/src/shell_environment.rs",
+    "startLine": 150,
+    "endLine": 174,
+    "text": "        env_map.retain(|k, _| !matches_any(k, &policy.exclude));\n    }\n\n    // Step 4 - Apply user-provided overrides.\n    for (key, val) in &policy.r#set {\n        #[cfg(windows)]\n        env_map.retain(|existing, _| !existing.eq_ignore_ascii_case(key));\n        env_map.insert(key.clone(), val.clone());\n    }\n\n    // Step 5 - If include_only is non-empty, keep only the matching vars.\n    if !policy.include_only.is_empty() {\n        env_map.retain(|k, _| matches_any(k, &policy.include_only));\n    }\n\n    // Step 6 - Populate the thread ID environment variable when provided.\n    if let Some(thread_id) = thread_id {\n        env_map.insert(CODEX_THREAD_ID_ENV_VAR.to_string(), thread_id.to_string());\n    }\n\n    // Restricted launch context cannot be restored through user-provided shell\n    // environment overrides.\n    env_map.retain(|name, _| !is_non_inheritable_env_var(name));\n\n    env_map\n",
+    "sha256": "45db51db2c4b763758e398c9920725403de04585648acd352963019ccd68987b"
+  },
+  {
+    "path": "codex-rs/sandboxing/src/landlock.rs",
+    "startLine": 25,
+    "endLine": 69,
+    "text": "/// `docs/linux_sandbox.md` for the Linux semantics.\npub fn create_linux_sandbox_command_args_for_permission_profile(\n    command: Vec<String>,\n    command_cwd: &Path,\n    permission_profile: &PermissionProfile,\n    sandbox_policy_cwd: &Path,\n    use_legacy_landlock: bool,\n    managed_network: Option<&ManagedNetworkSandboxContext>,\n) -> Vec<String> {\n    let permission_profile_json = serde_json::to_string(permission_profile)\n        .unwrap_or_else(|err| panic!(\"failed to serialize permission profile: {err}\"));\n    let sandbox_policy_cwd = sandbox_policy_cwd\n        .to_str()\n        .unwrap_or_else(|| panic!(\"cwd must be valid UTF-8\"))\n        .to_string();\n    let command_cwd = command_cwd\n        .to_str()\n        .unwrap_or_else(|| panic!(\"command cwd must be valid UTF-8\"))\n        .to_string();\n\n    let mut linux_cmd: Vec<String> = vec![\n        \"--sandbox-policy-cwd\".to_string(),\n        sandbox_policy_cwd,\n        \"--command-cwd\".to_string(),\n        command_cwd,\n        \"--permission-profile\".to_string(),\n        permission_profile_json,\n    ];\n    // Proxy-only networking requires bubblewrap's isolated network namespace.\n    if use_legacy_landlock && managed_network.is_none() {\n        linux_cmd.push(\"--use-legacy-landlock\".to_string());\n    }\n    if let Some(managed_network) = managed_network {\n        linux_cmd.push(\"--managed-network\".to_string());\n        linux_cmd.push(\n            serde_json::to_string(managed_network)\n                .unwrap_or_else(|err| panic!(\"failed to serialize managed network context: {err}\")),\n        );\n    }\n    linux_cmd.push(\"--\".to_string());\n    linux_cmd.extend(command);\n    linux_cmd\n}\n\n/// Converts the sandbox cwd and execution options into the CLI invocation for\n",
+    "sha256": "0ba9a111f5596d0f98fcd971b653b4d9f162b5109c6323ef80479b9d9de093cf"
+  },
+  {
+    "path": ".github/workflows/rust-release.yml",
+    "startLine": 230,
+    "endLine": 268,
+    "text": "      - if: ${{ matrix.build-system == 'cargo' && contains(matrix.target, 'linux') }}\n        name: Build bwrap and export digest\n        shell: bash\n        run: |\n          set -euo pipefail\n          target=\"${{ matrix.target }}\"\n          cargo build --target \"$target\" --release --timings --bin bwrap\n\n          bwrap_path=\"target/${target}/release/bwrap\"\n          if [[ ! -f \"$bwrap_path\" ]]; then\n            echo \"bwrap binary ${bwrap_path} not found\"\n            exit 1\n          fi\n\n          # Codex embeds this digest at build time and verifies the bundled\n          # bwrap resource before use. Strip bwrap before hashing so the digest\n          # covers the exact bytes that the release packages.\n          strip --strip-debug --strip-unneeded \"$bwrap_path\"\n          digest=\"$(sha256sum \"$bwrap_path\" | awk '{print $1}')\"\n          echo \"CODEX_BWRAP_SHA256=${digest}\" >> \"$GITHUB_ENV\"\n          echo \"Built bwrap ${bwrap_path} with sha256:${digest}\"\n\n      - name: Cargo build\n        if: ${{ matrix.build-system == 'cargo' }}\n        shell: bash\n        run: |\n          target=\"${{ matrix.target }}\"\n          build_args=()\n          for binary in ${{ matrix.binaries }}; do\n            # bwrap was built, finalized, and hashed before this build so\n            # Codex can embed the digest of the bytes that will be packaged.\n            if [[ \"$binary\" == \"bwrap\" ]]; then\n              continue\n            fi\n            build_args+=(--bin \"$binary\")\n          done\n          STABLE_GIT_COMMIT=\"$(git rev-parse HEAD)\"\n          export STABLE_GIT_COMMIT\n          cargo build --target \"$target\" --release --timings \"${build_args[@]}\"\n",
+    "sha256": "99d43c7ef91db69acd926b5e5b3cf47abc05c403d5709c744eb6fe18beb1c6c1"
+  },
+  {
+    "path": ".github/workflows/rust-release.yml",
+    "startLine": 1887,
+    "endLine": 1931,
+    "text": "    name: publish-npm\n    needs: release\n    runs-on: ubuntu-latest\n    permissions:\n      id-token: write # Required for OIDC\n      contents: read\n\n    steps:\n      - name: Checkout repository\n        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2\n        with:\n          persist-credentials: false\n\n      - name: Setup Node.js\n        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0\n        with:\n          # Trusted publishing requires the selected Node.js release to include npm >= 11.5.1.\n          node-version-file: .nvmrc\n          registry-url: \"https://registry.npmjs.org\"\n          scope: \"@openai\"\n\n      - name: Download npm tarballs from release\n        env:\n          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}\n          RELEASE_TAG: ${{ needs.release.outputs.tag }}\n          RELEASE_VERSION: ${{ needs.release.outputs.version }}\n        run: |\n          set -euo pipefail\n          version=\"$RELEASE_VERSION\"\n          tag=\"$RELEASE_TAG\"\n          mkdir -p dist/npm\n          patterns=(\n            \"codex-npm-${version}.tgz\"\n            \"codex-npm-linux-*-${version}.tgz\"\n            \"codex-npm-darwin-*-${version}.tgz\"\n            \"codex-npm-win32-*-${version}.tgz\"\n            \"codex-responses-api-proxy-npm-${version}.tgz\"\n            \"codex-sdk-npm-${version}.tgz\"\n          )\n          for pattern in \"${patterns[@]}\"; do\n            gh release download \"$tag\" \\\n              --repo \"${GITHUB_REPOSITORY}\" \\\n              --pattern \"$pattern\" \\\n              --dir dist/npm\n          done\n",
+    "sha256": "6ce6af8d62ee1ac6fd4c6f1809ea90b5a9a4d780f3957e21cb4ab0fdd11bce08"
+  }
+]
