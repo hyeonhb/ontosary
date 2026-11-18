@@ -1,0 +1,22 @@
+{
+  "codeHashes": {
+    "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/erofs-observation/observe_worker.py": "2b294fe6a1e9bc612f37191de7bfcabd5216a0623e8dcec534c2ce1104a85d24",
+    "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/erofs-observation/observation.py": "8bddec822848973e9a62d98d1798949af868f4207b009f896470cfc36e9437ba",
+    "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/erofs-observation/test_observation.py": "00c3b4379c67d2d7165006a488ab6567dce34845cfe5ce5affefc5539079e076",
+    "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/erofs-observation/prepare_directory.py": "da4775ac5f0b8c758c1f8681d6932272331213b9b3b727c33b61a670f2d4e265",
+    "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/vm-cli-smoke/run.py": "86ded230db247aa9fd7620386aa4da59130099532841f296555c5ca476b2fdf3",
+    "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/vm-cli-smoke/bounded.py": "a3cbf079f284f7107722b5f7ee508fae9f1985051ba784bc237d69f42ac68bb1",
+    "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/vm-cli-smoke/worker.py": "85fb2f8bf366b12036e2a978f37862272afd7ef09e8f3cedd5d6b0f414885076",
+    "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/vm-cli-smoke/setup.py": "4d388b3f20a33409b0f8d5e6ca63e86a5c3c4ee6097ffa4fd487e0d3ebab681c",
+    "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/vm-cli-smoke/payload.mjs": "206056767fbca29ee3f65533584287be3c41f6afb7f7e66cb54996e28b5aa77c",
+    "/Users/hyeon/toys/ontosary/experiments/domain-model/s2/trial/vm-cli-smoke/materialize.py": "ead149b960148d59ac57633ff937052b817f7986c71f5db6d05427984857f092"
+  },
+  "inputHashes": {
+    "strace": "0e69fa123b3d9732645ce1ac8c89819d100f83cdc9e52a80565d9ad8e7d8cf28",
+    "plan.json": "70638b95f31f1259e08b20806b70eeddd723060c2837dea473128dffad897e52",
+    "budget.json": "c03a49be30ae830e8ae8f364bbc3d01d16c2a5072931c71e44700ec5729319ba",
+    "worker-plan.json": "3d11623df32945bde748d13c210c7bf6126f83f4bae2531e58c61b8d6d93d584",
+    "config.toml": "5fe08c8bbb64f577362408b7926c0b13cd9064ba339febf2d6c344ff84a6a6d5",
+    "cache-inputs.json": "29df3b016fd8240aaa3203c72ccb1936cb0b16e011a5326f0d0f0b17a7e89cdd"
+  }
+}

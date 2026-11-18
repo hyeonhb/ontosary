@@ -1,0 +1,88 @@
+{
+  "runtimeCommit": "b9a672dbd277b65829119c160f6f3659da26844c",
+  "startedUtc": "2026-11-18T08:33:47Z",
+  "checkedUtc": "2026-11-18T08:35:05.559705+00:00",
+  "watchdogPid": 29844,
+  "watchdogAbsent": true,
+  "ownedRootAbsent": true,
+  "units": [
+    {
+      "label": "baseline",
+      "nativeExit": 1,
+      "stdout": "",
+      "outputContent": null,
+      "outerExit": 0,
+      "boundedCaptureComplete": true,
+      "cliAttempts": 1,
+      "before": {
+        "uid": 22002,
+        "cwd": "/source",
+        "tmp": "/tmp",
+        "readOnly": true,
+        "target": null,
+        "mountNamespace": "mnt:[4026532448]",
+        "mounts": [
+          "457 424 253:1 / / ro,nosuid,relatime shared:388 master:1 - ext4 /dev/vda1 rw,discard,errors=remount-ro,commit=30",
+          "485 457 0:36 / /tmp ro,nosuid,nodev shared:400 master:16 - tmpfs tmpfs rw,size=3021456k,nr_inodes=1048576,inode64,usrquota",
+          "491 489 253:1 /home/runner/cli-state /home/runner/cli-state rw,nosuid,relatime shared:406 master:1 - ext4 /dev/vda1 rw,discard,errors=remount-ro,commit=30",
+          "493 489 253:1 /home/worker /home/worker rw,nosuid,relatime shared:408 master:1 - ext4 /dev/vda1 rw,discard,errors=remount-ro,commit=30",
+          "481 457 253:1 /scratch /scratch rw,nosuid,relatime shared:412 master:1 - ext4 /dev/vda1 rw,discard,errors=remount-ro,commit=30",
+          "482 457 253:1 /source /source rw,nosuid,relatime shared:413 master:1 - ext4 /dev/vda1 rw,discard,errors=remount-ro,commit=30"
+        ],
+        "entries": {
+          "/scratch": [],
+          "/source": [
+            "input.txt",
+            "payload.mjs"
+          ],
+          "/home/worker": [],
+          "/home/runner/cli-state": [
+            "config.toml",
+            "tmp"
+          ]
+        }
+      }
+    },
+    {
+      "label": "comparison",
+      "nativeExit": 1,
+      "stdout": "",
+      "outputContent": null,
+      "outerExit": 0,
+      "boundedCaptureComplete": true,
+      "cliAttempts": 1,
+      "before": {
+        "uid": 22002,
+        "cwd": "/source",
+        "tmp": "/tmp",
+        "readOnly": true,
+        "target": {
+          "mode": "0o40700",
+          "uid": 22002,
+          "gid": 22002
+        },
+        "mountNamespace": "mnt:[4026532448]",
+        "mounts": [
+          "457 424 253:1 / / ro,nosuid,relatime shared:388 master:1 - ext4 /dev/vda1 rw,discard,errors=remount-ro,commit=30",
+          "485 457 0:36 / /tmp ro,nosuid,nodev shared:400 master:16 - tmpfs tmpfs rw,size=3021456k,nr_inodes=1048576,inode64,usrquota",
+          "491 489 253:1 /home/runner/cli-state /home/runner/cli-state rw,nosuid,relatime shared:406 master:1 - ext4 /dev/vda1 rw,discard,errors=remount-ro,commit=30",
+          "493 489 253:1 /home/worker /home/worker rw,nosuid,relatime shared:408 master:1 - ext4 /dev/vda1 rw,discard,errors=remount-ro,commit=30",
+          "481 457 253:1 /scratch /scratch rw,nosuid,relatime shared:412 master:1 - ext4 /dev/vda1 rw,discard,errors=remount-ro,commit=30",
+          "482 457 253:1 /source /source rw,nosuid,relatime shared:413 master:1 - ext4 /dev/vda1 rw,discard,errors=remount-ro,commit=30"
+        ],
+        "entries": {
+          "/scratch": [],
+          "/source": [
+            "input.txt",
+            "payload.mjs"
+          ],
+          "/home/worker": [],
+          "/home/runner/cli-state": [
+            "config.toml",
+            "tmp"
+          ]
+        }
+      }
+    }
+  ]
+}

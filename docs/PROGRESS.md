@@ -1,5 +1,7 @@
 # 현재 작업 상태 — 새 세션은 이 문서부터 읽기
 
+2026-11-18 추가 승인된 같은 VM 기준·대조에서 daemon 경로 mkdirat가 EROFS에서 EEXIST로 바뀌고 openat가 성공했다. 다음 차단은 bwrap loopback RTM_NEWADDR 권한 오류이며 payload 시작 전 exit 1이다. VM·소유 프로세스·watchdog 정리 완료, PR #79 독립 리뷰 대기다. [추가 VM 대조 결과](reviews/2026-11-18-s2-erofs-comparison.md)
+
 2026-11-18 기준 VM에서 helper PID 2503의 mkdirat(/tmp/codex-daemon-22002, 0700) EROFS와 서비스의 /tmp ro를 확인했다. 실행 당시 분리된 execve 반환을 놓쳐 관리자 사전 준비·대조는 0회였고 VM·root·소유 프로세스·watchdog 부재를 확인했다. 저장 trace로 판독기를 보완했다. [EROFS 관측 결과](reviews/2026-11-18-s2-erofs-observation.md)
 
 2026-11-18 사용자는 다음 제한 관측과 조건부 최소 조치의 개발 지시를 요청했다. [새 지시](reviews/2026-11-18-s2-erofs-observation-instructions.md)는 일회성 VM1개에서 기준 관측과 가설 확인 시 daemon 디렉터리 사전 준비 대조를 수행하는 범위다. 60~90분은 참고 예상이며 고정 상한이 아니다. 실제 실행은 개발 세션 과업이며 이번 작성에서는 수행하지 않았다. 문서 변경은 `pnpm check`의304개 테스트·타입 검사·예제 build와 링크/diff 검사를 통과했다. 리뷰의 잘한 점/개선점 구분은 가독성을 위한 것이며, 매번 회고나 수정 과업을 만들지 않도록 AGENTS를 정정했다.

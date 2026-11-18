@@ -1,0 +1,80 @@
+{
+  "cleanupStatus": "complete",
+  "vmAbsent": true,
+  "rootAbsent": true,
+  "attempts": [
+    [
+      "/private/tmp/ontosary-s2-erofs-observation/prefix/bin/limactl",
+      "stop",
+      "--force",
+      "ontosary-s2-erofs-observation"
+    ],
+    [
+      "/private/tmp/ontosary-s2-erofs-observation/prefix/bin/limactl",
+      "delete",
+      "--force",
+      "ontosary-s2-erofs-observation"
+    ],
+    [
+      "/private/tmp/ontosary-s2-erofs-observation/prefix/bin/limactl",
+      "list",
+      "--json"
+    ]
+  ],
+  "errors": [],
+  "commandResults": [
+    {
+      "action": "stop",
+      "exitCode": 0,
+      "timedOut": false,
+      "truncated": false,
+      "diagnostics": {
+        "status": "stored",
+        "storedBytes": 1412,
+        "storageTruncated": false,
+        "captureTruncated": false,
+        "record": "command-bafd34020d75.json"
+      }
+    },
+    {
+      "action": "delete",
+      "exitCode": 0,
+      "timedOut": false,
+      "truncated": false,
+      "diagnostics": {
+        "status": "stored",
+        "storedBytes": 525,
+        "storageTruncated": false,
+        "captureTruncated": false,
+        "record": "command-7f2d24724eca.json"
+      }
+    },
+    {
+      "action": "list",
+      "exitCode": 0,
+      "timedOut": false,
+      "truncated": false,
+      "diagnostics": {
+        "status": "stored",
+        "storedBytes": 116,
+        "storageTruncated": false,
+        "captureTruncated": false,
+        "record": "command-d83954ef7b5a.json"
+      }
+    },
+    {
+      "action": "process-absence",
+      "exitCode": 0,
+      "timedOut": false,
+      "truncated": false
+    }
+  ],
+  "diagnosticErrors": [],
+  "owner": {
+    "root": "/private/tmp/ontosary-s2-erofs-observation",
+    "name": "ontosary-s2-erofs-observation"
+  },
+  "vmDisposalIsNotSubmissionProof": true,
+  "ownedProcesses": [],
+  "receiptWritten": true
+}
