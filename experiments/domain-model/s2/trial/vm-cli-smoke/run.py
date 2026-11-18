@@ -28,59 +28,111 @@ class Smoke:
     def __init__(self,work):
         self.w=pathlib.Path(work).resolve();self.plan=read(self.w/'plan.json');self.budget=read(self.w/'budget.json');self.root=pathlib.Path(self.plan['root']);self.name=self.plan['name'];self.lima=str(self.root/'prefix/bin/limactl');self.phase='experiment'
         self.env={'PATH':'/usr/bin:/bin:/usr/sbin:/sbin','HOME':str(self.root/'home'),'LIMA_HOME':str(self.root/'lima'),'LANG':'C.UTF-8'}
-    def cmd(self,args,timeout=30,check=True,safety=False):
-        seconds=timeout if safety else limit(self.budget,self.phase,timeout)
+    def diagnostic_capacity(self):
         diagnostic_root=pathlib.Path(self.plan.get('diagnosticRoot',str(self.w)))
         used=sum(p.stat().st_size for pattern in ['*.stdout','*.stderr'] for p in diagnostic_root.rglob(pattern))
-        cap=min(1024*1024,max(0,(4*1024*1024-used-65536)//2))
-        row=capture(args,seconds,env=self.env,cap=cap)
+        return min(1024*1024,max(0,(4*1024*1024-used-65536)//2))
+    def record_command(self,row,cap):
         key='command-'+uuid.uuid4().hex[:12]
-        for stream in ['stdout','stderr']:(self.w/(key+'.'+stream)).write_text(row[stream])
+        stored=0;dropped=False
+        for stream in ['stdout','stderr']:
+            data=row[stream].encode('utf-8');part=data[:cap]
+            dropped |= len(part)!=len(data)
+            if cap:(self.w/(key+'.'+stream)).write_bytes(part)
+            stored+=len(part)
+        row['diagnostics']={'status':'partial' if dropped or row['truncated'] else 'stored',
+                            'storedBytes':stored,'storageTruncated':dropped,'captureTruncated':row['truncated'],'record':key+'.json'}
         write(self.w/(key+'.json'),{k:v for k,v in row.items() if k not in ['stdout','stderr']})
-        if check and (row['exitCode'] or row['truncated'] or row['timedOut']):raise RuntimeError('command-failed:'+key+':'+row['stderr'][-800:])
+    def cmd(self,args,timeout=30,check=True,safety=False):
+        seconds=timeout if safety else limit(self.budget,self.phase,timeout)
+        if safety:
+            # Completion and query parsing use bounded memory, independently of log storage.
+            row=capture(args,seconds,env=self.env,cap=1024*1024,overflow='discard')
+            try:self.record_command(row,self.diagnostic_capacity())
+            except Exception as e:row['diagnostics']={'status':'failed','error':str(e)[:500]}
+        else:
+            cap=self.diagnostic_capacity();row=capture(args,seconds,env=self.env,cap=cap)
+            self.record_command(row,cap)
+        if check and (row['exitCode'] or row['truncated'] or row['timedOut']):raise RuntimeError('command-failed:'+str(args)+':'+row['stderr'][-800:])
         return row
+    def cleanup_receipt(self,result):
+        result['receiptWritten']=True
+        try:write(self.w/'cleanup.json',result)
+        except Exception as e:
+            result['receiptWritten']=False
+            result['diagnosticErrors'].append({'action':'cleanup-receipt','error':str(e)[:500]})
+        return result
     def guest(self,args,**kw):return self.cmd([self.lima,'shell','--workdir=/tmp',self.name,'sudo','-n',*args],**kw)
+    def checked_owner(self):
+        owner=read(self.w/'ownership.json')
+        if owner['root']!=str(self.root) or owner['name']!=self.name or not self.root.name.startswith('ontosary-s2-') or self.root.is_symlink():raise RuntimeError('cleanup-ownership')
+        return owner
     def cleanup(self):
         """Adapted recovery.cleanup ownership/stop/delete/absence path; no container export."""
-        result={'cleanupStatus':'unconfirmed','vmAbsent':False,'rootAbsent':not self.root.exists(),'attempts':[],'errors':[],'vmDisposalIsNotSubmissionProof':True}
+        result={'cleanupStatus':'unconfirmed','vmAbsent':False,'rootAbsent':not self.root.exists(),'attempts':[],'errors':[],'commandResults':[],'diagnosticErrors':[],'owner':{'root':str(self.root),'name':self.name},'vmDisposalIsNotSubmissionProof':True}
+        def observe(action,row):
+            result['commandResults'].append({'action':action,**{k:row[k] for k in ['exitCode','timedOut','truncated','diagnostics'] if k in row}})
+            if row.get('diagnostics',{}).get('status')=='failed':result['diagnosticErrors'].append({'action':action,**row['diagnostics']})
         owner_path=self.w/'ownership.json'
         if not owner_path.exists():
-            result['cleanupStatus']='not-created' if not self.root.exists() else 'unconfirmed';write(self.w/'cleanup.json',result);return result
-        owner=read(owner_path)
-        if owner['root']!=str(self.root) or owner['name']!=self.name or not self.root.name.startswith('ontosary-s2-') or self.root.is_symlink():raise RuntimeError('cleanup-ownership')
+            result['cleanupStatus']='not-created' if not self.root.exists() else 'unconfirmed';return self.cleanup_receipt(result)
+        owner=self.checked_owner()
         # Safety disposal has its own finite allowance even if the experiment has expired.
         if pathlib.Path(self.lima).exists():
             for action in ['stop','delete']:
                 args=[self.lima,action,'--force',self.name];result['attempts'].append(args)
                 try:
                     r=self.cmd(args,30,check=False,safety=True)
-                    if r['exitCode']:result['errors'].append({'action':action,'exitCode':r['exitCode']})
+                    observe(action,r)
+                    if r['exitCode'] or r['timedOut']:result['errors'].append({'action':action,'exitCode':r['exitCode'],'timedOut':r['timedOut']})
                 except Exception as e:result['errors'].append({'action':action,'error':str(e)})
             try:
                 args=[self.lima,'list','--json'];result['attempts'].append(args);r=self.cmd(args,8,check=False,safety=True)
+                observe('list',r)
                 if r['exitCode'] or r['truncated'] or r['timedOut']:raise RuntimeError('listing-failed')
                 rows=[json.loads(x) for x in r['stdout'].splitlines() if x.strip()]
+                if any(not isinstance(x,dict) or not isinstance(x.get('name'),str) or not x['name'] for x in rows):raise RuntimeError('listing-schema')
                 if any(x.get('name')==self.name for x in rows) or (self.root/'lima'/self.name).exists():raise RuntimeError('VM-present')
-                ps=capture(['ps','-axo','pid=,command='],5,cap=1024*1024)
-                if ps['exitCode'] or ps['truncated'] or ps['timedOut'] or any(str(self.root/'prefix') in line or str(self.root/'lima') in line for line in ps['stdout'].splitlines()):raise RuntimeError('owned-process-presence-unknown')
+                ps=capture(['ps','-axo','pid=,command='],5,cap=1024*1024,overflow='discard')
+                observe('process-absence',ps)
+                if ps['exitCode'] or ps['truncated'] or ps['timedOut']:raise RuntimeError('owned-process-presence-unknown')
+                processes=[line.split(None,1) for line in ps['stdout'].splitlines() if line.strip()]
+                if any(len(row)!=2 or not row[0].isdigit() or int(row[0])<=0 for row in processes):raise RuntimeError('process-listing-schema')
+                if any(str(self.root/'prefix') in command or str(self.root/'lima') in command for pid,command in processes):raise RuntimeError('owned-process-presence-unknown')
                 result['vmAbsent']=True;result['ownedProcesses']=[]
             except Exception as e:result['errors'].append({'action':'absence','error':str(e)})
         elif not owner['vmRegistered']:result['vmAbsent']=True
+        else:result['errors'].append({'action':'absence','error':'owned-lima-executable-missing'})
         if result['vmAbsent']:
-            if self.root.exists():shutil.rmtree(self.root)
-            result.update(rootAbsent=True,cleanupStatus='complete')
-        write(self.w/'cleanup.json',result);return result
+            try:
+                if self.root.exists():shutil.rmtree(self.root)
+                result.update(rootAbsent=True,cleanupStatus='complete')
+            except Exception as e:result['errors'].append({'action':'root-remove','error':str(e)[:500]})
+        return self.cleanup_receipt(result)
     def dispose(self):
-        with (self.w/'cleanup.lock').open('a') as lock:
+        owner=self.w/'ownership.json'
+        if not owner.exists():return self.cleanup()
+        # Ownership already exists before resources do; logging need not be writable to lock it.
+        with owner.open('r') as lock:
             end=time.monotonic()+100
             while True:
                 try:fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB);break
                 except BlockingIOError:
                     if time.monotonic()>end:raise TimeoutError('cleanup-lock')
                     time.sleep(.1)
-            if (self.w/'disposed').exists():return read(self.w/'cleanup.json')
+            self.checked_owner()
+            diagnostic_errors=[]
+            if (self.w/'disposed').exists():
+                try:
+                    prior=read(self.w/'cleanup.json')
+                    if prior.get('owner')=={'root':str(self.root),'name':self.name} and prior.get('cleanupStatus')=='complete' and prior.get('vmAbsent') and prior.get('rootAbsent') and not self.root.exists():return prior
+                except Exception as e:diagnostic_errors.append({'action':'prior-receipt','error':str(e)[:500]})
             result=self.cleanup()
-            if result['cleanupStatus']=='complete':(self.w/'disposed').touch()
+            result['diagnosticErrors']+=diagnostic_errors
+            if result['cleanupStatus']=='complete' and result['receiptWritten']:
+                try:(self.w/'disposed').touch()
+                except Exception as e:result['diagnosticErrors'].append({'action':'disposed-marker','error':str(e)[:500]})
+            if diagnostic_errors or any(x['action']=='disposed-marker' for x in result['diagnosticErrors']):self.cleanup_receipt(result)
             return result
     def work(self):
         if (self.w/'execution-started.json').exists():raise RuntimeError('round-already-attempted')
