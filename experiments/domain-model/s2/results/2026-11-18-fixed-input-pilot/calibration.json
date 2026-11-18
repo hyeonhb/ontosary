@@ -1,0 +1,26 @@
+{
+  "baseline": {
+    "evaluatorId": "b7b6407b46b40d25e760f4e44e9a1839fddf8629c2c20c9d2c1430e760ec3aae",
+    "submissionId": "25a2ed5eeb60d53f8255ecebd2f19dfde699e14aafc45bc4b7504dd09c7de20a",
+    "typecheck": "passed",
+    "overall": "failed",
+    "sourceBinding": true,
+    "passed": {
+      "draft-requirement": 6,
+      "preservation": 16
+    },
+    "rawSha256": "cb8df82aa68bd7ba747ebb903e9143618019c345d1ac43890a54fd14ee63f291"
+  },
+  "reference": {
+    "evaluatorId": "b7b6407b46b40d25e760f4e44e9a1839fddf8629c2c20c9d2c1430e760ec3aae",
+    "submissionId": "dde3b75c151fb9847929ce9d3dd7e76081f791fc7a779f7124245644419bed54",
+    "typecheck": "passed",
+    "overall": "passed",
+    "sourceBinding": true,
+    "passed": {
+      "draft-requirement": 36,
+      "preservation": 16
+    },
+    "rawSha256": "9ae779f20d62bb699ebfdc67af8a9ba9bcbca37cb78afb2dbee8ab9569fda399"
+  }
+}
