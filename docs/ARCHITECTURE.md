@@ -1,5 +1,7 @@
 # 현재 아키텍처
 
+2026-11-18 [R20 독립 검토](reviews/2026-11-18-s2-r20-cleanup-independent-review.md) 통과·PR #70 병합. smoke의 안전 정리는 유한 메모리 capture와 진단 저장을 분리하며, 기록 실패가 정리 실행을 막지 않는다. 불완전한 조회는 unconfirmed이고 정리 결과와 기록 오류를 별도로 반환한다. 검증 범위는 로컬 실패 회귀이며 전체 CLI 격리/종료 계약이나 실제 EROFS 해결로 확대하지 않는다.
+
 2026-11-18 [R20 국소 보완](reviews/2026-11-18-s2-r20-cleanup.md)(ADR-060): smoke 소유 정리는 고정 크기 메모리에 출력을 받아 명령 완료와 진단 저장을 분리한다. 초과 출력은 정리 명령을 죽이지 않고 버리며 일반 실험 명령은 기존처럼 중단한다. stop/delete 오류 뒤에도 후속 정리를 시도하고, list/process 조회의 실패·절단·timeout·파싱 불능은 부재 근거로 쓰지 않는다. 기존 ownership 파일로 잠가 진단 쓰기 실패가 정리를 막지 않게 했다. 공유 runtime·guest 권한·제품/평가 구조는 불변이며 로컬 대체 명령으로만 검증했다. 아래는 당시 기록이다.
 
 2026-11-18 [직접 VM smoke 독립 검토](reviews/2026-11-18-s2-vm-cli-smoke-independent-review.md): 공개 준비물→새 guest→비특권 worker→native CLI 연결과 EROFS 차단/실제 VM 정리를 확인했다. payload·전체 접근/종료 계약은 미검증이다. R20은 safety 명령도 일반 진단 capture cap의 초과 종료를 공유하는 결함으로, 안전 정리 실행과 bounded 진단 보존/제어 응답을 분리하는 국소 보완이 필요하다. 현재 실제 정리 증거는 유지하며 새 경계/권한 변경은 하지 않는다. 아래는 당시 기록이다.
