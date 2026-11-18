@@ -1,0 +1,36 @@
+{
+  "guestPython": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "worker": 22002,
+  "managerNamespace": "net:[4026531833]",
+  "nodeDependencies": "\tlinux-vdso.so.1 (0x0000e4bf6ac8c000)\n\tlibdl.so.2 => /usr/lib/aarch64-linux-gnu/libdl.so.2 (0x0000e4bf6ac20000)\n\tlibstdc++.so.6 => /usr/lib/aarch64-linux-gnu/libstdc++.so.6 (0x0000e4bf6a980000)\n\tlibm.so.6 => /usr/lib/aarch64-linux-gnu/libm.so.6 (0x0000e4bf6a8b0000)\n\tlibgcc_s.so.1 => /usr/lib/aarch64-linux-gnu/libgcc_s.so.1 (0x0000e4bf6a870000)\n\tlibpthread.so.0 => /usr/lib/aarch64-linux-gnu/libpthread.so.0 (0x0000e4bf6a840000)\n\tlibc.so.6 => /usr/lib/aarch64-linux-gnu/libc.so.6 (0x0000e4bf6a670000)\n\t/lib/ld-linux-aarch64.so.1 (0x0000e4bf6ac50000)\n",
+  "unit": "[Service]\nType=exec\nUser=s2smoke\nGroup=s2smoke\nExecStart=/usr/bin/env -i PATH=/usr/sbin:/usr/bin:/sbin:/bin LANG=C.UTF-8 HOME=/home/worker /usr/bin/python3 /opt/s2-smoke/worker.py\nWorkingDirectory=/source\nNoNewPrivileges=yes\nCapabilityBoundingSet=\nAmbientCapabilities=\nPrivateNetwork=yes\nProtectSystem=strict\nProtectControlGroups=yes\nRestrictSUIDSGID=yes\nDelegate=no\nInaccessiblePaths=-/run/user -/run/dbus -/run/systemd/private -/run/containerd -/run/docker.sock -/root -/home/hyeon.guest/.ssh\nReadWritePaths=/source /scratch /home/worker /home/runner/cli-state\nReadOnlyPaths=/home/runner/cli-state/config.toml\nCPUQuota=200%\nMemoryMax=4G\nTasksMax=256\nRuntimeMaxSec=25\nTimeoutStopSec=3\nKillMode=control-group\nStandardOutput=journal\nStandardError=journal\n",
+  "config": "default_permissions = \"fixture\"\ncli_auth_credentials_store = \"file\"\nweb_search = \"disabled\"\n\n[features]\napps = false\nhooks = false\nmulti_agent = false\ndaemon_auto_start = false\nskill_mcp_dependency_install = false\nsystem_proxy_fallback = false\nuse_legacy_landlock = false\n\n[shell_environment_policy]\ninherit = \"none\"\n[shell_environment_policy.set]\nPATH = \"/usr/local/bin:/usr/bin:/bin\"\nHOME = \"/home/worker\"\nTMPDIR = \"/scratch\"\n\n[permissions.fixture.filesystem]\n\":root\" = \"deny\"\n\":minimal\" = \"read\"\n\"/source\" = \"write\"\n\"/scratch\" = \"write\"\n\"/home/worker\" = \"write\"\n\"/materials\" = \"read\"\n\"/home/runner/cli-state\" = \"deny\"\n\"/opt/s2-smoke/public\" = \"read\"\n[permissions.fixture.network]\nenabled = false\n",
+  "plan": {
+    "runId": "vm-smoke-20261117-134325",
+    "argv": [
+      "/opt/s2-smoke/public/usr/local/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-arm64/vendor/aarch64-unknown-linux-musl/bin/codex",
+      "sandbox",
+      "-P",
+      "fixture",
+      "-C",
+      "/source",
+      "--",
+      "/opt/s2-smoke/public/usr/local/bin/node",
+      "/source/payload.mjs",
+      "vm-smoke-20261117-134325"
+    ],
+    "binaries": {
+      "node": "79e8b4bcffeb26e6062a162c80125ea725ad1500f72c97f134a453ec557be32f",
+      "codex": "e7f91e14eab4ba3a0f65047c1757b593409d4ce791ccb6ac65c67c970dfed76f"
+    },
+    "configHash": "5fe08c8bbb64f577362408b7926c0b13cd9064ba339febf2d6c344ff84a6a6d5",
+    "payloadHash": "206056767fbca29ee3f65533584287be3c41f6afb7f7e66cb54996e28b5aa77c",
+    "inputs": {
+      "source": "smoke source\n",
+      "material": "smoke material\n"
+    },
+    "expectedOutput": "smoke output vm-smoke-20261117-134325\n",
+    "managerNamespace": "net:[4026531833]"
+  },
+  "bootId": "e4c9d9ca-3342-41f7-ab08-a4ebe3394c18"
+}

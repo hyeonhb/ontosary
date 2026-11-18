@@ -1,0 +1,25 @@
+{
+  "args": [
+    "/private/tmp/ontosary-s2-erofs-observation/prefix/bin/limactl",
+    "delete",
+    "--force",
+    "ontosary-s2-erofs-observation"
+  ],
+  "startedUtc": "2026-11-18T08:34:33.738963+00:00",
+  "limitSeconds": 30,
+  "truncated": false,
+  "timedOut": false,
+  "capPerStream": 1048576,
+  "outputPolicy": "discard",
+  "pid": 30160,
+  "exitCode": 0,
+  "seconds": 0.20541883300757036,
+  "finishedUtc": "2026-11-18T08:34:33.944384+00:00",
+  "diagnostics": {
+    "status": "stored",
+    "storedBytes": 525,
+    "storageTruncated": false,
+    "captureTruncated": false,
+    "record": "command-7f2d24724eca.json"
+  }
+}

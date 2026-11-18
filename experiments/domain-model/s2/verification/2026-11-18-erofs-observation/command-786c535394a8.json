@@ -1,0 +1,26 @@
+{
+  "args": [
+    "/opt/homebrew/Cellar/python@3.13/3.13.13_1/Frameworks/Python.framework/Versions/3.13/bin/python3.13",
+    "-c",
+    "import tarfile,pathlib,sys;t=tarfile.open(sys.argv[2],\"w\");b=pathlib.Path(sys.argv[1]);[(t.add(p,arcname=str(p.relative_to(b)),recursive=False)) for p in b.rglob(\"*\") if p.is_file()];t.close()",
+    "/private/tmp/ontosary-s2-erofs-observation/bundle",
+    "/private/tmp/ontosary-s2-erofs-observation/inputs.tar"
+  ],
+  "startedUtc": "2026-11-18T08:17:19.255197+00:00",
+  "limitSeconds": 60,
+  "truncated": false,
+  "timedOut": false,
+  "capPerStream": 1048576,
+  "outputPolicy": "terminate",
+  "pid": 27740,
+  "exitCode": 0,
+  "seconds": 0.38568516698433086,
+  "finishedUtc": "2026-11-18T08:17:19.640884+00:00",
+  "diagnostics": {
+    "status": "stored",
+    "storedBytes": 0,
+    "storageTruncated": false,
+    "captureTruncated": false,
+    "record": "command-786c535394a8.json"
+  }
+}

@@ -1,0 +1,49 @@
+2421  execve("/opt/s2-smoke/public/usr/local/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-arm64/vendor/aarch64-unknown-linux-musl/bin/codex", ["/opt/s2-smoke/public/usr/local/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-arm64/vendor/aarch64-unknown-linux-musl/bin/codex", "sandbox", "-P", "fixture", "-C", "/source", "--", "/opt/s2-smoke/public/usr/local/bin/node", "/source/payload.mjs", "vm-smoke-20261117-134325"], 0xffffed6e35d0 /* 5 vars */) = 0
+2421  openat(AT_FDCWD, "/proc/sys/vm/overcommit_memory", O_RDONLY|O_CLOEXEC) = 3
+2421  openat(AT_FDCWD, "/sys/kernel/mm/transparent_hugepage/enabled", O_RDONLY) = 3
+2421  --- SIGILL {si_signo=SIGILL, si_code=ILL_ILLOPC, si_addr=0xcf7c7c0} ---
+2421  --- SIGILL {si_signo=SIGILL, si_code=ILL_ILLOPC, si_addr=0xcf7c790} ---
+2421  --- SIGILL {si_signo=SIGILL, si_code=ILL_ILLOPC, si_addr=0xcf7c7a8} ---
+2421  --- SIGILL {si_signo=SIGILL, si_code=ILL_ILLOPC, si_addr=0xcf7c7b0} ---
+2421  --- SIGILL {si_signo=SIGILL, si_code=ILL_ILLOPC, si_addr=0xcf7c8a4} ---
+2421  openat(AT_FDCWD, "/opt/s2-smoke/public/usr/local/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-arm64/vendor/aarch64-unknown-linux-musl/codex-package.json", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3
+2421  mkdirat(AT_FDCWD, "/home/runner/cli-state", 0777) = -1 EEXIST (File exists)
+2421  mkdirat(AT_FDCWD, "/home/runner/cli-state/tmp/arg0-linux", 0777) = -1 EEXIST (File exists)
+2421  openat(AT_FDCWD, "/home/runner/cli-state/tmp/arg0-linux", O_RDONLY|O_LARGEFILE|O_CLOEXEC|O_DIRECTORY) = 3
+2421  openat(AT_FDCWD, "/home/runner/cli-state/tmp/arg0-linux/codex-arg0e30bE1/.lock", O_RDWR|O_LARGEFILE|O_CLOEXEC) = 4
+2421  mkdirat(AT_FDCWD, "/home/runner/cli-state/tmp/arg0-linux/.tmpBGgSbb", 0777) = 0
+2421  openat(AT_FDCWD, "/home/runner/cli-state/tmp/arg0-linux/.tmpBGgSbb", O_RDONLY|O_LARGEFILE|O_NOFOLLOW|O_CLOEXEC|O_DIRECTORY) = 4
+2421  mkdirat(AT_FDCWD, "/home/runner/cli-state/tmp/arg0-linux/codex-arg0TR3djc", 0777) = 0
+2421  openat(AT_FDCWD, "/home/runner/cli-state/tmp/arg0-linux/codex-arg0TR3djc/.lock", O_RDWR|O_CREAT|O_LARGEFILE|O_CLOEXEC, 0666) = 3
+2421  clone(child_stack=0xe7f82bd7e770, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID|0x400000, parent_tid=[2422], tls=0xe7f82bd7e868, child_tidptr=0x10e66814) = 2422
+2422  openat(AT_FDCWD, "/proc/self/cgroup", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 4
+2422  openat(AT_FDCWD, "/sys/fs/cgroup/system.slice/ontosary-smoke.service/cpu.max", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 4
+2422  openat(AT_FDCWD, "/sys/fs/cgroup/system.slice/cpu.max", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 4
+2422  openat(AT_FDCWD, "/sys/fs/cgroup/cpu.max", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+2422  clone(child_stack=0xe7f82ad7a770, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID|0x400000, parent_tid=[2423], tls=0xe7f82ad7a868, child_tidptr=0x10e66814) = 2423
+2422  clone(child_stack=0xe7f829d76770, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID|0x400000, parent_tid=[2424], tls=0xe7f829d76868, child_tidptr=0x10e66814) = 2424
+2422  clone(child_stack=0xe7f8286ee770, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID|0x400000, parent_tid=[2425], tls=0xe7f8286ee868, child_tidptr=0x10e66814) = 2425
+2425  openat(AT_FDCWD, "/etc/codex/managed_config.toml", O_RDONLY|O_NONBLOCK|O_LARGEFILE|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+2425  openat(AT_FDCWD, "/etc/codex/config.toml", O_RDONLY|O_NONBLOCK|O_LARGEFILE|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+2425  openat(AT_FDCWD, "/home/runner/cli-state/config.toml", O_RDONLY|O_NONBLOCK|O_LARGEFILE|O_CLOEXEC) = 10
+2422  clone(child_stack=0xe7f8276ea770, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID|0x400000, parent_tid=[2426], tls=0xe7f8276ea868, child_tidptr=0x10e66814) = 2426
+2426  openat(AT_FDCWD, "/etc/codex/agents", O_RDONLY|O_LARGEFILE|O_CLOEXEC|O_DIRECTORY) = -1 ENOENT (No such file or directory)
+2425  openat(AT_FDCWD, "/home/runner/cli-state/agents", O_RDONLY|O_LARGEFILE|O_CLOEXEC|O_DIRECTORY) = -1 ENOENT (No such file or directory)
+2422  clone(child_stack=0xe7f82bd0b5f0, flags=CLONE_VM|CLONE_VFORK|SIGCHLD <unfinished ...>
+2427  execve("/home/runner/cli-state/tmp/arg0-linux/codex-arg0TR3djc/codex-linux-sandbox", ["codex-linux-sandbox", "--sandbox-policy-cwd", "/source", "--command-cwd", "/source", "--permission-profile", "{\"type\":\"managed\",\"file_system\":{\"type\":\"restricted\",\"entries\":[{\"path\":{\"type\":\"path\",\"path\":\"/home/runner/cli-state\"},\"access\":\"deny\"},{\"path\":{\"type\":\"path\",\"path\":\"/home/worker\"},\"access\":\"write\"},{\"path\":{\"type\":\"path\",\"path\":\"/materials\"},\"access\":\"read\"},{\"path\":{\"type\":\"path\",\"path\":\"/opt/s2-smoke/public\"},\"access\":\"read\"},{\"path\":{\"type\":\"path\",\"path\":\"/scratch\"},\"access\":"..., "--", "/opt/s2-smoke/public/usr/local/bin/node", "/source/payload.mjs", "vm-smoke-20261117-134325"], 0xe7f82c111f80 /* 4 vars */ <unfinished ...>
+2422  <... clone resumed>)              = 2427
+2427  <... execve resumed>)             = 0
+2427  openat(AT_FDCWD, "/proc/sys/vm/overcommit_memory", O_RDONLY|O_CLOEXEC) = 3
+2427  openat(AT_FDCWD, "/sys/kernel/mm/transparent_hugepage/enabled", O_RDONLY) = 3
+2427  --- SIGILL {si_signo=SIGILL, si_code=ILL_ILLOPC, si_addr=0xcf7c7c0} ---
+2427  --- SIGILL {si_signo=SIGILL, si_code=ILL_ILLOPC, si_addr=0xcf7c790} ---
+2427  --- SIGILL {si_signo=SIGILL, si_code=ILL_ILLOPC, si_addr=0xcf7c7a8} ---
+2427  --- SIGILL {si_signo=SIGILL, si_code=ILL_ILLOPC, si_addr=0xcf7c7b0} ---
+2427  --- SIGILL {si_signo=SIGILL, si_code=ILL_ILLOPC, si_addr=0xcf7c8a4} ---
+2427  openat(AT_FDCWD, "/opt/s2-smoke/public/usr/local/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-arm64/vendor/aarch64-unknown-linux-musl/codex-package.json", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3
+2427  mkdirat(AT_FDCWD, "/tmp/codex-daemon-22002", 0700) = -1 EROFS (Read-only file system)
+error building bubblewrap command: Read-only file system (os error 30)
+2427  exit_group(1)                     = ?
+2423  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2427, si_uid=22002, si_status=1, si_utime=0, si_stime=0} ---
+2422  wait4(2427, [{WIFEXITED(s) && WEXITSTATUS(s) == 1}], WNOHANG, NULL) = 2427
+2422  exit_group(1)                     = ?

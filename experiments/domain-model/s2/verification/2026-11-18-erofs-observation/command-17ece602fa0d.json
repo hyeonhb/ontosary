@@ -1,0 +1,30 @@
+{
+  "args": [
+    "/private/tmp/ontosary-s2-erofs-observation/prefix/bin/limactl",
+    "shell",
+    "--workdir=/tmp",
+    "ontosary-s2-erofs-observation",
+    "sudo",
+    "-n",
+    "python3",
+    "/opt/s2-smoke/setup.py",
+    "hyeon"
+  ],
+  "startedUtc": "2026-11-18T08:17:58.139534+00:00",
+  "limitSeconds": 15,
+  "truncated": false,
+  "timedOut": false,
+  "capPerStream": 1048576,
+  "outputPolicy": "terminate",
+  "pid": 28070,
+  "exitCode": 0,
+  "seconds": 0.1423979999963194,
+  "finishedUtc": "2026-11-18T08:17:58.281934+00:00",
+  "diagnostics": {
+    "status": "stored",
+    "storedBytes": 3203,
+    "storageTruncated": false,
+    "captureTruncated": false,
+    "record": "command-17ece602fa0d.json"
+  }
+}

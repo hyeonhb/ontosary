@@ -1,0 +1,132 @@
+2484  execve("/opt/s2-smoke/public/usr/local/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-arm64/vendor/aarch64-unknown-linux-musl/bin/codex", ["/opt/s2-smoke/public/usr/local/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-arm64/vendor/aarch64-unknown-linux-musl/bin/codex", "sandbox", "-P", "fixture", "-C", "/source", "--", "/opt/s2-smoke/public/usr/local/bin/node", "/source/payload.mjs", "vm-smoke-20261117-134325"], 0xffffecd820f0 /* 5 vars */) = 0
+2484  openat(AT_FDCWD, "/proc/sys/vm/overcommit_memory", O_RDONLY|O_CLOEXEC) = 3
+2484  openat(AT_FDCWD, "/sys/kernel/mm/transparent_hugepage/enabled", O_RDONLY) = 3
+2484  --- SIGILL {si_signo=SIGILL, si_code=ILL_ILLOPC, si_addr=0xcf7c7c0} ---
+2484  --- SIGILL {si_signo=SIGILL, si_code=ILL_ILLOPC, si_addr=0xcf7c790} ---
+2484  --- SIGILL {si_signo=SIGILL, si_code=ILL_ILLOPC, si_addr=0xcf7c7a8} ---
+2484  --- SIGILL {si_signo=SIGILL, si_code=ILL_ILLOPC, si_addr=0xcf7c7b0} ---
+2484  --- SIGILL {si_signo=SIGILL, si_code=ILL_ILLOPC, si_addr=0xcf7c8a4} ---
+2484  openat(AT_FDCWD, "/opt/s2-smoke/public/usr/local/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-arm64/vendor/aarch64-unknown-linux-musl/codex-package.json", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3
+2484  mkdirat(AT_FDCWD, "/home/runner/cli-state", 0777) = -1 EEXIST (File exists)
+2484  mkdirat(AT_FDCWD, "/home/runner/cli-state/tmp/arg0-linux", 0777) = -1 EEXIST (File exists)
+2484  openat(AT_FDCWD, "/home/runner/cli-state/tmp/arg0-linux", O_RDONLY|O_LARGEFILE|O_CLOEXEC|O_DIRECTORY) = 3
+2484  openat(AT_FDCWD, "/home/runner/cli-state/tmp/arg0-linux/codex-arg0H7QPTe/.lock", O_RDWR|O_LARGEFILE|O_CLOEXEC) = 4
+2484  mkdirat(AT_FDCWD, "/home/runner/cli-state/tmp/arg0-linux/.tmpWHFsJA", 0777) = 0
+2484  openat(AT_FDCWD, "/home/runner/cli-state/tmp/arg0-linux/.tmpWHFsJA", O_RDONLY|O_LARGEFILE|O_NOFOLLOW|O_CLOEXEC|O_DIRECTORY) = 4
+2484  mkdirat(AT_FDCWD, "/home/runner/cli-state/tmp/arg0-linux/codex-arg0xhcvrw", 0777) = 0
+2484  openat(AT_FDCWD, "/home/runner/cli-state/tmp/arg0-linux/codex-arg0xhcvrw/.lock", O_RDWR|O_CREAT|O_LARGEFILE|O_CLOEXEC, 0666) = 3
+2484  clone(child_stack=0xfb0c0377e770, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID|0x400000, parent_tid=[2485], tls=0xfb0c0377e868, child_tidptr=0x10e66814) = 2485
+2485  openat(AT_FDCWD, "/proc/self/cgroup", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 4
+2485  openat(AT_FDCWD, "/sys/fs/cgroup/system.slice/ontosary-smoke.service/cpu.max", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 4
+2485  openat(AT_FDCWD, "/sys/fs/cgroup/system.slice/cpu.max", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 4
+2485  openat(AT_FDCWD, "/sys/fs/cgroup/cpu.max", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+2485  clone(child_stack=0xfb0c0277a770, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID|0x400000, parent_tid=[2486], tls=0xfb0c0277a868, child_tidptr=0x10e66814) = 2486
+2485  clone(child_stack=0xfb0c01776770, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID|0x400000, parent_tid=[2487], tls=0xfb0c01776868, child_tidptr=0x10e66814) = 2487
+2485  clone(child_stack=0xfb0c000ee770, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID|0x400000, parent_tid=[2488], tls=0xfb0c000ee868, child_tidptr=0x10e66814) = 2488
+2488  openat(AT_FDCWD, "/etc/codex/managed_config.toml", O_RDONLY|O_NONBLOCK|O_LARGEFILE|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+2488  openat(AT_FDCWD, "/etc/codex/config.toml", O_RDONLY|O_NONBLOCK|O_LARGEFILE|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+2488  openat(AT_FDCWD, "/home/runner/cli-state/config.toml", O_RDONLY|O_NONBLOCK|O_LARGEFILE|O_CLOEXEC) = 10
+2485  clone(child_stack=0xfb0bff0ea770, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID|0x400000, parent_tid=[2489], tls=0xfb0bff0ea868, child_tidptr=0x10e66814) = 2489
+2489  openat(AT_FDCWD, "/etc/codex/agents", O_RDONLY|O_LARGEFILE|O_CLOEXEC|O_DIRECTORY) = -1 ENOENT (No such file or directory)
+2488  openat(AT_FDCWD, "/home/runner/cli-state/agents", O_RDONLY|O_LARGEFILE|O_CLOEXEC|O_DIRECTORY) = -1 ENOENT (No such file or directory)
+2485  clone(child_stack=0xfb0c0370b5f0, flags=CLONE_VM|CLONE_VFORK|SIGCHLD <unfinished ...>
+2490  execve("/home/runner/cli-state/tmp/arg0-linux/codex-arg0xhcvrw/codex-linux-sandbox", ["codex-linux-sandbox", "--sandbox-policy-cwd", "/source", "--command-cwd", "/source", "--permission-profile", "{\"type\":\"managed\",\"file_system\":{\"type\":\"restricted\",\"entries\":[{\"path\":{\"type\":\"path\",\"path\":\"/home/runner/cli-state\"},\"access\":\"deny\"},{\"path\":{\"type\":\"path\",\"path\":\"/home/worker\"},\"access\":\"write\"},{\"path\":{\"type\":\"path\",\"path\":\"/materials\"},\"access\":\"read\"},{\"path\":{\"type\":\"path\",\"path\":\"/opt/s2-smoke/public\"},\"access\":\"read\"},{\"path\":{\"type\":\"path\",\"path\":\"/scratch\"},\"access\":"..., "--", "/opt/s2-smoke/public/usr/local/bin/node", "/source/payload.mjs", "vm-smoke-20261117-134325"], 0xfb0c03b11f80 /* 4 vars */ <unfinished ...>
+2485  <... clone resumed>)              = 2490
+2490  <... execve resumed>)             = 0
+2490  openat(AT_FDCWD, "/proc/sys/vm/overcommit_memory", O_RDONLY|O_CLOEXEC) = 3
+2490  openat(AT_FDCWD, "/sys/kernel/mm/transparent_hugepage/enabled", O_RDONLY) = 3
+2490  --- SIGILL {si_signo=SIGILL, si_code=ILL_ILLOPC, si_addr=0xcf7c7c0} ---
+2490  --- SIGILL {si_signo=SIGILL, si_code=ILL_ILLOPC, si_addr=0xcf7c790} ---
+2490  --- SIGILL {si_signo=SIGILL, si_code=ILL_ILLOPC, si_addr=0xcf7c7a8} ---
+2490  --- SIGILL {si_signo=SIGILL, si_code=ILL_ILLOPC, si_addr=0xcf7c7b0} ---
+2490  --- SIGILL {si_signo=SIGILL, si_code=ILL_ILLOPC, si_addr=0xcf7c8a4} ---
+2490  openat(AT_FDCWD, "/opt/s2-smoke/public/usr/local/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-arm64/vendor/aarch64-unknown-linux-musl/codex-package.json", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3
+2490  mkdirat(AT_FDCWD, "/tmp/codex-daemon-22002", 0700) = -1 EEXIST (File exists)
+2490  openat(AT_FDCWD, "/tmp/codex-daemon-22002", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3
+2490  openat(AT_FDCWD, "/proc/self/fdinfo/3", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 4
+2490  openat(AT_FDCWD, "/proc/self/mountinfo", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 4
+2490  mkdirat(AT_FDCWD, "/scratch/codex-bwrap-synthetic-mount-targets-22002", 0777) = 0
+2490  openat(AT_FDCWD, "/scratch/codex-bwrap-synthetic-mount-targets-22002/lock", O_RDWR|O_CREAT|O_LARGEFILE|O_CLOEXEC, 0666) = 3
+2490  clone(child_stack=NULL, flags=SIGCHLD) = 2491
+2491  openat(AT_FDCWD, "/opt/s2-smoke/public/usr/local/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-arm64/vendor/aarch64-unknown-linux-musl/codex-resources/bwrap", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3
+2491  execve("/proc/self/fd/3", ["bwrap", "--as-pid-1", "--new-session", "--die-with-parent", "--tmpfs", "/", "--dev", "/dev", "--ro-bind", "/bin", "/bin", "--ro-bind", "/etc", "/etc", "--ro-bind", "/lib", "/lib", "--ro-bind", "/sbin", "/sbin", "--ro-bind", "/usr", "/usr", "--unshare-user", "--unshare-pid", "--unshare-ipc", "--unshare-net", "--proc", "/proc", "--cap-drop", "ALL", "--", "/usr/bin/true"], 0xffffc6b67038 /* 4 vars */) = 0
+2491  openat(AT_FDCWD, "/proc/sys/kernel/overflowuid", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3
+2491  openat(AT_FDCWD, "/proc/sys/kernel/overflowgid", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3
+2491  openat(AT_FDCWD, "/proc", O_RDONLY|O_LARGEFILE|O_PATH) = 3
+2491  wait4(-1, 0xffffcb32f4e0, WNOHANG, NULL) = -1 ECHILD (No child processes)
+2491  clone(child_stack=NULL, flags=CLONE_NEWNS|CLONE_NEWIPC|CLONE_NEWUSER|CLONE_NEWPID|CLONE_NEWNET|SIGCHLD) = 2492
+2491  openat(3, "2492/ns", O_RDONLY|O_LARGEFILE|O_PATH) = 5
+2491  openat(3, "self/fd", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_LARGEFILE|O_CLOEXEC|O_DIRECTORY) = 4
+2492  exit_group(1)                     = ?
+2491  wait4(-1, [{WIFEXITED(s) && WEXITSTATUS(s) == 1}], WNOHANG, NULL) = 2492
+2491  exit_group(1)                     = ?
+2490  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2491, si_uid=22002, si_status=1, si_utime=0, si_stime=0} ---
+2490  wait4(2491, [{WIFEXITED(s) && WEXITSTATUS(s) == 1}], 0, NULL) = 2491
+2490  mkdirat(AT_FDCWD, "/scratch/codex-bwrap-synthetic-mount-targets-22002", 0777) = -1 EEXIST (File exists)
+2490  openat(AT_FDCWD, "/scratch/codex-bwrap-synthetic-mount-targets-22002/lock", O_RDWR|O_CREAT|O_LARGEFILE|O_CLOEXEC, 0666) = 4
+2490  mkdirat(AT_FDCWD, "/tmp/codex-daemon-22002", 0700) = -1 EEXIST (File exists)
+2490  openat(AT_FDCWD, "/tmp/codex-daemon-22002", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3
+2490  openat(AT_FDCWD, "/proc/self/fdinfo/3", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 4
+2490  openat(AT_FDCWD, "/proc/self/mountinfo", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 4
+2490  mkdirat(AT_FDCWD, "/scratch/codex-bwrap-synthetic-mount-targets-22002", 0777) = -1 EEXIST (File exists)
+2490  mkdirat(AT_FDCWD, "/scratch/codex-bwrap-synthetic-mount-targets-22002", 0777) = -1 EEXIST (File exists)
+2490  openat(AT_FDCWD, "/scratch/codex-bwrap-synthetic-mount-targets-22002/lock", O_RDWR|O_CREAT|O_LARGEFILE|O_CLOEXEC, 0666) = 3
+2490  mkdirat(AT_FDCWD, "/scratch/codex-bwrap-synthetic-mount-targets-22002/31085f56d42f0aa3", 0777) = 0
+2490  openat(AT_FDCWD, "/scratch/codex-bwrap-synthetic-mount-targets-22002/31085f56d42f0aa3/2490", O_WRONLY|O_CREAT|O_TRUNC|O_LARGEFILE|O_CLOEXEC, 0666) = 4
+2490  mkdirat(AT_FDCWD, "/scratch/codex-bwrap-synthetic-mount-targets-22002/b04a47afcf085817", 0777) = 0
+2490  openat(AT_FDCWD, "/scratch/codex-bwrap-synthetic-mount-targets-22002/b04a47afcf085817/2490", O_WRONLY|O_CREAT|O_TRUNC|O_LARGEFILE|O_CLOEXEC, 0666) = 4
+2490  mkdirat(AT_FDCWD, "/scratch/codex-bwrap-synthetic-mount-targets-22002/cd3b87fafe7adacc", 0777) = 0
+2490  openat(AT_FDCWD, "/scratch/codex-bwrap-synthetic-mount-targets-22002/cd3b87fafe7adacc/2490", O_WRONLY|O_CREAT|O_TRUNC|O_LARGEFILE|O_CLOEXEC, 0666) = 4
+2490  mkdirat(AT_FDCWD, "/scratch/codex-bwrap-synthetic-mount-targets-22002/4312be56de9ac4be", 0777) = 0
+2490  openat(AT_FDCWD, "/scratch/codex-bwrap-synthetic-mount-targets-22002/4312be56de9ac4be/2490", O_WRONLY|O_CREAT|O_TRUNC|O_LARGEFILE|O_CLOEXEC, 0666) = 4
+2490  mkdirat(AT_FDCWD, "/scratch/codex-bwrap-synthetic-mount-targets-22002/2dcfb3252c76a0b1", 0777) = 0
+2490  openat(AT_FDCWD, "/scratch/codex-bwrap-synthetic-mount-targets-22002/2dcfb3252c76a0b1/2490", O_WRONLY|O_CREAT|O_TRUNC|O_LARGEFILE|O_CLOEXEC, 0666) = 4
+2490  mkdirat(AT_FDCWD, "/scratch/codex-bwrap-synthetic-mount-targets-22002/726b5167594c38b6", 0777) = 0
+2490  openat(AT_FDCWD, "/scratch/codex-bwrap-synthetic-mount-targets-22002/726b5167594c38b6/2490", O_WRONLY|O_CREAT|O_TRUNC|O_LARGEFILE|O_CLOEXEC, 0666) = 4
+2490  mkdirat(AT_FDCWD, "/scratch/codex-bwrap-synthetic-mount-targets-22002/370c1720a55dfd18", 0777) = 0
+2490  openat(AT_FDCWD, "/scratch/codex-bwrap-synthetic-mount-targets-22002/370c1720a55dfd18/2490", O_WRONLY|O_CREAT|O_TRUNC|O_LARGEFILE|O_CLOEXEC, 0666) = 4
+2490  mkdirat(AT_FDCWD, "/scratch/codex-bwrap-synthetic-mount-targets-22002/a5685a6775e5e8d7", 0777) = 0
+2490  openat(AT_FDCWD, "/scratch/codex-bwrap-synthetic-mount-targets-22002/a5685a6775e5e8d7/2490", O_WRONLY|O_CREAT|O_TRUNC|O_LARGEFILE|O_CLOEXEC, 0666) = 4
+2490  mkdirat(AT_FDCWD, "/scratch/codex-bwrap-synthetic-mount-targets-22002/3015343d3f06ba23", 0777) = 0
+2490  openat(AT_FDCWD, "/scratch/codex-bwrap-synthetic-mount-targets-22002/3015343d3f06ba23/2490", O_WRONLY|O_CREAT|O_TRUNC|O_LARGEFILE|O_CLOEXEC, 0666) = 4
+2490  mkdirat(AT_FDCWD, "/scratch/codex-bwrap-synthetic-mount-targets-22002/fb8162f889bb9297", 0777) = 0
+2490  openat(AT_FDCWD, "/scratch/codex-bwrap-synthetic-mount-targets-22002/fb8162f889bb9297/2490", O_WRONLY|O_CREAT|O_TRUNC|O_LARGEFILE|O_CLOEXEC, 0666) = 4
+2490  mkdirat(AT_FDCWD, "/scratch/codex-bwrap-synthetic-mount-targets-22002/af4bc74ebaa4764c", 0777) = 0
+2490  openat(AT_FDCWD, "/scratch/codex-bwrap-synthetic-mount-targets-22002/af4bc74ebaa4764c/2490", O_WRONLY|O_CREAT|O_TRUNC|O_LARGEFILE|O_CLOEXEC, 0666) = 4
+2490  mkdirat(AT_FDCWD, "/scratch/codex-bwrap-synthetic-mount-targets-22002/421f933d4972743e", 0777) = 0
+2490  openat(AT_FDCWD, "/scratch/codex-bwrap-synthetic-mount-targets-22002/421f933d4972743e/2490", O_WRONLY|O_CREAT|O_TRUNC|O_LARGEFILE|O_CLOEXEC, 0666) = 4
+2490  clone(child_stack=NULL, flags=SIGCHLD) = 2493
+2490  wait4(2493,  <unfinished ...>
+2493  openat(AT_FDCWD, "/opt/s2-smoke/public/usr/local/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-arm64/vendor/aarch64-unknown-linux-musl/codex-resources/bwrap", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3
+2493  execve("/proc/self/fd/3", ["bwrap", "--as-pid-1", "--new-session", "--die-with-parent", "--tmpfs", "/", "--dev", "/dev", "--ro-bind", "/bin", "/bin", "--ro-bind", "/etc", "/etc", "--ro-bind", "/home/runner/cli-state/tmp/arg0-linux/codex-arg0xhcvrw", "/home/runner/cli-state/tmp/arg0-linux/codex-arg0xhcvrw", "--ro-bind", "/home/worker", "/home/worker", "--ro-bind", "/lib", "/lib", "--ro-bind", "/materials", "/materials", "--ro-bind", "/opt/s2-smoke/public", "/opt/s2-smoke/public", "--ro-bind", "/sbin", "/sbin", "--ro-bind", "/scratch", "/scratch", "--ro-bind", "/source", "/source", "--ro-bind", "/usr", "/usr", "--bind", "/scratch", "/scratch", "--perms", "555", "--tmpfs", "/scratch/.git", "--remount-ro", "/scratch/.git", "--perms", "555", "--tmpfs", "/scratch/.agents", "--remount-ro", "/scratch/.agents", "--perms", "555", "--tmpfs", "/scratch/.codex", "--remount-ro", "/scratch/.codex", "--perms", "555", "--tmpfs", "/scratch/.aws", "--remount-ro", "/scratch/.aws", "--ro-bind", "/scratch/codex-bwrap-synthetic-mount-targets-22002", "/scratch/codex-bwrap-synthetic-mount-targets-22002", "--bind", "/source", "/source", "--perms", "555", "--tmpfs", "/source/.codex", "--remount-ro", "/source/.codex", "--perms", "555", "--tmpfs", "/source/.git", "--remount-ro", "/source/.git", "--perms", "555", "--tmpfs", "/source/.agents", "--remount-ro", "/source/.agents", "--perms", "555", "--tmpfs", "/source/.aws", "--remount-ro", "/source/.aws", "--bind", "/home/worker", "/home/worker", "--perms", "555", "--tmpfs", "/home/worker/.git", "--remount-ro", "/home/worker/.git", "--perms", "555", "--tmpfs", "/home/worker/.agents", "--remount-ro", "/home/worker/.agents", "--perms", "555", "--tmpfs", "/home/worker/.codex", "--remount-ro", "/home/worker/.codex", "--perms", "555", "--tmpfs", "/home/worker/.aws", "--remount-ro", "/home/worker/.aws", "--perms", "000", "--tmpfs", "/home/runner/cli-state", "--remount-ro", "/home/runner/cli-state", "--unshare-user", "--unshare-pid", "--unshare-ipc", "--unshare-net", "--proc", "/proc", "--cap-drop", "ALL", "--argv0", "codex-linux-sandbox", "--", "/opt/s2-smoke/public/usr/local/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-arm64/vendor/aarch64-unknown-linux-musl/bin/codex", "--sandbox-policy-cwd", "/source", "--command-cwd", "/source", "--permission-profile", "{\"type\":\"managed\",\"file_system\":{\"type\":\"restricted\",\"entries\":[{\"path\":{\"type\":\"path\",\"path\":\"/home/runner/cli-state\"},\"access\":\"deny\"},{\"path\":{\"type\":\"path\",\"path\":\"/home/worker\"},\"access\":\"write\"},{\"path\":{\"type\":\"path\",\"path\":\"/materials\"},\"access\":\"read\"},{\"path\":{\"type\":\"path\",\"path\":\"/opt/s2-smoke/public\"},\"access\":\"read\"},{\"path\":{\"type\":\"path\",\"path\":\"/scratch\"},\"access\":"..., "--apply-seccomp-then-exec", "--", "/opt/s2-smoke/public/usr/local/bin/node", "/source/payload.mjs", "vm-smoke-20261117-134325"], 0xffffc6b67038 /* 4 vars */) = 0
+2493  openat(AT_FDCWD, "/proc/sys/kernel/overflowuid", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3
+2493  openat(AT_FDCWD, "/proc/sys/kernel/overflowgid", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3
+2493  openat(AT_FDCWD, "/proc", O_RDONLY|O_LARGEFILE|O_PATH) = 3
+2493  wait4(-1, 0xfffff79e7220, WNOHANG, NULL) = -1 ECHILD (No child processes)
+2493  clone(child_stack=NULL, flags=CLONE_NEWNS|CLONE_NEWIPC|CLONE_NEWUSER|CLONE_NEWPID|CLONE_NEWNET|SIGCHLD) = 2494
+2493  openat(3, "2494/ns", O_RDONLY|O_LARGEFILE|O_PATH) = 5
+2493  openat(3, "self/fd", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_LARGEFILE|O_CLOEXEC|O_DIRECTORY) = 4
+bwrap: loopback: Failed RTM_NEWADDR: Operation not permitted
+2494  exit_group(1)                     = ?
+2493  wait4(-1, [{WIFEXITED(s) && WEXITSTATUS(s) == 1}], WNOHANG, NULL) = 2494
+2493  exit_group(1)                     = ?
+2490  <... wait4 resumed>[{WIFEXITED(s) && WEXITSTATUS(s) == 1}], 0, NULL) = 2493
+2490  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2493, si_uid=22002, si_status=1, si_utime=0, si_stime=0} ---
+2490  mkdirat(AT_FDCWD, "/scratch/codex-bwrap-synthetic-mount-targets-22002", 0777) = -1 EEXIST (File exists)
+2490  openat(AT_FDCWD, "/scratch/codex-bwrap-synthetic-mount-targets-22002/lock", O_RDWR|O_CREAT|O_LARGEFILE|O_CLOEXEC, 0666) = 3
+2490  openat(AT_FDCWD, "/scratch/codex-bwrap-synthetic-mount-targets-22002/421f933d4972743e", O_RDONLY|O_LARGEFILE|O_CLOEXEC|O_DIRECTORY) = 4
+2490  openat(AT_FDCWD, "/scratch/codex-bwrap-synthetic-mount-targets-22002/af4bc74ebaa4764c", O_RDONLY|O_LARGEFILE|O_CLOEXEC|O_DIRECTORY) = 4
+2490  openat(AT_FDCWD, "/scratch/codex-bwrap-synthetic-mount-targets-22002/fb8162f889bb9297", O_RDONLY|O_LARGEFILE|O_CLOEXEC|O_DIRECTORY) = 4
+2490  openat(AT_FDCWD, "/scratch/codex-bwrap-synthetic-mount-targets-22002/3015343d3f06ba23", O_RDONLY|O_LARGEFILE|O_CLOEXEC|O_DIRECTORY) = 4
+2490  openat(AT_FDCWD, "/scratch/codex-bwrap-synthetic-mount-targets-22002/a5685a6775e5e8d7", O_RDONLY|O_LARGEFILE|O_CLOEXEC|O_DIRECTORY) = 4
+2490  openat(AT_FDCWD, "/scratch/codex-bwrap-synthetic-mount-targets-22002/370c1720a55dfd18", O_RDONLY|O_LARGEFILE|O_CLOEXEC|O_DIRECTORY) = 4
+2490  openat(AT_FDCWD, "/scratch/codex-bwrap-synthetic-mount-targets-22002/726b5167594c38b6", O_RDONLY|O_LARGEFILE|O_CLOEXEC|O_DIRECTORY) = 4
+2490  openat(AT_FDCWD, "/scratch/codex-bwrap-synthetic-mount-targets-22002/2dcfb3252c76a0b1", O_RDONLY|O_LARGEFILE|O_CLOEXEC|O_DIRECTORY) = 4
+2490  openat(AT_FDCWD, "/scratch/codex-bwrap-synthetic-mount-targets-22002/4312be56de9ac4be", O_RDONLY|O_LARGEFILE|O_CLOEXEC|O_DIRECTORY) = 4
+2490  openat(AT_FDCWD, "/scratch/codex-bwrap-synthetic-mount-targets-22002/cd3b87fafe7adacc", O_RDONLY|O_LARGEFILE|O_CLOEXEC|O_DIRECTORY) = 4
+2490  openat(AT_FDCWD, "/scratch/codex-bwrap-synthetic-mount-targets-22002/b04a47afcf085817", O_RDONLY|O_LARGEFILE|O_CLOEXEC|O_DIRECTORY) = 4
+2490  openat(AT_FDCWD, "/scratch/codex-bwrap-synthetic-mount-targets-22002/31085f56d42f0aa3", O_RDONLY|O_LARGEFILE|O_CLOEXEC|O_DIRECTORY) = 4
+2490  exit_group(1)                     = ?
+2486  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2490, si_uid=22002, si_status=1, si_utime=0, si_stime=1 /* 0.01 s */} ---
+2485  wait4(2490, [{WIFEXITED(s) && WEXITSTATUS(s) == 1}], WNOHANG, NULL) = 2490
+2485  exit_group(1)                     = ?

@@ -1,0 +1,4 @@
+time="2026-11-18T17:34:33+09:00" level=info msg="The vz driver process seems already stopped"
+time="2026-11-18T17:34:33+09:00" level=info msg="The host agent process seems already stopped"
+time="2026-11-18T17:34:33+09:00" level=info msg="Removing *.pid *.sock *.tmp under `/private/tmp/ontosary-s2-erofs-observation/lima/ontosary-s2-erofs-observation`"
+time="2026-11-18T17:34:33+09:00" level=info msg="Deleted `ontosary-s2-erofs-observation` (`/private/tmp/ontosary-s2-erofs-observation/lima/ontosary-s2-erofs-observation`)"

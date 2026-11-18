@@ -134,6 +134,9 @@ class Smoke:
                 except Exception as e:result['diagnosticErrors'].append({'action':'disposed-marker','error':str(e)[:500]})
             if diagnostic_errors or any(x['action']=='disposed-marker' for x in result['diagnosticErrors']):self.cleanup_receipt(result)
             return result
+    def extra_bundle_files(self):
+        return {}
+
     def work(self):
         if (self.w/'execution-started.json').exists():raise RuntimeError('round-already-attempted')
         freeze=read(self.w/'freeze.json')
@@ -153,6 +156,8 @@ class Smoke:
         bundle=self.root/'bundle';bundle.mkdir(mode=0o755)
         materialized=extract(byname['ontosary-fixed-trace-image'],bundle/'public',time.monotonic()+limit(self.budget,'experiment',60));(bundle/'public').chmod(0o755);write(self.w/'materialized.json',materialized)
         for name in ['bounded.py','worker.py','setup.py','payload.mjs']:shutil.copyfile(HERE/name,bundle/name)
+        for name, path in self.extra_bundle_files().items():
+            shutil.copy(path, bundle / name)
         shutil.copyfile(self.w/'config.toml',bundle/'config.toml');shutil.copyfile(self.w/'worker-plan.json',bundle/'plan.json')
         files={str(p.relative_to(bundle)):sha(p) for p in bundle.rglob('*') if p.is_file()};write(self.w/'input-hashes.json',files);write(bundle/'manifest.json',files)
         archive=self.root/'inputs.tar'
@@ -172,6 +177,9 @@ class Smoke:
         props=[line for line in prepared['unit'].splitlines() if '=' in line and line.split('=',1)[0] not in ['Type','ExecStart','StandardOutput','StandardError']]
         args=['systemd-run','--unit=ontosary-smoke','--wait','--pipe','--collect',*["--property="+p for p in props],'/usr/bin/env','-i','PATH=/usr/sbin:/usr/bin:/sbin:/bin','LANG=C.UTF-8','HOME=/home/worker','/usr/bin/python3','/opt/s2-smoke/worker.py']
         write(self.w/'native-command.json',{'serviceArgs':args,'cliArgs':prepared['plan']['argv'],'inputHashes':files,'preparedAtUtc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'maximumSeconds':120,'payloadLimitSeconds':15})
+        return self.run_units(args)
+
+    def run_units(self,args):
         outer=self.guest(args,timeout=110,check=False);write(self.w/'outer.json',outer)
         rows=[json.loads(line) for line in outer['stdout'].splitlines() if line.startswith('{')];worker=rows[-1] if rows else {};write(self.w/'worker.json',worker)
         self.guest(['systemctl','stop','ontosary-smoke.service'],timeout=5,check=False)
