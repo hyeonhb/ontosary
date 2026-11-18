@@ -1,0 +1,159 @@
+{
+  "status": "static-leading-candidate-unconfirmed",
+  "sourceCommit": "c40729ea5cf8e947481b130c59807273eda2f8e9",
+  "nativeObservation": {
+    "args": [
+      "/opt/s2-smoke/public/usr/local/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-arm64/vendor/aarch64-unknown-linux-musl/bin/codex",
+      "sandbox",
+      "-P",
+      "fixture",
+      "-C",
+      "/source",
+      "--",
+      "/opt/s2-smoke/public/usr/local/bin/node",
+      "/source/payload.mjs",
+      "vm-smoke-20261117-134325"
+    ],
+    "startedUtc": "2026-11-17T13:56:27.207705+00:00",
+    "limitSeconds": 15,
+    "truncated": false,
+    "timedOut": false,
+    "capPerStream": 262144,
+    "pid": 2560,
+    "processObservation": {
+      "pid": 2560,
+      "cgroup": "0::/system.slice/ontosary-smoke.service\n",
+      "workerCgroup": "/system.slice/ontosary-smoke.service"
+    },
+    "exitCode": 1,
+    "seconds": 0.0058807630000004,
+    "finishedUtc": "2026-11-17T13:56:27.213587+00:00",
+    "stdout": "",
+    "stderr": "error building bubblewrap command: Read-only file system (os error 30)\n"
+  },
+  "workerUid": 22002,
+  "workerEnvironmentKeys": [
+    "HOME",
+    "LANG",
+    "PATH"
+  ],
+  "cliInitialEnvironmentFromFrozenWorker": {
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "HOME": "/home/runner/cli-state",
+    "CODEX_HOME": "/home/runner/cli-state",
+    "TMPDIR": "/scratch",
+    "LANG": "C.UTF-8"
+  },
+  "helperEnvironmentFromSourceAndConfig": {
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "HOME": "/home/worker",
+    "TMPDIR": "/scratch",
+    "CODEX_SANDBOX_NETWORK_DISABLED": "1"
+  },
+  "environmentValuesAreReconstructedNotProcEnvironCapture": true,
+  "cwdFromFrozenWorkerAndArgv": "/source",
+  "serviceArgs": [
+    "/private/tmp/ontosary-s2-vm-smoke-20261117/prefix/bin/limactl",
+    "shell",
+    "--workdir=/tmp",
+    "ontosary-s2-vm-smoke",
+    "sudo",
+    "-n",
+    "systemd-run",
+    "--unit=ontosary-smoke",
+    "--wait",
+    "--pipe",
+    "--collect",
+    "--property=User=s2smoke",
+    "--property=Group=s2smoke",
+    "--property=WorkingDirectory=/source",
+    "--property=NoNewPrivileges=yes",
+    "--property=CapabilityBoundingSet=",
+    "--property=AmbientCapabilities=",
+    "--property=PrivateNetwork=yes",
+    "--property=ProtectSystem=strict",
+    "--property=ProtectControlGroups=yes",
+    "--property=RestrictSUIDSGID=yes",
+    "--property=Delegate=no",
+    "--property=InaccessiblePaths=-/run/user -/run/dbus -/run/systemd/private -/run/containerd -/run/docker.sock -/root -/home/hyeon.guest/.ssh",
+    "--property=ReadWritePaths=/source /scratch /home/worker /home/runner/cli-state",
+    "--property=ReadOnlyPaths=/home/runner/cli-state/config.toml",
+    "--property=CPUQuota=200%",
+    "--property=MemoryMax=4G",
+    "--property=TasksMax=256",
+    "--property=RuntimeMaxSec=25",
+    "--property=TimeoutStopSec=3",
+    "--property=KillMode=control-group",
+    "/usr/bin/env",
+    "-i",
+    "PATH=/usr/sbin:/usr/bin:/sbin:/bin",
+    "LANG=C.UTF-8",
+    "HOME=/home/worker",
+    "/usr/bin/python3",
+    "/opt/s2-smoke/worker.py"
+  ],
+  "primaryCandidate": {
+    "pathPattern": "canonicalize(\"/tmp\")/codex-daemon-22002",
+    "usualLinuxPath": "/tmp/codex-daemon-22002",
+    "operation": "DirBuilder(mode=0700).create; expected mkdir/mkdirat",
+    "stage": "Linux helper outer stage, filesystem argv construction (normally proc preflight first)",
+    "actualFailedSyscallObserved": false
+  },
+  "historicalFilesCompared": 99,
+  "historicalFilesChanged": [],
+  "currentVsHistoricalCode": {
+    "worker.py": {
+      "historicalSha256": "85fb2f8bf366b12036e2a978f37862272afd7ef09e8f3cedd5d6b0f414885076",
+      "currentSha256": "85fb2f8bf366b12036e2a978f37862272afd7ef09e8f3cedd5d6b0f414885076",
+      "unchanged": true
+    },
+    "run.py": {
+      "historicalSha256": "1c3e6f9efdcf6d9759e66ca57792e97578f646b58f7186faeef4315b71306162",
+      "currentSha256": "bcc4c21ac51ff6f1767539f3021ef21473615ccb385cf64e0b4034a4c030f255",
+      "unchanged": false
+    },
+    "bounded.py": {
+      "historicalSha256": "5e70b73899d0cae72ad991b6276220378ce1c76e98a600f0690675ad447de2e6",
+      "currentSha256": "a3cbf079f284f7107722b5f7ee508fae9f1985051ba784bc237d69f42ac68bb1",
+      "unchanged": false
+    },
+    "payload.mjs": {
+      "historicalSha256": "206056767fbca29ee3f65533584287be3c41f6afb7f7e66cb54996e28b5aa77c",
+      "currentSha256": "206056767fbca29ee3f65533584287be3c41f6afb7f7e66cb54996e28b5aa77c",
+      "unchanged": true
+    },
+    "test_smoke.py": {
+      "historicalSha256": "8c845c55e636dc6e7d8cf863fd7aa5fdd2876351c9b1277e6b4bbe4f81881ed9",
+      "currentSha256": "8c845c55e636dc6e7d8cf863fd7aa5fdd2876351c9b1277e6b4bbe4f81881ed9",
+      "unchanged": true
+    },
+    "setup.py": {
+      "historicalSha256": "4d388b3f20a33409b0f8d5e6ca63e86a5c3c4ee6097ffa4fd487e0d3ebab681c",
+      "currentSha256": "4d388b3f20a33409b0f8d5e6ca63e86a5c3c4ee6097ffa4fd487e0d3ebab681c",
+      "unchanged": true
+    },
+    "materialize.py": {
+      "historicalSha256": "ead149b960148d59ac57633ff937052b817f7986c71f5db6d05427984857f092",
+      "currentSha256": "ead149b960148d59ac57633ff937052b817f7986c71f5db6d05427984857f092",
+      "unchanged": true
+    },
+    "test_materialize.py": {
+      "historicalSha256": "36d749d964bea2598ee4b9c0f69187b97e7c7a131d921617352b5f8b1ea05fff",
+      "currentSha256": "36d749d964bea2598ee4b9c0f69187b97e7c7a131d921617352b5f8b1ea05fff",
+      "unchanged": true
+    }
+  },
+  "sourceIdentityChecks": {
+    "npmIntegrity": true,
+    "releaseAssetDigest": true,
+    "historicalBinaryHash": true,
+    "attestationSubjectDigest": true,
+    "tagAndDeclaredProvenanceCommit": true,
+    "sigstoreSignatureVerificationPerformed": false,
+    "reproducibleBuildPerformed": false
+  },
+  "newVmCliTracePolicyCredentialModelOperations": 0,
+  "upstreamSourceFilesRead": 12,
+  "upstreamSourceBytesRead": 286638,
+  "binaryPackageAnalysisDownloadBytes": 165822267
+}

@@ -1,0 +1,98 @@
+[
+  {
+    "path": "codex-rs/linux-sandbox/src/linux_run_main.rs",
+    "gitBlob": "3ba283b37399861c3e5e71e797759bc82a3144bb",
+    "url": "https://github.com/openai/codex/blob/c40729ea5cf8e947481b130c59807273eda2f8e9/codex-rs/linux-sandbox/src/linux_run_main.rs",
+    "sha256": "2c8cdf628b8b8467cccf38227cada5295f5cb6a04888b860ea1b882fe2d19d53",
+    "bytes": 43570,
+    "lines": 1198
+  },
+  {
+    "path": "codex-rs/linux-sandbox/src/bwrap.rs",
+    "gitBlob": "11959d0c02248f090a568efd5b53ee1fa0e6ad9c",
+    "url": "https://github.com/openai/codex/blob/c40729ea5cf8e947481b130c59807273eda2f8e9/codex-rs/linux-sandbox/src/bwrap.rs",
+    "sha256": "82a48f532e11da94f608ca8785bac1fdd989a3276fe9fe255b9d0c0d3d60dd8d",
+    "bytes": 57966,
+    "lines": 1538
+  },
+  {
+    "path": "codex-rs/linux-sandbox/src/bundled_bwrap.rs",
+    "gitBlob": "29f6cbb10efbf529fc290544582a61dffb4c28e1",
+    "url": "https://github.com/openai/codex/blob/c40729ea5cf8e947481b130c59807273eda2f8e9/codex-rs/linux-sandbox/src/bundled_bwrap.rs",
+    "sha256": "f2825debef7272c72ae039d94d8bec7ca9e84e3ab534c3d59a9c26ae02a2ed80",
+    "bytes": 7090,
+    "lines": 223
+  },
+  {
+    "path": "codex-rs/cli/src/debug_sandbox.rs",
+    "gitBlob": "c0efcdb1f6e308a56ba8d5a2d734f449862f1380",
+    "url": "https://github.com/openai/codex/blob/c40729ea5cf8e947481b130c59807273eda2f8e9/codex-rs/cli/src/debug_sandbox.rs",
+    "sha256": "9d0d45513cae0a63926e9880b485e4b364e41c65169ede93e85c40d71c37c3fd",
+    "bytes": 45538,
+    "lines": 1288
+  },
+  {
+    "path": "codex-rs/uds/src/daemon_directory.rs",
+    "gitBlob": "90c3c103bc8d564a2cdfc658e1e80e76769bcebe",
+    "url": "https://github.com/openai/codex/blob/c40729ea5cf8e947481b130c59807273eda2f8e9/codex-rs/uds/src/daemon_directory.rs",
+    "sha256": "fd1eae1b3292f4fbc98e482a392d16246baa7fac4593dd7c1818a481fed070d6",
+    "bytes": 1542,
+    "lines": 39
+  },
+  {
+    "path": "codex-rs/core/src/exec_env.rs",
+    "gitBlob": "a119fa33a22fc3432a569256d7ade1c5bfc61d93",
+    "url": "https://github.com/openai/codex/blob/c40729ea5cf8e947481b130c59807273eda2f8e9/codex-rs/core/src/exec_env.rs",
+    "sha256": "879de6a89837780d9dadace93b496509a71a28e10f301a3c9e2527d381ed46cf",
+    "bytes": 4256,
+    "lines": 112
+  },
+  {
+    "path": "codex-rs/linux-sandbox/src/launcher.rs",
+    "gitBlob": "b4455ff210c3c5bd26d4f648debc9d3befc6614d",
+    "url": "https://github.com/openai/codex/blob/c40729ea5cf8e947481b130c59807273eda2f8e9/codex-rs/linux-sandbox/src/launcher.rs",
+    "sha256": "2121245986b3eace784d404d27cfe44612929206ebc008a7c617db05fa53151b",
+    "bytes": 8950,
+    "lines": 252
+  },
+  {
+    "path": "codex-rs/linux-sandbox/src/daemon_mounts.rs",
+    "gitBlob": "1ad026f1b5be081d8bf60ff6556b21023c83fce2",
+    "url": "https://github.com/openai/codex/blob/c40729ea5cf8e947481b130c59807273eda2f8e9/codex-rs/linux-sandbox/src/daemon_mounts.rs",
+    "sha256": "bc929ea13aabdb363ed0bea9235bce795867df6c85995649a26ede327efc0352",
+    "bytes": 10075,
+    "lines": 256
+  },
+  {
+    "path": "codex-rs/protocol/src/shell_environment.rs",
+    "gitBlob": "0c6c515c416d3829122e8037a3b9c49c1a581608",
+    "url": "https://github.com/openai/codex/blob/c40729ea5cf8e947481b130c59807273eda2f8e9/codex-rs/protocol/src/shell_environment.rs",
+    "sha256": "1f55f0f5319c1f0255f0f961523debef5cf7a8f34a75705a9b36e1b84dde591f",
+    "bytes": 11306,
+    "lines": 337
+  },
+  {
+    "path": "codex-rs/sandboxing/src/landlock.rs",
+    "gitBlob": "dad16e238c081a36d01914e2847ba16cf67b220b",
+    "url": "https://github.com/openai/codex/blob/c40729ea5cf8e947481b130c59807273eda2f8e9/codex-rs/sandboxing/src/landlock.rs",
+    "sha256": "3c42f88ad846e13d1e4ba765e331d12d2955a2673f80bf8b1ae12e5d32326d74",
+    "bytes": 4183,
+    "lines": 115
+  },
+  {
+    "path": "codex-rs/linux-sandbox/src/wslg.rs",
+    "gitBlob": "01b2eca29468751bc1e957a7f87085d3cdee2a9c",
+    "url": "https://github.com/openai/codex/blob/c40729ea5cf8e947481b130c59807273eda2f8e9/codex-rs/linux-sandbox/src/wslg.rs",
+    "sha256": "99d39b9d0c7abbd5a09d1f99cbb135db5059e440b5377a214b2112b2534fa36c",
+    "bytes": 2557,
+    "lines": 66
+  },
+  {
+    "path": ".github/workflows/rust-release.yml",
+    "gitBlob": "4c6c9a425198baf7bbf6fb8f32a7dac6f7f41acf",
+    "url": "https://github.com/openai/codex/blob/c40729ea5cf8e947481b130c59807273eda2f8e9/.github/workflows/rust-release.yml",
+    "sha256": "f181ba37d0c7f6ebb8028ca050eca043d9b961fb93958da6430a6092826ffc4b",
+    "bytes": 89605,
+    "lines": 2208
+  }
+]

@@ -1,0 +1,19 @@
+{
+  "status": "static-leading-candidate-unconfirmed",
+  "baseCommit": "38481fd72ba9cf9759f019504f91748adf545ea2",
+  "sourceCommit": "c40729ea5cf8e947481b130c59807273eda2f8e9",
+  "startedUtc": "2026-11-18T07:36:34.481801+00:00",
+  "analysisCompletedUtc": "2026-11-18T07:45:49.953164+00:00",
+  "elapsedSecondsSinceRecordedStart": 555.4771336670092,
+  "initialInstructionAndGitReadsBeforeClockIncluded": false,
+  "sourceBlobsChecked": 12,
+  "sourceExcerptsChecked": 20,
+  "historicalFilesUnchanged": 99,
+  "pnpmCheckExitCode": 0,
+  "pnpmTestsPassed": 304,
+  "typecheck": "passed",
+  "exampleBuild": "passed",
+  "newRuntimeExecutions": 0,
+  "newAnalysisProgramAdded": false,
+  "dynamicFollowup": "proposed only, not implemented or executed"
+}
