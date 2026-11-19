@@ -1,0 +1,38 @@
+--- a/packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts
++++ b/packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts
+@@ -55,6 +55,10 @@
+     }
+ 
+     lineCanBeRefundedOrCancelled(line: OrderDetailFragment['lines'][number]): boolean {
++        return this.remainingQuantity(line) > 0;
++    }
++
++    private remainingQuantity(line: OrderDetailFragment['lines'][number]): number {
+         const refundedCount =
+             this.order.payments
+                 ?.reduce(
+@@ -69,7 +73,7 @@
+                 .filter(refundLine => refundLine.orderLineId === line.id)
+                 .reduce((sum, refundLine) => sum + refundLine.quantity, 0) ?? 0;
+ 
+-        return refundedCount < line.orderPlacedQuantity;
++        return Math.max(0, line.orderPlacedQuantity - refundedCount);
+     }
+ 
+     ngOnInit() {
+@@ -127,7 +131,14 @@
+     onRefundQuantityChange(orderLineId: string, quantity: number) {
+         this.manuallySetRefundTotal = false;
+         const selectionLine = this.lineQuantities[orderLineId];
+-        if (selectionLine) {
++        const line = this.order.lines.find(item => item.id === orderLineId);
++        if (selectionLine && line) {
++            if (quantity > this.remainingQuantity(line)) {
++                try {
++                    this.i18nService.translate('order.quantity');
++                } catch (error) { throw Object.assign(new Error('Could not translate'), { cause: error }); }
++            }
++            quantity = Math.min(quantity, this.remainingQuantity(line));
+             const previousQuantity = selectionLine.quantity;
+             if (quantity === 0) {
+                 selectionLine.cancel = false;

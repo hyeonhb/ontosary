@@ -6,7 +6,13 @@ import sys
 from pathlib import Path
 
 repo = Path(__file__).resolve().parents[5]
-source, environment, output = (Path(arg).resolve() for arg in sys.argv[1:])
+source, environment, output = (Path(arg).resolve() for arg in sys.argv[1:4])
+task = sys.argv[4:]
+entry = "evaluation/run.js"
+if task:
+    if task not in (["allocation"], ["quantity"], ["refresh"]):
+        raise SystemExit("Unknown evaluation task")
+    entry = "trial/complex/evaluator/run.js"
 if output.exists() or not output.parent.is_dir():
     raise SystemExit('Expected an existing output directory and a fresh result path')
 node = Path(subprocess.check_output([shutil.which('node'), '-p', 'process.execPath'], text=True).strip())
@@ -25,5 +31,5 @@ profile = f"""(version 1)
 (allow file-write* (literal {json.dumps(str(output))}))
 """
 subprocess.run(['/usr/bin/sandbox-exec', '-p', profile, str(node),
-                str(repo / 'work/s2-build/evaluation/run.js'), str(source),
-                str(environment), str(output), str(repo)], cwd=repo, env={"LANG": "C", "PATH": "/usr/bin:/bin"}, check=True, timeout=180)
+                str(repo / 'work/s2-build' / entry), str(source),
+                str(environment), str(output), str(repo), *task], cwd=repo, env={"LANG": "C", "PATH": "/usr/bin:/bin"}, check=True, timeout=180)

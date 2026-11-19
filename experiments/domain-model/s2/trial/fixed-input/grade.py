@@ -9,7 +9,7 @@ import subprocess
 import sys
 import tempfile
 
-answer, baseline, environment, out = (Path(arg).resolve() for arg in sys.argv[1:])
+answer, baseline, environment, out = (Path(arg).resolve() for arg in sys.argv[1:5])
 out.mkdir(exist_ok=False)
 raw = answer.read_bytes()
 result = {'responseSha256': hashlib.sha256(raw).hexdigest(), 'applied': False}
@@ -68,7 +68,7 @@ try:
         result['applied'] = True
         target = out / 'evaluation.json'
         run = subprocess.run([sys.executable, str(Path(__file__).with_name('evaluate.py')), str(source),
-                              str(environment), str(target)], capture_output=True)
+                              str(environment), str(target), *sys.argv[5:]], capture_output=True)
         if target.exists():
             report = json.loads(target.read_bytes())
             if report.get('contractVersion') and report.get('typecheck', {}).get('submissionId'):

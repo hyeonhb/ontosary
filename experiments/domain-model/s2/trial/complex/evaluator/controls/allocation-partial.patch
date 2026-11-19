@@ -1,0 +1,11 @@
+diff --git a/packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts b/packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts
+--- a/packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts
++++ b/packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts
+@@ -105,6 +105,7 @@
+         }
+ 
+         // allocate the refund total across the refundable payments
++        this.refundablePayments.sort((a, b) => a.refundableAmount - b.refundableAmount);
+         const refundablePayments = this.refundablePayments.filter(p => p.selected);
+         let refundsAllocated = 0;
+         for (const payment of refundablePayments) {

@@ -1,0 +1,39 @@
+diff --git a/packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts b/packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts
+--- a/packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts
++++ b/packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts
+@@ -55,6 +55,10 @@
+     }
+ 
+     lineCanBeRefundedOrCancelled(line: OrderDetailFragment['lines'][number]): boolean {
++        return this.remainingQuantity(line) > 0;
++    }
++
++    private remainingQuantity(line: OrderDetailFragment['lines'][number]): number {
+         const refundedCount =
+             this.order.payments
+                 ?.reduce(
+@@ -69,7 +73,7 @@
+                 .filter(refundLine => refundLine.orderLineId === line.id)
+                 .reduce((sum, refundLine) => sum + refundLine.quantity, 0) ?? 0;
+ 
+-        return refundedCount < line.orderPlacedQuantity;
++        return Math.max(0, line.orderPlacedQuantity - refundedCount);
+     }
+ 
+     ngOnInit() {
+@@ -127,11 +131,12 @@
+     onRefundQuantityChange(orderLineId: string, quantity: number) {
+         this.manuallySetRefundTotal = false;
+         const selectionLine = this.lineQuantities[orderLineId];
+-        if (selectionLine) {
+-            const previousQuantity = selectionLine.quantity;
++        const line = this.order.lines.find(item => item.id === orderLineId);
++        if (selectionLine && line) {
++            quantity = Math.min(quantity, this.remainingQuantity(line));
+             if (quantity === 0) {
+                 selectionLine.cancel = false;
+-            } else if (previousQuantity === 0 && quantity > 0) {
++            } else if (quantity > 0) {
+                 selectionLine.cancel = true;
+             }
+             selectionLine.quantity = quantity;

@@ -1,0 +1,115 @@
+{
+  "fixture": "Synthetic usage and 17 assumed successes; zero participant calls",
+  "scoredAttempt": {
+    "task": "refresh",
+    "repeat": 1,
+    "condition": "A",
+    "id": "aa7cad93ba82",
+    "status": "unsupported",
+    "success": false,
+    "elapsedSeconds": 1,
+    "usage": {
+      "input_tokens": 10,
+      "output_tokens": 2
+    },
+    "threadId": "synthetic-regression",
+    "applied": true,
+    "typecheck": "passed",
+    "behavioral": "unsupported",
+    "sourceBinding": true,
+    "submissionId": "08ab8ad3f02b9d5e79ffa1e9db7ee72262078a34f7a48d33a173428e483ec311"
+  },
+  "allScheduled": {
+    "A": {
+      "scheduled": 6,
+      "successes": 5,
+      "input_tokens": {
+        "total": 60,
+        "observedSubtotal": 60,
+        "observedCount": 6
+      },
+      "output_tokens": {
+        "total": 12,
+        "observedSubtotal": 12,
+        "observedCount": 6
+      },
+      "elapsedSeconds": {
+        "total": 6,
+        "observedSubtotal": 6,
+        "observedCount": 6
+      }
+    },
+    "B": {
+      "scheduled": 6,
+      "successes": 6,
+      "input_tokens": {
+        "total": 120,
+        "observedSubtotal": 120,
+        "observedCount": 6
+      },
+      "output_tokens": {
+        "total": 18,
+        "observedSubtotal": 18,
+        "observedCount": 6
+      },
+      "elapsedSeconds": {
+        "total": 12,
+        "observedSubtotal": 12,
+        "observedCount": 6
+      }
+    },
+    "C": {
+      "scheduled": 6,
+      "successes": 6,
+      "input_tokens": {
+        "total": 180,
+        "observedSubtotal": 180,
+        "observedCount": 6
+      },
+      "output_tokens": {
+        "total": 24,
+        "observedSubtotal": 24,
+        "observedCount": 6
+      },
+      "elapsedSeconds": {
+        "total": 18,
+        "observedSubtotal": 18,
+        "observedCount": 6
+      }
+    }
+  },
+  "effects": {
+    "B-A": {
+      "additionalSuccesses": 1,
+      "comparable": false,
+      "input_tokens": {
+        "difference": 60,
+        "perAdditionalSuccess": null
+      },
+      "output_tokens": {
+        "difference": 6,
+        "perAdditionalSuccess": null
+      },
+      "elapsedSeconds": {
+        "difference": 6,
+        "perAdditionalSuccess": null
+      }
+    },
+    "C-A": {
+      "additionalSuccesses": 1,
+      "comparable": false,
+      "input_tokens": {
+        "difference": 120,
+        "perAdditionalSuccess": null
+      },
+      "output_tokens": {
+        "difference": 12,
+        "perAdditionalSuccess": null
+      },
+      "elapsedSeconds": {
+        "difference": 12,
+        "perAdditionalSuccess": null
+      }
+    }
+  }
+}
