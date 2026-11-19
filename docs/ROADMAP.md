@@ -1,5 +1,7 @@
 # 단계별 계획
 
+2026-11-19 S2의 다음 우선순위는 [복합 수정 과업과 비교 기준 준비](reviews/2026-11-19-s2-complex-task-preparation-instructions.md)다. 기존 고정 입력 경로에서 업무 관계의 이해가 필요한 과업을 고르고, 예비 난이도 관측과 평가 과업을 분리한다. 성공 건수와 보조 자료를 포함한 비용을 함께 비교할 수 있는지 준비 결과를 먼저 리뷰한다.
+
 2026-11-18 loopback 진단을 보류하고 [고정 입력 패치 파일럿 지시](reviews/2026-11-18-s2-fixed-input-pilot-instructions.md)를 우선한다. 세 패치의 동작 차이와 해석 한계를 검토한 뒤 도구를 갖춘 본 비교의 투자 여부를 판단한다.
 
 2026-11-18 EROFS 대조를 마쳤다. 다음 판단은 기존 격리 조건에서 loopback 차단을 더 조사할 비용과 S2 효용 검증에 미치는 영향이다. [독립 리뷰](reviews/2026-11-18-s2-erofs-comparison-independent-review.md)
