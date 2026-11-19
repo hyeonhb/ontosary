@@ -1,0 +1,30 @@
+{
+  "order": [
+    {
+      "id": "65f6ff9224",
+      "condition": "B"
+    },
+    {
+      "id": "1e52ddfadf",
+      "condition": "C"
+    },
+    {
+      "id": "4fb4a73fa9",
+      "condition": "A"
+    }
+  ],
+  "seconds": 1800,
+  "outputUtf8Bytes": 49152,
+  "model": "gpt-6.2-astra",
+  "reasoning": "medium",
+  "firstAnswersOnly": true,
+  "patchRules": "Raw Git unified diff or one diff/patch fence; git apply --whitespace=nowarn; --recount only on failed --check; no context or body edits. First answer sealed before grading; no followup.",
+  "contextBound": {
+    "largestInputBytes": 300540,
+    "commonInstructionBytes": 60,
+    "framingAllowanceTokens": 4096,
+    "outputReserveTokens": 49152,
+    "effectiveContextTokens": 486400
+  },
+  "sourceRevision": "534e6003534f74761e82de1b8c6061cba89945d1"
+}
