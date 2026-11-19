@@ -1,0 +1,68 @@
+diff --git a/packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts b/packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts
+--- a/packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts
++++ b/packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts
+@@ -586,16 +586,20 @@
+                     if (input) {
+                         return this.dataService.order.cancelOrder(input);
+                     } else {
+-                        return of(undefined);
+-                    }
+-                }),
+-                switchMap(result => this.refetchOrder(result)),
++                        return EMPTY;
++                    }
++                }),
++                switchMap(response => {
++                    const result = response.cancelOrder;
++                    if (result.__typename === 'Order') {
++                        this.notificationService.success(_('order.cancelled-order-success'));
++                    } else if ('message' in result) {
++                        this.notificationService.error(result.message);
++                    }
++                    return this.refetchOrder(result);
++                }),
+             )
+-            .subscribe(result => {
+-                if (result) {
+-                    this.notificationService.success(_('order.cancelled-order-success'));
+-                }
+-            });
++            .subscribe();
+     }
+ 
+     private refundOrder(order: OrderDetailFragment) {
+@@ -609,7 +613,7 @@
+             .pipe(
+                 switchMap(input => {
+                     if (!input) {
+-                        return of(undefined);
++                        return EMPTY;
+                     }
+ 
+                     if (input.cancel.lines?.length) {
+@@ -618,7 +622,6 @@
+                                 const result = res.cancelOrder;
+                                 switch (result.__typename) {
+                                     case 'Order':
+-                                        this.refetchOrder(result).subscribe();
+                                         this.notificationService.success(
+                                             _('order.cancelled-order-items-success'),
+                                             {
+@@ -632,7 +635,7 @@
+                                     case 'OrderStateTransitionError':
+                                     case 'EmptyOrderLineSelectionError':
+                                         this.notificationService.error(result.message);
+-                                        return undefined;
++                                        return input;
+                                 }
+                             }),
+                         );
+@@ -676,7 +679,7 @@
+                         }
+                     }
+                 }
+-                this.refetchOrder(results?.[0]).subscribe();
++                this.refetchOrder(order).subscribe();
+             });
+     }
+ 
