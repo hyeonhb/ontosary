@@ -16,7 +16,7 @@ record = s2/'results/2026-11-19-complex-preparation'
 parser = argparse.ArgumentParser()
 parser.add_argument('source', type=Path)
 parser.add_argument('work', type=Path, help='Fresh scratch directory')
-parser.add_argument('--environment', type=Path, help='Also replay nine controls, the sealed probe and seven grading regressions')
+parser.add_argument('--environment', type=Path, help='Also replay nine controls, the sealed probe and all grading regressions')
 args = parser.parse_args()
 args.work.mkdir(parents=True,exist_ok=False)
 
@@ -32,17 +32,37 @@ def run(script,*argv):
 original_plan = read(record/'heldout/contract.json')
 plan = read(scoring_evidence/'contract.json')
 assert {k:v for k,v in plan.items() if k!='evaluation'} == {k:v for k,v in original_plan.items() if k!='evaluation'}
+prior = s2/'results/2026-11-19-complex-grading-v2'
+for relative in [*sorted((prior/'controls').rglob('evaluation.json.gz')),
+                 *sorted((prior/'regressions').rglob('evaluation.json.gz')),
+                 prior/'probe/submission/evaluation.json.gz']:
+    updated = scoring_evidence/relative.relative_to(prior)
+    metadata = {'contractVersion','evaluatorId','fingerprint'}
+    assert {k:v for k,v in read(relative).items() if k not in metadata} == {
+        k:v for k,v in read(updated).items() if k not in metadata}, relative
+    previous_cost = relative.with_name('cost.json')
+    if previous_cost.is_file():
+        assert read(previous_cost)==read(updated.with_name('cost.json')), relative
+
 # Bind the two preserved UI entry points to the HTML at the frozen Vendure revision.
 template = args.source/'packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.html'
 assert digest(template)=='9ea4b2b1adf7cd7f5907e1438d5ba9ed837f2679ae02402908e3c3db1a483ef5'
 for name in ('hidden','throw'):
-    directory = scoring_evidence/'v1-review-replay'/name
+    directory = prior/'v1-review-replay'/name
     assert read(directory/'grade.json')['responseSha256']==digest(here/'evaluator/controls'/f'quantity-{name}.patch')
     previous = read(directory/'evaluation.json.gz')
     assert previous['contractVersion']=='s2-complex-v1'
     changes = [c['status'] for c in previous['behavior']['cases'] if c['group']=='change']
     assert changes==(['passed']*3 if name=='hidden' else ['unsupported']*3)
     assert all(c['status']=='passed' for c in previous['behavior']['cases'] if c['group']=='preserve')
+for name,task,patch,old_status in (
+        ('wrapped-seam','quantity','wrapped-seam','behavior-failed'),
+        ('rxjs-optional','refresh','rx-optional','unsupported'),
+        ('rxjs-bracket','refresh','rx-bracket','unsupported')):
+    replay = scoring_evidence/'v2-review-replay'/name
+    assert read(replay/'grade.json')['responseSha256']==digest(here/'evaluator/controls'/f'{task}-{patch}.patch')
+    assert read(replay/'evaluation.json.gz')['evaluatorId']==read(prior/'contract.json')['evaluation'][task]['evaluatorId']
+    assert read(replay/'cost.json')['scoredAttempt']['status']==old_status
 order = plan['order']
 assert len(order)==len({a['id'] for a in order})==plan['scheduledAttempts']==18
 for t in ('quantity','refresh'):
@@ -93,6 +113,10 @@ if args.environment:
     run(here/'calibrate.py','allocation',args.source,args.environment,args.work/'probe-replay','--answer',directory/'answer.txt')
     assert read(args.work/'probe-replay/submission/evaluation.json.gz')==read(scoring_evidence/'probe/submission/evaluation.json.gz')
 
+# The three spellings must identify the very same emitted value, source location and cases.
+reports = [read(scoring_evidence/'regressions'/name/'evaluation.json.gz')['behavior']
+           for name in ('rxjs-notification','rxjs-optional','rxjs-bracket')]
+assert reports[0]==reports[1]==reports[2]
 for name,task,patch,status,_ in examples:
     saved = scoring_evidence/'regressions'/name
     assert read(saved/'grade.json')['responseSha256']==digest(here/'evaluator/controls'/f'{task}-{patch}.patch')
@@ -112,4 +136,4 @@ for file in (material/'B/views').glob('evidence-*.json'):
     assert digest(source)==ref['sha256']
     text=source.read_text().encode('utf-16-le')[ref['offset']*2:ref['end']*2].decode('utf-16-le')
     assert text==ref['text']
-print('Verified packets, comparison schedule, v2 controls, seven regressions, probe seal, 1511 leaf correspondences and 30 source anchors.')
+print(f'Verified packets, comparison schedule, v3 controls, {len(examples)} regressions, probe seal, 1511 leaf correspondences and 30 source anchors.')

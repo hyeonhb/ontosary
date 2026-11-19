@@ -1,0 +1,115 @@
+{
+  "fixture": "Synthetic usage and 17 assumed successes; zero participant calls",
+  "scoredAttempt": {
+    "task": "quantity",
+    "repeat": 1,
+    "condition": "A",
+    "id": "7191b15de681",
+    "status": "behavior-failed",
+    "success": false,
+    "elapsedSeconds": 1,
+    "usage": {
+      "input_tokens": 10,
+      "output_tokens": 2
+    },
+    "threadId": "synthetic-regression",
+    "applied": true,
+    "typecheck": "passed",
+    "behavioral": "failed",
+    "sourceBinding": true,
+    "submissionId": "542e1ddadf457f6a1001bd2f1c1e0ef6bc386761403df9d71497ce77bb96c3d2"
+  },
+  "allScheduled": {
+    "A": {
+      "scheduled": 6,
+      "successes": 5,
+      "input_tokens": {
+        "total": 60,
+        "observedSubtotal": 60,
+        "observedCount": 6
+      },
+      "output_tokens": {
+        "total": 12,
+        "observedSubtotal": 12,
+        "observedCount": 6
+      },
+      "elapsedSeconds": {
+        "total": 6,
+        "observedSubtotal": 6,
+        "observedCount": 6
+      }
+    },
+    "B": {
+      "scheduled": 6,
+      "successes": 6,
+      "input_tokens": {
+        "total": 120,
+        "observedSubtotal": 120,
+        "observedCount": 6
+      },
+      "output_tokens": {
+        "total": 18,
+        "observedSubtotal": 18,
+        "observedCount": 6
+      },
+      "elapsedSeconds": {
+        "total": 12,
+        "observedSubtotal": 12,
+        "observedCount": 6
+      }
+    },
+    "C": {
+      "scheduled": 6,
+      "successes": 6,
+      "input_tokens": {
+        "total": 180,
+        "observedSubtotal": 180,
+        "observedCount": 6
+      },
+      "output_tokens": {
+        "total": 24,
+        "observedSubtotal": 24,
+        "observedCount": 6
+      },
+      "elapsedSeconds": {
+        "total": 18,
+        "observedSubtotal": 18,
+        "observedCount": 6
+      }
+    }
+  },
+  "effects": {
+    "B-A": {
+      "additionalSuccesses": 1,
+      "comparable": true,
+      "input_tokens": {
+        "difference": 60,
+        "perAdditionalSuccess": 60.0
+      },
+      "output_tokens": {
+        "difference": 6,
+        "perAdditionalSuccess": 6.0
+      },
+      "elapsedSeconds": {
+        "difference": 6,
+        "perAdditionalSuccess": 6.0
+      }
+    },
+    "C-A": {
+      "additionalSuccesses": 1,
+      "comparable": true,
+      "input_tokens": {
+        "difference": 120,
+        "perAdditionalSuccess": 120.0
+      },
+      "output_tokens": {
+        "difference": 12,
+        "perAdditionalSuccess": 12.0
+      },
+      "elapsedSeconds": {
+        "difference": 12,
+        "perAdditionalSuccess": 12.0
+      }
+    }
+  }
+}

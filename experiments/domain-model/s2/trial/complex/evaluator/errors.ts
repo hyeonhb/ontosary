@@ -1,6 +1,7 @@
 // Attribute only values observed at a submitted throw or an actual RxJS subscriber's error call.
 // A fixture exception passing through submitted frames is insufficient evidence.
 import { AsyncLocalStorage } from 'node:async_hooks';
+import { types } from 'node:util';
 import ts from 'typescript';
 import { Failure } from '../../../lib/model.js';
 
@@ -18,15 +19,39 @@ export function inCase(observation: Observation, fn: () => void) {
     scope.run({observation, sites:new Map(), caught:new Set()}, fn);
 }
 function diagnosis(error: unknown, channel: 'synchronous' | 'rxjs') {
-    const site = scope.getStore()?.sites.get(error);
-    let message: string;
-    try { message = String(error); } catch { message = 'Thrown value is not printable'; }
-    if (error instanceof Failure && error.code === 'UnsupportedEvaluation')
-        return {channel, kind:'unsupported-feature', message, field:error.field, status:'unsupported' as const};
-    if (error instanceof Failure && error.code === 'Environment')
-        return {channel, kind:'environment', message, field:error.field, status:'environment-error' as const};
-    if (site) return {channel, kind:'submission', message, site, status:'failed' as const};
-    return {channel, kind:'unattributed', message, status:'unsupported' as const};
+    // A wrapper's throw site identifies the transport. Prefer the origin at the end of
+    // an explicit cause chain, including errors from another VM realm.
+    const active = scope.getStore();
+    const seen = new Set<unknown>();
+    let origin = error;
+    let opaque = false;
+    while (origin !== null && (typeof origin === 'object' || typeof origin === 'function')) {
+        if (types.isProxy(origin) || seen.has(origin) || seen.size >= 32) {
+            opaque = true;
+            break;
+        }
+        const descriptor = Object.getOwnPropertyDescriptor(origin,'cause');
+        if (!descriptor) break;
+        if (!Object.hasOwn(descriptor,'value')) {
+            opaque = true;
+            break;
+        }
+        seen.add(origin);
+        origin = descriptor.value;
+    }
+    function describe(value: unknown) {
+        try { return String(value); } catch { return 'Thrown value is not printable'; }
+    }
+    const info = {channel, message:describe(error), ...(seen.size && !opaque ? {cause:describe(origin)} : {})};
+    if (!opaque) {
+        if (origin instanceof Failure && origin.code === 'UnsupportedEvaluation')
+            return {...info, kind:'unsupported-feature', field:origin.field, status:'unsupported' as const};
+        if (origin instanceof Failure && origin.code === 'Environment')
+            return {...info, kind:'environment', field:origin.field, status:'environment-error' as const};
+        const site = active?.sites.get(origin);
+        if (site) return {...info, kind:'submission', site, status:'failed' as const};
+    }
+    return {...info, kind:'unattributed', status:'unsupported' as const};
 }
 export function recordError(error: unknown, channel: 'synchronous' | 'rxjs') {
     const diagnostic = diagnosis(error,channel);
@@ -63,9 +88,16 @@ export function instrument(file: string, source: string): string {
             insert(node.block.getStart(sf)+1, caught+'('+node.variableDeclaration.name.text+');');
         }
         if (ts.isThrowStatement(node)) { target=node.expression; hook=marker; }
-        if (ts.isCallExpression(node) && ts.isPropertyAccessExpression(node.expression) &&
-            node.expression.name.text==='error' && node.expression.expression.kind!==ts.SyntaxKind.SuperKeyword && !node.questionDotToken && !ts.isOptionalChain(node.expression)) {
-            target=node.expression.expression; hook=receiver;
+        if (ts.isCallExpression(node)) {
+            const member = node.expression;
+            const callsError = (ts.isPropertyAccessExpression(member) && member.name.text==='error') ||
+                (ts.isElementAccessExpression(member) && ts.isStringLiteralLike(member.argumentExpression) &&
+                    member.argumentExpression.text==='error');
+            // Leave the call, including its optional checks and argument evaluation, in the VM.
+            // Wrapping part of a longer optional receiver chain would break its short circuit.
+            if (callsError && member.expression.kind!==ts.SyntaxKind.SuperKeyword && !ts.isOptionalChain(member.expression)) {
+                target=member.expression; hook=receiver;
+            }
         }
         if (target) {
             const pos = target.getStart(sf), line = sf.getLineAndCharacterOfPosition(pos).line+1;
@@ -97,7 +129,11 @@ export function attributionBindings(Subscriber: Function) {
             if (!(value instanceof Subscriber)) return value;
             const subscriber = value as {error: (error: unknown) => void};
             const original = subscriber.error;
-            return {error: (error: unknown) => original.call(subscriber,remember({file,line,operation:'subscriber.error'},error))};
+            if (typeof original !== 'function') return {error: original};
+            return {error: (...args: unknown[]) => {
+                remember({file,line,operation:'subscriber.error'},args[0]);
+                return Reflect.apply(original,subscriber,args);
+            }};
         },
     };
 }

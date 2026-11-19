@@ -15,6 +15,11 @@ examples = [
     ('rxjs-notification', 'refresh', 'rx-error', 'behavior-failed', ('rxjs','submission')),
     ('unreviewed-operator', 'refresh', 'unsupported-operator', 'unsupported', ('rxjs','unsupported-feature')),
     ('unattributed-seam', 'quantity', 'missing-seam', 'unsupported', ('synchronous','unattributed')),
+    ('wrapped-seam', 'quantity', 'wrapped-seam', 'unsupported', ('synchronous','unattributed')),
+    ('wrapped-submission', 'quantity', 'wrapped-submission', 'behavior-failed', ('synchronous','submission')),
+    ('rxjs-optional', 'refresh', 'rx-optional', 'behavior-failed', ('rxjs','submission')),
+    ('rxjs-bracket', 'refresh', 'rx-bracket', 'behavior-failed', ('rxjs','submission')),
+    ('rxjs-optional-skipped', 'refresh', 'rx-optional-skipped', 'passed', None),
     ('missing-environment', 'quantity', 'reference', 'environment-error', None),
 ]
 
@@ -48,7 +53,7 @@ def regression(name, source, environment, packets, output):
         if name=='missing-environment':
             environment = Path('/nonexistent/ontosary-grading-regression-env')
         row = observe(work,source,environment,plan,attempt,work/'scored')
-        assert row['status']==status and not row['success'] and row['usage']==cost['usage'],row
+        assert row['status']==status and row['success']==(status=='passed') and row['usage']==cost['usage'],row
         shutil.copytree(work/'scored'/run/'submission',output)
     report = json.loads(gzip.decompress((output/'evaluation.json.gz').read_bytes()))
     if status!='environment-error':
@@ -60,9 +65,17 @@ def regression(name, source, environment, packets, output):
         if name=='inverted-visibility':
             assert [c['name'] for c in cases if c['status']=='failed']==[
                 'quantity-and-cancel-controls/available','quantity-and-cancel-controls/exhausted']
+        if name in ('wrapped-seam','wrapped-submission'):
+            assert len(errors)==3 and all(c['group']=='change' for c,e in errors)
+            if name=='wrapped-seam':
+                assert all(e['cause'].startswith('TypeError:') and 'translate' in e['cause'] and 'site' not in e for _,e in errors)
+            else:
+                assert all(e['cause'].startswith('RangeError:') and e['site']['operation']=='throw' for _,e in errors)
+        if name=='rxjs-optional-skipped':
+            assert len(cases)==24 and all(c['status']=='passed' for c in cases) and not report['behavior']['unhandled']
         if name=='direct-throw':
             assert len(errors)==3 and all(c['group']=='change' and e['site']['operation']=='throw' for c,e in errors)
-        if name in ('rxjs-throw','rxjs-notification'):
+        if name in ('rxjs-throw','rxjs-notification','rxjs-optional','rxjs-bracket'):
             assert report['behavior']['unhandled']
             operation = 'throw' if name=='rxjs-throw' else 'subscriber.error'
             assert all(e['site']['operation']==operation for _,e in errors)
@@ -73,14 +86,15 @@ def regression(name, source, environment, packets, output):
     result = summarize(rows)
     for arm in 'ABC':
         total = result['allScheduled'][arm]
-        assert total['scheduled']==6 and total['successes']==(5 if arm=='A' else 6)
+        assert total['scheduled']==6 and total['successes']==(5 if arm=='A' and status!='passed' else 6)
         assert total['input_tokens']['total']==6*mock_cost(arm)['usage']['input_tokens']
     for arm in 'BC':
         effect = result['effects'][arm+'-A']
-        comparable = status=='behavior-failed'
-        assert effect['comparable']==comparable and effect['additionalSuccesses']==1
+        comparable = status in ('behavior-failed','passed')
+        gain = int(status!='passed')
+        assert effect['comparable']==comparable and effect['additionalSuccesses']==gain
         for key in ('input_tokens','output_tokens','elapsedSeconds'):
             metric = effect[key]
-            assert metric['perAdditionalSuccess']==(metric['difference'] if comparable else None)
+            assert metric['perAdditionalSuccess']==(metric['difference'] if comparable and gain else None)
     write(output/'cost.json', {'fixture':'Synthetic usage and 17 assumed successes; zero participant calls',
           'scoredAttempt':row, 'allScheduled':result['allScheduled'],'effects':result['effects']})

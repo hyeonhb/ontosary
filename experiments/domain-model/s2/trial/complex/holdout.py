@@ -11,7 +11,7 @@ import sys
 
 here = Path(__file__).resolve().parent
 evidence = here.parents[1] / 'results/2026-11-19-complex-preparation'
-scoring_evidence = here.parents[1] / 'results/2026-11-19-complex-grading-v2'
+scoring_evidence = here.parents[1] / 'results/2026-11-19-complex-grading-v3'
 fixed = here.parent/'fixed-input'
 
 

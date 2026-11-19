@@ -15,7 +15,7 @@ import { attributionBindings, inCase, instrument, recordError, type Observation 
 const [source, rootArg, out, repo, task] = process.argv.slice(2);
 if (!source || !rootArg || !out || !repo || !task || !['allocation','quantity','refresh'].includes(task) || fs.existsSync(out))
     throw Error('Expected source, environment, new output, repository and task');
-const root = path.resolve(rootArg), version = 's2-complex-v2';
+const root = path.resolve(rootArg), version = 's2-complex-v3';
 const modules = ['run','dialogs','refresh','errors'].map(n=>'./'+n+'.js').concat(
     ['behavior','execute','submission','modal','evaluate','stream'].map(n=>'../../../evaluation/'+n+'.js'),
     ['../../../vendure-baseline.js','../../../lib/analysis-session.js','../../../lib/model.js']);
