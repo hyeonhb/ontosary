@@ -4,6 +4,7 @@ import { createModal, orderLocals, type Observer } from '../../../evaluation/mod
 import type { Engine, Observe } from './dialogs.js';
 
 export interface Rx {
+    Subscriber: Function;
     Observable: new (subscribe: (observer: Observer) => void) => unknown;
     of(value: unknown): unknown;
     config: { onUnhandledError: ((error: unknown) => void) | null };
@@ -39,15 +40,25 @@ function scenario(engine: Engine, rx: Rx, fixture: Fixture) {
         refreshes.push('order/'+id+'/'+settled);
         observer.next({order:{id}}); observer.complete();
     }) });
+    const action = dismiss ? 'cancel' : 'select';
+    const actionErrors: unknown[] = [];
     const modal = createModal({
         registrations: mappings.slice(1,3).map(declaration => ({
-            declaration, component:engine.component(declaration.className), create:()=>engine.instance(declaration.className),
+            declaration, component:engine.component(declaration.className), create:()=>{
+                const dialog = engine.instance(declaration.className);
+                const original = dialog[action];
+                if (typeof original === 'function') dialog[action] = function(this: Runtime, ...args: unknown[]) {
+                    try { return Reflect.apply(original,this,args); }
+                    catch (error) { actionErrors.push(error); throw error; }
+                };
+                return dialog;
+            },
             userState:()=>({ reason, cancelAll:true, refundShippingLineIds:['ship'],
                 refundablePayments: refunds.map((_,i)=>({id:'p'+i,selected:true,amountToRefundControl:{value:10+i}})),
                 lineQuantities: declaration.className==='CancelOrderDialogComponent' ? {x:2} :
                     {x:{quantity:2,cancel:route==='mixed'}} }),
         })),
-        observable: subscribe => new rx.Observable(subscribe), action: dismiss ? 'cancel':'select', validateLocals: orderLocals,
+        observable: subscribe => new rx.Observable(subscribe), action, validateLocals: orderLocals,
     });
     const detail = engine.instance('OrderDetailComponent');
     Object.assign(detail,{id:'order', dataService:{order:service}, modalService:{fromComponent:modal.fromComponent},
@@ -56,6 +67,7 @@ function scenario(engine: Engine, rx: Rx, fixture: Fixture) {
                              error:(...args:unknown[])=>notices.push(['error',...args])}});
     invoke(detail,'cancelOrRefund',{id:'order',active:false,state:'PaymentSettled',
         payments:route==='direct'?[]:[{state:'Settled'}],lines:[{id:'x',quantity:2,orderPlacedQuantity:2}]});
+    if (actionErrors.length) throw actionErrors[0]; // The modal seam otherwise serializes the exception.
     modal.assertComplete();
     // Reverse completion among concurrently requested payments; cap a faulty submission's repeated work.
     while (pending.length && settled < 10) pending.pop()!();

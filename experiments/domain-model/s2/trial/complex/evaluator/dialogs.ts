@@ -93,6 +93,25 @@ export function quantity(engine: Engine, observe: Observe) {
             submissions: payload([...x,...y], [...(cancel ? x : []),...y], [['pay',total]], true)},
             () => scenario(prior, requested, keep, includeY));
     }
+    // Both template controls use this same predicate. Exercise it on the actual initialized dialog.
+    const available = item('available', 1, 4, 10), exhausted = item('exhausted', 2, 3, 5);
+    for (const [target, visible] of [[available,true],[exhausted,false]] as const) {
+        const expected = visible ? {visible:true, cancelEnabledBeforeEdit:false, cancelEnabledAfterEdit:true}
+            : {visible:false};
+        observe('quantity-and-cancel-controls/'+target.id, 'preserve', expected, () => {
+            const {dialog: d} = dialog(engine,[available,exhausted],[
+                payment('first',60,[refund('Settled',10,[line('available',2),line('exhausted',2)])]),
+                payment('second',50,[refund('Pending',5,[line('exhausted',1)]),refund('Failed',20,[line('available',2)])]),
+            ]);
+            const displayed = invoke(d,'lineCanBeRefundedOrCancelled',target);
+            if (!displayed) return {visible:displayed};
+            const quantities = d.lineQuantities as Record<string,{quantity:number}>;
+            const cancelEnabled = () => quantities[target.id]!.quantity !== 0;
+            const before = cancelEnabled();
+            invoke(d,'onRefundQuantityChange',target.id,1);
+            return {visible:displayed, cancelEnabledBeforeEdit:before, cancelEnabledAfterEdit:cancelEnabled()};
+        });
+    }
     check('aggregate-other-payment-and-failed-history', 'change', 2, 5, false, 3, true);
     check('over-refunded-line-keeps-other-line-and-shipping', 'change', 7, 1, false, 0, false);
     check('capped-edit-retains-refund-only-choice', 'change', 3, 6, true, 2, false);

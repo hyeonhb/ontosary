@@ -1,0 +1,6 @@
+{
+  "responseSha256": "a17d12979e640b46c075c55b183b294a07341eea99a1a65d9e3d0b4caec2701d",
+  "applied": true,
+  "status": "environment-error",
+  "error": "Error: ENOENT: no such file or directory, lstat '/nonexistent'"
+}

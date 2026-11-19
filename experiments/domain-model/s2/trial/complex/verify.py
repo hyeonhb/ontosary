@@ -7,13 +7,16 @@ from pathlib import Path
 import subprocess
 import sys
 
+from grading_regressions import examples, regression
+from holdout import scoring_evidence
+
 here = Path(__file__).resolve().parent
 s2 = here.parents[1]
 record = s2/'results/2026-11-19-complex-preparation'
 parser = argparse.ArgumentParser()
 parser.add_argument('source', type=Path)
 parser.add_argument('work', type=Path, help='Fresh scratch directory')
-parser.add_argument('--environment', type=Path, help='Also replay nine controls and the sealed probe')
+parser.add_argument('--environment', type=Path, help='Also replay nine controls, the sealed probe and seven grading regressions')
 args = parser.parse_args()
 args.work.mkdir(parents=True,exist_ok=False)
 
@@ -26,7 +29,20 @@ def digest(path):
 def run(script,*argv):
     subprocess.run([sys.executable,str(script),*map(str,argv)],check=True)
 
-plan = read(record/'heldout/contract.json')
+original_plan = read(record/'heldout/contract.json')
+plan = read(scoring_evidence/'contract.json')
+assert {k:v for k,v in plan.items() if k!='evaluation'} == {k:v for k,v in original_plan.items() if k!='evaluation'}
+# Bind the two preserved UI entry points to the HTML at the frozen Vendure revision.
+template = args.source/'packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.html'
+assert digest(template)=='9ea4b2b1adf7cd7f5907e1438d5ba9ed837f2679ae02402908e3c3db1a483ef5'
+for name in ('hidden','throw'):
+    directory = scoring_evidence/'v1-review-replay'/name
+    assert read(directory/'grade.json')['responseSha256']==digest(here/'evaluator/controls'/f'quantity-{name}.patch')
+    previous = read(directory/'evaluation.json.gz')
+    assert previous['contractVersion']=='s2-complex-v1'
+    changes = [c['status'] for c in previous['behavior']['cases'] if c['group']=='change']
+    assert changes==(['passed']*3 if name=='hidden' else ['unsupported']*3)
+    assert all(c['status']=='passed' for c in previous['behavior']['cases'] if c['group']=='preserve')
 order = plan['order']
 assert len(order)==len({a['id'] for a in order})==plan['scheduledAttempts']==18
 for t in ('quantity','refresh'):
@@ -49,7 +65,7 @@ for task in ('allocation','quantity','refresh'):
     assert inspection['localRequest']['tools']==inspection['configuredPreview']['tools']==[]
     if task in plan['evaluation']:
         assert digest(frozen/'inputs.json')==plan['inputManifestsSha256'][task]
-    controls = record/'controls'/task
+    controls = scoring_evidence/'controls'/task
     if args.environment:
         run(here/'calibrate.py',task,args.source,args.environment,args.work/task/'controls')
     for control in ('baseline','partial','reference'):
@@ -75,7 +91,17 @@ assert seal['packetSha256']==read(probe/'inputs.json')['conditions']['A']['sha25
 assert read(probe/'score/evaluation.json.gz')['overall']=='passed'
 if args.environment:
     run(here/'calibrate.py','allocation',args.source,args.environment,args.work/'probe-replay','--answer',directory/'answer.txt')
-    assert read(args.work/'probe-replay/submission/evaluation.json.gz')==read(probe/'score/evaluation.json.gz')
+    assert read(args.work/'probe-replay/submission/evaluation.json.gz')==read(scoring_evidence/'probe/submission/evaluation.json.gz')
+
+for name,task,patch,status,_ in examples:
+    saved = scoring_evidence/'regressions'/name
+    assert read(saved/'grade.json')['responseSha256']==digest(here/'evaluator/controls'/f'{task}-{patch}.patch')
+    assert read(saved/'cost.json')['scoredAttempt']['status']==status
+    if args.environment:
+        replay = args.work/'regressions'/name
+        regression(name,args.source,args.environment,args.work,replay)
+        for file in ('grade.json','evaluation.json.gz','cost.json'):
+            assert read(replay/file)==read(saved/file), (name,file)
 
 material=s2/'results/2026-11-10-trial-preparation'
 parity=json.loads(subprocess.check_output([sys.executable,str(s2/'verification/2026-11-10-trial-preparation/audit-parity.py'),str(material)]))
@@ -86,4 +112,4 @@ for file in (material/'B/views').glob('evidence-*.json'):
     assert digest(source)==ref['sha256']
     text=source.read_text().encode('utf-16-le')[ref['offset']*2:ref['end']*2].decode('utf-16-le')
     assert text==ref['text']
-print('Verified packets, comparison schedule, controls, probe seal, 1511 leaf correspondences and 30 source anchors.')
+print('Verified packets, comparison schedule, v2 controls, seven regressions, probe seal, 1511 leaf correspondences and 30 source anchors.')

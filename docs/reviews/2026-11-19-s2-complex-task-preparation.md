@@ -1,15 +1,32 @@
 # Vendure 복합 수정 비교 준비 · 2026-11-19
 
-**예비 A의 첫 패치는 변경 2/2·보존 3/3을 통과했다. 평가용 두 과업의 참가 호출은 0회다.** 원본·참조·부분 패치로 두 평가 과업 모두에서 변경 요구 누락과 인접 동작의 회귀를 구분했다. 리뷰에서 실험용 업무 정책과 비용을 승인하면 18회 비교를 실행할 수 있다.
+**예비 A의 첫 패치는 변경 2/2·보존 3/3을 통과했다. 평가용 두 과업의 참가 호출은 0회다.** 원본·참조·부분 패치로 두 평가 과업 모두에서 변경 요구 누락과 인접 동작의 회귀를 구분했다. 아래 표는 독립 리뷰 R21·R22 보완 후 동결한 `s2-complex-v2`의 재채점 결과다. 18회 비교의 실행 여부는 보완 리뷰에서 결정한다.
 
 | 전체 소스로 채점한 제출 | 예비 · 환불액 배분 | 평가 · 환불 잔여 수량 | 평가 · 화면 동기화 |
 | --- | --- | --- | --- |
-| 원본 | 변경 0/2 · 보존 3/3 | 변경 0/3 · 보존 3/3 | 변경 3/9 · 보존 15/15 |
-| 참조 패치 | 2/2 · 3/3 | 3/3 · 3/3 | 9/9 · 15/15 |
-| 부분 패치 | 0/2 · 0/3 | 2/3 · 2/3 | 8/9 · 13/15 |
+| 원본 | 변경 0/2 · 보존 3/3 | 변경 0/3 · 보존 5/5 | 변경 3/9 · 보존 15/15 |
+| 참조 패치 | 2/2 · 3/3 | 3/3 · 5/5 | 9/9 · 15/15 |
+| 부분 패치 | 0/2 · 0/3 | 2/3 · 4/5 | 8/9 · 13/15 |
 | 참가자의 첫 패치 | A 2/2 · 3/3 | 미실행 | 미실행 |
 
-세 과업의 참조·부분 패치 모두 원본 전체 복사본에 적용됐고 타입을 통과했다. 표의 분모는 검사 항목이다. 이번 참가 표본은 예비 A 한 건이다. [과업별 원시 관측](../../experiments/domain-model/s2/results/2026-11-19-complex-preparation/controls/)
+세 과업의 참조·부분 패치 모두 원본 전체 복사본에 적용됐고 타입을 통과했다. 표의 분모는 검사 항목이다. 이번 참가 표본은 예비 A 한 건이다. [과업별 원시 관측](../../experiments/domain-model/s2/results/2026-11-19-complex-grading-v2/controls/)
+
+## 독립 리뷰 R21·R22 보완
+
+**R21.** 고정 템플릿의 수량 입력과 취소 체크박스는 같은 `lineCanBeRefundedOrCancelled(line)` 조건을 사용한다. 잔여 2개인 항목은 입력이 표시되고, 수량을 0에서 1로 바꾸면 체크박스가 활성화돼야 한다. 3개가 모두 환불된 항목은 두 입력이 숨겨져야 한다. v1에서 6/6을 받은 반전 패치는 v2에서 정확히 `quantity-and-cancel-controls/available`과 `…/exhausted`에 실패해 6/8이다. 기존 6개 검사는 그대로 재실행했고 참조는 환불 전용 선택과 제출을 포함해 8/8이다. [v1 반례 재현](../../experiments/domain-model/s2/results/2026-11-19-complex-grading-v2/v1-review-replay/) · [v2 반전 패치 관측](../../experiments/domain-model/s2/results/2026-11-19-complex-grading-v2/regressions/inverted-visibility/evaluation.json.gz)
+
+**R22.** 잔여량을 초과하는 유효한 정수를 입력하면 제출이 직접 던지는 `RangeError`가 변경 검사 3개에서 관측됐다. v1에서는 모두 미지원이었지만 v2는 제출 파일의 136번째 줄과 `throw`를 기록해 업무 실패로 집계한다. RxJS도 같은 기준으로 제출의 직접 예외와 실제 Subscriber의 오류 통지를 추적한다. 각 관측에는 동기 호출 또는 RxJS 경로, 오류 메시지, 판정 근거가 남는다. 제출에서 발생했다고 확인할 수 없는 오류는 귀속 미상으로 기록한다. [동기 예외](../../experiments/domain-model/s2/results/2026-11-19-complex-grading-v2/regressions/direct-throw/evaluation.json.gz) · [RxJS 예외](../../experiments/domain-model/s2/results/2026-11-19-complex-grading-v2/regressions/rxjs-throw/evaluation.json.gz) · [Subscriber 오류 통지](../../experiments/domain-model/s2/results/2026-11-19-complex-grading-v2/regressions/rxjs-notification/evaluation.json.gz)
+
+| 실제 채점에 넣은 대조 제출 또는 환경 | 최종 집계 상태 | B−A·C−A의 추가 성공당 비용 |
+| --- | --- | --- |
+| 가시성 반전, 유효 수량에서 직접 예외, RxJS 콜백 예외, Subscriber 오류 통지 | 네 대조 모두 `behavior-failed` | 비교 가능. 입력 토큰은 각각 60·120 |
+| 평가기가 실행할 수 없는 RxJS `tap` | `unsupported` · 미지원 연산자명 기록 | 판단 보류 |
+| 평가지원 대역에 없는 번역 서비스 접근 후 같은 예외를 다시 던짐 | `unsupported` · 귀속 미상 TypeError 기록 | 판단 보류 |
+| 실행 환경 경로 누락 | `environment-error` · 환경 열기 오류 기록 | 판단 보류 |
+
+각 대조에서 A 한 건을 실제 제출 채점과 비용 집계에 통과시키고 나머지 17건은 성공으로 고정했다. 비용은 검증용으로 만든 값이다. 일곱 대조 모두 예정 분모는 조건별 6건, 성공은 A 5건·B와 C 각 6건, 총 입력은 A 60·B 120·C 180이다. 비교를 보류한 대조도 이 비용을 보존한다. 각 디렉터리의 `evaluation.json.gz`와 `cost.json`에서 제출 판정과 최종 집계를 대조할 수 있다. [대조별 원시 기록과 비용표](../../experiments/domain-model/s2/results/2026-11-19-complex-grading-v2/regressions/)
+
+공개 입력·배정·예산은 v1과 같고 새 계약에 두 평가 과업의 채점 지문을 고정했다. 이번 보완의 모델 호출은 0회이며 예비 A의 봉인 답변을 새 평가기로 다시 채점했다. [v2 계약](../../experiments/domain-model/s2/results/2026-11-19-complex-grading-v2/contract.json) · [예비 A 재채점](../../experiments/domain-model/s2/results/2026-11-19-complex-grading-v2/probe/submission/evaluation.json.gz) · [당시 v1 원시 기록](../../experiments/domain-model/s2/results/2026-11-19-complex-preparation/) · [독립 리뷰](2026-11-19-s2-complex-task-preparation-independent-review.md)
 
 ## 예비와 평가를 나눈 이유
 
@@ -37,11 +54,11 @@ B의 방향·예외·근거·검토 상태를 C 본문 및 부록과 대조하�
 
 ## 교정이 구분한 실패와 판단 범위
 
-수량 사례에서 원본은 주문 당시 6개 중 다른 결제를 포함해 3개가 이미 환불됐는데도 5개를 받아들였다. 참조는 3개를 남겼다. 부분 패치는 상한을 적용하지만 양수로 재편집할 때마다 취소 선택을 되살린다. `manual-refund-only-under-cap`에서 수량·금액이 맞아도 취소 라인이 생겨 실패한다. 사용자 편집에서 도달한 상태와 제출 payload를 함께 검사했다. [수량 참조·부분 패치](../../experiments/domain-model/s2/trial/complex/evaluator/controls/) · [부분 패치의 관측](../../experiments/domain-model/s2/results/2026-11-19-complex-preparation/controls/quantity/partial/evaluation.json.gz)
+수량 사례에서 원본은 주문 당시 6개 중 다른 결제를 포함해 3개가 이미 환불됐는데도 5개를 받아들였다. 참조는 3개를 남겼다. 부분 패치는 상한을 적용하지만 양수로 재편집할 때마다 취소 선택을 되살린다. `manual-refund-only-under-cap`에서 수량·금액이 맞아도 취소 라인이 생겨 실패한다. 사용자 편집에서 도달한 상태와 제출 payload를 함께 검사했다. [수량 참조·부분 패치](../../experiments/domain-model/s2/trial/complex/evaluator/controls/) · [부분 패치의 관측](../../experiments/domain-model/s2/results/2026-11-19-complex-grading-v2/controls/quantity/partial/evaluation.json.gz)
 
-동기화 사례에서 원본은 혼합 성공의 중간 취소 결과와 마지막 환불 결과에서 각각 갱신했다. 참조는 마지막 결과 뒤에 한 번 갱신한다. 부분 패치는 화면까지 흐름을 이어 주지만 취소 거절 뒤 원래 입력을 후속 단계로 보내 환불까지 실행한다. `mixed-cancel-rejected/requests`에서 대상·순서가 드러난다. 주문 재조회는 Observable의 실제 구독을, 이력 갱신은 신호를 관측한다. 동시에 요청한 두 결제의 응답을 역순으로 완료시켜 이른 재조회도 구분했다. [화면 관측기](../../experiments/domain-model/s2/trial/complex/evaluator/refresh.ts) · [부분 패치의 관측](../../experiments/domain-model/s2/results/2026-11-19-complex-preparation/controls/refresh/partial/evaluation.json.gz)
+동기화 사례에서 원본은 혼합 성공의 중간 취소 결과와 마지막 환불 결과에서 각각 갱신했다. 참조는 마지막 결과 뒤에 한 번 갱신한다. 부분 패치는 화면까지 흐름을 이어 주지만 취소 거절 뒤 원래 입력을 후속 단계로 보내 환불까지 실행한다. `mixed-cancel-rejected/requests`에서 대상·순서가 드러난다. 주문 재조회는 Observable의 실제 구독을, 이력 갱신은 신호를 관측한다. 동시에 요청한 두 결제의 응답을 역순으로 완료시켜 이른 재조회도 구분했다. [화면 관측기](../../experiments/domain-model/s2/trial/complex/evaluator/refresh.ts) · [부분 패치의 관측](../../experiments/domain-model/s2/results/2026-11-19-complex-grading-v2/controls/refresh/partial/evaluation.json.gz)
 
-채점기 `s2-complex-v1`은 새 전체 제출 루트에 기존 엄격 타입 검사를 수행하고 실제 제출 메서드와 상대 helper를 실행한다. 비교 대상은 화면 값·payload·알림·호출 순서와 횟수다. 예비 A와 참조처럼 표현이 다른 코드도 같은 결과를 얻을 수 있다. 보존 실패와 요구 실패는 함께 기록한다. 실행한 소스 SHA는 타입 검사 소스와 대조한다. 최초 교정에서는 VM 배열의 realm 차이 때문에 값이 같은 관측이 실패했고, 직접 취소 참조 패치의 union 오류도 발견했다. JSON 값 비교와 참조 타입 가드를 수정한 뒤 표의 대조군을 다시 실행했다. [평가 진입점](../../experiments/domain-model/s2/trial/complex/evaluator/run.ts) · [폼·제출 관측기](../../experiments/domain-model/s2/trial/complex/evaluator/dialogs.ts)
+채점기 `s2-complex-v2`은 새 전체 제출 루트에 기존 엄격 타입 검사를 수행하고 실제 제출 메서드와 상대 helper를 실행한다. 비교 대상은 화면 값·payload·알림·호출 순서와 횟수다. 예비 A와 참조처럼 표현이 다른 코드도 같은 결과를 얻을 수 있다. 보존 실패와 요구 실패는 함께 기록한다. 실행한 소스 SHA는 타입 검사 소스와 대조한다. 최초 교정에서는 VM 배열의 realm 차이 때문에 값이 같은 관측이 실패했고, 직접 취소 참조 패치의 union 오류도 발견했다. JSON 값 비교와 참조 타입 가드를 수정한 뒤 표의 대조군을 다시 실행했다. [평가 진입점](../../experiments/domain-model/s2/trial/complex/evaluator/run.ts) · [폼·제출 관측기](../../experiments/domain-model/s2/trial/complex/evaluator/dialogs.ts)
 
 실제 브라우저·서버·네트워크 장애는 측정하지 않는다. FormControl·DI·서버 응답은 제한된 대역이며 기존 평가기가 허용하는 TypeScript 메서드·상대 helper·동기 RxJS 범위에서 판정한다. 의미상 타당한 답이 미지원 연산자나 필드 초기화 변경을 요구하면 해당 결과를 미지원으로 인계한다. UI 쓰기 자체, 임의의 외부 입력 또는 모든 가능한 주문의 정확성까지 증명하지 않는다.
 
@@ -49,7 +66,7 @@ B의 방향·예외·근거·검토 상태를 C 본문 및 부록과 대조하�
 
 ## 성공·비용 계약
 
-평가 과업 2개 × 조건 3개 × 독립 반복 3회로 **총 18회, 조건별 6회**를 계획했다. 세 반복이면 과업마다 각 조건이 첫째·둘째·셋째에 한 번씩 배정된다. 두 과업의 순서를 번갈아 배치했다. 동일 모델 `gpt-6.2-astra`, reasoning `medium`, 도구 없는 임시 세션에서 첫 제출 하나만 받는다. 각 과업·반복별 A/B/C 결과를 짝지어 표시한다. 18개 모두 봉인 또는 수집 중단 상태를 기록한 뒤 채점하며 참가 재호출은 없다. [동결 순서·예산·지문](../../experiments/domain-model/s2/results/2026-11-19-complex-preparation/heldout/contract.json) · [도구 노출 사전 검사](../../experiments/domain-model/s2/results/2026-11-19-complex-preparation/heldout/refresh/preflight.json)
+평가 과업 2개 × 조건 3개 × 독립 반복 3회로 **총 18회, 조건별 6회**를 계획했다. 세 반복이면 과업마다 각 조건이 첫째·둘째·셋째에 한 번씩 배정된다. 두 과업의 순서를 번갈아 배치했다. 동일 모델 `gpt-6.2-astra`, reasoning `medium`, 도구 없는 임시 세션에서 첫 제출 하나만 받는다. 각 과업·반복별 A/B/C 결과를 짝지어 표시한다. 18개 모두 봉인 또는 수집 중단 상태를 기록한 뒤 채점하며 참가 재호출은 없다. [동결 순서·예산·지문](../../experiments/domain-model/s2/results/2026-11-19-complex-grading-v2/contract.json) · [도구 노출 사전 검사](../../experiments/domain-model/s2/results/2026-11-19-complex-preparation/heldout/refresh/preflight.json)
 
 | 조건 | 수량 / 동기화 패킷 바이트 | 회당 예상 입력 | 6회 예상 입력 | 6회 예상 출력 |
 | --- | ---: | ---: | ---: | ---: |
@@ -66,13 +83,14 @@ B의 방향·예외·근거·검토 상태를 C 본문 및 부록과 대조하�
 
 ## 참가 호출 없는 재현
 
-고정된 전체 소스와 준비된 실행 환경이 있는 macOS에서 저장소 루트 기준으로 실행한다. 아래 예시는 이번에 검증한 로컬 캐시를 사용한다. 새 scratch 경로를 지정한다. 원본·참조·부분 9건과 봉인한 예비 1건을 새로 평가하고 당시 기록 전체와 대조한다. 기존 v4 기본 진입점으로도 원본 타입 통과·22/52를 확인했다. `pnpm check`는 타입 검사·304개 테스트·예제 빌드를 통과했고, 집계 회귀 검사 3개와 기존 `pnpm experiment` 비교 4개가 통과했다. 오프라인 집계 연습에서 참조 응답 2개와 수집 중단 표시 16개를 넣어 조건별 분모 6, 누락 비용 미상, 효과 판단 보류를 확인했다. 이 연습은 참가 결과에 포함하지 않았다. [환경의 출처와 복원 기록](2026-11-18-s2-fixed-input-pilot.md) · [재현 검사기](../../experiments/domain-model/s2/trial/complex/verify.py)
+고정된 전체 소스와 준비된 실행 환경이 있는 macOS에서 저장소 루트 기준으로 실행한다. 아래 예시는 이번에 검증한 로컬 캐시를 사용한다. 새 scratch 경로를 지정한다. 원본·참조·부분 9건과 봉인한 예비 A 1건을 v2로 재채점하고, 반례·대조 7건을 제출 채점부터 비용 집계까지 재현해 동결 기록과 대조한다. 기존 v4 기본 진입점으로도 원본 타입 통과·22/52를 확인했다. `pnpm check`는 타입 검사·304개 테스트·예제 빌드를 통과했고, 집계 회귀 검사 3개와 기존 `pnpm experiment` 비교 4개가 통과했다. 오프라인 집계 연습에서 참조 응답 2개와 수집 중단 표시 16개를 넣어 조건별 분모 6, 누락 비용 미상, 효과 판단 보류를 확인했다. 이 연습은 참가 결과에 포함하지 않았다. [환경의 출처와 복원 기록](2026-11-18-s2-fixed-input-pilot.md) · [재현 검사기](../../experiments/domain-model/s2/trial/complex/verify.py)
 
 ```sh
 pnpm s2:build
-python3 experiments/domain-model/s2/trial/complex/verify.py work/s2-contract-workspace-a/source work/complex-review-01 --environment work/s2-fixed-pilot/env
+python3 -B experiments/domain-model/s2/trial/complex/verify.py work/s2-contract-workspace-a/source work/complex-v2-review-01 --environment work/s2-fixed-pilot/env
 python3 -B experiments/domain-model/s2/trial/complex/test_cost.py
 pnpm check
+pnpm experiment
 ```
 
 도구 목록·실제 패킷까지 재점검하려면 `holdout.py stage <새 작업경로> --source <전체 원본>`을 쓴다. 로컬 수신기로 요청을 확인하며 추론은 수행하지 않는다. 리뷰 후 실행을 승인한 경우에만 같은 경로의 `collect`로 동결 순서를 실행하고, 수집 완료 뒤 `score`에 같은 전체 원본·환경과 새 출력 디렉터리를 전달한다. 준비 PR에서 실행한 참가 호출은 예비 A 1회, 예비 B/C 0회, 평가 0/18회다.

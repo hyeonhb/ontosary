@@ -11,6 +11,7 @@ import sys
 
 here = Path(__file__).resolve().parent
 evidence = here.parents[1] / 'results/2026-11-19-complex-preparation'
+scoring_evidence = here.parents[1] / 'results/2026-11-19-complex-grading-v2'
 fixed = here.parent/'fixed-input'
 
 
@@ -130,13 +131,15 @@ def observe(work, source, environment, plan, attempt, scoring):
     if raw.exists():
         report = json.loads(gzip.decompress(raw.read_bytes()))
         expected_evaluator = plan['evaluation'][task]
-        if report.get('inputMode')!='complete-root' or not all(report.get(k)==v for k,v in expected_evaluator.items()):
+        if report.get('overall')=='environment-error':
+            row.update(status='environment-error', error=report.get('error', 'Evaluator environment error'))
+        elif report.get('inputMode')!='complete-root' or not all(report.get(k)==v for k,v in expected_evaluator.items()):
             row['status']='infrastructure-error'
-            return row
-        row.update(typecheck=report['typecheck']['status'], behavioral=report['behavior']['status'],
-                   sourceBinding=report['sourceBinding'], submissionId=report['typecheck']['submissionId'])
-        row['status'] = ('type-failed' if row['typecheck']=='failed' else 'unsupported' if row['typecheck']=='unsupported'
-                         else 'unsupported' if not row['sourceBinding'] else 'behavior-failed' if row['behavioral']=='failed' else report['overall'])
+        else:
+            row.update(typecheck=report['typecheck']['status'], behavioral=report['behavior']['status'],
+                       sourceBinding=report['sourceBinding'], submissionId=report['typecheck']['submissionId'])
+            row['status'] = ('type-failed' if row['typecheck']=='failed' else 'unsupported' if row['typecheck']=='unsupported'
+                             else 'unsupported' if not row['sourceBinding'] else 'behavior-failed' if row['behavioral']=='failed' else report['overall'])
     if usage is None or any(not isinstance(usage.get(k),int) for k in ('input_tokens','output_tokens')):
         if row['status']=='passed': row['status']='usage-unknown'
     elif usage['input_tokens']>plan['posthocInputTokens'] or usage['output_tokens']>plan['posthocOutputTokens']:
@@ -205,7 +208,7 @@ if __name__ == '__main__':
     parser.add_argument('--environment',type=Path)
     parser.add_argument('--output',type=Path,help='Fresh directory for external scoring')
     args = parser.parse_args()
-    plan = read(evidence/'heldout/contract.json')
+    plan = read(scoring_evidence/'contract.json')
     if args.mode=='stage' and args.source:
         stage(args.work,args.source)
     elif args.mode=='collect':

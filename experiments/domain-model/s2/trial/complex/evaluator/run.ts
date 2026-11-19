@@ -10,11 +10,13 @@ import { hash, stable } from '../../../lib/analysis-session.js';
 import { Control, allocation, quantity, type Observe } from './dialogs.js';
 import { refresh, type Rx } from './refresh.js';
 
+import { attributionBindings, inCase, instrument, recordError, type Observation } from './errors.js';
+
 const [source, rootArg, out, repo, task] = process.argv.slice(2);
 if (!source || !rootArg || !out || !repo || !task || !['allocation','quantity','refresh'].includes(task) || fs.existsSync(out))
     throw Error('Expected source, environment, new output, repository and task');
-const root = path.resolve(rootArg), version = 's2-complex-v1';
-const modules = ['run','dialogs','refresh'].map(n=>'./'+n+'.js').concat(
+const root = path.resolve(rootArg), version = 's2-complex-v2';
+const modules = ['run','dialogs','refresh','errors'].map(n=>'./'+n+'.js').concat(
     ['behavior','execute','submission','modal','evaluate','stream'].map(n=>'../../../evaluation/'+n+'.js'),
     ['../../../vendure-baseline.js','../../../lib/analysis-session.js','../../../lib/model.js']);
 const fingerprint = Object.fromEntries(modules.map(n=>[n,hash(fs.readFileSync(fileURLToPath(new URL(n,import.meta.url))))]));
@@ -28,27 +30,36 @@ try {
     const bindings = {marker:(s:string)=>s, gql:()=>'', ORDER_DETAIL_FRAGMENT:'', _:(s:string)=>s,
         CANCEL_ORDER:'cancel', REFUND_ORDER:'refund', FormControl:Control, Validators:{min:()=>null,max:()=>null},
         summate:(rows:Runtime[],key:string)=>rows.reduce((sum,r)=>sum+Number(r[key]),0)};
-    const engine = executor(root,mappings,bindings,root,view);
     const req = createRequire(path.join(root,'package.json')), rx = req('rxjs') as Rx;
     // Both publicly supported RxJS entry points belong to the same runtime, whichever spelling a submission imports.
     req('rxjs/operators');
-    const cases: {name:string;group:string;expected:unknown;actual?:unknown;status:string;error?:string}[] = [];
+    const engine = executor(root,mappings,{...bindings,...attributionBindings(rx.Subscriber)},root,{
+        has:view.has, read:file=>instrument(file,view.read(file)),
+    });
+    const cases: Observation[] = [];
     const observe: Observe = (name,group,expected,fn) => {
-        try {
-            const actual = canonical(fn());
-            const pass = JSON.stringify(actual) === JSON.stringify(canonical(expected));
-            cases.push({name,group,expected,actual,status:pass?'passed':'failed'});
-        } catch(e) { cases.push({name,group,expected,status:'unsupported',error:String(e)}); }
+        const row: Observation = {name,group,expected,status:'passed'};
+        cases.push(row);
+        inCase(row, () => {
+            try {
+                row.actual = canonical(fn());
+                if (JSON.stringify(row.actual) !== JSON.stringify(canonical(expected))) row.status='failed';
+            } catch(error) { recordError(error,'synchronous'); }
+        });
     };
-    const unhandled: string[] = [];
+    const unhandled: ReturnType<typeof recordError>[] = [];
     if (checked.status==='passed') {
-        rx.config.onUnhandledError = e=>unhandled.push(String(e));
-        if (task==='refresh') refresh(engine,rx,observe);
-        else (task==='quantity'?quantity:allocation)(engine,observe);
-        await new Promise(resolve=>setTimeout(resolve,15));
+        const previousHandler = rx.config.onUnhandledError;
+        try {
+            rx.config.onUnhandledError = error=>unhandled.push(recordError(error,'rxjs'));
+            if (task==='refresh') refresh(engine,rx,observe);
+            else (task==='quantity'?quantity:allocation)(engine,observe);
+            await new Promise(resolve=>setTimeout(resolve,15));
+        } finally { rx.config.onUnhandledError = previousHandler; }
     }
-    const behavior = checked.status!=='passed'?'not-run':unhandled.length || cases.some(c=>c.status==='unsupported')?'unsupported':
-        cases.length && cases.every(c=>c.status==='passed')?'passed':'failed';
+    const statuses = new Set([...cases,...unhandled].map(row=>row.status));
+    const behavior = checked.status!=='passed'?'not-run':statuses.has('environment-error')?'environment-error':
+        statuses.has('unsupported')?'unsupported':cases.length && !statuses.has('failed')?'passed':'failed';
     const binding = checked.status==='passed' && Object.keys(executed).length>0 && Object.entries(executed).every(([file,sha])=>
         checked.submittedManifest[file]===sha && checked.checkedFiles.some(f=>f.file===file && f.sha256===sha));
     env.assertUnchanged();
@@ -57,9 +68,9 @@ try {
     const result = {contractVersion:version,task,evaluatorId,fingerprint,inputMode:'complete-root',environmentId:hash(stable(env.fingerprints)),
         runtimeId:hash(stable(runtime)),typecheck:{status:checked.status,submissionId:checked.submissionId,changedFiles:checked.changedFiles,
         diagnostics:checked.diagnostics,unsupported:checked.unsupported,programFiles:checked.cost.programFiles},behavior:{status:behavior,cases,unhandled},
-        executed,sourceBinding:binding,overall:overallStatus(checked.status,behavior,binding)};
+        executed,sourceBinding:binding,overall:behavior==='environment-error'?behavior:overallStatus(checked.status,behavior,binding)};
     fs.writeFileSync(out,JSON.stringify(result,null,2)+'\n',{flag:'wx'});
 } catch(error) {
-    fs.writeFileSync(out,JSON.stringify({overall:'environment-error',error:String(error)},null,2)+'\n',{flag:'wx'});
+    fs.writeFileSync(out,JSON.stringify({contractVersion:version,task,evaluatorId,overall:'environment-error',error:String(error)},null,2)+'\n',{flag:'wx'});
     process.exitCode=1;
 }
