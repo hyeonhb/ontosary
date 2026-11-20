@@ -1,0 +1,98 @@
+{
+  "codex": "codex-cli 0.167.0-alpha.3.2",
+  "model": "gpt-6.2-astra",
+  "catalogSha256": "3cabbca9a1751d3aa57a2036b735f13589e7bb45a16b3f1823080ff298b52f52",
+  "catalogOverrides": {
+    "multi_agent_version": null,
+    "tool_mode": "direct",
+    "shell_type": "disabled",
+    "apply_patch_tool_type": null,
+    "experimental_supported_tools": [],
+    "node_repl_disabled": true,
+    "supports_search_tool": false
+  },
+  "settings": [
+    "tools.update_plan.enabled=false",
+    "web_search=\"disabled\"",
+    "project_doc_max_bytes=0",
+    "include_environment_context=false",
+    "include_permissions_instructions=false",
+    "include_collaboration_mode_instructions=false",
+    "skills.include_instructions=false",
+    "model_reasoning_effort=\"medium\"",
+    "model_context_window=512000",
+    "tools.experimental_request_user_input.enabled=false",
+    "features.multi_agent_v2={enabled=false,disable_native_tools=true}",
+    "features.apps=false",
+    "features.plugins=false",
+    "features.multi_agent=false",
+    "features.memories=false",
+    "features.shell_tool=false",
+    "features.unified_exec=false",
+    "features.image_generation=false",
+    "features.view_image=false",
+    "features.code_mode=false",
+    "features.code_mode_only=false",
+    "features.js_repl=false",
+    "features.exec_permission_approvals=false",
+    "features.remote_models=false",
+    "features.incremental_tools=false",
+    "features.enable_request_compression=false",
+    "features.skill_search=false",
+    "features.recommended_plugins=false",
+    "features.shell_snapshot=false",
+    "features.goals=false",
+    "features.default_mode_request_user_input=false"
+  ],
+  "system": "Use only the supplied text and return a single unified diff.",
+  "defaultPreview": {
+    "tools": [
+      "functions",
+      "clock",
+      "collaboration",
+      "mcp__cua_repl"
+    ],
+    "itemTypes": [
+      "additional_tools",
+      "message",
+      "message",
+      "message",
+      "message",
+      "message",
+      "message"
+    ],
+    "roles": [
+      "developer",
+      "developer",
+      "developer",
+      "developer",
+      "developer",
+      "user",
+      "user"
+    ]
+  },
+  "configuredPreview": {
+    "tools": [],
+    "itemTypes": [
+      "message"
+    ],
+    "roles": [
+      "user"
+    ]
+  },
+  "localRequest": {
+    "tools": [],
+    "roles": [
+      "developer",
+      "user"
+    ],
+    "packetHashes": {
+      "A": "97b3a33e91e0bb2460ec8b4d8770fdd89cc59f1e397074e3591d5ff856c40095",
+      "B": "73e40a9cb5e129c45998a3ecc607e60085b9d4162f73ce81f658d5fe19eb4b7d",
+      "C": "4327676604aa871f1af8b4fc466a2d6a9e133cba9c5b51b9c6e6e776819d4e19"
+    }
+  },
+  "configuredContext": 512000,
+  "catalogMaximum": 872000,
+  "effectivePercent": 95
+}

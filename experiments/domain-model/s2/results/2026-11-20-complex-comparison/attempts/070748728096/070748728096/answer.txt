@@ -1,0 +1,104 @@
+diff --git a/packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts b/packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts
+--- a/packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts
++++ b/packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts
+@@ -586,19 +586,17 @@
+                 },
+             })
+             .pipe(
+-                switchMap(input => {
+-                    if (input) {
+-                        return this.dataService.order.cancelOrder(input);
+-                    } else {
+-                        return of(undefined);
++                switchMap(input => (input ? this.dataService.order.cancelOrder(input) : EMPTY)),
++                switchMap(({ cancelOrder }) => {
++                    if (cancelOrder.__typename === 'Order') {
++                        this.notificationService.success(_('order.cancelled-order-success'));
++                    } else if ('message' in cancelOrder) {
++                        this.notificationService.error(cancelOrder.message);
+                     }
++                    return this.refetchOrder(cancelOrder);
+                 }),
+-                switchMap(result => this.refetchOrder(result)),
+             )
+-            .subscribe(result => {
+-                if (result) {
+-                    this.notificationService.success(_('order.cancelled-order-success'));
+-                }
+-            });
++            .subscribe();
+     }
+ 
+     private refundOrder(order: OrderDetailFragment) {
+@@ -613,8 +611,8 @@
+             })
+             .pipe(
+                 switchMap(input => {
+-                    if (!input) {
+-                        return of(undefined);
++                    if (!input || (!input.cancel.lines?.length && !input.refunds.length)) {
++                        return EMPTY;
+                     }
+ 
+                     if (input.cancel.lines?.length) {
+@@ -623,7 +621,6 @@
+                                 const result = res.cancelOrder;
+                                 switch (result.__typename) {
+                                     case 'Order':
+-                                        this.refetchOrder(result).subscribe();
+                                         this.notificationService.success(
+                                             _('order.cancelled-order-items-success'),
+                                             {
+@@ -631,7 +628,7 @@
+                                             },
+                                         );
+-                                        return input;
++                                        return input.refunds;
+                                     case 'CancelActiveOrderError':
+                                     case 'QuantityTooGreatError':
+                                     case 'MultipleOrderError':
+@@ -639,28 +636,25 @@
+                                     case 'EmptyOrderLineSelectionError':
+                                         this.notificationService.error(result.message);
+-                                        return undefined;
+                                 }
++                                return [];
+                             }),
+                         );
+                     } else {
+-                        return [input];
++                        return of(input.refunds);
+                     }
+                 }),
+-                switchMap(input => {
+-                    if (!input) {
+-                        return of(undefined);
+-                    }
+-                    if (input.refunds.length) {
++                switchMap(refunds => {
++                    if (refunds.length) {
+                         return forkJoin(
+-                            input.refunds.map(refund =>
++                            refunds.map(refund =>
+                                 this.dataService.order.refundOrder(refund).pipe(map(res => res.refundOrder)),
+                             ),
+                         );
+                     } else {
+-                        return [undefined];
++                        return of([]);
+                     }
+                 }),
+             )
+             .subscribe(results => {
+-                for (const result of results ?? []) {
++                for (const result of results) {
+                     if (result) {
+                         switch (result.__typename) {
+@@ -684,7 +678,7 @@
+                         }
+                     }
+                 }
+-                this.refetchOrder(results?.[0]).subscribe();
++                this.refetchOrder(results).subscribe();
+             });
+     }

@@ -1,0 +1,48 @@
+diff --git a/packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts b/packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts
+--- a/packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts
++++ b/packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts
+@@ -55,6 +55,10 @@
+     }
+ 
+     lineCanBeRefundedOrCancelled(line: OrderDetailFragment['lines'][number]): boolean {
++        return this.remainingRefundableQuantity(line) > 0;
++    }
++
++    private remainingRefundableQuantity(line: OrderDetailFragment['lines'][number]): number {
+         const refundedCount =
+             this.order.payments
+                 ?.reduce(
+@@ -69,7 +73,7 @@
+                 .filter(refundLine => refundLine.orderLineId === line.id)
+                 .reduce((sum, refundLine) => sum + refundLine.quantity, 0) ?? 0;
+ 
+-        return refundedCount < line.orderPlacedQuantity;
++        return Math.max(0, line.orderPlacedQuantity - refundedCount);
+     }
+ 
+     ngOnInit() {
+@@ -127,17 +131,19 @@
+ 
+     onRefundQuantityChange(orderLineId: string, quantity: number) {
+-        this.manuallySetRefundTotal = false;
+         const selectionLine = this.lineQuantities[orderLineId];
+-        if (selectionLine) {
++        const line = this.order.lines.find(l => l.id === orderLineId);
++        if (selectionLine && line && Number.isInteger(quantity) && quantity >= 0) {
++            this.manuallySetRefundTotal = false;
++            const adjustedQuantity = Math.min(quantity, this.remainingRefundableQuantity(line));
+             const previousQuantity = selectionLine.quantity;
+-            if (quantity === 0) {
++            if (adjustedQuantity === 0) {
+                 selectionLine.cancel = false;
+-            } else if (previousQuantity === 0 && quantity > 0) {
++            } else if (previousQuantity === 0) {
+                 selectionLine.cancel = true;
+             }
+-            selectionLine.quantity = quantity;
++            selectionLine.quantity = adjustedQuantity;
+             this.updateRefundTotal();
+         }
+     }
+ 
+     onPaymentSelected(payment: RefundablePayment, selected: boolean) {

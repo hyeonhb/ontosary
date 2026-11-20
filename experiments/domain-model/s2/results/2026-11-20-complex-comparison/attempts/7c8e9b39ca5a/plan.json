@@ -1,0 +1,11 @@
+{
+  "seconds": 1800,
+  "order": [
+    {
+      "task": "refresh",
+      "repeat": 2,
+      "condition": "C",
+      "id": "7c8e9b39ca5a"
+    }
+  ]
+}
