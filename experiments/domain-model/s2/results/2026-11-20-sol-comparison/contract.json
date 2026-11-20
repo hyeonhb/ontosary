@@ -1,0 +1,179 @@
+{
+  "version": "complex-fixed-input-v1",
+  "participantModel": "gpt-6.2-sol",
+  "reasoning": "medium",
+  "repeatsPerTask": 3,
+  "scheduledAttempts": 18,
+  "order": [
+    {
+      "task": "quantity",
+      "repeat": 1,
+      "condition": "B",
+      "id": "d4f89b80b202"
+    },
+    {
+      "task": "quantity",
+      "repeat": 1,
+      "condition": "A",
+      "id": "20d851b3c2d2"
+    },
+    {
+      "task": "quantity",
+      "repeat": 1,
+      "condition": "C",
+      "id": "e13964e9e2a0"
+    },
+    {
+      "task": "refresh",
+      "repeat": 1,
+      "condition": "C",
+      "id": "7f2954014706"
+    },
+    {
+      "task": "refresh",
+      "repeat": 1,
+      "condition": "B",
+      "id": "8b825862e51c"
+    },
+    {
+      "task": "refresh",
+      "repeat": 1,
+      "condition": "A",
+      "id": "a333c8080d58"
+    },
+    {
+      "task": "refresh",
+      "repeat": 2,
+      "condition": "B",
+      "id": "39644b13a1bc"
+    },
+    {
+      "task": "refresh",
+      "repeat": 2,
+      "condition": "A",
+      "id": "002d2edb2c6b"
+    },
+    {
+      "task": "refresh",
+      "repeat": 2,
+      "condition": "C",
+      "id": "26aaeebe25dc"
+    },
+    {
+      "task": "quantity",
+      "repeat": 2,
+      "condition": "A",
+      "id": "87ff4baf236f"
+    },
+    {
+      "task": "quantity",
+      "repeat": 2,
+      "condition": "C",
+      "id": "14a23169606a"
+    },
+    {
+      "task": "quantity",
+      "repeat": 2,
+      "condition": "B",
+      "id": "2a40e094921e"
+    },
+    {
+      "task": "quantity",
+      "repeat": 3,
+      "condition": "C",
+      "id": "271942e40574"
+    },
+    {
+      "task": "quantity",
+      "repeat": 3,
+      "condition": "B",
+      "id": "b2bbe0d63a1b"
+    },
+    {
+      "task": "quantity",
+      "repeat": 3,
+      "condition": "A",
+      "id": "8193fa129e6d"
+    },
+    {
+      "task": "refresh",
+      "repeat": 3,
+      "condition": "A",
+      "id": "b6230cce66ea"
+    },
+    {
+      "task": "refresh",
+      "repeat": 3,
+      "condition": "C",
+      "id": "40e15d2a65cf"
+    },
+    {
+      "task": "refresh",
+      "repeat": 3,
+      "condition": "B",
+      "id": "c810abbe1fa8"
+    }
+  ],
+  "deadlineSeconds": 1800,
+  "outputBytes": 49152,
+  "posthocInputTokens": 82000,
+  "posthocOutputTokens": 8000,
+  "effectiveContextTokens": 486400,
+  "planningTokensPerAttempt": {
+    "A": {
+      "input": [
+        36000,
+        41000
+      ],
+      "output": [
+        200,
+        4000
+      ]
+    },
+    "B": {
+      "input": [
+        62000,
+        68000
+      ],
+      "output": [
+        200,
+        4000
+      ]
+    },
+    "C": {
+      "input": [
+        66000,
+        73000
+      ],
+      "output": [
+        200,
+        4000
+      ]
+    }
+  },
+  "humanModelConstructionMinutes": null,
+  "humanSemanticReviewMinutes": null,
+  "humanMaintenanceMinutes": null,
+  "cliVersion": "codex-cli 0.167.0-alpha.3.2",
+  "evaluation": {
+    "quantity": {
+      "contractVersion": "s2-complex-v3",
+      "evaluatorId": "60a502bc76471761b92fbed516b815ccff54f333328e30b80935a39be71c8785",
+      "environmentId": "d38eb0975d681562635189efa37dcc7cb5e95ab6d85b01ca8e7141b1e1e2551d",
+      "runtimeId": "81187bb1207f415f56df90d04a5ad07916100cac741d9971bf9965478ed8fed5"
+    },
+    "refresh": {
+      "contractVersion": "s2-complex-v3",
+      "evaluatorId": "70e4327013a8da017834dc818bebfd80ad3634254eaca9b426517f3cac483d98",
+      "environmentId": "d38eb0975d681562635189efa37dcc7cb5e95ab6d85b01ca8e7141b1e1e2551d",
+      "runtimeId": "81187bb1207f415f56df90d04a5ad07916100cac741d9971bf9965478ed8fed5"
+    }
+  },
+  "inputManifestsSha256": {
+    "quantity": "00d12a46bd188d6ab0c23c0f08282d195c4d318cd40b9bcbdd3b145616416be5",
+    "refresh": "7dd7f36fbfe55788e487147a0a23b18fb4fb90a6af081f267c80354c0e676346"
+  },
+  "budgetAccounting": "per attempt; auxiliary material included; input_tokens including cached; output_tokens including reasoning; time enforced by process timeout; token ceilings audited post hoc; output byte ceiling audited on first response",
+  "comparability": "all 6 scheduled attempts per arm retained; no model retries; unresolved infrastructure or unsupported evaluation withholds paired effect claim; only identical sealed bytes may be regraded after restoring same environment",
+  "costPerAdditionalSuccess": "difference of all scheduled totals divided by positive difference of full successes; null if not positive or incomparable; unknown totals remain null"
+}

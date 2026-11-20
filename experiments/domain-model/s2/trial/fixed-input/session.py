@@ -4,6 +4,7 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 import json
 import os
 from pathlib import Path
+import re
 import signal
 import subprocess
 import sys
@@ -11,10 +12,12 @@ import tempfile
 import threading
 import time
 
-mode, scratch_arg, evidence_arg = sys.argv[1:]
+mode, scratch_arg, evidence_arg, *model_args = sys.argv[1:]
 scratch = Path(scratch_arg).resolve()
 evidence = Path(evidence_arg).resolve()
-model = 'gpt-6.2-astra'
+model = model_args[0] if model_args else 'gpt-6.2-astra'
+if model not in ('gpt-6.2-astra','gpt-6.2-sol') or len(model_args)>1:
+    raise ValueError('Unexpected participant model')
 system = 'Use only the supplied text and return a single unified diff.'
 env = {k: v for k, v in os.environ.items() if k in ('PATH', 'HOME', 'TMPDIR', 'LANG', 'USER')}
 catalog = scratch / 'catalog.json'
@@ -130,6 +133,9 @@ if mode == 'inspect':
               'effectivePercent': entry['effective_context_window_percent']})
 elif mode == 'run':
     check = json.loads((evidence / 'preflight.json').read_text())
+    assert check['model'] == model
+    if model == 'gpt-6.2-sol':
+        env['RUST_LOG'] = 'codex_core::session=trace'
     assert check['catalogSha256'] == sha(catalog.read_bytes()) and instructions.read_text() == check['system']
     assert settings == check['settings'] and not check['configuredPreview']['tools']
     plan = json.loads((evidence / 'plan.json').read_text())
@@ -152,7 +158,13 @@ elif mode == 'run':
                     os.killpg(proc.pid, signal.SIGKILL)
                     proc.wait()
             answer = destination / 'answer.txt'
-            write(destination / 'seal.json', {'id': run, 'packetSha256': sha(data), 'exitCode': proc.returncode,
+            routing = {}
+            if model == 'gpt-6.2-sol':
+                # Read only the CLI's routing diagnostic, never infer the model from its answer.
+                log = (scratch / (run + '.stderr')).read_text(errors='replace')
+                reports = re.findall(r"""codex_core::session: server reported model [`'" ]*([a-zA-Z0-9._-]+)[`'" ]* (?:\(matches requested model\)|while requested model was)""",log)
+                routing = {'requestedModel':model, 'serverReportedModels':sorted(set(reports))}
+            write(destination / 'seal.json', {**routing, 'id': run, 'packetSha256': sha(data), 'exitCode': proc.returncode,
                   'timeout': expired, 'elapsedSeconds': round(time.monotonic()-start, 3),
                   'answerSha256': sha(answer.read_bytes()) if answer.exists() else None,
                   'eventsSha256': sha((destination / 'events.jsonl').read_bytes())})
