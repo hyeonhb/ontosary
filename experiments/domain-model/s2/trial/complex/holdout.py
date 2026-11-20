@@ -66,8 +66,8 @@ def collect(work, plan):
             if current != read(sol_record/'preflight'/(task+'.json')):
                 raise ValueError('Sol preflight differs from the frozen batch')
         if sealed.exists():
-            if model == 'gpt-6.2-sol' and not confirmed_model(read(sealed),model):
-                raise ValueError('Server model not confirmed; stop before the next call')
+            if model == 'gpt-6.2-sol' and model_status(read(sealed),model) == 'mismatch':
+                raise ValueError('Model mismatch or invalid routing record; stop before the next call')
             continue
         if (directory/run).exists():
             # Startup was attempted. Its missing seal needs independent infrastructure adjudication.
@@ -89,12 +89,15 @@ def collect(work, plan):
         if read(directory/'plan.json') != local_plan:
             raise ValueError('Attempt metadata changed')
         command(fixed/'session.py','run',work/task,directory,model)
-        if model == 'gpt-6.2-sol' and not confirmed_model(read(sealed),model):
-            raise ValueError('Server model not confirmed; stop before the next call')
+        if model == 'gpt-6.2-sol' and model_status(read(sealed),model) == 'mismatch':
+            raise ValueError('Model mismatch or invalid routing record; stop before the next call')
 
 
-def confirmed_model(seal, model):
-    return seal.get('requestedModel') == model and seal.get('serverReportedModels') == [model]
+def model_status(seal, model):
+    names = seal.get('serverReportedModels')
+    if seal.get('requestedModel') != model or not isinstance(names, list) or any(n != model for n in names):
+        return 'mismatch'
+    return 'confirmed' if names else 'server-unconfirmed'
 
 
 def observe(work, source, environment, plan, attempt, scoring):
@@ -114,9 +117,11 @@ def observe(work, source, environment, plan, attempt, scoring):
     completed = [x for x in events if x['type']=='turn.completed']
     usage = completed[0].get('usage') if len(completed)==1 else None
     row['usage'] = usage
-    if plan['participantModel']=='gpt-6.2-sol' and not confirmed_model(seal,plan['participantModel']):
-        row['error'] = 'Server model not confirmed'
-        return row
+    if plan['participantModel']=='gpt-6.2-sol':
+        row['modelStatus'] = model_status(seal,plan['participantModel'])
+        if row['modelStatus'] == 'mismatch':
+            row['error'] = 'Model mismatch or invalid routing record'
+            return row
     if seal['timeout']:
         row['status'] = 'timeout'
         return row

@@ -1,0 +1,6 @@
+{
+  "responseSha256": "ce730fa6c5117c3f6f38d13b9c901c5e8458ae643a5e72db02924074d78582a5",
+  "applied": false,
+  "status": "patch-rejected",
+  "error": "error: patch failed: packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:124\nerror: packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts: patch does not apply"
+}

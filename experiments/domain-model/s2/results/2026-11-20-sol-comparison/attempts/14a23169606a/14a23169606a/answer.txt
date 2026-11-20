@@ -1,0 +1,82 @@
+diff --git a/packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts b/packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts
+--- a/packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts
++++ b/packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts
+@@ -9,7 +9,6 @@
+     OrderDetailFragment,
+     OrderLineInput,
+-    PaymentWithRefundsFragment,
+     RefundOrderInput,
+ } from '@vendure/admin-ui/core';
+ import { summate } from '@vendure/common/lib/shared-utils';
+ import { getRefundablePayments, RefundablePayment } from '../../common/get-refundable-payments';
+@@ -57,21 +56,24 @@
+     }
+ 
+     lineCanBeRefundedOrCancelled(line: OrderDetailFragment['lines'][number]): boolean {
+-        const refundedCount =
+-            this.order.payments
+-                ?.reduce(
+-                    (all, payment) => [...all, ...payment.refunds],
+-                    [] as PaymentWithRefundsFragment['refunds'],
+-                )
+-                .filter(refund => refund.state !== 'Failed')
+-                .reduce(
+-                    (all, refund) => [...all, ...refund.lines],
+-                    [] as Array<{ orderLineId: string; quantity: number }>,
+-                )
+-                .filter(refundLine => refundLine.orderLineId === line.id)
+-                .reduce((sum, refundLine) => sum + refundLine.quantity, 0) ?? 0;
++        return 0 < this.getRemainingRefundableQuantity(line);
++    }
+ 
+-        return refundedCount < line.orderPlacedQuantity;
++    private getRemainingRefundableQuantity(line: OrderDetailFragment['lines'][number]): number {
++        let refundedCount = 0;
++        for (const payment of this.order.payments ?? []) {
++            for (const refund of payment.refunds) {
++                if (refund.state === 'Failed') {
++                    continue;
++                }
++                for (const refundLine of refund.lines) {
++                    if (refundLine.orderLineId === line.id) {
++                        refundedCount += refundLine.quantity;
++                    }
++                }
++            }
++        }
++        return Math.max(0, line.orderPlacedQuantity - refundedCount);
+     }
+ 
+     ngOnInit() {
+@@ -128,17 +130,20 @@
+     }
+ 
+     onRefundQuantityChange(orderLineId: string, quantity: number) {
+-        this.manuallySetRefundTotal = false;
++        const line = this.order.lines.find(orderLine => orderLine.id === orderLineId);
+         const selectionLine = this.lineQuantities[orderLineId];
+-        if (selectionLine) {
+-            const previousQuantity = selectionLine.quantity;
+-            if (quantity === 0) {
+-                selectionLine.cancel = false;
+-            } else if (previousQuantity === 0 && quantity > 0) {
+-                selectionLine.cancel = true;
+-            }
+-            selectionLine.quantity = quantity;
+-            this.updateRefundTotal();
++        if (!line || !selectionLine || !Number.isInteger(quantity) || quantity < 0) {
++            return;
+         }
++
++        const adjustedQuantity = Math.min(quantity, this.getRemainingRefundableQuantity(line));
++        if (adjustedQuantity === 0) {
++            selectionLine.cancel = false;
++        } else if (selectionLine.quantity === 0) {
++            selectionLine.cancel = true;
++        }
++        selectionLine.quantity = adjustedQuantity;
++        this.manuallySetRefundTotal = false;
++        this.updateRefundTotal();
+     }
+ 
+     onPaymentSelected(payment: RefundablePayment, selected: boolean) {

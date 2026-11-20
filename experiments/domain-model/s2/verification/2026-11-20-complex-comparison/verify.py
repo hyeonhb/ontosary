@@ -64,6 +64,10 @@ def main():
         subprocess.run([sys.executable, trial / 'holdout.py', 'score', work, '--source', args.source,
                         '--environment', args.environment, '--output', work / 'score', *(['--sol'] if args.sol else [])], check=True)
         compare_scores(work / 'score', batch / 'score')
+        if args.sol:
+            script = s2 / 'verification/2026-11-20-sol-comparison/comparison.py'
+            rebuilt = json.loads(subprocess.check_output([sys.executable, script, work / 'score']))
+            assert rebuilt == read(batch / 'comparison.json'), 'Astra+A comparison differs'
     print(f"Reproduced all {len(order)} scheduled outcomes, grades and cost totals.")
 
 

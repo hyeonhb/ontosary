@@ -1,6 +1,8 @@
 """Compare first-patch quality and all observed costs with the historical Astra+A batch."""
 from decimal import Decimal
 from pathlib import Path
+import argparse
+import gzip
 import json
 
 s2 = Path(__file__).resolve().parents[2]
@@ -27,7 +29,34 @@ def arm(summary, condition, model):
             'standardRateEquivalentCredits': cost}
 
 
-def comparison(sol_summary, astra_summary):
+def paired_cases(rows, score):
+    """Count observed A failures passing under B/C at the same task and repeat."""
+    observations = {}
+    for row in rows:
+        case_map = None
+        if row['status'] in ('passed', 'behavior-failed'):
+            path = score / row['id'] / 'submission/evaluation.json.gz'
+            report = json.loads(gzip.decompress(path.read_bytes()))
+            assert report['sourceBinding'] and report['typecheck']['status'] == 'passed'
+            case_map = {(c['group'], c['name']): c['status'] for c in report['behavior']['cases']}
+        observations.setdefault((row['task'], row['repeat']), {})[row['condition']] = case_map
+
+    pairs = []
+    for (task, repeat), conditions in sorted(observations.items()):
+        for other in 'BC':
+            a, b = conditions['A'], conditions[other]
+            comparable = a is not None and b is not None
+            recovered = None
+            if comparable:
+                assert a.keys() == b.keys()
+                recovered = [{'group': group, 'case': name} for (group, name), status in a.items()
+                             if status == 'failed' and b[group, name] == 'passed']
+            pairs.append({'task': task, 'repeat': repeat, 'other': other,
+                          'comparedCases': len(a) if comparable else 0, 'aFailedOtherPassed': recovered})
+    return pairs
+
+
+def comparison(sol_summary, astra_summary, score):
     baseline = arm(astra_summary, 'A', 'Astra')
     arms = {condition: arm(sol_summary, condition, 'Sol') for condition in 'ABC'}
     differences = {}
@@ -39,9 +68,13 @@ def comparison(sol_summary, astra_summary):
     return {'rateCardDate': '2026-11-20', 'rateCard': 'https://learn.chatgpt.com/docs/pricing',
             'unit': 'Standard-speed Codex credits per million tokens; rate equivalent, not subscription charges',
             'astraA': baseline, 'sol': arms, 'solMinusAstraA': differences,
-            'withinSol': sol_summary['effects']}
+            'withinSol': sol_summary['effects'],
+            'pairedBusinessCases': paired_cases(sol_summary['attempts'], score)}
 
 
 if __name__ == '__main__':
-    print(json.dumps(comparison(json.loads((sol/'score/summary.json').read_bytes()),
-                                json.loads((astra/'score/summary.json').read_bytes())), indent=2))
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('score', nargs='?', type=Path, default=sol/'score')
+    score = parser.parse_args().score
+    print(json.dumps(comparison(json.loads((score/'summary.json').read_bytes()),
+                                json.loads((astra/'score/summary.json').read_bytes()), score), indent=2))
