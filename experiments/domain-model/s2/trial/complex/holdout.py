@@ -12,6 +12,7 @@ import sys
 here = Path(__file__).resolve().parent
 evidence = here.parents[1] / 'results/2026-11-19-complex-preparation'
 scoring_evidence = here.parents[1] / 'results/2026-11-19-complex-grading-v3'
+sol_record = here.parents[1] / 'results/2026-11-20-sol-comparison'
 fixed = here.parent/'fixed-input'
 
 
@@ -33,7 +34,7 @@ def command(script, *args):
     subprocess.run([sys.executable, str(script), *map(str,args)], check=True)
 
 
-def stage(work, source):
+def stage(work, source, model='gpt-6.2-astra'):
     command(here/'packets.py', source, work)
     for task in ('quantity', 'refresh'):
         frozen = evidence/'heldout'/task
@@ -43,20 +44,30 @@ def stage(work, source):
         verified = work/task/'inspection'
         verified.mkdir()
         shutil.copyfile(inputs, verified/'inputs.json')
-        command(fixed/'session.py', 'inspect', work/task, verified)
+        command(fixed/'session.py', 'inspect', work/task, verified, model)
         current, prior = read(verified/'preflight.json'), read(frozen/'preflight.json')
         # Default tools are only a positive control. The configured model request must exactly match.
-        if {k:v for k,v in current.items() if k!='defaultPreview'} != {k:v for k,v in prior.items() if k!='defaultPreview'}:
+        excluded = {'defaultPreview'}
+        if model == 'gpt-6.2-sol':
+            excluded.update(('model','catalogSha256'))
+        if current['model'] != model or {k:v for k,v in current.items() if k not in excluded} != {k:v for k,v in prior.items() if k not in excluded}:
             raise ValueError('Session preflight differs from freeze')
 
 
 def collect(work, plan):
     cli_version = subprocess.check_output(['codex','--version'],text=True).strip()
+    model = plan['participantModel']
     for attempt in plan['order']:
         task, run = attempt['task'], attempt['id']
         directory = work/'attempts'/run
         sealed = directory/run/'seal.json'
+        if model == 'gpt-6.2-sol':
+            current = read(work/task/'inspection/preflight.json')
+            if current != read(sol_record/'preflight'/(task+'.json')):
+                raise ValueError('Sol preflight differs from the frozen batch')
         if sealed.exists():
+            if model == 'gpt-6.2-sol' and model_status(read(sealed),model) == 'mismatch':
+                raise ValueError('Model mismatch or invalid routing record; stop before the next call')
             continue
         if (directory/run).exists():
             # Startup was attempted. Its missing seal needs independent infrastructure adjudication.
@@ -71,13 +82,22 @@ def collect(work, plan):
         if not (work/task/'inspection/preflight.json').exists():
             raise ValueError('Run offline stage before collection')
         for name in ('inputs.json','preflight.json'):
-            shutil.copyfile(frozen/name, directory/name)
+            shutil.copyfile(work/task/'inspection'/name, directory/name)
         local_plan = {'seconds': plan['deadlineSeconds'], 'order':[attempt]}
         if not (directory/'plan.json').exists():
             write(directory/'plan.json',local_plan)
         if read(directory/'plan.json') != local_plan:
             raise ValueError('Attempt metadata changed')
-        command(fixed/'session.py','run',work/task,directory)
+        command(fixed/'session.py','run',work/task,directory,model)
+        if model == 'gpt-6.2-sol' and model_status(read(sealed),model) == 'mismatch':
+            raise ValueError('Model mismatch or invalid routing record; stop before the next call')
+
+
+def model_status(seal, model):
+    names = seal.get('serverReportedModels')
+    if seal.get('requestedModel') != model or not isinstance(names, list) or any(n != model for n in names):
+        return 'mismatch'
+    return 'confirmed' if names else 'server-unconfirmed'
 
 
 def observe(work, source, environment, plan, attempt, scoring):
@@ -97,6 +117,11 @@ def observe(work, source, environment, plan, attempt, scoring):
     completed = [x for x in events if x['type']=='turn.completed']
     usage = completed[0].get('usage') if len(completed)==1 else None
     row['usage'] = usage
+    if plan['participantModel']=='gpt-6.2-sol':
+        row['modelStatus'] = model_status(seal,plan['participantModel'])
+        if row['modelStatus'] == 'mismatch':
+            row['error'] = 'Model mismatch or invalid routing record'
+            return row
     if seal['timeout']:
         row['status'] = 'timeout'
         return row
@@ -207,10 +232,11 @@ if __name__ == '__main__':
     parser.add_argument('--source',type=Path)
     parser.add_argument('--environment',type=Path)
     parser.add_argument('--output',type=Path,help='Fresh directory for external scoring')
+    parser.add_argument('--sol',action='store_true',help='Use the separate Sol batch contract')
     args = parser.parse_args()
-    plan = read(scoring_evidence/'contract.json')
+    plan = read((sol_record if args.sol else scoring_evidence)/'contract.json')
     if args.mode=='stage' and args.source:
-        stage(args.work,args.source)
+        stage(args.work,args.source,plan['participantModel'])
     elif args.mode=='collect':
         with (args.work/'collection.lock').open('a') as lock:
             fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)

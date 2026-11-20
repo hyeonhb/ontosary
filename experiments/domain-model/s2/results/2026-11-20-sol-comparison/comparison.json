@@ -1,0 +1,198 @@
+{
+  "rateCardDate": "2026-11-20",
+  "rateCard": "https://learn.chatgpt.com/docs/pricing",
+  "unit": "Standard-speed Codex credits per million tokens; rate equivalent, not subscription charges",
+  "astraA": {
+    "scheduled": 6,
+    "successes": 6,
+    "successesByTask": {
+      "quantity": 3,
+      "refresh": 3
+    },
+    "input_tokens": 226482,
+    "output_tokens": 3827,
+    "elapsedSeconds": 108.047,
+    "standardRateEquivalentCredits": 49.1234
+  },
+  "sol": {
+    "A": {
+      "scheduled": 6,
+      "successes": 4,
+      "successesByTask": {
+        "quantity": 3,
+        "refresh": 1
+      },
+      "input_tokens": 226482,
+      "output_tokens": 11004,
+      "elapsedSeconds": 245.75400000000002,
+      "standardRateEquivalentCredits": 14.0751
+    },
+    "B": {
+      "scheduled": 6,
+      "successes": 5,
+      "successesByTask": {
+        "quantity": 2,
+        "refresh": 3
+      },
+      "input_tokens": 388386,
+      "output_tokens": 11149,
+      "elapsedSeconds": 246.042,
+      "standardRateEquivalentCredits": 22.20655
+    },
+    "C": {
+      "scheduled": 6,
+      "successes": 5,
+      "successesByTask": {
+        "quantity": 3,
+        "refresh": 2
+      },
+      "input_tokens": 415338,
+      "output_tokens": 11002,
+      "elapsedSeconds": 244.817,
+      "standardRateEquivalentCredits": 23.5174
+    }
+  },
+  "solMinusAstraA": {
+    "A": {
+      "successes": -2,
+      "input_tokens": 0,
+      "output_tokens": 7177,
+      "elapsedSeconds": 137.707,
+      "standardRateEquivalentCredits": -35.0483
+    },
+    "B": {
+      "successes": -1,
+      "input_tokens": 161904,
+      "output_tokens": 7322,
+      "elapsedSeconds": 137.995,
+      "standardRateEquivalentCredits": -26.91685
+    },
+    "C": {
+      "successes": -1,
+      "input_tokens": 188856,
+      "output_tokens": 7175,
+      "elapsedSeconds": 136.77,
+      "standardRateEquivalentCredits": -25.606
+    }
+  },
+  "withinSol": {
+    "B-A": {
+      "additionalSuccesses": 1,
+      "comparable": true,
+      "input_tokens": {
+        "difference": 161904,
+        "perAdditionalSuccess": 161904.0
+      },
+      "output_tokens": {
+        "difference": 145,
+        "perAdditionalSuccess": 145.0
+      },
+      "elapsedSeconds": {
+        "difference": 0.2879999999999825,
+        "perAdditionalSuccess": 0.2879999999999825
+      }
+    },
+    "C-A": {
+      "additionalSuccesses": 1,
+      "comparable": true,
+      "input_tokens": {
+        "difference": 188856,
+        "perAdditionalSuccess": 188856.0
+      },
+      "output_tokens": {
+        "difference": -2,
+        "perAdditionalSuccess": -2.0
+      },
+      "elapsedSeconds": {
+        "difference": -0.9370000000000118,
+        "perAdditionalSuccess": -0.9370000000000118
+      }
+    }
+  },
+  "pairedBusinessCases": [
+    {
+      "task": "quantity",
+      "repeat": 1,
+      "other": "B",
+      "comparedCases": 0,
+      "aFailedOtherPassed": null
+    },
+    {
+      "task": "quantity",
+      "repeat": 1,
+      "other": "C",
+      "comparedCases": 8,
+      "aFailedOtherPassed": []
+    },
+    {
+      "task": "quantity",
+      "repeat": 2,
+      "other": "B",
+      "comparedCases": 8,
+      "aFailedOtherPassed": []
+    },
+    {
+      "task": "quantity",
+      "repeat": 2,
+      "other": "C",
+      "comparedCases": 8,
+      "aFailedOtherPassed": []
+    },
+    {
+      "task": "quantity",
+      "repeat": 3,
+      "other": "B",
+      "comparedCases": 8,
+      "aFailedOtherPassed": []
+    },
+    {
+      "task": "quantity",
+      "repeat": 3,
+      "other": "C",
+      "comparedCases": 8,
+      "aFailedOtherPassed": []
+    },
+    {
+      "task": "refresh",
+      "repeat": 1,
+      "other": "B",
+      "comparedCases": 0,
+      "aFailedOtherPassed": null
+    },
+    {
+      "task": "refresh",
+      "repeat": 1,
+      "other": "C",
+      "comparedCases": 0,
+      "aFailedOtherPassed": null
+    },
+    {
+      "task": "refresh",
+      "repeat": 2,
+      "other": "B",
+      "comparedCases": 24,
+      "aFailedOtherPassed": []
+    },
+    {
+      "task": "refresh",
+      "repeat": 2,
+      "other": "C",
+      "comparedCases": 24,
+      "aFailedOtherPassed": []
+    },
+    {
+      "task": "refresh",
+      "repeat": 3,
+      "other": "B",
+      "comparedCases": 0,
+      "aFailedOtherPassed": null
+    },
+    {
+      "task": "refresh",
+      "repeat": 3,
+      "other": "C",
+      "comparedCases": 0,
+      "aFailedOtherPassed": null
+    }
+  ]
+}
