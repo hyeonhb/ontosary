@@ -4,7 +4,6 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 import json
 import os
 from pathlib import Path
-import re
 import signal
 import subprocess
 import sys
@@ -135,7 +134,7 @@ elif mode == 'run':
     check = json.loads((evidence / 'preflight.json').read_text())
     assert check['model'] == model
     if model == 'gpt-6.2-sol':
-        env['RUST_LOG'] = 'codex_core::session=trace'
+        env['RUST_LOG'] = 'codex_core::session=trace,codex_api::sse::responses=trace'
     assert check['catalogSha256'] == sha(catalog.read_bytes()) and instructions.read_text() == check['system']
     assert settings == check['settings'] and not check['configuredPreview']['tools']
     plan = json.loads((evidence / 'plan.json').read_text())
@@ -161,9 +160,9 @@ elif mode == 'run':
             routing = {}
             if model == 'gpt-6.2-sol':
                 # Read only the CLI's routing diagnostic, never infer the model from its answer.
-                log = (scratch / (run + '.stderr')).read_text(errors='replace')
-                reports = re.findall(r"""codex_core::session: server reported model [`'" ]*([a-zA-Z0-9._-]+)[`'" ]* (?:\(matches requested model\)|while requested model was)""",log)
-                routing = {'requestedModel':model, 'serverReportedModels':sorted(set(reports))}
+                from model_evidence import server_models
+                with (scratch / (run + '.stderr')).open(errors='replace') as log:
+                    routing = {'requestedModel':model, 'serverReportedModels':server_models(log)}
             write(destination / 'seal.json', {**routing, 'id': run, 'packetSha256': sha(data), 'exitCode': proc.returncode,
                   'timeout': expired, 'elapsedSeconds': round(time.monotonic()-start, 3),
                   'answerSha256': sha(answer.read_bytes()) if answer.exists() else None,

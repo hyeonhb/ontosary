@@ -29,26 +29,41 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('source', type=Path)
     parser.add_argument('environment', type=Path)
+    parser.add_argument('--sol', action='store_true', help='Replay the Sol batch on the same evaluator')
     args = parser.parse_args()
+    batch = s2 / 'results/2026-11-20-sol-comparison' if args.sol else record
     plan = read(s2 / 'results/2026-11-19-complex-grading-v3/contract.json')
+    if args.sol:
+        sol_plan = read(batch/'contract.json')
+        assert sol_plan['participantModel'] == 'gpt-6.2-sol'
+        assert {k:v for k,v in sol_plan.items() if k not in ('participantModel','order')} == {
+            k:v for k,v in plan.items() if k not in ('participantModel','order')}
+        assert [{k:v for k,v in a.items() if k != 'id'} for a in sol_plan['order']] == [
+            {k:v for k,v in a.items() if k != 'id'} for a in plan['order']]
+        plan = sol_plan
     order = plan['order']
-    assert {p.name for p in (record / 'attempts').iterdir()} == {a['id'] for a in order}
+    assert len({a['id'] for a in order}) == len(order) == 18
+    assert {p.name for p in (batch / 'attempts').iterdir()} == {a['id'] for a in order}
     with TemporaryDirectory() as directory:
         work = Path(directory)
         subprocess.run([sys.executable, trial / 'packets.py', args.source, work], check=True)
         for task in {a['task'] for a in order}:
             assert read(work / task / 'inputs/inputs.json') == read(frozen / task / 'inputs.json')
-            current = read(record / 'preflight' / (task + '.json'))
+            current = read(batch / 'preflight' / (task + '.json'))
             prior = read(frozen / task / 'preflight.json')
-            assert {k:v for k,v in current.items() if k != 'defaultPreview'} == {
-                k:v for k,v in prior.items() if k != 'defaultPreview'}
+            excluded = {'defaultPreview'}
+            if args.sol:
+                excluded.update(('catalogSha256','model'))
+            assert current['model'] == plan['participantModel']
+            assert {k:v for k,v in current.items() if k not in excluded} == {
+                k:v for k,v in prior.items() if k not in excluded}
         for a in order:
-            path = record / 'attempts' / a['id']
+            path = batch / 'attempts' / a['id']
             assert read(path / 'plan.json') == {'seconds':plan['deadlineSeconds'], 'order':[a]}
-        (work / 'attempts').symlink_to(record / 'attempts', target_is_directory=True)
+        (work / 'attempts').symlink_to(batch / 'attempts', target_is_directory=True)
         subprocess.run([sys.executable, trial / 'holdout.py', 'score', work, '--source', args.source,
-                        '--environment', args.environment, '--output', work / 'score'], check=True)
-        compare_scores(work / 'score', record / 'score')
+                        '--environment', args.environment, '--output', work / 'score', *(['--sol'] if args.sol else [])], check=True)
+        compare_scores(work / 'score', batch / 'score')
     print(f"Reproduced all {len(order)} scheduled outcomes, grades and cost totals.")
 
 

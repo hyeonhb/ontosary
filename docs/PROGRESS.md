@@ -1,5 +1,7 @@
 # 현재 작업 상태 — 새 세션은 이 문서부터 읽기
 
+2026-11-20 Sol 배치의 계약·여섯 패킷과 결과 위치를 첫 호출 전 `ac71ba7`에 동결했다. 첫 기회(수량 B·반복 1)는 요청 모델 Sol·medium으로 응답과 사용량을 봉인했다. 해당 CLI 실행 기록에서 서버가 회신한 모델명을 확인할 수 없어 수집을 1/18에서 중단했다. 나머지 17건은 미실행이고 Sol은 채점 전이다. 기존 Astra 18건의 등급과 비용은 모델 호출 없이 재현했다. [Sol 실행 지시](reviews/2026-11-20-s2-sol-comparison-instructions.md) · [Sol 계약과 봉인 기록](../experiments/domain-model/s2/results/2026-11-20-sol-comparison/)
+
 2026-11-20 다음 개발 세션에 [Sol 고정 입력 비교](reviews/2026-11-20-s2-sol-comparison-instructions.md)를 인계한다. 같은 두 과업·자료·v3 평가기로 Sol 내부의 A/B/C를 먼저 대조하고, 기존 Astra+A와 성공 및 비용을 비교한다. 지시 작성 시점의 Sol 참가 실행은 0/18이다.
 
 2026-11-20 [복합 비교 독립 리뷰](reviews/2026-11-20-s2-complex-comparison-independent-review.md)에서 Python 3.12.10으로 18개 등급·업무 관측·비용표를 재현해 PR #90을 병합했다. A가 두 과업의 세 반복을 모두 해결했고 B/C의 추가 성공은 없었다. B 패치 두 건은 동결된 Git 적용 조건에서 실패했다. Python 3.9.6의 시간 합계 반올림 차이를 재현 문서에 기록했다. 후속 모델·과업 실행은 별도 결정 대상이다.
