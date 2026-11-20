@@ -1,0 +1,6 @@
+{
+  "responseSha256": "184a337d2914c83d6fd01a99d9fae5a2ca2cb8c0f39db550b5827c116aeaa9ea",
+  "applied": false,
+  "status": "patch-rejected",
+  "error": "error: patch failed: packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:634\nerror: packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts: patch does not apply"
+}

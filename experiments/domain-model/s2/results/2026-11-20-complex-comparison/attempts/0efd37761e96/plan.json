@@ -1,0 +1,11 @@
+{
+  "seconds": 1800,
+  "order": [
+    {
+      "task": "quantity",
+      "repeat": 3,
+      "condition": "C",
+      "id": "0efd37761e96"
+    }
+  ]
+}
