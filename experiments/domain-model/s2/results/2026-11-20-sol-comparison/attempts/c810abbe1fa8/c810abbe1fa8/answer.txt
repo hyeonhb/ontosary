@@ -1,0 +1,122 @@
+diff --git a/packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts b/packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts
+--- a/packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts
++++ b/packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts
+@@ -583,19 +583,15 @@
+             })
+             .pipe(
+-                switchMap(input => {
+-                    if (input) {
+-                        return this.dataService.order.cancelOrder(input);
+-                    } else {
+-                        return of(undefined);
+-                    }
+-                }),
+-                switchMap(result => this.refetchOrder(result)),
++                switchMap(input => (input ? this.dataService.order.cancelOrder(input) : EMPTY)),
++                switchMap(result => this.refetchOrder(result).pipe(mapTo(result))),
+             )
+-            .subscribe(result => {
+-                if (result) {
++            .subscribe(({ cancelOrder }) => {
++                if (cancelOrder.__typename === 'Order') {
+                     this.notificationService.success(_('order.cancelled-order-success'));
++                } else if ('message' in cancelOrder) {
++                    this.notificationService.error(cancelOrder.message);
+                 }
+             });
+     }
+ 
+     private refundOrder(order: OrderDetailFragment) {
+@@ -608,76 +604,69 @@
+             })
+             .pipe(
+                 switchMap(input => {
+-                    if (!input) {
+-                        return of(undefined);
++                    if (!input || (!input.cancel.lines?.length && !input.refunds.length)) {
++                        return EMPTY;
+                     }
+ 
+                     if (input.cancel.lines?.length) {
+                         return this.dataService.order.cancelOrder(input.cancel).pipe(
+                             map(res => {
+                                 const result = res.cancelOrder;
+                                 switch (result.__typename) {
+                                     case 'Order':
+-                                        this.refetchOrder(result).subscribe();
+                                         this.notificationService.success(
+                                             _('order.cancelled-order-items-success'),
+                                             {
+                                                 count: summate(input.cancel.lines, 'quantity'),
+                                             },
+                                         );
+                                         return input;
+                                     case 'CancelActiveOrderError':
+                                     case 'QuantityTooGreatError':
+                                     case 'MultipleOrderError':
+                                     case 'OrderStateTransitionError':
+                                     case 'EmptyOrderLineSelectionError':
+                                         this.notificationService.error(result.message);
+                                         return undefined;
+                                 }
+                             }),
+                         );
+-                    } else {
+-                        return [input];
+                     }
++                    return of(input);
+                 }),
+                 switchMap(input => {
+-                    if (!input) {
+-                        return of(undefined);
+-                    }
+-                    if (input.refunds.length) {
+-                        return forkJoin(
+-                            input.refunds.map(refund =>
+-                                this.dataService.order.refundOrder(refund).pipe(map(res => res.refundOrder)),
+-                            ),
+-                        );
+-                    } else {
+-                        return [undefined];
++                    if (!input?.refunds.length) {
++                        return of([]);
+                     }
++                    return forkJoin(
++                        input.refunds.map(refund =>
++                            this.dataService.order.refundOrder(refund).pipe(map(res => res.refundOrder)),
++                        ),
++                    );
+                 }),
+-            )
+-            .subscribe(results => {
+-                for (const result of results ?? []) {
+-                    if (result) {
++                switchMap(results => {
++                    for (const result of results) {
+                         switch (result.__typename) {
+                             case 'Refund':
+                                 if (result.state === 'Failed') {
+                                     this.notificationService.error(_('order.refund-order-failed'));
+                                 } else {
+                                     this.notificationService.success(_('order.refund-order-success'));
+                                 }
+                                 break;
+                             case 'AlreadyRefundedError':
+                             case 'NothingToRefundError':
+                             case 'PaymentOrderMismatchError':
+                             case 'RefundOrderStateError':
+                             case 'RefundStateTransitionError':
+                                 this.notificationService.error(result.message);
+                                 break;
+                         }
+                     }
+-                }
+-                this.refetchOrder(results?.[0]).subscribe();
+-            });
++                    return this.refetchOrder(results);
++                }),
++            )
++            .subscribe();
+     }
+ 
+     private refetchOrder(result: object | undefined): Observable<GetOrderQuery | undefined> {
