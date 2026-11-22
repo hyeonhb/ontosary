@@ -1,6 +1,10 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import vm from 'node:vm';
+import {parseTemplate, VERSION} from '@angular/compiler';
+import {Failure} from '../../lib/model.js';
+import {attributionBindings, inCase, instrument, recordError, type Observation} from '../complex/evaluator/errors.js';
+import {menuBindings} from './template.js';
 import {createRequire} from 'node:module';
 import {mappings} from '../../evaluation/behavior.js';
 import {executor, type Runtime} from '../../evaluation/execute.js';
@@ -34,22 +38,6 @@ const cases = [
     {name: 'no cancelled transition', order: order([exhausted], 'Cancelled', false, 'Regular', []), label: null, modal: null},
 ];
 
-// Recognize the original dropdown structure with replaceable Angular bindings and translation keys.
-// A different template structure needs another interpreter or an Angular rendering review.
-function bindings(baseline: string, submitted: string) {
-    const original = /<button\s+type="button"\s+vdrDropdownItem\s+\*ngIf="[^"]+"\s+\(click\)="[^"]+"\s*>\s*<clr-icon shape="error-standard"[\s\S]*?<\/button>/g;
-    const matches = [...baseline.matchAll(original)];
-    if (matches.length !== 1) throw Error('Unknown baseline dropdown');
-    const start = matches[0]!.index!, end = start + matches[0]![0].length;
-    const suffix = baseline.slice(end);
-    if (!submitted.startsWith(baseline.slice(0,start)) || !submitted.endsWith(suffix)) throw Error('Changes outside supported button');
-    const button = submitted.slice(start,submitted.length-suffix.length);
-    const pattern = /^<button\s+type="button"\s+vdrDropdownItem\s+\*ngIf="([^"]+)"\s+\(click\)="([^"]+)"\s*>\s*<clr-icon shape="error-standard" class="is-error"><\/clr-icon>\s*<ng-container \*ngIf="([^";]+);\s*else (\w+)">\s*{{\s*'([^']+)'\s*\|\s*translate\s*}}\s*<\/ng-container>\s*<ng-template #(\w+)>\s*{{\s*'([^']+)'\s*\|\s*translate\s*}}\s*<\/ng-template>\s*<\/button>$/;
-    const m = pattern.exec(button);
-    if (!m || m[4] !== m[6]) throw Error('Unsupported menu structure');
-    return {gate:m[1]!, click:m[2]!, condition:m[3]!, yes:m[5]!, no:m[7]!};
-}
-
 const env = openEnvironment(root,repo), sources = readSubmission(source);
 const actualManifest = manifest(sources);
 const types = new Map(sources);
@@ -59,44 +47,87 @@ const checked = checkSubmission({root,config:env.config,baseline:env.baseline,so
     allowedChange:f=>f.startsWith('packages/admin-ui/src/') && f.endsWith('.ts')});
 const used: Record<string,string> = {};
 const view = sourceView(sources,(file,sha)=>{used[file]=sha;});
-const observations = [];
-let unsupported: string | undefined;
+const template = view.read(html);
+const parsed = parseTemplate(template,html);
+const compilerLock = JSON.parse(env.baseline.get('package-lock.json')!.toString()).packages['node_modules/@angular/compiler'];
+if (VERSION.full !== compilerLock.version) throw new Error('Evaluator compiler differs from the pinned Vendure lock');
+const compilerFile = createRequire(import.meta.url).resolve('@angular/compiler');
+// Angular can carry the same binding diagnostic across many later template spans.
+const diagnostics = new Map<string, {file:string; line:number; column:number; message:string; occurrences:number}>();
+for (const error of parsed.errors ?? []) {
+    const existing = diagnostics.get(error.msg);
+    if (existing) existing.occurrences++;
+    else diagnostics.set(error.msg, {file:html,line:error.span.start.line+1,column:error.span.start.col+1,
+        message:error.msg,occurrences:1});
+}
+const parser = {version:VERSION.full,compilerIntegrity:compilerLock.integrity,compilerSha256:hash(fs.readFileSync(compilerFile)),
+    templateSha256:used[html],diagnostics:[...diagnostics.values()]};
+type MenuCase = Observation & {passed:boolean; errorPhase?:string};
+const observations: MenuCase[] = [];
+let setupError: ReturnType<typeof recordError> | undefined;
 try {
-    if (checked.status === 'passed') {
-        const menu = bindings(env.baseline.get(html)!.toString(),view.read(html));
+    if (checked.status === 'passed' && !diagnostics.size) {
+        const menu = menuBindings(env.baseline.get(html)!.toString(),template,parsed.nodes);
         const translations = JSON.parse(view.read(locale));
         const rx = createRequire(path.join(root,'package.json'))('rxjs');
         const engine = executor(root,mappings,{marker:(s:string)=>s,gql:()=>'', ORDER_DETAIL_FRAGMENT:'',
-            FormControl:Control, Validators:{min:()=>null,max:()=>null},
-            summate:(rows:Runtime[],key:string)=>rows.reduce((total,row)=>total+Number(row[key]),0)},root,view);
+            FormControl:Control, Validators:{min:()=>null,max:()=>null}, ...attributionBindings(rx.Subscriber),
+            summate:(rows:Runtime[],key:string)=>rows.reduce((total,row)=>total+Number(row[key]),0)},root,
+            {has:view.has, read:file=>instrument(file,view.read(file))});
         const dialogs = ['CancelOrderDialogComponent','RefundOrderDialogComponent'];
         const identities = dialogs.map(name=>engine.component(name));
         for (const test of cases) {
             const input = structuredClone(test.order);
             const opened: string[] = [];
-            const detail = engine.instance('OrderDetailComponent');
-            detail.modalService = {fromComponent:(component:Function, options:{locals:{order:unknown}})=>{
-                opened.push(options.locals.order === input ? dialogs[identities.indexOf(component)] ?? 'unknown dialog' : 'wrong order');
-                return rx.EMPTY;
-            }};
-            const evaluate = (expr:string)=>vm.runInNewContext('with (detail) { ('+expr+') }',{detail,order:input},{timeout:1000});
-            let label = null;
-            if (evaluate(menu.gate)) {
-                const key = evaluate(menu.condition) ? menu.yes : menu.no;
-                label = key.split('.').reduce((value,k)=>value?.[k],translations) ?? key;
-                evaluate(menu.click);
-            }
             const expectedOpened = test.modal ? [test.modal] : [];
-            observations.push({name:test.name,expected:{label:test.label,opened:expectedOpened},actual:{label,opened},
-                passed:label===test.label && JSON.stringify(opened)===JSON.stringify(expectedOpened)});
+            const row: MenuCase = {name:test.name,group:'menu',status:'passed',
+                expected:{label:test.label,opened:expectedOpened},passed:false};
+            observations.push(row);
+            inCase(row, () => {
+                let label: string | null = null;
+                let phase = 'component';
+                try {
+                    const detail = engine.instance('OrderDetailComponent');
+                    Object.defineProperty(detail, 'detailForm', {get() {
+                        throw new Failure('Environment','detailForm','Angular form initialization is outside the menu fixture');
+                    }});
+                    detail.modalService = {fromComponent:(component:Function, options:{locals:{order:unknown}})=>{
+                        opened.push(options.locals.order === input ? dialogs[identities.indexOf(component)] ?? 'unknown dialog' : 'wrong order');
+                        return rx.EMPTY;
+                    }};
+                    // Retain the per-expression timeout when a binding calls a submitted TS method.
+                    const evaluate = (fn:typeof menu.gate) => vm.runInNewContext('run()', {run:()=>fn({detail,order:input})},{timeout:1000});
+                    phase = 'visibility';
+                    if (evaluate(menu.gate)) {
+                        phase = 'label';
+                        const key = evaluate(menu.condition) ? menu.yes : menu.no;
+                        label = key.split('.').reduce((value,k)=>value?.[k],translations) ?? key;
+                        phase = 'click';
+                        evaluate(menu.click);
+                    }
+                    row.passed = label===test.label && JSON.stringify(opened)===JSON.stringify(expectedOpened);
+                    row.status = row.passed ? 'passed' : 'failed';
+                } catch (error) {
+                    row.errorPhase = phase;
+                    recordError(error,'synchronous');
+                }
+                row.actual = {label,opened};
+            });
         }
     }
-} catch (e) { unsupported = String(e); }
+} catch (error) { setupError = recordError(error,'synchronous'); }
 env.assertUnchanged();
 const bound = Object.entries(used).every(([file,sha]) => actualManifest[file] === sha &&
     (!file.endsWith('.ts') || checked.checkedFiles.some(f=>f.file===file && f.sha256===sha)));
-const status = checked.status !== 'passed' ? checked.status : unsupported || !bound ? 'unsupported' :
-    observations.length === cases.length && observations.every(r=>r.passed) ? 'passed' : 'failed';
-fs.writeFileSync(output,JSON.stringify({status,unsupported,typecheck:checked.status,diagnostics:checked.diagnostics,
+function outcome() {
+    if (diagnostics.size || checked.status === 'failed') return 'failed';
+    if (checked.status !== 'passed' || !bound) return 'unsupported';
+    if (setupError) return setupError.status;
+    // Preserve a proven failure even if another case is unobservable.
+    for (const status of ['failed','environment-error','unsupported'] as const)
+        if (observations.some(row=>row.status===status)) return status;
+    return observations.length === cases.length ? 'passed' : 'unsupported';
+}
+fs.writeFileSync(output,JSON.stringify({status:outcome(),parser,setupError,typecheck:checked.status,diagnostics:checked.diagnostics,
     unsupportedChanges:checked.unsupported,programFiles:checked.cost.programFiles,submissionId:hash(stable(actualManifest)),
     environmentId:hash(stable(env.fingerprints)),bound,used,observations},null,2)+'\n',{flag:'wx'});

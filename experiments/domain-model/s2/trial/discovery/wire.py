@@ -8,7 +8,7 @@ import sys
 import tempfile
 import threading
 
-from session import digest, encode
+from session import digest, encode, public
 
 system = "Use only the public prompt and action history. Return one JSON action."
 s2 = Path(__file__).resolve().parents[2]
@@ -53,7 +53,9 @@ with tempfile.TemporaryDirectory() as scratch, HTTPServer(("127.0.0.1", 0), Capt
     captured = {}
     for arm,t in traces.items():
         captured[arm] = []
-        for n in (0, 3):
+        assert t["public"] == public(arm)
+        assert t["steps"][0]["action"] == t["public"]["example"] and t["steps"][0]["reply"]["rows"]
+        for n in (0, 1, 3):
             # Only public action/reply pairs are returned, never timings, grader, gold or other arms.
             history = [{"action":r["action"],"reply":r["reply"]} for r in t["steps"][:n]]
             packet = encode({"public":t["public"],"history":history}).decode()
@@ -67,7 +69,15 @@ with tempfile.TemporaryDirectory() as scratch, HTTPServer(("127.0.0.1", 0), Capt
             assert not any(i.get("tools") for i in [data,*items])
             assert [(i["role"],i["type"],[c["text"] for c in i["content"]]) for i in items] == [
                 ("developer","message",[system]),("user","message",[packet])]
-            captured[arm].append({"historySteps":n,"packetSha256":digest(packet.encode()),"tools":[]})
+            received = json.loads(items[1]["content"][0]["text"])
+            frame = {"historySteps":n,"packetSha256":digest(packet.encode()),"tools":[],
+                     "example":received["public"]["example"]}
+            if n == 1:
+                first, = received["history"]
+                assert first["action"] == frame["example"] and first["reply"] == t["steps"][0]["reply"]
+                frame["firstReplyRows"] = len(first["reply"]["rows"])
+                frame["firstReplySha256"] = digest(encode(first["reply"]))
+            captured[arm].append(frame)
     server.shutdown()
     with output.open("x") as f:
         json.dump({"cli":subprocess.check_output(["codex","--version"],text=True).strip(),"model":model,"effort":"medium",

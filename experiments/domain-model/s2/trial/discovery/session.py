@@ -25,8 +25,8 @@ def public(arm):
     help_text = {"A": [], "B": ["In model, list available views or read index.json. Search concept ids in item views, follow related items/factRefs, then search the fact and evidence views for source coordinates."],
                  "C": ["In document, list documents, search narrative statements and follow their identifiers to the evidence appendix."]}[arm]
     return {"task": TASK, "revision": REV, "scope": "Vendure existing Admin UI; repository source and documentation",
-            "spaces": spaces, "protocol": [
-                "One JSON action per turn (24 total). list(space,glob?,offset?) lists relative file names.",
+            "spaces": spaces, "example": {"op": "search", "space": "source", "query": "license"}, "protocol": [
+                "Send one JSON object per turn (24 actions in this mock). The required key op names the action. Put its arguments in the same object. You can send example verbatim. list(space,glob?,offset?) lists relative file names.",
                 "search(space,query,glob?,offset?) returns literal case-insensitive matches with line numbers.",
                 "read(space,path,start?,offset?,column?) returns numbered lines from start (1-based). Long lines show 420 characters; column (1-based) selects another slice. All offsets skip rows, starting at zero. next is the next offset for the same query.",
                 "submit(impact) once before editing: describe affected locations, behavior to preserve and supporting source lines/symbols.",

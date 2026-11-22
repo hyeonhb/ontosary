@@ -1,5 +1,7 @@
 # Vendure 환불 잔액 변경의 영향 범위 탐색 비교 준비
 
+아래는 최초 준비 결과다. 현재 PR에서 재현할 명령과 판정 근거는 [R23–R25 보완 결과](2026-11-22-s2-refund-discovery-grading-fix.md)에 있다.
+
 **탐색과 최종 수정 모두 측정 가능하다.** 고정 Vendure Admin UI에서 A·B·C 모의 세션이 업무 요청으로 시작해 수정 전에 같은 판정표로 읽을 수 있는 근거를 제출했다. 독립 작업 사본에서 회수한 정상 수정은 세 조건 모두 11/11이었다. 전액 환불 주문에서 문구만 바꾼 대조는 취소로 표시됐지만 클릭하면 환불 대화상자를 열었다. 참가 모델 호출은 0회이며 이 결과에서 Ontosary의 효과나 Sol의 성공률은 추정할 수 없다. [모의 작업 원문](../../experiments/domain-model/s2/results/2026-11-22-refund-discovery/traces.json) · [전체 관측값](../../experiments/domain-model/s2/results/2026-11-22-refund-discovery/results.json)
 
 ## 참가자가 받은 것과 찾은 것
