@@ -1,0 +1,48 @@
+{
+  "cli": "codex-cli 0.167.0-alpha.3.2",
+  "model": "gpt-6.2-sol",
+  "effort": "medium",
+  "provider": "loopback HTTP 400",
+  "roles": [
+    "developer",
+    "user"
+  ],
+  "captured": {
+    "A": [
+      {
+        "historySteps": 0,
+        "packetSha256": "d2a38f3d0a39125419858d8acbf6fa59da79df1a29c4d280fb2ff0160054ad9e",
+        "tools": []
+      },
+      {
+        "historySteps": 3,
+        "packetSha256": "0f67d87f3d8a0799b38960a4df8339aba6da1cdbc99d017a19478b16659a1f41",
+        "tools": []
+      }
+    ],
+    "B": [
+      {
+        "historySteps": 0,
+        "packetSha256": "a69832e8d024044561eb8d660d62defaa9dc8cb371c3cf5710ac8c2383b2a27d",
+        "tools": []
+      },
+      {
+        "historySteps": 3,
+        "packetSha256": "a88822311e892eabd1846272a8f1b597163bab8cd374cfef7fe7e2192d47603b",
+        "tools": []
+      }
+    ],
+    "C": [
+      {
+        "historySteps": 0,
+        "packetSha256": "885da61cad49a104c6798169d62273007d6c0294ba169c85338cd73e7cf12a87",
+        "tools": []
+      },
+      {
+        "historySteps": 3,
+        "packetSha256": "6ae790f1746f9dcc7427850922b676ce152e19c5d2a9791031b1983fbef9d9de",
+        "tools": []
+      }
+    ]
+  }
+}

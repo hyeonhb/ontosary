@@ -1,0 +1,4712 @@
+{
+  "A": {
+    "public": {
+      "task": "관리자 주문 상세에서 고객에게 돌려줄 금액이 전혀 남지 않은 주문은 환불로 안내하지 말고 취소 절차로 연결해 주세요. 환불할 금액이 남은 주문에서는 기존 취소·환불 동작을 유지하고, 원래 취소할 수 없던 주문에 새로 취소를 허용하지 마세요.",
+      "revision": "534e6003534f74761e82de1b8c6061cba89945d1",
+      "scope": "Vendure existing Admin UI; repository source and documentation",
+      "spaces": [
+        "source"
+      ],
+      "protocol": [
+        "One JSON action per turn (24 total). list(space,glob?,offset?) lists relative file names.",
+        "search(space,query,glob?,offset?) returns literal case-insensitive matches with line numbers.",
+        "read(space,path,start?,offset?,column?) returns numbered lines from start (1-based). Long lines show 420 characters; column (1-based) selects another slice. All offsets skip rows, starting at zero. next is the next offset for the same query.",
+        "submit(impact) once before editing: describe affected locations, behavior to preserve and supporting source lines/symbols.",
+        "replace(path,old,new) replaces one unique exact text in source; create(path,text) adds a file. finish() submits the working copy. No test feedback."
+      ]
+    },
+    "steps": [
+      {
+        "action": {
+          "op": "search",
+          "space": "source",
+          "query": "refund",
+          "glob": "*admin-ui*.html"
+        },
+        "reply": {
+          "rows": [
+            [
+              "packages/admin-ui/src/lib/order/src/components/line-refunds/line-refunds.component.html",
+              1,
+              "<span *ngIf=\"getRefundedCount()\" [title]=\"'order.refunded-count' | translate: { count: getRefundedCount() }\">"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.html",
+              52,
+              "                    (click)=\"cancelOrRefund(order)\""
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.html",
+              56,
+              "                        {{ 'order.refund-and-cancel-order' | translate }}"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.html",
+              135,
+              "                (settleRefund)=\"settleRefund($event)\""
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-editor/order-editor.component.html",
+              187,
+              "                        <vdr-line-refunds [line]=\"line\" [payments]=\"order.payments\"></vdr-line-refunds>"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-edits-preview-dialog/order-edits-preview-dialog.component.html",
+              9,
+              "        <vdr-payment-for-refund-selector"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-edits-preview-dialog/order-edits-preview-dialog.component.html",
+              12,
+              "            [refundablePayments]=\"refundablePayments\""
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-edits-preview-dialog/order-edits-preview-dialog.component.html",
+              15,
+              "        ></vdr-payment-for-refund-selector>"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-edits-preview-dialog/order-edits-preview-dialog.component.html",
+              32,
+              "                [label]=\"'order.refund-cancellation-reason' | translate\""
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-edits-preview-dialog/order-edits-preview-dialog.component.html",
+              35,
+              "                <textarea [(ngModel)]=\"refundNote\" name=\"refundNote\" required></textarea>"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-edits-preview-dialog/order-edits-preview-dialog.component.html",
+              45,
+              "                *ngIf=\"priceDifference < 0 && !refundsCoverDifference()\""
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-edits-preview-dialog/order-edits-preview-dialog.component.html",
+              50,
+              "                    {{ 'order.refund-total-warning' | translate }}"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-edits-preview-dialog/order-edits-preview-dialog.component.html",
+              68,
+              "                [disabled]=\"priceDifference < 0 ? !refundsCoverDifference() : false\""
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-history/order-history.component.html",
+              110,
+              "                    <ng-container *ngSwitchCase=\"type.ORDER_REFUND_TRANSITION\">"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-history/order-history.component.html",
+              111,
+              "                        <ng-container *ngIf=\"entry.data.to === 'Settled'; else regularRefundTransition\">"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-history/order-history.component.html",
+              112,
+              "                            <ng-container *ngIf=\"getRefund(entry) as refund\">"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-history/order-history.component.html",
+              113,
+              "                                <div class=\"title\">{{ 'order.refund' | translate }} #{{ refund.id }}</div>"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-history/order-history.component.html",
+              116,
+              "                                        refund.total | localeCurrency : order.currencyCode"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-history/order-history.component.html",
+              124,
+              "                                                [items]=\"getCancelledItems(refund.lines)\""
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-history/order-history.component.html",
+              131,
+              "                        <ng-template #regularRefundTransition>"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-history/order-history.component.html",
+              133,
+              "                                'order.history-refund-transition'"
+            ]
+          ],
+          "next": 21
+        },
+        "bytes": 3940
+      },
+      {
+        "action": {
+          "op": "read",
+          "space": "source",
+          "path": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.html",
+          "start": 47
+        },
+        "reply": {
+          "rows": [
+            [
+              47,
+              "                </ng-container>"
+            ],
+            [
+              48,
+              "                <button"
+            ],
+            [
+              49,
+              "                    type=\"button\""
+            ],
+            [
+              50,
+              "                    vdrDropdownItem"
+            ],
+            [
+              51,
+              "                    *ngIf=\"order.type !== 'Aggregate' && order.nextStates.includes('Cancelled')\""
+            ],
+            [
+              52,
+              "                    (click)=\"cancelOrRefund(order)\""
+            ],
+            [
+              53,
+              "                >"
+            ],
+            [
+              54,
+              "                    <clr-icon shape=\"error-standard\" class=\"is-error\"></clr-icon>"
+            ],
+            [
+              55,
+              "                    <ng-container *ngIf=\"orderHasSettledPayments(order); else cancelOnly\">"
+            ],
+            [
+              56,
+              "                        {{ 'order.refund-and-cancel-order' | translate }}"
+            ],
+            [
+              57,
+              "                    </ng-container>"
+            ],
+            [
+              58,
+              "                    <ng-template #cancelOnly>"
+            ],
+            [
+              59,
+              "                        {{ 'order.cancel-order' | translate }}"
+            ],
+            [
+              60,
+              "                    </ng-template>"
+            ],
+            [
+              61,
+              "                </button>"
+            ],
+            [
+              62,
+              ""
+            ],
+            [
+              63,
+              "                <ng-container *ngIf=\"(nextStates$ | async)?.length\">"
+            ],
+            [
+              64,
+              "                    <div class=\"dropdown-divider\"></div>"
+            ],
+            [
+              65,
+              "                    <button"
+            ],
+            [
+              66,
+              "                        *ngFor=\"let nextState of nextStates$ | async\""
+            ],
+            [
+              67,
+              "                        type=\"button\""
+            ],
+            [
+              68,
+              "                        vdrDropdownItem"
+            ],
+            [
+              69,
+              "                        (click)=\"transitionToState(nextState)\""
+            ],
+            [
+              70,
+              "                    >"
+            ],
+            [
+              71,
+              "                        <clr-icon shape=\"step-forward-2\"></clr-icon>"
+            ],
+            [
+              72,
+              "                        {{"
+            ],
+            [
+              73,
+              "                            'order.transition-to-state'"
+            ],
+            [
+              74,
+              "                                | translate : { state: (nextState | stateI18nToken | translate) }"
+            ],
+            [
+              75,
+              "                        }}"
+            ],
+            [
+              76,
+              "                    </button>"
+            ],
+            [
+              77,
+              "                </ng-container>"
+            ],
+            [
+              78,
+              "                <div class=\"dropdown-divider\"></div>"
+            ]
+          ],
+          "next": 32
+        },
+        "bytes": 1796
+      },
+      {
+        "action": {
+          "op": "search",
+          "space": "source",
+          "query": "cancelOrRefund(",
+          "glob": "*admin-ui*.ts"
+        },
+        "reply": {
+          "rows": [
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+              466,
+              "    cancelOrRefund(order: OrderDetailFragment) {"
+            ]
+          ],
+          "next": null
+        },
+        "bytes": 167
+      },
+      {
+        "action": {
+          "op": "read",
+          "space": "source",
+          "path": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+          "start": 466
+        },
+        "reply": {
+          "rows": [
+            [
+              466,
+              "    cancelOrRefund(order: OrderDetailFragment) {"
+            ],
+            [
+              467,
+              "        const isRefundable = this.orderHasSettledPayments(order);"
+            ],
+            [
+              468,
+              "        if (order.state === 'PaymentAuthorized' || order.active === true || !isRefundable) {"
+            ],
+            [
+              469,
+              "            this.cancelOrder(order);"
+            ],
+            [
+              470,
+              "        } else {"
+            ],
+            [
+              471,
+              "            this.refundOrder(order);"
+            ],
+            [
+              472,
+              "        }"
+            ],
+            [
+              473,
+              "    }"
+            ],
+            [
+              474,
+              ""
+            ],
+            [
+              475,
+              "    settleRefund(refund: Payment['refunds'][number]) {"
+            ],
+            [
+              476,
+              "        this.modalService"
+            ],
+            [
+              477,
+              "            .fromComponent(SettleRefundDialogComponent, {"
+            ],
+            [
+              478,
+              "                size: 'md',"
+            ],
+            [
+              479,
+              "                locals: {"
+            ],
+            [
+              480,
+              "                    refund,"
+            ],
+            [
+              481,
+              "                },"
+            ],
+            [
+              482,
+              "            })"
+            ],
+            [
+              483,
+              "            .pipe("
+            ],
+            [
+              484,
+              "                switchMap(transactionId => {"
+            ],
+            [
+              485,
+              "                    if (transactionId) {"
+            ],
+            [
+              486,
+              "                        return this.dataService.order.settleRefund("
+            ],
+            [
+              487,
+              "                            {"
+            ],
+            [
+              488,
+              "                                transactionId,"
+            ],
+            [
+              489,
+              "                                id: refund.id,"
+            ],
+            [
+              490,
+              "                            },"
+            ],
+            [
+              491,
+              "                            this.id,"
+            ],
+            [
+              492,
+              "                        );"
+            ],
+            [
+              493,
+              "                    } else {"
+            ],
+            [
+              494,
+              "                        return of(undefined);"
+            ],
+            [
+              495,
+              "                    }"
+            ],
+            [
+              496,
+              "                }),"
+            ],
+            [
+              497,
+              "                // switchMap(result => this.refetchOrder(result)),"
+            ]
+          ],
+          "next": 32
+        },
+        "bytes": 1423
+      },
+      {
+        "action": {
+          "op": "search",
+          "space": "source",
+          "query": "orderHasSettledPayments",
+          "glob": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts"
+        },
+        "reply": {
+          "rows": [
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+              467,
+              "        const isRefundable = this.orderHasSettledPayments(order);"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+              572,
+              "    orderHasSettledPayments(order: OrderDetailFragment): boolean {"
+            ]
+          ],
+          "next": null
+        },
+        "bytes": 347
+      },
+      {
+        "action": {
+          "op": "read",
+          "space": "source",
+          "path": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+          "start": 572
+        },
+        "reply": {
+          "rows": [
+            [
+              572,
+              "    orderHasSettledPayments(order: OrderDetailFragment): boolean {"
+            ],
+            [
+              573,
+              "        return !!order.payments?.find(p => p.state === 'Settled');"
+            ],
+            [
+              574,
+              "    }"
+            ],
+            [
+              575,
+              ""
+            ],
+            [
+              576,
+              "    private cancelOrder(order: OrderDetailFragment) {"
+            ],
+            [
+              577,
+              "        this.modalService"
+            ],
+            [
+              578,
+              "            .fromComponent(CancelOrderDialogComponent, {"
+            ],
+            [
+              579,
+              "                size: 'xl',"
+            ],
+            [
+              580,
+              "                locals: {"
+            ],
+            [
+              581,
+              "                    order,"
+            ],
+            [
+              582,
+              "                },"
+            ],
+            [
+              583,
+              "            })"
+            ],
+            [
+              584,
+              "            .pipe("
+            ],
+            [
+              585,
+              "                switchMap(input => {"
+            ],
+            [
+              586,
+              "                    if (input) {"
+            ],
+            [
+              587,
+              "                        return this.dataService.order.cancelOrder(input);"
+            ],
+            [
+              588,
+              "                    } else {"
+            ],
+            [
+              589,
+              "                        return of(undefined);"
+            ],
+            [
+              590,
+              "                    }"
+            ],
+            [
+              591,
+              "                }),"
+            ],
+            [
+              592,
+              "                switchMap(result => this.refetchOrder(result)),"
+            ],
+            [
+              593,
+              "            )"
+            ],
+            [
+              594,
+              "            .subscribe(result => {"
+            ],
+            [
+              595,
+              "                if (result) {"
+            ],
+            [
+              596,
+              "                    this.notificationService.success(_('order.cancelled-order-success'));"
+            ],
+            [
+              597,
+              "                }"
+            ],
+            [
+              598,
+              "            });"
+            ],
+            [
+              599,
+              "    }"
+            ],
+            [
+              600,
+              ""
+            ],
+            [
+              601,
+              "    private refundOrder(order: OrderDetailFragment) {"
+            ],
+            [
+              602,
+              "        this.modalService"
+            ],
+            [
+              603,
+              "            .fromComponent(RefundOrderDialogComponent, {"
+            ]
+          ],
+          "next": 32
+        },
+        "bytes": 1360
+      },
+      {
+        "action": {
+          "op": "search",
+          "space": "source",
+          "query": ".fromComponent(",
+          "glob": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts"
+        },
+        "reply": {
+          "rows": [
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+              143,
+              "                    this.modalService.fromComponent(OrderProcessGraphDialogComponent, {"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+              156,
+              "            .fromComponent(SelectCustomerDialogComponent, {"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+              360,
+              "            .fromComponent(AddManualPaymentDialogComponent, {"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+              412,
+              "                    this.modalService.fromComponent(FulfillOrderDialogComponent, {"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+              477,
+              "            .fromComponent(SettleRefundDialogComponent, {"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+              524,
+              "            .fromComponent(EditNoteDialogComponent, {"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+              578,
+              "            .fromComponent(CancelOrderDialogComponent, {"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+              603,
+              "            .fromComponent(RefundOrderDialogComponent, {"
+            ]
+          ],
+          "next": null
+        },
+        "bytes": 1309
+      },
+      {
+        "action": {
+          "op": "read",
+          "space": "source",
+          "path": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+          "start": 601
+        },
+        "reply": {
+          "rows": [
+            [
+              601,
+              "    private refundOrder(order: OrderDetailFragment) {"
+            ],
+            [
+              602,
+              "        this.modalService"
+            ],
+            [
+              603,
+              "            .fromComponent(RefundOrderDialogComponent, {"
+            ],
+            [
+              604,
+              "                size: 'xl',"
+            ],
+            [
+              605,
+              "                locals: {"
+            ],
+            [
+              606,
+              "                    order,"
+            ],
+            [
+              607,
+              "                },"
+            ],
+            [
+              608,
+              "            })"
+            ],
+            [
+              609,
+              "            .pipe("
+            ],
+            [
+              610,
+              "                switchMap(input => {"
+            ],
+            [
+              611,
+              "                    if (!input) {"
+            ],
+            [
+              612,
+              "                        return of(undefined);"
+            ],
+            [
+              613,
+              "                    }"
+            ],
+            [
+              614,
+              ""
+            ],
+            [
+              615,
+              "                    if (input.cancel.lines?.length) {"
+            ],
+            [
+              616,
+              "                        return this.dataService.order.cancelOrder(input.cancel).pipe("
+            ],
+            [
+              617,
+              "                            map(res => {"
+            ],
+            [
+              618,
+              "                                const result = res.cancelOrder;"
+            ],
+            [
+              619,
+              "                                switch (result.__typename) {"
+            ],
+            [
+              620,
+              "                                    case 'Order':"
+            ],
+            [
+              621,
+              "                                        this.refetchOrder(result).subscribe();"
+            ],
+            [
+              622,
+              "                                        this.notificationService.success("
+            ],
+            [
+              623,
+              "                                            _('order.cancelled-order-items-success'),"
+            ],
+            [
+              624,
+              "                                            {"
+            ],
+            [
+              625,
+              "                                                count: summate(input.cancel.lines, 'quantity'),"
+            ],
+            [
+              626,
+              "                                            },"
+            ],
+            [
+              627,
+              "                                        );"
+            ],
+            [
+              628,
+              "                                        return input;"
+            ],
+            [
+              629,
+              "                                    case 'CancelActiveOrderError':"
+            ],
+            [
+              630,
+              "                                    case 'QuantityTooGreatError':"
+            ],
+            [
+              631,
+              "                                    case 'MultipleOrderError':"
+            ],
+            [
+              632,
+              "                                    case 'OrderStateTransitionError':"
+            ]
+          ],
+          "next": 32
+        },
+        "bytes": 1834
+      },
+      {
+        "action": {
+          "op": "search",
+          "space": "source",
+          "query": "refundableAmount",
+          "glob": "*admin-ui*.ts"
+        },
+        "reply": {
+          "rows": [
+            [
+              "packages/admin-ui/src/lib/order/src/common/get-refundable-payments.ts",
+              7,
+              "    refundableAmount: number;"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/common/get-refundable-payments.ts",
+              15,
+              "        const refundableAmount ="
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/common/get-refundable-payments.ts",
+              23,
+              "            refundableAmount,"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/common/get-refundable-payments.ts",
+              26,
+              "                validators: [Validators.min(0), Validators.max(refundableAmount)],"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-edits-preview-dialog/order-edits-preview-dialog.component.ts",
+              94,
+              "                    Math.min(outstandingRefundAmount, payment.refundableAmount),"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts",
+              46,
+              "    get totalRefundableAmount(): number {"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts",
+              47,
+              "        return summate(this.refundablePayments, 'refundableAmount');"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts",
+              111,
+              "            const amountToRefund = Math.min(payment.refundableAmount, this.refundTotal - refundsAllocated);"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts",
+              151,
+              "                    Math.min(outstandingRefundAmount, payment.refundableAmount),"
+            ]
+          ],
+          "next": null
+        },
+        "bytes": 1455
+      },
+      {
+        "action": {
+          "op": "read",
+          "space": "source",
+          "path": "packages/admin-ui/src/lib/order/src/common/get-refundable-payments.ts",
+          "start": 10
+        },
+        "reply": {
+          "rows": [
+            [
+              10,
+              "};"
+            ],
+            [
+              11,
+              ""
+            ],
+            [
+              12,
+              "export function getRefundablePayments(payments: OrderDetailFragment['payments']): RefundablePayment[] {"
+            ],
+            [
+              13,
+              "    const settledPayments = (payments || []).filter(p => p.state === 'Settled');"
+            ],
+            [
+              14,
+              "    return settledPayments.map((payment, index) => {"
+            ],
+            [
+              15,
+              "        const refundableAmount ="
+            ],
+            [
+              16,
+              "            payment.amount -"
+            ],
+            [
+              17,
+              "            summate("
+            ],
+            [
+              18,
+              "                payment.refunds.filter(r => r.state !== 'Failed'),"
+            ],
+            [
+              19,
+              "                'total',"
+            ],
+            [
+              20,
+              "            );"
+            ],
+            [
+              21,
+              "        return {"
+            ],
+            [
+              22,
+              "            ...payment,"
+            ],
+            [
+              23,
+              "            refundableAmount,"
+            ],
+            [
+              24,
+              "            amountToRefundControl: new FormControl(0, {"
+            ],
+            [
+              25,
+              "                nonNullable: true,"
+            ],
+            [
+              26,
+              "                validators: [Validators.min(0), Validators.max(refundableAmount)],"
+            ],
+            [
+              27,
+              "            }),"
+            ],
+            [
+              28,
+              "            selected: index === 0,"
+            ],
+            [
+              29,
+              "        };"
+            ],
+            [
+              30,
+              "    });"
+            ],
+            [
+              31,
+              "}"
+            ]
+          ],
+          "next": null
+        },
+        "bytes": 925
+      },
+      {
+        "action": {
+          "op": "search",
+          "space": "source",
+          "query": "getRefundablePayments(",
+          "glob": "*admin-ui*.ts"
+        },
+        "reply": {
+          "rows": [
+            [
+              "packages/admin-ui/src/lib/order/src/common/get-refundable-payments.ts",
+              12,
+              "export function getRefundablePayments(payments: OrderDetailFragment['payments']): RefundablePayment[] {"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-edits-preview-dialog/order-edits-preview-dialog.component.ts",
+              76,
+              "        this.refundablePayments = getRefundablePayments(this.order.payments || []);"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts",
+              87,
+              "        this.refundablePayments = getRefundablePayments(this.order.payments);"
+            ]
+          ],
+          "next": null
+        },
+        "bytes": 599
+      },
+      {
+        "action": {
+          "op": "read",
+          "space": "source",
+          "path": "packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts",
+          "start": 84
+        },
+        "reply": {
+          "rows": [
+            [
+              84,
+              "            }),"
+            ],
+            [
+              85,
+              "            {},"
+            ],
+            [
+              86,
+              "        );"
+            ],
+            [
+              87,
+              "        this.refundablePayments = getRefundablePayments(this.order.payments);"
+            ],
+            [
+              88,
+              "    }"
+            ],
+            [
+              89,
+              ""
+            ],
+            [
+              90,
+              "    updateRefundTotal() {"
+            ],
+            [
+              91,
+              "        if (!this.manuallySetRefundTotal) {"
+            ],
+            [
+              92,
+              "            const itemTotal = this.order.lines.reduce((total, line) => {"
+            ],
+            [
+              93,
+              "                const lineRef = this.lineQuantities[line.id];"
+            ],
+            [
+              94,
+              "                const refundCount = lineRef.quantity || 0;"
+            ],
+            [
+              95,
+              "                return total + line.proratedUnitPriceWithTax * refundCount;"
+            ],
+            [
+              96,
+              "            }, 0);"
+            ],
+            [
+              97,
+              "            const shippingTotal = this.order.shippingLines.reduce((total, line) => {"
+            ],
+            [
+              98,
+              "                if (this.refundShippingLineIds.includes(line.id)) {"
+            ],
+            [
+              99,
+              "                    return total + line.discountedPriceWithTax;"
+            ],
+            [
+              100,
+              "                } else {"
+            ],
+            [
+              101,
+              "                    return total;"
+            ],
+            [
+              102,
+              "                }"
+            ],
+            [
+              103,
+              "            }, 0);"
+            ],
+            [
+              104,
+              "            this.refundTotal = itemTotal + shippingTotal;"
+            ],
+            [
+              105,
+              "        }"
+            ],
+            [
+              106,
+              ""
+            ],
+            [
+              107,
+              "        // allocate the refund total across the refundable payments"
+            ],
+            [
+              108,
+              "        const refundablePayments = this.refundablePayments.filter(p => p.selected);"
+            ],
+            [
+              109,
+              "        let refundsAllocated = 0;"
+            ],
+            [
+              110,
+              "        for (const payment of refundablePayments) {"
+            ],
+            [
+              111,
+              "            const amountToRefund = Math.min(payment.refundableAmount, this.refundTotal - refundsAllocated);"
+            ],
+            [
+              112,
+              "            payment.amountToRefundControl.setValue(amountToRefund);"
+            ],
+            [
+              113,
+              "            refundsAllocated += amountToRefund;"
+            ],
+            [
+              114,
+              "        }"
+            ],
+            [
+              115,
+              "    }"
+            ]
+          ],
+          "next": 32
+        },
+        "bytes": 1607
+      },
+      {
+        "action": {
+          "op": "submit",
+          "impact": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.html:51-60 메뉴는 Aggregate 제외 및 Cancelled 전이 가능일 때만 노출한다. 정산 결제 존재로 고르는 두 문구는 실제 잔액이 없으면 취소로 바꾼다. packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:466-473,572-603 클릭은 cancel/refund 모달로 이어진다. PaymentAuthorized·active·정산 결제 없음의 직접 취소를 유지하고 그 밖에서는 잔액에 따라 분기한다. packages/admin-ui/src/lib/order/src/common/get-refundable-payments.ts:12-21 정산된 각 결제 amount에서 Failed를 제외한 refunds.total을 차감한다. packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:87도 이 값을 사용한다. 하나라도 양수이면 기존 문구와 경로를 보존하고 모두 소진이면 문구와 클릭을 함께 취소로 맞춘다."
+        },
+        "reply": {
+          "sealed": "4b25e22f5ec478f91dd68593761b8f0155405900b42f98dfbb224edd8fa02e7f"
+        },
+        "bytes": 77
+      },
+      {
+        "action": {
+          "op": "replace",
+          "path": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+          "old": "    orderHasSettledPayments(order: OrderDetailFragment): boolean {",
+          "new": "    hasRefundBalance(order: OrderDetailFragment): boolean {\n        return getRefundablePayments(order.payments).some(p => p.refundableAmount > 0);\n    }\n\n    orderHasSettledPayments(order: OrderDetailFragment): boolean {"
+        },
+        "reply": {
+          "ok": true
+        },
+        "bytes": 11
+      },
+      {
+        "action": {
+          "op": "read",
+          "space": "source",
+          "path": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+          "start": 1
+        },
+        "reply": {
+          "rows": [
+            [
+              1,
+              "import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';"
+            ],
+            [
+              2,
+              "import { FormBuilder, FormGroup } from '@angular/forms';"
+            ],
+            [
+              3,
+              "import { marker as _ } from '@biesbjerg/ngx-translate-extract-marker';"
+            ],
+            [
+              4,
+              "import {"
+            ],
+            [
+              5,
+              "    DataService,"
+            ],
+            [
+              6,
+              "    EditNoteDialogComponent,"
+            ],
+            [
+              7,
+              "    FulfillmentFragment,"
+            ],
+            [
+              8,
+              "    getCustomFieldsDefaults,"
+            ],
+            [
+              9,
+              "    GetOrderHistoryQuery,"
+            ],
+            [
+              10,
+              "    GetOrderQuery,"
+            ],
+            [
+              11,
+              "    ModalService,"
+            ],
+            [
+              12,
+              "    NotificationService,"
+            ],
+            [
+              13,
+              "    ORDER_DETAIL_FRAGMENT,"
+            ],
+            [
+              14,
+              "    OrderDetailFragment,"
+            ],
+            [
+              15,
+              "    OrderDetailQueryDocument,"
+            ],
+            [
+              16,
+              "    Refund,"
+            ],
+            [
+              17,
+              "    SetOrderCustomerDocument,"
+            ],
+            [
+              18,
+              "    SortOrder,"
+            ],
+            [
+              19,
+              "    TimelineHistoryEntry,"
+            ],
+            [
+              20,
+              "    TypedBaseDetailComponent,"
+            ],
+            [
+              21,
+              "} from '@vendure/admin-ui/core';"
+            ],
+            [
+              22,
+              "import { assertNever, summate } from '@vendure/common/lib/shared-utils';"
+            ],
+            [
+              23,
+              "import { gql } from 'apollo-angular';"
+            ],
+            [
+              24,
+              "import { EMPTY, forkJoin, Observable, of, Subject } from 'rxjs';"
+            ],
+            [
+              25,
+              "import { map, mapTo, startWith, switchMap, take } from 'rxjs/operators';"
+            ],
+            [
+              26,
+              ""
+            ],
+            [
+              27,
+              "import { OrderTransitionService } from '../../providers/order-transition.service';"
+            ],
+            [
+              28,
+              "import { AddManualPaymentDialogComponent } from '../add-manual-payment-dialog/add-manual-payment-dialog.component';"
+            ],
+            [
+              29,
+              "import { CancelOrderDialogComponent } from '../cancel-order-dialog/cancel-order-dialog.component';"
+            ],
+            [
+              30,
+              "import { FulfillOrderDialogComponent } from '../fulfill-order-dialog/fulfill-order-dialog.component';"
+            ],
+            [
+              31,
+              "import { OrderProcessGraphDialogComponent } from '../order-process-graph-dialog/order-process-graph-dialog.component';"
+            ],
+            [
+              32,
+              "import { RefundOrderDialogComponent } from '../refund-order-dialog/refund-order-dialog.component';"
+            ]
+          ],
+          "next": 32
+        },
+        "bytes": 1762
+      },
+      {
+        "action": {
+          "op": "replace",
+          "path": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+          "old": "import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';",
+          "new": "import { getRefundablePayments } from '../../common/get-refundable-payments';\nimport { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';"
+        },
+        "reply": {
+          "ok": true
+        },
+        "bytes": 11
+      },
+      {
+        "action": {
+          "op": "replace",
+          "path": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.html",
+          "old": "orderHasSettledPayments(order); else",
+          "new": "hasRefundBalance(order); else"
+        },
+        "reply": {
+          "ok": true
+        },
+        "bytes": 11
+      },
+      {
+        "action": {
+          "op": "replace",
+          "path": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+          "old": "this.orderHasSettledPayments(order)",
+          "new": "this.hasRefundBalance(order)"
+        },
+        "reply": {
+          "ok": true
+        },
+        "bytes": 11
+      },
+      {
+        "action": {
+          "op": "finish"
+        },
+        "reply": {
+          "ok": true
+        },
+        "bytes": 11
+      }
+    ]
+  },
+  "B": {
+    "public": {
+      "task": "관리자 주문 상세에서 고객에게 돌려줄 금액이 전혀 남지 않은 주문은 환불로 안내하지 말고 취소 절차로 연결해 주세요. 환불할 금액이 남은 주문에서는 기존 취소·환불 동작을 유지하고, 원래 취소할 수 없던 주문에 새로 취소를 허용하지 마세요.",
+      "revision": "534e6003534f74761e82de1b8c6061cba89945d1",
+      "scope": "Vendure existing Admin UI; repository source and documentation",
+      "spaces": [
+        "source",
+        "model"
+      ],
+      "protocol": [
+        "One JSON action per turn (24 total). list(space,glob?,offset?) lists relative file names.",
+        "search(space,query,glob?,offset?) returns literal case-insensitive matches with line numbers.",
+        "read(space,path,start?,offset?,column?) returns numbered lines from start (1-based). Long lines show 420 characters; column (1-based) selects another slice. All offsets skip rows, starting at zero. next is the next offset for the same query.",
+        "submit(impact) once before editing: describe affected locations, behavior to preserve and supporting source lines/symbols.",
+        "replace(path,old,new) replaces one unique exact text in source; create(path,text) adds a file. finish() submits the working copy. No test feedback.",
+        "In model, list available views or read index.json. Search concept ids in item views, follow related items/factRefs, then search the fact and evidence views for source coordinates."
+      ]
+    },
+    "steps": [
+      {
+        "action": {
+          "op": "search",
+          "space": "source",
+          "query": "refund",
+          "glob": "*admin-ui*.html"
+        },
+        "reply": {
+          "rows": [
+            [
+              "packages/admin-ui/src/lib/order/src/components/line-refunds/line-refunds.component.html",
+              1,
+              "<span *ngIf=\"getRefundedCount()\" [title]=\"'order.refunded-count' | translate: { count: getRefundedCount() }\">"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.html",
+              52,
+              "                    (click)=\"cancelOrRefund(order)\""
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.html",
+              56,
+              "                        {{ 'order.refund-and-cancel-order' | translate }}"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.html",
+              135,
+              "                (settleRefund)=\"settleRefund($event)\""
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-editor/order-editor.component.html",
+              187,
+              "                        <vdr-line-refunds [line]=\"line\" [payments]=\"order.payments\"></vdr-line-refunds>"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-edits-preview-dialog/order-edits-preview-dialog.component.html",
+              9,
+              "        <vdr-payment-for-refund-selector"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-edits-preview-dialog/order-edits-preview-dialog.component.html",
+              12,
+              "            [refundablePayments]=\"refundablePayments\""
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-edits-preview-dialog/order-edits-preview-dialog.component.html",
+              15,
+              "        ></vdr-payment-for-refund-selector>"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-edits-preview-dialog/order-edits-preview-dialog.component.html",
+              32,
+              "                [label]=\"'order.refund-cancellation-reason' | translate\""
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-edits-preview-dialog/order-edits-preview-dialog.component.html",
+              35,
+              "                <textarea [(ngModel)]=\"refundNote\" name=\"refundNote\" required></textarea>"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-edits-preview-dialog/order-edits-preview-dialog.component.html",
+              45,
+              "                *ngIf=\"priceDifference < 0 && !refundsCoverDifference()\""
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-edits-preview-dialog/order-edits-preview-dialog.component.html",
+              50,
+              "                    {{ 'order.refund-total-warning' | translate }}"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-edits-preview-dialog/order-edits-preview-dialog.component.html",
+              68,
+              "                [disabled]=\"priceDifference < 0 ? !refundsCoverDifference() : false\""
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-history/order-history.component.html",
+              110,
+              "                    <ng-container *ngSwitchCase=\"type.ORDER_REFUND_TRANSITION\">"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-history/order-history.component.html",
+              111,
+              "                        <ng-container *ngIf=\"entry.data.to === 'Settled'; else regularRefundTransition\">"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-history/order-history.component.html",
+              112,
+              "                            <ng-container *ngIf=\"getRefund(entry) as refund\">"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-history/order-history.component.html",
+              113,
+              "                                <div class=\"title\">{{ 'order.refund' | translate }} #{{ refund.id }}</div>"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-history/order-history.component.html",
+              116,
+              "                                        refund.total | localeCurrency : order.currencyCode"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-history/order-history.component.html",
+              124,
+              "                                                [items]=\"getCancelledItems(refund.lines)\""
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-history/order-history.component.html",
+              131,
+              "                        <ng-template #regularRefundTransition>"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-history/order-history.component.html",
+              133,
+              "                                'order.history-refund-transition'"
+            ]
+          ],
+          "next": 21
+        },
+        "bytes": 3940
+      },
+      {
+        "action": {
+          "op": "list",
+          "space": "model"
+        },
+        "reply": {
+          "rows": [
+            "candidate-0.json",
+            "candidate-1.json",
+            "evidence-0.json",
+            "evidence-1.json",
+            "evidence-10.json",
+            "evidence-11.json",
+            "evidence-12.json",
+            "evidence-13.json",
+            "evidence-14.json",
+            "evidence-15.json",
+            "evidence-16.json",
+            "evidence-17.json",
+            "evidence-18.json",
+            "evidence-19.json",
+            "evidence-2.json",
+            "evidence-20.json",
+            "evidence-21.json",
+            "evidence-22.json",
+            "evidence-23.json",
+            "evidence-24.json",
+            "evidence-25.json",
+            "evidence-26.json",
+            "evidence-27.json",
+            "evidence-28.json",
+            "evidence-29.json",
+            "evidence-3.json",
+            "evidence-4.json",
+            "evidence-5.json",
+            "evidence-6.json",
+            "evidence-7.json",
+            "evidence-8.json",
+            "evidence-9.json"
+          ],
+          "next": 32
+        },
+        "bytes": 618
+      },
+      {
+        "action": {
+          "op": "search",
+          "space": "model",
+          "query": "클라이언트 취소/환불 분기",
+          "glob": "item-*.json"
+        },
+        "reply": {
+          "rows": [
+            [
+              "item-5.json",
+              15,
+              "        \"label\": \"클라이언트 취소/환불 분기\","
+            ]
+          ],
+          "next": null
+        },
+        "bytes": 104
+      },
+      {
+        "action": {
+          "op": "read",
+          "space": "model",
+          "path": "item-5.json",
+          "start": 12
+        },
+        "reply": {
+          "rows": [
+            [
+              12,
+              "      \"source\": {"
+            ],
+            [
+              13,
+              "        \"id\": \"branch\","
+            ],
+            [
+              14,
+              "        \"kind\": \"observed-behavior-candidate\","
+            ],
+            [
+              15,
+              "        \"label\": \"클라이언트 취소/환불 분기\","
+            ],
+            [
+              16,
+              "        \"status\": \"pending-review\","
+            ],
+            [
+              17,
+              "        \"author\": \"agent\","
+            ],
+            [
+              18,
+              "        \"factRefs\": ["
+            ],
+            [
+              19,
+              "          \"source-V02\","
+            ],
+            [
+              20,
+              "          \"source-V03\""
+            ],
+            [
+              21,
+              "        ],"
+            ],
+            [
+              22,
+              "        \"candidateRefs\": [],"
+            ],
+            [
+              23,
+              "        \"relatedItems\": ["
+            ],
+            [
+              24,
+              "          \"order\","
+            ],
+            [
+              25,
+              "          \"payment\""
+            ],
+            [
+              26,
+              "        ],"
+            ],
+            [
+              27,
+              "        \"interpretation\": \"PaymentAuthorized 또는 active 또는 settled payment 없음이면 취소 경로, 그 외 환불 경로.\","
+            ],
+            [
+              28,
+              "        \"unverified\": ["
+            ],
+            [
+              29,
+              "          \"이 분기는 서버의 완전한 허용 정책이 아니다.\""
+            ],
+            [
+              30,
+              "        ],"
+            ],
+            [
+              31,
+              "        \"intendedPolicy\": null"
+            ],
+            [
+              32,
+              "      }"
+            ],
+            [
+              33,
+              "    }"
+            ],
+            [
+              34,
+              "  },"
+            ],
+            [
+              35,
+              "  \"neighbors\": {"
+            ],
+            [
+              36,
+              "    \"status\": \"Found\","
+            ],
+            [
+              37,
+              "    \"value\": ["
+            ],
+            [
+              38,
+              "      {"
+            ],
+            [
+              39,
+              "        \"from\": \"branch\","
+            ],
+            [
+              40,
+              "        \"to\": \"order\","
+            ],
+            [
+              41,
+              "        \"kind\": \"related-item\","
+            ],
+            [
+              42,
+              "        \"provenance\": \"S1.items/5/relatedItems\","
+            ],
+            [
+              43,
+              "        \"direction\": \"outgoing\""
+            ]
+          ],
+          "next": 32
+        },
+        "bytes": 1231
+      },
+      {
+        "action": {
+          "op": "search",
+          "space": "model",
+          "query": "cancelOrRefund",
+          "glob": "evidence-*.json"
+        },
+        "reply": {
+          "rows": [
+            [
+              "evidence-1.json",
+              6,
+              "    \"symbol\": \"cancelOrRefund(order: OrderDetailFragment) {\","
+            ],
+            [
+              "evidence-1.json",
+              10,
+              "    \"anchor\": \"cancelOrRefund(order: OrderDetailFragment) {\","
+            ],
+            [
+              "evidence-1.json",
+              12,
+              "    \"text\": \"cancelOrRefund(order: OrderDetailFragment) {\","
+            ]
+          ],
+          "next": null
+        },
+        "bytes": 292
+      },
+      {
+        "action": {
+          "op": "read",
+          "space": "model",
+          "path": "evidence-1.json",
+          "start": 5
+        },
+        "reply": {
+          "rows": [
+            [
+              5,
+              "    \"file\": \"packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts\","
+            ],
+            [
+              6,
+              "    \"symbol\": \"cancelOrRefund(order: OrderDetailFragment) {\","
+            ],
+            [
+              7,
+              "    \"offset\": 18542,"
+            ],
+            [
+              8,
+              "    \"end\": 18586,"
+            ],
+            [
+              9,
+              "    \"line\": 466,"
+            ],
+            [
+              10,
+              "    \"anchor\": \"cancelOrRefund(order: OrderDetailFragment) {\","
+            ],
+            [
+              11,
+              "    \"sha256\": \"e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede\","
+            ],
+            [
+              12,
+              "    \"text\": \"cancelOrRefund(order: OrderDetailFragment) {\","
+            ],
+            [
+              13,
+              "    \"column\": 5,"
+            ],
+            [
+              14,
+              "    \"sourceVersion\": \"baseline\""
+            ],
+            [
+              15,
+              "  }"
+            ],
+            [
+              16,
+              "}"
+            ]
+          ],
+          "next": null
+        },
+        "bytes": 611
+      },
+      {
+        "action": {
+          "op": "read",
+          "space": "source",
+          "path": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.html",
+          "start": 47
+        },
+        "reply": {
+          "rows": [
+            [
+              47,
+              "                </ng-container>"
+            ],
+            [
+              48,
+              "                <button"
+            ],
+            [
+              49,
+              "                    type=\"button\""
+            ],
+            [
+              50,
+              "                    vdrDropdownItem"
+            ],
+            [
+              51,
+              "                    *ngIf=\"order.type !== 'Aggregate' && order.nextStates.includes('Cancelled')\""
+            ],
+            [
+              52,
+              "                    (click)=\"cancelOrRefund(order)\""
+            ],
+            [
+              53,
+              "                >"
+            ],
+            [
+              54,
+              "                    <clr-icon shape=\"error-standard\" class=\"is-error\"></clr-icon>"
+            ],
+            [
+              55,
+              "                    <ng-container *ngIf=\"orderHasSettledPayments(order); else cancelOnly\">"
+            ],
+            [
+              56,
+              "                        {{ 'order.refund-and-cancel-order' | translate }}"
+            ],
+            [
+              57,
+              "                    </ng-container>"
+            ],
+            [
+              58,
+              "                    <ng-template #cancelOnly>"
+            ],
+            [
+              59,
+              "                        {{ 'order.cancel-order' | translate }}"
+            ],
+            [
+              60,
+              "                    </ng-template>"
+            ],
+            [
+              61,
+              "                </button>"
+            ],
+            [
+              62,
+              ""
+            ],
+            [
+              63,
+              "                <ng-container *ngIf=\"(nextStates$ | async)?.length\">"
+            ],
+            [
+              64,
+              "                    <div class=\"dropdown-divider\"></div>"
+            ],
+            [
+              65,
+              "                    <button"
+            ],
+            [
+              66,
+              "                        *ngFor=\"let nextState of nextStates$ | async\""
+            ],
+            [
+              67,
+              "                        type=\"button\""
+            ],
+            [
+              68,
+              "                        vdrDropdownItem"
+            ],
+            [
+              69,
+              "                        (click)=\"transitionToState(nextState)\""
+            ],
+            [
+              70,
+              "                    >"
+            ],
+            [
+              71,
+              "                        <clr-icon shape=\"step-forward-2\"></clr-icon>"
+            ],
+            [
+              72,
+              "                        {{"
+            ],
+            [
+              73,
+              "                            'order.transition-to-state'"
+            ],
+            [
+              74,
+              "                                | translate : { state: (nextState | stateI18nToken | translate) }"
+            ],
+            [
+              75,
+              "                        }}"
+            ],
+            [
+              76,
+              "                    </button>"
+            ],
+            [
+              77,
+              "                </ng-container>"
+            ],
+            [
+              78,
+              "                <div class=\"dropdown-divider\"></div>"
+            ]
+          ],
+          "next": 32
+        },
+        "bytes": 1796
+      },
+      {
+        "action": {
+          "op": "search",
+          "space": "source",
+          "query": "cancelOrRefund(",
+          "glob": "*admin-ui*.ts"
+        },
+        "reply": {
+          "rows": [
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+              466,
+              "    cancelOrRefund(order: OrderDetailFragment) {"
+            ]
+          ],
+          "next": null
+        },
+        "bytes": 167
+      },
+      {
+        "action": {
+          "op": "read",
+          "space": "source",
+          "path": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+          "start": 466
+        },
+        "reply": {
+          "rows": [
+            [
+              466,
+              "    cancelOrRefund(order: OrderDetailFragment) {"
+            ],
+            [
+              467,
+              "        const isRefundable = this.orderHasSettledPayments(order);"
+            ],
+            [
+              468,
+              "        if (order.state === 'PaymentAuthorized' || order.active === true || !isRefundable) {"
+            ],
+            [
+              469,
+              "            this.cancelOrder(order);"
+            ],
+            [
+              470,
+              "        } else {"
+            ],
+            [
+              471,
+              "            this.refundOrder(order);"
+            ],
+            [
+              472,
+              "        }"
+            ],
+            [
+              473,
+              "    }"
+            ],
+            [
+              474,
+              ""
+            ],
+            [
+              475,
+              "    settleRefund(refund: Payment['refunds'][number]) {"
+            ],
+            [
+              476,
+              "        this.modalService"
+            ],
+            [
+              477,
+              "            .fromComponent(SettleRefundDialogComponent, {"
+            ],
+            [
+              478,
+              "                size: 'md',"
+            ],
+            [
+              479,
+              "                locals: {"
+            ],
+            [
+              480,
+              "                    refund,"
+            ],
+            [
+              481,
+              "                },"
+            ],
+            [
+              482,
+              "            })"
+            ],
+            [
+              483,
+              "            .pipe("
+            ],
+            [
+              484,
+              "                switchMap(transactionId => {"
+            ],
+            [
+              485,
+              "                    if (transactionId) {"
+            ],
+            [
+              486,
+              "                        return this.dataService.order.settleRefund("
+            ],
+            [
+              487,
+              "                            {"
+            ],
+            [
+              488,
+              "                                transactionId,"
+            ],
+            [
+              489,
+              "                                id: refund.id,"
+            ],
+            [
+              490,
+              "                            },"
+            ],
+            [
+              491,
+              "                            this.id,"
+            ],
+            [
+              492,
+              "                        );"
+            ],
+            [
+              493,
+              "                    } else {"
+            ],
+            [
+              494,
+              "                        return of(undefined);"
+            ],
+            [
+              495,
+              "                    }"
+            ],
+            [
+              496,
+              "                }),"
+            ],
+            [
+              497,
+              "                // switchMap(result => this.refetchOrder(result)),"
+            ]
+          ],
+          "next": 32
+        },
+        "bytes": 1423
+      },
+      {
+        "action": {
+          "op": "search",
+          "space": "source",
+          "query": "orderHasSettledPayments",
+          "glob": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts"
+        },
+        "reply": {
+          "rows": [
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+              467,
+              "        const isRefundable = this.orderHasSettledPayments(order);"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+              572,
+              "    orderHasSettledPayments(order: OrderDetailFragment): boolean {"
+            ]
+          ],
+          "next": null
+        },
+        "bytes": 347
+      },
+      {
+        "action": {
+          "op": "read",
+          "space": "source",
+          "path": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+          "start": 572
+        },
+        "reply": {
+          "rows": [
+            [
+              572,
+              "    orderHasSettledPayments(order: OrderDetailFragment): boolean {"
+            ],
+            [
+              573,
+              "        return !!order.payments?.find(p => p.state === 'Settled');"
+            ],
+            [
+              574,
+              "    }"
+            ],
+            [
+              575,
+              ""
+            ],
+            [
+              576,
+              "    private cancelOrder(order: OrderDetailFragment) {"
+            ],
+            [
+              577,
+              "        this.modalService"
+            ],
+            [
+              578,
+              "            .fromComponent(CancelOrderDialogComponent, {"
+            ],
+            [
+              579,
+              "                size: 'xl',"
+            ],
+            [
+              580,
+              "                locals: {"
+            ],
+            [
+              581,
+              "                    order,"
+            ],
+            [
+              582,
+              "                },"
+            ],
+            [
+              583,
+              "            })"
+            ],
+            [
+              584,
+              "            .pipe("
+            ],
+            [
+              585,
+              "                switchMap(input => {"
+            ],
+            [
+              586,
+              "                    if (input) {"
+            ],
+            [
+              587,
+              "                        return this.dataService.order.cancelOrder(input);"
+            ],
+            [
+              588,
+              "                    } else {"
+            ],
+            [
+              589,
+              "                        return of(undefined);"
+            ],
+            [
+              590,
+              "                    }"
+            ],
+            [
+              591,
+              "                }),"
+            ],
+            [
+              592,
+              "                switchMap(result => this.refetchOrder(result)),"
+            ],
+            [
+              593,
+              "            )"
+            ],
+            [
+              594,
+              "            .subscribe(result => {"
+            ],
+            [
+              595,
+              "                if (result) {"
+            ],
+            [
+              596,
+              "                    this.notificationService.success(_('order.cancelled-order-success'));"
+            ],
+            [
+              597,
+              "                }"
+            ],
+            [
+              598,
+              "            });"
+            ],
+            [
+              599,
+              "    }"
+            ],
+            [
+              600,
+              ""
+            ],
+            [
+              601,
+              "    private refundOrder(order: OrderDetailFragment) {"
+            ],
+            [
+              602,
+              "        this.modalService"
+            ],
+            [
+              603,
+              "            .fromComponent(RefundOrderDialogComponent, {"
+            ]
+          ],
+          "next": 32
+        },
+        "bytes": 1360
+      },
+      {
+        "action": {
+          "op": "search",
+          "space": "source",
+          "query": ".fromComponent(",
+          "glob": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts"
+        },
+        "reply": {
+          "rows": [
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+              143,
+              "                    this.modalService.fromComponent(OrderProcessGraphDialogComponent, {"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+              156,
+              "            .fromComponent(SelectCustomerDialogComponent, {"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+              360,
+              "            .fromComponent(AddManualPaymentDialogComponent, {"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+              412,
+              "                    this.modalService.fromComponent(FulfillOrderDialogComponent, {"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+              477,
+              "            .fromComponent(SettleRefundDialogComponent, {"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+              524,
+              "            .fromComponent(EditNoteDialogComponent, {"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+              578,
+              "            .fromComponent(CancelOrderDialogComponent, {"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+              603,
+              "            .fromComponent(RefundOrderDialogComponent, {"
+            ]
+          ],
+          "next": null
+        },
+        "bytes": 1309
+      },
+      {
+        "action": {
+          "op": "read",
+          "space": "source",
+          "path": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+          "start": 601
+        },
+        "reply": {
+          "rows": [
+            [
+              601,
+              "    private refundOrder(order: OrderDetailFragment) {"
+            ],
+            [
+              602,
+              "        this.modalService"
+            ],
+            [
+              603,
+              "            .fromComponent(RefundOrderDialogComponent, {"
+            ],
+            [
+              604,
+              "                size: 'xl',"
+            ],
+            [
+              605,
+              "                locals: {"
+            ],
+            [
+              606,
+              "                    order,"
+            ],
+            [
+              607,
+              "                },"
+            ],
+            [
+              608,
+              "            })"
+            ],
+            [
+              609,
+              "            .pipe("
+            ],
+            [
+              610,
+              "                switchMap(input => {"
+            ],
+            [
+              611,
+              "                    if (!input) {"
+            ],
+            [
+              612,
+              "                        return of(undefined);"
+            ],
+            [
+              613,
+              "                    }"
+            ],
+            [
+              614,
+              ""
+            ],
+            [
+              615,
+              "                    if (input.cancel.lines?.length) {"
+            ],
+            [
+              616,
+              "                        return this.dataService.order.cancelOrder(input.cancel).pipe("
+            ],
+            [
+              617,
+              "                            map(res => {"
+            ],
+            [
+              618,
+              "                                const result = res.cancelOrder;"
+            ],
+            [
+              619,
+              "                                switch (result.__typename) {"
+            ],
+            [
+              620,
+              "                                    case 'Order':"
+            ],
+            [
+              621,
+              "                                        this.refetchOrder(result).subscribe();"
+            ],
+            [
+              622,
+              "                                        this.notificationService.success("
+            ],
+            [
+              623,
+              "                                            _('order.cancelled-order-items-success'),"
+            ],
+            [
+              624,
+              "                                            {"
+            ],
+            [
+              625,
+              "                                                count: summate(input.cancel.lines, 'quantity'),"
+            ],
+            [
+              626,
+              "                                            },"
+            ],
+            [
+              627,
+              "                                        );"
+            ],
+            [
+              628,
+              "                                        return input;"
+            ],
+            [
+              629,
+              "                                    case 'CancelActiveOrderError':"
+            ],
+            [
+              630,
+              "                                    case 'QuantityTooGreatError':"
+            ],
+            [
+              631,
+              "                                    case 'MultipleOrderError':"
+            ],
+            [
+              632,
+              "                                    case 'OrderStateTransitionError':"
+            ]
+          ],
+          "next": 32
+        },
+        "bytes": 1834
+      },
+      {
+        "action": {
+          "op": "search",
+          "space": "source",
+          "query": "refundableAmount",
+          "glob": "*admin-ui*.ts"
+        },
+        "reply": {
+          "rows": [
+            [
+              "packages/admin-ui/src/lib/order/src/common/get-refundable-payments.ts",
+              7,
+              "    refundableAmount: number;"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/common/get-refundable-payments.ts",
+              15,
+              "        const refundableAmount ="
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/common/get-refundable-payments.ts",
+              23,
+              "            refundableAmount,"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/common/get-refundable-payments.ts",
+              26,
+              "                validators: [Validators.min(0), Validators.max(refundableAmount)],"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-edits-preview-dialog/order-edits-preview-dialog.component.ts",
+              94,
+              "                    Math.min(outstandingRefundAmount, payment.refundableAmount),"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts",
+              46,
+              "    get totalRefundableAmount(): number {"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts",
+              47,
+              "        return summate(this.refundablePayments, 'refundableAmount');"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts",
+              111,
+              "            const amountToRefund = Math.min(payment.refundableAmount, this.refundTotal - refundsAllocated);"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts",
+              151,
+              "                    Math.min(outstandingRefundAmount, payment.refundableAmount),"
+            ]
+          ],
+          "next": null
+        },
+        "bytes": 1455
+      },
+      {
+        "action": {
+          "op": "read",
+          "space": "source",
+          "path": "packages/admin-ui/src/lib/order/src/common/get-refundable-payments.ts",
+          "start": 10
+        },
+        "reply": {
+          "rows": [
+            [
+              10,
+              "};"
+            ],
+            [
+              11,
+              ""
+            ],
+            [
+              12,
+              "export function getRefundablePayments(payments: OrderDetailFragment['payments']): RefundablePayment[] {"
+            ],
+            [
+              13,
+              "    const settledPayments = (payments || []).filter(p => p.state === 'Settled');"
+            ],
+            [
+              14,
+              "    return settledPayments.map((payment, index) => {"
+            ],
+            [
+              15,
+              "        const refundableAmount ="
+            ],
+            [
+              16,
+              "            payment.amount -"
+            ],
+            [
+              17,
+              "            summate("
+            ],
+            [
+              18,
+              "                payment.refunds.filter(r => r.state !== 'Failed'),"
+            ],
+            [
+              19,
+              "                'total',"
+            ],
+            [
+              20,
+              "            );"
+            ],
+            [
+              21,
+              "        return {"
+            ],
+            [
+              22,
+              "            ...payment,"
+            ],
+            [
+              23,
+              "            refundableAmount,"
+            ],
+            [
+              24,
+              "            amountToRefundControl: new FormControl(0, {"
+            ],
+            [
+              25,
+              "                nonNullable: true,"
+            ],
+            [
+              26,
+              "                validators: [Validators.min(0), Validators.max(refundableAmount)],"
+            ],
+            [
+              27,
+              "            }),"
+            ],
+            [
+              28,
+              "            selected: index === 0,"
+            ],
+            [
+              29,
+              "        };"
+            ],
+            [
+              30,
+              "    });"
+            ],
+            [
+              31,
+              "}"
+            ]
+          ],
+          "next": null
+        },
+        "bytes": 925
+      },
+      {
+        "action": {
+          "op": "search",
+          "space": "source",
+          "query": "getRefundablePayments(",
+          "glob": "*admin-ui*.ts"
+        },
+        "reply": {
+          "rows": [
+            [
+              "packages/admin-ui/src/lib/order/src/common/get-refundable-payments.ts",
+              12,
+              "export function getRefundablePayments(payments: OrderDetailFragment['payments']): RefundablePayment[] {"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-edits-preview-dialog/order-edits-preview-dialog.component.ts",
+              76,
+              "        this.refundablePayments = getRefundablePayments(this.order.payments || []);"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts",
+              87,
+              "        this.refundablePayments = getRefundablePayments(this.order.payments);"
+            ]
+          ],
+          "next": null
+        },
+        "bytes": 599
+      },
+      {
+        "action": {
+          "op": "read",
+          "space": "source",
+          "path": "packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts",
+          "start": 84
+        },
+        "reply": {
+          "rows": [
+            [
+              84,
+              "            }),"
+            ],
+            [
+              85,
+              "            {},"
+            ],
+            [
+              86,
+              "        );"
+            ],
+            [
+              87,
+              "        this.refundablePayments = getRefundablePayments(this.order.payments);"
+            ],
+            [
+              88,
+              "    }"
+            ],
+            [
+              89,
+              ""
+            ],
+            [
+              90,
+              "    updateRefundTotal() {"
+            ],
+            [
+              91,
+              "        if (!this.manuallySetRefundTotal) {"
+            ],
+            [
+              92,
+              "            const itemTotal = this.order.lines.reduce((total, line) => {"
+            ],
+            [
+              93,
+              "                const lineRef = this.lineQuantities[line.id];"
+            ],
+            [
+              94,
+              "                const refundCount = lineRef.quantity || 0;"
+            ],
+            [
+              95,
+              "                return total + line.proratedUnitPriceWithTax * refundCount;"
+            ],
+            [
+              96,
+              "            }, 0);"
+            ],
+            [
+              97,
+              "            const shippingTotal = this.order.shippingLines.reduce((total, line) => {"
+            ],
+            [
+              98,
+              "                if (this.refundShippingLineIds.includes(line.id)) {"
+            ],
+            [
+              99,
+              "                    return total + line.discountedPriceWithTax;"
+            ],
+            [
+              100,
+              "                } else {"
+            ],
+            [
+              101,
+              "                    return total;"
+            ],
+            [
+              102,
+              "                }"
+            ],
+            [
+              103,
+              "            }, 0);"
+            ],
+            [
+              104,
+              "            this.refundTotal = itemTotal + shippingTotal;"
+            ],
+            [
+              105,
+              "        }"
+            ],
+            [
+              106,
+              ""
+            ],
+            [
+              107,
+              "        // allocate the refund total across the refundable payments"
+            ],
+            [
+              108,
+              "        const refundablePayments = this.refundablePayments.filter(p => p.selected);"
+            ],
+            [
+              109,
+              "        let refundsAllocated = 0;"
+            ],
+            [
+              110,
+              "        for (const payment of refundablePayments) {"
+            ],
+            [
+              111,
+              "            const amountToRefund = Math.min(payment.refundableAmount, this.refundTotal - refundsAllocated);"
+            ],
+            [
+              112,
+              "            payment.amountToRefundControl.setValue(amountToRefund);"
+            ],
+            [
+              113,
+              "            refundsAllocated += amountToRefund;"
+            ],
+            [
+              114,
+              "        }"
+            ],
+            [
+              115,
+              "    }"
+            ]
+          ],
+          "next": 32
+        },
+        "bytes": 1607
+      },
+      {
+        "action": {
+          "op": "submit",
+          "impact": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.html:51-60 메뉴는 Aggregate 제외 및 Cancelled 전이 가능일 때만 노출한다. 정산 결제 존재로 고르는 두 문구는 실제 잔액이 없으면 취소로 바꾼다. packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:466-473,572-603 클릭은 cancel/refund 모달로 이어진다. PaymentAuthorized·active·정산 결제 없음의 직접 취소를 유지하고 그 밖에서는 잔액에 따라 분기한다. packages/admin-ui/src/lib/order/src/common/get-refundable-payments.ts:12-21 정산된 각 결제 amount에서 Failed를 제외한 refunds.total을 차감한다. packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:87도 이 값을 사용한다. 하나라도 양수이면 기존 문구와 경로를 보존하고 모두 소진이면 문구와 클릭을 함께 취소로 맞춘다."
+        },
+        "reply": {
+          "sealed": "4b25e22f5ec478f91dd68593761b8f0155405900b42f98dfbb224edd8fa02e7f"
+        },
+        "bytes": 77
+      },
+      {
+        "action": {
+          "op": "replace",
+          "path": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+          "old": "    orderHasSettledPayments(order: OrderDetailFragment): boolean {",
+          "new": "    hasRefundBalance(order: OrderDetailFragment): boolean {\n        return getRefundablePayments(order.payments).some(p => p.refundableAmount > 0);\n    }\n\n    orderHasSettledPayments(order: OrderDetailFragment): boolean {"
+        },
+        "reply": {
+          "ok": true
+        },
+        "bytes": 11
+      },
+      {
+        "action": {
+          "op": "read",
+          "space": "source",
+          "path": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+          "start": 1
+        },
+        "reply": {
+          "rows": [
+            [
+              1,
+              "import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';"
+            ],
+            [
+              2,
+              "import { FormBuilder, FormGroup } from '@angular/forms';"
+            ],
+            [
+              3,
+              "import { marker as _ } from '@biesbjerg/ngx-translate-extract-marker';"
+            ],
+            [
+              4,
+              "import {"
+            ],
+            [
+              5,
+              "    DataService,"
+            ],
+            [
+              6,
+              "    EditNoteDialogComponent,"
+            ],
+            [
+              7,
+              "    FulfillmentFragment,"
+            ],
+            [
+              8,
+              "    getCustomFieldsDefaults,"
+            ],
+            [
+              9,
+              "    GetOrderHistoryQuery,"
+            ],
+            [
+              10,
+              "    GetOrderQuery,"
+            ],
+            [
+              11,
+              "    ModalService,"
+            ],
+            [
+              12,
+              "    NotificationService,"
+            ],
+            [
+              13,
+              "    ORDER_DETAIL_FRAGMENT,"
+            ],
+            [
+              14,
+              "    OrderDetailFragment,"
+            ],
+            [
+              15,
+              "    OrderDetailQueryDocument,"
+            ],
+            [
+              16,
+              "    Refund,"
+            ],
+            [
+              17,
+              "    SetOrderCustomerDocument,"
+            ],
+            [
+              18,
+              "    SortOrder,"
+            ],
+            [
+              19,
+              "    TimelineHistoryEntry,"
+            ],
+            [
+              20,
+              "    TypedBaseDetailComponent,"
+            ],
+            [
+              21,
+              "} from '@vendure/admin-ui/core';"
+            ],
+            [
+              22,
+              "import { assertNever, summate } from '@vendure/common/lib/shared-utils';"
+            ],
+            [
+              23,
+              "import { gql } from 'apollo-angular';"
+            ],
+            [
+              24,
+              "import { EMPTY, forkJoin, Observable, of, Subject } from 'rxjs';"
+            ],
+            [
+              25,
+              "import { map, mapTo, startWith, switchMap, take } from 'rxjs/operators';"
+            ],
+            [
+              26,
+              ""
+            ],
+            [
+              27,
+              "import { OrderTransitionService } from '../../providers/order-transition.service';"
+            ],
+            [
+              28,
+              "import { AddManualPaymentDialogComponent } from '../add-manual-payment-dialog/add-manual-payment-dialog.component';"
+            ],
+            [
+              29,
+              "import { CancelOrderDialogComponent } from '../cancel-order-dialog/cancel-order-dialog.component';"
+            ],
+            [
+              30,
+              "import { FulfillOrderDialogComponent } from '../fulfill-order-dialog/fulfill-order-dialog.component';"
+            ],
+            [
+              31,
+              "import { OrderProcessGraphDialogComponent } from '../order-process-graph-dialog/order-process-graph-dialog.component';"
+            ],
+            [
+              32,
+              "import { RefundOrderDialogComponent } from '../refund-order-dialog/refund-order-dialog.component';"
+            ]
+          ],
+          "next": 32
+        },
+        "bytes": 1762
+      },
+      {
+        "action": {
+          "op": "replace",
+          "path": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+          "old": "import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';",
+          "new": "import { getRefundablePayments } from '../../common/get-refundable-payments';\nimport { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';"
+        },
+        "reply": {
+          "ok": true
+        },
+        "bytes": 11
+      },
+      {
+        "action": {
+          "op": "replace",
+          "path": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.html",
+          "old": "orderHasSettledPayments(order); else",
+          "new": "hasRefundBalance(order); else"
+        },
+        "reply": {
+          "ok": true
+        },
+        "bytes": 11
+      },
+      {
+        "action": {
+          "op": "replace",
+          "path": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+          "old": "this.orderHasSettledPayments(order)",
+          "new": "this.hasRefundBalance(order)"
+        },
+        "reply": {
+          "ok": true
+        },
+        "bytes": 11
+      },
+      {
+        "action": {
+          "op": "finish"
+        },
+        "reply": {
+          "ok": true
+        },
+        "bytes": 11
+      }
+    ]
+  },
+  "C": {
+    "public": {
+      "task": "관리자 주문 상세에서 고객에게 돌려줄 금액이 전혀 남지 않은 주문은 환불로 안내하지 말고 취소 절차로 연결해 주세요. 환불할 금액이 남은 주문에서는 기존 취소·환불 동작을 유지하고, 원래 취소할 수 없던 주문에 새로 취소를 허용하지 마세요.",
+      "revision": "534e6003534f74761e82de1b8c6061cba89945d1",
+      "scope": "Vendure existing Admin UI; repository source and documentation",
+      "spaces": [
+        "source",
+        "document"
+      ],
+      "protocol": [
+        "One JSON action per turn (24 total). list(space,glob?,offset?) lists relative file names.",
+        "search(space,query,glob?,offset?) returns literal case-insensitive matches with line numbers.",
+        "read(space,path,start?,offset?,column?) returns numbered lines from start (1-based). Long lines show 420 characters; column (1-based) selects another slice. All offsets skip rows, starting at zero. next is the next offset for the same query.",
+        "submit(impact) once before editing: describe affected locations, behavior to preserve and supporting source lines/symbols.",
+        "replace(path,old,new) replaces one unique exact text in source; create(path,text) adds a file. finish() submits the working copy. No test feedback.",
+        "In document, list documents, search narrative statements and follow their identifiers to the evidence appendix."
+      ]
+    },
+    "steps": [
+      {
+        "action": {
+          "op": "search",
+          "space": "source",
+          "query": "refund",
+          "glob": "*admin-ui*.html"
+        },
+        "reply": {
+          "rows": [
+            [
+              "packages/admin-ui/src/lib/order/src/components/line-refunds/line-refunds.component.html",
+              1,
+              "<span *ngIf=\"getRefundedCount()\" [title]=\"'order.refunded-count' | translate: { count: getRefundedCount() }\">"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.html",
+              52,
+              "                    (click)=\"cancelOrRefund(order)\""
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.html",
+              56,
+              "                        {{ 'order.refund-and-cancel-order' | translate }}"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.html",
+              135,
+              "                (settleRefund)=\"settleRefund($event)\""
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-editor/order-editor.component.html",
+              187,
+              "                        <vdr-line-refunds [line]=\"line\" [payments]=\"order.payments\"></vdr-line-refunds>"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-edits-preview-dialog/order-edits-preview-dialog.component.html",
+              9,
+              "        <vdr-payment-for-refund-selector"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-edits-preview-dialog/order-edits-preview-dialog.component.html",
+              12,
+              "            [refundablePayments]=\"refundablePayments\""
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-edits-preview-dialog/order-edits-preview-dialog.component.html",
+              15,
+              "        ></vdr-payment-for-refund-selector>"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-edits-preview-dialog/order-edits-preview-dialog.component.html",
+              32,
+              "                [label]=\"'order.refund-cancellation-reason' | translate\""
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-edits-preview-dialog/order-edits-preview-dialog.component.html",
+              35,
+              "                <textarea [(ngModel)]=\"refundNote\" name=\"refundNote\" required></textarea>"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-edits-preview-dialog/order-edits-preview-dialog.component.html",
+              45,
+              "                *ngIf=\"priceDifference < 0 && !refundsCoverDifference()\""
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-edits-preview-dialog/order-edits-preview-dialog.component.html",
+              50,
+              "                    {{ 'order.refund-total-warning' | translate }}"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-edits-preview-dialog/order-edits-preview-dialog.component.html",
+              68,
+              "                [disabled]=\"priceDifference < 0 ? !refundsCoverDifference() : false\""
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-history/order-history.component.html",
+              110,
+              "                    <ng-container *ngSwitchCase=\"type.ORDER_REFUND_TRANSITION\">"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-history/order-history.component.html",
+              111,
+              "                        <ng-container *ngIf=\"entry.data.to === 'Settled'; else regularRefundTransition\">"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-history/order-history.component.html",
+              112,
+              "                            <ng-container *ngIf=\"getRefund(entry) as refund\">"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-history/order-history.component.html",
+              113,
+              "                                <div class=\"title\">{{ 'order.refund' | translate }} #{{ refund.id }}</div>"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-history/order-history.component.html",
+              116,
+              "                                        refund.total | localeCurrency : order.currencyCode"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-history/order-history.component.html",
+              124,
+              "                                                [items]=\"getCancelledItems(refund.lines)\""
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-history/order-history.component.html",
+              131,
+              "                        <ng-template #regularRefundTransition>"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-history/order-history.component.html",
+              133,
+              "                                'order.history-refund-transition'"
+            ]
+          ],
+          "next": 21
+        },
+        "bytes": 3940
+      },
+      {
+        "action": {
+          "op": "list",
+          "space": "document"
+        },
+        "reply": {
+          "rows": [
+            "evidence.md",
+            "guide.md",
+            "observations.md",
+            "roles.md"
+          ],
+          "next": null
+        },
+        "bytes": 76
+      },
+      {
+        "action": {
+          "op": "search",
+          "space": "document",
+          "query": "클라이언트 취소/환불 분기",
+          "glob": "*.md"
+        },
+        "reply": {
+          "rows": [
+            [
+              "guide.md",
+              23,
+              "- 클라이언트 취소/환불 분기: 항목 식별자 \"branch\". 아래 항목 절에서 해석·근거·관련 관계를 함께 읽는다."
+            ],
+            [
+              "guide.md",
+              127,
+              "## item-5 — 클라이언트 취소/환불 분기"
+            ],
+            [
+              "guide.md",
+              129,
+              "클라이언트 취소/환불 분기: PaymentAuthorized 또는 active 또는 settled payment 없음이면 취소 경로, 그 외 환불 경로."
+            ]
+          ],
+          "next": null
+        },
+        "bytes": 417
+      },
+      {
+        "action": {
+          "op": "read",
+          "space": "document",
+          "path": "guide.md",
+          "start": 20
+        },
+        "reply": {
+          "rows": [
+            [
+              20,
+              ""
+            ],
+            [
+              21,
+              "- 환불 요청: 항목 식별자 \"refund-request\". 아래 항목 절에서 해석·근거·관련 관계를 함께 읽는다."
+            ],
+            [
+              22,
+              ""
+            ],
+            [
+              23,
+              "- 클라이언트 취소/환불 분기: 항목 식별자 \"branch\". 아래 항목 절에서 해석·근거·관련 관계를 함께 읽는다."
+            ],
+            [
+              24,
+              ""
+            ],
+            [
+              25,
+              "- 대화상자 결과 → 취소 요청: 항목 식별자 \"dialog-submit\". 아래 항목 절에서 해석·근거·관련 관계를 함께 읽는다."
+            ],
+            [
+              26,
+              ""
+            ],
+            [
+              27,
+              "- 환불 경로의 조건부 취소 요청: 항목 식별자 \"refund-also-cancels\". 아래 항목 절에서 해석·근거·관련 관계를 함께 읽는다."
+            ],
+            [
+              28,
+              ""
+            ],
+            [
+              29,
+              "- 대화상자 닫기 ≠ 주문 취소: 항목 식별자 \"dismiss\". 아래 항목 절에서 해석·근거·관련 관계를 함께 읽는다."
+            ],
+            [
+              30,
+              ""
+            ],
+            [
+              31,
+              "- 메뉴 노출과 제출 비활성: 항목 식별자 \"ui-gates\". 아래 항목 절에서 해석·근거·관련 관계를 함께 읽는다."
+            ],
+            [
+              32,
+              ""
+            ],
+            [
+              33,
+              "- 취소 service → GraphQL operation: 항목 식별자 \"cancel-transport\". 아래 항목 절에서 해석·근거·관련 관계를 함께 읽는다."
+            ],
+            [
+              34,
+              ""
+            ],
+            [
+              35,
+              "- 환불 service → GraphQL operation: 항목 식별자 \"refund-transport\". 아래 항목 절에서 해석·근거·관련 관계를 함께 읽는다."
+            ],
+            [
+              36,
+              ""
+            ],
+            [
+              37,
+              ""
+            ],
+            [
+              38,
+              "## item-0 — 주문"
+            ],
+            [
+              39,
+              ""
+            ],
+            [
+              40,
+              "주문: 클라이언트의 주문 식별자·상태가 요청 경로에 참여한다."
+            ],
+            [
+              41,
+              ""
+            ],
+            [
+              42,
+              "이 항목은 \"concept-candidate\"이며 상태는 \"pending-review\", 작성 주체는 \"agent\"다. 의도한 정책 기록: null. 미확인 질문: \"서버 상태 전이와 권한 정책은 무엇인가?\"."
+            ],
+            [
+              43,
+              ""
+            ],
+            [
+              44,
+              "연결된 코드 사실: [\"source-V02\",\"source-V08\"]. 발견 후보 참조: []. 원문 연결은 아래 부록의 동일 식별자로 찾는다."
+            ],
+            [
+              45,
+              ""
+            ],
+            [
+              46,
+              "관계 \"related-item\"는 \"line\"에서 \"order\"로 향한다. 이 항목에서 본 방향은 \"incoming\"이며 기록 근거는 \"S1.items/1/relatedItems\"다."
+            ],
+            [
+              47,
+              ""
+            ],
+            [
+              48,
+              "관계 \"related-item\"는 \"payment\"에서 \"order\"로 향한다. 이 항목에서 본 방향은 \"incoming\"이며 기록 근거는 \"S1.items/2/relatedItems\"다."
+            ],
+            [
+              49,
+              ""
+            ],
+            [
+              50,
+              "관계 \"related-item\"는 \"cancel-request\"에서 \"order\"로 향한다. 이 항목에서 본 방향은 \"incoming\"이며 기록 근거는 \"S1.items/3/relatedItems\"다."
+            ],
+            [
+              51,
+              ""
+            ]
+          ],
+          "next": 32
+        },
+        "bytes": 2420
+      },
+      {
+        "action": {
+          "op": "search",
+          "space": "document",
+          "query": "cancelOrRefund",
+          "glob": "evidence.md"
+        },
+        "reply": {
+          "rows": [
+            [
+              "evidence.md",
+              227,
+              "| /value/evidence/0/symbol | \"cancelOrRefund(order: OrderDetailFragment) {\" |"
+            ],
+            [
+              "evidence.md",
+              231,
+              "| /value/evidence/0/anchor | \"cancelOrRefund(order: OrderDetailFragment) {\" |"
+            ],
+            [
+              "evidence.md",
+              235,
+              "| /value/source/evidence/symbol | \"cancelOrRefund(order: OrderDetailFragment) {\" |"
+            ],
+            [
+              "evidence.md",
+              238,
+              "| /value/source/evidence/anchor | \"cancelOrRefund(order: OrderDetailFragment) {\" |"
+            ],
+            [
+              "evidence.md",
+              888,
+              "cancelOrRefund(order: OrderDetailFragment) {"
+            ],
+            [
+              "evidence.md",
+              898,
+              "| /value/symbol | \"cancelOrRefund(order: OrderDetailFragment) {\" |"
+            ],
+            [
+              "evidence.md",
+              899,
+              "| /value/anchor | \"cancelOrRefund(order: OrderDetailFragment) {\" |"
+            ]
+          ],
+          "next": null
+        },
+        "bytes": 689
+      },
+      {
+        "action": {
+          "op": "read",
+          "space": "document",
+          "path": "evidence.md",
+          "start": 226
+        },
+        "reply": {
+          "rows": [
+            [
+              226,
+              "| /value/evidence/0/file | \"packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts\" |"
+            ],
+            [
+              227,
+              "| /value/evidence/0/symbol | \"cancelOrRefund(order: OrderDetailFragment) {\" |"
+            ],
+            [
+              228,
+              "| /value/evidence/0/offset | 18542 |"
+            ],
+            [
+              229,
+              "| /value/evidence/0/end | 18586 |"
+            ],
+            [
+              230,
+              "| /value/evidence/0/line | 466 |"
+            ],
+            [
+              231,
+              "| /value/evidence/0/anchor | \"cancelOrRefund(order: OrderDetailFragment) {\" |"
+            ],
+            [
+              232,
+              "| /value/evidence/0/sha256 | \"e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede\" |"
+            ],
+            [
+              233,
+              "| /value/source/id | \"source-V02\" |"
+            ],
+            [
+              234,
+              "| /value/source/evidence/file | \"packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts\" |"
+            ],
+            [
+              235,
+              "| /value/source/evidence/symbol | \"cancelOrRefund(order: OrderDetailFragment) {\" |"
+            ],
+            [
+              236,
+              "| /value/source/evidence/offset | 18542 |"
+            ],
+            [
+              237,
+              "| /value/source/evidence/line | 466 |"
+            ],
+            [
+              238,
+              "| /value/source/evidence/anchor | \"cancelOrRefund(order: OrderDetailFragment) {\" |"
+            ],
+            [
+              239,
+              "| /value/source/evidence/sha256 | \"e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede\" |"
+            ],
+            [
+              240,
+              ""
+            ],
+            [
+              241,
+              "## fact-2 — fact-2 식별·참조·조회·원문 좌표"
+            ],
+            [
+              242,
+              ""
+            ],
+            [
+              243,
+              "| 기록 경로 | 보존 값 |"
+            ],
+            [
+              244,
+              "| --- | --- |"
+            ],
+            [
+              245,
+              "| /status | \"Found\" |"
+            ],
+            [
+              246,
+              "| /value/id | \"source-V03\" |"
+            ],
+            [
+              247,
+              "| /value/evidence/0/id | \"source-V03/e0\" |"
+            ],
+            [
+              248,
+              "| /value/evidence/0/file | \"packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts\" |"
+            ],
+            [
+              249,
+              "| /value/evidence/0/symbol | \"orderHasSettledPayments(order: OrderDetailFragment): boolean {\" |"
+            ],
+            [
+              250,
+              "| /value/evidence/0/offset | 22238 |"
+            ],
+            [
+              251,
+              "| /value/evidence/0/end | 22300 |"
+            ],
+            [
+              252,
+              "| /value/evidence/0/line | 572 |"
+            ],
+            [
+              253,
+              "| /value/evidence/0/anchor | \"orderHasSettledPayments(order: OrderDetailFragment): boolean {\" |"
+            ],
+            [
+              254,
+              "| /value/evidence/0/sha256 | \"e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede\" |"
+            ],
+            [
+              255,
+              "| /value/source/id | \"source-V03\" |"
+            ],
+            [
+              256,
+              "| /value/source/evidence/file | \"packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts\" |"
+            ],
+            [
+              257,
+              "| /value/source/evidence/symbol | \"orderHasSettledPayments(order: OrderDetailFragment): boolean {\" |"
+            ]
+          ],
+          "next": 32
+        },
+        "bytes": 2266
+      },
+      {
+        "action": {
+          "op": "read",
+          "space": "source",
+          "path": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.html",
+          "start": 47
+        },
+        "reply": {
+          "rows": [
+            [
+              47,
+              "                </ng-container>"
+            ],
+            [
+              48,
+              "                <button"
+            ],
+            [
+              49,
+              "                    type=\"button\""
+            ],
+            [
+              50,
+              "                    vdrDropdownItem"
+            ],
+            [
+              51,
+              "                    *ngIf=\"order.type !== 'Aggregate' && order.nextStates.includes('Cancelled')\""
+            ],
+            [
+              52,
+              "                    (click)=\"cancelOrRefund(order)\""
+            ],
+            [
+              53,
+              "                >"
+            ],
+            [
+              54,
+              "                    <clr-icon shape=\"error-standard\" class=\"is-error\"></clr-icon>"
+            ],
+            [
+              55,
+              "                    <ng-container *ngIf=\"orderHasSettledPayments(order); else cancelOnly\">"
+            ],
+            [
+              56,
+              "                        {{ 'order.refund-and-cancel-order' | translate }}"
+            ],
+            [
+              57,
+              "                    </ng-container>"
+            ],
+            [
+              58,
+              "                    <ng-template #cancelOnly>"
+            ],
+            [
+              59,
+              "                        {{ 'order.cancel-order' | translate }}"
+            ],
+            [
+              60,
+              "                    </ng-template>"
+            ],
+            [
+              61,
+              "                </button>"
+            ],
+            [
+              62,
+              ""
+            ],
+            [
+              63,
+              "                <ng-container *ngIf=\"(nextStates$ | async)?.length\">"
+            ],
+            [
+              64,
+              "                    <div class=\"dropdown-divider\"></div>"
+            ],
+            [
+              65,
+              "                    <button"
+            ],
+            [
+              66,
+              "                        *ngFor=\"let nextState of nextStates$ | async\""
+            ],
+            [
+              67,
+              "                        type=\"button\""
+            ],
+            [
+              68,
+              "                        vdrDropdownItem"
+            ],
+            [
+              69,
+              "                        (click)=\"transitionToState(nextState)\""
+            ],
+            [
+              70,
+              "                    >"
+            ],
+            [
+              71,
+              "                        <clr-icon shape=\"step-forward-2\"></clr-icon>"
+            ],
+            [
+              72,
+              "                        {{"
+            ],
+            [
+              73,
+              "                            'order.transition-to-state'"
+            ],
+            [
+              74,
+              "                                | translate : { state: (nextState | stateI18nToken | translate) }"
+            ],
+            [
+              75,
+              "                        }}"
+            ],
+            [
+              76,
+              "                    </button>"
+            ],
+            [
+              77,
+              "                </ng-container>"
+            ],
+            [
+              78,
+              "                <div class=\"dropdown-divider\"></div>"
+            ]
+          ],
+          "next": 32
+        },
+        "bytes": 1796
+      },
+      {
+        "action": {
+          "op": "search",
+          "space": "source",
+          "query": "cancelOrRefund(",
+          "glob": "*admin-ui*.ts"
+        },
+        "reply": {
+          "rows": [
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+              466,
+              "    cancelOrRefund(order: OrderDetailFragment) {"
+            ]
+          ],
+          "next": null
+        },
+        "bytes": 167
+      },
+      {
+        "action": {
+          "op": "read",
+          "space": "source",
+          "path": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+          "start": 466
+        },
+        "reply": {
+          "rows": [
+            [
+              466,
+              "    cancelOrRefund(order: OrderDetailFragment) {"
+            ],
+            [
+              467,
+              "        const isRefundable = this.orderHasSettledPayments(order);"
+            ],
+            [
+              468,
+              "        if (order.state === 'PaymentAuthorized' || order.active === true || !isRefundable) {"
+            ],
+            [
+              469,
+              "            this.cancelOrder(order);"
+            ],
+            [
+              470,
+              "        } else {"
+            ],
+            [
+              471,
+              "            this.refundOrder(order);"
+            ],
+            [
+              472,
+              "        }"
+            ],
+            [
+              473,
+              "    }"
+            ],
+            [
+              474,
+              ""
+            ],
+            [
+              475,
+              "    settleRefund(refund: Payment['refunds'][number]) {"
+            ],
+            [
+              476,
+              "        this.modalService"
+            ],
+            [
+              477,
+              "            .fromComponent(SettleRefundDialogComponent, {"
+            ],
+            [
+              478,
+              "                size: 'md',"
+            ],
+            [
+              479,
+              "                locals: {"
+            ],
+            [
+              480,
+              "                    refund,"
+            ],
+            [
+              481,
+              "                },"
+            ],
+            [
+              482,
+              "            })"
+            ],
+            [
+              483,
+              "            .pipe("
+            ],
+            [
+              484,
+              "                switchMap(transactionId => {"
+            ],
+            [
+              485,
+              "                    if (transactionId) {"
+            ],
+            [
+              486,
+              "                        return this.dataService.order.settleRefund("
+            ],
+            [
+              487,
+              "                            {"
+            ],
+            [
+              488,
+              "                                transactionId,"
+            ],
+            [
+              489,
+              "                                id: refund.id,"
+            ],
+            [
+              490,
+              "                            },"
+            ],
+            [
+              491,
+              "                            this.id,"
+            ],
+            [
+              492,
+              "                        );"
+            ],
+            [
+              493,
+              "                    } else {"
+            ],
+            [
+              494,
+              "                        return of(undefined);"
+            ],
+            [
+              495,
+              "                    }"
+            ],
+            [
+              496,
+              "                }),"
+            ],
+            [
+              497,
+              "                // switchMap(result => this.refetchOrder(result)),"
+            ]
+          ],
+          "next": 32
+        },
+        "bytes": 1423
+      },
+      {
+        "action": {
+          "op": "search",
+          "space": "source",
+          "query": "orderHasSettledPayments",
+          "glob": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts"
+        },
+        "reply": {
+          "rows": [
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+              467,
+              "        const isRefundable = this.orderHasSettledPayments(order);"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+              572,
+              "    orderHasSettledPayments(order: OrderDetailFragment): boolean {"
+            ]
+          ],
+          "next": null
+        },
+        "bytes": 347
+      },
+      {
+        "action": {
+          "op": "read",
+          "space": "source",
+          "path": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+          "start": 572
+        },
+        "reply": {
+          "rows": [
+            [
+              572,
+              "    orderHasSettledPayments(order: OrderDetailFragment): boolean {"
+            ],
+            [
+              573,
+              "        return !!order.payments?.find(p => p.state === 'Settled');"
+            ],
+            [
+              574,
+              "    }"
+            ],
+            [
+              575,
+              ""
+            ],
+            [
+              576,
+              "    private cancelOrder(order: OrderDetailFragment) {"
+            ],
+            [
+              577,
+              "        this.modalService"
+            ],
+            [
+              578,
+              "            .fromComponent(CancelOrderDialogComponent, {"
+            ],
+            [
+              579,
+              "                size: 'xl',"
+            ],
+            [
+              580,
+              "                locals: {"
+            ],
+            [
+              581,
+              "                    order,"
+            ],
+            [
+              582,
+              "                },"
+            ],
+            [
+              583,
+              "            })"
+            ],
+            [
+              584,
+              "            .pipe("
+            ],
+            [
+              585,
+              "                switchMap(input => {"
+            ],
+            [
+              586,
+              "                    if (input) {"
+            ],
+            [
+              587,
+              "                        return this.dataService.order.cancelOrder(input);"
+            ],
+            [
+              588,
+              "                    } else {"
+            ],
+            [
+              589,
+              "                        return of(undefined);"
+            ],
+            [
+              590,
+              "                    }"
+            ],
+            [
+              591,
+              "                }),"
+            ],
+            [
+              592,
+              "                switchMap(result => this.refetchOrder(result)),"
+            ],
+            [
+              593,
+              "            )"
+            ],
+            [
+              594,
+              "            .subscribe(result => {"
+            ],
+            [
+              595,
+              "                if (result) {"
+            ],
+            [
+              596,
+              "                    this.notificationService.success(_('order.cancelled-order-success'));"
+            ],
+            [
+              597,
+              "                }"
+            ],
+            [
+              598,
+              "            });"
+            ],
+            [
+              599,
+              "    }"
+            ],
+            [
+              600,
+              ""
+            ],
+            [
+              601,
+              "    private refundOrder(order: OrderDetailFragment) {"
+            ],
+            [
+              602,
+              "        this.modalService"
+            ],
+            [
+              603,
+              "            .fromComponent(RefundOrderDialogComponent, {"
+            ]
+          ],
+          "next": 32
+        },
+        "bytes": 1360
+      },
+      {
+        "action": {
+          "op": "search",
+          "space": "source",
+          "query": ".fromComponent(",
+          "glob": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts"
+        },
+        "reply": {
+          "rows": [
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+              143,
+              "                    this.modalService.fromComponent(OrderProcessGraphDialogComponent, {"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+              156,
+              "            .fromComponent(SelectCustomerDialogComponent, {"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+              360,
+              "            .fromComponent(AddManualPaymentDialogComponent, {"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+              412,
+              "                    this.modalService.fromComponent(FulfillOrderDialogComponent, {"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+              477,
+              "            .fromComponent(SettleRefundDialogComponent, {"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+              524,
+              "            .fromComponent(EditNoteDialogComponent, {"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+              578,
+              "            .fromComponent(CancelOrderDialogComponent, {"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+              603,
+              "            .fromComponent(RefundOrderDialogComponent, {"
+            ]
+          ],
+          "next": null
+        },
+        "bytes": 1309
+      },
+      {
+        "action": {
+          "op": "read",
+          "space": "source",
+          "path": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+          "start": 601
+        },
+        "reply": {
+          "rows": [
+            [
+              601,
+              "    private refundOrder(order: OrderDetailFragment) {"
+            ],
+            [
+              602,
+              "        this.modalService"
+            ],
+            [
+              603,
+              "            .fromComponent(RefundOrderDialogComponent, {"
+            ],
+            [
+              604,
+              "                size: 'xl',"
+            ],
+            [
+              605,
+              "                locals: {"
+            ],
+            [
+              606,
+              "                    order,"
+            ],
+            [
+              607,
+              "                },"
+            ],
+            [
+              608,
+              "            })"
+            ],
+            [
+              609,
+              "            .pipe("
+            ],
+            [
+              610,
+              "                switchMap(input => {"
+            ],
+            [
+              611,
+              "                    if (!input) {"
+            ],
+            [
+              612,
+              "                        return of(undefined);"
+            ],
+            [
+              613,
+              "                    }"
+            ],
+            [
+              614,
+              ""
+            ],
+            [
+              615,
+              "                    if (input.cancel.lines?.length) {"
+            ],
+            [
+              616,
+              "                        return this.dataService.order.cancelOrder(input.cancel).pipe("
+            ],
+            [
+              617,
+              "                            map(res => {"
+            ],
+            [
+              618,
+              "                                const result = res.cancelOrder;"
+            ],
+            [
+              619,
+              "                                switch (result.__typename) {"
+            ],
+            [
+              620,
+              "                                    case 'Order':"
+            ],
+            [
+              621,
+              "                                        this.refetchOrder(result).subscribe();"
+            ],
+            [
+              622,
+              "                                        this.notificationService.success("
+            ],
+            [
+              623,
+              "                                            _('order.cancelled-order-items-success'),"
+            ],
+            [
+              624,
+              "                                            {"
+            ],
+            [
+              625,
+              "                                                count: summate(input.cancel.lines, 'quantity'),"
+            ],
+            [
+              626,
+              "                                            },"
+            ],
+            [
+              627,
+              "                                        );"
+            ],
+            [
+              628,
+              "                                        return input;"
+            ],
+            [
+              629,
+              "                                    case 'CancelActiveOrderError':"
+            ],
+            [
+              630,
+              "                                    case 'QuantityTooGreatError':"
+            ],
+            [
+              631,
+              "                                    case 'MultipleOrderError':"
+            ],
+            [
+              632,
+              "                                    case 'OrderStateTransitionError':"
+            ]
+          ],
+          "next": 32
+        },
+        "bytes": 1834
+      },
+      {
+        "action": {
+          "op": "search",
+          "space": "source",
+          "query": "refundableAmount",
+          "glob": "*admin-ui*.ts"
+        },
+        "reply": {
+          "rows": [
+            [
+              "packages/admin-ui/src/lib/order/src/common/get-refundable-payments.ts",
+              7,
+              "    refundableAmount: number;"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/common/get-refundable-payments.ts",
+              15,
+              "        const refundableAmount ="
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/common/get-refundable-payments.ts",
+              23,
+              "            refundableAmount,"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/common/get-refundable-payments.ts",
+              26,
+              "                validators: [Validators.min(0), Validators.max(refundableAmount)],"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-edits-preview-dialog/order-edits-preview-dialog.component.ts",
+              94,
+              "                    Math.min(outstandingRefundAmount, payment.refundableAmount),"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts",
+              46,
+              "    get totalRefundableAmount(): number {"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts",
+              47,
+              "        return summate(this.refundablePayments, 'refundableAmount');"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts",
+              111,
+              "            const amountToRefund = Math.min(payment.refundableAmount, this.refundTotal - refundsAllocated);"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts",
+              151,
+              "                    Math.min(outstandingRefundAmount, payment.refundableAmount),"
+            ]
+          ],
+          "next": null
+        },
+        "bytes": 1455
+      },
+      {
+        "action": {
+          "op": "read",
+          "space": "source",
+          "path": "packages/admin-ui/src/lib/order/src/common/get-refundable-payments.ts",
+          "start": 10
+        },
+        "reply": {
+          "rows": [
+            [
+              10,
+              "};"
+            ],
+            [
+              11,
+              ""
+            ],
+            [
+              12,
+              "export function getRefundablePayments(payments: OrderDetailFragment['payments']): RefundablePayment[] {"
+            ],
+            [
+              13,
+              "    const settledPayments = (payments || []).filter(p => p.state === 'Settled');"
+            ],
+            [
+              14,
+              "    return settledPayments.map((payment, index) => {"
+            ],
+            [
+              15,
+              "        const refundableAmount ="
+            ],
+            [
+              16,
+              "            payment.amount -"
+            ],
+            [
+              17,
+              "            summate("
+            ],
+            [
+              18,
+              "                payment.refunds.filter(r => r.state !== 'Failed'),"
+            ],
+            [
+              19,
+              "                'total',"
+            ],
+            [
+              20,
+              "            );"
+            ],
+            [
+              21,
+              "        return {"
+            ],
+            [
+              22,
+              "            ...payment,"
+            ],
+            [
+              23,
+              "            refundableAmount,"
+            ],
+            [
+              24,
+              "            amountToRefundControl: new FormControl(0, {"
+            ],
+            [
+              25,
+              "                nonNullable: true,"
+            ],
+            [
+              26,
+              "                validators: [Validators.min(0), Validators.max(refundableAmount)],"
+            ],
+            [
+              27,
+              "            }),"
+            ],
+            [
+              28,
+              "            selected: index === 0,"
+            ],
+            [
+              29,
+              "        };"
+            ],
+            [
+              30,
+              "    });"
+            ],
+            [
+              31,
+              "}"
+            ]
+          ],
+          "next": null
+        },
+        "bytes": 925
+      },
+      {
+        "action": {
+          "op": "search",
+          "space": "source",
+          "query": "getRefundablePayments(",
+          "glob": "*admin-ui*.ts"
+        },
+        "reply": {
+          "rows": [
+            [
+              "packages/admin-ui/src/lib/order/src/common/get-refundable-payments.ts",
+              12,
+              "export function getRefundablePayments(payments: OrderDetailFragment['payments']): RefundablePayment[] {"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/order-edits-preview-dialog/order-edits-preview-dialog.component.ts",
+              76,
+              "        this.refundablePayments = getRefundablePayments(this.order.payments || []);"
+            ],
+            [
+              "packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts",
+              87,
+              "        this.refundablePayments = getRefundablePayments(this.order.payments);"
+            ]
+          ],
+          "next": null
+        },
+        "bytes": 599
+      },
+      {
+        "action": {
+          "op": "read",
+          "space": "source",
+          "path": "packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts",
+          "start": 84
+        },
+        "reply": {
+          "rows": [
+            [
+              84,
+              "            }),"
+            ],
+            [
+              85,
+              "            {},"
+            ],
+            [
+              86,
+              "        );"
+            ],
+            [
+              87,
+              "        this.refundablePayments = getRefundablePayments(this.order.payments);"
+            ],
+            [
+              88,
+              "    }"
+            ],
+            [
+              89,
+              ""
+            ],
+            [
+              90,
+              "    updateRefundTotal() {"
+            ],
+            [
+              91,
+              "        if (!this.manuallySetRefundTotal) {"
+            ],
+            [
+              92,
+              "            const itemTotal = this.order.lines.reduce((total, line) => {"
+            ],
+            [
+              93,
+              "                const lineRef = this.lineQuantities[line.id];"
+            ],
+            [
+              94,
+              "                const refundCount = lineRef.quantity || 0;"
+            ],
+            [
+              95,
+              "                return total + line.proratedUnitPriceWithTax * refundCount;"
+            ],
+            [
+              96,
+              "            }, 0);"
+            ],
+            [
+              97,
+              "            const shippingTotal = this.order.shippingLines.reduce((total, line) => {"
+            ],
+            [
+              98,
+              "                if (this.refundShippingLineIds.includes(line.id)) {"
+            ],
+            [
+              99,
+              "                    return total + line.discountedPriceWithTax;"
+            ],
+            [
+              100,
+              "                } else {"
+            ],
+            [
+              101,
+              "                    return total;"
+            ],
+            [
+              102,
+              "                }"
+            ],
+            [
+              103,
+              "            }, 0);"
+            ],
+            [
+              104,
+              "            this.refundTotal = itemTotal + shippingTotal;"
+            ],
+            [
+              105,
+              "        }"
+            ],
+            [
+              106,
+              ""
+            ],
+            [
+              107,
+              "        // allocate the refund total across the refundable payments"
+            ],
+            [
+              108,
+              "        const refundablePayments = this.refundablePayments.filter(p => p.selected);"
+            ],
+            [
+              109,
+              "        let refundsAllocated = 0;"
+            ],
+            [
+              110,
+              "        for (const payment of refundablePayments) {"
+            ],
+            [
+              111,
+              "            const amountToRefund = Math.min(payment.refundableAmount, this.refundTotal - refundsAllocated);"
+            ],
+            [
+              112,
+              "            payment.amountToRefundControl.setValue(amountToRefund);"
+            ],
+            [
+              113,
+              "            refundsAllocated += amountToRefund;"
+            ],
+            [
+              114,
+              "        }"
+            ],
+            [
+              115,
+              "    }"
+            ]
+          ],
+          "next": 32
+        },
+        "bytes": 1607
+      },
+      {
+        "action": {
+          "op": "submit",
+          "impact": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.html:51-60 메뉴는 Aggregate 제외 및 Cancelled 전이 가능일 때만 노출한다. 정산 결제 존재로 고르는 두 문구는 실제 잔액이 없으면 취소로 바꾼다. packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:466-473,572-603 클릭은 cancel/refund 모달로 이어진다. PaymentAuthorized·active·정산 결제 없음의 직접 취소를 유지하고 그 밖에서는 잔액에 따라 분기한다. packages/admin-ui/src/lib/order/src/common/get-refundable-payments.ts:12-21 정산된 각 결제 amount에서 Failed를 제외한 refunds.total을 차감한다. packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:87도 이 값을 사용한다. 하나라도 양수이면 기존 문구와 경로를 보존하고 모두 소진이면 문구와 클릭을 함께 취소로 맞춘다."
+        },
+        "reply": {
+          "sealed": "4b25e22f5ec478f91dd68593761b8f0155405900b42f98dfbb224edd8fa02e7f"
+        },
+        "bytes": 77
+      },
+      {
+        "action": {
+          "op": "replace",
+          "path": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+          "old": "    orderHasSettledPayments(order: OrderDetailFragment): boolean {",
+          "new": "    hasRefundBalance(order: OrderDetailFragment): boolean {\n        return getRefundablePayments(order.payments).some(p => p.refundableAmount > 0);\n    }\n\n    orderHasSettledPayments(order: OrderDetailFragment): boolean {"
+        },
+        "reply": {
+          "ok": true
+        },
+        "bytes": 11
+      },
+      {
+        "action": {
+          "op": "read",
+          "space": "source",
+          "path": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+          "start": 1
+        },
+        "reply": {
+          "rows": [
+            [
+              1,
+              "import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';"
+            ],
+            [
+              2,
+              "import { FormBuilder, FormGroup } from '@angular/forms';"
+            ],
+            [
+              3,
+              "import { marker as _ } from '@biesbjerg/ngx-translate-extract-marker';"
+            ],
+            [
+              4,
+              "import {"
+            ],
+            [
+              5,
+              "    DataService,"
+            ],
+            [
+              6,
+              "    EditNoteDialogComponent,"
+            ],
+            [
+              7,
+              "    FulfillmentFragment,"
+            ],
+            [
+              8,
+              "    getCustomFieldsDefaults,"
+            ],
+            [
+              9,
+              "    GetOrderHistoryQuery,"
+            ],
+            [
+              10,
+              "    GetOrderQuery,"
+            ],
+            [
+              11,
+              "    ModalService,"
+            ],
+            [
+              12,
+              "    NotificationService,"
+            ],
+            [
+              13,
+              "    ORDER_DETAIL_FRAGMENT,"
+            ],
+            [
+              14,
+              "    OrderDetailFragment,"
+            ],
+            [
+              15,
+              "    OrderDetailQueryDocument,"
+            ],
+            [
+              16,
+              "    Refund,"
+            ],
+            [
+              17,
+              "    SetOrderCustomerDocument,"
+            ],
+            [
+              18,
+              "    SortOrder,"
+            ],
+            [
+              19,
+              "    TimelineHistoryEntry,"
+            ],
+            [
+              20,
+              "    TypedBaseDetailComponent,"
+            ],
+            [
+              21,
+              "} from '@vendure/admin-ui/core';"
+            ],
+            [
+              22,
+              "import { assertNever, summate } from '@vendure/common/lib/shared-utils';"
+            ],
+            [
+              23,
+              "import { gql } from 'apollo-angular';"
+            ],
+            [
+              24,
+              "import { EMPTY, forkJoin, Observable, of, Subject } from 'rxjs';"
+            ],
+            [
+              25,
+              "import { map, mapTo, startWith, switchMap, take } from 'rxjs/operators';"
+            ],
+            [
+              26,
+              ""
+            ],
+            [
+              27,
+              "import { OrderTransitionService } from '../../providers/order-transition.service';"
+            ],
+            [
+              28,
+              "import { AddManualPaymentDialogComponent } from '../add-manual-payment-dialog/add-manual-payment-dialog.component';"
+            ],
+            [
+              29,
+              "import { CancelOrderDialogComponent } from '../cancel-order-dialog/cancel-order-dialog.component';"
+            ],
+            [
+              30,
+              "import { FulfillOrderDialogComponent } from '../fulfill-order-dialog/fulfill-order-dialog.component';"
+            ],
+            [
+              31,
+              "import { OrderProcessGraphDialogComponent } from '../order-process-graph-dialog/order-process-graph-dialog.component';"
+            ],
+            [
+              32,
+              "import { RefundOrderDialogComponent } from '../refund-order-dialog/refund-order-dialog.component';"
+            ]
+          ],
+          "next": 32
+        },
+        "bytes": 1762
+      },
+      {
+        "action": {
+          "op": "replace",
+          "path": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+          "old": "import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';",
+          "new": "import { getRefundablePayments } from '../../common/get-refundable-payments';\nimport { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';"
+        },
+        "reply": {
+          "ok": true
+        },
+        "bytes": 11
+      },
+      {
+        "action": {
+          "op": "replace",
+          "path": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.html",
+          "old": "orderHasSettledPayments(order); else",
+          "new": "hasRefundBalance(order); else"
+        },
+        "reply": {
+          "ok": true
+        },
+        "bytes": 11
+      },
+      {
+        "action": {
+          "op": "replace",
+          "path": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+          "old": "this.orderHasSettledPayments(order)",
+          "new": "this.hasRefundBalance(order)"
+        },
+        "reply": {
+          "ok": true
+        },
+        "bytes": 11
+      },
+      {
+        "action": {
+          "op": "finish"
+        },
+        "reply": {
+          "ok": true
+        },
+        "bytes": 11
+      }
+    ]
+  }
+}
