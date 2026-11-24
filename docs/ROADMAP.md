@@ -1,5 +1,7 @@
 # 단계별 계획
 
+2026-11-24 [후보 검증 결과](reviews/2026-11-24-s2-modified-order-selection-independent-review.md)에 따라 #4728은 현재 B/C로 본 비교에 채택하지 않는다. 다음으로는 기존 Angular 근거와 같은 구현의 실제 변경을 먼저 찾는 방안을 권고한다. React Dashboard 자료 구축과 참가 실행 예산은 별도 결정 대상이다.
+
 2026-11-24 실제 복합 변경의 1순위 후보는 Vendure #4728이다. [후보 검증 지시](reviews/2026-11-24-s2-modified-order-task-selection-instructions.md)에 따라 React Dashboard 변경 전 자료와 독립 판정 근거의 적합성을 먼저 확인한다.
 
 2026-11-24 [환불 잔액 과업의 준비를 마감했다](reviews/2026-11-24-s2-refund-preparation-close.md). 다음은 업무 요청에서 출발해 여러 위치의 동작을 함께 보존해야 하는 실제 Vendure 변경 한 건을 선정하는 것이다. 변경 전 모델과 독립적인 판정 근거를 확보할 수 있는지 검토한 뒤 참가 실행 범위와 예산을 결정한다.
