@@ -12,6 +12,9 @@ importers:
         specifier: 5.9.3
         version: 5.9.3
     devDependencies:
+      '@angular/compiler':
+        specifier: 19.2.15
+        version: 19.2.15
       '@types/node':
         specifier: 22.20.5
         version: 22.20.5
@@ -35,6 +38,10 @@ importers:
         version: 5.1.0(@types/node@22.20.5)(vite@8.3.5(@types/node@22.20.5))
 
 packages:
+
+  '@angular/compiler@19.2.15':
+    resolution: {integrity: sha512-hMHZU6/03xG0tbPDIm1hbVSTFLnRkGYfh+xdBwUMnIFYYTS0QJ2hdPfEZKCJIXm+fz9IAI5MPdDTfeyp0sgaHQ==}
+    engines: {node: ^18.19.1 || ^20.11.1 || >=22.0.0}
 
   '@jridgewell/resolve-uri@3.1.2':
     resolution: {integrity: sha512-bRISgCIjP20/tbWSPWMEi54QVPRZExkuD9lJL+UIxUKtwVJA8wW1Trb1jMs1RFXo1CBTNZ/5hpC9QvmKWdopKw==}
@@ -354,6 +361,9 @@ packages:
     resolution: {integrity: sha512-wXR/dYpcqKmfWpEdZjiKJOwCNFndD0DMnrW/cYjVGttEkBfVgcLFHoNrlj47mjOVic9yyNu65alsgF4NQyTa2g==}
     engines: {node: '>=12.0.0'}
 
+  tslib@2.9.1:
+    resolution: {integrity: sha512-a4Ux9VKuIMHsOS7ENbEq6hK2ZGYIT27Rtl0E4eD9KqwxhKiQeMZE/9xb3IdYwWaSOyIBQLExhQgXDTYoiCxnWA==}
+
   typescript@5.9.3:
     resolution: {integrity: sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==}
     engines: {node: '>=14.17'}
@@ -452,6 +462,10 @@ packages:
     hasBin: true
 
 snapshots:
+
+  '@angular/compiler@19.2.15':
+    dependencies:
+      tslib: 2.9.1
 
   '@jridgewell/resolve-uri@3.1.2': {}
 
@@ -675,6 +689,8 @@ snapshots:
     dependencies:
       fdir: 6.5.0(picomatch@4.0.7)
       picomatch: 4.0.7
+
+  tslib@2.9.1: {}
 
   typescript@5.9.3: {}
 

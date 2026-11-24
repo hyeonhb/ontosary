@@ -9,7 +9,9 @@ repo = Path(__file__).resolve().parents[5]
 source, environment, output = (Path(arg).resolve() for arg in sys.argv[1:4])
 task = sys.argv[4:]
 entry = "evaluation/run.js"
-if task:
+if task == ["refund-discovery"]:
+    entry = "trial/discovery/menu.js"
+elif task:
     if task not in (["allocation"], ["quantity"], ["refresh"]):
         raise SystemExit("Unknown evaluation task")
     entry = "trial/complex/evaluator/run.js"

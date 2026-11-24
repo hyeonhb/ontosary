@@ -1,0 +1,114 @@
+{
+  "cli": "codex-cli 0.167.0-alpha.3.2",
+  "model": "gpt-6.2-sol",
+  "effort": "medium",
+  "provider": "loopback HTTP 400",
+  "roles": [
+    "developer",
+    "user"
+  ],
+  "captured": {
+    "A": [
+      {
+        "historySteps": 0,
+        "packetSha256": "943662e3512c4e2d91f2edf282ac01b9daa48505b70eaa0f36156151557817b0",
+        "tools": [],
+        "example": {
+          "op": "search",
+          "space": "source",
+          "query": "license"
+        }
+      },
+      {
+        "historySteps": 1,
+        "packetSha256": "de8efc4bd73b7cf29201c6a90204284940a3f3bc2764b7699aeef5f526516e17",
+        "tools": [],
+        "example": {
+          "op": "search",
+          "space": "source",
+          "query": "license"
+        },
+        "firstReplyRows": 32,
+        "firstReplySha256": "2508c053010897091c5215076a52a4b7bd2c78651940ad01daefe441e9eac73e"
+      },
+      {
+        "historySteps": 3,
+        "packetSha256": "19e75a7784f27dc0f2a698658398d6d6fcfbe694cbe385c50e7054a7234017bf",
+        "tools": [],
+        "example": {
+          "op": "search",
+          "space": "source",
+          "query": "license"
+        }
+      }
+    ],
+    "B": [
+      {
+        "historySteps": 0,
+        "packetSha256": "615fb1e5e631cc30965d2f0b44175fe5db9dcf7057305af9a36f344b37195ae4",
+        "tools": [],
+        "example": {
+          "op": "search",
+          "space": "source",
+          "query": "license"
+        }
+      },
+      {
+        "historySteps": 1,
+        "packetSha256": "a4e78df5a679f7812a536416ecd6b164462f7b2bbb428ca9d95c94ad78a1ec41",
+        "tools": [],
+        "example": {
+          "op": "search",
+          "space": "source",
+          "query": "license"
+        },
+        "firstReplyRows": 32,
+        "firstReplySha256": "2508c053010897091c5215076a52a4b7bd2c78651940ad01daefe441e9eac73e"
+      },
+      {
+        "historySteps": 3,
+        "packetSha256": "5b6b2350c2586d2bf1aca738ac840cbfbc04e248456e575f886183d6d31b7ee3",
+        "tools": [],
+        "example": {
+          "op": "search",
+          "space": "source",
+          "query": "license"
+        }
+      }
+    ],
+    "C": [
+      {
+        "historySteps": 0,
+        "packetSha256": "8097e5dea6fc6c44f85f76375924d368468cc4c35cdb97cc62acbb935de075cd",
+        "tools": [],
+        "example": {
+          "op": "search",
+          "space": "source",
+          "query": "license"
+        }
+      },
+      {
+        "historySteps": 1,
+        "packetSha256": "98dde573e66fd307b7db17e625d8919e6fb6ffb09c35c01a2a1246dd7ef3b761",
+        "tools": [],
+        "example": {
+          "op": "search",
+          "space": "source",
+          "query": "license"
+        },
+        "firstReplyRows": 32,
+        "firstReplySha256": "2508c053010897091c5215076a52a4b7bd2c78651940ad01daefe441e9eac73e"
+      },
+      {
+        "historySteps": 3,
+        "packetSha256": "77b41d94456d49d9c14b2a545fe3d35b1b913664c440d503d8f5d246f6558f5c",
+        "tools": [],
+        "example": {
+          "op": "search",
+          "space": "source",
+          "query": "license"
+        }
+      }
+    ]
+  }
+}
