@@ -1,5 +1,7 @@
 # 현재 작업 상태 — 새 세션은 이 문서부터 읽기
 
+2026-11-24 [#4728 선정 독립 리뷰](reviews/2026-11-24-s2-modified-order-selection-independent-review.md)에서 PR #101을 병합했다. 화면 대조 2/4·2/4·3/4·4/4를 재현했고 부모의 React 19.2.4에서도 관측값이 같았다. 기존 B/C 근거는 Angular Admin UI에 한정돼 이 자료로 하는 #4728 본 비교는 보류한다. 참가 모델 호출은 0회다.
+
 2026-11-24 [Vendure #4728 과업 선정 결과](reviews/2026-11-24-s2-modified-order-task-selection.md)는 **현재 B/C로 채택 보류 권고**다. 부모 리비전에서 동결 근거 30개가 모두 Angular 파일 8개에 일치했다. React Dashboard 화면 대조는 원본 2/4, 표시만 수정 2/4, 현재 수량만 사용 3/4, 업스트림 수정 4/4였다. 참가 호출은 0회이며 과업과 예산 결정은 독립 리뷰에 인계한다.
 
 2026-11-24 [주문 변경 후 환불 수량 후보 검증](reviews/2026-11-24-s2-modified-order-task-selection-instructions.md)을 인계한다. Vendure #4728을 대상으로 같은 변경 전 구현에 대응하는 B/C 자료와 부분 수정 대조의 변별력을 무호출로 확인한다. 과업 채택과 본 비교 예산은 준비 결과 리뷰 뒤 결정한다.
