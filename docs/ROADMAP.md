@@ -1,5 +1,7 @@
 # 단계별 계획
 
+2026-11-24 다음 S2 작업은 [기존 Angular 모델의 근거에서 출발한 과업 선정](reviews/2026-11-24-s2-angular-candidate-selection-instructions.md)이다. 변경·보존을 구별할 수 있고 같은 변경 전 구현에 B/C가 대응하는 후보를 찾는다. 적합한 후보가 없으면 조사 범위와 제외 사유를 리뷰한다.
+
 2026-11-24 [후보 검증 결과](reviews/2026-11-24-s2-modified-order-selection-independent-review.md)에 따라 #4728은 현재 B/C로 본 비교에 채택하지 않는다. 다음으로는 기존 Angular 근거와 같은 구현의 실제 변경을 먼저 찾는 방안을 권고한다. React Dashboard 자료 구축과 참가 실행 예산은 별도 결정 대상이다.
 
 2026-11-24 실제 복합 변경의 1순위 후보는 Vendure #4728이다. [후보 검증 지시](reviews/2026-11-24-s2-modified-order-task-selection-instructions.md)에 따라 React Dashboard 변경 전 자료와 독립 판정 근거의 적합성을 먼저 확인한다.
