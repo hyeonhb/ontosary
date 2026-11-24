@@ -1,0 +1,8 @@
+[
+  {"path":"direct","taxIncluded":true, "cancelShipping":true, "expected":[0,0,0,0]},
+  {"path":"direct","taxIncluded":false,"cancelShipping":true, "expected":[0,0,0,0]},
+  {"path":"with-refund","taxIncluded":true, "cancelShipping":true, "expected":[0,0,0,0]},
+  {"path":"with-refund","taxIncluded":false,"cancelShipping":true, "expected":[0,0,0,0]},
+  {"path":"direct","taxIncluded":true, "cancelShipping":false,"expected":[1000,1200,1100,1300]},
+  {"path":"with-refund","taxIncluded":false,"cancelShipping":false,"expected":[1000,1200,1100,1300]}
+]

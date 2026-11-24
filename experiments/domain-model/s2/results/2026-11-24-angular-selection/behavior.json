@@ -1,0 +1,697 @@
+{
+  "parent": "8dbb6e4063248c3084e5768d613347a3453eda41",
+  "fix": "e30fd9e94214135de85c95631edc6f2fcedd0da1",
+  "participantCalls": 0,
+  "controls": {
+    "original": [
+      {
+        "path": "direct",
+        "taxIncluded": true,
+        "cancelShipping": true,
+        "expected": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "before": [
+          1000,
+          1200,
+          1200,
+          1400
+        ],
+        "cancel": {
+          "orderId": "order",
+          "lines": [
+            {
+              "orderLineId": "item",
+              "quantity": 2
+            }
+          ],
+          "reason": "customer request",
+          "cancelShipping": true
+        },
+        "refundAmounts": [],
+        "remainingItems": 0,
+        "after": [
+          167,
+          200,
+          167,
+          200
+        ],
+        "passed": false
+      },
+      {
+        "path": "direct",
+        "taxIncluded": false,
+        "cancelShipping": true,
+        "expected": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "before": [
+          1000,
+          1200,
+          1200,
+          1400
+        ],
+        "cancel": {
+          "orderId": "order",
+          "lines": [
+            {
+              "orderLineId": "item",
+              "quantity": 2
+            }
+          ],
+          "reason": "customer request",
+          "cancelShipping": true
+        },
+        "refundAmounts": [],
+        "remainingItems": 0,
+        "after": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "passed": true
+      },
+      {
+        "path": "with-refund",
+        "taxIncluded": true,
+        "cancelShipping": true,
+        "expected": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "before": [
+          1000,
+          1200,
+          1200,
+          1400
+        ],
+        "cancel": {
+          "lines": [
+            {
+              "orderLineId": "item",
+              "quantity": 2
+            }
+          ],
+          "orderId": "order",
+          "reason": "customer request",
+          "cancelShipping": true
+        },
+        "refundAmounts": [
+          1400
+        ],
+        "remainingItems": 0,
+        "after": [
+          167,
+          200,
+          167,
+          200
+        ],
+        "passed": false
+      },
+      {
+        "path": "with-refund",
+        "taxIncluded": false,
+        "cancelShipping": true,
+        "expected": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "before": [
+          1000,
+          1200,
+          1200,
+          1400
+        ],
+        "cancel": {
+          "lines": [
+            {
+              "orderLineId": "item",
+              "quantity": 2
+            }
+          ],
+          "orderId": "order",
+          "reason": "customer request",
+          "cancelShipping": true
+        },
+        "refundAmounts": [
+          1400
+        ],
+        "remainingItems": 0,
+        "after": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "passed": true
+      },
+      {
+        "path": "direct",
+        "taxIncluded": true,
+        "cancelShipping": false,
+        "expected": [
+          1000,
+          1200,
+          1100,
+          1300
+        ],
+        "before": [
+          1000,
+          1200,
+          1200,
+          1400
+        ],
+        "cancel": {
+          "orderId": "order",
+          "lines": [
+            {
+              "orderLineId": "item",
+              "quantity": 1
+            }
+          ],
+          "reason": "customer request",
+          "cancelShipping": false
+        },
+        "refundAmounts": [],
+        "remainingItems": 1,
+        "after": [
+          1000,
+          1200,
+          1100,
+          1300
+        ],
+        "passed": true
+      },
+      {
+        "path": "with-refund",
+        "taxIncluded": false,
+        "cancelShipping": false,
+        "expected": [
+          1000,
+          1200,
+          1100,
+          1300
+        ],
+        "before": [
+          1000,
+          1200,
+          1200,
+          1400
+        ],
+        "cancel": {
+          "lines": [
+            {
+              "orderLineId": "item",
+              "quantity": 1
+            }
+          ],
+          "orderId": "order",
+          "reason": "customer request",
+          "cancelShipping": false
+        },
+        "refundAmounts": [
+          100
+        ],
+        "remainingItems": 1,
+        "after": [
+          1000,
+          1200,
+          1100,
+          1300
+        ],
+        "passed": true
+      }
+    ],
+    "always-gross": [
+      {
+        "path": "direct",
+        "taxIncluded": true,
+        "cancelShipping": true,
+        "expected": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "before": [
+          1000,
+          1200,
+          1200,
+          1400
+        ],
+        "cancel": {
+          "orderId": "order",
+          "lines": [
+            {
+              "orderLineId": "item",
+              "quantity": 2
+            }
+          ],
+          "reason": "customer request",
+          "cancelShipping": true
+        },
+        "refundAmounts": [],
+        "remainingItems": 0,
+        "after": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "passed": true
+      },
+      {
+        "path": "direct",
+        "taxIncluded": false,
+        "cancelShipping": true,
+        "expected": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "before": [
+          1000,
+          1200,
+          1200,
+          1400
+        ],
+        "cancel": {
+          "orderId": "order",
+          "lines": [
+            {
+              "orderLineId": "item",
+              "quantity": 2
+            }
+          ],
+          "reason": "customer request",
+          "cancelShipping": true
+        },
+        "refundAmounts": [],
+        "remainingItems": 0,
+        "after": [
+          -200,
+          -240,
+          -200,
+          -240
+        ],
+        "passed": false
+      },
+      {
+        "path": "with-refund",
+        "taxIncluded": true,
+        "cancelShipping": true,
+        "expected": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "before": [
+          1000,
+          1200,
+          1200,
+          1400
+        ],
+        "cancel": {
+          "lines": [
+            {
+              "orderLineId": "item",
+              "quantity": 2
+            }
+          ],
+          "orderId": "order",
+          "reason": "customer request",
+          "cancelShipping": true
+        },
+        "refundAmounts": [
+          1400
+        ],
+        "remainingItems": 0,
+        "after": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "passed": true
+      },
+      {
+        "path": "with-refund",
+        "taxIncluded": false,
+        "cancelShipping": true,
+        "expected": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "before": [
+          1000,
+          1200,
+          1200,
+          1400
+        ],
+        "cancel": {
+          "lines": [
+            {
+              "orderLineId": "item",
+              "quantity": 2
+            }
+          ],
+          "orderId": "order",
+          "reason": "customer request",
+          "cancelShipping": true
+        },
+        "refundAmounts": [
+          1400
+        ],
+        "remainingItems": 0,
+        "after": [
+          -200,
+          -240,
+          -200,
+          -240
+        ],
+        "passed": false
+      },
+      {
+        "path": "direct",
+        "taxIncluded": true,
+        "cancelShipping": false,
+        "expected": [
+          1000,
+          1200,
+          1100,
+          1300
+        ],
+        "before": [
+          1000,
+          1200,
+          1200,
+          1400
+        ],
+        "cancel": {
+          "orderId": "order",
+          "lines": [
+            {
+              "orderLineId": "item",
+              "quantity": 1
+            }
+          ],
+          "reason": "customer request",
+          "cancelShipping": false
+        },
+        "refundAmounts": [],
+        "remainingItems": 1,
+        "after": [
+          1000,
+          1200,
+          1100,
+          1300
+        ],
+        "passed": true
+      },
+      {
+        "path": "with-refund",
+        "taxIncluded": false,
+        "cancelShipping": false,
+        "expected": [
+          1000,
+          1200,
+          1100,
+          1300
+        ],
+        "before": [
+          1000,
+          1200,
+          1200,
+          1400
+        ],
+        "cancel": {
+          "lines": [
+            {
+              "orderLineId": "item",
+              "quantity": 1
+            }
+          ],
+          "orderId": "order",
+          "reason": "customer request",
+          "cancelShipping": false
+        },
+        "refundAmounts": [
+          100
+        ],
+        "remainingItems": 1,
+        "after": [
+          1000,
+          1200,
+          1100,
+          1300
+        ],
+        "passed": true
+      }
+    ],
+    "upstream": [
+      {
+        "path": "direct",
+        "taxIncluded": true,
+        "cancelShipping": true,
+        "expected": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "before": [
+          1000,
+          1200,
+          1200,
+          1400
+        ],
+        "cancel": {
+          "orderId": "order",
+          "lines": [
+            {
+              "orderLineId": "item",
+              "quantity": 2
+            }
+          ],
+          "reason": "customer request",
+          "cancelShipping": true
+        },
+        "refundAmounts": [],
+        "remainingItems": 0,
+        "after": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "passed": true
+      },
+      {
+        "path": "direct",
+        "taxIncluded": false,
+        "cancelShipping": true,
+        "expected": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "before": [
+          1000,
+          1200,
+          1200,
+          1400
+        ],
+        "cancel": {
+          "orderId": "order",
+          "lines": [
+            {
+              "orderLineId": "item",
+              "quantity": 2
+            }
+          ],
+          "reason": "customer request",
+          "cancelShipping": true
+        },
+        "refundAmounts": [],
+        "remainingItems": 0,
+        "after": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "passed": true
+      },
+      {
+        "path": "with-refund",
+        "taxIncluded": true,
+        "cancelShipping": true,
+        "expected": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "before": [
+          1000,
+          1200,
+          1200,
+          1400
+        ],
+        "cancel": {
+          "lines": [
+            {
+              "orderLineId": "item",
+              "quantity": 2
+            }
+          ],
+          "orderId": "order",
+          "reason": "customer request",
+          "cancelShipping": true
+        },
+        "refundAmounts": [
+          1400
+        ],
+        "remainingItems": 0,
+        "after": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "passed": true
+      },
+      {
+        "path": "with-refund",
+        "taxIncluded": false,
+        "cancelShipping": true,
+        "expected": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "before": [
+          1000,
+          1200,
+          1200,
+          1400
+        ],
+        "cancel": {
+          "lines": [
+            {
+              "orderLineId": "item",
+              "quantity": 2
+            }
+          ],
+          "orderId": "order",
+          "reason": "customer request",
+          "cancelShipping": true
+        },
+        "refundAmounts": [
+          1400
+        ],
+        "remainingItems": 0,
+        "after": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "passed": true
+      },
+      {
+        "path": "direct",
+        "taxIncluded": true,
+        "cancelShipping": false,
+        "expected": [
+          1000,
+          1200,
+          1100,
+          1300
+        ],
+        "before": [
+          1000,
+          1200,
+          1200,
+          1400
+        ],
+        "cancel": {
+          "orderId": "order",
+          "lines": [
+            {
+              "orderLineId": "item",
+              "quantity": 1
+            }
+          ],
+          "reason": "customer request",
+          "cancelShipping": false
+        },
+        "refundAmounts": [],
+        "remainingItems": 1,
+        "after": [
+          1000,
+          1200,
+          1100,
+          1300
+        ],
+        "passed": true
+      },
+      {
+        "path": "with-refund",
+        "taxIncluded": false,
+        "cancelShipping": false,
+        "expected": [
+          1000,
+          1200,
+          1100,
+          1300
+        ],
+        "before": [
+          1000,
+          1200,
+          1200,
+          1400
+        ],
+        "cancel": {
+          "lines": [
+            {
+              "orderLineId": "item",
+              "quantity": 1
+            }
+          ],
+          "orderId": "order",
+          "reason": "customer request",
+          "cancelShipping": false
+        },
+        "refundAmounts": [
+          100
+        ],
+        "remainingItems": 1,
+        "after": [
+          1000,
+          1200,
+          1100,
+          1300
+        ],
+        "passed": true
+      }
+    ]
+  }
+}
