@@ -15,6 +15,7 @@ S2 = HERE.parent.parent
 FROZEN = S2 / "results/2026-11-10-trial-preparation"
 PILOT = S2 / "results/2026-11-18-fixed-input-pilot"
 EXPECTED = S2 / "results/2026-11-22-refund-discovery-fix"
+OUTER_GATE = S2 / "results/2026-11-24-refund-outer-gate/A-outer-then-null.json"
 
 
 def write(path, value):
@@ -93,6 +94,9 @@ def mock(prompt, step, control):
             act("replace", path=template, old="hasRefundBalance(order); else", new=inline+"; else")
         elif control == "valid-unobserved":
             act("replace", path=template, old="hasRefundBalance(order); else", new="hasRefundBalance(order) ? true : false; else")
+        elif control == "outer-then-null":
+            gate = "order.type !== 'Aggregate' && order.nextStates.includes('Cancelled')"
+            act("replace", path=template, old=gate, new=gate+"; then null")
         elif control == "submission-throw":
             act("replace", path=detail, old=body, new='throw new Error("Missing refund calculation");')
         elif control == "form-seam":
@@ -138,6 +142,7 @@ EXPECT = {
     "original": ("failed", 11, 9), "label-only": ("failed", 11, 9),
     "shared-predicate": ("passed", 11, 11), "reference": ("passed", 11, 11),
     "invalid-binding": ("failed", 0, 0), "valid-unobserved": ("unsupported", 0, 0),
+    "outer-then-null": ("unsupported", 0, 0),
     "submission-throw": ("failed", 11, 2), "form-seam": ("environment-error", 11, 2),
     "unobserved-dependency": ("unsupported", 11, 2), "unknown-origin": ("unsupported", 11, 2),
 }
@@ -156,6 +161,8 @@ def verify_grade(control, report):
         assert any("Parser Error" in d["message"] and "some(p =>" in d["message"] for d in parser["diagnostics"])
     if control == "valid-unobserved":
         assert report["setupError"]["kind"] == "unsupported-feature" and "Conditional" in report["setupError"]["message"]
+    if control == "outer-then-null":
+        assert report["setupError"]["kind"] == "unsupported-feature" and "ngIfThen" in report["setupError"]["message"]
     errors = {"submission-throw":"submission", "form-seam":"environment",
               "unobserved-dependency":"unsupported-feature", "unknown-origin":"unattributed"}
     if control in errors:
@@ -254,7 +261,12 @@ def main():
     for name,data in [("results.json",result),("traces.json",traces)]:
         write(out/name,data)
         if args.verify:
-            assert (out/name).read_bytes() == (EXPECTED/name).read_bytes(), name
+            if name == "results.json":
+                expected = json.loads((EXPECTED/name).read_bytes())
+                expected["mocks"]["A-outer-then-null"] = json.loads(OUTER_GATE.read_bytes())
+                assert data == expected, name
+            else:
+                assert (out/name).read_bytes() == (EXPECTED/name).read_bytes(), name
     print(len(result["mocks"]), "independent snapshots, 3 discovery transcripts, 0 participant calls:", out)
 
 

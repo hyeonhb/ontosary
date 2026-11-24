@@ -1,0 +1,217 @@
+{
+  "status": "passed",
+  "parser": {
+    "version": "19.2.15",
+    "compilerIntegrity": "sha512-hMHZU6/03xG0tbPDIm1hbVSTFLnRkGYfh+xdBwUMnIFYYTS0QJ2hdPfEZKCJIXm+fz9IAI5MPdDTfeyp0sgaHQ==",
+    "compilerSha256": "00e6e939e741ae223a172af726da4dfd35f6a8a0c0d5781124627d5eaaa6b7a5",
+    "templateSha256": "5a30a579e139600af371996a5329f48922c7d36bc68b75548b7f800c81492d98",
+    "diagnostics": []
+  },
+  "typecheck": "passed",
+  "diagnostics": [],
+  "unsupportedChanges": [],
+  "programFiles": 1638,
+  "submissionId": "f5db7528906413976ce4f54275baf35f381f322749c91b9214155bfb864855f2",
+  "environmentId": "d38eb0975d681562635189efa37dcc7cb5e95ab6d85b01ca8e7141b1e1e2551d",
+  "bound": true,
+  "used": {
+    "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.html": "5a30a579e139600af371996a5329f48922c7d36bc68b75548b7f800c81492d98",
+    "packages/admin-ui/src/lib/static/i18n-messages/en.json": "b747962a39697e8d1ef558e45fad06ede1879d3003c13e403d01f246a87e7146",
+    "packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts": "a47e7000b222454302c8a0dfc374555f78616517fdc3ec03621a199ecf234cc5",
+    "packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts": "d9ea112f17bff650686842306bef46fa6f7564278b1166762a7c9b7a8473a6fb",
+    "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts": "8dfabac0b6e092e31787a0fc0d1dd24d304c45dd1e5821f784ceadd142e2ce1b",
+    "packages/admin-ui/src/lib/order/src/common/get-refundable-payments.ts": "ba478bd823df4294321a3f2d3deb25b2cf4424ef8cecae6a199da3fb5fd0e205"
+  },
+  "observations": [
+    {
+      "name": "fully refunded",
+      "group": "menu",
+      "status": "passed",
+      "expected": {
+        "label": "Cancel order or items",
+        "opened": [
+          "CancelOrderDialogComponent"
+        ]
+      },
+      "passed": true,
+      "actual": {
+        "label": "Cancel order or items",
+        "opened": [
+          "CancelOrderDialogComponent"
+        ]
+      }
+    },
+    {
+      "name": "one positive after exhausted",
+      "group": "menu",
+      "status": "passed",
+      "expected": {
+        "label": "Refund & cancel order",
+        "opened": [
+          "RefundOrderDialogComponent"
+        ]
+      },
+      "passed": true,
+      "actual": {
+        "label": "Refund & cancel order",
+        "opened": [
+          "RefundOrderDialogComponent"
+        ]
+      }
+    },
+    {
+      "name": "positive before exhausted",
+      "group": "menu",
+      "status": "passed",
+      "expected": {
+        "label": "Refund & cancel order",
+        "opened": [
+          "RefundOrderDialogComponent"
+        ]
+      },
+      "passed": true,
+      "actual": {
+        "label": "Refund & cancel order",
+        "opened": [
+          "RefundOrderDialogComponent"
+        ]
+      }
+    },
+    {
+      "name": "pending consumes remaining amount",
+      "group": "menu",
+      "status": "passed",
+      "expected": {
+        "label": "Cancel order or items",
+        "opened": [
+          "CancelOrderDialogComponent"
+        ]
+      },
+      "passed": true,
+      "actual": {
+        "label": "Cancel order or items",
+        "opened": [
+          "CancelOrderDialogComponent"
+        ]
+      }
+    },
+    {
+      "name": "failed refund leaves balance",
+      "group": "menu",
+      "status": "passed",
+      "expected": {
+        "label": "Refund & cancel order",
+        "opened": [
+          "RefundOrderDialogComponent"
+        ]
+      },
+      "passed": true,
+      "actual": {
+        "label": "Refund & cancel order",
+        "opened": [
+          "RefundOrderDialogComponent"
+        ]
+      }
+    },
+    {
+      "name": "authorized only",
+      "group": "menu",
+      "status": "passed",
+      "expected": {
+        "label": "Cancel order or items",
+        "opened": [
+          "CancelOrderDialogComponent"
+        ]
+      },
+      "passed": true,
+      "actual": {
+        "label": "Cancel order or items",
+        "opened": [
+          "CancelOrderDialogComponent"
+        ]
+      }
+    },
+    {
+      "name": "authorized with settled share",
+      "group": "menu",
+      "status": "passed",
+      "expected": {
+        "label": "Refund & cancel order",
+        "opened": [
+          "CancelOrderDialogComponent"
+        ]
+      },
+      "passed": true,
+      "actual": {
+        "label": "Refund & cancel order",
+        "opened": [
+          "CancelOrderDialogComponent"
+        ]
+      }
+    },
+    {
+      "name": "active arranging part payment",
+      "group": "menu",
+      "status": "passed",
+      "expected": {
+        "label": "Refund & cancel order",
+        "opened": [
+          "CancelOrderDialogComponent"
+        ]
+      },
+      "passed": true,
+      "actual": {
+        "label": "Refund & cancel order",
+        "opened": [
+          "CancelOrderDialogComponent"
+        ]
+      }
+    },
+    {
+      "name": "active adding items",
+      "group": "menu",
+      "status": "passed",
+      "expected": {
+        "label": "Cancel order or items",
+        "opened": [
+          "CancelOrderDialogComponent"
+        ]
+      },
+      "passed": true,
+      "actual": {
+        "label": "Cancel order or items",
+        "opened": [
+          "CancelOrderDialogComponent"
+        ]
+      }
+    },
+    {
+      "name": "aggregate hidden",
+      "group": "menu",
+      "status": "passed",
+      "expected": {
+        "label": null,
+        "opened": []
+      },
+      "passed": true,
+      "actual": {
+        "label": null,
+        "opened": []
+      }
+    },
+    {
+      "name": "no cancelled transition",
+      "group": "menu",
+      "status": "passed",
+      "expected": {
+        "label": null,
+        "opened": []
+      },
+      "passed": true,
+      "actual": {
+        "label": null,
+        "opened": []
+      }
+    }
+  ]
+}

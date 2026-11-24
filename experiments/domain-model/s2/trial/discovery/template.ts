@@ -82,6 +82,10 @@ export function menuBindings(baseline: string, submitted: string, nodes: TmplAst
     const labels = shape.exec(button);
     const gate = dropdown(nodes, start), element = gate?.children[0];
     if (!labels || !gate || !(element instanceof TmplAstElement)) unsupported('Unobserved menu structure');
+    // The outer button uses the default then-view. Additional inputs can select a different view.
+    const outerInputs = gate.templateAttrs.map(attr => attr.name);
+    if (outerInputs.length !== 1 || outerInputs[0] !== 'ngIf' || gate.variables.length)
+        unsupported('Unobserved outer menu bindings: ' + [...outerInputs, ...gate.variables.map(v => v.name)].join(', '));
     const condition = element.children.find(c => c instanceof TmplAstTemplate && c.tagName === 'ng-container');
     const click = element.outputs.find(e => e.name === 'click');
     if (!(condition instanceof TmplAstTemplate) || !click) unsupported('Unobserved Angular button bindings');

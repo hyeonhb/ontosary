@@ -1,0 +1,93 @@
+{
+  "expected": {
+    "status": "unsupported",
+    "observed": 0,
+    "passed": 0
+  },
+  "edits": [
+    {
+      "op": "replace",
+      "path": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+      "old": "    orderHasSettledPayments(order: OrderDetailFragment): boolean {",
+      "new": "    hasRefundBalance(order: OrderDetailFragment): boolean {\n        return getRefundablePayments(order.payments).some(p => p.refundableAmount > 0);\n    }\n\n    orderHasSettledPayments(order: OrderDetailFragment): boolean {"
+    },
+    {
+      "op": "replace",
+      "path": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+      "old": "import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';",
+      "new": "import { getRefundablePayments } from '../../common/get-refundable-payments';\nimport { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';"
+    },
+    {
+      "op": "replace",
+      "path": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.html",
+      "old": "orderHasSettledPayments(order); else",
+      "new": "hasRefundBalance(order); else"
+    },
+    {
+      "op": "replace",
+      "path": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+      "old": "this.orderHasSettledPayments(order)",
+      "new": "this.hasRefundBalance(order)"
+    },
+    {
+      "op": "replace",
+      "path": "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.html",
+      "old": "order.type !== 'Aggregate' && order.nextStates.includes('Cancelled')",
+      "new": "order.type !== 'Aggregate' && order.nextStates.includes('Cancelled'); then null"
+    }
+  ],
+  "counts": {
+    "source.search": 7,
+    "source.read": 6,
+    "submission.submit": 1,
+    "submission.replace": 5,
+    "submission.finish": 1
+  },
+  "returnedBytes": {
+    "source.search": 11202,
+    "source.read": 9100,
+    "submission.submit": 77,
+    "submission.replace": 55,
+    "submission.finish": 11
+  },
+  "returnedRows": {
+    "source.search": 76,
+    "source.read": 182,
+    "submission.submit": 0,
+    "submission.replace": 0,
+    "submission.finish": 0
+  },
+  "changes": {
+    "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.html": "5a30a579e139600af371996a5329f48922c7d36bc68b75548b7f800c81492d98",
+    "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts": "8dfabac0b6e092e31787a0fc0d1dd24d304c45dd1e5821f784ceadd142e2ce1b"
+  },
+  "impactSha256": "4b25e22f5ec478f91dd68593761b8f0155405900b42f98dfbb224edd8fa02e7f",
+  "grade": {
+    "status": "unsupported",
+    "parser": {
+      "version": "19.2.15",
+      "compilerIntegrity": "sha512-hMHZU6/03xG0tbPDIm1hbVSTFLnRkGYfh+xdBwUMnIFYYTS0QJ2hdPfEZKCJIXm+fz9IAI5MPdDTfeyp0sgaHQ==",
+      "compilerSha256": "00e6e939e741ae223a172af726da4dfd35f6a8a0c0d5781124627d5eaaa6b7a5",
+      "templateSha256": "5a30a579e139600af371996a5329f48922c7d36bc68b75548b7f800c81492d98",
+      "diagnostics": []
+    },
+    "setupError": {
+      "channel": "synchronous",
+      "message": "Error: Unobserved outer menu bindings: ngIf, ngIfThen",
+      "kind": "unsupported-feature",
+      "field": "menu template",
+      "status": "unsupported"
+    },
+    "typecheck": "passed",
+    "diagnostics": [],
+    "unsupportedChanges": [],
+    "programFiles": 1638,
+    "submissionId": "f5db7528906413976ce4f54275baf35f381f322749c91b9214155bfb864855f2",
+    "environmentId": "d38eb0975d681562635189efa37dcc7cb5e95ab6d85b01ca8e7141b1e1e2551d",
+    "bound": true,
+    "used": {
+      "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.html": "5a30a579e139600af371996a5329f48922c7d36bc68b75548b7f800c81492d98"
+    },
+    "observations": []
+  }
+}
