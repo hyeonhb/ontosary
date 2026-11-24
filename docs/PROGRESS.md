@@ -1,5 +1,7 @@
 # 현재 작업 상태 — 새 세션은 이 문서부터 읽기
 
+2026-11-24 [주문 변경 후 환불 수량 후보 검증](reviews/2026-11-24-s2-modified-order-task-selection-instructions.md)을 인계한다. Vendure #4728을 대상으로 같은 변경 전 구현에 대응하는 B/C 자료와 부분 수정 대조의 변별력을 무호출로 확인한다. 과업 채택과 본 비교 예산은 준비 결과 리뷰 뒤 결정한다.
+
 2026-11-24 [환불 잔액 준비 종료 리뷰](reviews/2026-11-24-s2-refund-preparation-close.md)에서 같은 제출의 잘못된 만점이 미지원으로 바뀌고 기존 12개 대조와 로컬 요청이 유지됨을 확인했다. R23~R25를 닫고 PR #96을 병합했다. 실제 참가 호출은 0회이며 다음 단계는 Vendure 실제 복합 변경 후보 선정이다.
 
 2026-11-24 [바깥 메뉴 바인딩 대조](../experiments/domain-model/s2/results/2026-11-24-refund-outer-gate/)에서 같은 제출의 판정이 11/11 성공에서 미지원으로 바뀌었다. 바깥 버튼의 `ngIfThen`을 진단하고 동작 평가 전에 멈춘다. 안쪽 `else cancelOnly`를 사용하는 기존 12개 대조와 루프백 요청 9개를 재현했다. 참가 호출은 0회다. [독립 리뷰의 종료 조건](reviews/2026-11-24-s2-refund-grading-fix-independent-review.md)
