@@ -1,0 +1,513 @@
+{
+  "upstreamHead": "a67242a6b685d6a98a7beebb109c19db07550369",
+  "baseline": "534e6003534f74761e82de1b8c6061cba89945d1",
+  "materialsFreeze": "c6d093310ee8a2fb5e8fef61decd01dd4e51ec7d",
+  "verifiedFiles": 72,
+  "parityLeaves": 1511,
+  "seedFiles": [
+    "packages/admin-ui/src/lib/core/src/data/definitions/order-definitions.ts",
+    "packages/admin-ui/src/lib/core/src/data/providers/order-data.service.ts",
+    "packages/admin-ui/src/lib/core/src/providers/modal/modal.service.ts",
+    "packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.html",
+    "packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts",
+    "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.html",
+    "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts",
+    "packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts"
+  ],
+  "seedHistoryCommits": 96,
+  "seedHistorySha256": "b8ca6f5fa931028785b5b460502d1c27a10f5067982ef252b527eaf863ecf441",
+  "candidates": {
+    "3150": {
+      "parent": "34e90316829c91c5025963261843731fb11d2590",
+      "fix": "37775552b38b7d3f7158875756074b34a091fcd0",
+      "baselineIsAncestorOfParent": false,
+      "exactFiles": 3,
+      "anchors": {
+        "source-V01/e0": {
+          "fileHashMatch": true,
+          "spanMatch": true,
+          "quoteOccurrences": 1
+        },
+        "source-V02/e0": {
+          "fileHashMatch": false,
+          "spanMatch": false,
+          "quoteOccurrences": 1
+        },
+        "source-V11/e0": {
+          "fileHashMatch": false,
+          "spanMatch": false,
+          "quoteOccurrences": 1
+        },
+        "source-refund-cancel/e0": {
+          "fileHashMatch": false,
+          "spanMatch": false,
+          "quoteOccurrences": 1
+        },
+        "source-refund-request/e0": {
+          "fileHashMatch": false,
+          "spanMatch": false,
+          "quoteOccurrences": 1
+        },
+        "source-refund-payload/e0": {
+          "fileHashMatch": false,
+          "spanMatch": false,
+          "quoteOccurrences": 1
+        },
+        "source-refund-close/e0": {
+          "fileHashMatch": false,
+          "spanMatch": false,
+          "quoteOccurrences": 1
+        },
+        "source-refund-mutation/e0": {
+          "fileHashMatch": false,
+          "spanMatch": false,
+          "quoteOccurrences": 1
+        },
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:22379:calls-cancel/e0": {
+          "fileHashMatch": false,
+          "spanMatch": false,
+          "quoteOccurrences": 1
+        },
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:22379:opens-modal/e0": {
+          "fileHashMatch": false,
+          "spanMatch": false,
+          "quoteOccurrences": 1
+        },
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:23185:calls-cancel/e0": {
+          "fileHashMatch": false,
+          "spanMatch": false,
+          "quoteOccurrences": 1
+        },
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:23185:opens-modal/e0": {
+          "fileHashMatch": false,
+          "spanMatch": false,
+          "quoteOccurrences": 1
+        },
+        "source-V03/e0": {
+          "fileHashMatch": false,
+          "spanMatch": false,
+          "quoteOccurrences": 1
+        },
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts:2469:closes-dialog-empty/e0": {
+          "fileHashMatch": false,
+          "spanMatch": false,
+          "quoteOccurrences": 1
+        },
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:7491:closes-dialog-empty/e0": {
+          "fileHashMatch": false,
+          "spanMatch": false,
+          "quoteOccurrences": 1
+        },
+        "object:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:22379": {
+          "fileHashMatch": false,
+          "spanMatch": false,
+          "quoteOccurrences": 1
+        },
+        "object:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:23185": {
+          "fileHashMatch": false,
+          "spanMatch": false,
+          "quoteOccurrences": 1
+        },
+        "object:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts:2469": {
+          "fileHashMatch": false,
+          "spanMatch": false,
+          "quoteOccurrences": 1
+        },
+        "object:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:7491": {
+          "fileHashMatch": false,
+          "spanMatch": false,
+          "quoteOccurrences": 1
+        },
+        "attribute:calls-cancel:0": {
+          "fileHashMatch": false,
+          "spanMatch": false,
+          "quoteOccurrences": 1
+        },
+        "attribute:opens-modal:0": {
+          "fileHashMatch": true,
+          "spanMatch": true,
+          "quoteOccurrences": 1
+        },
+        "attribute:closes-dialog-empty:0": {
+          "fileHashMatch": false,
+          "spanMatch": false,
+          "quoteOccurrences": 1
+        },
+        "attribute:closes-dialog-empty:1": {
+          "fileHashMatch": false,
+          "spanMatch": false,
+          "quoteOccurrences": 1
+        },
+        "source-V04/e0": {
+          "fileHashMatch": false,
+          "spanMatch": false,
+          "quoteOccurrences": 1
+        },
+        "source-V05/e0": {
+          "fileHashMatch": true,
+          "spanMatch": true,
+          "quoteOccurrences": 1
+        },
+        "source-V06/e0": {
+          "fileHashMatch": false,
+          "spanMatch": false,
+          "quoteOccurrences": 1
+        },
+        "source-V07/e0": {
+          "fileHashMatch": false,
+          "spanMatch": false,
+          "quoteOccurrences": 1
+        },
+        "source-V08/e0": {
+          "fileHashMatch": false,
+          "spanMatch": false,
+          "quoteOccurrences": 1
+        },
+        "source-V09/e0": {
+          "fileHashMatch": false,
+          "spanMatch": false,
+          "quoteOccurrences": 1
+        },
+        "source-V10/e0": {
+          "fileHashMatch": false,
+          "spanMatch": false,
+          "quoteOccurrences": 1
+        }
+      },
+      "materialTermHits": {
+        "proratedUnitPriceWithTax": [],
+        "prorated-unit-price": [],
+        "#3150": []
+      }
+    },
+    "2608": {
+      "parent": "9ab2e4df707692ff4f7c51a2ce23afc7577e94b9",
+      "fix": "913e6d8e082c0ac04f836aa6c305e3465849c4dc",
+      "baselineIsAncestorOfParent": false,
+      "exactFiles": 1,
+      "anchors": {
+        "source-V01/e0": {
+          "fileHashMatch": false,
+          "spanMatch": false,
+          "quoteOccurrences": 1
+        },
+        "source-V02/e0": {
+          "fileHashMatch": false,
+          "spanMatch": false,
+          "quoteOccurrences": 1
+        },
+        "source-V11/e0": {
+          "fileHashMatch": false,
+          "spanMatch": false,
+          "quoteOccurrences": 1
+        },
+        "source-refund-cancel/e0": {
+          "fileHashMatch": false,
+          "spanMatch": false,
+          "quoteOccurrences": 1
+        },
+        "source-refund-request/e0": {
+          "fileHashMatch": false,
+          "spanMatch": false,
+          "quoteOccurrences": 0
+        },
+        "source-refund-payload/e0": {
+          "fileHashMatch": false,
+          "spanMatch": false,
+          "quoteOccurrences": 0
+        },
+        "source-refund-close/e0": {
+          "fileHashMatch": false,
+          "spanMatch": false,
+          "quoteOccurrences": 1
+        },
+        "source-refund-mutation/e0": {
+          "fileHashMatch": false,
+          "spanMatch": false,
+          "quoteOccurrences": 1
+        },
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:22379:calls-cancel/e0": {
+          "fileHashMatch": false,
+          "spanMatch": false,
+          "quoteOccurrences": 1
+        },
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:22379:opens-modal/e0": {
+          "fileHashMatch": false,
+          "spanMatch": false,
+          "quoteOccurrences": 1
+        },
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:23185:calls-cancel/e0": {
+          "fileHashMatch": false,
+          "spanMatch": false,
+          "quoteOccurrences": 1
+        },
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:23185:opens-modal/e0": {
+          "fileHashMatch": false,
+          "spanMatch": false,
+          "quoteOccurrences": 1
+        },
+        "source-V03/e0": {
+          "fileHashMatch": false,
+          "spanMatch": false,
+          "quoteOccurrences": 1
+        },
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts:2469:closes-dialog-empty/e0": {
+          "fileHashMatch": false,
+          "spanMatch": false,
+          "quoteOccurrences": 1
+        },
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:7491:closes-dialog-empty/e0": {
+          "fileHashMatch": false,
+          "spanMatch": false,
+          "quoteOccurrences": 1
+        },
+        "object:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:22379": {
+          "fileHashMatch": false,
+          "spanMatch": false,
+          "quoteOccurrences": 1
+        },
+        "object:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:23185": {
+          "fileHashMatch": false,
+          "spanMatch": false,
+          "quoteOccurrences": 0
+        },
+        "object:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts:2469": {
+          "fileHashMatch": false,
+          "spanMatch": false,
+          "quoteOccurrences": 1
+        },
+        "object:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:7491": {
+          "fileHashMatch": false,
+          "spanMatch": false,
+          "quoteOccurrences": 1
+        },
+        "attribute:calls-cancel:0": {
+          "fileHashMatch": false,
+          "spanMatch": false,
+          "quoteOccurrences": 1
+        },
+        "attribute:opens-modal:0": {
+          "fileHashMatch": false,
+          "spanMatch": false,
+          "quoteOccurrences": 1
+        },
+        "attribute:closes-dialog-empty:0": {
+          "fileHashMatch": false,
+          "spanMatch": false,
+          "quoteOccurrences": 1
+        },
+        "attribute:closes-dialog-empty:1": {
+          "fileHashMatch": false,
+          "spanMatch": false,
+          "quoteOccurrences": 0
+        },
+        "source-V04/e0": {
+          "fileHashMatch": false,
+          "spanMatch": false,
+          "quoteOccurrences": 1
+        },
+        "source-V05/e0": {
+          "fileHashMatch": true,
+          "spanMatch": true,
+          "quoteOccurrences": 1
+        },
+        "source-V06/e0": {
+          "fileHashMatch": false,
+          "spanMatch": false,
+          "quoteOccurrences": 1
+        },
+        "source-V07/e0": {
+          "fileHashMatch": false,
+          "spanMatch": false,
+          "quoteOccurrences": 1
+        },
+        "source-V08/e0": {
+          "fileHashMatch": false,
+          "spanMatch": false,
+          "quoteOccurrences": 1
+        },
+        "source-V09/e0": {
+          "fileHashMatch": false,
+          "spanMatch": false,
+          "quoteOccurrences": 1
+        },
+        "source-V10/e0": {
+          "fileHashMatch": false,
+          "spanMatch": false,
+          "quoteOccurrences": 1
+        }
+      },
+      "materialTermHits": {
+        "orderPlacedQuantity": [],
+        "refundedCount": [],
+        "lineCanBeRefundedOrCancelled": [],
+        "#2608": []
+      }
+    },
+    "4348": {
+      "parent": "8dbb6e4063248c3084e5768d613347a3453eda41",
+      "fix": "e30fd9e94214135de85c95631edc6f2fcedd0da1",
+      "baselineIsAncestorOfParent": true,
+      "exactFiles": 8,
+      "anchors": {
+        "source-V01/e0": {
+          "fileHashMatch": true,
+          "spanMatch": true,
+          "quoteOccurrences": 1
+        },
+        "source-V02/e0": {
+          "fileHashMatch": true,
+          "spanMatch": true,
+          "quoteOccurrences": 1
+        },
+        "source-V11/e0": {
+          "fileHashMatch": true,
+          "spanMatch": true,
+          "quoteOccurrences": 1
+        },
+        "source-refund-cancel/e0": {
+          "fileHashMatch": true,
+          "spanMatch": true,
+          "quoteOccurrences": 1
+        },
+        "source-refund-request/e0": {
+          "fileHashMatch": true,
+          "spanMatch": true,
+          "quoteOccurrences": 1
+        },
+        "source-refund-payload/e0": {
+          "fileHashMatch": true,
+          "spanMatch": true,
+          "quoteOccurrences": 1
+        },
+        "source-refund-close/e0": {
+          "fileHashMatch": true,
+          "spanMatch": true,
+          "quoteOccurrences": 1
+        },
+        "source-refund-mutation/e0": {
+          "fileHashMatch": true,
+          "spanMatch": true,
+          "quoteOccurrences": 1
+        },
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:22379:calls-cancel/e0": {
+          "fileHashMatch": true,
+          "spanMatch": true,
+          "quoteOccurrences": 1
+        },
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:22379:opens-modal/e0": {
+          "fileHashMatch": true,
+          "spanMatch": true,
+          "quoteOccurrences": 1
+        },
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:23185:calls-cancel/e0": {
+          "fileHashMatch": true,
+          "spanMatch": true,
+          "quoteOccurrences": 1
+        },
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:23185:opens-modal/e0": {
+          "fileHashMatch": true,
+          "spanMatch": true,
+          "quoteOccurrences": 1
+        },
+        "source-V03/e0": {
+          "fileHashMatch": true,
+          "spanMatch": true,
+          "quoteOccurrences": 1
+        },
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts:2469:closes-dialog-empty/e0": {
+          "fileHashMatch": true,
+          "spanMatch": true,
+          "quoteOccurrences": 1
+        },
+        "cell:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:7491:closes-dialog-empty/e0": {
+          "fileHashMatch": true,
+          "spanMatch": true,
+          "quoteOccurrences": 1
+        },
+        "object:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:22379": {
+          "fileHashMatch": true,
+          "spanMatch": true,
+          "quoteOccurrences": 1
+        },
+        "object:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts:23185": {
+          "fileHashMatch": true,
+          "spanMatch": true,
+          "quoteOccurrences": 1
+        },
+        "object:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts:2469": {
+          "fileHashMatch": true,
+          "spanMatch": true,
+          "quoteOccurrences": 1
+        },
+        "object:534e6003534f74761e82de1b8c6061cba89945d1:packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts:7491": {
+          "fileHashMatch": true,
+          "spanMatch": true,
+          "quoteOccurrences": 1
+        },
+        "attribute:calls-cancel:0": {
+          "fileHashMatch": true,
+          "spanMatch": true,
+          "quoteOccurrences": 1
+        },
+        "attribute:opens-modal:0": {
+          "fileHashMatch": true,
+          "spanMatch": true,
+          "quoteOccurrences": 1
+        },
+        "attribute:closes-dialog-empty:0": {
+          "fileHashMatch": true,
+          "spanMatch": true,
+          "quoteOccurrences": 1
+        },
+        "attribute:closes-dialog-empty:1": {
+          "fileHashMatch": true,
+          "spanMatch": true,
+          "quoteOccurrences": 1
+        },
+        "source-V04/e0": {
+          "fileHashMatch": true,
+          "spanMatch": true,
+          "quoteOccurrences": 1
+        },
+        "source-V05/e0": {
+          "fileHashMatch": true,
+          "spanMatch": true,
+          "quoteOccurrences": 1
+        },
+        "source-V06/e0": {
+          "fileHashMatch": true,
+          "spanMatch": true,
+          "quoteOccurrences": 1
+        },
+        "source-V07/e0": {
+          "fileHashMatch": true,
+          "spanMatch": true,
+          "quoteOccurrences": 1
+        },
+        "source-V08/e0": {
+          "fileHashMatch": true,
+          "spanMatch": true,
+          "quoteOccurrences": 1
+        },
+        "source-V09/e0": {
+          "fileHashMatch": true,
+          "spanMatch": true,
+          "quoteOccurrences": 1
+        },
+        "source-V10/e0": {
+          "fileHashMatch": true,
+          "spanMatch": true,
+          "quoteOccurrences": 1
+        }
+      },
+      "materialTermHits": {
+        "discountedPriceWithTax": [],
+        "listPriceIncludesTax": [],
+        "pricesIncludeTax": [],
+        "shipping cancellation": [],
+        "#4348": []
+      }
+    }
+  }
+}
