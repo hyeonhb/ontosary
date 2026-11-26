@@ -1,0 +1,3906 @@
+{
+  "participantCalls": 0,
+  "results": {
+    "original": {
+      "parent": "8dbb6e4063248c3084e5768d613347a3453eda41",
+      "patchSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patchBytes": 0,
+      "tree": "baef472d23e07fc62b82e903e074b38373457c92",
+      "changes": [],
+      "stage": "observation",
+      "sources": {
+        "packages/common/src/shared-utils.ts": "bce866e7754133ba2dd82b9bb0209b5103a876c064b78a154707c658ca135aa7",
+        "packages/core/src/common/utils.ts": "ec544405f0380b3f4ecd457a680a07209bde6f8a34b709d6bd5e681e226fbdf8",
+        "packages/core/src/common/tax-utils.ts": "f16d0f798ef848d7ce6f02d7ed4f41791141fdfa4158dadc5bf07c63036d1a46",
+        "packages/core/src/config/entity/default-money-strategy.ts": "4001cc56bc8caede3f1fcc1636a9eda45c4c4ec39f019be372967d3057349fbf",
+        "packages/core/src/entity/order/order.entity.ts": "499feb01b805e351660300639815304b3a8ed84d18cc4cd2c15cbf1654f99956",
+        "packages/core/src/entity/shipping-line/shipping-line.entity.ts": "61d0217959b8030d8210e404c617212e4d245071cf34a61f5f5276f5e0314876",
+        "packages/core/src/config/tax/default-order-tax-calculation-strategy.ts": "f7e7b3c0142e940d89b49ef6eddb18a736655024708a5b34ff8d74a87ab0f113",
+        "packages/core/src/service/helpers/order-calculator/order-calculator.ts": "9e114d9d0f6792496e110c4cc7fa7537429e81d491d98dd9ddfcf2a58ed5e5a8",
+        "packages/core/src/service/helpers/utils/order-utils.ts": "cc7b6dfb6dc13ebc4045ad712c5c0f196ea04777c03a986908f8942abc0c8359",
+        "packages/core/src/service/helpers/order-modifier/order-modifier.ts": "fef734a2f98a55a41d1c117e43157829576f6b6d9b5f097748913beb34595363",
+        "packages/admin-ui/src/lib/order/src/common/get-refundable-payments.ts": "ba478bd823df4294321a3f2d3deb25b2cf4424ef8cecae6a199da3fb5fd0e205",
+        "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts": "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede",
+        "packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts": "a47e7000b222454302c8a0dfc374555f78616517fdc3ec03621a199ecf234cc5",
+        "packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts": "d9ea112f17bff650686842306bef46fa6f7564278b1166762a7c9b7a8473a6fb"
+      },
+      "rows": [
+        {
+          "path": "direct",
+          "taxIncluded": true,
+          "cancelShipping": true,
+          "expected": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "before": [
+            1000,
+            1200,
+            1200,
+            1400
+          ],
+          "cancel": {
+            "orderId": "order",
+            "lines": [
+              {
+                "orderLineId": "item",
+                "quantity": 2
+              }
+            ],
+            "reason": "customer request",
+            "cancelShipping": true
+          },
+          "refundAmounts": [],
+          "remainingItems": 0,
+          "after": [
+            167,
+            200,
+            167,
+            200
+          ],
+          "orderSaves": [
+            [
+              167,
+              200,
+              167,
+              200
+            ]
+          ],
+          "allCancelled": true,
+          "mismatches": [
+            {
+              "field": "moneyAtOrderSave",
+              "expected": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "actual": [
+                167,
+                200,
+                167,
+                200
+              ]
+            },
+            {
+              "field": "moneyAtReturn",
+              "expected": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "actual": [
+                167,
+                200,
+                167,
+                200
+              ]
+            }
+          ],
+          "passed": false,
+          "status": "fail",
+          "calls": {
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts#cancelOrderByOrderLines": 1
+          }
+        },
+        {
+          "path": "direct",
+          "taxIncluded": false,
+          "cancelShipping": true,
+          "expected": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "before": [
+            1000,
+            1200,
+            1200,
+            1400
+          ],
+          "cancel": {
+            "orderId": "order",
+            "lines": [
+              {
+                "orderLineId": "item",
+                "quantity": 2
+              }
+            ],
+            "reason": "customer request",
+            "cancelShipping": true
+          },
+          "refundAmounts": [],
+          "remainingItems": 0,
+          "after": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "orderSaves": [
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "allCancelled": true,
+          "mismatches": [],
+          "passed": true,
+          "status": "pass",
+          "calls": {
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts#cancelOrderByOrderLines": 1
+          }
+        },
+        {
+          "path": "with-refund",
+          "taxIncluded": true,
+          "cancelShipping": true,
+          "expected": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "before": [
+            1000,
+            1200,
+            1200,
+            1400
+          ],
+          "cancel": {
+            "lines": [
+              {
+                "orderLineId": "item",
+                "quantity": 2
+              }
+            ],
+            "orderId": "order",
+            "reason": "customer request",
+            "cancelShipping": true
+          },
+          "refundAmounts": [
+            1400
+          ],
+          "remainingItems": 0,
+          "after": [
+            167,
+            200,
+            167,
+            200
+          ],
+          "orderSaves": [
+            [
+              167,
+              200,
+              167,
+              200
+            ]
+          ],
+          "allCancelled": true,
+          "mismatches": [
+            {
+              "field": "moneyAtOrderSave",
+              "expected": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "actual": [
+                167,
+                200,
+                167,
+                200
+              ]
+            },
+            {
+              "field": "moneyAtReturn",
+              "expected": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "actual": [
+                167,
+                200,
+                167,
+                200
+              ]
+            }
+          ],
+          "passed": false,
+          "status": "fail",
+          "calls": {
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts#cancelOrderByOrderLines": 1
+          }
+        },
+        {
+          "path": "with-refund",
+          "taxIncluded": false,
+          "cancelShipping": true,
+          "expected": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "before": [
+            1000,
+            1200,
+            1200,
+            1400
+          ],
+          "cancel": {
+            "lines": [
+              {
+                "orderLineId": "item",
+                "quantity": 2
+              }
+            ],
+            "orderId": "order",
+            "reason": "customer request",
+            "cancelShipping": true
+          },
+          "refundAmounts": [
+            1400
+          ],
+          "remainingItems": 0,
+          "after": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "orderSaves": [
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "allCancelled": true,
+          "mismatches": [],
+          "passed": true,
+          "status": "pass",
+          "calls": {
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts#cancelOrderByOrderLines": 1
+          }
+        },
+        {
+          "path": "direct",
+          "taxIncluded": true,
+          "cancelShipping": false,
+          "expected": [
+            1000,
+            1200,
+            1100,
+            1300
+          ],
+          "before": [
+            1000,
+            1200,
+            1200,
+            1400
+          ],
+          "cancel": {
+            "orderId": "order",
+            "lines": [
+              {
+                "orderLineId": "item",
+                "quantity": 1
+              }
+            ],
+            "reason": "customer request",
+            "cancelShipping": false
+          },
+          "refundAmounts": [],
+          "remainingItems": 1,
+          "after": [
+            1000,
+            1200,
+            1100,
+            1300
+          ],
+          "orderSaves": [
+            [
+              1000,
+              1200,
+              1100,
+              1300
+            ]
+          ],
+          "allCancelled": false,
+          "mismatches": [],
+          "passed": true,
+          "status": "pass",
+          "calls": {
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts#cancelOrderByOrderLines": 1
+          }
+        },
+        {
+          "path": "with-refund",
+          "taxIncluded": false,
+          "cancelShipping": false,
+          "expected": [
+            1000,
+            1200,
+            1100,
+            1300
+          ],
+          "before": [
+            1000,
+            1200,
+            1200,
+            1400
+          ],
+          "cancel": {
+            "lines": [
+              {
+                "orderLineId": "item",
+                "quantity": 1
+              }
+            ],
+            "orderId": "order",
+            "reason": "customer request",
+            "cancelShipping": false
+          },
+          "refundAmounts": [
+            100
+          ],
+          "remainingItems": 1,
+          "after": [
+            1000,
+            1200,
+            1100,
+            1300
+          ],
+          "orderSaves": [
+            [
+              1000,
+              1200,
+              1100,
+              1300
+            ]
+          ],
+          "allCancelled": false,
+          "mismatches": [],
+          "passed": true,
+          "status": "pass",
+          "calls": {
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts#cancelOrderByOrderLines": 1
+          }
+        }
+      ],
+      "passed": 4,
+      "failed": 2,
+      "ungradable": 0,
+      "attempted": 6,
+      "measured": 6
+    },
+    "always-gross": {
+      "parent": "8dbb6e4063248c3084e5768d613347a3453eda41",
+      "patchSha256": "300e93e99118da6de058d558d30ad41dcf606e0ad5721cbc724688cb44350db2",
+      "patchBytes": 893,
+      "tree": "cc4586dfe31694822df480953caeda0699f1d348",
+      "changes": [
+        {
+          "status": "M",
+          "path": "packages/core/src/service/helpers/order-modifier/order-modifier.ts",
+          "mode": "100644",
+          "blob": "884dd3466234102dca43e8c27761a081220763b8",
+          "sha256": "aede3ce1bd4050286b7b7b36007052125f60c6c8de03adaffe03dc4f287c718c"
+        }
+      ],
+      "stage": "observation",
+      "sources": {
+        "packages/common/src/shared-utils.ts": "bce866e7754133ba2dd82b9bb0209b5103a876c064b78a154707c658ca135aa7",
+        "packages/core/src/common/utils.ts": "ec544405f0380b3f4ecd457a680a07209bde6f8a34b709d6bd5e681e226fbdf8",
+        "packages/core/src/common/tax-utils.ts": "f16d0f798ef848d7ce6f02d7ed4f41791141fdfa4158dadc5bf07c63036d1a46",
+        "packages/core/src/config/entity/default-money-strategy.ts": "4001cc56bc8caede3f1fcc1636a9eda45c4c4ec39f019be372967d3057349fbf",
+        "packages/core/src/entity/order/order.entity.ts": "499feb01b805e351660300639815304b3a8ed84d18cc4cd2c15cbf1654f99956",
+        "packages/core/src/entity/shipping-line/shipping-line.entity.ts": "61d0217959b8030d8210e404c617212e4d245071cf34a61f5f5276f5e0314876",
+        "packages/core/src/config/tax/default-order-tax-calculation-strategy.ts": "f7e7b3c0142e940d89b49ef6eddb18a736655024708a5b34ff8d74a87ab0f113",
+        "packages/core/src/service/helpers/order-calculator/order-calculator.ts": "9e114d9d0f6792496e110c4cc7fa7537429e81d491d98dd9ddfcf2a58ed5e5a8",
+        "packages/core/src/service/helpers/utils/order-utils.ts": "cc7b6dfb6dc13ebc4045ad712c5c0f196ea04777c03a986908f8942abc0c8359",
+        "packages/core/src/service/helpers/order-modifier/order-modifier.ts": "aede3ce1bd4050286b7b7b36007052125f60c6c8de03adaffe03dc4f287c718c",
+        "packages/admin-ui/src/lib/order/src/common/get-refundable-payments.ts": "ba478bd823df4294321a3f2d3deb25b2cf4424ef8cecae6a199da3fb5fd0e205",
+        "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts": "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede",
+        "packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts": "a47e7000b222454302c8a0dfc374555f78616517fdc3ec03621a199ecf234cc5",
+        "packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts": "d9ea112f17bff650686842306bef46fa6f7564278b1166762a7c9b7a8473a6fb"
+      },
+      "rows": [
+        {
+          "path": "direct",
+          "taxIncluded": true,
+          "cancelShipping": true,
+          "expected": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "before": [
+            1000,
+            1200,
+            1200,
+            1400
+          ],
+          "cancel": {
+            "orderId": "order",
+            "lines": [
+              {
+                "orderLineId": "item",
+                "quantity": 2
+              }
+            ],
+            "reason": "customer request",
+            "cancelShipping": true
+          },
+          "refundAmounts": [],
+          "remainingItems": 0,
+          "after": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "orderSaves": [
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "allCancelled": true,
+          "mismatches": [],
+          "passed": true,
+          "status": "pass",
+          "calls": {
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts#cancelOrderByOrderLines": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@349.16567": 1
+          }
+        },
+        {
+          "path": "direct",
+          "taxIncluded": false,
+          "cancelShipping": true,
+          "expected": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "before": [
+            1000,
+            1200,
+            1200,
+            1400
+          ],
+          "cancel": {
+            "orderId": "order",
+            "lines": [
+              {
+                "orderLineId": "item",
+                "quantity": 2
+              }
+            ],
+            "reason": "customer request",
+            "cancelShipping": true
+          },
+          "refundAmounts": [],
+          "remainingItems": 0,
+          "after": [
+            -200,
+            -240,
+            -200,
+            -240
+          ],
+          "orderSaves": [
+            [
+              -200,
+              -240,
+              -200,
+              -240
+            ]
+          ],
+          "allCancelled": true,
+          "mismatches": [
+            {
+              "field": "moneyAtOrderSave",
+              "expected": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "actual": [
+                -200,
+                -240,
+                -200,
+                -240
+              ]
+            },
+            {
+              "field": "moneyAtReturn",
+              "expected": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "actual": [
+                -200,
+                -240,
+                -200,
+                -240
+              ]
+            }
+          ],
+          "passed": false,
+          "status": "fail",
+          "calls": {
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts#cancelOrderByOrderLines": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@349.16567": 1
+          }
+        },
+        {
+          "path": "with-refund",
+          "taxIncluded": true,
+          "cancelShipping": true,
+          "expected": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "before": [
+            1000,
+            1200,
+            1200,
+            1400
+          ],
+          "cancel": {
+            "lines": [
+              {
+                "orderLineId": "item",
+                "quantity": 2
+              }
+            ],
+            "orderId": "order",
+            "reason": "customer request",
+            "cancelShipping": true
+          },
+          "refundAmounts": [
+            1400
+          ],
+          "remainingItems": 0,
+          "after": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "orderSaves": [
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "allCancelled": true,
+          "mismatches": [],
+          "passed": true,
+          "status": "pass",
+          "calls": {
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts#cancelOrderByOrderLines": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@349.16567": 1
+          }
+        },
+        {
+          "path": "with-refund",
+          "taxIncluded": false,
+          "cancelShipping": true,
+          "expected": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "before": [
+            1000,
+            1200,
+            1200,
+            1400
+          ],
+          "cancel": {
+            "lines": [
+              {
+                "orderLineId": "item",
+                "quantity": 2
+              }
+            ],
+            "orderId": "order",
+            "reason": "customer request",
+            "cancelShipping": true
+          },
+          "refundAmounts": [
+            1400
+          ],
+          "remainingItems": 0,
+          "after": [
+            -200,
+            -240,
+            -200,
+            -240
+          ],
+          "orderSaves": [
+            [
+              -200,
+              -240,
+              -200,
+              -240
+            ]
+          ],
+          "allCancelled": true,
+          "mismatches": [
+            {
+              "field": "moneyAtOrderSave",
+              "expected": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "actual": [
+                -200,
+                -240,
+                -200,
+                -240
+              ]
+            },
+            {
+              "field": "moneyAtReturn",
+              "expected": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "actual": [
+                -200,
+                -240,
+                -200,
+                -240
+              ]
+            }
+          ],
+          "passed": false,
+          "status": "fail",
+          "calls": {
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts#cancelOrderByOrderLines": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@349.16567": 1
+          }
+        },
+        {
+          "path": "direct",
+          "taxIncluded": true,
+          "cancelShipping": false,
+          "expected": [
+            1000,
+            1200,
+            1100,
+            1300
+          ],
+          "before": [
+            1000,
+            1200,
+            1200,
+            1400
+          ],
+          "cancel": {
+            "orderId": "order",
+            "lines": [
+              {
+                "orderLineId": "item",
+                "quantity": 1
+              }
+            ],
+            "reason": "customer request",
+            "cancelShipping": false
+          },
+          "refundAmounts": [],
+          "remainingItems": 1,
+          "after": [
+            1000,
+            1200,
+            1100,
+            1300
+          ],
+          "orderSaves": [
+            [
+              1000,
+              1200,
+              1100,
+              1300
+            ]
+          ],
+          "allCancelled": false,
+          "mismatches": [],
+          "passed": true,
+          "status": "pass",
+          "calls": {
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts#cancelOrderByOrderLines": 1
+          }
+        },
+        {
+          "path": "with-refund",
+          "taxIncluded": false,
+          "cancelShipping": false,
+          "expected": [
+            1000,
+            1200,
+            1100,
+            1300
+          ],
+          "before": [
+            1000,
+            1200,
+            1200,
+            1400
+          ],
+          "cancel": {
+            "lines": [
+              {
+                "orderLineId": "item",
+                "quantity": 1
+              }
+            ],
+            "orderId": "order",
+            "reason": "customer request",
+            "cancelShipping": false
+          },
+          "refundAmounts": [
+            100
+          ],
+          "remainingItems": 1,
+          "after": [
+            1000,
+            1200,
+            1100,
+            1300
+          ],
+          "orderSaves": [
+            [
+              1000,
+              1200,
+              1100,
+              1300
+            ]
+          ],
+          "allCancelled": false,
+          "mismatches": [],
+          "passed": true,
+          "status": "pass",
+          "calls": {
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts#cancelOrderByOrderLines": 1
+          }
+        }
+      ],
+      "passed": 4,
+      "failed": 2,
+      "ungradable": 0,
+      "attempted": 6,
+      "measured": 6
+    },
+    "upstream": {
+      "parent": "8dbb6e4063248c3084e5768d613347a3453eda41",
+      "patchSha256": "2cdb4cbc1e3c68301743822e34b77bd79e3bc42923cb316b45d94a1e6e294e61",
+      "patchBytes": 1011,
+      "tree": "8efb318b3ea0d9429b738a3edbc13a19394bf984",
+      "changes": [
+        {
+          "status": "M",
+          "path": "packages/core/src/service/helpers/order-modifier/order-modifier.ts",
+          "mode": "100644",
+          "blob": "70729954117907952cd7bf7f7246ba8fe6f49410",
+          "sha256": "7a3839e741c5f5e29311768bbe2df9cc05869edaf93f73323c7ec96975eb8a0f"
+        }
+      ],
+      "stage": "observation",
+      "sources": {
+        "packages/common/src/shared-utils.ts": "bce866e7754133ba2dd82b9bb0209b5103a876c064b78a154707c658ca135aa7",
+        "packages/core/src/common/utils.ts": "ec544405f0380b3f4ecd457a680a07209bde6f8a34b709d6bd5e681e226fbdf8",
+        "packages/core/src/common/tax-utils.ts": "f16d0f798ef848d7ce6f02d7ed4f41791141fdfa4158dadc5bf07c63036d1a46",
+        "packages/core/src/config/entity/default-money-strategy.ts": "4001cc56bc8caede3f1fcc1636a9eda45c4c4ec39f019be372967d3057349fbf",
+        "packages/core/src/entity/order/order.entity.ts": "499feb01b805e351660300639815304b3a8ed84d18cc4cd2c15cbf1654f99956",
+        "packages/core/src/entity/shipping-line/shipping-line.entity.ts": "61d0217959b8030d8210e404c617212e4d245071cf34a61f5f5276f5e0314876",
+        "packages/core/src/config/tax/default-order-tax-calculation-strategy.ts": "f7e7b3c0142e940d89b49ef6eddb18a736655024708a5b34ff8d74a87ab0f113",
+        "packages/core/src/service/helpers/order-calculator/order-calculator.ts": "9e114d9d0f6792496e110c4cc7fa7537429e81d491d98dd9ddfcf2a58ed5e5a8",
+        "packages/core/src/service/helpers/utils/order-utils.ts": "cc7b6dfb6dc13ebc4045ad712c5c0f196ea04777c03a986908f8942abc0c8359",
+        "packages/core/src/service/helpers/order-modifier/order-modifier.ts": "7a3839e741c5f5e29311768bbe2df9cc05869edaf93f73323c7ec96975eb8a0f",
+        "packages/admin-ui/src/lib/order/src/common/get-refundable-payments.ts": "ba478bd823df4294321a3f2d3deb25b2cf4424ef8cecae6a199da3fb5fd0e205",
+        "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts": "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede",
+        "packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts": "a47e7000b222454302c8a0dfc374555f78616517fdc3ec03621a199ecf234cc5",
+        "packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts": "d9ea112f17bff650686842306bef46fa6f7564278b1166762a7c9b7a8473a6fb"
+      },
+      "rows": [
+        {
+          "path": "direct",
+          "taxIncluded": true,
+          "cancelShipping": true,
+          "expected": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "before": [
+            1000,
+            1200,
+            1200,
+            1400
+          ],
+          "cancel": {
+            "orderId": "order",
+            "lines": [
+              {
+                "orderLineId": "item",
+                "quantity": 2
+              }
+            ],
+            "reason": "customer request",
+            "cancelShipping": true
+          },
+          "refundAmounts": [],
+          "remainingItems": 0,
+          "after": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "orderSaves": [
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "allCancelled": true,
+          "mismatches": [],
+          "passed": true,
+          "status": "pass",
+          "calls": {
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts#cancelOrderByOrderLines": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@349.16567": 1
+          }
+        },
+        {
+          "path": "direct",
+          "taxIncluded": false,
+          "cancelShipping": true,
+          "expected": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "before": [
+            1000,
+            1200,
+            1200,
+            1400
+          ],
+          "cancel": {
+            "orderId": "order",
+            "lines": [
+              {
+                "orderLineId": "item",
+                "quantity": 2
+              }
+            ],
+            "reason": "customer request",
+            "cancelShipping": true
+          },
+          "refundAmounts": [],
+          "remainingItems": 0,
+          "after": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "orderSaves": [
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "allCancelled": true,
+          "mismatches": [],
+          "passed": true,
+          "status": "pass",
+          "calls": {
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts#cancelOrderByOrderLines": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@349.16567": 1
+          }
+        },
+        {
+          "path": "with-refund",
+          "taxIncluded": true,
+          "cancelShipping": true,
+          "expected": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "before": [
+            1000,
+            1200,
+            1200,
+            1400
+          ],
+          "cancel": {
+            "lines": [
+              {
+                "orderLineId": "item",
+                "quantity": 2
+              }
+            ],
+            "orderId": "order",
+            "reason": "customer request",
+            "cancelShipping": true
+          },
+          "refundAmounts": [
+            1400
+          ],
+          "remainingItems": 0,
+          "after": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "orderSaves": [
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "allCancelled": true,
+          "mismatches": [],
+          "passed": true,
+          "status": "pass",
+          "calls": {
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts#cancelOrderByOrderLines": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@349.16567": 1
+          }
+        },
+        {
+          "path": "with-refund",
+          "taxIncluded": false,
+          "cancelShipping": true,
+          "expected": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "before": [
+            1000,
+            1200,
+            1200,
+            1400
+          ],
+          "cancel": {
+            "lines": [
+              {
+                "orderLineId": "item",
+                "quantity": 2
+              }
+            ],
+            "orderId": "order",
+            "reason": "customer request",
+            "cancelShipping": true
+          },
+          "refundAmounts": [
+            1400
+          ],
+          "remainingItems": 0,
+          "after": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "orderSaves": [
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "allCancelled": true,
+          "mismatches": [],
+          "passed": true,
+          "status": "pass",
+          "calls": {
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts#cancelOrderByOrderLines": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@349.16567": 1
+          }
+        },
+        {
+          "path": "direct",
+          "taxIncluded": true,
+          "cancelShipping": false,
+          "expected": [
+            1000,
+            1200,
+            1100,
+            1300
+          ],
+          "before": [
+            1000,
+            1200,
+            1200,
+            1400
+          ],
+          "cancel": {
+            "orderId": "order",
+            "lines": [
+              {
+                "orderLineId": "item",
+                "quantity": 1
+              }
+            ],
+            "reason": "customer request",
+            "cancelShipping": false
+          },
+          "refundAmounts": [],
+          "remainingItems": 1,
+          "after": [
+            1000,
+            1200,
+            1100,
+            1300
+          ],
+          "orderSaves": [
+            [
+              1000,
+              1200,
+              1100,
+              1300
+            ]
+          ],
+          "allCancelled": false,
+          "mismatches": [],
+          "passed": true,
+          "status": "pass",
+          "calls": {
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts#cancelOrderByOrderLines": 1
+          }
+        },
+        {
+          "path": "with-refund",
+          "taxIncluded": false,
+          "cancelShipping": false,
+          "expected": [
+            1000,
+            1200,
+            1100,
+            1300
+          ],
+          "before": [
+            1000,
+            1200,
+            1200,
+            1400
+          ],
+          "cancel": {
+            "lines": [
+              {
+                "orderLineId": "item",
+                "quantity": 1
+              }
+            ],
+            "orderId": "order",
+            "reason": "customer request",
+            "cancelShipping": false
+          },
+          "refundAmounts": [
+            100
+          ],
+          "remainingItems": 1,
+          "after": [
+            1000,
+            1200,
+            1100,
+            1300
+          ],
+          "orderSaves": [
+            [
+              1000,
+              1200,
+              1100,
+              1300
+            ]
+          ],
+          "allCancelled": false,
+          "mismatches": [],
+          "passed": true,
+          "status": "pass",
+          "calls": {
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts#cancelOrderByOrderLines": 1
+          }
+        }
+      ],
+      "passed": 6,
+      "failed": 0,
+      "ungradable": 0,
+      "attempted": 6,
+      "measured": 6
+    },
+    "helper": {
+      "parent": "8dbb6e4063248c3084e5768d613347a3453eda41",
+      "patchSha256": "579bc582b3323daa4354f29f11bd099eca3b58f729d5efb2cb488a2550741239",
+      "patchBytes": 1743,
+      "tree": "24c307787395e395bda90e3e97b3a32104873f04",
+      "changes": [
+        {
+          "status": "M",
+          "path": "packages/core/src/service/helpers/order-modifier/order-modifier.ts",
+          "mode": "100644",
+          "blob": "486945a156aabe9233d1145510648ad7a8bc3ac5",
+          "sha256": "ddced35c54a75ed7fea97586976844728244943311a8bc0530d312a20de00b3d"
+        },
+        {
+          "status": "A",
+          "path": "packages/core/src/service/helpers/order-modifier/shipping-cancellation-amount.ts",
+          "mode": "100644",
+          "blob": "5d4f1c78ff684c6ac25e5361cd5689c3f6336079",
+          "sha256": "5f24a1f00c190ff73a37345bdb097ee70adc2f029dc968d200c7025b96d5e868"
+        }
+      ],
+      "stage": "observation",
+      "sources": {
+        "packages/common/src/shared-utils.ts": "bce866e7754133ba2dd82b9bb0209b5103a876c064b78a154707c658ca135aa7",
+        "packages/core/src/common/utils.ts": "ec544405f0380b3f4ecd457a680a07209bde6f8a34b709d6bd5e681e226fbdf8",
+        "packages/core/src/common/tax-utils.ts": "f16d0f798ef848d7ce6f02d7ed4f41791141fdfa4158dadc5bf07c63036d1a46",
+        "packages/core/src/config/entity/default-money-strategy.ts": "4001cc56bc8caede3f1fcc1636a9eda45c4c4ec39f019be372967d3057349fbf",
+        "packages/core/src/entity/order/order.entity.ts": "499feb01b805e351660300639815304b3a8ed84d18cc4cd2c15cbf1654f99956",
+        "packages/core/src/entity/shipping-line/shipping-line.entity.ts": "61d0217959b8030d8210e404c617212e4d245071cf34a61f5f5276f5e0314876",
+        "packages/core/src/config/tax/default-order-tax-calculation-strategy.ts": "f7e7b3c0142e940d89b49ef6eddb18a736655024708a5b34ff8d74a87ab0f113",
+        "packages/core/src/service/helpers/order-calculator/order-calculator.ts": "9e114d9d0f6792496e110c4cc7fa7537429e81d491d98dd9ddfcf2a58ed5e5a8",
+        "packages/core/src/service/helpers/utils/order-utils.ts": "cc7b6dfb6dc13ebc4045ad712c5c0f196ea04777c03a986908f8942abc0c8359",
+        "packages/core/src/service/helpers/order-modifier/order-modifier.ts": "ddced35c54a75ed7fea97586976844728244943311a8bc0530d312a20de00b3d",
+        "packages/core/src/service/helpers/order-modifier/shipping-cancellation-amount.ts": "5f24a1f00c190ff73a37345bdb097ee70adc2f029dc968d200c7025b96d5e868",
+        "packages/admin-ui/src/lib/order/src/common/get-refundable-payments.ts": "ba478bd823df4294321a3f2d3deb25b2cf4424ef8cecae6a199da3fb5fd0e205",
+        "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts": "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede",
+        "packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts": "a47e7000b222454302c8a0dfc374555f78616517fdc3ec03621a199ecf234cc5",
+        "packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts": "d9ea112f17bff650686842306bef46fa6f7564278b1166762a7c9b7a8473a6fb"
+      },
+      "rows": [
+        {
+          "path": "direct",
+          "taxIncluded": true,
+          "cancelShipping": true,
+          "expected": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "before": [
+            1000,
+            1200,
+            1200,
+            1400
+          ],
+          "cancel": {
+            "orderId": "order",
+            "lines": [
+              {
+                "orderLineId": "item",
+                "quantity": 2
+              }
+            ],
+            "reason": "customer request",
+            "cancelShipping": true
+          },
+          "refundAmounts": [],
+          "remainingItems": 0,
+          "after": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "orderSaves": [
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "allCancelled": true,
+          "mismatches": [],
+          "passed": true,
+          "status": "pass",
+          "calls": {
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts#cancelOrderByOrderLines": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@350.16636": 1,
+            "packages/core/src/service/helpers/order-modifier/shipping-cancellation-amount.ts#cancellationAmount": 1,
+            "packages/core/src/service/helpers/order-modifier/shipping-cancellation-amount.ts@7.247": 1
+          }
+        },
+        {
+          "path": "direct",
+          "taxIncluded": false,
+          "cancelShipping": true,
+          "expected": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "before": [
+            1000,
+            1200,
+            1200,
+            1400
+          ],
+          "cancel": {
+            "orderId": "order",
+            "lines": [
+              {
+                "orderLineId": "item",
+                "quantity": 2
+              }
+            ],
+            "reason": "customer request",
+            "cancelShipping": true
+          },
+          "refundAmounts": [],
+          "remainingItems": 0,
+          "after": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "orderSaves": [
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "allCancelled": true,
+          "mismatches": [],
+          "passed": true,
+          "status": "pass",
+          "calls": {
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts#cancelOrderByOrderLines": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@350.16636": 1,
+            "packages/core/src/service/helpers/order-modifier/shipping-cancellation-amount.ts#cancellationAmount": 1,
+            "packages/core/src/service/helpers/order-modifier/shipping-cancellation-amount.ts@5.207": 1
+          }
+        },
+        {
+          "path": "with-refund",
+          "taxIncluded": true,
+          "cancelShipping": true,
+          "expected": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "before": [
+            1000,
+            1200,
+            1200,
+            1400
+          ],
+          "cancel": {
+            "lines": [
+              {
+                "orderLineId": "item",
+                "quantity": 2
+              }
+            ],
+            "orderId": "order",
+            "reason": "customer request",
+            "cancelShipping": true
+          },
+          "refundAmounts": [
+            1400
+          ],
+          "remainingItems": 0,
+          "after": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "orderSaves": [
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "allCancelled": true,
+          "mismatches": [],
+          "passed": true,
+          "status": "pass",
+          "calls": {
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts#cancelOrderByOrderLines": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@350.16636": 1,
+            "packages/core/src/service/helpers/order-modifier/shipping-cancellation-amount.ts#cancellationAmount": 1,
+            "packages/core/src/service/helpers/order-modifier/shipping-cancellation-amount.ts@7.247": 1
+          }
+        },
+        {
+          "path": "with-refund",
+          "taxIncluded": false,
+          "cancelShipping": true,
+          "expected": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "before": [
+            1000,
+            1200,
+            1200,
+            1400
+          ],
+          "cancel": {
+            "lines": [
+              {
+                "orderLineId": "item",
+                "quantity": 2
+              }
+            ],
+            "orderId": "order",
+            "reason": "customer request",
+            "cancelShipping": true
+          },
+          "refundAmounts": [
+            1400
+          ],
+          "remainingItems": 0,
+          "after": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "orderSaves": [
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "allCancelled": true,
+          "mismatches": [],
+          "passed": true,
+          "status": "pass",
+          "calls": {
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts#cancelOrderByOrderLines": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@350.16636": 1,
+            "packages/core/src/service/helpers/order-modifier/shipping-cancellation-amount.ts#cancellationAmount": 1,
+            "packages/core/src/service/helpers/order-modifier/shipping-cancellation-amount.ts@5.207": 1
+          }
+        },
+        {
+          "path": "direct",
+          "taxIncluded": true,
+          "cancelShipping": false,
+          "expected": [
+            1000,
+            1200,
+            1100,
+            1300
+          ],
+          "before": [
+            1000,
+            1200,
+            1200,
+            1400
+          ],
+          "cancel": {
+            "orderId": "order",
+            "lines": [
+              {
+                "orderLineId": "item",
+                "quantity": 1
+              }
+            ],
+            "reason": "customer request",
+            "cancelShipping": false
+          },
+          "refundAmounts": [],
+          "remainingItems": 1,
+          "after": [
+            1000,
+            1200,
+            1100,
+            1300
+          ],
+          "orderSaves": [
+            [
+              1000,
+              1200,
+              1100,
+              1300
+            ]
+          ],
+          "allCancelled": false,
+          "mismatches": [],
+          "passed": true,
+          "status": "pass",
+          "calls": {
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts#cancelOrderByOrderLines": 1
+          }
+        },
+        {
+          "path": "with-refund",
+          "taxIncluded": false,
+          "cancelShipping": false,
+          "expected": [
+            1000,
+            1200,
+            1100,
+            1300
+          ],
+          "before": [
+            1000,
+            1200,
+            1200,
+            1400
+          ],
+          "cancel": {
+            "lines": [
+              {
+                "orderLineId": "item",
+                "quantity": 1
+              }
+            ],
+            "orderId": "order",
+            "reason": "customer request",
+            "cancelShipping": false
+          },
+          "refundAmounts": [
+            100
+          ],
+          "remainingItems": 1,
+          "after": [
+            1000,
+            1200,
+            1100,
+            1300
+          ],
+          "orderSaves": [
+            [
+              1000,
+              1200,
+              1100,
+              1300
+            ]
+          ],
+          "allCancelled": false,
+          "mismatches": [],
+          "passed": true,
+          "status": "pass",
+          "calls": {
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts#cancelOrderByOrderLines": 1
+          }
+        }
+      ],
+      "passed": 6,
+      "failed": 0,
+      "ungradable": 0,
+      "attempted": 6,
+      "measured": 6
+    },
+    "helper-mutated": {
+      "parent": "8dbb6e4063248c3084e5768d613347a3453eda41",
+      "patchSha256": "5c05ba75f5b4a45eeb97d0c788e4869ca792ab4208ddc7a2fbc195058035eacc",
+      "patchBytes": 1736,
+      "tree": "07d58672a1699c3d977a137d5756410c252ee5af",
+      "changes": [
+        {
+          "status": "M",
+          "path": "packages/core/src/service/helpers/order-modifier/order-modifier.ts",
+          "mode": "100644",
+          "blob": "486945a156aabe9233d1145510648ad7a8bc3ac5",
+          "sha256": "ddced35c54a75ed7fea97586976844728244943311a8bc0530d312a20de00b3d"
+        },
+        {
+          "status": "A",
+          "path": "packages/core/src/service/helpers/order-modifier/shipping-cancellation-amount.ts",
+          "mode": "100644",
+          "blob": "df7abc3dfebdefe3d69a716d987071403c5f95e0",
+          "sha256": "0bf6f6cfc4ad61d57e6410ff1c8dc2c2ef43e9e57ed5c1c5da195eef46186048"
+        }
+      ],
+      "stage": "observation",
+      "sources": {
+        "packages/common/src/shared-utils.ts": "bce866e7754133ba2dd82b9bb0209b5103a876c064b78a154707c658ca135aa7",
+        "packages/core/src/common/utils.ts": "ec544405f0380b3f4ecd457a680a07209bde6f8a34b709d6bd5e681e226fbdf8",
+        "packages/core/src/common/tax-utils.ts": "f16d0f798ef848d7ce6f02d7ed4f41791141fdfa4158dadc5bf07c63036d1a46",
+        "packages/core/src/config/entity/default-money-strategy.ts": "4001cc56bc8caede3f1fcc1636a9eda45c4c4ec39f019be372967d3057349fbf",
+        "packages/core/src/entity/order/order.entity.ts": "499feb01b805e351660300639815304b3a8ed84d18cc4cd2c15cbf1654f99956",
+        "packages/core/src/entity/shipping-line/shipping-line.entity.ts": "61d0217959b8030d8210e404c617212e4d245071cf34a61f5f5276f5e0314876",
+        "packages/core/src/config/tax/default-order-tax-calculation-strategy.ts": "f7e7b3c0142e940d89b49ef6eddb18a736655024708a5b34ff8d74a87ab0f113",
+        "packages/core/src/service/helpers/order-calculator/order-calculator.ts": "9e114d9d0f6792496e110c4cc7fa7537429e81d491d98dd9ddfcf2a58ed5e5a8",
+        "packages/core/src/service/helpers/utils/order-utils.ts": "cc7b6dfb6dc13ebc4045ad712c5c0f196ea04777c03a986908f8942abc0c8359",
+        "packages/core/src/service/helpers/order-modifier/order-modifier.ts": "ddced35c54a75ed7fea97586976844728244943311a8bc0530d312a20de00b3d",
+        "packages/core/src/service/helpers/order-modifier/shipping-cancellation-amount.ts": "0bf6f6cfc4ad61d57e6410ff1c8dc2c2ef43e9e57ed5c1c5da195eef46186048",
+        "packages/admin-ui/src/lib/order/src/common/get-refundable-payments.ts": "ba478bd823df4294321a3f2d3deb25b2cf4424ef8cecae6a199da3fb5fd0e205",
+        "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts": "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede",
+        "packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts": "a47e7000b222454302c8a0dfc374555f78616517fdc3ec03621a199ecf234cc5",
+        "packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts": "d9ea112f17bff650686842306bef46fa6f7564278b1166762a7c9b7a8473a6fb"
+      },
+      "rows": [
+        {
+          "path": "direct",
+          "taxIncluded": true,
+          "cancelShipping": true,
+          "expected": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "before": [
+            1000,
+            1200,
+            1200,
+            1400
+          ],
+          "cancel": {
+            "orderId": "order",
+            "lines": [
+              {
+                "orderLineId": "item",
+                "quantity": 2
+              }
+            ],
+            "reason": "customer request",
+            "cancelShipping": true
+          },
+          "refundAmounts": [],
+          "remainingItems": 0,
+          "after": [
+            167,
+            200,
+            167,
+            200
+          ],
+          "orderSaves": [
+            [
+              167,
+              200,
+              167,
+              200
+            ]
+          ],
+          "allCancelled": true,
+          "mismatches": [
+            {
+              "field": "moneyAtOrderSave",
+              "expected": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "actual": [
+                167,
+                200,
+                167,
+                200
+              ]
+            },
+            {
+              "field": "moneyAtReturn",
+              "expected": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "actual": [
+                167,
+                200,
+                167,
+                200
+              ]
+            }
+          ],
+          "passed": false,
+          "status": "fail",
+          "calls": {
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts#cancelOrderByOrderLines": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@350.16636": 1,
+            "packages/core/src/service/helpers/order-modifier/shipping-cancellation-amount.ts#cancellationAmount": 1,
+            "packages/core/src/service/helpers/order-modifier/shipping-cancellation-amount.ts@7.247": 1
+          }
+        },
+        {
+          "path": "direct",
+          "taxIncluded": false,
+          "cancelShipping": true,
+          "expected": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "before": [
+            1000,
+            1200,
+            1200,
+            1400
+          ],
+          "cancel": {
+            "orderId": "order",
+            "lines": [
+              {
+                "orderLineId": "item",
+                "quantity": 2
+              }
+            ],
+            "reason": "customer request",
+            "cancelShipping": true
+          },
+          "refundAmounts": [],
+          "remainingItems": 0,
+          "after": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "orderSaves": [
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "allCancelled": true,
+          "mismatches": [],
+          "passed": true,
+          "status": "pass",
+          "calls": {
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts#cancelOrderByOrderLines": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@350.16636": 1,
+            "packages/core/src/service/helpers/order-modifier/shipping-cancellation-amount.ts#cancellationAmount": 1,
+            "packages/core/src/service/helpers/order-modifier/shipping-cancellation-amount.ts@5.207": 1
+          }
+        },
+        {
+          "path": "with-refund",
+          "taxIncluded": true,
+          "cancelShipping": true,
+          "expected": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "before": [
+            1000,
+            1200,
+            1200,
+            1400
+          ],
+          "cancel": {
+            "lines": [
+              {
+                "orderLineId": "item",
+                "quantity": 2
+              }
+            ],
+            "orderId": "order",
+            "reason": "customer request",
+            "cancelShipping": true
+          },
+          "refundAmounts": [
+            1400
+          ],
+          "remainingItems": 0,
+          "after": [
+            167,
+            200,
+            167,
+            200
+          ],
+          "orderSaves": [
+            [
+              167,
+              200,
+              167,
+              200
+            ]
+          ],
+          "allCancelled": true,
+          "mismatches": [
+            {
+              "field": "moneyAtOrderSave",
+              "expected": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "actual": [
+                167,
+                200,
+                167,
+                200
+              ]
+            },
+            {
+              "field": "moneyAtReturn",
+              "expected": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "actual": [
+                167,
+                200,
+                167,
+                200
+              ]
+            }
+          ],
+          "passed": false,
+          "status": "fail",
+          "calls": {
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts#cancelOrderByOrderLines": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@350.16636": 1,
+            "packages/core/src/service/helpers/order-modifier/shipping-cancellation-amount.ts#cancellationAmount": 1,
+            "packages/core/src/service/helpers/order-modifier/shipping-cancellation-amount.ts@7.247": 1
+          }
+        },
+        {
+          "path": "with-refund",
+          "taxIncluded": false,
+          "cancelShipping": true,
+          "expected": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "before": [
+            1000,
+            1200,
+            1200,
+            1400
+          ],
+          "cancel": {
+            "lines": [
+              {
+                "orderLineId": "item",
+                "quantity": 2
+              }
+            ],
+            "orderId": "order",
+            "reason": "customer request",
+            "cancelShipping": true
+          },
+          "refundAmounts": [
+            1400
+          ],
+          "remainingItems": 0,
+          "after": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "orderSaves": [
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "allCancelled": true,
+          "mismatches": [],
+          "passed": true,
+          "status": "pass",
+          "calls": {
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts#cancelOrderByOrderLines": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@350.16636": 1,
+            "packages/core/src/service/helpers/order-modifier/shipping-cancellation-amount.ts#cancellationAmount": 1,
+            "packages/core/src/service/helpers/order-modifier/shipping-cancellation-amount.ts@5.207": 1
+          }
+        },
+        {
+          "path": "direct",
+          "taxIncluded": true,
+          "cancelShipping": false,
+          "expected": [
+            1000,
+            1200,
+            1100,
+            1300
+          ],
+          "before": [
+            1000,
+            1200,
+            1200,
+            1400
+          ],
+          "cancel": {
+            "orderId": "order",
+            "lines": [
+              {
+                "orderLineId": "item",
+                "quantity": 1
+              }
+            ],
+            "reason": "customer request",
+            "cancelShipping": false
+          },
+          "refundAmounts": [],
+          "remainingItems": 1,
+          "after": [
+            1000,
+            1200,
+            1100,
+            1300
+          ],
+          "orderSaves": [
+            [
+              1000,
+              1200,
+              1100,
+              1300
+            ]
+          ],
+          "allCancelled": false,
+          "mismatches": [],
+          "passed": true,
+          "status": "pass",
+          "calls": {
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts#cancelOrderByOrderLines": 1
+          }
+        },
+        {
+          "path": "with-refund",
+          "taxIncluded": false,
+          "cancelShipping": false,
+          "expected": [
+            1000,
+            1200,
+            1100,
+            1300
+          ],
+          "before": [
+            1000,
+            1200,
+            1200,
+            1400
+          ],
+          "cancel": {
+            "lines": [
+              {
+                "orderLineId": "item",
+                "quantity": 1
+              }
+            ],
+            "orderId": "order",
+            "reason": "customer request",
+            "cancelShipping": false
+          },
+          "refundAmounts": [
+            100
+          ],
+          "remainingItems": 1,
+          "after": [
+            1000,
+            1200,
+            1100,
+            1300
+          ],
+          "orderSaves": [
+            [
+              1000,
+              1200,
+              1100,
+              1300
+            ]
+          ],
+          "allCancelled": false,
+          "mismatches": [],
+          "passed": true,
+          "status": "pass",
+          "calls": {
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts#cancelOrderByOrderLines": 1
+          }
+        }
+      ],
+      "passed": 4,
+      "failed": 2,
+      "ungradable": 0,
+      "attempted": 6,
+      "measured": 6
+    },
+    "unobserved-service": {
+      "parent": "8dbb6e4063248c3084e5768d613347a3453eda41",
+      "patchSha256": "a9c76f9d7b6c2c9f3006e7b3c44309914b5dc9817a5c23044223f9d830ed7007",
+      "patchBytes": 1680,
+      "tree": "056382f3b89c37d1aa95220087c9c66f41cec490",
+      "changes": [
+        {
+          "status": "M",
+          "path": "packages/core/src/service/helpers/order-modifier/order-modifier.ts",
+          "mode": "100644",
+          "blob": "70729954117907952cd7bf7f7246ba8fe6f49410",
+          "sha256": "7a3839e741c5f5e29311768bbe2df9cc05869edaf93f73323c7ec96975eb8a0f"
+        },
+        {
+          "status": "M",
+          "path": "packages/core/src/service/services/order.service.ts",
+          "mode": "100644",
+          "blob": "ef84ef7a12a483aadfb33cc8e9fc1137521a263b",
+          "sha256": "f85b1bba0214881e9ab349398c3243254e37df8f7124a8abed7f7e6ad07594a9"
+        }
+      ],
+      "stage": "observation",
+      "sources": {},
+      "rows": [
+        {
+          "path": "direct",
+          "taxIncluded": true,
+          "cancelShipping": true,
+          "expected": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "status": "ungradable",
+          "stage": "load",
+          "reason": "Unobserved change: M packages/core/src/service/services/order.service.ts"
+        },
+        {
+          "path": "direct",
+          "taxIncluded": false,
+          "cancelShipping": true,
+          "expected": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "status": "ungradable",
+          "stage": "load",
+          "reason": "Unobserved change: M packages/core/src/service/services/order.service.ts"
+        },
+        {
+          "path": "with-refund",
+          "taxIncluded": true,
+          "cancelShipping": true,
+          "expected": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "status": "ungradable",
+          "stage": "load",
+          "reason": "Unobserved change: M packages/core/src/service/services/order.service.ts"
+        },
+        {
+          "path": "with-refund",
+          "taxIncluded": false,
+          "cancelShipping": true,
+          "expected": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "status": "ungradable",
+          "stage": "load",
+          "reason": "Unobserved change: M packages/core/src/service/services/order.service.ts"
+        },
+        {
+          "path": "direct",
+          "taxIncluded": true,
+          "cancelShipping": false,
+          "expected": [
+            1000,
+            1200,
+            1100,
+            1300
+          ],
+          "status": "ungradable",
+          "stage": "load",
+          "reason": "Unobserved change: M packages/core/src/service/services/order.service.ts"
+        },
+        {
+          "path": "with-refund",
+          "taxIncluded": false,
+          "cancelShipping": false,
+          "expected": [
+            1000,
+            1200,
+            1100,
+            1300
+          ],
+          "status": "ungradable",
+          "stage": "load",
+          "reason": "Unobserved change: M packages/core/src/service/services/order.service.ts"
+        }
+      ],
+      "passed": 0,
+      "failed": 0,
+      "ungradable": 6,
+      "attempted": 0,
+      "measured": 0
+    },
+    "missing-context": {
+      "parent": "8dbb6e4063248c3084e5768d613347a3453eda41",
+      "patchSha256": "e6917f88a380ff466de84f3022b8b5b00d1aa25d687ccdd7e3bd2aca65ce9d93",
+      "patchBytes": 958,
+      "tree": "b419fb726344e3316b2c3b36d5671b0ab8ac102c",
+      "changes": [
+        {
+          "status": "M",
+          "path": "packages/core/src/service/helpers/order-modifier/order-modifier.ts",
+          "mode": "100644",
+          "blob": "f83d9f32c4ade00867293bcee94e857f45b91c68",
+          "sha256": "412cf4034f461313159a9252730c21fff1cdc55b4a29d59723cbcd6ce4ae0647"
+        }
+      ],
+      "stage": "observation",
+      "sources": {
+        "packages/common/src/shared-utils.ts": "bce866e7754133ba2dd82b9bb0209b5103a876c064b78a154707c658ca135aa7",
+        "packages/core/src/common/utils.ts": "ec544405f0380b3f4ecd457a680a07209bde6f8a34b709d6bd5e681e226fbdf8",
+        "packages/core/src/common/tax-utils.ts": "f16d0f798ef848d7ce6f02d7ed4f41791141fdfa4158dadc5bf07c63036d1a46",
+        "packages/core/src/config/entity/default-money-strategy.ts": "4001cc56bc8caede3f1fcc1636a9eda45c4c4ec39f019be372967d3057349fbf",
+        "packages/core/src/entity/order/order.entity.ts": "499feb01b805e351660300639815304b3a8ed84d18cc4cd2c15cbf1654f99956",
+        "packages/core/src/entity/shipping-line/shipping-line.entity.ts": "61d0217959b8030d8210e404c617212e4d245071cf34a61f5f5276f5e0314876",
+        "packages/core/src/config/tax/default-order-tax-calculation-strategy.ts": "f7e7b3c0142e940d89b49ef6eddb18a736655024708a5b34ff8d74a87ab0f113",
+        "packages/core/src/service/helpers/order-calculator/order-calculator.ts": "9e114d9d0f6792496e110c4cc7fa7537429e81d491d98dd9ddfcf2a58ed5e5a8",
+        "packages/core/src/service/helpers/utils/order-utils.ts": "cc7b6dfb6dc13ebc4045ad712c5c0f196ea04777c03a986908f8942abc0c8359",
+        "packages/core/src/service/helpers/order-modifier/order-modifier.ts": "412cf4034f461313159a9252730c21fff1cdc55b4a29d59723cbcd6ce4ae0647",
+        "packages/admin-ui/src/lib/order/src/common/get-refundable-payments.ts": "ba478bd823df4294321a3f2d3deb25b2cf4424ef8cecae6a199da3fb5fd0e205",
+        "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts": "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede",
+        "packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts": "a47e7000b222454302c8a0dfc374555f78616517fdc3ec03621a199ecf234cc5",
+        "packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts": "d9ea112f17bff650686842306bef46fa6f7564278b1166762a7c9b7a8473a6fb"
+      },
+      "rows": [
+        {
+          "path": "direct",
+          "taxIncluded": true,
+          "cancelShipping": true,
+          "expected": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "status": "ungradable",
+          "stage": "runtime",
+          "reason": "Unobserved fixture field: channel.defaultTaxZone",
+          "calls": {
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts#cancelOrderByOrderLines": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@349.16567": 1
+          }
+        },
+        {
+          "path": "direct",
+          "taxIncluded": false,
+          "cancelShipping": true,
+          "expected": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "status": "ungradable",
+          "stage": "runtime",
+          "reason": "Unobserved fixture field: channel.defaultTaxZone",
+          "calls": {
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts#cancelOrderByOrderLines": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@349.16567": 1
+          }
+        },
+        {
+          "path": "with-refund",
+          "taxIncluded": true,
+          "cancelShipping": true,
+          "expected": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "status": "ungradable",
+          "stage": "runtime",
+          "reason": "Unobserved fixture field: channel.defaultTaxZone",
+          "calls": {
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts#cancelOrderByOrderLines": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@349.16567": 1
+          }
+        },
+        {
+          "path": "with-refund",
+          "taxIncluded": false,
+          "cancelShipping": true,
+          "expected": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "status": "ungradable",
+          "stage": "runtime",
+          "reason": "Unobserved fixture field: channel.defaultTaxZone",
+          "calls": {
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts#cancelOrderByOrderLines": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@349.16567": 1
+          }
+        },
+        {
+          "path": "direct",
+          "taxIncluded": true,
+          "cancelShipping": false,
+          "expected": [
+            1000,
+            1200,
+            1100,
+            1300
+          ],
+          "before": [
+            1000,
+            1200,
+            1200,
+            1400
+          ],
+          "cancel": {
+            "orderId": "order",
+            "lines": [
+              {
+                "orderLineId": "item",
+                "quantity": 1
+              }
+            ],
+            "reason": "customer request",
+            "cancelShipping": false
+          },
+          "refundAmounts": [],
+          "remainingItems": 1,
+          "after": [
+            1000,
+            1200,
+            1100,
+            1300
+          ],
+          "orderSaves": [
+            [
+              1000,
+              1200,
+              1100,
+              1300
+            ]
+          ],
+          "allCancelled": false,
+          "mismatches": [],
+          "passed": true,
+          "status": "pass",
+          "calls": {
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts#cancelOrderByOrderLines": 1
+          }
+        },
+        {
+          "path": "with-refund",
+          "taxIncluded": false,
+          "cancelShipping": false,
+          "expected": [
+            1000,
+            1200,
+            1100,
+            1300
+          ],
+          "before": [
+            1000,
+            1200,
+            1200,
+            1400
+          ],
+          "cancel": {
+            "lines": [
+              {
+                "orderLineId": "item",
+                "quantity": 1
+              }
+            ],
+            "orderId": "order",
+            "reason": "customer request",
+            "cancelShipping": false
+          },
+          "refundAmounts": [
+            100
+          ],
+          "remainingItems": 1,
+          "after": [
+            1000,
+            1200,
+            1100,
+            1300
+          ],
+          "orderSaves": [
+            [
+              1000,
+              1200,
+              1100,
+              1300
+            ]
+          ],
+          "allCancelled": false,
+          "mismatches": [],
+          "passed": true,
+          "status": "pass",
+          "calls": {
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts#cancelOrderByOrderLines": 1
+          }
+        }
+      ],
+      "passed": 2,
+      "failed": 0,
+      "ungradable": 4,
+      "attempted": 6,
+      "measured": 2
+    },
+    "unreached-branch": {
+      "parent": "8dbb6e4063248c3084e5768d613347a3453eda41",
+      "patchSha256": "d2a4cd8fec78d1651a144d19e88e32412ac21b48663d895a29e78d32e20f405e",
+      "patchBytes": 1423,
+      "tree": "e19b9cf06c2fd41718b513abd0ef6ffbc976fb95",
+      "changes": [
+        {
+          "status": "M",
+          "path": "packages/core/src/service/helpers/order-modifier/order-modifier.ts",
+          "mode": "100644",
+          "blob": "df3cd2a14405fc3e0ac925616437fb9b964fba6a",
+          "sha256": "8d1fa9caea12cb7ff1fc3fe5ad778c28099f600cf0150cdce545f430e737c4c2"
+        }
+      ],
+      "stage": "observation",
+      "sources": {
+        "packages/common/src/shared-utils.ts": "bce866e7754133ba2dd82b9bb0209b5103a876c064b78a154707c658ca135aa7",
+        "packages/core/src/common/utils.ts": "ec544405f0380b3f4ecd457a680a07209bde6f8a34b709d6bd5e681e226fbdf8",
+        "packages/core/src/common/tax-utils.ts": "f16d0f798ef848d7ce6f02d7ed4f41791141fdfa4158dadc5bf07c63036d1a46",
+        "packages/core/src/config/entity/default-money-strategy.ts": "4001cc56bc8caede3f1fcc1636a9eda45c4c4ec39f019be372967d3057349fbf",
+        "packages/core/src/entity/order/order.entity.ts": "499feb01b805e351660300639815304b3a8ed84d18cc4cd2c15cbf1654f99956",
+        "packages/core/src/entity/shipping-line/shipping-line.entity.ts": "61d0217959b8030d8210e404c617212e4d245071cf34a61f5f5276f5e0314876",
+        "packages/core/src/config/tax/default-order-tax-calculation-strategy.ts": "f7e7b3c0142e940d89b49ef6eddb18a736655024708a5b34ff8d74a87ab0f113",
+        "packages/core/src/service/helpers/order-calculator/order-calculator.ts": "9e114d9d0f6792496e110c4cc7fa7537429e81d491d98dd9ddfcf2a58ed5e5a8",
+        "packages/core/src/service/helpers/utils/order-utils.ts": "cc7b6dfb6dc13ebc4045ad712c5c0f196ea04777c03a986908f8942abc0c8359",
+        "packages/core/src/service/helpers/order-modifier/order-modifier.ts": "8d1fa9caea12cb7ff1fc3fe5ad778c28099f600cf0150cdce545f430e737c4c2",
+        "packages/admin-ui/src/lib/order/src/common/get-refundable-payments.ts": "ba478bd823df4294321a3f2d3deb25b2cf4424ef8cecae6a199da3fb5fd0e205",
+        "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts": "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede",
+        "packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts": "a47e7000b222454302c8a0dfc374555f78616517fdc3ec03621a199ecf234cc5",
+        "packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts": "d9ea112f17bff650686842306bef46fa6f7564278b1166762a7c9b7a8473a6fb"
+      },
+      "rows": [
+        {
+          "path": "direct",
+          "taxIncluded": true,
+          "cancelShipping": true,
+          "expected": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "before": [
+            1000,
+            1200,
+            1200,
+            1400
+          ],
+          "cancel": {
+            "orderId": "order",
+            "lines": [
+              {
+                "orderLineId": "item",
+                "quantity": 2
+              }
+            ],
+            "reason": "customer request",
+            "cancelShipping": true
+          },
+          "refundAmounts": [],
+          "remainingItems": 0,
+          "after": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "orderSaves": [
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "allCancelled": true,
+          "mismatches": [],
+          "status": "ungradable",
+          "calls": {
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts#cancelOrderByOrderLines": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@349.16560": 1
+          },
+          "stage": "coverage",
+          "reason": "Unobserved code: packages/core/src/service/helpers/order-modifier/order-modifier.ts@258.12026"
+        },
+        {
+          "path": "direct",
+          "taxIncluded": false,
+          "cancelShipping": true,
+          "expected": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "before": [
+            1000,
+            1200,
+            1200,
+            1400
+          ],
+          "cancel": {
+            "orderId": "order",
+            "lines": [
+              {
+                "orderLineId": "item",
+                "quantity": 2
+              }
+            ],
+            "reason": "customer request",
+            "cancelShipping": true
+          },
+          "refundAmounts": [],
+          "remainingItems": 0,
+          "after": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "orderSaves": [
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "allCancelled": true,
+          "mismatches": [],
+          "status": "ungradable",
+          "calls": {
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts#cancelOrderByOrderLines": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@349.16560": 1
+          },
+          "stage": "coverage",
+          "reason": "Unobserved code: packages/core/src/service/helpers/order-modifier/order-modifier.ts@258.12026"
+        },
+        {
+          "path": "with-refund",
+          "taxIncluded": true,
+          "cancelShipping": true,
+          "expected": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "before": [
+            1000,
+            1200,
+            1200,
+            1400
+          ],
+          "cancel": {
+            "lines": [
+              {
+                "orderLineId": "item",
+                "quantity": 2
+              }
+            ],
+            "orderId": "order",
+            "reason": "customer request",
+            "cancelShipping": true
+          },
+          "refundAmounts": [
+            1400
+          ],
+          "remainingItems": 0,
+          "after": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "orderSaves": [
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "allCancelled": true,
+          "mismatches": [],
+          "status": "ungradable",
+          "calls": {
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts#cancelOrderByOrderLines": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@349.16560": 1
+          },
+          "stage": "coverage",
+          "reason": "Unobserved code: packages/core/src/service/helpers/order-modifier/order-modifier.ts@258.12026"
+        },
+        {
+          "path": "with-refund",
+          "taxIncluded": false,
+          "cancelShipping": true,
+          "expected": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "before": [
+            1000,
+            1200,
+            1200,
+            1400
+          ],
+          "cancel": {
+            "lines": [
+              {
+                "orderLineId": "item",
+                "quantity": 2
+              }
+            ],
+            "orderId": "order",
+            "reason": "customer request",
+            "cancelShipping": true
+          },
+          "refundAmounts": [
+            1400
+          ],
+          "remainingItems": 0,
+          "after": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "orderSaves": [
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "allCancelled": true,
+          "mismatches": [],
+          "status": "ungradable",
+          "calls": {
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts#cancelOrderByOrderLines": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@349.16560": 1
+          },
+          "stage": "coverage",
+          "reason": "Unobserved code: packages/core/src/service/helpers/order-modifier/order-modifier.ts@258.12026"
+        },
+        {
+          "path": "direct",
+          "taxIncluded": true,
+          "cancelShipping": false,
+          "expected": [
+            1000,
+            1200,
+            1100,
+            1300
+          ],
+          "before": [
+            1000,
+            1200,
+            1200,
+            1400
+          ],
+          "cancel": {
+            "orderId": "order",
+            "lines": [
+              {
+                "orderLineId": "item",
+                "quantity": 1
+              }
+            ],
+            "reason": "customer request",
+            "cancelShipping": false
+          },
+          "refundAmounts": [],
+          "remainingItems": 1,
+          "after": [
+            1000,
+            1200,
+            1100,
+            1300
+          ],
+          "orderSaves": [
+            [
+              1000,
+              1200,
+              1100,
+              1300
+            ]
+          ],
+          "allCancelled": false,
+          "mismatches": [],
+          "status": "ungradable",
+          "calls": {
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts#cancelOrderByOrderLines": 1
+          },
+          "stage": "coverage",
+          "reason": "Unobserved code: packages/core/src/service/helpers/order-modifier/order-modifier.ts@258.12026"
+        },
+        {
+          "path": "with-refund",
+          "taxIncluded": false,
+          "cancelShipping": false,
+          "expected": [
+            1000,
+            1200,
+            1100,
+            1300
+          ],
+          "before": [
+            1000,
+            1200,
+            1200,
+            1400
+          ],
+          "cancel": {
+            "lines": [
+              {
+                "orderLineId": "item",
+                "quantity": 1
+              }
+            ],
+            "orderId": "order",
+            "reason": "customer request",
+            "cancelShipping": false
+          },
+          "refundAmounts": [
+            100
+          ],
+          "remainingItems": 1,
+          "after": [
+            1000,
+            1200,
+            1100,
+            1300
+          ],
+          "orderSaves": [
+            [
+              1000,
+              1200,
+              1100,
+              1300
+            ]
+          ],
+          "allCancelled": false,
+          "mismatches": [],
+          "status": "ungradable",
+          "calls": {
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts#cancelOrderByOrderLines": 1
+          },
+          "stage": "coverage",
+          "reason": "Unobserved code: packages/core/src/service/helpers/order-modifier/order-modifier.ts@258.12026"
+        }
+      ],
+      "passed": 0,
+      "failed": 0,
+      "ungradable": 6,
+      "attempted": 6,
+      "measured": 6
+    },
+    "unattributed-exception": {
+      "parent": "8dbb6e4063248c3084e5768d613347a3453eda41",
+      "patchSha256": "60347db1859e256ae1314999dec5859c64c20c452f34e7566ccf7ae83ea353c2",
+      "patchBytes": 1473,
+      "tree": "39f253fe4c0951450285251e6ddfa918343ef2ec",
+      "changes": [
+        {
+          "status": "M",
+          "path": "packages/core/src/service/helpers/order-modifier/order-modifier.ts",
+          "mode": "100644",
+          "blob": "96916fed2ccb7e4e8a6dc4e7553708fff90e396f",
+          "sha256": "faf2fb82bb5ec6471a5086a48f172a4370e1e70db060b122bc30047f62214b31"
+        }
+      ],
+      "stage": "observation",
+      "sources": {
+        "packages/common/src/shared-utils.ts": "bce866e7754133ba2dd82b9bb0209b5103a876c064b78a154707c658ca135aa7",
+        "packages/core/src/common/utils.ts": "ec544405f0380b3f4ecd457a680a07209bde6f8a34b709d6bd5e681e226fbdf8",
+        "packages/core/src/common/tax-utils.ts": "f16d0f798ef848d7ce6f02d7ed4f41791141fdfa4158dadc5bf07c63036d1a46",
+        "packages/core/src/config/entity/default-money-strategy.ts": "4001cc56bc8caede3f1fcc1636a9eda45c4c4ec39f019be372967d3057349fbf",
+        "packages/core/src/entity/order/order.entity.ts": "499feb01b805e351660300639815304b3a8ed84d18cc4cd2c15cbf1654f99956",
+        "packages/core/src/entity/shipping-line/shipping-line.entity.ts": "61d0217959b8030d8210e404c617212e4d245071cf34a61f5f5276f5e0314876",
+        "packages/core/src/config/tax/default-order-tax-calculation-strategy.ts": "f7e7b3c0142e940d89b49ef6eddb18a736655024708a5b34ff8d74a87ab0f113",
+        "packages/core/src/service/helpers/order-calculator/order-calculator.ts": "9e114d9d0f6792496e110c4cc7fa7537429e81d491d98dd9ddfcf2a58ed5e5a8",
+        "packages/core/src/service/helpers/utils/order-utils.ts": "cc7b6dfb6dc13ebc4045ad712c5c0f196ea04777c03a986908f8942abc0c8359",
+        "packages/core/src/service/helpers/order-modifier/order-modifier.ts": "faf2fb82bb5ec6471a5086a48f172a4370e1e70db060b122bc30047f62214b31",
+        "packages/admin-ui/src/lib/order/src/common/get-refundable-payments.ts": "ba478bd823df4294321a3f2d3deb25b2cf4424ef8cecae6a199da3fb5fd0e205",
+        "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts": "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede",
+        "packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts": "a47e7000b222454302c8a0dfc374555f78616517fdc3ec03621a199ecf234cc5",
+        "packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts": "d9ea112f17bff650686842306bef46fa6f7564278b1166762a7c9b7a8473a6fb"
+      },
+      "rows": [
+        {
+          "path": "direct",
+          "taxIncluded": true,
+          "cancelShipping": true,
+          "expected": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "status": "ungradable",
+          "stage": "runtime",
+          "reason": "Cannot read properties of undefined (reading 'getRepository')",
+          "calls": {
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts#cancelOrderByOrderLines": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@349.16567": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@363.17244": 1
+          }
+        },
+        {
+          "path": "direct",
+          "taxIncluded": false,
+          "cancelShipping": true,
+          "expected": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "status": "ungradable",
+          "stage": "runtime",
+          "reason": "Cannot read properties of undefined (reading 'getRepository')",
+          "calls": {
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts#cancelOrderByOrderLines": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@349.16567": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@363.17244": 1
+          }
+        },
+        {
+          "path": "with-refund",
+          "taxIncluded": true,
+          "cancelShipping": true,
+          "expected": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "status": "ungradable",
+          "stage": "runtime",
+          "reason": "Cannot read properties of undefined (reading 'getRepository')",
+          "calls": {
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts#cancelOrderByOrderLines": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@349.16567": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@363.17244": 1
+          }
+        },
+        {
+          "path": "with-refund",
+          "taxIncluded": false,
+          "cancelShipping": true,
+          "expected": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "status": "ungradable",
+          "stage": "runtime",
+          "reason": "Cannot read properties of undefined (reading 'getRepository')",
+          "calls": {
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts#cancelOrderByOrderLines": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@349.16567": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@363.17244": 1
+          }
+        },
+        {
+          "path": "direct",
+          "taxIncluded": true,
+          "cancelShipping": false,
+          "expected": [
+            1000,
+            1200,
+            1100,
+            1300
+          ],
+          "status": "ungradable",
+          "stage": "runtime",
+          "reason": "Cannot read properties of undefined (reading 'getRepository')",
+          "calls": {
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts#cancelOrderByOrderLines": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@363.17244": 1
+          }
+        },
+        {
+          "path": "with-refund",
+          "taxIncluded": false,
+          "cancelShipping": false,
+          "expected": [
+            1000,
+            1200,
+            1100,
+            1300
+          ],
+          "status": "ungradable",
+          "stage": "runtime",
+          "reason": "Cannot read properties of undefined (reading 'getRepository')",
+          "calls": {
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts#cancelOrderByOrderLines": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@363.17244": 1
+          }
+        }
+      ],
+      "passed": 0,
+      "failed": 0,
+      "ungradable": 6,
+      "attempted": 6,
+      "measured": 0
+    },
+    "rejected": {
+      "parent": "8dbb6e4063248c3084e5768d613347a3453eda41",
+      "patchSha256": "cab296fb0441a1604a1c16fbe95230e925b48e33e9b2b242c4644c3699d84a9a",
+      "patchBytes": 895,
+      "stage": "patch-rejected",
+      "reason": "error: patch failed: packages/core/src/service/helpers/order-modifier/order-modifier.ts:350\nerror: packages/core/src/service/helpers/order-modifier/order-modifier.ts: patch does not apply",
+      "passed": 0,
+      "failed": 0,
+      "ungradable": 0,
+      "attempted": 0,
+      "measured": 0
+    },
+    "save-first": {
+      "parent": "8dbb6e4063248c3084e5768d613347a3453eda41",
+      "patchSha256": "e857b8c69309d7b919dcc844ade3501f666fa5488bf9430d04e83494bbfdb6a4",
+      "patchBytes": 1295,
+      "tree": "782e5b18a39044b21831f5b1afecd1ca2015a23d",
+      "changes": [
+        {
+          "status": "M",
+          "path": "packages/core/src/service/helpers/order-modifier/order-modifier.ts",
+          "mode": "100644",
+          "blob": "3ce49e37f3ade81242f1d8d1d564ef4fc9d2ebe2",
+          "sha256": "bcac609be1508fba718b154067af819f7e0efdc31f33b7554936e115314596cd"
+        }
+      ],
+      "stage": "observation",
+      "sources": {
+        "packages/common/src/shared-utils.ts": "bce866e7754133ba2dd82b9bb0209b5103a876c064b78a154707c658ca135aa7",
+        "packages/core/src/common/utils.ts": "ec544405f0380b3f4ecd457a680a07209bde6f8a34b709d6bd5e681e226fbdf8",
+        "packages/core/src/common/tax-utils.ts": "f16d0f798ef848d7ce6f02d7ed4f41791141fdfa4158dadc5bf07c63036d1a46",
+        "packages/core/src/config/entity/default-money-strategy.ts": "4001cc56bc8caede3f1fcc1636a9eda45c4c4ec39f019be372967d3057349fbf",
+        "packages/core/src/entity/order/order.entity.ts": "499feb01b805e351660300639815304b3a8ed84d18cc4cd2c15cbf1654f99956",
+        "packages/core/src/entity/shipping-line/shipping-line.entity.ts": "61d0217959b8030d8210e404c617212e4d245071cf34a61f5f5276f5e0314876",
+        "packages/core/src/config/tax/default-order-tax-calculation-strategy.ts": "f7e7b3c0142e940d89b49ef6eddb18a736655024708a5b34ff8d74a87ab0f113",
+        "packages/core/src/service/helpers/order-calculator/order-calculator.ts": "9e114d9d0f6792496e110c4cc7fa7537429e81d491d98dd9ddfcf2a58ed5e5a8",
+        "packages/core/src/service/helpers/utils/order-utils.ts": "cc7b6dfb6dc13ebc4045ad712c5c0f196ea04777c03a986908f8942abc0c8359",
+        "packages/core/src/service/helpers/order-modifier/order-modifier.ts": "bcac609be1508fba718b154067af819f7e0efdc31f33b7554936e115314596cd",
+        "packages/admin-ui/src/lib/order/src/common/get-refundable-payments.ts": "ba478bd823df4294321a3f2d3deb25b2cf4424ef8cecae6a199da3fb5fd0e205",
+        "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts": "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede",
+        "packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts": "a47e7000b222454302c8a0dfc374555f78616517fdc3ec03621a199ecf234cc5",
+        "packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts": "d9ea112f17bff650686842306bef46fa6f7564278b1166762a7c9b7a8473a6fb"
+      },
+      "rows": [
+        {
+          "path": "direct",
+          "taxIncluded": true,
+          "cancelShipping": true,
+          "expected": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "before": [
+            1000,
+            1200,
+            1200,
+            1400
+          ],
+          "cancel": {
+            "orderId": "order",
+            "lines": [
+              {
+                "orderLineId": "item",
+                "quantity": 2
+              }
+            ],
+            "reason": "customer request",
+            "cancelShipping": true
+          },
+          "refundAmounts": [],
+          "remainingItems": 0,
+          "after": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "orderSaves": [
+            [
+              1000,
+              1200,
+              1200,
+              1400
+            ]
+          ],
+          "allCancelled": true,
+          "mismatches": [
+            {
+              "field": "moneyAtOrderSave",
+              "expected": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "actual": [
+                1000,
+                1200,
+                1200,
+                1400
+              ]
+            }
+          ],
+          "passed": false,
+          "status": "fail",
+          "calls": {
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts#cancelOrderByOrderLines": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@349.16567": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@362.17198": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@363.17249": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@364.17317": 1
+          }
+        },
+        {
+          "path": "direct",
+          "taxIncluded": false,
+          "cancelShipping": true,
+          "expected": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "before": [
+            1000,
+            1200,
+            1200,
+            1400
+          ],
+          "cancel": {
+            "orderId": "order",
+            "lines": [
+              {
+                "orderLineId": "item",
+                "quantity": 2
+              }
+            ],
+            "reason": "customer request",
+            "cancelShipping": true
+          },
+          "refundAmounts": [],
+          "remainingItems": 0,
+          "after": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "orderSaves": [
+            [
+              1000,
+              1200,
+              1200,
+              1400
+            ]
+          ],
+          "allCancelled": true,
+          "mismatches": [
+            {
+              "field": "moneyAtOrderSave",
+              "expected": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "actual": [
+                1000,
+                1200,
+                1200,
+                1400
+              ]
+            }
+          ],
+          "passed": false,
+          "status": "fail",
+          "calls": {
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts#cancelOrderByOrderLines": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@349.16567": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@362.17198": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@363.17249": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@364.17317": 1
+          }
+        },
+        {
+          "path": "with-refund",
+          "taxIncluded": true,
+          "cancelShipping": true,
+          "expected": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "before": [
+            1000,
+            1200,
+            1200,
+            1400
+          ],
+          "cancel": {
+            "lines": [
+              {
+                "orderLineId": "item",
+                "quantity": 2
+              }
+            ],
+            "orderId": "order",
+            "reason": "customer request",
+            "cancelShipping": true
+          },
+          "refundAmounts": [
+            1400
+          ],
+          "remainingItems": 0,
+          "after": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "orderSaves": [
+            [
+              1000,
+              1200,
+              1200,
+              1400
+            ]
+          ],
+          "allCancelled": true,
+          "mismatches": [
+            {
+              "field": "moneyAtOrderSave",
+              "expected": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "actual": [
+                1000,
+                1200,
+                1200,
+                1400
+              ]
+            }
+          ],
+          "passed": false,
+          "status": "fail",
+          "calls": {
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts#cancelOrderByOrderLines": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@349.16567": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@362.17198": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@363.17249": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@364.17317": 1
+          }
+        },
+        {
+          "path": "with-refund",
+          "taxIncluded": false,
+          "cancelShipping": true,
+          "expected": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "before": [
+            1000,
+            1200,
+            1200,
+            1400
+          ],
+          "cancel": {
+            "lines": [
+              {
+                "orderLineId": "item",
+                "quantity": 2
+              }
+            ],
+            "orderId": "order",
+            "reason": "customer request",
+            "cancelShipping": true
+          },
+          "refundAmounts": [
+            1400
+          ],
+          "remainingItems": 0,
+          "after": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "orderSaves": [
+            [
+              1000,
+              1200,
+              1200,
+              1400
+            ]
+          ],
+          "allCancelled": true,
+          "mismatches": [
+            {
+              "field": "moneyAtOrderSave",
+              "expected": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "actual": [
+                1000,
+                1200,
+                1200,
+                1400
+              ]
+            }
+          ],
+          "passed": false,
+          "status": "fail",
+          "calls": {
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts#cancelOrderByOrderLines": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@349.16567": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@362.17198": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@363.17249": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@364.17317": 1
+          }
+        },
+        {
+          "path": "direct",
+          "taxIncluded": true,
+          "cancelShipping": false,
+          "expected": [
+            1000,
+            1200,
+            1100,
+            1300
+          ],
+          "before": [
+            1000,
+            1200,
+            1200,
+            1400
+          ],
+          "cancel": {
+            "orderId": "order",
+            "lines": [
+              {
+                "orderLineId": "item",
+                "quantity": 1
+              }
+            ],
+            "reason": "customer request",
+            "cancelShipping": false
+          },
+          "refundAmounts": [],
+          "remainingItems": 1,
+          "after": [
+            1000,
+            1200,
+            1100,
+            1300
+          ],
+          "orderSaves": [
+            [
+              1000,
+              1200,
+              1200,
+              1400
+            ]
+          ],
+          "allCancelled": false,
+          "mismatches": [
+            {
+              "field": "moneyAtOrderSave",
+              "expected": [
+                1000,
+                1200,
+                1100,
+                1300
+              ],
+              "actual": [
+                1000,
+                1200,
+                1200,
+                1400
+              ]
+            }
+          ],
+          "passed": false,
+          "status": "fail",
+          "calls": {
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts#cancelOrderByOrderLines": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@362.17198": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@363.17249": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@364.17317": 1
+          }
+        },
+        {
+          "path": "with-refund",
+          "taxIncluded": false,
+          "cancelShipping": false,
+          "expected": [
+            1000,
+            1200,
+            1100,
+            1300
+          ],
+          "before": [
+            1000,
+            1200,
+            1200,
+            1400
+          ],
+          "cancel": {
+            "lines": [
+              {
+                "orderLineId": "item",
+                "quantity": 1
+              }
+            ],
+            "orderId": "order",
+            "reason": "customer request",
+            "cancelShipping": false
+          },
+          "refundAmounts": [
+            100
+          ],
+          "remainingItems": 1,
+          "after": [
+            1000,
+            1200,
+            1100,
+            1300
+          ],
+          "orderSaves": [
+            [
+              1000,
+              1200,
+              1200,
+              1400
+            ]
+          ],
+          "allCancelled": false,
+          "mismatches": [
+            {
+              "field": "moneyAtOrderSave",
+              "expected": [
+                1000,
+                1200,
+                1100,
+                1300
+              ],
+              "actual": [
+                1000,
+                1200,
+                1200,
+                1400
+              ]
+            }
+          ],
+          "passed": false,
+          "status": "fail",
+          "calls": {
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts#cancelOrderByOrderLines": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@362.17198": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@363.17249": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@364.17317": 1
+          }
+        }
+      ],
+      "passed": 0,
+      "failed": 6,
+      "ungradable": 0,
+      "attempted": 6,
+      "measured": 6
+    },
+    "wrong-quantity": {
+      "parent": "8dbb6e4063248c3084e5768d613347a3453eda41",
+      "patchSha256": "bd828cb35f2242b0971b4a2b45a2d67ea5a359049852a0d133b3378b9e9d440a",
+      "patchBytes": 1221,
+      "tree": "c5b1261cb58a8f53120e5f5b1bcef5e33ffe07eb",
+      "changes": [
+        {
+          "status": "M",
+          "path": "packages/core/src/service/helpers/order-modifier/order-modifier.ts",
+          "mode": "100644",
+          "blob": "a030616770fff8f1363e1fef79fe35f218c5fc0c",
+          "sha256": "875420393c1ce7d8102b9e2a58f76f7ac36bf43b5f55bd3509b801b080e025bd"
+        }
+      ],
+      "stage": "observation",
+      "sources": {
+        "packages/common/src/shared-utils.ts": "bce866e7754133ba2dd82b9bb0209b5103a876c064b78a154707c658ca135aa7",
+        "packages/core/src/common/utils.ts": "ec544405f0380b3f4ecd457a680a07209bde6f8a34b709d6bd5e681e226fbdf8",
+        "packages/core/src/common/tax-utils.ts": "f16d0f798ef848d7ce6f02d7ed4f41791141fdfa4158dadc5bf07c63036d1a46",
+        "packages/core/src/config/entity/default-money-strategy.ts": "4001cc56bc8caede3f1fcc1636a9eda45c4c4ec39f019be372967d3057349fbf",
+        "packages/core/src/entity/order/order.entity.ts": "499feb01b805e351660300639815304b3a8ed84d18cc4cd2c15cbf1654f99956",
+        "packages/core/src/entity/shipping-line/shipping-line.entity.ts": "61d0217959b8030d8210e404c617212e4d245071cf34a61f5f5276f5e0314876",
+        "packages/core/src/config/tax/default-order-tax-calculation-strategy.ts": "f7e7b3c0142e940d89b49ef6eddb18a736655024708a5b34ff8d74a87ab0f113",
+        "packages/core/src/service/helpers/order-calculator/order-calculator.ts": "9e114d9d0f6792496e110c4cc7fa7537429e81d491d98dd9ddfcf2a58ed5e5a8",
+        "packages/core/src/service/helpers/utils/order-utils.ts": "cc7b6dfb6dc13ebc4045ad712c5c0f196ea04777c03a986908f8942abc0c8359",
+        "packages/core/src/service/helpers/order-modifier/order-modifier.ts": "875420393c1ce7d8102b9e2a58f76f7ac36bf43b5f55bd3509b801b080e025bd",
+        "packages/admin-ui/src/lib/order/src/common/get-refundable-payments.ts": "ba478bd823df4294321a3f2d3deb25b2cf4424ef8cecae6a199da3fb5fd0e205",
+        "packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts": "e3e35dc4f03757e43aa5ec2780119ca00db104b65bf46d5e204c6f16d2314ede",
+        "packages/admin-ui/src/lib/order/src/components/cancel-order-dialog/cancel-order-dialog.component.ts": "a47e7000b222454302c8a0dfc374555f78616517fdc3ec03621a199ecf234cc5",
+        "packages/admin-ui/src/lib/order/src/components/refund-order-dialog/refund-order-dialog.component.ts": "d9ea112f17bff650686842306bef46fa6f7564278b1166762a7c9b7a8473a6fb"
+      },
+      "rows": [
+        {
+          "path": "direct",
+          "taxIncluded": true,
+          "cancelShipping": true,
+          "expected": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "before": [
+            1000,
+            1200,
+            1200,
+            1400
+          ],
+          "cancel": {
+            "orderId": "order",
+            "lines": [
+              {
+                "orderLineId": "item",
+                "quantity": 2
+              }
+            ],
+            "reason": "customer request",
+            "cancelShipping": true
+          },
+          "refundAmounts": [],
+          "remainingItems": 2,
+          "after": [
+            0,
+            0,
+            200,
+            200
+          ],
+          "orderSaves": [
+            [
+              0,
+              0,
+              200,
+              200
+            ]
+          ],
+          "allCancelled": false,
+          "mismatches": [
+            {
+              "field": "allCancelled",
+              "expected": true,
+              "actual": false
+            },
+            {
+              "field": "remainingItems",
+              "expected": 0,
+              "actual": 2
+            },
+            {
+              "field": "moneyAtOrderSave",
+              "expected": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "actual": [
+                0,
+                0,
+                200,
+                200
+              ]
+            },
+            {
+              "field": "moneyAtReturn",
+              "expected": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "actual": [
+                0,
+                0,
+                200,
+                200
+              ]
+            }
+          ],
+          "passed": false,
+          "status": "fail",
+          "calls": {
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts#cancelOrderByOrderLines": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@336.15972": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@349.16551": 1
+          }
+        },
+        {
+          "path": "direct",
+          "taxIncluded": false,
+          "cancelShipping": true,
+          "expected": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "before": [
+            1000,
+            1200,
+            1200,
+            1400
+          ],
+          "cancel": {
+            "orderId": "order",
+            "lines": [
+              {
+                "orderLineId": "item",
+                "quantity": 2
+              }
+            ],
+            "reason": "customer request",
+            "cancelShipping": true
+          },
+          "refundAmounts": [],
+          "remainingItems": 2,
+          "after": [
+            0,
+            0,
+            200,
+            200
+          ],
+          "orderSaves": [
+            [
+              0,
+              0,
+              200,
+              200
+            ]
+          ],
+          "allCancelled": false,
+          "mismatches": [
+            {
+              "field": "allCancelled",
+              "expected": true,
+              "actual": false
+            },
+            {
+              "field": "remainingItems",
+              "expected": 0,
+              "actual": 2
+            },
+            {
+              "field": "moneyAtOrderSave",
+              "expected": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "actual": [
+                0,
+                0,
+                200,
+                200
+              ]
+            },
+            {
+              "field": "moneyAtReturn",
+              "expected": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "actual": [
+                0,
+                0,
+                200,
+                200
+              ]
+            }
+          ],
+          "passed": false,
+          "status": "fail",
+          "calls": {
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts#cancelOrderByOrderLines": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@336.15972": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@349.16551": 1
+          }
+        },
+        {
+          "path": "with-refund",
+          "taxIncluded": true,
+          "cancelShipping": true,
+          "expected": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "before": [
+            1000,
+            1200,
+            1200,
+            1400
+          ],
+          "cancel": {
+            "lines": [
+              {
+                "orderLineId": "item",
+                "quantity": 2
+              }
+            ],
+            "orderId": "order",
+            "reason": "customer request",
+            "cancelShipping": true
+          },
+          "refundAmounts": [
+            1400
+          ],
+          "remainingItems": 2,
+          "after": [
+            0,
+            0,
+            200,
+            200
+          ],
+          "orderSaves": [
+            [
+              0,
+              0,
+              200,
+              200
+            ]
+          ],
+          "allCancelled": false,
+          "mismatches": [
+            {
+              "field": "allCancelled",
+              "expected": true,
+              "actual": false
+            },
+            {
+              "field": "remainingItems",
+              "expected": 0,
+              "actual": 2
+            },
+            {
+              "field": "moneyAtOrderSave",
+              "expected": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "actual": [
+                0,
+                0,
+                200,
+                200
+              ]
+            },
+            {
+              "field": "moneyAtReturn",
+              "expected": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "actual": [
+                0,
+                0,
+                200,
+                200
+              ]
+            }
+          ],
+          "passed": false,
+          "status": "fail",
+          "calls": {
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts#cancelOrderByOrderLines": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@336.15972": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@349.16551": 1
+          }
+        },
+        {
+          "path": "with-refund",
+          "taxIncluded": false,
+          "cancelShipping": true,
+          "expected": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "before": [
+            1000,
+            1200,
+            1200,
+            1400
+          ],
+          "cancel": {
+            "lines": [
+              {
+                "orderLineId": "item",
+                "quantity": 2
+              }
+            ],
+            "orderId": "order",
+            "reason": "customer request",
+            "cancelShipping": true
+          },
+          "refundAmounts": [
+            1400
+          ],
+          "remainingItems": 2,
+          "after": [
+            0,
+            0,
+            200,
+            200
+          ],
+          "orderSaves": [
+            [
+              0,
+              0,
+              200,
+              200
+            ]
+          ],
+          "allCancelled": false,
+          "mismatches": [
+            {
+              "field": "allCancelled",
+              "expected": true,
+              "actual": false
+            },
+            {
+              "field": "remainingItems",
+              "expected": 0,
+              "actual": 2
+            },
+            {
+              "field": "moneyAtOrderSave",
+              "expected": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "actual": [
+                0,
+                0,
+                200,
+                200
+              ]
+            },
+            {
+              "field": "moneyAtReturn",
+              "expected": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "actual": [
+                0,
+                0,
+                200,
+                200
+              ]
+            }
+          ],
+          "passed": false,
+          "status": "fail",
+          "calls": {
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts#cancelOrderByOrderLines": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@336.15972": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@349.16551": 1
+          }
+        },
+        {
+          "path": "direct",
+          "taxIncluded": true,
+          "cancelShipping": false,
+          "expected": [
+            1000,
+            1200,
+            1100,
+            1300
+          ],
+          "before": [
+            1000,
+            1200,
+            1200,
+            1400
+          ],
+          "cancel": {
+            "orderId": "order",
+            "lines": [
+              {
+                "orderLineId": "item",
+                "quantity": 1
+              }
+            ],
+            "reason": "customer request",
+            "cancelShipping": false
+          },
+          "refundAmounts": [],
+          "remainingItems": 2,
+          "after": [
+            1000,
+            1200,
+            1200,
+            1400
+          ],
+          "orderSaves": [
+            [
+              1000,
+              1200,
+              1200,
+              1400
+            ]
+          ],
+          "allCancelled": false,
+          "mismatches": [
+            {
+              "field": "remainingItems",
+              "expected": 1,
+              "actual": 2
+            },
+            {
+              "field": "moneyAtOrderSave",
+              "expected": [
+                1000,
+                1200,
+                1100,
+                1300
+              ],
+              "actual": [
+                1000,
+                1200,
+                1200,
+                1400
+              ]
+            },
+            {
+              "field": "moneyAtReturn",
+              "expected": [
+                1000,
+                1200,
+                1100,
+                1300
+              ],
+              "actual": [
+                1000,
+                1200,
+                1200,
+                1400
+              ]
+            }
+          ],
+          "passed": false,
+          "status": "fail",
+          "calls": {
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts#cancelOrderByOrderLines": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@336.15972": 1
+          }
+        },
+        {
+          "path": "with-refund",
+          "taxIncluded": false,
+          "cancelShipping": false,
+          "expected": [
+            1000,
+            1200,
+            1100,
+            1300
+          ],
+          "before": [
+            1000,
+            1200,
+            1200,
+            1400
+          ],
+          "cancel": {
+            "lines": [
+              {
+                "orderLineId": "item",
+                "quantity": 1
+              }
+            ],
+            "orderId": "order",
+            "reason": "customer request",
+            "cancelShipping": false
+          },
+          "refundAmounts": [
+            100
+          ],
+          "remainingItems": 2,
+          "after": [
+            1000,
+            1200,
+            1200,
+            1400
+          ],
+          "orderSaves": [
+            [
+              1000,
+              1200,
+              1200,
+              1400
+            ]
+          ],
+          "allCancelled": false,
+          "mismatches": [
+            {
+              "field": "remainingItems",
+              "expected": 1,
+              "actual": 2
+            },
+            {
+              "field": "moneyAtOrderSave",
+              "expected": [
+                1000,
+                1200,
+                1100,
+                1300
+              ],
+              "actual": [
+                1000,
+                1200,
+                1200,
+                1400
+              ]
+            },
+            {
+              "field": "moneyAtReturn",
+              "expected": [
+                1000,
+                1200,
+                1100,
+                1300
+              ],
+              "actual": [
+                1000,
+                1200,
+                1200,
+                1400
+              ]
+            }
+          ],
+          "passed": false,
+          "status": "fail",
+          "calls": {
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts#cancelOrderByOrderLines": 1,
+            "packages/core/src/service/helpers/order-modifier/order-modifier.ts@336.15972": 1
+          }
+        }
+      ],
+      "passed": 0,
+      "failed": 6,
+      "ungradable": 0,
+      "attempted": 6,
+      "measured": 6
+    }
+  }
+}
