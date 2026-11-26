@@ -1,5 +1,7 @@
 # 단계별 계획
 
+2026-11-26 [R26·R27 보완](reviews/2026-11-26-s2-shipping-submission-grading-independent-review.md)을 먼저 확인한다. 주문 저장 시점의 금액과 관측된 취소 동작의 실패를 같은 제출 경로에서 판정한 뒤 #4348 참가 예산을 결정한다.
+
 2026-11-26 [#4348 참가 패치 채점 확인](reviews/2026-11-26-s2-shipping-submission-grading-instructions.md)을 우선한다. 준비 결과를 리뷰한 뒤 A/B/C 조건별 한 세션의 실행을 결정한다.
 
 2026-11-24 [#4348 독립 리뷰](reviews/2026-11-24-s2-angular-candidate-selection-independent-review.md)를 마쳤다. 다음 결정은 이 과업의 채택 및 A/B/C 실행 예산이다. 같은 패치 성공 여부와 함께 수정 전 코드 근거, 탐색 비용을 비교할 수 있다.
