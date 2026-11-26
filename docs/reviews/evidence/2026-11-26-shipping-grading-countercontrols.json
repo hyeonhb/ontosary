@@ -1,0 +1,184 @@
+{
+  "reviewedHead": "4638eeda3a05e2bd27b30a6f3fba78611ddad204",
+  "parent": "8dbb6e4063248c3084e5768d613347a3453eda41",
+  "participantCalls": 0,
+  "verifiedResultsSha256": "cf0a608b971661b6fe34687809c286033b920fd10878c873d01d4e2026dcdbb5",
+  "submissions": {
+    "save-first": {
+      "tree": "782e5b18a39044b21831f5b1afecd1ca2015a23d",
+      "patchSha256": "e857b8c69309d7b919dcc844ade3501f666fa5488bf9430d04e83494bbfdb6a4",
+      "passed": 6,
+      "failed": 0,
+      "ungradable": 0,
+      "patch": "--- a/packages/core/src/service/helpers/order-modifier/order-modifier.ts\n+++ b/packages/core/src/service/helpers/order-modifier/order-modifier.ts\n@@ -350,15 +350,20 @@\n                     adjustmentSource: 'CANCEL_ORDER',\n                     type: AdjustmentType.OTHER,\n                     description: 'shipping cancellation',\n-                    amount: -shippingLine.discountedPrice,\n+                    amount: shippingLine.listPriceIncludesTax\n+                        ? -shippingLine.discountedPriceWithTax\n+                        : -shippingLine.discountedPrice,\n                     data: {},\n                 });\n                 await this.connection.getRepository(ctx, ShippingLine).save(shippingLine, { reload: false });\n             }\n         }\n         // Update totals after cancellation\n-        this.orderCalculator.calculateOrderTotals(orderWithLines);\n-        await this.connection.getRepository(ctx, Order).save(orderWithLines, { reload: false });\n+        const ordersToSave = this.connection.getRepository(ctx, Order);\n+        await ordersToSave.save(orderWithLines, { reload: false });\n+        this.orderCalculator.calculateOrderTotals(\n+            orderWithLines,\n+        );\n \n         await this.historyService.createHistoryEntryForOrder({\n             ctx,\n",
+      "rows": [
+        {
+          "path": "direct",
+          "taxIncluded": true,
+          "cancelShipping": true,
+          "after": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "status": "pass",
+          "independentMoneyAtOrderSave": [
+            1000,
+            1200,
+            1200,
+            1400
+          ]
+        },
+        {
+          "path": "direct",
+          "taxIncluded": false,
+          "cancelShipping": true,
+          "after": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "status": "pass",
+          "independentMoneyAtOrderSave": [
+            1000,
+            1200,
+            1200,
+            1400
+          ]
+        },
+        {
+          "path": "with-refund",
+          "taxIncluded": true,
+          "cancelShipping": true,
+          "after": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "status": "pass",
+          "independentMoneyAtOrderSave": [
+            1000,
+            1200,
+            1200,
+            1400
+          ]
+        },
+        {
+          "path": "with-refund",
+          "taxIncluded": false,
+          "cancelShipping": true,
+          "after": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "status": "pass",
+          "independentMoneyAtOrderSave": [
+            1000,
+            1200,
+            1200,
+            1400
+          ]
+        },
+        {
+          "path": "direct",
+          "taxIncluded": true,
+          "cancelShipping": false,
+          "after": [
+            1000,
+            1200,
+            1100,
+            1300
+          ],
+          "status": "pass",
+          "independentMoneyAtOrderSave": [
+            1000,
+            1200,
+            1200,
+            1400
+          ]
+        },
+        {
+          "path": "with-refund",
+          "taxIncluded": false,
+          "cancelShipping": false,
+          "after": [
+            1000,
+            1200,
+            1100,
+            1300
+          ],
+          "status": "pass",
+          "independentMoneyAtOrderSave": [
+            1000,
+            1200,
+            1200,
+            1400
+          ]
+        }
+      ]
+    },
+    "wrong-quantity": {
+      "tree": "c5b1261cb58a8f53120e5f5b1bcef5e33ffe07eb",
+      "patchSha256": "bd828cb35f2242b0971b4a2b45a2d67ea5a359049852a0d133b3378b9e9d440a",
+      "passed": 0,
+      "failed": 0,
+      "ungradable": 6,
+      "patch": "--- a/packages/core/src/service/helpers/order-modifier/order-modifier.ts\n+++ b/packages/core/src/service/helpers/order-modifier/order-modifier.ts\n@@ -334,7 +334,7 @@\n             const orderLine = fullOrder.lines.find(l => idsAreEqual(l.id, line.orderLineId));\n             if (orderLine) {\n                 await this.connection.getRepository(ctx, OrderLine).update(line.orderLineId, {\n-                    quantity: orderLine.quantity - line.quantity,\n+                    quantity: orderLine.quantity,\n                 });\n \n                 await this.eventBus.publish(new OrderLineEvent(ctx, order, orderLine, 'cancelled'));\n@@ -350,7 +350,9 @@\n                     adjustmentSource: 'CANCEL_ORDER',\n                     type: AdjustmentType.OTHER,\n                     description: 'shipping cancellation',\n-                    amount: -shippingLine.discountedPrice,\n+                    amount: shippingLine.listPriceIncludesTax\n+                        ? -shippingLine.discountedPriceWithTax\n+                        : -shippingLine.discountedPrice,\n                     data: {},\n                 });\n                 await this.connection.getRepository(ctx, ShippingLine).save(shippingLine, { reload: false });\n",
+      "rows": [
+        {
+          "path": "direct",
+          "taxIncluded": true,
+          "cancelShipping": true,
+          "status": "ungradable",
+          "stage": "runtime",
+          "reason": "Expected values to be strictly equal:\n\nfalse !== true\n"
+        },
+        {
+          "path": "direct",
+          "taxIncluded": false,
+          "cancelShipping": true,
+          "status": "ungradable",
+          "stage": "runtime",
+          "reason": "Expected values to be strictly equal:\n\nfalse !== true\n"
+        },
+        {
+          "path": "with-refund",
+          "taxIncluded": true,
+          "cancelShipping": true,
+          "status": "ungradable",
+          "stage": "runtime",
+          "reason": "Expected values to be strictly equal:\n\nfalse !== true\n"
+        },
+        {
+          "path": "with-refund",
+          "taxIncluded": false,
+          "cancelShipping": true,
+          "status": "ungradable",
+          "stage": "runtime",
+          "reason": "Expected values to be strictly equal:\n\nfalse !== true\n"
+        },
+        {
+          "path": "direct",
+          "taxIncluded": true,
+          "cancelShipping": false,
+          "status": "ungradable",
+          "stage": "runtime",
+          "reason": "Expected values to be strictly equal:\n\n2 !== 1\n"
+        },
+        {
+          "path": "with-refund",
+          "taxIncluded": false,
+          "cancelShipping": false,
+          "status": "ungradable",
+          "stage": "runtime",
+          "reason": "Expected values to be strictly equal:\n\n2 !== 1\n"
+        }
+      ]
+    }
+  }
+}
