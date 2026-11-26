@@ -9,12 +9,7 @@ export const fix = 'e30fd9e94214135de85c95631edc6f2fcedd0da1';
 export const modifierPath = 'packages/core/src/service/helpers/order-modifier/order-modifier.ts';
 
 export function loadControls(repository, variant) {
-    const bindings = {};
-    const core = 'packages/core/src/';
-    const angular = 'packages/admin-ui/src/lib/order/src/';
-    const component = name => angular + 'components/' + name + '/' + name + '.component.ts';
-
-    function load(path, name, members) {
+    return loadProduct(path => {
         const revision = path === modifierPath && variant === 'upstream' ? fix : parent;
         let source = execFileSync('git', ['-C', repository, 'show', revision + ':' + path], { encoding: 'utf8' });
         if (path === modifierPath && variant === 'always-gross') {
@@ -22,6 +17,18 @@ export function loadControls(repository, variant) {
             assert.equal(source.split(old).length, 2);
             source = source.replace(old, 'amount: -shippingLine.discountedPriceWithTax,');
         }
+        return source;
+    });
+}
+
+export function loadProduct(readSource, loadModifier) {
+    const bindings = {};
+    const core = 'packages/core/src/';
+    const angular = 'packages/admin-ui/src/lib/order/src/';
+    const component = name => angular + 'components/' + name + '/' + name + '.component.ts';
+
+    function load(path, name, members) {
+        const source = readSource(path);
         const file = ts.createSourceFile(path, source, ts.ScriptTarget.Latest, true);
         const node = file.statements.find(statement => statement.name?.text === name);
         assert.ok(node, name);
@@ -72,7 +79,11 @@ export function loadControls(repository, variant) {
     const utils = core + 'service/helpers/utils/order-utils.ts';
     load(utils, 'getOrdersFromLines');
     load(utils, 'orderLinesAreAllCancelled');
-    load(modifierPath, 'OrderModifier', ['cancelOrderByOrderLines']);
+    if (loadModifier) {
+        bindings.OrderModifier = loadModifier(readSource(modifierPath), bindings);
+    } else {
+        load(modifierPath, 'OrderModifier', ['cancelOrderByOrderLines']);
+    }
     load(angular + 'common/get-refundable-payments.ts', 'getRefundablePayments');
     load(component('order-detail'), 'OrderDetailComponent', ['cancelOrRefund','orderHasSettledPayments']);
     load(component('cancel-order-dialog'), 'CancelOrderDialogComponent',
