@@ -1,0 +1,242 @@
+{
+  "base": "8dbb6e4063248c3084e5768d613347a3453eda41",
+  "evaluatorRevision": "31759cf58c673405be9716288b00c9dd4b50138b",
+  "order": [
+    "A",
+    "B",
+    "C"
+  ],
+  "model": "gpt-6.2-sol",
+  "effort": "medium",
+  "system": "Use only the public prompt and action history. Return one JSON action.",
+  "limits": {
+    "seconds": 1800,
+    "requests": 24,
+    "actions": 24,
+    "replyBytes": 4096,
+    "input_tokens": 160000,
+    "output_tokens": 8000
+  },
+  "rubric": [
+    "Name how direct cancellation and refund with cancellation converge, with a correct pre-change code location or symbol.",
+    "Explain the shipping adjustment and net/gross price basis through order totals, with correct pre-change code locations or symbols."
+  ],
+  "arms": {
+    "A": {
+      "public": {
+        "task": "관리 화면에서 세금 포함 가격을 쓰는 주문의 상품과 배송을 모두 취소했는데, 주문에 배송비 일부가 남습니다. 배송비까지 취소하면 세전·세후 배송비와 주문 합계가 모두 0이 되게 해 주세요. 세금 별도 가격을 쓰는 주문에서도 전체 취소 결과는 같아야 합니다. 결제가 완료된 주문에서 환불과 함께 상품·배송을 취소할 때도 이를 지키고, 일부 상품만 취소하고 배송을 유지한 경우에는 원래 배송비와 남은 상품 금액을 보존해 주세요.",
+        "revision": "8dbb6e4063248c3084e5768d613347a3453eda41",
+        "scope": "Vendure repository source and documentation",
+        "spaces": [
+          "source"
+        ],
+        "example": {
+          "op": "search",
+          "space": "source",
+          "query": "license"
+        },
+        "protocol": [
+          "Send one JSON object per turn (24 actions per session). The required key op names the action. Put its arguments in the same object. You can send example verbatim. list(space,glob?,offset?) lists relative file names.",
+          "search(space,query,glob?,offset?) returns literal case-insensitive matches with line numbers.",
+          "read(space,path,start?,offset?,column?) returns numbered lines from start (1-based). Long lines show 420 characters; column (1-based) selects another slice. All offsets skip rows, starting at zero. next is the next offset for the same query.",
+          "submit(impact) once before editing: describe affected locations, behavior to preserve and supporting source lines/symbols.",
+          "replace(path,old,new) replaces one unique exact text in source; create(path,text) adds a file. finish() submits the working copy. No test feedback."
+        ]
+      },
+      "source": "3610feda818a2fecb48fe5f6efde327ee9bd21e66b26291d2f3d7064359a9c68",
+      "files": 4981,
+      "materials": {}
+    },
+    "B": {
+      "public": {
+        "task": "관리 화면에서 세금 포함 가격을 쓰는 주문의 상품과 배송을 모두 취소했는데, 주문에 배송비 일부가 남습니다. 배송비까지 취소하면 세전·세후 배송비와 주문 합계가 모두 0이 되게 해 주세요. 세금 별도 가격을 쓰는 주문에서도 전체 취소 결과는 같아야 합니다. 결제가 완료된 주문에서 환불과 함께 상품·배송을 취소할 때도 이를 지키고, 일부 상품만 취소하고 배송을 유지한 경우에는 원래 배송비와 남은 상품 금액을 보존해 주세요.",
+        "revision": "8dbb6e4063248c3084e5768d613347a3453eda41",
+        "scope": "Vendure repository source and documentation",
+        "spaces": [
+          "source",
+          "model"
+        ],
+        "example": {
+          "op": "search",
+          "space": "source",
+          "query": "license"
+        },
+        "protocol": [
+          "Send one JSON object per turn (24 actions per session). The required key op names the action. Put its arguments in the same object. You can send example verbatim. list(space,glob?,offset?) lists relative file names.",
+          "search(space,query,glob?,offset?) returns literal case-insensitive matches with line numbers.",
+          "read(space,path,start?,offset?,column?) returns numbered lines from start (1-based). Long lines show 420 characters; column (1-based) selects another slice. All offsets skip rows, starting at zero. next is the next offset for the same query.",
+          "submit(impact) once before editing: describe affected locations, behavior to preserve and supporting source lines/symbols.",
+          "replace(path,old,new) replaces one unique exact text in source; create(path,text) adds a file. finish() submits the working copy. No test feedback.",
+          "In model, list available views or read index.json. Search concept ids in item views, follow related items/factRefs, then search the fact and evidence views for source coordinates."
+        ]
+      },
+      "source": "3610feda818a2fecb48fe5f6efde327ee9bd21e66b26291d2f3d7064359a9c68",
+      "files": 4981,
+      "materials": {
+        "candidate-0.json": "f94e039744b4fb02ccb9913ed4081b3695698b30413380ffbb5ad360c321c2e0",
+        "candidate-1.json": "c54c451b2c739976e8c830430525ca1f54dd31d978133c9fb8a2007c4024ee2b",
+        "evidence-0.json": "823a026f2afc5d6ee8541d8bf44c0e84305c18aaf9852d809e3114ca217e1dd1",
+        "evidence-1.json": "e8129ab17f6bbbb776dd076b31a7e48f0b3c404c1729098beee74e3fe8d5ceef",
+        "evidence-10.json": "7a438a01f07b0a9a493bcf8914cba0698396db99f23b3104cc9dc9db38c12265",
+        "evidence-11.json": "b2dca4cca39cf7748d1ea0661465af60abd124269cfaa9f96123e65ecc5328b2",
+        "evidence-12.json": "f5927e08e7e455eb833e8295f629507a11f9aa0edf92a23bb864a70063337cb5",
+        "evidence-13.json": "7af0c624a5f2483cbcb3c93adb57f192441ab3b618079ab705c6cd2272a2120b",
+        "evidence-14.json": "401c166147c7b6ce9162cef3bc1c58aae407d324b7f059ce437bf31253f0ace2",
+        "evidence-15.json": "5ec765c8d78901dfaa55365dad94504aae3ad621c0eaa6e248d4ca1f12fecb8b",
+        "evidence-16.json": "b0695b639f08ddb47fef082d2ff083d428bf6e0ad366c70753c1342c17263b41",
+        "evidence-17.json": "a6498f3e550a519ca61a46af7015f911ab2ca3383f75c48189beb08cf94218fa",
+        "evidence-18.json": "1c437e2ec797a47c62844456f2fd06abfa9c54f56f1e9af06112d7dd090960c6",
+        "evidence-19.json": "fd45f0e668b954be2ea7c4af8fc0cbc87a90e629270c5dcaa516a05fa3fd79fe",
+        "evidence-2.json": "0634f33876b504e381514c210182eb34d51a3ff55a98607ee3947f496f3628a5",
+        "evidence-20.json": "630c39c4bb74319dbba2bd5331b74b4ee44ad965f474c90e9361d5003ba85fb3",
+        "evidence-21.json": "4d786b8802de3c662f0f7db715b12e1e9dd40b551e762c5462e43b6979dccdb0",
+        "evidence-22.json": "0de68a709ff803d20d62b36b492398649e16ab7f3019b3c86c21ce0dc6c55f13",
+        "evidence-23.json": "3b5be5d4b4a5d6ee741858f32309f5f8f025e8eeb58671d2f94e4dbf636fbd1b",
+        "evidence-24.json": "d04bf8a16b39b4474feae362642ba76ba0f3606020b048e721b0f4324ca2c5c2",
+        "evidence-25.json": "fbb5b36ba7324aa03a2b149c3a2d5174c4c973fa3a9ba9d34b528359d722fe06",
+        "evidence-26.json": "f04570bbd4f3b963a6009852e73e48e218bc8be7acc103528360f1a3bba9a026",
+        "evidence-27.json": "93151f3cdeacf9f081d56d0e256a1ab7cd2754b5ca90401650b75a589bc500a1",
+        "evidence-28.json": "5149ac18be25f363d2bbb0216ba196bc4b4427e71b832d855d1933819b7cf393",
+        "evidence-29.json": "d7014734ecfac7fca5ed94b7bbaa5de4e40f0e00c26859c8da70367e850fa06f",
+        "evidence-3.json": "1e9f40db0ec1c8f999d028eb9a896db0ca199bb2c4f38e4a9e78f01a10d2d36e",
+        "evidence-4.json": "26f0efeb9ea645f64b86b85928ea1624ce320a5e55f65249f09398562a123026",
+        "evidence-5.json": "d298034fb5adc80379ebecf5e9d5124c6764a479fa22fedfbb9f238167f03521",
+        "evidence-6.json": "6e75517ff47088a1e77d11c26a722623ea1ad08bff38fc31fb24c034768fba63",
+        "evidence-7.json": "71f549d6390b6a2aeca0a11d9cb09eab9906c757b0b02df57bf975475bcec21c",
+        "evidence-8.json": "4afcfb60ee8e8495625bef73e44c75af2b55154b59177ac82315012f576eb60e",
+        "evidence-9.json": "86701e9a74eb6f89d5c131ea9b0dd66979434c253c69f04f18cd12e96493bf58",
+        "fact-0.json": "fa2ab6b4d9635a6da17e34269d7541f1e20d8ad0b8dad9beddcfdacb2cc5dce1",
+        "fact-1.json": "9ca942ff356de49f8af7fbd51f513818416ac866de10c995f1644d79d4c394ea",
+        "fact-10.json": "58230337f4b4c8c4a8d698ff850db04c30e979a03f34c3c6bd693c5cead1789c",
+        "fact-11.json": "5c64efbb22676e0a05c7f71a32e0d99e5153e0d568471c220a84bd48f0960de9",
+        "fact-12.json": "e0f525fc15ba8272576d4bf602dac716f56f72d6bc9a996fc60b3b00e4c61c0a",
+        "fact-13.json": "bce6aff958b5522ecd1a57de24e02edbe6a1f1f2af5d1f4e176db37d9f848081",
+        "fact-14.json": "6cf955a74a4a8a84ad0a4bc87ba72264778a1a68908cdb9112a1d0e3509f5baf",
+        "fact-15.json": "ec35b6ec02f7d080ebefc624d6a785cd2690543a0348cc3b92942212f77dfd13",
+        "fact-16.json": "72558c8f021cea17d271c44119e287545319557c967d3db46ebb9882db2e79a2",
+        "fact-17.json": "48492062fd34710a080f40f4de79d3bf12de72f781583723ca5ad8daceba225d",
+        "fact-18.json": "05899c4c0a0d7c697520ff9b912c4f82d12465787c8a396bbbecef49873b653e",
+        "fact-19.json": "f54c53aeb8580007096d63f490d655dd9ee778e4df3df6fede806f6519012651",
+        "fact-2.json": "85bd3f54911bffbbd3a864109ec6427f5201d7447954a042a4e828e3f4a61c6b",
+        "fact-20.json": "141e46643ca80f9abb7d4a95069ded11de4634dbb8e3bf426fd4119e908cc7f5",
+        "fact-21.json": "3ab85f768d4a832338539e5fdea0d70e1360ca43bd11ae35b5ab58fdaa6c2bb4",
+        "fact-3.json": "16fde7e3c574e7b8e035ed6d65290128a61da6945832361e1e935b71cd171b2a",
+        "fact-4.json": "2725e7b396536699737d20bf747f1737a679a0dff8e49519c3281819fb18f47e",
+        "fact-5.json": "040a9bbebd5ea0148f7041d830362048184f144ad0265df3c1775c9ca30becb1",
+        "fact-6.json": "a071d0ee4759b756534f129c152153b869a7aad7d61eb2b88442a09ec2ed4a32",
+        "fact-7.json": "2fcecec55e88a8e4d02a08f4170f3ae4dcd1c318db6f79dc05d36f4b77da2fff",
+        "fact-8.json": "b25a254d0f9ee19de2d5125fab9e50f94a8517e128310870667f7b7eedfbbd37",
+        "fact-9.json": "e33603d78f887d97f031aa1b46be35b2ccbbae11df9e2a4a51d49dbaf377497c",
+        "index.json": "6a8ade3371c49e07ef6cded4809923b42ac9cbf9ed0803fcd0e82dbff9f5d139",
+        "item-0.json": "8cbecd45f2b7d073579e92d02e890ffeffe2bfba1a4d1e5a84d0d6a82d0a781e",
+        "item-1.json": "d4102aa6f97acaaee74e1cc99d4398a65bd8e8c4f84e70e75bdf7dd16b4b59c9",
+        "item-10.json": "7a530bdf99a0d6b74fa50f0ab936af7047cb781f91a4d09d4c3a3c62ee53a183",
+        "item-11.json": "8f55000f168175ea2883d5d4282187de1797e9ebdbdc8675f394166d2a947e28",
+        "item-2.json": "0f488c30d4c264767ee6711dc493e2d8278822b2b5bd434f6bf353b4d0084017",
+        "item-3.json": "104179945488ad422ffb2db9f11cfa7435d56552bfef64b4e25ca74a324d6ba8",
+        "item-4.json": "ce9c64cf5ef26a4991e5e291e3f96d3a5180121ed70666f4c2c28044d7f7f975",
+        "item-5.json": "72ea07b169fcabe85e73f6a9fdd2227ed4b56f56e8ad42b87da12460036c0a0c",
+        "item-6.json": "848f8be03f34a22f6ccfdea4c7cf6a1674313a3a12b8bd7a82731775613d9184",
+        "item-7.json": "576ba6e48eaf126102a816b3d565ec516110ecae58c861f0f04649f27d2209f8",
+        "item-8.json": "2475ff305f10896ca77315cd4ebe44fc34120dcf070ef2f02e52ca1568f8476b",
+        "item-9.json": "c3dbaebcf54777ce12408a503f47ec4fe31f5e08a0adeefecc57b4ae0c5ae70c",
+        "status.json": "e2a05453b3866f6e5622f00ea31bd0538c252b716313fa6970e101502f45b928"
+      }
+    },
+    "C": {
+      "public": {
+        "task": "관리 화면에서 세금 포함 가격을 쓰는 주문의 상품과 배송을 모두 취소했는데, 주문에 배송비 일부가 남습니다. 배송비까지 취소하면 세전·세후 배송비와 주문 합계가 모두 0이 되게 해 주세요. 세금 별도 가격을 쓰는 주문에서도 전체 취소 결과는 같아야 합니다. 결제가 완료된 주문에서 환불과 함께 상품·배송을 취소할 때도 이를 지키고, 일부 상품만 취소하고 배송을 유지한 경우에는 원래 배송비와 남은 상품 금액을 보존해 주세요.",
+        "revision": "8dbb6e4063248c3084e5768d613347a3453eda41",
+        "scope": "Vendure repository source and documentation",
+        "spaces": [
+          "source",
+          "document"
+        ],
+        "example": {
+          "op": "search",
+          "space": "source",
+          "query": "license"
+        },
+        "protocol": [
+          "Send one JSON object per turn (24 actions per session). The required key op names the action. Put its arguments in the same object. You can send example verbatim. list(space,glob?,offset?) lists relative file names.",
+          "search(space,query,glob?,offset?) returns literal case-insensitive matches with line numbers.",
+          "read(space,path,start?,offset?,column?) returns numbered lines from start (1-based). Long lines show 420 characters; column (1-based) selects another slice. All offsets skip rows, starting at zero. next is the next offset for the same query.",
+          "submit(impact) once before editing: describe affected locations, behavior to preserve and supporting source lines/symbols.",
+          "replace(path,old,new) replaces one unique exact text in source; create(path,text) adds a file. finish() submits the working copy. No test feedback.",
+          "In document, list documents, search narrative statements and follow their identifiers to the evidence appendix."
+        ]
+      },
+      "source": "3610feda818a2fecb48fe5f6efde327ee9bd21e66b26291d2f3d7064359a9c68",
+      "files": 4981,
+      "materials": {
+        "guide.md": "5c7c15b48e19c0764d3a12533f7355a7a06524fbe9fdcac236e1b31fdc53b72a",
+        "observations.md": "dfbf55698d0a91b7c60b94ba6faedbbbb42bd2fc731c75c901c22fd39ddb8640",
+        "roles.md": "0f28656faa125f2f4635bf89053daacb8353546eab6b2c8a3a180763b24778b0",
+        "evidence.md": "61e1833b5c50e3304f8647a01aa3700417eaa26643da18b2a25d8e8a3b1861cc"
+      }
+    }
+  },
+  "loopbackPacketHashes": {
+    "A": [
+      "5d4b70c71da788c7f7cbc8bf2ec4b10aaf8c355bf7a7676b4e7d3331c301c96f",
+      "8fd1d059c219b38276582c0efc1e560f532965ed16469cba3ab8df6a8c27ef88"
+    ],
+    "B": [
+      "728e1a096c83abcb32ebe9f0e4aec86fdf9195c243da4a84243b4e09d4f1ffbc",
+      "f6c681f6fa17e7cdf9f45925baeeb8c82d75e54200c9a563e39609421a4dd36a"
+    ],
+    "C": [
+      "5f0fcbecf52252a92a2a0e6a4f1dcf7d14664efda13d1dae2b7459d09e76d769",
+      "ba0b092c97038140c8451775de8575504a7a386bffefa813a841c81255af9148"
+    ]
+  },
+  "loopbackRoles": [
+    "developer",
+    "user"
+  ],
+  "loopbackTools": [],
+  "cli": "codex-cli 0.167.0-alpha.3.2",
+  "settings": [
+    "tools.update_plan.enabled=false",
+    "web_search=\"disabled\"",
+    "project_doc_max_bytes=0",
+    "include_environment_context=false",
+    "include_permissions_instructions=false",
+    "include_collaboration_mode_instructions=false",
+    "skills.include_instructions=false",
+    "model_reasoning_effort=\"medium\"",
+    "model_context_window=512000",
+    "tools.experimental_request_user_input.enabled=false",
+    "features.multi_agent_v2={enabled=false,disable_native_tools=true}",
+    "features.apps=false",
+    "features.plugins=false",
+    "features.multi_agent=false",
+    "features.memories=false",
+    "features.shell_tool=false",
+    "features.unified_exec=false",
+    "features.image_generation=false",
+    "features.view_image=false",
+    "features.code_mode=false",
+    "features.code_mode_only=false",
+    "features.js_repl=false",
+    "features.exec_permission_approvals=false",
+    "features.remote_models=false",
+    "features.incremental_tools=false",
+    "features.enable_request_compression=false",
+    "features.skill_search=false",
+    "features.recommended_plugins=false",
+    "features.shell_snapshot=false",
+    "features.goals=false",
+    "features.default_mode_request_user_input=false",
+    "model_provider=\"shipping\"",
+    "model_providers.shipping.name=\"Codex shipping pilot\"",
+    "model_providers.shipping.wire_api=\"responses\"",
+    "model_providers.shipping.base_url=\"https://chatgpt.com/backend-api/codex\"",
+    "model_providers.shipping.request_max_retries=0",
+    "model_providers.shipping.stream_max_retries=0",
+    "model_providers.shipping.requires_openai_auth=true"
+  ],
+  "catalogSha256": "1b339a426d1663907174055ceb28f05a0979d7320eae5acac62235955198ade8",
+  "hostSha256": "c38b2ceab1452a2249356ef7578848a3b6eef4c9f753de79cddf1955dbfe3ffa",
+  "created": "2026-11-26T09:04:40.776676+00:00"
+}
