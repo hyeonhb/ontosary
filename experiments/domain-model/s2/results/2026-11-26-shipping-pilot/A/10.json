@@ -1,0 +1,31 @@
+{
+  "request": 10,
+  "packetSha256": "1007734ddeb716657a7c57821a93d9538074fb40ef8e9636aa6c6b7456f05408",
+  "started": "2026-11-26T09:05:30.610394+00:00",
+  "exitCode": 0,
+  "timeout": false,
+  "usage": {
+    "input_tokens": 3773,
+    "cached_input_tokens": 0,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 32,
+    "reasoning_output_tokens": 0
+  },
+  "errors": [],
+  "serverModels": [
+    "gpt-6.2-sol"
+  ],
+  "answer": "{\"op\":\"read\",\"space\":\"source\",\"path\":\"packages/core/src/entity/shipping-line/shipping-line.entity.ts\",\"start\":55}",
+  "action": {
+    "op": "read",
+    "space": "source",
+    "path": "packages/core/src/entity/shipping-line/shipping-line.entity.ts",
+    "start": 55
+  },
+  "replySha256": "e86be36c86e8c789ff403ace6c4a74df286ead8c0003d7dbaf6978c18906c62c",
+  "replyBytes": 1295,
+  "replyRows": 32,
+  "actionError": false,
+  "hostNanoseconds": 852500,
+  "elapsedSeconds": 35.577
+}
