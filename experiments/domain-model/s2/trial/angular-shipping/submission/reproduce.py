@@ -12,6 +12,8 @@ HELPER = str(Path(MODIFIER).with_name('shipping-cancellation-amount.ts'))
 SERVICE = 'packages/core/src/service/services/order.service.ts'
 RECORD = HERE.parents[2] / 'results/2026-11-26-shipping-grading-fix'
 REVIEW = ROOT / 'docs/reviews/evidence/2026-11-26-shipping-grading-countercontrols.json'
+INCLUSIVE_REVIEW = ROOT / 'docs/reviews/evidence/2026-11-26-shipping-grading-inclusive-only.json'
+INCLUSIVE_RECORD = HERE.parents[2] / 'results/2026-11-26-shipping-inclusive-only/grade.json'
 SELECTION = HERE.parents[2] / 'results/2026-11-24-angular-selection/behavior.json'
 HELPER_SOURCE = """import type { ShippingLine } from '../../../entity/shipping-line/shipping-line.entity';
 
@@ -74,6 +76,10 @@ def fixtures(repo, out):
     for name, submission in review['submissions'].items():
         patches[name] = submission['patch'].encode('utf-8')
         assert sha(patches[name]) == submission['patchSha256']
+    inclusive = json.loads(INCLUSIVE_REVIEW.read_bytes())
+    assert inclusive['parent'] == PARENT
+    patches['inclusive-only'] = inclusive['patch'].encode('utf-8')
+    assert sha(patches['inclusive-only']) == inclusive['patchSha256']
     return patches
 
 
@@ -128,6 +134,36 @@ def verify(results):
                     assert 'allCancelled' not in reasons
                     assert reasons['remainingItems'] == (1, 2)
 
+    review = json.loads(INCLUSIVE_REVIEW.read_bytes())
+    inclusive = results['inclusive-only']
+    assert inclusive['tree'] == review['tree'] and inclusive['patchSha256'] == review['patchSha256']
+    assert (inclusive['passed'], inclusive['failed'], inclusive['ungradable']) == (4, 2, 0)
+    for row, diagnostic in zip(inclusive['rows'], review['rows'], strict=True):
+        for key in ('path', 'taxIncluded', 'cancelShipping', 'expected', 'orderSaves', 'after', 'shippingSaveObserved'):
+            assert row[key] == diagnostic[key], (key, row)
+        if row['cancelShipping'] and not row['taxIncluded']:
+            assert row['status'] == 'fail'
+            assert row['mismatches'] == [
+                {'field': field, 'expected': [0, 0, 0, 0], 'actual': [1000, 1200, 1000, 1200]}
+                for field in ('moneyAtOrderSave', 'moneyAtReturn')
+            ]
+        else:
+            assert row['status'] == 'pass' and not row['mismatches']
+
+
+def verify_records(record, out):
+    # The prior record predates the diagnostic. Compare every field it contained.
+    prior = json.loads((RECORD / 'results.json').read_bytes())
+    assert record['participantCalls'] == prior['participantCalls']
+    assert set(record['results']) == set(prior['results']) | {'inclusive-only'}
+    for name, old in prior['results'].items():
+        current = dict(record['results'][name])
+        if 'rows' in current:
+            current['rows'] = [{k: v for k, v in row.items() if k != 'shippingSaveObserved'}
+                               for row in current['rows']]
+        assert current == old, f'{name}: previous result changed'
+    assert (out / 'inclusive-only/grade.json').read_bytes() == INCLUSIVE_RECORD.read_bytes()
+
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
@@ -157,7 +193,7 @@ def main():
     data = (json.dumps(record, ensure_ascii=False, indent=2) + '\n').encode()
     (out / 'results.json').write_bytes(data)
     if args.verify:
-        assert data == (RECORD / 'results.json').read_bytes(), 'recorded results differ'
+        verify_records(record, out)
     print('Verified expected behavior and grading boundaries.')
 
 

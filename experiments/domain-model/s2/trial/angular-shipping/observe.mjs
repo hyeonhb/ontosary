@@ -49,8 +49,7 @@ function submitDialog(product, order, test) {
 function cancellationServices(product, order) {
     const item = order.lines[0];
     const stockQueries = new Set(['Allocation','Sale','Release','FulfillmentLine','Cancellation']);
-    const orderSaves = [];
-    const savedShippingLines = new Set();
+    const writes = {orderSaves:[], shippingSaveObserved:false};
     const modifier = new product.OrderModifier();
     modifier.connection = {
         getEntityOrThrow(_ctx, type, id) {
@@ -72,9 +71,9 @@ function cancellationServices(product, order) {
             return {save(entity) {
                 if (type === product.Order) {
                     assert.equal(entity.id, order.id, 'Unexpected order in repository fixture');
-                    orderSaves.push(money(entity));
+                    writes.orderSaves.push(money(entity));
                 } else {
-                    savedShippingLines.add(entity.id);
+                    writes.shippingSaveObserved = true;
                 }
             }};
         },
@@ -84,14 +83,14 @@ function cancellationServices(product, order) {
     modifier.historyService = {createHistoryEntryForOrder() {}};
     modifier.orderCalculator = new product.OrderCalculator();
     modifier.orderCalculator.configService = {taxOptions:{orderTaxCalculationStrategy:new product.DefaultOrderTaxCalculationStrategy()}};
-    return {modifier, orderSaves, savedShippingLines};
+    return {modifier, writes};
 }
 
 const money = order => [order.shipping, order.shippingWithTax, order.total, order.totalWithTax];
 
 export async function observe(product, test, guard = value => value) {
     const order = checkoutFixture(product, test, guard);
-    const {modifier, orderSaves, savedShippingLines} = cancellationServices(product, order);
+    const {modifier, writes} = cancellationServices(product, order);
     modifier.orderCalculator.calculateOrderTotals(order);
     const before = money(order);
     assert.deepEqual(before, [1000,1200,1200,1400]);
@@ -107,8 +106,6 @@ export async function observe(product, test, guard = value => value) {
     const allCancelled = await modifier.cancelOrderByOrderLines(ctx, guard(cancel, 'input'), cancel.lines);
     const remainingItems = order.lines[0].quantity;
     const after = money(order);
-    assert.equal(savedShippingLines.has(order.shippingLines[0].id), test.cancelShipping,
-        'Unexpected shipping repository interaction');
     // Only compare completed, interpretable observations. Fixture/runtime errors go
     // back to the caller as ungradable, without treating their message as a verdict.
     if (typeof allCancelled !== 'boolean' || !Number.isFinite(remainingItems)) {
@@ -124,8 +121,8 @@ export async function observe(product, test, guard = value => value) {
     }
     compare('allCancelled', expectedRemaining === 0, allCancelled);
     compare('remainingItems', expectedRemaining, remainingItems);
-    compare('moneyAtOrderSave', test.expected, orderSaves.at(-1) ?? null);
+    compare('moneyAtOrderSave', test.expected, writes.orderSaves.at(-1) ?? null);
     compare('moneyAtReturn', test.expected, after);
     return {...test, before, cancel, refundAmounts, remainingItems, after,
-        orderSaves, allCancelled, mismatches, passed:mismatches.length === 0};
+        ...writes, allCancelled, mismatches, passed:mismatches.length === 0};
 }

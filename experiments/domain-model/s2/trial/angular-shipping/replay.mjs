@@ -19,7 +19,7 @@ for (const [variant, pass] of Object.entries(expected)) {
     const product = loadControls(repository, variant);
     // Keep the published candidate-selection record in its original format.
     controls[variant] = await Promise.all(cases.map(async test => {
-        const {orderSaves, allCancelled, mismatches, ...row} = await observe(product, test);
+        const {orderSaves, shippingSaveObserved, allCancelled, mismatches, ...row} = await observe(product, test);
         return row;
     }));
     assert.deepEqual(controls[variant].map(row => row.passed), pass);
