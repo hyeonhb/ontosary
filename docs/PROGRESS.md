@@ -1,5 +1,7 @@
 # 현재 작업 상태 — 새 세션은 이 문서부터 읽기
 
+2026-11-26 [부분 출고 첫 사용 준비 독립 리뷰](reviews/2026-11-26-first-use-partial-fulfillment-independent-review.md)를 마쳐 PR #117을 병합했다. 두 전달본·CLI의 분석 범위와 FCA 상한·프런트엔드 주문 대조를 재현했다. 다음 결정은 작성자 배정 또는 대리 검증 여부이며 참가 결과는 미측정이다.
+
 2026-11-26 [Vendure 부분 출고 첫 사용 준비](reviews/2026-11-26-first-use-partial-fulfillment-preparation.md)에서 작성자·후속 agent용 자료를 분리하고 고정 소스의 주문 진입·행별 수량 근거와 검산 사례를 확인했다. 공개 CLI의 앱 범위 scan은 진단 0개, concepts는 기본 객체·속성 상한 초과였다. 작성자는 미배정이고 참가 모델 호출은 0회다. 첫 사용·인계·도구 기여는 미측정으로 준비 결과 리뷰에 인계한다.
 
 2026-11-26 [Vendure 부분 출고 첫 사용 검증 준비 지시](reviews/2026-11-26-first-use-partial-fulfillment-instructions.md)를 작성했다. 공개 코드를 처음 보는 작성자와 별도 agent 간 인계를 우선 확인하기로 했다. 참가자 자료·검토자 근거의 준비와 리뷰가 다음 작업이며, 참가 및 도구 기여는 미측정이다.
