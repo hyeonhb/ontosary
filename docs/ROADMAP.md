@@ -1,5 +1,7 @@
 # 단계별 계획
 
+2026-11-26 [배송비 채점 보완 독립 리뷰](reviews/2026-11-26-s2-shipping-grading-fix-independent-review.md) 결과, 다음 우선순위는 세금 별도 주문의 실제 잔액이 판정 불가로 누락되는 한 경로다. 기존 여섯 사례에서 수정한 뒤 참가 예산을 결정한다.
+
 2026-11-26 [R26·R27 보완](reviews/2026-11-26-s2-shipping-submission-grading-independent-review.md)을 먼저 확인한다. 주문 저장 시점의 금액과 관측된 취소 동작의 실패를 같은 제출 경로에서 판정한 뒤 #4348 참가 예산을 결정한다.
 
 2026-11-26 [#4348 참가 패치 채점 확인](reviews/2026-11-26-s2-shipping-submission-grading-instructions.md)을 우선한다. 준비 결과를 리뷰한 뒤 A/B/C 조건별 한 세션의 실행을 결정한다.

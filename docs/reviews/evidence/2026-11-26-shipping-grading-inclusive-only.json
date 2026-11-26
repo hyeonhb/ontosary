@@ -1,0 +1,177 @@
+{
+  "head": "3858a32703743570f700a44ae847ceb01d4a49c7",
+  "parent": "8dbb6e4063248c3084e5768d613347a3453eda41",
+  "tree": "23ef40bcdd7af8f2cc54c587905a878506da4736",
+  "patchSha256": "0708892f795675ed73083f1a55e9f5eb19c5c53270994ca0c7e9e6954660801a",
+  "patch": "--- a/packages/core/src/service/helpers/order-modifier/order-modifier.ts\n+++ b/packages/core/src/service/helpers/order-modifier/order-modifier.ts\n@@ -344,13 +344,15 @@\n         const orderWithLines = await this.connection.getEntityOrThrow(ctx, Order, order.id, {\n             relations: ['lines', 'surcharges', 'shippingLines'],\n         });\n-        if (input.cancelShipping === true) {\n+        if (input.cancelShipping === true && ctx.channel.pricesIncludeTax) {\n             for (const shippingLine of orderWithLines.shippingLines) {\n                 shippingLine.adjustments.push({\n                     adjustmentSource: 'CANCEL_ORDER',\n                     type: AdjustmentType.OTHER,\n                     description: 'shipping cancellation',\n-                    amount: -shippingLine.discountedPrice,\n+                    amount: shippingLine.listPriceIncludesTax\n+                        ? -shippingLine.discountedPriceWithTax\n+                        : -shippingLine.discountedPrice,\n                     data: {},\n                 });\n                 await this.connection.getRepository(ctx, ShippingLine).save(shippingLine, { reload: false });\n",
+  "rows": [
+    {
+      "path": "direct",
+      "taxIncluded": true,
+      "cancelShipping": true,
+      "shippingSaveObserved": true,
+      "orderSaves": [
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "after": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "expected": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "officialStatus": "pass",
+      "officialReason": null
+    },
+    {
+      "path": "direct",
+      "taxIncluded": false,
+      "cancelShipping": true,
+      "shippingSaveObserved": false,
+      "orderSaves": [
+        [
+          1000,
+          1200,
+          1000,
+          1200
+        ]
+      ],
+      "after": [
+        1000,
+        1200,
+        1000,
+        1200
+      ],
+      "expected": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "officialStatus": "ungradable",
+      "officialReason": "Unexpected shipping repository interaction\n\nfalse !== true\n"
+    },
+    {
+      "path": "with-refund",
+      "taxIncluded": true,
+      "cancelShipping": true,
+      "shippingSaveObserved": true,
+      "orderSaves": [
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "after": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "expected": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "officialStatus": "pass",
+      "officialReason": null
+    },
+    {
+      "path": "with-refund",
+      "taxIncluded": false,
+      "cancelShipping": true,
+      "shippingSaveObserved": false,
+      "orderSaves": [
+        [
+          1000,
+          1200,
+          1000,
+          1200
+        ]
+      ],
+      "after": [
+        1000,
+        1200,
+        1000,
+        1200
+      ],
+      "expected": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "officialStatus": "ungradable",
+      "officialReason": "Unexpected shipping repository interaction\n\nfalse !== true\n"
+    },
+    {
+      "path": "direct",
+      "taxIncluded": true,
+      "cancelShipping": false,
+      "shippingSaveObserved": false,
+      "orderSaves": [
+        [
+          1000,
+          1200,
+          1100,
+          1300
+        ]
+      ],
+      "after": [
+        1000,
+        1200,
+        1100,
+        1300
+      ],
+      "expected": [
+        1000,
+        1200,
+        1100,
+        1300
+      ],
+      "officialStatus": "pass",
+      "officialReason": null
+    },
+    {
+      "path": "with-refund",
+      "taxIncluded": false,
+      "cancelShipping": false,
+      "shippingSaveObserved": false,
+      "orderSaves": [
+        [
+          1000,
+          1200,
+          1100,
+          1300
+        ]
+      ],
+      "after": [
+        1000,
+        1200,
+        1100,
+        1300
+      ],
+      "expected": [
+        1000,
+        1200,
+        1100,
+        1300
+      ],
+      "officialStatus": "pass",
+      "officialReason": null
+    }
+  ]
+}
