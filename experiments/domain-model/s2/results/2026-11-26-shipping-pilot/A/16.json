@@ -1,0 +1,19 @@
+{
+  "request": 16,
+  "packetSha256": "239e93a7871957aaee16fbe44b83328233fe0d347cc97e4743b2accaaaf83e9f",
+  "started": "2026-11-26T09:05:53.410288+00:00",
+  "exitCode": 1,
+  "timeout": false,
+  "usage": null,
+  "errors": [
+    "Selected model is at capacity. Please try a different model.",
+    {
+      "message": "Selected model is at capacity. Please try a different model."
+    }
+  ],
+  "serverModels": [
+    "gpt-6.2-sol"
+  ],
+  "answer": null,
+  "elapsedSeconds": 54.022
+}

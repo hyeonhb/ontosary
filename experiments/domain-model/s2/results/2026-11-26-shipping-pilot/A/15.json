@@ -1,0 +1,31 @@
+{
+  "request": 15,
+  "packetSha256": "27b515460dc2211fdeecfddf2ca9b9377c716c3eec4ece1147c103b78714bfd9",
+  "started": "2026-11-26T09:05:50.191090+00:00",
+  "exitCode": 0,
+  "timeout": false,
+  "usage": {
+    "input_tokens": 4795,
+    "cached_input_tokens": 0,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 28,
+    "reasoning_output_tokens": 0
+  },
+  "errors": [],
+  "serverModels": [
+    "gpt-6.2-sol"
+  ],
+  "answer": "{\"op\":\"search\",\"space\":\"source\",\"query\":\"CancelOrderDocument\",\"glob\":\"packages/core/e2e/**\"}",
+  "action": {
+    "op": "search",
+    "space": "source",
+    "query": "CancelOrderDocument",
+    "glob": "packages/core/e2e/**"
+  },
+  "replySha256": "7a20a3bd1eb6c693b333f2eb623cd9e7c145c04b4c99b7db2c82c371bb149325",
+  "replyBytes": 3335,
+  "replyRows": 28,
+  "actionError": false,
+  "hostNanoseconds": 40931125,
+  "elapsedSeconds": 52.365
+}
