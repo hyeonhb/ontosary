@@ -1,5 +1,7 @@
 # 단계별 계획
 
+2026-11-26 [#4348 참가 패치 채점 확인](reviews/2026-11-26-s2-shipping-submission-grading-instructions.md)을 우선한다. 준비 결과를 리뷰한 뒤 A/B/C 조건별 한 세션의 실행을 결정한다.
+
 2026-11-24 [#4348 독립 리뷰](reviews/2026-11-24-s2-angular-candidate-selection-independent-review.md)를 마쳤다. 다음 결정은 이 과업의 채택 및 A/B/C 실행 예산이다. 같은 패치 성공 여부와 함께 수정 전 코드 근거, 탐색 비용을 비교할 수 있다.
 
 2026-11-24 다음 S2 작업은 [기존 Angular 모델의 근거에서 출발한 과업 선정](reviews/2026-11-24-s2-angular-candidate-selection-instructions.md)이다. 변경·보존을 구별할 수 있고 같은 변경 전 구현에 B/C가 대응하는 후보를 찾는다. 적합한 후보가 없으면 조사 범위와 제외 사유를 리뷰한다.
