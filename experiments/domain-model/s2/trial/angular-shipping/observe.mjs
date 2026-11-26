@@ -49,7 +49,8 @@ function submitDialog(product, order, test) {
 function cancellationServices(product, order) {
     const item = order.lines[0];
     const stockQueries = new Set(['Allocation','Sale','Release','FulfillmentLine','Cancellation']);
-    const saves = [];
+    const orderSaves = [];
+    const savedShippingLines = new Set();
     const modifier = new product.OrderModifier();
     modifier.connection = {
         getEntityOrThrow(_ctx, type, id) {
@@ -68,7 +69,14 @@ function cancellationServices(product, order) {
                 update(id, values) { assert.equal(id, item.id); Object.assign(item, values); },
             };
             assert.ok(type === product.Order || type === product.ShippingLine);
-            return {save(entity) { saves.push(entity); }};
+            return {save(entity) {
+                if (type === product.Order) {
+                    assert.equal(entity.id, order.id, 'Unexpected order in repository fixture');
+                    orderSaves.push(money(entity));
+                } else {
+                    savedShippingLines.add(entity.id);
+                }
+            }};
         },
     };
     modifier.stockMovementService = {createCancellationsForOrderLines() {}, createReleasesForOrderLines() {}};
@@ -76,14 +84,14 @@ function cancellationServices(product, order) {
     modifier.historyService = {createHistoryEntryForOrder() {}};
     modifier.orderCalculator = new product.OrderCalculator();
     modifier.orderCalculator.configService = {taxOptions:{orderTaxCalculationStrategy:new product.DefaultOrderTaxCalculationStrategy()}};
-    return {modifier, saves};
+    return {modifier, orderSaves, savedShippingLines};
 }
 
 const money = order => [order.shipping, order.shippingWithTax, order.total, order.totalWithTax];
 
 export async function observe(product, test, guard = value => value) {
     const order = checkoutFixture(product, test, guard);
-    const {modifier, saves} = cancellationServices(product, order);
+    const {modifier, orderSaves, savedShippingLines} = cancellationServices(product, order);
     modifier.orderCalculator.calculateOrderTotals(order);
     const before = money(order);
     assert.deepEqual(before, [1000,1200,1200,1400]);
@@ -94,13 +102,30 @@ export async function observe(product, test, guard = value => value) {
     const refundAmounts = refunds.map(refund => refund.amount);
     assert.deepEqual(refundAmounts, test.path === 'direct' ? [] : [test.cancelShipping ? 1400 : 100]);
 
+    const expectedRemaining = order.lines[0].quantity - cancelledQuantity;
     const ctx = guard({channelId:'channel', channel:order.channels[0]}, 'context');
     const allCancelled = await modifier.cancelOrderByOrderLines(ctx, guard(cancel, 'input'), cancel.lines);
-    assert.equal(allCancelled, test.cancelShipping);
-    assert.equal(order.lines[0].quantity, 2 - cancelledQuantity);
-    assert.equal(saves.at(-1), order);
-    assert.equal(saves.includes(order.shippingLines[0]), test.cancelShipping);
+    const remainingItems = order.lines[0].quantity;
     const after = money(order);
-    return {...test, before, cancel, refundAmounts, remainingItems:order.lines[0].quantity,
-        after, passed:after.every((value, i) => value === test.expected[i])};
+    assert.equal(savedShippingLines.has(order.shippingLines[0].id), test.cancelShipping,
+        'Unexpected shipping repository interaction');
+    // Only compare completed, interpretable observations. Fixture/runtime errors go
+    // back to the caller as ungradable, without treating their message as a verdict.
+    if (typeof allCancelled !== 'boolean' || !Number.isFinite(remainingItems)) {
+        throw Error('Uninterpretable cancellation result or quantity; origin not established');
+    }
+
+    const mismatches = [];
+    function compare(field, expected, actual) {
+        const matches = Array.isArray(expected)
+            ? Array.isArray(actual) && actual.length === expected.length && expected.every((value, i) => actual[i] === value)
+            : expected === actual;
+        if (!matches) mismatches.push({field, expected, actual});
+    }
+    compare('allCancelled', expectedRemaining === 0, allCancelled);
+    compare('remainingItems', expectedRemaining, remainingItems);
+    compare('moneyAtOrderSave', test.expected, orderSaves.at(-1) ?? null);
+    compare('moneyAtReturn', test.expected, after);
+    return {...test, before, cancel, refundAmounts, remainingItems, after,
+        orderSaves, allCancelled, mismatches, passed:mismatches.length === 0};
 }

@@ -5,12 +5,13 @@ from pathlib import Path
 import subprocess
 import sys
 
-from grade import HERE, PARENT, MODIFIER, sha
+from grade import HERE, ROOT, PARENT, MODIFIER, sha
 
 FIX = 'e30fd9e94214135de85c95631edc6f2fcedd0da1'
 HELPER = str(Path(MODIFIER).with_name('shipping-cancellation-amount.ts'))
 SERVICE = 'packages/core/src/service/services/order.service.ts'
-RECORD = HERE.parents[2] / 'results/2026-11-26-shipping-submission-grading'
+RECORD = HERE.parents[2] / 'results/2026-11-26-shipping-grading-fix'
+REVIEW = ROOT / 'docs/reviews/evidence/2026-11-26-shipping-grading-countercontrols.json'
 SELECTION = HERE.parents[2] / 'results/2026-11-24-angular-selection/behavior.json'
 HELPER_SOURCE = """import type { ShippingLine } from '../../../entity/shipping-line/shipping-line.entity';
 
@@ -50,12 +51,15 @@ def fixtures(repo, out):
     unknown = replace(base, old, 'amount: ctx.channel.defaultTaxZone?.id ? -shippingLine.discountedPriceWithTax : -shippingLine.discountedPrice,')
     unused_branch = replace(upstream, 'return new EmptyOrderLineSelectionError();',
                             "throw new Error('empty selection');")
+    raw_connection = replace(upstream, 'await this.connection.getRepository(ctx, Order).save(orderWithLines,',
+                             'await this.connection.rawConnection.getRepository(Order).save(orderWithLines,')
     sources = {
         'original':{}, 'always-gross':{MODIFIER:partial}, 'upstream':{MODIFIER:upstream},
         'helper':{MODIFIER:external, HELPER:HELPER_SOURCE},
         'helper-mutated':{MODIFIER:external, HELPER:replace(HELPER_SOURCE, 'return -line.discountedPriceWithTax;', 'return -line.discountedPrice;')},
         'unobserved-service':{MODIFIER:upstream, SERVICE:skipped},
         'missing-context':{MODIFIER:unknown}, 'unreached-branch':{MODIFIER:unused_branch},
+        'unattributed-exception':{MODIFIER:raw_connection},
     }
     patches = {}
     for name, files in sources.items():
@@ -65,6 +69,11 @@ def fixtures(repo, out):
         git('add', '--all')
         patches[name] = git('diff', '--cached', '--no-renames', '--no-ext-diff', '--full-index', '--no-color')
     patches['rejected'] = patches['always-gross'].replace(old.encode(), b'amount: -shippingLine.missingPriorPrice,')
+    review = json.loads(REVIEW.read_bytes())
+    assert review['parent'] == PARENT
+    for name, submission in review['submissions'].items():
+        patches[name] = submission['patch'].encode('utf-8')
+        assert sha(patches[name]) == submission['patchSha256']
     return patches
 
 
@@ -77,6 +86,8 @@ def verify(results):
         for row, old in zip(result['rows'], previous[prior], strict=True):
             assert {k:row[k] for k in old} == old, (name, row)
             assert row['status'] == ('pass' if old['passed'] else 'fail')
+            assert row['orderSaves'] == [old['after']]
+            assert row['allCancelled'] == old['cancelShipping']
             assert row['calls'][MODIFIER + '#cancelOrderByOrderLines'] == 1
             if name.startswith('helper'):
                 assert row['calls'].get(HELPER + '#cancellationAmount', 0) == int(row['cancelShipping'])
@@ -92,6 +103,30 @@ def verify(results):
     context = results['missing-context']
     assert context['ungradable'] == 4 and context['passed'] == 2 and context['failed'] == 0
     assert all('channel.defaultTaxZone' in r['reason'] for r in context['rows'] if r['cancelShipping'])
+
+    error = results['unattributed-exception']
+    assert error['failed'] == 0 and error['ungradable'] == 6
+    assert all(r['stage'] == 'runtime' and 'getRepository' in r['reason'] for r in error['rows'])
+    for name, original in json.loads(REVIEW.read_bytes())['submissions'].items():
+        result = results[name]
+        assert result['tree'] == original['tree'] and result['patchSha256'] == original['patchSha256']
+        assert result['failed'] == result['measured'] == 6 and result['ungradable'] == 0
+        for row, reviewed in zip(result['rows'], original['rows'], strict=True):
+            assert all(row[k] == reviewed[k] for k in ('path', 'taxIncluded', 'cancelShipping'))
+            assert row['status'] == 'fail'
+            reasons = {m['field']: (m['expected'], m['actual']) for m in row['mismatches']}
+            if name == 'save-first':
+                saved = reviewed['independentMoneyAtOrderSave']
+                assert row['orderSaves'] == [saved] and row['after'] == row['expected']
+                assert reasons == {'moneyAtOrderSave': (row['expected'], saved)}
+            else:
+                assert name == 'wrong-quantity'
+                assert row['remainingItems'] == 2 and row['allCancelled'] is False
+                if row['cancelShipping']:
+                    assert reasons['allCancelled'] == (True, False)
+                else:
+                    assert 'allCancelled' not in reasons
+                    assert reasons['remainingItems'] == (1, 2)
 
 
 def main():

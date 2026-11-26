@@ -38,10 +38,11 @@ try {
         calls.clear();
         try {
             const result = await observe(product, test, checkedFixture);
-            if (!result.after.every(Number.isFinite)) {
-                const observed = result.after.map(value => Number.isFinite(value) ? value : String(value));
-                rows.push({...test, after:observed, status:'ungradable', stage:'runtime',
-                    reason:'Non-finite or missing money value; origin not established', calls:Object.fromEntries(calls)});
+            if (![result.after, ...result.orderSaves].every(values => values.every(Number.isFinite))) {
+                const printable = values => values.map(value => Number.isFinite(value) ? value : String(value));
+                rows.push({...test, after:printable(result.after), orderSaves:result.orderSaves.map(printable),
+                    status:'ungradable', stage:'runtime', reason:'Non-finite or missing money value; origin not established',
+                    calls:Object.fromEntries(calls)});
                 continue;
             }
             rows.push({...result, status:result.passed ? 'pass' : 'fail', calls:Object.fromEntries(calls)});

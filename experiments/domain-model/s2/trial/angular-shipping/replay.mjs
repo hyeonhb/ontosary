@@ -17,7 +17,11 @@ const expected = {
 const controls = {};
 for (const [variant, pass] of Object.entries(expected)) {
     const product = loadControls(repository, variant);
-    controls[variant] = await Promise.all(cases.map(test => observe(product, test)));
+    // Keep the published candidate-selection record in its original format.
+    controls[variant] = await Promise.all(cases.map(async test => {
+        const {orderSaves, allCancelled, mismatches, ...row} = await observe(product, test);
+        return row;
+    }));
     assert.deepEqual(controls[variant].map(row => row.passed), pass);
 }
 process.stdout.write(JSON.stringify({parent,fix,participantCalls:0,controls}, null, 2) + '\n');
