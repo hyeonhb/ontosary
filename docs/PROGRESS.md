@@ -1,5 +1,7 @@
 # 현재 작업 상태 — 새 세션은 이 문서부터 읽기
 
+2026-11-26 [Vendure 부분 출고 첫 사용 검증 준비 지시](reviews/2026-11-26-first-use-partial-fulfillment-instructions.md)를 작성했다. 공개 코드를 처음 보는 작성자와 별도 agent 간 인계를 우선 확인하기로 했다. 참가자 자료·검토자 근거의 준비와 리뷰가 다음 작업이며, 참가 및 도구 기여는 미측정이다.
+
 2026-11-26 [PR #114 독립 확인](reviews/2026-11-26-s2-shipping-pilot-independent-review.md#2026-11-26-결과표-보완-확인)에서 미제출·적용 거부·실행 수 표기를 재현해 결과표 보완을 마감했다. 참가 모델 재호출은 0회이며 새 A/B/C 배치의 실행·예산 결정이 남았다.
 
 2026-11-26 [배송비 파일럿 결과표](../experiments/domain-model/s2/results/2026-11-26-shipping-pilot/tables.md)에 봉인된 패치 제출 여부, 적용 단계와 실제 사례 실행 수를 표시했다. 과거 적용 거부 대조를 A에 배정하면 제출 1건·적용 거부 1건·사례 실행 0건과 Git 거부 사유를 복원한다. 실제 중단 배치는 세 건수 모두 0이었다. [오프라인 회귀 검사](../experiments/domain-model/s2/trial/angular-shipping/pilot/test_replay.py)에서 적용 완료 뒤 사례 실행이 0건인 대조와 6건인 대조도 확인했다. 참가 모델 호출은 0회다.
