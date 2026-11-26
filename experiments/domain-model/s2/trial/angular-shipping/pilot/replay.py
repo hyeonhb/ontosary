@@ -22,6 +22,56 @@ def table(headers, rows):
     print()
 
 
+def print_tables(outcomes, costs, tools):
+    rows = []
+    cases = []
+    rejections = []
+    submitted = attempted = 0
+    for arm, reason, marks, patch_hash, result in outcomes:
+        if patch_hash is None:
+            assert result is None
+            rows.append([arm, reason, *marks, '미제출', '—', 0, '—', '—', '—'])
+            continue
+        assert result['patchSha256'] == patch_hash
+        submitted += 1
+        attempted += result['attempted']
+        stage = result['stage']
+        if stage == 'patch-rejected':
+            rejections.append((arm, result['reason']))
+            verdicts = ['—'] * 3
+            application = '적용 거부'
+        elif stage == 'observation':
+            verdicts = [result[k] for k in ('passed', 'failed', 'ungradable')]
+            application = '적용 완료'
+        else:
+            raise ValueError(f'Unknown grading stage: {stage}')
+        rows.append([arm, reason, *marks, '제출', application, result['attempted'], *verdicts])
+        for row in result.get('rows',[]):
+            cases.append([arm,row['path'],'포함' if row['taxIncluded'] else '별도',
+                          '전체' if row['cancelShipping'] else '일부',row['status'],
+                          row['expected'],row.get('orderSaves','—'),row.get('after','—')])
+
+    print('## 조건별 판정\n')
+    table(['조건', '종료 사유', '취소 경로 합류', '배송 차감·합계', '봉인된 첫 패치', '패치 적용',
+           '사례 실행', '통과', '업무 실패', '판정 불가'], rows)
+    print(f'최종 제출 {submitted}건 · 적용 거부 {len(rejections)}건 · 사례 실행 {attempted}건.\n')
+    for arm, diagnostic in rejections:
+        print(f'{arm}의 패치 적용 거부 사유\n')
+        for line in diagnostic.splitlines():
+            print('    ' + line)
+        print()
+
+    print('## 누적 비용과 차이\n')
+    table(['조건','시점','요청','초','입력','출력','캐시 입력','추론 출력'],costs)
+    print('## 조회 작업\n')
+    table(['조건','자료','작업','회','반환 바이트','반환 행','오류'],tools)
+    print('## 첫 패치의 사례별 금액\n')
+    if not cases:
+        print('저장·반환 금액을 표시할 채점 사례 행이 없다.')
+        return
+    table(['조건','경로','세금','취소','판정','기대','주문 저장 시점들','반환 시점'],cases)
+
+
 def cost(rows):
     usage = Counter()
     for row in rows:
@@ -104,13 +154,13 @@ def main(repository, work):
                     str(HERE.parent/'replay.mjs'),str(HERE.parent/'load-controls.mjs')],check=True)
     work.mkdir(parents=True,exist_ok=False)
     decisions = load(OUT/'discovery.json')
-    outcomes, costs, tools, cases, deltas = [], [], [], [], []
+    outcomes, costs, tools, deltas = [], [], [], []
     phases = {}
     stopped = False
     for arm in freeze['order']:
         if not (OUT/arm).exists():
             assert stopped
-            outcomes.append([arm,'미실행','—','—','—','—','—'])
+            outcomes.append((arm, '미실행', ['—', '—'], None, None))
             costs.append([arm,'미실행',0,0,0,0,0,0])
             continue
         records, seal, index, result, by_tool = verify_arm(repository,work,arm,freeze)
@@ -119,7 +169,7 @@ def main(repository, work):
         decision = decisions[arm]
         assert decision['impactSha256'] == (digest(seal['impact'].encode()) if index else None)
         marks = ['충족' if d['met'] else '미충족' for d in decision['items']] if index else ['미제출']*2
-        outcomes.append([arm,seal['reason'],*marks,*([result[k] for k in ('passed','failed','ungradable')] if result else ['—']*3)])
+        outcomes.append((arm, seal['reason'], marks, seal.get('patchSha256'), result))
         for stage, rows in [('수정 전 제출',records[:index] if index else None),('종료',records)]:
             if rows is not None:
                 values = numbers(rows)
@@ -132,11 +182,6 @@ def main(repository, work):
             costs.append([arm,'usage 수신 요청 소계',*numbers(known)])
         for (space,op), c in sorted(by_tool.items()):
             tools.append([arm,space,op,c['count'],c['bytes'],c['rows'],c['errors']])
-        if result:
-            for row in result.get('rows',[]):
-                cases.append([arm,row['path'],'포함' if row['taxIncluded'] else '별도',
-                              '전체' if row['cancelShipping'] else '일부',row['status'],
-                              row['expected'],row.get('orderSaves','—'),row.get('after','—')])
     for arm in 'BC':
         for stage in ('수정 전 제출','종료'):
             if (arm,stage) in phases and ('A',stage) in phases:
@@ -145,17 +190,7 @@ def main(repository, work):
                 deltas.append([arm+'−A',stage,*diff])
             else:
                 deltas.append([arm+'−A',stage,*['—']*6])
-    print('## 조건별 판정\n')
-    table(['조건','종료 사유','취소 경로 합류','배송 차감·합계','통과','업무 실패','판정 불가'],outcomes)
-    print('## 누적 비용과 차이\n')
-    table(['조건','시점','요청','초','입력','출력','캐시 입력','추론 출력'],costs+deltas)
-    print('## 조회 작업\n')
-    table(['조건','자료','작업','회','반환 바이트','반환 행','오류'],tools)
-    print('## 첫 패치의 사례별 금액\n')
-    if not cases:
-        print('최종 제출 0건. 세 조건 모두 여섯 사례의 저장·반환 금액과 판정은 결측이다.')
-        return
-    table(['조건','경로','세금','취소','판정','기대','주문 저장 시점들','반환 시점'],cases)
+    print_tables(outcomes, costs + deltas, tools)
 
 
 if __name__ == '__main__':
