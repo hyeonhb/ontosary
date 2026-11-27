@@ -1,5 +1,7 @@
 # 단계별 계획
 
+2026-11-27 다음은 [작업 agent의 기록 선택과 비용 비교](reviews/2026-11-27-optional-domain-note-pilot-instructions.md)다. 독립된 두 과업에서 일반 작업과 선택형 지원을 비교한다. 실제 개발자 대상의 한 장 수요 검증은 준비 완료·미실행으로 보존한다.
+
 2026-11-27 첫 공개를 위한 다음 실험은 [실제 개발자가 자기 변경 과업을 가져오는지 확인하는 수요 검증](reviews/2026-11-27-domain-note-demand-instructions.md)이다. 그 결과를 보고 기록 작성 비용과 후속 변경 효용을 비교할 과업을 결정한다.
 
 2026-11-26 첫 공개의 도입 비용을 살펴보기 위해 [Vendure 부분 출고 첫 사용 검증 준비](reviews/2026-11-26-first-use-partial-fulfillment-instructions.md)를 배송비 취소 S2 재실행 결정에 앞서 진행한다. 다음 리뷰에서 작성자·agent에게 넘길 자료와 시작 경로를 확인한다.
