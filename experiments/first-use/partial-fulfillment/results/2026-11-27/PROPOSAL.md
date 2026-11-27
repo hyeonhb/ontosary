@@ -1,0 +1,16 @@
+## 첫 변경 제안
+
+Angular Admin UI의 출고 창에서 전역 재고 설정을 받아 라인별 상한을 계산한 뒤, **상한이 0보다 큰 품목이 하나도 없으면** 품목 표 위에 이유를 표시합니다. 미출고 수량이 남아 있으면 “남은 품목의 재고가 부족하여 출고를 생성할 수 없습니다”를, 남은 수량이 없으면 “출고할 남은 품목이 없습니다”를 표시합니다. 문구는 `order` 번역 키로 추가하고 기존 `translate` 파이프를 사용합니다. [출고 창 템플릿](vendure/packages/admin-ui/src/lib/order/src/components/fulfill-order-dialog/fulfill-order-dialog.component.html#L1) · [영어 번역 리소스](vendure/packages/admin-ui/src/lib/static/i18n-messages/en.json#L577)
+
+`ngOnInit`에서 `fulfillmentQuantities`를 채울 때 기존 `max`와 `getUnfulfilledCount`를 사용해 안내 상태를 정하고, 기존 `markForCheck()` 호출로 반영합니다. 초기 상태에서는 안내를 숨겨 설정 응답을 기다리는 동안 잘못된 문구가 나타나는 일을 막습니다. 상한이 양수인 라인이 있으면 운영자가 입력을 모두 0으로 바꾸거나 handler 설정이 유효하지 않아도 이 안내는 표시되지 않습니다. [출고 창 초기화와 수량 계산](vendure/packages/admin-ui/src/lib/order/src/components/fulfill-order-dialog/fulfill-order-dialog.component.ts#L38) · [제출 조건](vendure/packages/admin-ui/src/lib/order/src/components/fulfill-order-dialog/fulfill-order-dialog.component.ts#L84)
+
+## 인계에서 활용한 판단과 소스에서 보충한 근거
+
+- **인계에서 활용하고 재확인한 동작.** 주문 상세의 **Fulfill order** 버튼은 미출고 수량, 정산, 결제, 주문 상태 전이 조건으로 활성화됩니다. 출고 창에서 재고 추적 설정을 적용하면 버튼을 열 수 있는 주문도 모든 라인의 출고 상한이 0이 될 수 있습니다. 상세 버튼의 표시·활성화 조건과 출고 창의 수량 계산, 입력 상한, handler 검증, 생성·취소 흐름을 그대로 보존합니다. 기존 출고 수량에는 `Pending`이 포함되고 `Cancelled`는 제외됩니다. [인계 기록](HANDOFF.md) · [상세 버튼](vendure/packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.html#L32) · [상세 활성화 조건](vendure/packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts#L310) · [출고 창 검증과 결과 반환](vendure/packages/admin-ui/src/lib/order/src/components/fulfill-order-dialog/fulfill-order-dialog.component.ts#L64)
+- **새로 확인한 연결 지점.** 상세 화면은 `trackInventory`와 `stockOnHand`가 포함된 주문 데이터를 출고 창에 전달합니다. 창이 제출 값을 반환한 뒤에야 생성 API를 호출하므로, 상한이 모두 0인 상황의 안내는 창에서 표시해야 합니다. API의 `UpdateOrder` 권한 검사와 수량·재고 재검증, 기존 오류 알림은 그대로 유지합니다. [주문 라인 조회 필드](vendure/packages/admin-ui/src/lib/core/src/data/definitions/order-definitions.ts#L126) · [창 호출과 API 응답 처리](vendure/packages/admin-ui/src/lib/order/src/components/order-detail/order-detail.component.ts#L407) · [API 권한](vendure/packages/core/src/api/resolvers/admin/order.resolver.ts#L95) · [서버 수량·재고 검사](vendure/packages/core/src/service/services/order.service.ts#L1509)
+
+## 회귀 사례 한 건
+
+전액 결제되고 미정산 변경이 없는 `PartiallyShipped` 일반 주문에 유효한 handler를 설정합니다. A는 주문 수량 5개 중 `Shipped` 2개, `Pending` 1개, `Cancelled` 1개이며, 전역 재고 추적이 켜진 상태에서 `INHERIT`, 재고 0으로 둡니다. B는 주문 수량 3개 중 `Shipped` 1개이며, `TRUE`, 재고 0으로 둡니다. 상세 버튼으로 창을 열 수 있고, 설정 응답 전에는 안내가 없다가 응답 후 A와 B의 남은 수량이 각각 2개, 상한이 각각 0으로 표시되는지 확인합니다. 재고 부족 안내가 표시되고 **Create fulfillment**는 비활성화되며, 취소 시 생성 요청이 없어야 합니다. 같은 시나리오에서 B만 `FALSE`로 바꿔 다시 열면 안내가 사라지고 B의 초기값과 상한이 2가 되며 생성 버튼이 활성화되어야 합니다. [인계 주문 예](HANDOFF.md) · [기본 주문 상태 전이](vendure/packages/core/src/config/order/default-order-process.ts#L201) · [생성 버튼](vendure/packages/admin-ui/src/lib/order/src/components/fulfill-order-dialog/fulfill-order-dialog.component.html#L55)
+
+추가 탐색에는 `rg`로 컴포넌트, 주문 조회 필드, 번역 키, 서버 검증 및 테스트 파일을 찾고 `nl`과 `sed`로 관련 줄을 확인했습니다. 시간을 잰 소스 조회 배치 5개의 경과 시간 합계는 471ms입니다. 패치나 테스트 실행은 하지 않았으며, 브라우저·실제 API 연동과 배포 환경의 주문 프로세스·권한 설정은 확인하지 못했습니다.

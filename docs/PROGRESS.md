@@ -1,5 +1,7 @@
 # 현재 작업 상태 — 새 세션은 이 문서부터 읽기
 
+2026-11-27 [부분 출고 두 agent 대리 인계](reviews/2026-11-27-first-use-partial-fulfillment-run.md)를 한 차례 진행했다. 후속 agent는 작성자의 주문 예를 재사용해 상세 버튼을 보존하고 창의 행별 상한으로 안내를 판정하는 변경을 제안했다. 최초 발견은 일반 검색, Ontosary scan은 위치 재확인이었고 FCA는 후보 생성 전 상한에 걸렸다. 사람의 첫 사용성·시간과 조직 정책 승인은 미측정이다.
+
 2026-11-27 [Vendure 부분 출고 첫 사용 실행 지시문](reviews/2026-11-27-first-use-partial-fulfillment-run-instructions.md)을 작성했다. 사용자는 작성 agent 한 세션과 독립된 후속 agent 한 세션의 대리 검증을 선택했다. 지시문 작성 시점의 참가 결과는 미측정이다.
 
 2026-11-26 [부분 출고 첫 사용 준비 독립 리뷰](reviews/2026-11-26-first-use-partial-fulfillment-independent-review.md)를 마쳐 PR #117을 병합했다. 두 전달본·CLI의 분석 범위와 FCA 상한·프런트엔드 주문 대조를 재현했다. 다음 결정은 작성자 배정 또는 대리 검증 여부이며 참가 결과는 미측정이다.
