@@ -1,0 +1,53 @@
+{
+  "sourceRevision": "3bdaafe4b5ecde577fe9b5c69a5d1819e37c4ccb",
+  "sourceSha256": {
+    "packages/excalidraw/components/App.tsx": "e48959bce45778ff5a8f9826c5b046c2266a314f524b063321c134514b894f3f",
+    "packages/excalidraw/eraser/index.ts": "b0af6c8ed7b7dfb91c96d5236f8ea9fc3cd70a2347dd08e5e1417d656ec90f90",
+    "packages/element/src/collision.ts": "d82dff71136bf9e8817932fce546e64a2c4f6da76f99063fe323e009aba296c1",
+    "packages/excalidraw/tests/data/restore.test.ts": "6681bfdc11d70b0b9b9de60fff2aea30d69a586123db77c6f6da50520c2cbc80",
+    "packages/excalidraw/tsconfig.json": "a68d6d20b6865181444926cbab34f3a5112c77f3f4946f99a0edd778014d25aa",
+    "packages/tsconfig.base.json": "70a2d8d47fbe55716c5aa484a8dd7974d17cfef56f6ad6f0038d283d898f85dc"
+  },
+  "scanCounts": {
+    "files": 370,
+    "types": 455,
+    "functions": 4475,
+    "diagnostics": 210,
+    "omissions": 3767
+  },
+  "locations": [
+    {
+      "file": "../element/src/collision.ts",
+      "symbol": "intersectElementWithLineSegment",
+      "start": {
+        "line": 204,
+        "column": 48,
+        "offset": 5446
+      },
+      "end": {
+        "line": 262,
+        "column": 2,
+        "offset": 7029
+      }
+    },
+    {
+      "file": "eraser/index.ts",
+      "symbol": "eraserTest",
+      "start": {
+        "line": 179,
+        "column": 20,
+        "offset": 5334
+      },
+      "end": {
+        "line": 209,
+        "column": 2,
+        "offset": 6082
+      }
+    }
+  ],
+  "concepts": {
+    "stdoutBytes": 0,
+    "firstError": "Compiler errors prevent analysis: Cannot find module 'open-color' or its corresponding type declarations.",
+    "stderrSha256": "3135442300ec16346c7d85d8248b346259d8b3af29e43210cefe878fd197609a"
+  }
+}

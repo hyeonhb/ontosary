@@ -1,0 +1,143 @@
+{
+  "sourceRevision": "3bdaafe4b5ecde577fe9b5c69a5d1819e37c4ccb",
+  "scanDiagnosticCount": 7,
+  "diagnostics": [
+    {
+      "category": "Error",
+      "code": 2345,
+      "message": "Argument of type 'ArrayBuffer | Uint8Array<ArrayBufferLike>' is not assignable to parameter of type 'BufferSource'.\n  Type 'Uint8Array<ArrayBufferLike>' is not assignable to type 'BufferSource'.\n    Type 'Uint8Array<ArrayBufferLike>' is missing the following properties from type 'ArrayBuffer': maxByteLength, resizable, resize, detached, and 2 more.",
+      "evidence": {
+        "file": "data/encryption.ts",
+        "symbol": "",
+        "start": {
+          "line": 74,
+          "column": 5,
+          "offset": 1964
+        },
+        "end": {
+          "line": 74,
+          "column": 39,
+          "offset": 1998
+        }
+      }
+    },
+    {
+      "category": "Error",
+      "code": 2322,
+      "message": "Type 'Uint8Array<ArrayBufferLike>' is not assignable to type 'BufferSource'.\n  Type 'Uint8Array<ArrayBufferLike>' is missing the following properties from type 'ArrayBuffer': maxByteLength, resizable, resize, detached, and 2 more.",
+      "evidence": {
+        "file": "data/encryption.ts",
+        "symbol": "",
+        "start": {
+          "line": 89,
+          "column": 7,
+          "offset": 2318
+        },
+        "end": {
+          "line": 89,
+          "column": 9,
+          "offset": 2320
+        }
+      }
+    },
+    {
+      "category": "Error",
+      "code": 2322,
+      "message": "Type 'Uint8Array<ArrayBufferLike>' is not assignable to type 'BlobPart'.\n  Type 'Uint8Array<ArrayBufferLike>' is missing the following properties from type 'ArrayBuffer': maxByteLength, resizable, resize, detached, and 2 more.",
+      "evidence": {
+        "file": "data/image.ts",
+        "symbol": "",
+        "start": {
+          "line": 46,
+          "column": 20,
+          "offset": 1253
+        },
+        "end": {
+          "line": 46,
+          "column": 37,
+          "offset": 1270
+        }
+      }
+    },
+    {
+      "category": "Error",
+      "code": 2345,
+      "message": "Argument of type 'Event & { target: T; }' is not assignable to parameter of type 'Event & { target: HTMLElement; }'.\n  Types of property 'target' are incompatible.\n    Type '(EventTarget | null) & T' is not assignable to type 'EventTarget & HTMLElement'.\n      Type 'null & T' is missing the following properties from type 'EventTarget & HTMLElement': addEventListener, dispatchEvent, removeEventListener, accessKey, and 314 more.",
+      "evidence": {
+        "file": "hooks/useOutsideClick.ts",
+        "symbol": "",
+        "start": {
+          "line": 34,
+          "column": 43,
+          "offset": 1016
+        },
+        "end": {
+          "line": 34,
+          "column": 49,
+          "offset": 1022
+        }
+      }
+    },
+    {
+      "category": "Error",
+      "code": 2345,
+      "message": "Argument of type 'ArrayBufferLike' is not assignable to parameter of type 'ArrayBuffer'.\n  Type 'SharedArrayBuffer' is missing the following properties from type 'ArrayBuffer': resizable, resize, detached, transfer, transferToFixedLength",
+      "evidence": {
+        "file": "subset/subset-shared.chunk.ts",
+        "symbol": "",
+        "start": {
+          "line": 54,
+          "column": 29,
+          "offset": 1944
+        },
+        "end": {
+          "line": 54,
+          "column": 47,
+          "offset": 1962
+        }
+      }
+    },
+    {
+      "category": "Error",
+      "code": 2345,
+      "message": "Argument of type 'ArrayBufferLike' is not assignable to parameter of type 'ArrayBuffer'.\n  Type 'SharedArrayBuffer' is missing the following properties from type 'ArrayBuffer': resizable, resize, detached, transfer, transferToFixedLength",
+      "evidence": {
+        "file": "subset/subset-shared.chunk.ts",
+        "symbol": "",
+        "start": {
+          "line": 55,
+          "column": 37,
+          "offset": 2022
+        },
+        "end": {
+          "line": 55,
+          "column": 54,
+          "offset": 2039
+        }
+      }
+    },
+    {
+      "category": "Error",
+      "code": 2322,
+      "message": "Type 'ArrayBufferLike' is not assignable to type 'ArrayBuffer'.\n  Type 'SharedArrayBuffer' is missing the following properties from type 'ArrayBuffer': resizable, resize, detached, transfer, transferToFixedLength",
+      "evidence": {
+        "file": "subset/subset-shared.chunk.ts",
+        "symbol": "",
+        "start": {
+          "line": 57,
+          "column": 3,
+          "offset": 2045
+        },
+        "end": {
+          "line": 57,
+          "column": 9,
+          "offset": 2051
+        }
+      }
+    }
+  ],
+  "conceptsStdoutBytes": 0,
+  "conceptsStderr": {
+    "error": "Compiler errors prevent analysis: Argument of type 'ArrayBuffer | Uint8Array<ArrayBufferLike>' is not assignable to parameter of type 'BufferSource'.\n  Type 'Uint8Array<ArrayBufferLike>' is not assignable to type 'BufferSource'.\n    Type 'Uint8Array<ArrayBufferLike>' is missing the following properties from type 'ArrayBuffer': maxByteLength, resizable, resize, detached, and 2 more.; Type 'Uint8Array<ArrayBufferLike>' is not assignable to type 'BufferSource'.\n  Type 'Uint8Array<ArrayBufferLike>' is missing the following properties from type 'ArrayBuffer': maxByteLength, resizable, resize, detached, and 2 more.; Type 'Uint8Array<ArrayBufferLike>' is not assignable to type 'BlobPart'.\n  Type 'Uint8Array<ArrayBufferLike>' is missing the following properties from type 'ArrayBuffer': maxByteLength, resizable, resize, detached, and 2 more.; Argument of type 'Event & { target: T; }' is not assignable to parameter of type 'Event & { target: HTMLElement; }'.\n  Types of property 'target' are incompatible.\n    Type '(EventTarget | null) & T' is not assignable to type 'EventTarget & HTMLElement'.\n      Type 'null & T' is missing the following properties from type 'EventTarget & HTMLElement': addEventListener, dispatchEvent, removeEventListener, accessKey, and 314 more.; Argument of type 'ArrayBufferLike' is not assignable to parameter of type 'ArrayBuffer'.\n  Type 'SharedArrayBuffer' is missing the following properties from type 'ArrayBuffer': resizable, resize, detached, transfer, transferToFixedLength; Argument of type 'ArrayBufferLike' is not assignable to parameter of type 'ArrayBuffer'.\n  Type 'SharedArrayBuffer' is missing the following properties from type 'ArrayBuffer': resizable, resize, detached, transfer, transferToFixedLength; Type 'ArrayBufferLike' is not assignable to type 'ArrayBuffer'.\n  Type 'SharedArrayBuffer' is missing the following properties from type 'ArrayBuffer': resizable, resize, detached, transfer, transferToFixedLength"
+  }
+}
