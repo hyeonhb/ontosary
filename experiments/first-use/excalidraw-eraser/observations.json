@@ -1,0 +1,30 @@
+{
+  "204e06b77bf7b592e29891160b775df33399ff4d": [
+    {
+      "x": 100,
+      "y": 100,
+      "isDeleted": false,
+      "present": true
+    },
+    {
+      "x": 180,
+      "y": 160,
+      "isDeleted": false,
+      "present": true
+    }
+  ],
+  "1161f1b8ba860a34602fc4aa211ea9f5b28c30eb": [
+    {
+      "x": 100,
+      "y": 100,
+      "isDeleted": true,
+      "present": false
+    },
+    {
+      "x": 180,
+      "y": 160,
+      "isDeleted": false,
+      "present": true
+    }
+  ]
+}
