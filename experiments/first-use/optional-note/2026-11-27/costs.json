@@ -1,0 +1,66 @@
+{
+  "methods": {
+    "A": {
+      "workerTurns": 2,
+      "writerTurns": 0,
+      "workerActive": 87.364,
+      "writerActive": 0,
+      "betweenWorkerTurns": 0.011,
+      "elapsed": 87.375,
+      "meteredModelResponses": 11,
+      "tokens": {
+        "input_tokens": 247478,
+        "cached_input_tokens": 201344,
+        "output_tokens": 3199,
+        "reasoning_output_tokens": 121
+      }
+    },
+    "B": {
+      "workerTurns": 2,
+      "writerTurns": 0,
+      "workerActive": 72.746,
+      "writerActive": 0,
+      "betweenWorkerTurns": 0.012,
+      "elapsed": 72.758,
+      "meteredModelResponses": 9,
+      "tokens": {
+        "input_tokens": 178210,
+        "cached_input_tokens": 142720,
+        "output_tokens": 2657,
+        "reasoning_output_tokens": 43
+      }
+    }
+  },
+  "slug": {
+    "A": {
+      "workerTurns": 2,
+      "writerTurns": 0,
+      "workerActive": 51.686,
+      "writerActive": 0,
+      "betweenWorkerTurns": 0.011,
+      "elapsed": 51.697,
+      "meteredModelResponses": 8,
+      "tokens": {
+        "input_tokens": 124391,
+        "cached_input_tokens": 102912,
+        "output_tokens": 1744,
+        "reasoning_output_tokens": 90
+      }
+    },
+    "B": {
+      "workerTurns": 2,
+      "writerTurns": 0,
+      "workerActive": 55.39,
+      "writerActive": 0,
+      "betweenWorkerTurns": 0.01,
+      "elapsed": 55.4,
+      "meteredModelResponses": 7,
+      "tokens": {
+        "input_tokens": 111173,
+        "cached_input_tokens": 99200,
+        "output_tokens": 1995,
+        "reasoning_output_tokens": 64
+      }
+    }
+  }
+}
