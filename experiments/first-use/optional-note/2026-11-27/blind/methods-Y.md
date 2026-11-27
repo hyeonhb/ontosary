@@ -1,0 +1,7 @@
+1. Shop API의 `activePaymentMethods`와 `activeShippingMethods`에 `customFields`를 추가합니다. `vendure/packages/core/src/api/schema/shop-api/shop.api.graphql`의 `PublicPaymentMethod`와 `PublicShippingMethod`를 확장하고, `vendure/packages/core/src/api/config/get-final-vendure-schema.ts`의 `buildSchemaFromVendureConfig`에서 공개 필드 타입이 생성된 뒤 연결합니다. 공개 필드가 있으면 기존 `PaymentMethodCustomFields`와 `ShippingMethodCustomFields` 타입을 재사용하고, 공개 필드가 없으면 `customFields`가 `null`을 반환하도록 합니다.
+
+2. `vendure/packages/core/src/api/config/generate-resolvers.ts`의 `generateCustomFieldResolvers`에서 두 공개 타입을 기존 사용자 정의 필드 리졸버에 연결합니다. 각 수단에 저장된 값과 관계형 필드 조회에 필요한 엔티티 ID를 기존 방식으로 전달합니다. `public: false`와 `internal: true` 필드는 Shop 스키마와 응답에서 제외하고, 공개 필드가 없는 경우 저장 객체나 내부 ID가 JSON으로 직렬화되지 않도록 합니다. 공개 판정은 `vendure/packages/core/src/api/config/graphql-custom-fields.ts`의 `addGraphQLCustomFields` 규칙을 따릅니다.
+
+3. 목록은 계속 활성 주문 없이 조회할 수 있어야 합니다. `vendure/packages/core/src/service/services/payment-method.service.ts`의 `getActivePaymentMethods`는 현재 채널의 활성 결제 수단을, `vendure/packages/core/src/service/services/shipping-method.service.ts`의 `getActiveShippingMethods`는 현재 채널의 삭제되지 않은 배송 수단을 반환합니다. 기존 목록의 항목과 번역, Shop 응답의 공개 범위를 보존합니다.
+
+4. `vendure/packages/core/e2e/payment-method.e2e-spec.ts`와 `vendure/packages/core/e2e/shipping-method.e2e-spec.ts`의 활성 목록 사례에서 운영자가 설정한 공개 스칼라와 관계형 값, 비공개·내부 필드 선택 거부, 공개 필드가 없을 때의 `null`을 검증합니다. 활성 주문이 없는 상태에서 비활성 결제 수단, 삭제된 배송 수단, 다른 채널 수단이 제외되는지와 기존 필드만 선택한 응답이 그대로인지 확인합니다. `vendure/packages/core/e2e/custom-field-relations.e2e-spec.ts`의 두 `eligible*Methods` 사례도 회귀 검증에 포함합니다.
