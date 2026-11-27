@@ -1,5 +1,7 @@
 # 단계별 계획
 
+2026-11-27 첫 공개를 위한 다음 실험은 [실제 개발자가 자기 변경 과업을 가져오는지 확인하는 수요 검증](reviews/2026-11-27-domain-note-demand-instructions.md)이다. 그 결과를 보고 기록 작성 비용과 후속 변경 효용을 비교할 과업을 결정한다.
+
 2026-11-26 첫 공개의 도입 비용을 살펴보기 위해 [Vendure 부분 출고 첫 사용 검증 준비](reviews/2026-11-26-first-use-partial-fulfillment-instructions.md)를 배송비 취소 S2 재실행 결정에 앞서 진행한다. 다음 리뷰에서 작성자·agent에게 넘길 자료와 시작 경로를 확인한다.
 
 2026-11-26 [결과표 보완 확인](reviews/2026-11-26-s2-shipping-pilot-independent-review.md#2026-11-26-결과표-보완-확인)을 마쳤다. 같은 모델·과업·상한으로 A/B/C 조건별 한 세션을 다시 집행할지가 다음 결정이다.
