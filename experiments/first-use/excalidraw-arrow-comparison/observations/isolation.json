@@ -1,0 +1,58 @@
+{
+  "sourceSearch": {
+    "exit": 0,
+    "timeout": false,
+    "bytes": 30,
+    "output": "packages/excalidraw/index.tsx\n",
+    "seconds": 0.024
+  },
+  "edit": {
+    "exit": 0,
+    "timeout": false,
+    "bytes": 3,
+    "output": "OK\n",
+    "seconds": 0.024
+  },
+  "remoteHistory": {
+    "exit": 0,
+    "timeout": false,
+    "bytes": 2,
+    "output": "1\n",
+    "seconds": 0.066
+  },
+  "future": {
+    "exit": 1,
+    "timeout": false,
+    "bytes": 0,
+    "output": "",
+    "seconds": 0.048
+  },
+  "reviewer": {
+    "exit": 1,
+    "timeout": false,
+    "bytes": 124,
+    "output": "cat: $ONTOSARY/experiments/first-use/excalidraw-followup/reviewer/arrow-probe.tsx: Operation not permitted\n",
+    "seconds": 0.024
+  },
+  "otherCopy": {
+    "exit": 1,
+    "timeout": false,
+    "bytes": 77,
+    "output": "cat: /private/tmp/arrow-template-qhya7z_t/README.md: Operation not permitted\n",
+    "seconds": 0.024
+  },
+  "externalSocket": {
+    "exit": 1,
+    "timeout": false,
+    "bytes": 6,
+    "output": "EPERM\n",
+    "seconds": 0.048
+  },
+  "tests": {
+    "exit": 0,
+    "timeout": false,
+    "bytes": 508,
+    "output": "\n\u001b[1m\u001b[7m\u001b[36m RUN \u001b[39m\u001b[27m\u001b[22m \u001b[36mv3.0.6 \u001b[39m\u001b[90m/private/tmp/drawing-pdhrjilb/source\u001b[39m\n\n \u001b[32m✓\u001b[39m packages/excalidraw/tests/lasso.test.tsx \u001b[2m(\u001b[22m\u001b[2m6 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[33m 358\u001b[2mms\u001b[22m\u001b[39m\n\n\u001b[2m Test Files \u001b[22m \u001b[1m\u001b[32m1 passed\u001b[39m\u001b[22m\u001b[90m (1)\u001b[39m\n\u001b[2m      Tests \u001b[22m \u001b[1m\u001b[32m6 passed\u001b[39m\u001b[22m\u001b[90m (6)\u001b[39m\n\u001b[2m   Start at \u001b[22m 17:14:02\n\u001b[2m   Duration \u001b[22m 2.77s\u001b[2m (transform 1.53s, setup 128ms, collect 1.91s, tests 358ms, environment 189ms, prepare 39ms)\u001b[22m\n\n",
+    "seconds": 3.092
+  }
+}
