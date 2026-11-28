@@ -1,0 +1,81 @@
+diff --git a/packages/excalidraw/eraser/index.ts b/packages/excalidraw/eraser/index.ts
+index 8d09b1aafc970fd41bf47a6067494676ebdd1ded..f79c5812c0908c6d7c5307997652c54526ddc79b 100644
+--- a/packages/excalidraw/eraser/index.ts
++++ b/packages/excalidraw/eraser/index.ts
+@@ -274,7 +274,17 @@ const eraserTest = (
+       (element.strokeWidth * 2) / zoom,
+     );
+ 
+-    return distanceToElement(element, elementsMap, lastPoint) <= tolerance;
++    // A fast swipe can cross the stroke with neither sampled point near it.
++    return (
++      distanceToElement(element, elementsMap, lastPoint) <= tolerance ||
++      intersectElementWithLineSegment(
++        element,
++        elementsMap,
++        pathSegment,
++        0,
++        true,
++      ).length > 0
++    );
+   }
+ 
+   const boundTextElement = getBoundTextElement(element, elementsMap);
+diff --git a/packages/excalidraw/tests/eraser.test.tsx b/packages/excalidraw/tests/eraser.test.tsx
+new file mode 100644
+index 0000000000000000000000000000000000000000..4bab8344f7aab23c7e82319df5925a32ffc07444
+--- /dev/null
++++ b/packages/excalidraw/tests/eraser.test.tsx
+@@ -0,0 +1,52 @@
++import React from "react";
++
++import { pointFrom } from "@excalidraw/math";
++import type { LocalPoint } from "@excalidraw/math";
++
++import { Excalidraw } from "../index";
++
++import { API } from "./helpers/api";
++import { Pointer, UI } from "./helpers/ui";
++import {
++  mockBoundingClientRect,
++  render,
++  restoreOriginalGetBoundingClientRect,
++} from "./test-utils";
++
++const { h } = window;
++const mouse = new Pointer("mouse");
++
++beforeEach(async () => {
++  mockBoundingClientRect({ width: 500, height: 500 });
++  await render(<Excalidraw />);
++  UI.clickTool("eraser");
++});
++
++afterEach(restoreOriginalGetBoundingClientRect);
++
++it("erases an arrow crossed between pointer samples but leaves a locked arrow", () => {
++  const arrow = API.createElement({
++    type: "arrow",
++    x: 50,
++    y: 75,
++    width: 200,
++    height: 0,
++    points: [pointFrom<LocalPoint>(0, 0), pointFrom<LocalPoint>(200, 0)],
++    roundness: null,
++  });
++  const lockedArrow = API.createElement({
++    ...arrow,
++    id: "locked-arrow",
++    y: 125,
++    locked: true,
++  });
++  API.setElements([arrow, lockedArrow]);
++
++  mouse.downAt(150, 20);
++  mouse.moveTo(150, 180);
++  mouse.up();
++
++  expect(h.elements.filter((element) => !element.isDeleted)).toEqual([
++    expect.objectContaining({ id: lockedArrow.id, locked: true }),
++  ]);
++});

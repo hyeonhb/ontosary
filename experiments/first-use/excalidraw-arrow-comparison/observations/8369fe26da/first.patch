@@ -1,0 +1,70 @@
+diff --git a/packages/excalidraw/eraser/index.ts b/packages/excalidraw/eraser/index.ts
+index 8d09b1aafc970fd41bf47a6067494676ebdd1ded..74bb14f073ac7b1a0c33952f0727abdaf68d488f 100644
+--- a/packages/excalidraw/eraser/index.ts
++++ b/packages/excalidraw/eraser/index.ts
+@@ -274,7 +274,12 @@ const eraserTest = (
+       (element.strokeWidth * 2) / zoom,
+     );
+ 
+-    return distanceToElement(element, elementsMap, lastPoint) <= tolerance;
++    // Keep the point tolerance, but also catch strokes crossed between samples.
++    return (
++      distanceToElement(element, elementsMap, lastPoint) <= tolerance ||
++      intersectElementWithLineSegment(element, elementsMap, pathSegment, 0, true)
++        .length > 0
++    );
+   }
+ 
+   const boundTextElement = getBoundTextElement(element, elementsMap);
+diff --git a/packages/excalidraw/tests/eraser.test.tsx b/packages/excalidraw/tests/eraser.test.tsx
+new file mode 100644
+index 0000000000000000000000000000000000000000..a0558a806b166126f3f7ef5299d458d001a639b1
+--- /dev/null
++++ b/packages/excalidraw/tests/eraser.test.tsx
+@@ -0,0 +1,46 @@
++import React from "react";
++
++import { pointFrom } from "@excalidraw/math";
++
++import type { LocalPoint } from "@excalidraw/math";
++
++import { Excalidraw } from "../index";
++
++import { API } from "./helpers/api";
++import { Pointer, UI } from "./helpers/ui";
++import { render } from "./test-utils";
++
++const mouse = new Pointer("mouse");
++
++it("erases an arrow crossed between pointer samples but leaves a locked arrow", async () => {
++  await render(<Excalidraw />);
++
++  const points = [pointFrom<LocalPoint>(0, 0), pointFrom<LocalPoint>(100, 0)];
++  const arrow = API.createElement({
++    type: "arrow",
++    x: 50,
++    y: 100,
++    width: 100,
++    height: 0,
++    points,
++  });
++  const lockedArrow = API.createElement({
++    type: "arrow",
++    x: 50,
++    y: 120,
++    width: 100,
++    height: 0,
++    points,
++    locked: true,
++  });
++  API.setElements([arrow, lockedArrow]);
++  API.setAppState({ width: 300, height: 300 });
++  UI.clickTool("eraser");
++
++  mouse.downAt(100, 60);
++  mouse.moveTo(100, 160);
++  mouse.up();
++
++  expect(API.getElement(arrow).isDeleted).toBe(true);
++  expect(API.getElement(lockedArrow).isDeleted).toBe(false);
++});

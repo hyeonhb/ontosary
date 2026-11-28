@@ -1,0 +1,13 @@
+{
+  "stop": "token-limit",
+  "holdRemaining": false,
+  "participantSeconds": 145.153,
+  "usageKnown": true,
+  "observedUsage": {
+    "input_tokens": 438601,
+    "cached_input_tokens": 36352,
+    "output_tokens": 3408,
+    "reasoning_output_tokens": 479
+  },
+  "submitted": false
+}

@@ -1,0 +1,81 @@
+diff --git a/packages/excalidraw/eraser/index.ts b/packages/excalidraw/eraser/index.ts
+index 8d09b1aafc970fd41bf47a6067494676ebdd1ded..710bb3ebaa3d9885c8ffcddfc1a82fb36f86f2c3 100644
+--- a/packages/excalidraw/eraser/index.ts
++++ b/packages/excalidraw/eraser/index.ts
+@@ -274,7 +274,18 @@ const eraserTest = (
+       (element.strokeWidth * 2) / zoom,
+     );
+ 
+-    return distanceToElement(element, elementsMap, lastPoint) <= tolerance;
++    return (
++      distanceToElement(element, elementsMap, lastPoint) <= tolerance ||
++      // A fast swipe can cross the stroke between pointer samples. Pad the
++      // intersection's bounds check so it also admits zero-width/height paths.
++      intersectElementWithLineSegment(
++        element,
++        elementsMap,
++        pathSegment,
++        threshold,
++        true,
++      ).length > 0
++    );
+   }
+ 
+   const boundTextElement = getBoundTextElement(element, elementsMap);
+diff --git a/packages/excalidraw/tests/eraser.test.tsx b/packages/excalidraw/tests/eraser.test.tsx
+new file mode 100644
+index 0000000000000000000000000000000000000000..1346e31cd0454d6b5193b9520206d5759439fa84
+--- /dev/null
++++ b/packages/excalidraw/tests/eraser.test.tsx
+@@ -0,0 +1,51 @@
++import React from "react";
++
++import { ROUNDNESS } from "@excalidraw/common";
++import { pointFrom } from "@excalidraw/math";
++
++import type { LocalPoint } from "@excalidraw/math";
++
++import { Excalidraw } from "../index";
++
++import { API } from "./helpers/api";
++import { Pointer, UI } from "./helpers/ui";
++import {
++  mockBoundingClientRect,
++  render,
++  restoreOriginalGetBoundingClientRect,
++} from "./test-utils";
++
++describe("eraser", () => {
++  beforeEach(() => mockBoundingClientRect({ width: 800, height: 600 }));
++  afterEach(restoreOriginalGetBoundingClientRect);
++
++  it.each([false, true])(
++    "erases only unlocked arrows crossed between pointer samples (rounded: %s)",
++    async (rounded) => {
++      await render(<Excalidraw />);
++
++      const arrow = API.createElement({
++        type: "arrow",
++        x: 100,
++        y: 100,
++        width: 120,
++        height: 0,
++        points: [pointFrom<LocalPoint>(0, 0), pointFrom<LocalPoint>(120, 0)],
++        roundness: rounded ? { type: ROUNDNESS.PROPORTIONAL_RADIUS } : null,
++      });
++      const lockedArrow = { ...arrow, id: "locked", locked: true };
++      const missedArrow = { ...arrow, id: "missed", x: 300 };
++      API.setElements([arrow, lockedArrow, missedArrow]);
++      UI.clickTool("eraser");
++
++      const mouse = new Pointer("mouse");
++      mouse.downAt(160, 50);
++      mouse.moveTo(160, 150);
++      mouse.up();
++
++      expect(API.getElement(arrow).isDeleted).toBe(true);
++      expect(API.getElement(lockedArrow).isDeleted).toBe(false);
++      expect(API.getElement(missedArrow).isDeleted).toBe(false);
++    },
++  );
++});

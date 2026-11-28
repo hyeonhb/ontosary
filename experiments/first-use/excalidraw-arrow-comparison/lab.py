@@ -1,4 +1,5 @@
 """Local macOS workspaces for the arrow comparison. No provider access."""
+from functools import lru_cache
 import hashlib
 import json
 import os
@@ -19,9 +20,13 @@ W = ROOT / 'work/arrow-comparison'
 OUT = HERE / 'observations'
 LASSO = 'packages/excalidraw/tests/lasso.test.tsx'
 ARROW = 'packages/excalidraw/tests/fast-arrow.test.tsx'
-NODE = Path(subprocess.check_output(['node', '-p', 'process.execPath'], text=True).strip())
-XCODE = Path(subprocess.check_output(['xcrun', '-f', 'python3'], text=True).strip()).parents[2]
-RG = Path(shutil.which('rg')).resolve()
+
+
+@lru_cache(maxsize=1)
+def shell_tools():
+    node = Path(subprocess.check_output(['node', '-p', 'process.execPath'], text=True).strip())
+    xcode = Path(subprocess.check_output(['xcrun', '-f', 'python3'], text=True).strip()).parents[2]
+    return node, xcode, Path(shutil.which('rg')).resolve()
 
 
 def sha(raw):
@@ -47,10 +52,11 @@ def workspace(template):
 
 
 def shell(area, command, timeout, output_limit=20000):
+    node, xcode, rg = shell_tools()
     source = area / 'source'
     tmp = area / 'tmp'
-    reads = ['/usr/bin', '/bin', '/usr/libexec', str(NODE.parent.parent), str(RG), str(XCODE),
-             str(RG.parent), str(area), '/private/etc/hosts', '/dev/null', '/dev/random', '/dev/urandom',
+    reads = ['/usr/bin', '/bin', '/usr/libexec', str(node.parent.parent), str(rg), str(xcode),
+             str(rg.parent), str(area), '/private/etc/hosts', '/dev/null', '/dev/random', '/dev/urandom',
              '/opt/homebrew/Cellar/pcre2', '/opt/homebrew/opt/pcre2']
     paths = ' '.join('(subpath ' + json.dumps(p) + ')' for p in reads)
     profile = f'''(version 1)
@@ -65,7 +71,7 @@ def shell(area, command, timeout, output_limit=20000):
 (deny network*)
 '''
     env = dict(HOME=str(tmp), TMPDIR=str(tmp)+'/', PATH=':'.join(map(str,[
-        NODE.parent, RG.parent, XCODE/'usr/bin','/usr/bin','/bin'])), LANG='en_US.UTF-8',
+        node.parent, rg.parent, xcode/'usr/bin','/usr/bin','/bin'])), LANG='en_US.UTF-8',
         CI='1', GIT_CONFIG_NOSYSTEM='1', GIT_CONFIG_GLOBAL='/dev/null', GIT_OPTIONAL_LOCKS='0')
     start = time.monotonic()
     with tempfile.TemporaryFile() as log:
