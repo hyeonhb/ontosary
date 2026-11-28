@@ -22,6 +22,8 @@ pnpm ontosary compare ./examples/react-vite canConsultFromCard canConsultFromDet
 
 `pnpm ontosary`는 저장소의 `ontosary` CLI를 실행합니다. `bin`도 `dist/cli/index.js`에 선언되어 있습니다. npm에는 배포하지 않았고 `private: true`입니다. 분석 결과는 기본적으로 JSON이며 `--json`은 명시용 옵션입니다. 프로젝트 경로 대신 개별 `tsconfig.json` 경로도 지원합니다. `scan.files`는 실제 방문한 TS/TSX/MTS/CTS 구현 파일만 포함합니다. 제외된 JS 등은 `omissions`에 파일 경로·위치·이유를 기록하며, 타입 해석과 컴파일 진단에는 계속 참여할 수 있습니다. 이 파일 수는 전체 프로젝트 coverage 비율을 의미하지 않습니다.
 
+기본 분석 컴파일러는 TypeScript 5.9.3입니다. 대상 프로젝트에서 4.9.4를 확인했다면 `pnpm ontosary scan ./path/to/tsconfig.json --typescript-version 4.9.4`로 선택할 수 있습니다. 같은 옵션을 `concepts`와 `compare`에도 쓸 수 있습니다. 명시적으로 선택하면 JSON의 `compiler.requested`에 요청값, `compiler.used`에 실제 분석 버전이 표시됩니다. 선택 실패 시 종료 코드 1과 `used: null`을 반환합니다. [두 버전의 검증 범위](docs/reviews/2026-11-28-typescript-494-compatibility.md)
+
 대표 결과의 일부:
 
 ```json
