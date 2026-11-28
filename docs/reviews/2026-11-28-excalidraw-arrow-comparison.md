@@ -88,4 +88,6 @@ for patch in "$study"/observations/*/first.patch; do
 done
 ```
 
+새 아카이브에 의존성을 다시 설치한 뒤 원본·기준·첫 패치 네 건을 재채점했다. 여섯 판정에서 패치 지문, 적용, 두 장면, 테스트 결과와 완전 성공 여부가 기존 기록과 일치했다. [새 사본 대조](../../experiments/first-use/excalidraw-arrow-comparison/observations/recheck.json)
+
 저장소 검사에서 `pnpm check`는 308개 통과·기존 5개 건너뜀·예제 빌드 성공, `pnpm experiment`는 기존 비교 4/4였다.

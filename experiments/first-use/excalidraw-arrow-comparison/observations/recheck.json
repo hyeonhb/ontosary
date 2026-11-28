@@ -1,0 +1,48 @@
+{
+  "base": "e32836f799b65f978cbf4877eab7ffc42c6e6494",
+  "templateTree": "c92db062efe7c209e7a0214f5680cf84419a565f",
+  "yarnLockSha256": "033a69ccfaea9b182a18502b98899d361587e7cf8b100b6395cf1c5a24d286f6",
+  "matchedFields": [
+    "patchSha256",
+    "applied",
+    "scenes",
+    "probe",
+    "lasso",
+    "actions",
+    "complete"
+  ],
+  "cases": {
+    "001e08a5f9": {
+      "matched": true,
+      "secondsIncludingCopy": 17.379,
+      "patchSha256": "831ebc6bf52d91b4e9aaf1ea01a7d142c95b2cabaff90efca27a34a8a1ca4dc0"
+    },
+    "8369fe26da": {
+      "matched": true,
+      "secondsIncludingCopy": 16.341,
+      "patchSha256": "99fd79bcd80f31c818ccea9b88f03777e6578121bbe63945ddc079134c0ef7ab"
+    },
+    "b189cc3b88": {
+      "matched": true,
+      "secondsIncludingCopy": 15.929,
+      "patchSha256": "e531d36a97cb102e34abddbb5093848e53ebaa9e3a82f318bdf6168c2421776a"
+    },
+    "bd89a84cc4": {
+      "matched": true,
+      "secondsIncludingCopy": 16.816,
+      "patchSha256": "4c7b6a1537a5cbf474d6e17d90fddb0ebae01f11fdb36ea7a3559c3d34fef82e"
+    },
+    "original": {
+      "matched": true,
+      "secondsIncludingCopy": 22.155,
+      "patchSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "reference": {
+      "matched": true,
+      "secondsIncludingCopy": 20.72,
+      "patchSha256": "4638977cd57288e232236afb00586fd23e2f56db091a30a004a44f5b2b06d5f2"
+    }
+  },
+  "commonPreparationClockStart": "2026-11-28T08:10:25+00:00",
+  "proseFirstSaved": "2026-11-28T08:10:48+00:00"
+}
