@@ -1,5 +1,7 @@
 # 단계별 계획
 
+2026-11-28 다음은 [Excalidraw 화살표 패치 비교 실행](reviews/2026-11-28-excalidraw-arrow-comparison-instructions.md)이다. 여섯 독립 세션에서 동결 기록의 수정 성공·비용을 관찰하고 결과를 리뷰한다.
+
 2026-11-28 [TypeScript 4.9.4 명시 선택 검증을 마쳤다](reviews/2026-11-28-typescript-494-acceptance.md). 다음은 [화살표 과업](reviews/2026-11-27-excalidraw-followup-independent-review.md)의 비교 조건·예산 합의이며 참가 실행은 별도 결정한다.
 
 2026-11-27 화살표 과업 선정 리뷰 뒤 개발 순서를 다음과 같이 정한다.
