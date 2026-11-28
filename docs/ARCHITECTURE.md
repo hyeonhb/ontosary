@@ -111,7 +111,7 @@ ID는 `<project-relative file>:<start offset>:<symbol name>`이다. 동명 심�
 
 `eq`, `neq`, `and`, `or`, `not`, boolean `constant`를 사용한다. 정규화는 구문을 제한된 IR로 옮기는 작업이며, 동치는 IR 문자열의 같음이 아니라 진리표 열거로 판단한다.
 
-- 지원: 엄격 동등 비교, `&&`, `||`, `!`, 괄호, 문자열 리터럴과 그 union, 상수 string/numeric enum 멤버.
+- 지원: 엄격 동등 비교, `&&`, `||`, `!`, 괄호, 문자열 리터럴과 그 union, 문자열 enum 입력, 직접 참조한 enum 멤버 상수. 숫자 enum 입력은 4.9.4·5.9.3 모두 일반 `number`에서 선언 밖 값이 들어올 수 있어 유한 열거를 보류한다.
 - enum 상수 receiver: `E.A`의 E가 enum 선언에 직접 해소되는 식별자여야 한다. 괄호와 named import alias는 허용한다. enum 타입을 가진 매개변수/객체 별칭은 선언 identity가 아니므로 거부한다. optional chain, 호출, 타입 단언, non-null assertion, getter, 중첩/namespace receiver는 상수 folding 전에 거부한다. `E['A']`도 미지원이다.
 - explicit this: 타입 전용 `this` 매개변수가 있는 함수/메서드의 전체 predicate와 개별 condition을 Unsupported로 거부한다. 본문의 런타임 this 해석이나 인자 재배치는 구현하지 않는다. `FunctionFact.parameters`는 소스 선언 순서를 보존하므로 this도 기록하지만, 그 인덱스를 런타임 인자라고 해석하면 안 된다. 지원된 정규화의 argN만 런타임 위치를 뜻한다.
 - 입력: 필수 매개변수 또는 한 단계의 필수 속성. 도메인은 사용 지점의 narrowed type이 아니라 선언된 매개변수/속성 타입에서 읽는다.

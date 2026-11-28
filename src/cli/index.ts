@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 import { parseArgs } from 'node:util';
-import { selectFunction, compare, discoverConcepts } from '../core/index.js';
-import { scanWithCompiler } from '../core/analyzer.js';
+import { scanWithCompiler, selectFunction } from '../core/analyzer.js';
+import { discoverConcepts } from '../core/fca.js';
+import { compare } from '../core/logic.js';
 import { selectCompiler } from './compiler.js';
 
 const help = `Ontosary — evidence-based TypeScript analysis (PoC)
@@ -25,9 +26,9 @@ try {
     const [command, project, left, right] = positionals;
     if (!['scan', 'concepts', 'compare'].includes(command!) || !project || positionals.length !== (command === 'compare' ? 4 : 2)) throw new Error(help);
     const requested = values['typescript-version'];
-    if (requested !== undefined) compilerInfo = { requested, used: null };
-    const compiler = selectCompiler(requested);
-    if (compilerInfo) compilerInfo.used = compiler.version;
+    compilerInfo = { requested: requested ?? '5.9.3', used: null };
+    const compiler = selectCompiler(compilerInfo.requested);
+    compilerInfo = requested === undefined ? undefined : { requested, used: compiler.version };
     const facts = scanWithCompiler(project, compiler);
     const errors = facts.diagnostics.filter(d => d.category === 'Error');
     if (command !== 'scan' && errors.length) throw new Error(`Compiler errors prevent analysis: ${errors.map(d => d.message).join('; ')}`);

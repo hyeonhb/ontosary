@@ -38,11 +38,9 @@ export function normalize(ts: typeof import('typescript'), expression: ts.Expres
     const domain: Value[] = [];
     for (const part of parts) {
       if (part.isStringLiteral()) domain.push(part.value);
-      else if ((part.flags & ts.TypeFlags.EnumLiteral) && part.isNumberLiteral()) {
-        // 4.9 permits numbers outside the declared numeric enum members.
-        if (ts.version === '4.9.4') throw new Error('TypeScript 4.9.4 numeric enums are not closed finite domains');
-        domain.push(part.value);
-      } else throw new Error('Input domain must be a finite string-literal union or constant enum');
+      else if ((part.flags & ts.TypeFlags.EnumLiteral) && part.isNumberLiteral())
+        throw new Error('Numeric enum inputs are open to values outside their declared members');
+      else throw new Error('Input domain must consist of string literal values');
     }
     const declaration = symbol && reference(symbol);
     if (!declaration || !domain.length) throw new Error('Missing input declaration or finite domain');

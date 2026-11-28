@@ -39,7 +39,7 @@ describe.each(['4.9.4', '5.9.3'])('TypeScript %s through the public CLI', versio
     expect(alias.referencedTypes.find(ref => ref.name === 'Item')?.evidence.file).toBe('a.ts');
     expect(checks[0]!.conditions[0]!.normalization).toEqual(checks[0]!.predicate);
     const numeric = facts.functions.find(fn => fn.name === 'numericEnum')!;
-    expect(numeric.predicate.status).toBe(version === '4.9.4' ? 'unsupported' : 'supported');
+    expect(numeric.predicate.status).toBe('unsupported');
     if (version === '5.9.3') {
       const defaultScan = run('scan', dir);
       expect(defaultScan.status).toBe(0);
@@ -49,11 +49,51 @@ describe.each(['4.9.4', '5.9.3'])('TypeScript %s through the public CLI', versio
     expect(compare.status).toBe(0);
     expect(JSON.parse(compare.stdout)).toMatchObject({ compiler, status: 'Implies', evaluatedAssignments: 3,
       counterexample: { 'arg0.status': 'reserved' }, left: { evidence: { file: 'a.ts' } }, right: { evidence: { file: 'b.ts' } } });
+    const stringEnum = run('compare', dir, 'enumOnline', 'enumPhone', '--assume-same-input', ...selection);
+    expect(stringEnum.status).toBe(0);
+    expect(JSON.parse(stringEnum.stdout)).toMatchObject({ compiler, status: 'Equivalent', evaluatedAssignments: 2 });
     const concepts = run('concepts', dir, ...selection);
     expect(concepts.status).toBe(0);
     expect(JSON.parse(concepts.stdout).candidates.length).toBeGreaterThan(0);
     expect(JSON.parse(concepts.stdout).compiler).toEqual(compiler);
     expect(readdirSync(dir).sort()).toEqual(['a.ts', 'b.ts', 'cases.ts', 'tsconfig.json']);
+  });
+
+  it('rejects numeric enum enumeration on a well-typed out-of-range runtime witness', () => {
+    const project = 'tests/fixtures/open-numeric-enum';
+    const out = mkdtempSync(path.join(tmpdir(), 'ontosary-enum-'));
+    try {
+      const pkg = version === '4.9.4' ? 'typescript-4-9-4' : 'typescript';
+      const tsc = spawnSync(process.execPath, [`node_modules/${pkg}/bin/tsc`, '-p', project, '--outDir', out], { encoding: 'utf8' });
+      expect([tsc.status, tsc.stdout, tsc.stderr]).toEqual([0, '', '']);
+      const witness = spawnSync(process.execPath, ['-p', "JSON.stringify(require('./input.js').results)"], { cwd: out, encoding: 'utf8' });
+      expect(witness.status).toBe(0);
+      expect(JSON.parse(witness.stdout)).toEqual([false, true]);
+    } finally {
+      rmSync(out, { recursive: true, force: true });
+    }
+
+    const scan = run('scan', project, ...selection);
+    expect(scan.status).toBe(0);
+    const facts: ScanResult = JSON.parse(scan.stdout);
+    expect(facts.diagnostics).toEqual([]);
+    const unsupported = { status: 'unsupported', reason: expect.stringContaining('Numeric enum') };
+    for (const name of ['isPending', 'notConfirmed']) {
+      expect(facts.functions.find(fn => fn.name === name)?.predicate).toMatchObject(unsupported);
+    }
+    const branch = facts.functions.find(fn => fn.name === 'pendingBranch')!;
+    expect(branch.conditions.find(c => c.kind === 'if')?.normalization).toMatchObject(unsupported);
+    const args = ['compare', project, 'isPending', 'notConfirmed', '--assume-same-input'];
+    const comparison = run(...args, ...selection);
+    expect(comparison.status).toBe(2);
+    const { compiler: selected, ...verdict } = JSON.parse(comparison.stdout);
+    expect(selected).toEqual(compiler);
+    expect(verdict).toMatchObject({ status: 'Unsupported', evaluatedAssignments: 0 });
+    if (version === '5.9.3') {
+      const implicit = run(...args);
+      expect(implicit.status).toBe(2);
+      expect(JSON.parse(implicit.stdout)).toEqual(verdict);
+    }
   });
 
   it('retains a real type error and refuses both derived analyses', () => {
@@ -100,6 +140,18 @@ it('does not substitute another compiler when the pinned dependency is missing o
     const modules = path.join(dir, 'node_modules');
     mkdirSync(modules);
     const baseline = path.resolve('node_modules/typescript');
+    const otherVersion = path.join(modules, 'typescript-4-9-4');
+    symlinkSync(path.resolve('node_modules/typescript-4-9-4'), otherVersion, 'junction');
+    for (const selection of [[], ['--typescript-version', '5.9.3']]) {
+      const missingDefault = spawnSync(process.execPath, [
+        path.join(dir, 'dist/cli/index.js'), 'scan', 'tests/fixtures', ...selection,
+      ], { encoding: 'utf8' });
+      expect([missingDefault.status, missingDefault.stdout]).toEqual([1, '']);
+      expect(JSON.parse(missingDefault.stderr)).toMatchObject({
+        compiler: { requested: '5.9.3', used: null }, error: expect.stringContaining("Cannot find module 'typescript'"),
+      });
+    }
+    rmSync(otherVersion);
     symlinkSync(baseline, path.join(modules, 'typescript'), 'junction');
     for (const state of ['missing', 'mismatched']) {
       if (state === 'mismatched') symlinkSync(baseline, path.join(modules, 'typescript-4-9-4'), 'junction');

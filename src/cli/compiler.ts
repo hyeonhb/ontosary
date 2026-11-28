@@ -1,15 +1,17 @@
 import { createRequire } from 'node:module';
-import defaultCompiler from 'typescript';
+import type ts from 'typescript';
 
-export function selectCompiler(requested = '5.9.3'): typeof defaultCompiler {
-  let compiler: typeof defaultCompiler;
+const load = createRequire(import.meta.url);
+
+export function selectCompiler(requested: string): typeof ts {
+  let compiler: typeof ts;
   switch (requested) {
     case '5.9.3':
-      compiler = defaultCompiler;
+      compiler = load('typescript');
       break;
     case '4.9.4':
       // Load only the locked Ontosary dependency, resolved relative to this CLI.
-      compiler = createRequire(import.meta.url)('typescript-4-9-4');
+      compiler = load('typescript-4-9-4');
       break;
     default:
       throw new Error(`Unverified TypeScript version '${requested}'. Supported versions: 4.9.4, 5.9.3.`);

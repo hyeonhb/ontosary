@@ -1,19 +1,15 @@
-import defaultCompiler from 'typescript';
 import type ts from 'typescript';
 import path from 'node:path';
 import fs from 'node:fs';
 import { normalize, predicateExpression, type FunctionNode } from './logic.js';
 import type { Evidence, FunctionFact, Reference, ScanResult, TypeFact } from './model.js';
 
-function isFunction(ts: typeof defaultCompiler, node: ts.Node): node is FunctionNode {
+function isFunction(ts: typeof import('typescript'), node: ts.Node): node is FunctionNode {
   return ts.isFunctionDeclaration(node) || ts.isFunctionExpression(node) || ts.isArrowFunction(node) ||
     ts.isMethodDeclaration(node) || ts.isGetAccessor(node) || ts.isSetAccessor(node) || ts.isConstructorDeclaration(node);
 }
-export function scan(projectPath: string): ScanResult {
-  return scanWithCompiler(projectPath, defaultCompiler);
-}
 
-export function scanWithCompiler(projectPath: string, ts: typeof defaultCompiler): ScanResult {
+export function scanWithCompiler(projectPath: string, ts: typeof import('typescript')): ScanResult {
   const requested = path.resolve(projectPath);
   const configPath = fs.existsSync(requested) && fs.statSync(requested).isDirectory() ? path.join(requested, 'tsconfig.json') : requested;
   if (!fs.existsSync(configPath)) throw new Error(`TypeScript config not found: ${configPath}`);

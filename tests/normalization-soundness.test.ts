@@ -93,10 +93,9 @@ describe('accepted expression semantics and executable comparison witnesses', ()
     }
     expect(replayed).toBeGreaterThan(0);
   });
-  it('preserves direct string/numeric enum members and named import aliases', () => {
+  it('preserves string enum domains and named import aliases', () => {
     for (const [name, values, execute] of [
       ['enumParameter', [runtime.E.A, runtime.E.B], runtime.enumParameter],
-      ['numericEnum', [runtime.N.A, runtime.N.B], runtime.numericEnum],
       ['importedEnum', inputs, importedEnum],
     ] as const) {
       const predicate = fn(name).predicate;
@@ -104,7 +103,7 @@ describe('accepted expression semantics and executable comparison witnesses', ()
       if (predicate.status !== 'supported') throw new Error(name);
       for (const value of values) expect(evaluate(predicate.logic, { arg0: value })).toBe((execute as (input: string | number) => boolean)(value));
     }
-    expect(cmp('numericEnum', 'numericComplement').status).toBe('Equivalent');
+    expect(cmp('numericEnum', 'numericComplement')).toMatchObject({ status: 'Unsupported', evaluatedAssignments: 0 });
   });
 });
 
