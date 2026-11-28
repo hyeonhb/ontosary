@@ -1,0 +1,14 @@
+{
+  "patchSha256": "99fd79bcd80f31c818ccea9b88f03777e6578121bbe63945ddc079134c0ef7ab",
+  "paths": [
+    "packages/excalidraw/tests/eraser.test.tsx"
+  ],
+  "run": {
+    "exit": 1,
+    "timeout": false,
+    "bytes": 1849,
+    "output": "\n\u001b[1m\u001b[7m\u001b[36m RUN \u001b[39m\u001b[27m\u001b[22m \u001b[36mv3.0.6 \u001b[39m\u001b[90m/private/tmp/drawing-70admx52/source\u001b[39m\n\n \u001b[31m❯\u001b[39m packages/excalidraw/tests/eraser.test.tsx \u001b[2m(\u001b[22m\u001b[2m1 test\u001b[22m\u001b[2m | \u001b[22m\u001b[31m1 failed\u001b[39m\u001b[2m)\u001b[22m\u001b[90m 166\u001b[2mms\u001b[22m\u001b[39m\n\u001b[31m   \u001b[31m×\u001b[31m erases an arrow crossed between pointer samples but leaves a locked arrow\u001b[90m 165\u001b[2mms\u001b[22m\u001b[31m\u001b[39m\n\u001b[31m     → expected false to be true // Object.is equality\u001b[39m\n\n\u001b[31m⎯⎯⎯⎯⎯⎯⎯\u001b[1m\u001b[7m Failed Tests 1 \u001b[27m\u001b[22m⎯⎯⎯⎯⎯⎯⎯\u001b[39m\n\n\u001b[31m\u001b[1m\u001b[7m FAIL \u001b[27m\u001b[22m\u001b[39m packages/excalidraw/tests/eraser.test.tsx\u001b[2m > \u001b[22merases an arrow crossed between pointer samples but leaves a locked arrow\n\u001b[31m\u001b[1mAssertionError\u001b[22m: expected false to be true // Object.is equality\u001b[39m\n\n\u001b[32m- Expected\u001b[39m\n\u001b[31m+ Received\u001b[39m\n\n\u001b[32m- true\u001b[39m\n\u001b[31m+ false\u001b[39m\n\n\u001b[36m \u001b[2m❯\u001b[22m packages/excalidraw/tests/eraser.test.tsx:\u001b[2m44:43\u001b[22m\u001b[39m\n    \u001b[90m 42| \u001b[39m  mouse\u001b[33m.\u001b[39m\u001b[34mup\u001b[39m()\u001b[33m;\u001b[39m\n    \u001b[90m 43| \u001b[39m\n    \u001b[90m 44| \u001b[39m  \u001b[34mexpect\u001b[39m(\u001b[33mAPI\u001b[39m\u001b[33m.\u001b[39m\u001b[34mgetElement\u001b[39m(arrow)\u001b[33m.\u001b[39misDeleted)\u001b[33m.\u001b[39m\u001b[34mtoBe\u001b[39m(\u001b[35mtrue\u001b[39m)\u001b[33m;\u001b[39m\n    \u001b[90m   | \u001b[39m                                          \u001b[31m^\u001b[39m\n    \u001b[90m 45| \u001b[39m  \u001b[34mexpect\u001b[39m(\u001b[33mAPI\u001b[39m\u001b[33m.\u001b[39m\u001b[34mgetElement\u001b[39m(lockedArrow)\u001b[33m.\u001b[39misDeleted)\u001b[33m.\u001b[39m\u001b[34mtoBe\u001b[39m(\u001b[35mfalse\u001b[39m)\u001b[33m;\u001b[39m\n    \u001b[90m 46| \u001b[39m})\u001b[33m;\u001b[39m\n\n\u001b[31m\u001b[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯\u001b[22m\u001b[39m\n\n\n\u001b[2m Test Files \u001b[22m \u001b[1m\u001b[31m1 failed\u001b[39m\u001b[22m\u001b[90m (1)\u001b[39m\n\u001b[2m      Tests \u001b[22m \u001b[1m\u001b[31m1 failed\u001b[39m\u001b[22m\u001b[90m (1)\u001b[39m\n\u001b[2m   Start at \u001b[22m 17:33:29\n\u001b[2m   Duration \u001b[22m 4.48s\u001b[2m (transform 2.42s, setup 326ms, collect 3.18s, tests 166ms, environment 521ms, prepare 83ms)\u001b[22m\n\n",
+    "seconds": 9.47
+  },
+  "secondsIncludingCopy": 35.173
+}

@@ -1,0 +1,114 @@
+{
+  "slots": [
+    {
+      "block": 1,
+      "arm": "C",
+      "id": "8369fe26da"
+    },
+    {
+      "block": 1,
+      "arm": "A",
+      "id": "bd89a84cc4"
+    },
+    {
+      "block": 1,
+      "arm": "B",
+      "id": "9e69be050c"
+    },
+    {
+      "block": 2,
+      "arm": "A",
+      "id": "cc0fde7f8d"
+    },
+    {
+      "block": 2,
+      "arm": "B",
+      "id": "b189cc3b88"
+    },
+    {
+      "block": 2,
+      "arm": "C",
+      "id": "001e08a5f9"
+    }
+  ],
+  "base": "e32836f799b65f978cbf4877eab7ffc42c6e6494",
+  "limit": {
+    "seconds": 720,
+    "input_tokens": 400000,
+    "output_tokens": 8000
+  },
+  "model": "gpt-6.2-sol",
+  "effort": "medium",
+  "cli": "codex-cli 0.171.0-alpha.13.2",
+  "settings": [
+    "tools.update_plan.enabled=false",
+    "web_search=\"disabled\"",
+    "project_doc_max_bytes=0",
+    "include_environment_context=false",
+    "include_permissions_instructions=false",
+    "include_collaboration_mode_instructions=false",
+    "skills.include_instructions=false",
+    "model_reasoning_effort=\"medium\"",
+    "model_context_window=512000",
+    "tools.experimental_request_user_input.enabled=false",
+    "features.multi_agent_v2={enabled=false,disable_native_tools=true}",
+    "features.apps=false",
+    "features.plugins=false",
+    "features.multi_agent=false",
+    "features.memories=false",
+    "features.shell_tool=false",
+    "features.unified_exec=false",
+    "features.image_generation=false",
+    "features.view_image=false",
+    "features.code_mode=false",
+    "features.code_mode_only=false",
+    "features.js_repl=false",
+    "features.exec_permission_approvals=false",
+    "features.remote_models=false",
+    "features.incremental_tools=false",
+    "features.enable_request_compression=false",
+    "features.skill_search=false",
+    "features.recommended_plugins=false",
+    "features.shell_snapshot=false",
+    "features.goals=false",
+    "features.default_mode_request_user_input=false",
+    "model_provider=\"shipping\"",
+    "model_providers.shipping.name=\"Codex shipping pilot\"",
+    "model_providers.shipping.wire_api=\"responses\"",
+    "model_providers.shipping.base_url=\"https://chatgpt.com/backend-api/codex\"",
+    "model_providers.shipping.request_max_retries=0",
+    "model_providers.shipping.stream_max_retries=0",
+    "model_providers.shipping.requires_openai_auth=true"
+  ],
+  "catalogSha256": "646a89018a911d40069865196ecf1078d2971f5f9c521383541b44288b5da719",
+  "nativeTools": [],
+  "system": "Use only the public prompt and action history. Return one JSON action.",
+  "arms": {
+    "A": {
+      "initialPacketSha256": "1e6629ab9e50cc1dc5955880a2500cbba2d40873a9ecfe3f9a8c9eebac2b29ac",
+      "files": {}
+    },
+    "B": {
+      "initialPacketSha256": "d0252b5898b7423d39fab3033fa4155fe57f55de529277c210e815ed8276f657",
+      "files": {
+        "note.md": "939a37668741e898f4c6622ae3f2b6e83f3ecb7ef70899b0547458f47973dab8",
+        "source-check.json": "e7e5f5b7a15ea4a33e80fd73ba4e8b37d2e279ca710c4729e67212bce1f03c08",
+        "archive/packages/element/src/collision.ts": "d82dff71136bf9e8817932fce546e64a2c4f6da76f99063fe323e009aba296c1",
+        "archive/packages/excalidraw/components/App.tsx": "e48959bce45778ff5a8f9826c5b046c2266a314f524b063321c134514b894f3f",
+        "archive/packages/excalidraw/eraser/index.ts": "b0af6c8ed7b7dfb91c96d5236f8ea9fc3cd70a2347dd08e5e1417d656ec90f90",
+        "archive/packages/excalidraw/tests/data/restore.test.ts": "6681bfdc11d70b0b9b9de60fff2aea30d69a586123db77c6f6da50520c2cbc80"
+      }
+    },
+    "C": {
+      "initialPacketSha256": "d0252b5898b7423d39fab3033fa4155fe57f55de529277c210e815ed8276f657",
+      "files": {
+        "note.md": "6a7484cade5b4861f7edaddbb43e141efac0172c9743b7cc2b957003c0beec6b",
+        "source-check.json": "e7e5f5b7a15ea4a33e80fd73ba4e8b37d2e279ca710c4729e67212bce1f03c08",
+        "archive/packages/element/src/collision.ts": "d82dff71136bf9e8817932fce546e64a2c4f6da76f99063fe323e009aba296c1",
+        "archive/packages/excalidraw/components/App.tsx": "e48959bce45778ff5a8f9826c5b046c2266a314f524b063321c134514b894f3f",
+        "archive/packages/excalidraw/eraser/index.ts": "b0af6c8ed7b7dfb91c96d5236f8ea9fc3cd70a2347dd08e5e1417d656ec90f90",
+        "archive/packages/excalidraw/tests/data/restore.test.ts": "6681bfdc11d70b0b9b9de60fff2aea30d69a586123db77c6f6da50520c2cbc80"
+      }
+    }
+  }
+}

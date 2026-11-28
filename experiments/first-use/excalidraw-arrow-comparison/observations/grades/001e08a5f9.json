@@ -1,0 +1,61 @@
+{
+  "patchSha256": "831ebc6bf52d91b4e9aaf1ea01a7d142c95b2cabaff90efca27a34a8a1ca4dc0",
+  "complete": true,
+  "applied": true,
+  "run": {
+    "exit": 0,
+    "timeout": false,
+    "bytes": 1239,
+    "output": "\n\u001b[1m\u001b[7m\u001b[36m RUN \u001b[39m\u001b[27m\u001b[22m \u001b[36mv3.0.6 \u001b[39m\u001b[90m/private/tmp/drawing-e1kqkyly/source\u001b[39m\n\n\u001b[90mstdout\u001b[2m | packages/excalidraw/tests/fast-arrow.test.tsx\u001b[2m > \u001b[22m\u001b[2mobserves one crossing drag (off-path control: false)\n\u001b[22m\u001b[39mARROW_SCENE [{\"id\":\"ordinary\",\"deleted\":true,\"live\":false},{\"id\":\"locked\",\"deleted\":false,\"live\":true}]\n\n\u001b[90mstdout\u001b[2m | packages/excalidraw/tests/fast-arrow.test.tsx\u001b[2m > \u001b[22m\u001b[2mobserves one crossing drag (off-path control: true)\n\u001b[22m\u001b[39mARROW_SCENE [{\"id\":\"ordinary\",\"deleted\":true,\"live\":false},{\"id\":\"locked\",\"deleted\":false,\"live\":true},{\"id\":\"off-path\",\"deleted\":false,\"live\":true}]\n\n \u001b[32m✓\u001b[39m packages/excalidraw/tests/fast-arrow.test.tsx \u001b[2m(\u001b[22m\u001b[2m2 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[90m 168\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m✓\u001b[39m packages/excalidraw/tests/lasso.test.tsx \u001b[2m(\u001b[22m\u001b[2m6 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[33m 382\u001b[2mms\u001b[22m\u001b[39m\n\n\u001b[2m Test Files \u001b[22m \u001b[1m\u001b[32m2 passed\u001b[39m\u001b[22m\u001b[90m (2)\u001b[39m\n\u001b[2m      Tests \u001b[22m \u001b[1m\u001b[32m8 passed\u001b[39m\u001b[22m\u001b[90m (8)\u001b[39m\n\u001b[2m   Start at \u001b[22m 17:31:37\n\u001b[2m   Duration \u001b[22m 2.85s\u001b[2m (transform 1.65s, setup 209ms, collect 3.87s, tests 550ms, environment 506ms, prepare 83ms)\u001b[22m\n\nJSON report written to /private/tmp/drawing-e1kqkyly/tmp/vitest.json\n",
+    "seconds": 4.71
+  },
+  "scenes": [
+    [
+      {
+        "id": "ordinary",
+        "deleted": true,
+        "live": false
+      },
+      {
+        "id": "locked",
+        "deleted": false,
+        "live": true
+      }
+    ],
+    [
+      {
+        "id": "ordinary",
+        "deleted": true,
+        "live": false
+      },
+      {
+        "id": "locked",
+        "deleted": false,
+        "live": true
+      },
+      {
+        "id": "off-path",
+        "deleted": false,
+        "live": true
+      }
+    ]
+  ],
+  "lasso": [
+    "passed",
+    "passed",
+    "passed",
+    "passed",
+    "passed",
+    "passed"
+  ],
+  "probe": [
+    "passed",
+    "passed"
+  ],
+  "actions": {
+    "ordinary": true,
+    "locked": true,
+    "off-path": true
+  },
+  "secondsIncludingCopy": 15.756
+}

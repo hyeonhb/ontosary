@@ -1,0 +1,14 @@
+{
+  "stop": "submitted",
+  "holdRemaining": false,
+  "participantSeconds": 142.312,
+  "usageKnown": true,
+  "observedUsage": {
+    "input_tokens": 428242,
+    "cached_input_tokens": 19712,
+    "output_tokens": 3859,
+    "reasoning_output_tokens": 1120
+  },
+  "submitted": true,
+  "sha256": "4c7b6a1537a5cbf474d6e17d90fddb0ebae01f11fdb36ea7a3559c3d34fef82e"
+}
