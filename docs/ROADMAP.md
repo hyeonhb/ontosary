@@ -1,5 +1,7 @@
 # 단계별 계획
 
+2026-11-28 [TypeScript 4.9.4 명시 선택 검증을 마쳤다](reviews/2026-11-28-typescript-494-acceptance.md). 다음은 [화살표 과업](reviews/2026-11-27-excalidraw-followup-independent-review.md)의 비교 조건·예산 합의이며 참가 실행은 별도 결정한다.
+
 2026-11-27 화살표 과업 선정 리뷰 뒤 개발 순서를 다음과 같이 정한다.
 
 1. [TypeScript 4.9.4 추가 지원 가능성](reviews/2026-11-27-typescript-494-compatibility-instructions.md)을 먼저 검증한다. 정상 프로젝트를 분석하는 첫 단계에서 재현된 문제이며 FCA 작성 기여 검증에도 필요한 기반이다.
