@@ -1,5 +1,7 @@
 # 현재 작업 상태 — 새 세션은 이 문서부터 읽기
 
+2026-11-28 [TypeScript 호환성 보완 독립 리뷰](reviews/2026-11-28-typescript-494-acceptance.md)에서 숫자 enum 반례와 컴파일러 누락 처리, Excalidraw의 진단 0/7개를 재현하고 PR #135를 병합했다. CLI는 기본 5.9.3과 명시적 4.9.4를 지원한다. 다음은 화살표 후속 비교 조건·예산 합의다.
+
 2026-11-28 [PR #135 숫자 enum·컴파일러 누락 보완](reviews/2026-11-28-typescript-494-soundness-fix.md)에서 정상 컴파일된 입력 99의 실제 결과 false/true를 확인했다. 두 버전과 기본 CLI 모두 비교를 Unsupported·평가 0회로 보고한다. 기본 패키지 누락 시에도 오류 JSON을 반환하며 같은 Excalidraw 사본의 진단 0/7과 선언 위치를 재확인했다.
 
 2026-11-28 [TypeScript 4.9.4 명시 선택 검증](reviews/2026-11-28-typescript-494-compatibility.md)에서 동일한 Excalidraw 사본의 공개 CLI scan은 4.9.4 진단 0개, 기본 5.9.3 진단 7개였고 두 함수의 선언 위치가 일치했다. 두 버전 모두 실제 오류에서 concepts·compare를 중단하고 정상 소형 사례에서 후보 5개와 같은 반례를 냈다. 정확히 4.9.4의 추가 지원을 권고해 리뷰로 인계한다.
