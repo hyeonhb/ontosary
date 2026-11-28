@@ -1,14 +1,15 @@
-import ts from 'typescript';
+import type ts from 'typescript';
 import path from 'node:path';
 import fs from 'node:fs';
 import { normalize, predicateExpression, type FunctionNode } from './logic.js';
 import type { Evidence, FunctionFact, Reference, ScanResult, TypeFact } from './model.js';
 
-function isFunction(node: ts.Node): node is FunctionNode {
+function isFunction(ts: typeof import('typescript'), node: ts.Node): node is FunctionNode {
   return ts.isFunctionDeclaration(node) || ts.isFunctionExpression(node) || ts.isArrowFunction(node) ||
     ts.isMethodDeclaration(node) || ts.isGetAccessor(node) || ts.isSetAccessor(node) || ts.isConstructorDeclaration(node);
 }
-export function scan(projectPath: string): ScanResult {
+
+export function scanWithCompiler(projectPath: string, ts: typeof import('typescript')): ScanResult {
   const requested = path.resolve(projectPath);
   const configPath = fs.existsSync(requested) && fs.statSync(requested).isDirectory() ? path.join(requested, 'tsconfig.json') : requested;
   if (!fs.existsSync(configPath)) throw new Error(`TypeScript config not found: ${configPath}`);
@@ -17,7 +18,11 @@ export function scan(projectPath: string): ScanResult {
   const relative = (file: string) => slash(path.relative(root, file));
   const loaded = ts.readConfigFile(configPath, ts.sys.readFile);
   if (loaded.error) throw new Error(ts.flattenDiagnosticMessageText(loaded.error.messageText, '\n'));
-  const parsed = ts.parseJsonConfigFileContent(loaded.config, ts.sys, root, { noEmit: true }, configPath);
+  // 4.9 rejects noEmit together with emitDeclarationOnly. Keep its original
+  // declaration settings for diagnostics. Scanning never calls program.emit().
+  const legacy = ts.version === '4.9.4';
+  const parsed = ts.parseJsonConfigFileContent(loaded.config, ts.sys, root, legacy ? {} : { noEmit: true }, configPath);
+  if (legacy && !parsed.options.emitDeclarationOnly) parsed.options.noEmit = true;
   if (parsed.errors.length) throw new Error(parsed.errors.map(d => ts.flattenDiagnosticMessageText(d.messageText, '\n')).join('\n'));
   if (!parsed.options.strictNullChecks && !parsed.options.strict)
     throw new Error('Sound finite-domain analysis requires strictNullChecks (or strict) in tsconfig.json');
@@ -98,10 +103,10 @@ export function scan(projectPath: string): ScanResult {
     if (returnType) addType(returnType);
     function condition(expression: ts.Expression, kind: FunctionFact['conditions'][number]['kind']) {
       const ref = refNode(expression, name);
-      conditions.push({ id: ref.id, kind, text: expression.getText(), evidence: ref.evidence, normalization: normalize(expression, node, checker, reference) });
+      conditions.push({ id: ref.id, kind, text: expression.getText(), evidence: ref.evidence, normalization: normalize(ts, expression, node, checker, reference) });
     }
     function visit(child: ts.Node) {
-      if (child !== node && isFunction(child)) return;
+      if (child !== node && isFunction(ts, child)) return;
       if (ts.isIdentifier(child)) {
         const symbol = checker.getSymbolAtLocation(child);
         const ref = symbol && reference(symbol);
@@ -124,8 +129,8 @@ export function scan(projectPath: string): ScanResult {
     }
     visit(node);
     if (node.body && !ts.isBlock(node.body)) condition(node.body, 'return');
-    const expression = predicateExpression(node);
-    const predicate = expression ? normalize(expression, node, checker, reference) : { status: 'unsupported' as const, reason: 'Predicate requires a synchronous, non-generator function with exactly one return expression and no other statements.' };
+    const expression = predicateExpression(ts, node);
+    const predicate = expression ? normalize(ts, expression, node, checker, reference) : { status: 'unsupported' as const, reason: 'Predicate requires a synchronous, non-generator function with exactly one return expression and no other statements.' };
     return { ...refNode(node, name), parameters: node.parameters.map(p => ({ name: p.name.getText(), type: checker.typeToString(checker.getTypeAtLocation(p)), evidence: evidence(p, name) })),
       returnType: returnType ? checker.typeToString(returnType) : 'unknown', referencedTypes: [...types.values()].sort((a, b) => a.id.localeCompare(b.id)),
       properties: [...properties.values()].sort((a, b) => a.id.localeCompare(b.id)), references, conditions, predicate,
@@ -136,7 +141,7 @@ export function scan(projectPath: string): ScanResult {
       if (ts.isInterfaceDeclaration(node) || ts.isTypeAliasDeclaration(node) || ts.isEnumDeclaration(node)) result.types.push(typeFact(node));
       if (ts.isClassDeclaration(node)) result.omissions.push({ reason: 'Class type/field modeling is not implemented; method functions are still scanned.', evidence: evidence(node, node.name?.text) });
       if (ts.isSwitchStatement(node)) result.omissions.push({ reason: 'Switch control flow is not normalized.', evidence: evidence(node) });
-      if (isFunction(node)) result.functions.push(functionFact(node));
+      if (isFunction(ts, node)) result.functions.push(functionFact(node));
       ts.forEachChild(node, visit);
     }
     visit(sf);

@@ -1,13 +1,15 @@
-import ts from 'typescript';
+import type ts from 'typescript';
 import type { Comparison, Logic, Normalization, Reference, Value, Variable } from './model.js';
 
 export type FunctionNode = ts.FunctionDeclaration | ts.FunctionExpression | ts.ArrowFunction | ts.MethodDeclaration | ts.GetAccessorDeclaration | ts.SetAccessorDeclaration | ts.ConstructorDeclaration;
 const unsupported = (reason: string): Normalization => ({ status: 'unsupported', reason });
-const unwrap = (node: ts.Expression): ts.Expression => ts.isParenthesizedExpression(node) ? unwrap(node.expression) : node;
 
 /** Resolve the declared input type, never a control-flow-narrowed occurrence. */
-export function normalize(expression: ts.Expression, fn: FunctionNode, checker: ts.TypeChecker,
+export function normalize(ts: typeof import('typescript'), expression: ts.Expression, fn: FunctionNode, checker: ts.TypeChecker,
   reference: (symbol: ts.Symbol) => Reference | undefined): Normalization {
+  function unwrap(node: ts.Expression): ts.Expression {
+    return ts.isParenthesizedExpression(node) ? unwrap(node.expression) : node;
+  }
   // TS erases this parameter; AST positions would not be runtime argN positions.
   // Apply the same conservative policy to full predicates and branch conditions.
   if (fn.parameters.some(p => ts.isIdentifier(p.name) && p.name.text === 'this'))
@@ -36,8 +38,9 @@ export function normalize(expression: ts.Expression, fn: FunctionNode, checker: 
     const domain: Value[] = [];
     for (const part of parts) {
       if (part.isStringLiteral()) domain.push(part.value);
-      else if ((part.flags & ts.TypeFlags.EnumLiteral) && part.isNumberLiteral()) domain.push(part.value);
-      else throw new Error('Input domain must be a finite string-literal union or constant enum');
+      else if ((part.flags & ts.TypeFlags.EnumLiteral) && part.isNumberLiteral())
+        throw new Error('Numeric enum inputs are open to values outside their declared members');
+      else throw new Error('Input domain must consist of string literal values');
     }
     const declaration = symbol && reference(symbol);
     if (!declaration || !domain.length) throw new Error('Missing input declaration or finite domain');
@@ -101,7 +104,7 @@ export function normalize(expression: ts.Expression, fn: FunctionNode, checker: 
   } catch (error) { return unsupported(error instanceof Error ? error.message : String(error)); }
 }
 
-export function predicateExpression(fn: FunctionNode): ts.Expression | undefined {
+export function predicateExpression(ts: typeof import('typescript'), fn: FunctionNode): ts.Expression | undefined {
   if (fn.modifiers?.some(m => m.kind === ts.SyntaxKind.AsyncKeyword) || ('asteriskToken' in fn && fn.asteriskToken)) return;
   if (fn.parameters.some(p => p.initializer || p.dotDotDotToken || !ts.isIdentifier(p.name))) return;
   if (!fn.body) return;

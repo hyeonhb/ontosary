@@ -22,6 +22,8 @@ pnpm ontosary compare ./examples/react-vite canConsultFromCard canConsultFromDet
 
 `pnpm ontosary`는 저장소의 `ontosary` CLI를 실행합니다. `bin`도 `dist/cli/index.js`에 선언되어 있습니다. npm에는 배포하지 않았고 `private: true`입니다. 분석 결과는 기본적으로 JSON이며 `--json`은 명시용 옵션입니다. 프로젝트 경로 대신 개별 `tsconfig.json` 경로도 지원합니다. `scan.files`는 실제 방문한 TS/TSX/MTS/CTS 구현 파일만 포함합니다. 제외된 JS 등은 `omissions`에 파일 경로·위치·이유를 기록하며, 타입 해석과 컴파일 진단에는 계속 참여할 수 있습니다. 이 파일 수는 전체 프로젝트 coverage 비율을 의미하지 않습니다.
 
+기본 분석 컴파일러는 TypeScript 5.9.3입니다. 대상 프로젝트에서 4.9.4를 확인했다면 `pnpm ontosary scan ./path/to/tsconfig.json --typescript-version 4.9.4`로 선택할 수 있습니다. 같은 옵션을 `concepts`와 `compare`에도 쓸 수 있습니다. 명시적으로 선택하면 JSON의 `compiler.requested`에 요청값, `compiler.used`에 실제 분석 버전이 표시됩니다. 요청한 패키지가 없거나 버전이 일치하지 않으면 종료 코드 1과 오류 JSON의 `compiler.used: null`을 반환합니다. 옵션을 생략했고 기본 패키지가 누락된 경우에도 요청값은 5.9.3으로 표시됩니다. [두 버전의 검증 범위](docs/reviews/2026-11-28-typescript-494-compatibility.md)
+
 대표 결과의 일부:
 
 ```json
@@ -70,7 +72,7 @@ Vehicle → Listing → ConsultationRequest를 연결한 예제입니다. 매물
 
 - `strictNullChecks`가 필요합니다. 타입 선언과 런타임 입력이 일치한다는 전제가 있습니다.
 - 함수 전체 비교는 동기 함수의 단일 반환식만 지원합니다. 호출·별칭·변이·분기·비동기·기본 매개변수 처리는 미지원입니다.
-- `===`, `!==`, `&&`, `||`, `!`, 문자열 리터럴 유니온 및 상수 enum을 지원합니다. 숫자 범위·일반 문자열·SMT는 미지원입니다.
+- `===`, `!==`, `&&`, `||`, `!`, 문자열 리터럴 유니온과 문자열 enum 입력을 유한 비교합니다. 두 컴파일러 모두 일반 `number`를 통해 선언 밖 값을 숫자 enum에 전달할 수 있어, 해당 입력의 비교는 `Unsupported`입니다. 숫자 범위·일반 문자열·SMT는 미지원입니다.
 - enum 상수는 `E.A`처럼 enum 선언에 직접 해소되는 식별자 접근만 허용합니다(괄호·named import alias 포함). enum 타입의 변수·객체 별칭, optional chain, 호출·단언·non-null assertion·중첩 receiver·namespace 경로는 미지원입니다.
 - 입력은 직접 매개변수 또는 한 단계의 필수 속성입니다. 선택적·계산된·중첩 속성, getter, 객체 유니온은 미지원입니다.
 - 필드는 안정적인 plain data이고 독립적이라고 가정합니다. 런타임 proxy, 숨은 상관관계, 업무 제약을 증명하지 않습니다.

@@ -65,14 +65,14 @@ describe('finite logical comparisons', () => {
     expect(compare(b, a, { sameInput: true }).direction).toBe('right-to-left');
     expect(compare(a, b).status).toBe('Unknown');
   });
-  it.each([['primitive', 'reversed'], ['wide', 'deMorgan'], ['enumOnline', 'enumPhone'], ['numericEnum', 'numericEnumEquivalent']])('proves %s equivalent to %s', (a, b) => {
+  it.each([['primitive', 'reversed'], ['wide', 'deMorgan'], ['enumOnline', 'enumPhone']])('proves %s equivalent to %s', (a, b) => {
     expect(cmp(a, b)).toMatchObject({ status: 'Equivalent', equivalent: true });
   });
   it('finds disagreement in both directions', () => {
     expect(cmp('primitive', 'complement')).toMatchObject({ status: 'Different', leftImpliesRight: false, rightImpliesLeft: false, leftOnly: { arg0: 'available' }, rightOnly: { arg0: 'reserved' } });
   });
   it('refuses incompatible domains', () => { expect(cmp('primitive', 'outside').status).toBe('Unknown'); });
-  it.each(['unbounded', 'loose', 'call', 'optional', 'optionalChain', 'destructured', 'asyncPredicate', 'mutation', 'computed', 'correlated', 'accessor', 'defaults'])('reports %s as unsupported', name => {
+  it.each(['unbounded', 'loose', 'call', 'optional', 'optionalChain', 'destructured', 'asyncPredicate', 'mutation', 'computed', 'correlated', 'accessor', 'defaults', 'numericEnum', 'numericEnumEquivalent'])('reports %s as unsupported', name => {
     expect(predicate(name).status).toBe('unsupported');
     expect(cmp(name, 'primitive').status).toBe('Unsupported');
   });
